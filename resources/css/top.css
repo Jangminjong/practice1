@@ -33,9 +33,9 @@ input[type="hidden" i] {
 
 /* 상단 바 */
 
-header#header.header.top-navigation.inner-w, 
-header#header.header.top-navigation.inner-w400, 
-header#header.header.top-navigation.inner-w800 {
+header#header.header .top-navigation .inner-w, 
+header#header.header .top-navigation .inner-w400, 
+header#header.header .top-navigation .inner-w800 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -54,7 +54,7 @@ header#header.header.top-navigation.inner-w800 {
     height: 100%;
 }
 
-header#header.header.top-navigation {
+.header .top-navigation {
     border-top: 0 none;
     background: #f5f5f5;
     color: #666;
@@ -66,9 +66,18 @@ header#header.header.top-navigation {
     width: 100%;
 }
 
-.clf.fr, 
-[data-page=couponlist].coupon-item-list.fr, 
-[data-page="video"].section-video.fr {
+.inner-w .fr{
+    margin-left: 70%;
+}
+
+.inner-w .fr a{
+    margin-left: 10px;
+}
+
+
+.clf .fr, 
+[data-page=couponlist].coupon-item-list .fr, 
+[data-page="video"].section-video .fr {
     display: block;
     float: right;
 }
@@ -200,6 +209,12 @@ button {
 
 .bg-wrapper {
     padding: 8px 0 4px;
+}
+
+.inner-w{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .bg-wrapper.top {
@@ -417,6 +432,10 @@ header#header.header .gnb-scroll {
     box-shadow: 0 4px 4px 0 #00000033;
     border: solid 1px #d9d9d9;
     background-color: #fff;
+}
+
+.ui_gnb__submenu ul li{
+    list-style: none;
 }
 
 .ui_gnb__submenu:before, .ui_gnb__submenu:after {
