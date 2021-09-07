@@ -419,7 +419,7 @@ header#header.header .gnb-scroll {
 }
 
 .ui_gnb__submenu {
-    /* display: none; */
+    display: none;
     position: absolute;
     width: 850px;
     min-height: 100px;
