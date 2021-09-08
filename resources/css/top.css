@@ -1,7 +1,7 @@
 @import url(common.css);
 
 a, button, [tabindex], .tab, input {
-    -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #skip-to-content a {
@@ -33,7 +33,7 @@ input[type="hidden" i] {
 
 /* 상단 바 */
 
-header#header.header .top-navigation .inner-w, 
+header#header.header .top-navigation.inner-w, 
 header#header.header .top-navigation .inner-w400, 
 header#header.header .top-navigation .inner-w800 {
     display: -webkit-box;
@@ -64,6 +64,7 @@ header#header.header .top-navigation .inner-w800 {
 
 .full-w {
     width: 100%;
+   
 }
 
 .inner-w .fr{
@@ -71,7 +72,7 @@ header#header.header .top-navigation .inner-w800 {
 }
 
 .inner-w .fr a{
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 
@@ -106,11 +107,16 @@ input[type="text" i] {
     display: none !important;
 }
 
-header#header.header.top-navigation.nav-btn {
+header#header .header .top-navigation .nav-btn {
     display: inline-block;
     vertical-align: middle;
     padding: 0 13.5px;
     font-size: 11px;
+    
+}
+
+.nav-btn {
+    margin-right: 10px;
 }
 
 .ui-dropdown {
@@ -119,7 +125,32 @@ header#header.header.top-navigation.nav-btn {
     font-size: 11px;
 }
 
-header#header.header.top-navigation.nav-btn>button {
+.ui-dropdown i{
+    font-size: 13px;
+    padding-right: 1px;
+}
+
+.alarm .alarm_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.alarm_title span{
+    margin-bottom: 10px;
+}
+
+.menu-dropdown.message-list {
+    width: 342px;
+    margin-left: -145px;
+    padding: 0;
+}
+
+header#header .header .top-navigation .nav-btn>button {
     height: 20px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -136,6 +167,7 @@ header#header.header.top-navigation.nav-btn>button {
     -moz-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    
 }
 
 button {
@@ -150,8 +182,8 @@ button {
     margin: 0;
 }
 
-.ui-dropdown.menu-dropdown {
-    display: none;
+.ui-dropdown .menu-dropdown {
+    /* display: none; */
     position: absolute;
     width: auto;
     margin-top: 3px;
@@ -168,7 +200,7 @@ button {
     background: #fff;
 }
 
-.ui-dropdown.menu-dropdown:before {
+.ui-dropdown .menu-dropdown:before {
     content: '';
     position: absolute;
     border: 6px solid #d9d9d9;
@@ -180,7 +212,7 @@ button {
     margin-left: -6px;
 }
 
-.ui-dropdown.menu-dropdown:after {
+.ui-dropdown .menu-dropdown:after {
     content: '';
     position: absolute;
     border: 4px solid #fff;
@@ -192,18 +224,184 @@ button {
     margin-left: -4px;
 }
 
-.ui-dropdown.menu-dropdown li {
+.menu-dropdown.message-list {
+    width: 342px;
+    margin-left: -145px;
+    padding: 0;
+}
+
+.menu-dropdown .message-list .title,
+.menu-dropdown.message-list .link-style {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    padding: 11px 0;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+
+.msg-lists{
+    position: relative;
+    overflow: visible;
+}
+
+.menu-dropdown.message-list .msg-lists {
+    max-height: 310px;
+    overflow-y: auto;
+}
+
+.ui-dropdown .menu-dropdown li {
     padding: 4px 0;
     width: 80px;
     font-size: 11px;
     color: #666;
 }
 
-.ui-dropdown.menu-dropdown li a {
+.ui-dropdown .menu-dropdown li a {
     padding: 0 !important;
     width: 100%;
     height: 100%;
 }
+
+.mCustomScrollbar.mCS_no_scrollbar, .mCustomScrollbar.mCS_touch_action {
+    -ms-touch-action: auto;
+    touch-action: auto;
+}
+
+.mCustomScrollbar {
+    -ms-touch-action: pinch-zoom;
+    touch-action: pinch-zoom;
+}
+
+#mCSB_1{
+    max-height: none;
+}
+
+.mCustomScrollBox {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-width: 100%;
+    outline: 0;
+    direction: ltr;
+}
+
+#mCSB_1_scrollbar_vertical{
+    /* display: none; */
+}
+
+.mCSB_outside+.mCS-minimal-dark.mCSB_scrollTools_vertical,
+.mCSB_outside+.mCS-minimal.mCSB_scrollTools_vertical {
+    right: 0;
+    margin: 12px 0;
+}
+
+.mCS-autoHide > .mCustomScrollBox > .mCSB_scrollTools,
+.mCS-autoHide > .mCustomScrollBox~.mCSB_scrollTools {
+    opacity: 0;
+    filter:  "alpha(opacity=0)";
+    -ms-filter:  "alpha(opacity=0)";
+}
+
+.mCSB_outside+.mCSB_scrollTools {
+    right: -26px;
+}
+
+.mCSB_scrollTools {
+    opacity: .75;
+    filter: "alpha(opacity=75)";
+    -ms-filter: "alpha(opacity=75)";
+}
+
+.mCSB_scrollTools,
+.mCSB_scrollTools .mCSB_buttonDown,
+.mCSB_scrollTools .mCSB_buttonLeft,
+.mCSB_scrollTools .mCSB_buttonRight,
+.mCSB_scrollTools .mCSB_buttonUp,
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    -webkit-transition: opacity 0.2s ease-in-out,background-color 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out,background-color 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out,background-color 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out,background-color 0.2s ease-in-out;
+}
+
+.mCSB_scrollTools {
+    position: absolute;
+    width: 16px;
+    height: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.menu-dropdown.message-list .link-style {
+    border-bottom: 0;
+    color: #ff7b30;
+    border-top: 1px solid #d9d9d9;
+}
+
+.mCS-minimal-dark.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-minimal.mCSB_scrollTools .mCSB_draggerRail {
+    background-color: transparent;
+}
+
+
+.mCSB_scrollTools .mCSB_draggerContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+}
+
+#mCSB_1_dragger_vertical{
+    position: absolute;
+    min-height: 50px;
+    top: 0px;
+    display: block;
+    height: 33px;
+    max-height: 276px;
+}
+
+.mCS-minimal-dark.mCSB_scrollTools_vertical .mCSB_dragger,
+.mCS-minimal.mCSB_scrollTools_vertical .mCSB_dragger {
+    height: 50px;
+}
+
+.mCSB_scrollTools .mCSB_dragger {
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    z-index: 1;
+}
+
+.mCSB_dragger_bar{
+    line-height: 50px;
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    position: relative;
+    width: 4px;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+/* 알림 테스트 */
+.alarm-test{
+    height: 100px;
+    width: 100%;
+    border:1px solid grey;
+}
+
 
 /* 메인 */
 
@@ -223,24 +421,30 @@ button {
     position: relative;
 }
 
-.bg-wrapper.logo{
+.bg-wrapper .logo{
     display: inline-block;
-    width: 128px;
+    width: 135px;
     padding: 0 27px;
     vertical-align: middle;
     margin-top: -8px;
+    margin-right: -40px;
+    
 }
 
 .bg-wrapper .logo img{
     display: block;
     width: auto;
-    height: 29px;
+    height: 35px;
+    margin-top: 20%;
+
 }
 
 .service-nav{
     display: inline-block;
     vertical-align: middle;
 }
+
+
 
 .service-nav a{
     font-size: 18px;
@@ -289,6 +493,10 @@ button {
     height: 36px;
     vertical-align: middle;
     line-height: 36px;
+}
+
+.gnb-search-form input:focus{
+    outline: none;
 }
 
 .searchLabel{
@@ -387,12 +595,83 @@ header#header.header .gnb-scroll {
     transition: height 0.3s ease;
 }
 
+@keyframes eduon-tooltip-move {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+
+    0% {
+        transform: translateY(0);
+    }
+}
+
+.service-nav:last-child{
+    position: relative;
+}
+
+.bubble-speech{
+    position: absolute;
+    width:17%;
+    right:65.3%;
+    z-index: 110;
+    animation: eduon-tooltip-move 2.6s infinite;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    bottom:85%;
+}
+
+.bubble-speech .message {
+    border: none;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: none;
+    background-image: linear-gradient(to bottom, #a527e7, #8c36ed 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 6px 8px 8px 8px;
+}
+
+
+.bubble-speech .triangle {
+    border-top-color: #8c36ed;
+}
+
+.bubble-speech .triangle.bottom {
+    border-bottom: 0;
+    border-top: 10px solid #8c36ed;
+    bottom: -5px;
+    top: auto;
+}
+
+.bubble-speech .triangle.center {
+    right: calc(50% - 7px);
+}
+
+.bubble-speech .triangle {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-bottom: 10px solid #8c36ed;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    top: -5px;
+}
+
 .ui_gnb{
     left: 0px;
     touch-action: pan-y;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ui_gnb li{
+    margin-right: 35px;
 }
 
 .ui_gnb, .ui_gnb--edu {
@@ -404,7 +683,7 @@ header#header.header .gnb-scroll {
 
 .ui_gnb__menu {
     display: inline-block;
-    font-size: 13px;
+    font-size: 15px;
     color: #666;
     text-align: center;
     position: relative;
@@ -418,10 +697,19 @@ header#header.header .gnb-scroll {
     color: #666;
 }
 
+.ui_gnb__menu span:hover, .ui_gnb__menu a:hover{
+    color:#ff7b30;
+}
+
+/* 페이지별로 적용해야됨 */
+.ui_gnb__menu{
+    border-bottom: 2px solid #ff7b30;
+}
+
 .ui_gnb__submenu {
     /* display: none; */
     position: absolute;
-    width: 850px;
+    width: 450px;
     min-height: 100px;
     top: 38px;
     left: -64px;
@@ -438,24 +726,35 @@ header#header.header .gnb-scroll {
     list-style: none;
 }
 
-.ui_gnb__submenu:before, .ui_gnb__submenu:after {
-    content: "";
-    display: block;
+.ui_gnb__submenu:before {
+    content: '';
+    width: 0;
+    height: 0;
     position: absolute;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-left-color: transparent;
+    top: -10px;
+    left: 85px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ccc;
 }
 
-.ui_gnb__submenu:before {
-    border: 9px solid #d9d9d9;
-    top: -18px;
-    left: 88px;
+.ui_gnb__submenu:after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    top: -8px;
+    left: 85px;
 }
+
+
 
 .ui_gnb__submenu>ul {
     color: #333;
-    width: 25%;
+    width: 50%;
     float: left;
     text-align: left;
     border-right: 1px solid #d9d9d9;

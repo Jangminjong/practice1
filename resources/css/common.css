@@ -22,7 +22,6 @@ body {
     font-size: 12px;
 }
 
-
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, div{
     display: block;
 }
@@ -68,7 +67,7 @@ ul {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    /* padding-inline-start: 40px; */
 }
 
 h1 {
@@ -84,6 +83,7 @@ h1 {
 a{
     text-decoration: none;
 }
+
 
 ol,ul{
     list-style: none;

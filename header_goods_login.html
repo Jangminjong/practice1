@@ -33,7 +33,7 @@
                         </button>
                     </div>
                 </div>
-
+            </div>
                 <!-- <div id="skip-to-content"> <a href="#gnb">메뉴목록으로 바로가기</a> <a
                 href="#content">컨텐츠로 바로가기</a> </div> -->
 
@@ -49,16 +49,55 @@
                                     name="current_user_email"
                                     value=""
                                     readonly="readonly">
-
-                                <a id="gnb-login-button" href="#" class="nav-btn" data-log-object="login">로그인</a>
-                                <!--3-->
-                                <a href="/w/join" class="nav-btn" data-log-object="member_join">회원가입</a>
+                                    <div class="nav-btn ui-dropdown">
+                                        <button type="button" class="btn-dropdown">
+                                            <span data-profile="name">OOO</span> 님
+                                            <!-- current user email address: for parsing -->
+                                        </button>
+                                        <ul class="menu-dropdown">
+                                            <li><a href="/w/me/order/payment">주문배송</a></li>
+                                            <li><a href="/w/me/favoriteproduct">관심리스트</a></li>
+                                            <li><a href="/w/me/present/receive">받은 선물함</a></li>
+                                            <li><a href="/w/me/coupon">쿠폰함</a></li>
+                                            <li><a href="/w/me/personal">회원 정보관리</a></li>
+                                            <li class="add-border"><a href="/w/logout">로그아웃</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-btn ui-dropdown message">
+                                        <button type="button" class="btn-dropdown" data-ui="load-message-btn" data-endpoint="/w/notification?page=gnb">
+                                            <i class="far fa-bell"></i>
+                                            <span class="title">알림</span>
+                                        </button>
+                                        <div class="menu-dropdown message-list alarm">
+                                            <div class="alarm_title">
+                                                <span class="title">알림</span>
+                                            </div>
+                                            <ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
+                                                <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
+                                                    <div class="alarm-test">알림 테스트1</div>
+                                                    <div class="alarm-test">알림 테스트2</div>
+                                                    <div class="alarm-test">알림 테스트3</div>
+                                                    <div class="alarm-test">알림 테스트4</div>
+                                                </div>
+                                                <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical">
+                                                    <div class="mCSB_draggerContainer">
+                                                        <div id="mCSB_1_dragger_vertical" class="mCSB_dragger">
+                                                            <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                                                            <div class="mCSB_draggerRail"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                            <a data-log-noti-object="see_all" href="/w/notification" class="link-style">모두 보기</a>
+                                        </div>
+                                    </div>
+                            
                                 <a href="#" class="nav-btn" data-log-object="member__notice">공지사항</a>
                                 <a href="#" class="nav-btn" data-log-object="member_qna">1:1문의</a>
 
                                 <!-- <div class="nav-btn ui-dropdown">
                                     <button type="button" class="btn-dropdown">고객센터</button>
-                                    <ul class="menu-dropdown">
+                                     <ul class="menu-dropdown">
                                         <li>
                                             <a href="/w/board/notice">공지사항</a>
                                         </li>
@@ -68,7 +107,7 @@
                                         <li>
                                             <a href="mailto:support@backpac.kr">메일로 문의</a>
                                         </li>
-                                    </ul>
+                                    </ul> 
                                 </div> -->
                             </nav>
                         </div>
@@ -81,8 +120,8 @@
                             </h1>
 
                             <nav class="service-nav">
-                                <a href="#" class="service active">작품</a>
-                                <a href="#" class="service">클래스</a>
+                                <a href="header_goods.html" class="service active goods">작품</a>
+                                <a href="header_class.html" class="service">클래스</a>
                             </nav>
                             <div class="main-search">
                                 <form class="gnb-search-form">
@@ -110,14 +149,25 @@
                                     장바구니
                                 </a>
                             </nav>
+                            
+                            <div class="bubble-space">
+                                <div class="bubble-speech bubble-center">
+                                    <div class="message">
+                                        오늘의 취미를 골라보세요!
+                                    </div>
+                                    <div class="triangle bottom center">
+                                        <div class="before"></div>
+                                        <div class="after"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
+                    
                     <div class="full-w gnb-scroll " data-ui="gnb-scroll" data-state="static">
-
                         <div class="inner-w container_gnb" data-ui="gnb">
                             <ul class="ui_gnb" data-state="" data-type="">
-                                <li class="ui_gnb__menu">
+                                <li class="ui_gnb__menu class-category">
                                     <span>카테고리</span>
                                     <div class="ui_gnb__submenu">
                                         <ul>
@@ -264,129 +314,7 @@
                                                 <i class="fas fa-chevron-right"></i>
                                             </li>
                                         </ul>
-                                        <ul>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/bec56c93-ea75-11e4-8a46-06fd000000c2"
-                                                    data-log-label="product_category"
-                                                    data-log-object="bec56c93-ea75-11e4-8a46-06fd000000c2">꽃 (생화, 드라이, 다육 등)</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/976cfb97-c6bc-11e3-83fc-06530c0000b4"
-                                                    data-log-label="product_category"
-                                                    data-log-object="976cfb97-c6bc-11e3-83fc-06530c0000b4">캔들, 디퓨저, 방향제</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/66299878-c6bc-11e3-8577-06f4fe0000b5"
-                                                    data-log-label="product_category"
-                                                    data-log-object="66299878-c6bc-11e3-8577-06f4fe0000b5">인테리어 소품</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/c5010d79-e666-11e3-9874-06fd000000c2"
-                                                    data-log-label="product_category"
-                                                    data-log-object="c5010d79-e666-11e3-9874-06fd000000c2">도자기</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/30b3ae0f-c6bc-11e3-8577-06f4fe0000b5"
-                                                    data-log-label="product_category"
-                                                    data-log-object="30b3ae0f-c6bc-11e3-8577-06f4fe0000b5">주방, 생활</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/e866743b-0a33-4030-80c1-3a1ec943b0e4"
-                                                    data-log-label="product_category"
-                                                    data-log-object="e866743b-0a33-4030-80c1-3a1ec943b0e4">가구</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/fa8c9d8e-c6bb-11e3-8577-06f4fe0000b5"
-                                                    data-log-label="product_category"
-                                                    data-log-object="fa8c9d8e-c6bb-11e3-8577-06f4fe0000b5">인형, 장난감</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/f6335574-c6bb-11e3-83fc-06530c0000b4"
-                                                    data-log-label="product_category"
-                                                    data-log-object="f6335574-c6bb-11e3-83fc-06530c0000b4">반려동물 용품</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/002e6aef-c6bc-11e3-8b03-06fd000000c2"
-                                                    data-log-label="product_category"
-                                                    data-log-object="002e6aef-c6bc-11e3-8b03-06fd000000c2">파인아트</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/9f4b9a69-c6bc-11e3-954e-06a6fa0000b9"
-                                                    data-log-label="product_category"
-                                                    data-log-object="9f4b9a69-c6bc-11e3-954e-06a6fa0000b9">공예</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/b3b31a1b-ea75-11e4-8a46-06fd000000c2"
-                                                    data-log-label="product_category"
-                                                    data-log-object="b3b31a1b-ea75-11e4-8a46-06fd000000c2">휴대폰 케이스</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/a923ab08-0643-11e4-98ba-06f4fe0000b5"
-                                                    data-log-label="product_category"
-                                                    data-log-object="a923ab08-0643-11e4-98ba-06f4fe0000b5">전자기기 관련</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/b00844bc-c6bc-11e3-8577-06f4fe0000b5"
-                                                    data-log-label="product_category"
-                                                    data-log-object="b00844bc-c6bc-11e3-8577-06f4fe0000b5">문구, 팬시</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/e3ba45b3-c165-11e3-8788-06fd000000c2"
-                                                    data-log-label="product_category"
-                                                    data-log-object="e3ba45b3-c165-11e3-8788-06fd000000c2">페인팅, 캐리커쳐, 캘리</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/c468e7db-ea75-11e4-b903-06f4fe0000b5"
-                                                    data-log-label="product_category"
-                                                    data-log-object="c468e7db-ea75-11e4-b903-06f4fe0000b5">향수, 화장품, 뷰티</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/be3cf842-ea74-11e4-8878-06a6fa0000b9"
-                                                    data-log-label="product_category"
-                                                    data-log-object="be3cf842-ea74-11e4-8878-06a6fa0000b9">비누, 천연비누</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="/w/main/category/4094e656-c6bf-11e3-83fc-06530c0000b4"
-                                                    data-log-label="product_category"
-                                                    data-log-object="4094e656-c6bf-11e3-83fc-06530c0000b4">기타</a>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </li>
-                                        </ul>
+                                        
                                     </div>
                                 </li>
                                 <li class="ui_gnb__menu " data-state="active">
