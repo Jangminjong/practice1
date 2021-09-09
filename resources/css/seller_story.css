@@ -1,0 +1,166 @@
+.tab-group[data-v-825a8b32] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: calc((100vw - 935px) / 2);
+    padding-right: calc((100vw - 935px) / 2);
+    background-color: #ffffff;
+}
+
+.tab-group .tab[data-v-825a8b32] {
+    width: 20%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;
+    color: #999999;
+    font-size: 12px;
+    line-height: 1;
+    background-color: #ffffff;
+}
+
+.tab-group .tab.active[data-v-825a8b32] {
+    font-weight: bold;
+    color: #ff7b30;
+    border-bottom: 2px solid #ff7b30;
+}
+
+.story-list[data-v-5ea8b349] {
+    margin-top: -16px;
+}
+
+.story-card[data-v-52776193] {
+    padding: 24px 18px !important;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    list-style: none;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.story-card__header[data-v-52776193] {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.story-card__header .story-card-info[data-v-52776193] {
+    display: flex;
+    align-items: center;
+}
+
+.story-card__header .artist-thumbnail[data-v-52776193] {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+.story-card__header .artist-thumbnail img[data-v-52776193] {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.story-card__header .artist-info[data-v-52776193] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.story-card__header .artist-info .artist-name[data-v-52776193] {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000000;
+    padding-bottom: 4px;
+}
+
+.story-card__header .artist-info .story-date[data-v-52776193] {
+    font-size: 10px;
+    line-height: 1;
+    color: #999999;
+}
+
+.story-card__body[data-v-52776193] {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333333;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+}
+
+.image-group[data-v-2ce2581b] {
+    display: flex;
+    margin-top: 16px;
+}
+
+.image-group .image-container[data-v-2ce2581b] {
+    width: 100%;
+}
+
+.image-group .image-container .image[data-v-2ce2581b] {
+    border-radius: 2px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image-group .image-container .image[data-v-2ce2581b]:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+.image-group .image-container + .image-container[data-v-2ce2581b] {
+    margin-left: 4px;
+}
+
+.image-group .image-container[data-v-2ce2581b] {
+    width: 100%;
+}
+
+.image-group .image-container .image[data-v-2ce2581b] {
+    border-radius: 2px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image-group .image-container.last[data-v-2ce2581b] {
+    position: relative;
+}
+
+.image-group .image-container[data-v-2ce2581b] {
+    width: 100%;
+}
+
+.image-group .image-container .image-curtain[data-v-2ce2581b] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    opacity: 0.5;
+    border-radius: 2px;
+}
+
+.image-group .image-container .rest-image-txt[data-v-2ce2581b] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+}

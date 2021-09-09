@@ -1,0 +1,209 @@
+
+.tab-group[data-v-825a8b32] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: calc((100vw - 935px) / 2);
+    padding-right: calc((100vw - 935px) / 2);
+    background-color: #ffffff;
+}
+
+.tab-group .tab.active[data-v-825a8b32] {
+    font-weight: bold;
+    color: #ff7b30;
+    border-bottom: 2px solid #ff7b30;
+}
+
+.tab-group .tab[data-v-825a8b32] {
+    width: 20%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;
+    color: #999999;
+    font-size: 12px;
+    line-height: 1;
+    background-color: #ffffff;
+}
+
+.profile-info[data-v-fda01bb2] {
+    padding-bottom: 24px;
+    background-color: #ffffff;
+}
+
+.profile-info .title[data-v-fda01bb2] {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #333333;
+    padding: 15px 0;
+}
+
+.profile-info .contents[data-v-fda01bb2] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.profile-info .contents .txt[data-v-fda01bb2] {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333333;
+    white-space: pre-line;
+}
+
+element.style {
+    background-image: url(https://image.idus.com/image/files/9429acb….jpg);
+}
+
+.profile-info .contents .img[data-v-fda01bb2] {
+    min-width: 300px;
+    height: 200px;
+    margin-left: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.comments-area[data-v-fda01bb2] {
+    background-color: #ffffff;
+}
+
+.comments-area .comments-header[data-v-fda01bb2] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+}
+
+.comments-area .comments-title[data-v-fda01bb2] {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.comments-area .comments-contents[data-v-fda01bb2] {
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.comments-area .comments-contents .comments[data-v-fda01bb2] {
+    padding: 16px 0;
+    max-height: 450px;
+    overflow: scroll;
+}
+
+.comments-area .comments-contents .comments .comment-wrapper[data-v-fda01bb2] {
+    margin: 0 0 24px 0;
+}
+
+.comments-area .comments-contents .comments .comment[data-v-fda01bb2] {
+    display: flex;
+    align-items: flex-start;
+}
+
+element.style {
+    background-image: url(http://image.idus.com/image/files/3902d4c…_144.jpg);
+}
+
+.comments-area .comments-contents .comments .comment .contents-area[data-v-fda01bb2] {
+    margin-left: 12px;
+}
+
+.comments-area .comments-contents .comments .writer-name[data-v-fda01bb2] {
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.comments-area .comments-contents .comments .comment-contents[data-v-fda01bb2] {
+    color: #333333;
+    font-size: 14px;
+    white-space: pre-line;
+}
+
+.comments-area .comments-contents .comments .reply-comment[data-v-fda01bb2] {
+    position: relative;
+    margin-left: 42px;
+    background: #f5f5f5;
+    padding: 10px;
+    margin: 0 0 0 37px;
+    border-radius: 7px;
+}
+
+.comments-area .comments-contents .comments .reply-comment .writer-info[data-v-fda01bb2] {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+element.style {
+    background-image: url(https://image.idus.com/image/files/c680311….jpg);
+}
+
+.comments-area .comments-contents .comments .reply-comment .writer-thumbnail[data-v-fda01bb2] {
+    margin-right: 10px;
+}
+
+.comments-area .comments-contents .comments .writer-thumbnail[data-v-fda01bb2] {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.comments-area .comments-contents .comments .reply-comment .writer-name[data-v-fda01bb2] {
+    padding-right: 3px;
+}
+
+.comments-area .comments-contents .comments .writer-name[data-v-fda01bb2] {
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.comments-area .comments-contents .comments .reply-comment .writer-icon[data-v-fda01bb2] {
+    padding-bottom: 3px;
+}
+
+.comments-area .comments-contents .comments .writer-thumbnail[data-v-fda01bb2] {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.comments-area .comments-form[data-v-fda01bb2] {
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.comments-area .comments-form input[data-v-fda01bb2] {
+    background-color: #ffffff;
+    border: 1px solid #acacac;
+    border-radius: 2px;
+    padding: 9px 0 9px 12px;
+    font-size: 12px;
+    color: #333333;
+    width: 100%;
+    margin-right: 4px;
+}
+
+.comments-area .comments-form button[data-v-fda01bb2] {
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 60px;
+    padding: 9px 17px;
+    background-color: #ff7b30;
+    color: #ffffff;
+    border-radius: 2px;
+    border: 1px solid #ff7b30;
+}
+
