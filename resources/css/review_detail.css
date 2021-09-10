@@ -1,0 +1,373 @@
+.review-detail-container[data-v-2e68ad5e] {
+    width: 1056px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 24px;
+    padding-bottom: 82px;
+}
+
+.review[data-v-2e68ad5e] {
+    display: flex;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+}
+
+.review-data[data-v-2e68ad5e] {
+    width: 100%;
+}
+
+.review-data .review-header[data-v-2e68ad5e] {
+    padding: 24px;
+    border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-data .review-header .reviewer-info[data-v-2e68ad5e] {
+    display: flex;
+}
+
+.review-data .review-header .reviewer-info .reviewer-thumbnail[data-v-2e68ad5e] {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.review-data .review-header .reviewer-info .reviewer-detail-info[data-v-2e68ad5e] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.review-data .review-header .reviewer-info .reviewer-detail-info .reviewer-name[data-v-2e68ad5e] {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #000000;
+    padding-bottom: 5px;
+}
+
+.review-data .review-header .reviewer-info .reviewer-detail-info .review-date[data-v-2e68ad5e] {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #999999;
+}
+
+.ui_rating[data-v-ef94db98] {
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.ui_rating, .ui_rating__icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui_rating {
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+.ui_icon--star[data-state='active'][data-v-ef94db98] {
+    color: #ffc500 !important;
+}
+
+.ui_icon--star[data-v-ef94db98] {
+    color: #d9d9d9 !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.review-data .review-contents .product[data-v-2e68ad5e] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: #f5f5f5;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.14;
+    letter-spacing: normal;
+    color: #333333;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-data .review-contents .product-info[data-v-2e68ad5e] {
+    display: flex;
+    align-items: center;
+}
+
+.review-data .review-contents .product-thumbnail[data-v-2e68ad5e] {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.review-data .review-contents .product i[data-v-2e68ad5e] {
+    color: #666666;
+}
+
+.review-data .review-contents .review-options[data-v-2e68ad5e] {
+    margin: 24px 0 0 0;
+    transition: height 0.3s;
+    display: flex;
+    justify-content: space-between;
+    color: #999999;
+}
+
+.review-data .review-contents .review-options .text-wrapper[data-v-2e68ad5e] {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 33px);
+}
+
+.review-data .review-contents .review-options strong[data-v-2e68ad5e] {
+    width: 48px;
+    font-weight: bold;
+}
+
+.review-data .review-contents .review-options .review-option-text[data-v-2e68ad5e] {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    width: calc(100% - 48px);
+}
+
+.review-data .review-contents .review-txt[data-v-2e68ad5e] {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333333;
+    white-space: pre-line;
+    margin-top: 18px;
+}
+
+.review-comments[data-v-60fe8e14] {
+    min-width: 358px;
+    width: 358px;
+    border-left: 1px solid #d9d9d9;
+    padding: 24px;
+}
+
+.review-comments-header[data-v-60fe8e14] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 8px;
+}
+
+.review-comments-title[data-v-60fe8e14] {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #333333;
+}
+
+.review-comments-contents--empty[data-v-60fe8e14] {
+    padding: 48px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-comments-contents--empty i[data-v-60fe8e14] {
+    font-size: 60px;
+    color: #acacac;
+    margin-bottom: 24px;
+}
+
+.review-comments-contents--empty span[data-v-60fe8e14] {
+    font-size: 14px;
+    color: #acacac;
+}
+
+.review-comments-form[data-v-60fe8e14] {
+    border-top: 1px solid #d9d9d9;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-comments-form .comments-input[data-v-60fe8e14] {
+    border: 1px solid #acacac;
+    border-radius: 2px;
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-right: 8px;
+    width: 100%;
+}
+
+.review-comments-form .submit-btn[data-v-60fe8e14] {
+    background-color: #ff6e00;
+    padding: 9px 17px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 2px;
+    border: none;
+    min-width: 56px;
+}
+
+.another-reviews-title[data-v-2e68ad5e] {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    padding: 64px 0 24px 0;
+}
+
+.review[data-v-a301bac8] {
+    border-bottom: 1px solid #cccccc;
+}
+
+.review a[data-v-a301bac8] {
+    display: block;
+    padding: 18px 0;
+    background-color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.review-header[data-v-a301bac8] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.review-header .reviewer-info[data-v-a301bac8] {
+    display: flex;
+}
+
+.review-header .reviewer-info .reviewer-thumbnail[data-v-a301bac8] {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.review-header .reviewer-info .reviewer-detail-info[data-v-a301bac8] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.review-header .reviewer-info .reviewer-detail-info .reviewer-name[data-v-a301bac8] {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #000000;
+    padding-bottom: 4px;
+}
+
+.review-header .reviewer-info .reviewer-detail-info .review-date[data-v-a301bac8] {
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #999999;
+}
+
+.review-body[data-v-a301bac8] {
+    display: flex;
+    margin-bottom: 11px;
+}
+
+.review-body .review-thumbnail[data-v-a301bac8] {
+    width: 128px;
+    height: 128px;
+    min-width: 128px;
+    margin-right: 12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.review-body .review-contents[data-v-a301bac8] {
+    white-space: pre-line;
+    display: -webkit-box;
+    max-height: 126px;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.review-option[data-v-a301bac8] {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #999999;
+    height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.review-option strong[data-v-a301bac8] {
+    font-weight: bold;
+}
+
+nav[data-v-450a0b42] {
+    text-align: center;
+    margin-top: 40px;
+}
+
+nav button.active[data-v-450a0b42] {
+    color: #ff7b30;
+    border-color: #ff7b30;
+}
+
+nav button[data-v-450a0b42] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333333;
+    border: 1px solid transparent;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+nav button.arrows[data-v-450a0b42] {
+    color: #b4b4b4;
+    width: auto;
+    height: auto;
+}
+
+nav button i[data-v-450a0b42] {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
