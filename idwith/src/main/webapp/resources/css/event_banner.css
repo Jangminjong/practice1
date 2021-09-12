@@ -1,0 +1,72 @@
+@import url(common.css);
+
+.head_banner_group {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.download-ribbon {
+    background-color: #ff7b30;
+}
+
+.download-ribbon.top {
+    text-align: center;
+}
+
+.head_banner_group>* {
+    height: 76px;
+}
+
+.download-ribbon {
+    background: #333;
+}
+
+.download-ribbon.top .inner-w, .download-ribbon.top .inner-w400, .download-ribbon.top .inner-w800 {
+    color: #333;
+    padding: 0;
+}
+
+.inner-w, .inner-w400, .inner-w800 {
+    width: 1056px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.download-ribbon.top .download-ribbon-inner {
+    display: block;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+}
+
+.download-ribbon.top .pc-img {
+    display: block;
+    width: 100%;
+}
+
+.download-ribbon.top .download-ribbon-close {
+    top: 24px;
+    right: 10px;
+    color: #fff;
+}
+
+.download-ribbon .download-ribbon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+    font-size: 20px;
+}
+
+button {
+    border: 0 none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}

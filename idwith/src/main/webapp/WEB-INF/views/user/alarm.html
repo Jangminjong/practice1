@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="resources/css/alarm.css">
+        <title>알림페이지</title>
+    </head>
+    <body>
+    <div class="dimmed-background"></div>
+    <div id="content" class="content" data-page="notification">
+        <div class="title-style-block inner-w">
+            <h2 class="txt">알림</h2>
+        </div>
+        <div class="inner-w layout-split" data-layout-split="notification">
+            <section class="notice-area">
+                <ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" data-ui-paging='{ "event":"scroll", "target":".mCSB_container" }' data-endpoint="/w/notification" data-scrollbar='{"trigger": "bottom"}' data-page="noti_list">
+                    <div id="mCSB_3" class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
+                        <div id="mCSB_3_container" class="mCSB_container">
+                            <div class="notification_important_layout_conatiner">
+                                <p class="title">중요한 이벤트 알림</p>
+                                <div class="notification_important_container">
+                                    <a href="/w/showroom/1767" class="notification_important_link">
+                                        <img src="resources/images/header/app-icon/icon_1024.png" class="notification_important_artist_img mCS_img_loaded">
+                                        <div class="notification_important_content_box">
+                                            <p class="label">이벤트</p>
+                                            <p class="title">요즘 제철맞은 이것→'🤍🦵🏻👑🦐'</p>
+                                            <p class="message">(광고) 79% 할인받고 '이것' 저녁메뉴로 어때요? *수신거부:내정보&gt;설정&gt;앱 알림</p>
+                                            <p class="notification_important_date">오후 7:00</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="notification_card_container">
+                                <input type="hidden" name="paging_param" value="48791118">
+                                <a href="/w/event/main/thanksgiving-benefit" class="notification_card_link">
+                                    <img src="resources/images/header/app-icon/icon_1024.png" class="notification_card_artist_img mCS_img_loaded">
+                                    <div class="notification_card_content_box">
+                                        <p class="label">이벤트</p>
+                                        <p class="artist_name">2O,OOO원 할인받을 사람!🎟</p>
+                                        <p class="message">(광고) 선착순 2천명 요이 땅! 빨리 클릭!!🏃🏻‍♂️🏃🏻‍♀️ *수신거부:내정보&gt;설정&gt;앱 알림</p>
+                                    </div>
+                                    <p class="notification_card_date">9월 7일</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div data-vue="ToastPopup"></div>
+    <div data-vue="BottomSheet"></div>
+    <div data-vue="WideBottomSheet"></div>
+    <div data-vue="FooterModal"></div>
+    <div data-vue="InactiveToast"></div>
+    <a href="#header" class="to-top" data-ui="scroll-to-top" data-page style="display: flex;">
+        <img src="resources/images/header/go-to-top-image.png" alt="go to top">
+    </a>
+</body>
+</html>
