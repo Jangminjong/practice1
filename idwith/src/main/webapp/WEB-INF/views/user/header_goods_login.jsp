@@ -51,11 +51,10 @@
 								<!-- current user email address: for parsing -->
 							</button>
 							<ul class="menu-dropdown">
-								<li><a href="/w/me/order/payment">주문배송</a></li>
-								<li><a href="/w/me/favoriteproduct">관심리스트</a></li>
-								<li><a href="/w/me/present/receive">받은 선물함</a></li>
-								<li><a href="/w/me/coupon">쿠폰함</a></li>
-								<li><a href="/w/me/personal">회원 정보관리</a></li>
+								<li><a href="mypage_order_goods.do">주문배송</a></li>
+								<li><a href="mypage_interest_goods.do">관심리스트</a></li>
+								<li><a href="mypage_coupon.do">쿠폰함</a></li>
+								<li><a href="mypage_info.do">회원 정보관리</a></li>
 								<li class="add-border"><a href="/w/logout">로그아웃</a></li>
 							</ul>
 						</div>
@@ -88,7 +87,7 @@
 										</div>
 									</div>
 								</ul>
-								<a data-log-noti-object="see_all" href="/w/notification"
+								<a data-log-noti-object="see_all" href="alarm.do"
 									class="link-style">모두 보기</a>
 							</div>
 						</div>
@@ -138,7 +137,7 @@
 					</div>
 
 					<nav class="profile-links">
-						<a href="/w/me" class="btn"> <i class="far fa-user"></i> 내 정보
+						<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i> 내 정보
 						</a> <a id="my-cart-button" href="/w/cart" class="btn"> <span
 							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
 							장바구니

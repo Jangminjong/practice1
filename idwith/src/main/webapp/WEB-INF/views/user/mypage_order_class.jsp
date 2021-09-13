@@ -7,7 +7,7 @@
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><html class="ie9"><![endif]-->
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,7 +15,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 주문내역</title>
+<title>아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
@@ -55,10 +55,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:description"
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:url" content="http://www.idus.com/w/me/order/payment" />
+<meta property="og:url" content="http://www.idus.com/c/order" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-<link rel="canonical" href="http://www.idus.com/w/me/order/payment" />
+<link rel="canonical" href="http://www.idus.com/c/order" />
 <script>
             window.__client_env__ = 'production';
             window.CNN_DOMAIN = 'https://cnn.idus.com';
@@ -85,9 +85,24 @@
 <link rel="stylesheet" href="resources/css/mypage.css" />
 <link rel="stylesheet" href="resources/css/idus.web.min.css" />
 <link rel="stylesheet" href="resources/css/vendor.client.min.css" />
-<script src="/resources/dist/js/vendor.client.min.js?__v=1631078629"></script>
-<script src="/resources/dist/js/vuepack.js?__v=1631078629"></script>
 
+<link rel="stylesheet"
+	href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/flowplayer.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/thumbnails.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/speed.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/hls.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/keyboard.min.js"></script>
+<!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/cuepoints.min.js"></script> -->
 
 <!-- Kakao web SDK -->
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -175,7 +190,7 @@
             uuid: 'e47f44d5-3f79-42dd-9c1b-1772866c0371',
             isVip: false        });
         vuepack.createToken('[data-vue="token"]', {
-            token: {"token_type":"Bearer","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODAwMTkzNywicGVybWlzc2lvbiI6IlVTRVIiLCJ0eXBlIjoiY2xpZW50IiwidG9rZW5fdHlwZSI6ImFjY2VzcyIsImV4cCI6MTYzOTA5OTEzNiwic2FsdCI6ImY0MWQwM2YzLWU4MjctNGIwYS1iNzRjLTMxZjlhYmMxNDg0NiIsImNyZWF0ZWQiOiIyMDIxLTA5LTEwVDEwOjE4OjU2KzA5OjAwIn0.1sbItzf_f-sgtun3S4L1sqKm7p6oRbW_qQF5FRo_cfI","refresh_token":"$2y$10$Vqh9LBA\/wSdBQPKcUR.RTO9hpC\/ifZgE5PzXzFJO8BAI8sEX1oUim","expired_access_token":"2021-12-10 10:18:56+09:00","expired_refresh_token":"2022-03-10 10:18:56+09:00"},
+            token: {"token_type":"Bearer","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODAwMTkzNywicGVybWlzc2lvbiI6IlVTRVIiLCJ0eXBlIjoiY2xpZW50IiwidG9rZW5fdHlwZSI6ImFjY2VzcyIsImV4cCI6MTYzOTM3MDA4Niwic2FsdCI6ImM0ZjFmMTAwLTc0YzYtNDgwMS1hNjIzLTk5NDBjNmZhYTA1MyIsImNyZWF0ZWQiOiIyMDIxLTA5LTEzVDEzOjM0OjQ2KzA5OjAwIn0.WmbRiY9muwjcPtxgUoifqT8lbeBshSstqRIZByrCArE","refresh_token":"$2y$10$0gFd8KcN0sNxzoiwU1Dch.tGbe\/DXGjtnWNh5xwoawkNbuSoKU7ja","expired_access_token":"2021-12-13 13:34:46+09:00","expired_refresh_token":"2022-03-13 13:34:46+09:00"},
             userId: 8001937        });
 
         /* Idus Log V2 */
@@ -193,7 +208,7 @@
             },
             appData: {
                 env: 'prod',
-                appVersion: '1631078629'
+                appVersion: '1631255393'
             }
         });
         </script>
@@ -201,36 +216,40 @@
 	<div class="wrap">
 		<div class="head_banner_group"></div>
 
+		<div id="skip-to-content">
+			<a href="#gnb">메뉴목록으로 바로가기</a> <a href="#content">컨텐츠로 바로가기</a>
+		</div>
 
+		<jsp:include page="header_goods_login.jsp" />
 		<div class="dimmed-background"></div>
-		<jsp:include page="header_goods.jsp" />
 		<div id="content" class="content">
 			<div class="inner-w layout-split" data-layout-split="orderlist">
 				<aside class="my-info">
+					<!--메뉴바-->
 					<div class="profile-area">
 						<div class="outline">
 							<label data-profile="image" class="img-bg profile-img"
 								style="background-image: url(https://image.idus.com/image/files/d247655ca3e545e89a48a43aa9318b3f.jpg)">
 								<input data-change-profile="image" type="file" name="image"
 								id="profile-image" class="profile-image-input"
-								accept=".png, .jpg, .jpeg"> <span
-								class="link-style">수정</span> <a href="/w/me/profile/image"
-								data-modal-trigger="modal-link" data-modal-id="modal-profile"
-								class="profile-modal-open" style="visibility: hidden">이미지
-									변경 모달</a>
+								accept=".png, .jpg, .jpeg"> <span class="link-style">수정</span>
+
+								<a href="/w/me/profile/image" data-modal-trigger="modal-link"
+								data-modal-id="modal-profile" class="profile-modal-open"
+								style="visibility: hidden">이미지 변경 모달</a>
 							</label>
 						</div>
 						<div class="area-txt">
-							<a href="/w/me/membership"> <span class="sp-icon grade-01-s"></span>
+							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
 								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">이소희🎗</strong>
+							</a> <strong data-profile="name">OOO</strong>
 						</div>
 					</div>
 
 					<div class="my-point clf">
-						<a href="/w/me/point" class="inner fl"> <span class="label">적립금</span>
+						<a href="mypage_point.do" class="inner fl"> <span class="label">적립금</span>
 							<em>0 P</em>
-						</a> <a href="/w/me/coupon" class="fr"> <span class="label">쿠폰</span>
+						</a> <a href="mypage_coupon.do" class="fr"> <span class="label">쿠폰</span>
 							<em>2</em>
 						</a>
 					</div>
@@ -238,22 +257,22 @@
 					<div class="my-menu">
 						<em>MY MENU</em>
 						<nav>
-							<b><span>주문 배송</span></b> <a href="/w/me/order/payment"
-								class="active">주문내역</a> <a href="/w/me/order/cancel" class="">취소/환불내역</a>
-							<b><span>알림 및 메시지</span></b> <a href="/w/notification" class="">알림</a>
-							<a href="/w/message" class="">메시지</a> <b><span>나의 구매후기</span></b>
-							<a href="/w/me/review/add" class="">후기 쓰기</a> <a
-								href="/w/me/review/all" class="">내가 쓴 후기</a> <b><span>관심리스트</span></b>
-							<a href="/w/me/favoriteproduct" class="">찜 목록</a> <a
-								href="/w/me/followingartist" class="">팔로우하는 작가</a> <a
-								href="/w/me/recentproduct" class="">최근 본 작품</a> <b><span>할인혜택</span></b>
-
-							<a href="/w/me/coupon" class="">쿠폰함</a> <a href="/w/me/point"
-								class="">적립금</a> <b><span>내 정보</span></b> <a
-								href="/w/me/membership" class="">회원 등급</a> <a
-								href="/w/me/personal" class="">회원 정보 관리</a> <a
-								href="/w/me/address" class="">주소(배송지) 관리</a> <a href="/w/logout"
-								class="">로그아웃</a>
+							<b> <span>주문 배송</span>
+							</b> <a href="mypage_order_goods.do" class="">주문내역</a> <a
+								href="mypage_order_return.do" class="">취소/환불내역</a> <b> <span>알림
+									및 메시지</span>
+							</b> <a href="alarm.do" class="">알림</a> <a href="message.do"
+								class="">메시지</a> <b> <span>나의 구매후기</span>
+							</b> <a href="mypage_review_before.do" class="">후기 쓰기</a> <a
+								href="mypage_review_after.do" class="">내가 쓴 후기</a> <b> <span>관심리스트</span>
+							</b> <a href="mypage_interest_goods.do" class="">찜 목록</a> <a
+								href="mypage_follow.do" class="">팔로우하는 작가</a> <a
+								href="mypage_recent.do" class="">최근 본 작품</a> <b> <span>할인혜택</span>
+							</b> <a href="mypage_coupon.do" class="">쿠폰함</a> <a href="mypage_point.do"
+								class="">적립금</a> <b> <span>내 정보</span>
+							</b> <a href="mypage_level.do" class="">회원 등급</a> <a
+								href="mypage_info.do" class="">회원 정보 관리</a> <a
+								href="mypage_address.do" class="">주소(배송지) 관리</a>
 						</nav>
 					</div>
 				</aside>
@@ -268,84 +287,39 @@ vuepack.create([{
 </script>
 				<section>
 					<div class="title-style no-mt clf">
-						<a href="#" class="txt fl">주문 내역</a>
-						<div class="fr">
-							<div class="ui-selectbox s100" data-ui="selectbox">
-								<select name="sort_by_year"></select>
-								<button type="button" class="ui-trigger">
-									<span class="ui-selected"></span> <i
-										class="arrow_icon idus-icon-arrow-down"></i> <i
-										class="arrow_icon idus-icon-arrow-up"></i>
-								</button>
-								<ul class="ui-select">
-									<li class="ui-option" value="2021" selected>2021 년</li>
-								</ul>
-							</div>
-						</div>
+						<span class="txt fl">주문 내역</span>
 					</div>
 					<div class="ui_tab_group--3 favorite">
-						<span class="ui_tab_group__tab active" data-state="active"
-							style="width: 50%;"> 작품 </span> <a href="/c/order"
-							class="ui_tab_group__tab" style="width: 50%;">클래스</a>
+						<a href="/w/me/order/payment" class="ui_tab_group__tab"
+							data-state="none" style="width: 50%;"> 작품 </a> <a href="/c/order"
+							class="ui_tab_group__tab active" data-state="active"
+							style="width: 50%;">클래스</a>
 					</div>
 					<div class="banner-empty">
 						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
-						<p>주문 내역이 없습니다.</p>
-						<a href="/" class="btn btn-l btn-point">작품 구경하러 가기</a>
-					</div>
-					<div class="banner-type-a root">
-						<a class="banner-type-a item" href="/w/showroom/1715"
-							style="background: #F8E4B5"> <img
-							src="https://image.idus.com/image/files/1f05d7a633024f3ba9f089ad230a42f2.jpg"
-							alt="">
-						</a> <a class="banner-type-a item hidden mobile"
-							href="/w/showroom/1715" style="background: #F8E4B5">
-							<img
-							src="https://image.idus.com/image/files/a976e7614feb4be9a889a02e64cebc6e.jpg"
-							alt="">
-						</a> <a class="banner-type-a item" href="/w/showroom/1035"
-							style="background: #2E3153"> <img
-							src="https://image.idus.com/image/files/4a9a01978bf24259b75ea55ae8be18b7.jpg"
-							alt="">
-						</a> <a class="banner-type-a item hidden mobile"
-							href="/w/showroom/1035" style="background: #2E3153">
-							<img
-							src="https://image.idus.com/image/files/dd729679e0fb49d681cd5df75bac9187.jpg"
-							alt="">
-						</a> <a class="banner-type-a item" href="/w/showroom/949"
-							style="background: #DADAC8"> <img
-							src="https://image.idus.com/image/files/4b17d1b1a21341708774c53957d3d922.jpg"
-							alt="">
-						</a> <a class="banner-type-a item hidden mobile"
-							href="/w/showroom/949" style="background: #DADAC8">
-							<img
-							src="https://image.idus.com/image/files/7ecb1e58eefa40ecbcb1f55e797d0970.jpg"
-							alt="">
-						</a>
+						<p>예약하신 클래스가 없습니다.</p>
+						<a href="/c" class="btn btn-l btn-point">클래스 구경하러 가기</a>
 					</div>
 				</section>
 			</div>
+			<div data-vue="reviewModal">ReviewModal</div>
 		</div>
-		<script>
-    $(function () {
-        $('select[name="sort_by_year"]').change(function () {
-            var base_url = '/w/me/order/payment';
-            var year = $('select[name="sort_by_year"] > option:selected').val();
-            var param = $.param({year : year});
-            location.href = base_url + '?' + param;
-        });
-    });
 
-        (function () {
-        var Logger = vuepack.externals.IdusLog.Logger;
-        var PageName = vuepack.externals.IdusLog.PageName;
-        Logger.sendPageView(PageName.OrderList, {
-            property: {
-                service_type: 'product'
-            }
-        });
-    })();
-    </script>
+		<script>
+// vuepack.createEduOrderCard('[data-vue="eduCard"]');
+vuepack.createPagination('[data-vue="pagination"]');
+vuepack.createReviewModal('[data-vue="reviewModal"]');
+
+(function () {
+    var Logger = vuepack.externals.IdusLog.Logger;
+    var PageName = vuepack.externals.IdusLog.PageName;
+    Logger.sendPageView(PageName.OrderList, {
+        property: {
+            service_type: 'edu_off'
+        }
+    });
+})();
+</script>
 		<div data-vue="ToastPopup"></div>
 		<div data-vue="BottomSheet"></div>
 		<div data-vue="WideBottomSheet"></div>
@@ -354,7 +328,7 @@ vuepack.create([{
 		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
 			<img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
 		</a>
-		<!-- 푸터자리 -->
+		<jsp:include page="footer.jsp" />
 		<script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
@@ -387,11 +361,10 @@ vuepack.create([
     }
 ]);
 </script>
-		<jsp:include page="footer.jsp" />
 	</div>
 	<!-- div WRAP -->
 	<script type="text/javascript"
-		src="/resources/dist/js/idus.web.min.js?__v=1631078629"></script>
+		src="/resources/dist/js/idus.web.min.js?__v=1631255393"></script>
 	<script>
         (function(){
             var applink = new vuepack.externals.Applink();

@@ -15,7 +15,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 취소/환불내역</title>
+<title>아이디어스 | 주문내역</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
@@ -55,10 +55,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:description"
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:url" content="http://www.idus.com/w/me/order/cancel" />
+<meta property="og:url" content="http://www.idus.com/w/me/order/payment" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-<link rel="canonical" href="http://www.idus.com/w/me/order/cancel" />
+<link rel="canonical" href="http://www.idus.com/w/me/order/payment" />
 <script>
             window.__client_env__ = 'production';
             window.CNN_DOMAIN = 'https://cnn.idus.com';
@@ -88,23 +88,6 @@
 <script src="/resources/dist/js/vendor.client.min.js?__v=1631078629"></script>
 <script src="/resources/dist/js/vuepack.js?__v=1631078629"></script>
 
-<link rel="stylesheet"
-	href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/flowplayer.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/thumbnails.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/speed.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/hls.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/keyboard.min.js"></script>
-<!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/cuepoints.min.js"></script> -->
 
 <!-- Kakao web SDK -->
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -286,7 +269,20 @@ vuepack.create([{
 </script>
 				<section>
 					<div class="title-style no-mt clf">
-						<a href="#" class="txt fl">취소/환불 내역</a>
+						<a href="#" class="txt fl">주문 내역</a>
+						<div class="fr">
+							<div class="ui-selectbox s100" data-ui="selectbox">
+								<select name="sort_by_year"></select>
+								<button type="button" class="ui-trigger">
+									<span class="ui-selected"></span> <i
+										class="arrow_icon idus-icon-arrow-down"></i> <i
+										class="arrow_icon idus-icon-arrow-up"></i>
+								</button>
+								<ul class="ui-select">
+									<li class="ui-option" value="2021" selected>2021 년</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 					<div class="ui_tab_group--3 favorite">
 						<span class="ui_tab_group__tab active" data-state="active"
@@ -295,37 +291,36 @@ vuepack.create([{
 					</div>
 					<div class="banner-empty">
 						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
-						<p>취소/환불 내역이 없습니다.</p>
+						<p>주문 내역이 없습니다.</p>
 						<a href="/" class="btn btn-l btn-point">작품 구경하러 가기</a>
 					</div>
 					<div class="banner-type-a root">
-						<a class="banner-type-a item" href="/w/showroom/1640"
-							style="background: #E1E3F8"> <img
-							src="https://image.idus.com/image/files/29bcb55dbc034d28a0054af2e41b3031.jpg"
+						<a class="banner-type-a item" href="/w/showroom/1715"
+							style="background: #F8E4B5"> <img
+							src="https://image.idus.com/image/files/1f05d7a633024f3ba9f089ad230a42f2.jpg"
 							alt="">
 						</a> <a class="banner-type-a item hidden mobile"
-							href="/w/showroom/1640" style="background: #E1E3F8">
+							href="/w/showroom/1715" style="background: #F8E4B5">
 							<img
-							src="https://image.idus.com/image/files/e8e3496adda1484a946b39e72d467ffa.jpg"
+							src="https://image.idus.com/image/files/a976e7614feb4be9a889a02e64cebc6e.jpg"
 							alt="">
-						</a> <a class="banner-type-a item"
-							href="https://www.idus.com/w/event/main/frequency/12"
-							style="background: #d16160"> <img
-							src="https://image.idus.com/image/files/d5f1e6c69abe4957a07c0276fc7bcfff.jpg"
-							alt="">
-						</a> <a class="banner-type-a item hidden mobile"
-							href="https://www.idus.com/w/event/main/frequency/12"
-							style="background: #d16160"> <img
-							src="https://image.idus.com/image/files/7ab3f0c89da8453eb3d532e64a88bdd6.jpg"
-							alt="">
-						</a> <a class="banner-type-a item" href="/w/showroom/1753"
-							style="background: #E8E1D3"> <img
-							src="https://image.idus.com/image/files/fda29c7fe2694ce5946895aa0a40f977.jpg"
+						</a> <a class="banner-type-a item" href="/w/showroom/1035"
+							style="background: #2E3153"> <img
+							src="https://image.idus.com/image/files/4a9a01978bf24259b75ea55ae8be18b7.jpg"
 							alt="">
 						</a> <a class="banner-type-a item hidden mobile"
-							href="/w/showroom/1753" style="background: #E8E1D3">
+							href="/w/showroom/1035" style="background: #2E3153">
 							<img
-							src="https://image.idus.com/image/files/5ca971eb4aff41a68b9a2b3ad946b58f.jpg"
+							src="https://image.idus.com/image/files/dd729679e0fb49d681cd5df75bac9187.jpg"
+							alt="">
+						</a> <a class="banner-type-a item" href="/w/showroom/949"
+							style="background: #DADAC8"> <img
+							src="https://image.idus.com/image/files/4b17d1b1a21341708774c53957d3d922.jpg"
+							alt="">
+						</a> <a class="banner-type-a item hidden mobile"
+							href="/w/showroom/949" style="background: #DADAC8">
+							<img
+							src="https://image.idus.com/image/files/7ecb1e58eefa40ecbcb1f55e797d0970.jpg"
 							alt="">
 						</a>
 					</div>
@@ -345,7 +340,7 @@ vuepack.create([{
         (function () {
         var Logger = vuepack.externals.IdusLog.Logger;
         var PageName = vuepack.externals.IdusLog.PageName;
-        Logger.sendPageView(PageName.CancelList, {
+        Logger.sendPageView(PageName.OrderList, {
             property: {
                 service_type: 'product'
             }
@@ -393,8 +388,8 @@ vuepack.create([
     }
 ]);
 </script>
+		<jsp:include page="footer.jsp" />
 	</div>
-	<jsp:include page="footer.jsp" />
 	<!-- div WRAP -->
 	<script type="text/javascript"
 		src="/resources/dist/js/idus.web.min.js?__v=1631078629"></script>

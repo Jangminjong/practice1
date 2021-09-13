@@ -74,16 +74,16 @@
 							</label>
 						</div>
 						<div class="area-txt">
-							<a href="/w/me/membership"> <span class="sp-icon grade-01-s"></span>
+							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
 								<span>아기손 &gt;</span>
 							</a> <strong data-profile="name">OOO</strong>
 						</div>
 					</div>
 
 					<div class="my-point clf">
-						<a href="/w/me/point" class="inner fl"> <span class="label">적립금</span>
+						<a href="mypage_point.do" class="inner fl"> <span class="label">적립금</span>
 							<em>0 P</em>
-						</a> <a href="/w/me/coupon" class="fr"> <span class="label">쿠폰</span>
+						</a> <a href="mypage_coupon.do" class="fr"> <span class="label">쿠폰</span>
 							<em>2</em>
 						</a>
 					</div>
@@ -92,22 +92,21 @@
 						<em>MY MENU</em>
 						<nav>
 							<b> <span>주문 배송</span>
-							</b> <a href="/w/me/order/payment" class="">주문내역</a> <a
-								href="/w/me/order/cancel" class="">취소/환불내역</a> <b> <span>알림
+							</b> <a href="mypage_order_goods.do" class="">주문내역</a> <a
+								href="mypage_order_return.do" class="">취소/환불내역</a> <b> <span>알림
 									및 메시지</span>
-							</b> <a href="/w/notification" class="">알림</a> <a href="/w/message"
+							</b> <a href="alarm.do" class="">알림</a> <a href="message.do"
 								class="">메시지</a> <b> <span>나의 구매후기</span>
-							</b> <a href="/w/me/review/add" class="">후기 쓰기</a> <a
-								href="/w/me/review/all" class="">내가 쓴 후기</a> <b> <span>관심리스트</span>
-							</b> <a href="/w/me/favoriteproduct" class="">찜 목록</a> <a
-								href="/w/me/followingartist" class="">팔로우하는 작가</a> <a
-								href="/w/me/recentproduct" class="">최근 본 작품</a> <b> <span>할인혜택</span>
-							</b> <a href="/w/me/coupon" class="">쿠폰함</a> <a href="/w/me/point"
+							</b> <a href="mypage_review_before.do" class="">후기 쓰기</a> <a
+								href="mypage_review_after.do" class="">내가 쓴 후기</a> <b> <span>관심리스트</span>
+							</b> <a href="mypage_interest_goods.do" class="">찜 목록</a> <a
+								href="mypage_follow.do" class="">팔로우하는 작가</a> <a
+								href="mypage_recent.do" class="">최근 본 작품</a> <b> <span>할인혜택</span>
+							</b> <a href="mypage_coupon.do" class="">쿠폰함</a> <a href="mypage_point.do"
 								class="">적립금</a> <b> <span>내 정보</span>
-							</b> <a href="/w/me/membership" class="">회원 등급</a> <a
-								href="/w/me/personal" class="">회원 정보 관리</a> <a
-								href="/w/me/address" class="">주소(배송지) 관리</a> <a href="/w/logout"
-								class="">로그아웃</a>
+							</b> <a href="mypage_level.do" class="">회원 등급</a> <a
+								href="mypage_info.do" class="">회원 정보 관리</a> <a
+								href="mypage_address.do" class="">주소(배송지) 관리</a>
 						</nav>
 					</div>
 				</aside>
@@ -122,7 +121,7 @@
 						<li><strong class="label">적립금</strong> <a href="/w/me/point"
 							class="value">0P</a></li>
 						<li><strong class="label">할인 쿠폰 수</strong> <a
-							href="/w/me/coupon" class="value">2</a></li>
+							href="mypage_coupon.do" class="value">2</a></li>
 						<li>
 							<div class="title">
 								<strong class="label">작가 발송 완료</strong>
@@ -134,7 +133,7 @@
 										<p class="para">최근 1개월 기준</p>
 									</div>
 								</div>
-							</div> <a href="/w/me/order/payment" class="value">0</a>
+							</div> <a href="mypage_order_goods.do" class="value">0</a>
 						</li>
 						<li>
 							<div class="title">
@@ -147,7 +146,7 @@
 										<p class="para">최근 1개월 기준</p>
 									</div>
 								</div>
-							</div> <a href="/w/me/order/cancel" class="value">0</a>
+							</div> <a href="mypage_order_return.do" class="value">0</a>
 						</li>
 					</ul>
 
@@ -155,21 +154,22 @@
 
 					<div class="title-style-sub">
 						<h2 class="txt">최근 주문내역</h2>
-						<a href="/w/me/order/payment" class="to-right link">더보기<i
+						<a href="mypage_order_goods.do" class="to-right link">더보기<i
 							class="fas fa-chevron-right"></i>
 						</a>
 					</div>
 
 					<div class="tab_group--3">
 						<span class="tab_group__tab--borderless" data-state="active"
-							style="width: 50%;">작품</span> <a href="/c/order"
+							style="width: 50%;">작품</span> 
+							<a href="mypage_order_class.do"
 							class="tab_group__tab" style="width: 50%;">클래스</a>
 					</div>
 
 					<p class="empty-msg">최근 1개월 이내에 주문한 작품이 없습니다.</p>
 
 					<div class="btn-container">
-						<a href="/w/me/order/payment" class="ui_btn--large"> <strong>최근
+						<a href="mypage_order_goods.do" class="ui_btn--large"> <strong>최근
 								주문내역 더보기</strong>
 						</a>
 					</div>
@@ -179,7 +179,7 @@
 							<div class="ui_grid__item">
 								<div class="title-style-sub">
 									<h2 class="txt">안 읽은 메시지</h2>
-									<a href="/w/message" class="to-right link">더보기<i
+									<a href="message.do" class="to-right link">더보기<i
 										class="fas fa-chevron-right"></i>
 									</a>
 								</div>
@@ -188,7 +188,7 @@
 							<div class="ui_grid__item">
 								<div class="title-style-sub">
 									<h2 class="txt">알림</h2>
-									<a data-log-object="see_all" href="/w/notification"
+									<a data-log-object="see_all" href="alarm.do"
 										class="to-right link">더보기<i class="fas fa-chevron-right"></i>
 									</a>
 								</div>
@@ -249,7 +249,7 @@
 
 					<div class="title-style-sub">
 						<h2 class="txt">찜한 작품</h2>
-						<a href="/w/me/favoriteproduct" class="to-right link">더보기<i
+						<a href="mypage_interest_goods.do" class="to-right link">더보기<i
 							class="fas fa-chevron-right"></i>
 						</a>
 					</div>
@@ -257,7 +257,7 @@
 
 					<div class="title-style-sub">
 						<h2 class="txt">팔로우하는 작가</h2>
-						<a href="/w/me/followingartist" class="to-right link">더보기<i
+						<a href="mypage_follow.do" class="to-right link">더보기<i
 							class="fas fa-chevron-right"></i>
 						</a>
 					</div>
@@ -305,7 +305,7 @@
 
 					<div class="title-style-sub">
 						<h2 class="txt">최근 본 작품</h2>
-						<a href="/w/me/recentproduct" class="to-right link">더보기<i
+						<a href="mypage_recent.do" class="to-right link">더보기<i
 							class="fas fa-chevron-right"></i>
 						</a>
 					</div>

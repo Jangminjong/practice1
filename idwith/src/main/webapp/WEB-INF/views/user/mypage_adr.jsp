@@ -2,25 +2,28 @@
 	pageEncoding="UTF-8"%>
 
 
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><html class="ie9"><![endif]-->
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="naver-site-verification"
-	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
-<meta name="google-site-verification"
-	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 쿠폰함</title>
-<meta name="theme-color" content="#ffffff" />
-<link rel="apple-touch-icon" sizes="384x384"
-	href="resources/images/title/icon_300.PNG">
-
-<script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="naver-site-verification" content="a8c6e5633b597db7b48d05e4a7d247011f6794ec"/>
+        <meta name="google-site-verification" content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
+        <title>아이디어스 | 주소(배송지) 관리</title>
+        <meta name="theme-color" content="#ffffff"/>
+        <link rel="apple-touch-icon" sizes="384x384" href="/resources/dist/images/app-icon/icon_300.png">
+        <link rel="apple-touch-icon" sizes="256x256" href="/resources/dist/images/app-icon/icon_300.png">
+        <link rel="apple-touch-icon" sizes="192x192" href="/resources/dist/images/app-icon/icon_192.png">
+        <link rel="apple-touch-icon" sizes="128x128" href="/resources/dist/images/app-icon/icon_120.png">
+        <link rel="apple-touch-icon" sizes="96x96" href="/resources/dist/images/app-icon/icon_96.png">
+        <link rel="manifest" href="/manifest.json">
+        <script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
                     navigator.serviceWorker.register('/sw.js').then(function(registration) {
@@ -33,31 +36,28 @@
                 });
             }
         </script>
-<!-- Intersection Observer polyfill -->
-<script
-	src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
-<meta name="application-name" content="아이디어스" />
-<meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리" />
-<meta property="fb:app_id" content="1410666675867984" />
-<meta name="description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
-<meta property="og:type" content="website" />
-<meta property="og:description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:url" content="http://www.idus.com/w/me/coupon" />
-<meta property="og:image"
-	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-<link rel="canonical" href="http://www.idus.com/w/me/coupon" />
+        <!-- Intersection Observer polyfill -->
+        <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover"/>
+        <meta name="application-name" content="아이디어스" />
+        <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리"/>
+        <meta property="fb:app_id" content="1410666675867984" />
+                <meta name="description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
+        <meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
+        <meta property="og:type"   content="website" />
+        <meta property="og:description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
+        <meta property="og:url" content="http://www.idus.com/w/me/address"/>
+        <meta property="og:image" content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
+        <link rel="canonical" href="http://www.idus.com/w/me/address"/>
+                <script>
+            window.__client_env__ = 'production';
+            window.CNN_DOMAIN = 'https://cnn.idus.com';
+        </script>
+        <!-- project src -->
+        <link rel="icon" href="/resources/favicon_32.ico" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- project src -->
-<link rel="icon" href="/resources/favicon_32.ico" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<script>
+                <script>
             // 개발자 console에 아이디어스 로고 노출
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 // 다크모드일 경우
@@ -71,27 +71,35 @@
                 console.log('%cWant to join %cidus%c? 👉 https://www.notion.so/idus/Join-idus-61e7ca6d4b6d4211a7506e8773cc78fd', 'font-size: 10px; color: #515151;', 'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 10px; color: transparent; background-color: #515151;', 'font-size: 10px; color: #515151;');
             }
         </script>
-<link rel="stylesheet" href="resources/css/mypage.css" />
-<link rel="stylesheet" href="resources/css/idus.web.min.css" />
-<link rel="stylesheet" href="resources/css/vendor.client.min.css" />
+        <link rel="stylesheet" href="resources/css/mypage.css"/>
+        <link rel="stylesheet" href="resources/css/idus.web.min.css"/>
+        <link rel="stylesheet" href="resources/css/vendor.client.min.css"/>
+        <script src="/resources/dist/js/vendor.client.min.js?__v=1631078629"></script>
+        <script src="/resources/dist/js/vuepack.js?__v=1631078629"></script>
+        
+        <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
+        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/flowplayer.min.js"></script>
+        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
+        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/thumbnails.min.js"></script>
+        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/speed.min.js"></script>
+        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/hls.min.js"></script>
+        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
+        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/keyboard.min.js"></script>
+        <!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/cuepoints.min.js"></script> -->
 
-<!-- Kakao web SDK -->
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-<!-- Signin With Apple -->
-<script type="text/javascript"
-	src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+        <!-- Kakao web SDK -->
+        <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+        <!-- Signin With Apple -->
+        <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
 
-<!-- tracker vendors -->
-<script async
-	src="https://www.googletagmanager.com/gtag/js?id=AW-775263643"></script>
-<script type="text/javascript" charset="UTF-8"
-	src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js"
-	async="true"></script>
-<script src="//wcs.naver.net/wcslog.js"></script>
+        <!-- tracker vendors -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-775263643"></script>
+        <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+        <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+        <script src="//wcs.naver.net/wcslog.js"></script>
 
-<!-- trackers -->
-<script>
+        <!-- trackers -->
+        <script>
         vuepack.externals.VendorLogger.sendLog([
             {
                 vendorName: 'google_analytics',
@@ -111,8 +119,8 @@
             },
         ]);
         </script>
-<!-- sitelink - search box -->
-<script type="application/ld+json">
+        <!-- sitelink - search box -->
+        <script type="application/ld+json">
         {
           "@context": "http://schema.org",
           "@type": "WebSite",
@@ -124,7 +132,7 @@
           }
         }
         </script>
-<script type="application/ld+json">
+                <script type="application/ld+json">
             {
                 "@context": "http://schema.org",
                 "@type": "Organization",
@@ -141,12 +149,12 @@
                 ]
             }
         </script>
-</head>
-<body>
-	<div data-vue="token"></div>
-	<div data-vue="globalUser"></div>
-	<div data-vue="resizeHandler"></div>
-	<script>
+    </head>
+    <body>
+        <div data-vue="token"></div>
+        <div data-vue="globalUser"></div>
+        <div data-vue="resizeHandler"></div>
+                <script>
         // image-only-button 위해
         if (!window.localStorage.getItem('idus-product-card-img-only-path') || window.localStorage.getItem('idus-product-card-img-only-path') !== window.location.pathname) {
             window.localStorage.setItem('idus-product-card-img-only', 'false');
@@ -184,38 +192,38 @@
         });
         </script>
 
-	<div class="wrap">
-
-		<jsp:include page="header_goods.jsp"/>
-		<div class="dimmed-background"></div>
-		<!-- 회원정보관리 -->
-		<div id="content" class="content" data-page="couponlist">
-			<div class="inner-w layout-split" data-layout-split="orderlist">
-				<aside class="my-info">
+        <div class="wrap">
+        <jsp:include page="header_goods_login.jsp"/>
+                        
+<div class="dimmed-background"></div><!-- 회원정보관리 -->
+<div id="content" class="content" data-page="mypageinfo address">
+    <div class="inner-w layout-split" data-layout-split="orderlist">
+       <aside class="my-info">
+					<!--메뉴바-->
 					<div class="profile-area">
 						<div class="outline">
 							<label data-profile="image" class="img-bg profile-img"
 								style="background-image: url(https://image.idus.com/image/files/d247655ca3e545e89a48a43aa9318b3f.jpg)">
 								<input data-change-profile="image" type="file" name="image"
 								id="profile-image" class="profile-image-input"
-								accept=".png, .jpg, .jpeg"> <span
-								class="link-style">수정</span> <a href="/w/me/profile/image"
-								data-modal-trigger="modal-link" data-modal-id="modal-profile"
-								class="profile-modal-open" style="visibility: hidden">이미지
-									변경 모달</a>
+								accept=".png, .jpg, .jpeg"> <span class="link-style">수정</span>
+
+								<a href="/w/me/profile/image" data-modal-trigger="modal-link"
+								data-modal-id="modal-profile" class="profile-modal-open"
+								style="visibility: hidden">이미지 변경 모달</a>
 							</label>
 						</div>
 						<div class="area-txt">
-							<a href="/w/me/membership"> <span class="sp-icon grade-01-s"></span>
+							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
 								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">이소희🎗</strong>
+							</a> <strong data-profile="name">OOO</strong>
 						</div>
 					</div>
 
 					<div class="my-point clf">
-						<a href="/w/me/point" class="inner fl"> <span class="label">적립금</span>
+						<a href="mypage_point.do" class="inner fl"> <span class="label">적립금</span>
 							<em>0 P</em>
-						</a> <a href="/w/me/coupon" class="fr"> <span class="label">쿠폰</span>
+						</a> <a href="mypage_coupon.do" class="fr"> <span class="label">쿠폰</span>
 							<em>2</em>
 						</a>
 					</div>
@@ -223,27 +231,27 @@
 					<div class="my-menu">
 						<em>MY MENU</em>
 						<nav>
-							<b><span>주문 배송</span></b> <a href="/w/me/order/payment" class="">주문내역</a>
-							<a href="/w/me/order/cancel" class="">취소/환불내역</a> <b><span>알림
-									및 메시지</span></b> <a href="/w/notification" class="">알림</a> <a
-								href="/w/message" class="">메시지</a> <b><span>나의 구매후기</span></b> <a
-								href="/w/me/review/add" class="">후기 쓰기</a> <a
-								href="/w/me/review/all" class="">내가 쓴 후기</a> <b><span>관심리스트</span></b>
-							<a href="/w/me/favoriteproduct" class="">찜 목록</a> <a
-								href="/w/me/followingartist" class="">팔로우하는 작가</a> <a
-								href="/w/me/recentproduct" class="">최근 본 작품</a> <b><span>할인혜택</span></b>
-
-							<a href="/w/me/coupon" class="active">쿠폰함</a> <a
-								href="/w/me/point" class="">적립금</a> <b><span>내 정보</span></b> <a
-								href="/w/me/membership" class="">회원 등급</a> <a
-								href="/w/me/personal" class="">회원 정보 관리</a> <a
-								href="/w/me/address" class="">주소(배송지) 관리</a> <a href="/w/logout"
-								class="">로그아웃</a>
+							<b> <span>주문 배송</span>
+							</b> <a href="mypage_order_goods.do" class="">주문내역</a> <a
+								href="mypage_order_return.do" class="">취소/환불내역</a> <b> <span>알림
+									및 메시지</span>
+							</b> <a href="alarm.do" class="">알림</a> <a href="message.do"
+								class="">메시지</a> <b> <span>나의 구매후기</span>
+							</b> <a href="mypage_review_before.do" class="">후기 쓰기</a> <a
+								href="mypage_review_after.do" class="">내가 쓴 후기</a> <b> <span>관심리스트</span>
+							</b> <a href="mypage_interest_goods.do" class="">찜 목록</a> <a
+								href="mypage_follow.do" class="">팔로우하는 작가</a> <a
+								href="mypage_recent.do" class="">최근 본 작품</a> <b> <span>할인혜택</span>
+							</b> <a href="mypage_coupon.do" class="">쿠폰함</a> <a href="mypage_point.do"
+								class="">적립금</a> <b> <span>내 정보</span>
+							</b> <a href="mypage_level.do" class="">회원 등급</a> <a
+								href="mypage_info.do" class="">회원 정보 관리</a> <a
+								href="mypage_address.do" class="">주소(배송지) 관리</a>
 						</nav>
 					</div>
 				</aside>
 
-				<script>
+<script>
 vuepack.create([{
     selector: '[data-vue="frequency-event-mobile"]',
     component: 'FrequencyEventMobile',
@@ -252,162 +260,527 @@ vuepack.create([{
 }]);
 </script>
 
-				<section>
-					<div class="title-style no-mt clf">
-						<a href="#" class="txt fl">쿠폰함</a>
-					</div>
+        <section>
+            <div class="title-style no-mt clf">
+                <a href="#" class="txt fl">주소(배송지) 관리</a>
+            </div>
 
-					<div class="segment">
-						<h2 class="segment__title">쿠폰코드를 등록해주세요.</h2>
-						<form id="randomCoupon" action="/w/me/radomCoupon" method="post">
-							<input type="text" name="random_id" placeholder="쿠폰코드 입력">
-							<span class="error-msg"></span>
-							<button type="submit" class="ui_btn--red" disabled>등록</button>
-						</form>
-					</div>
+                        <form class="form-address" action="/w/me/address/update" method="post">
+                <input type="hidden" name="address_uuid" value="c89bec8d-2490-4686-a697-5dd1f6aaf1c6">
+                <div class="section-address">
+                    <table class="table-style-head-top">
+                        <thead>
+                            <tr>
+                                <th>배송지 1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="address-info root">
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">받는분</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                <div class="input-text">
+                                                    <input
+                                                        class="readonly"
+                                                        data-address="delivery_name"
+                                                        name="delivery_name"
+                                                        value="OOO"
+                                                        type="text"
+                                                        required
+                                                        autocomplete="off"
+                                                        readonly
+                                                        placeholder="받는분 이름을 입력해주세요."
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
 
-					<div data-vue="showroom-coupon-btn"></div>
-					<div data-v-282f9cbe="" class="coupon-list">
-						<div data-v-6ec8e2fd="" data-v-3862357e="" data-v-282f9cbe=""
-							class="coupon">
-							<div data-v-6ec8e2fd="" class="coupon__dotted-line top"></div>
-							<div data-v-6ec8e2fd="" class="coupon__dotted-line bottom"></div>
-							<div data-v-3862357e="" data-v-6ec8e2fd=""
-								class="coupon-contents">
-								<!---->
-								<div data-v-3862357e="" data-v-6ec8e2fd=""
-									class="coupon-contents__header">
-									<img data-v-3862357e="" data-v-6ec8e2fd=""
-										src="https://image.idus.com/static/idus_logo_new.png"
-										alt="coupon thumbnail" class="coupon-contents__thumbnail-img">
-									<div data-v-3862357e="" data-v-6ec8e2fd=""
-										class="coupon-contents__title">생에 한번 깜짝 할인쿠폰</div>
-								</div>
-								<div data-v-3862357e="" data-v-6ec8e2fd=""
-									class="coupon-contents__body">
-									<div data-v-3862357e="" data-v-6ec8e2fd=""
-										class="coupon-contents__discount-value">
-										5,000 <span data-v-3862357e="" data-v-6ec8e2fd=""
-											class="point">원</span>
-									</div>
-									<div data-v-3862357e="" data-v-6ec8e2fd=""
-										class="coupon-contents__discount-condition">
-										30,000원 이상 구매시
-										<!---->
-									</div>
-									<div data-v-3862357e="" data-v-6ec8e2fd=""
-										class="coupon-contents__period">
-										<span data-v-3862357e="" data-v-6ec8e2fd=""> 3일 남음 </span>
-										2021.09.06 ~ 2021.09.13
-									</div>
-									<!---->
-								</div>
-							</div>
-						</div>
-						<div data-v-6ec8e2fd="" data-v-3862357e="" data-v-282f9cbe=""
-							class="coupon">
-							<div data-v-6ec8e2fd="" class="coupon__dotted-line top"></div>
-							<div data-v-6ec8e2fd="" class="coupon__dotted-line bottom"></div>
-							<div data-v-3862357e="" data-v-6ec8e2fd=""
-								class="coupon-contents">
-								<div data-v-3862357e="" data-v-6ec8e2fd=""
-									class="coupon-contents__badge-group">
-									<div data-v-2f2bc7d4="" data-v-3862357e=""
-										class="badge badge-type_product" data-v-6ec8e2fd="">작품</div>
-								</div>
-								<div data-v-3862357e="" data-v-6ec8e2fd=""
-									class="coupon-contents__header">
-									<img data-v-3862357e="" data-v-6ec8e2fd=""
-										src="https://image.idus.com/static/idus_logo_new.png"
-										alt="coupon thumbnail" class="coupon-contents__thumbnail-img">
-									<div data-v-3862357e="" data-v-6ec8e2fd=""
-										class="coupon-contents__title">9월의 시크릿쿠폰💌 80% 할인</div>
-								</div>
-								<div data-v-3862357e="" data-v-6ec8e2fd=""
-									class="coupon-contents__body">
-									<div data-v-3862357e="" data-v-6ec8e2fd=""
-										class="coupon-contents__discount-value">
-										80 <span data-v-3862357e="" data-v-6ec8e2fd="" class="point">%</span>
-									</div>
-									<div data-v-3862357e="" data-v-6ec8e2fd=""
-										class="coupon-contents__discount-condition">
-										10,000원 이상 구매시 <span data-v-3862357e="" data-v-6ec8e2fd="">
-											(최대 8,000원) </span>
-									</div>
-									<div data-v-3862357e="" data-v-6ec8e2fd=""
-										class="coupon-contents__period">
-										<span data-v-3862357e="" data-v-6ec8e2fd=""> 4일 남음 </span>
-										2021.09.01 ~ 2021.09.14
-									</div>
-									<!---->
-								</div>
-							</div>
-						</div>
-					</div>
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">전화번호</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                <div class="input-text">
+                                                    <input
+                                                        class="readonly"
+                                                        data-address="delivery_phone"
+                                                        name="delivery_phone"
+                                                        value="010-0000-0000"
+                                                        type="text"
+                                                        required
+                                                        autocomplete="off"
+                                                        readonly
+                                                        placeholder="전화번호를 입력해주세요"
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
 
-					<h2 class="title2-style">안내사항</h2>
-					<div class="content-box">
-						<p>
-							‣ 할인쿠폰은 <span class="c-point">배송비를 제외한 작품 금액 기준</span>으로 적용됩니다.
-						</p>
-						<p>
-							‣ 작가님 발행 쿠폰은 <span class="c-point">장바구니에서 작가님 별로 1개의 쿠폰만
-								적용 가능</span>합니다.
-						</p>
-						<p>
-							‣ 아이디어스 쿠폰은 <span class="c-point">주문결제 단계에서 주문 건당 1개의 쿠폰만
-								적용 가능</span>합니다.
-						</p>
-						<p>
-							‣ 쿠폰은 구매하신 작가님 별 <span class="c-point">구매금액 비율로 최종 할인이 적용</span>됩니다.
-						</p>
-					</div>
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">주소</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                        <div class="address-ui root">
+            <div class="address-ui address">
+                <div class="address-ui row">
+                    <div class="input-text address-zip-code">
+                        <input
+                            data-address="delivery_zipcode"
+                            type="text"
+                            name="delivery_zipcode"
+                            value="00000"
+                            placeholder="우편번호"
+                            required
+                            autocomplete="off"
+                            readonly
+                                                            class="readonly"
+                                                    >
+                    </div>
+                    <button
+                                                    style="display: none"
+                                                data-address="open"
+                        class="btn btn-m btn-white"
+                        type="button"
+                    >주소 찾기</button>
 
-					<div data-vue="pagination"></div>
-				</section>
-			</div>
-			<div data-vue="modal-container"></div>
-		</div>
+                    <!-- 다음주소 layer -->
+                    <div
+                        class="daum-post-layer"
+                        style="display:none;position:relative;width:auto;margin-top:10px;overflow:auto;-webkit-overflow-scrolling:touch;"
+                    >
+                        <img
+                            src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
+                            id="btnCloseLayer"
+                            style="cursor:pointer;position:absolute;right:0;top:0;z-index:1"
+                            alt="닫기 버튼"
+                        >
+                    </div>
+                </div>
 
+                <div class="address-ui row">
+                    <div class="input-text address-address">
+                        <input
+                            data-address="delivery_address1"
+                            type="text"
+                            name="delivery_address1"
+                            value="서울 광진구"
+                            placeholder="기본 주소"
+                            required
+                            autocomplete="off"
+                            readonly
+                                                            class="readonly"
+                                                    >
+                    </div>
+                </div>
+                <div class="address-ui row">
+                    <div class="input-text address-address2">
+                        <input
+                            data-address="delivery_address2"
+                            type="text"
+                            name="delivery_address2"
+                            value=""
+                            autocomplete="off"
+                            placeholder="나머지 주소"
+                                                        class="readonly"
+                            readonly
+                                                    >
+                    </div>
+                </div>
 
-		<script>
-    var components = [];
+            </div>
+        </div>
 
-    components.push({
-        selector: '[data-vue="showroom-coupon-btn"]',
-        component: 'ShowroomCouponBtn',
-        props: {
-            showroomCoupons: [],
-            isAskable: false        }
-    });
-    components.push({
-        selector: '[data-vue="coupon-list"]',
-        component: 'CouponList',
-        props: {
-            coupons: [{"coupon_user_id":120274912,"from_date":"2021-09-06","to_date":"2021-09-13","is_valid_period":true,"remaining_text":"3\uc77c \ub0a8\uc74c","id":1869,"type":"ALL","artist_uuid":null,"artist_name":"\uc544\uc774\ub514\uc5b4\uc2a4","artist_image_url":"https:\/\/image.idus.com\/static\/idus_logo_new.png","title":"\uc0dd\uc5d0 \ud55c\ubc88 \uae5c\uc9dd \ud560\uc778\ucfe0\ud3f0","platform":"ALL","discount_type":"AMOUNT","discount_amount":5000,"requirement_amount":30000,"max_discount_amount":5000,"product_uuids":null,"categories":null,"badges":null,"link":null},{"coupon_user_id":116038918,"from_date":"2021-09-01","to_date":"2021-09-14","is_valid_period":true,"remaining_text":"4\uc77c \ub0a8\uc74c","id":262143,"type":"PRODUCT","artist_uuid":null,"artist_name":"\uc544\uc774\ub514\uc5b4\uc2a4","artist_image_url":"https:\/\/image.idus.com\/static\/idus_logo_new.png","title":"9\uc6d4\uc758 \uc2dc\ud06c\ub9bf\ucfe0\ud3f0\ud83d\udc8c 80% \ud560\uc778","platform":"ALL","discount_type":"PERCENTAGE","discount_amount":80,"requirement_amount":10000,"max_discount_amount":8000,"product_uuids":null,"categories":null,"badges":[{"type":"TYPE_PRODUCT","label":"\uc791\ud488"}],"link":null}]        }
-    });
-    vuepack.create(components);
-    vuepack.createNavPagination('[data-vue="pagination"]', {
-        totalSize: 1,
-        current: 1    });
-    vuepack.createModal('[data-vue="modal-container"]', { title: "쿠폰 적용 카테고리", width: 370, component: 'CategoryList' });
+        <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+        <!-- <div
+            id="layer"
+            style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;"
+        > -->
+                                                        <div class="mt10" data-edit-address="done" style="display: none">
+                                                    <button
+                                                        class="btn btn-m btn-white"
+                                                        type="button"
+                                                        data-edit-address-btn="cancel"
+                                                    >취소</button>
+                                                    <button
+                                                        class="btn btn-m btn-point"
+                                                        type="submit"
+                                                        data-edit-address-btn="submit"
+                                                    >저장</button>
+                                                </div>
 
-    (function () {
-        var Logger = vuepack.externals.IdusLog.Logger;
-        var PageName = vuepack.externals.IdusLog.PageName;
-        Logger.sendPageView(PageName.Coupon);
-    })();
-</script>
-		<div data-vue="ToastPopup"></div>
-		<div data-vue="BottomSheet"></div>
-		<div data-vue="WideBottomSheet"></div>
-		<div data-vue="FooterModal"></div>
-		<div data-vue="InactiveToast"></div>
-		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
-			<img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
-		</a>
-		<jsp:include page="footer.jsp"/>
-		<script>
+                                                <div class="mt10" data-edit-address="edit">
+                                                    <button
+                                                        data-edit-address-btn="edit"
+                                                        class="btn btn-m btn-white"
+                                                        type="button"
+                                                    >수정</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+                        <form class="form-address" action="/w/me/address/update" method="post">
+                <input type="hidden" name="address_uuid" value="149ec997-c398-4c66-b57e-14be4960b47e">
+                <div class="section-address">
+                    <table class="table-style-head-top">
+                        <thead>
+                            <tr>
+                                <th>배송지 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="address-info root">
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">받는분</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                <div class="input-text">
+                                                    <input
+                                                        class="readonly"
+                                                        data-address="delivery_name"
+                                                        name="delivery_name"
+                                                        value=""
+                                                        type="text"
+                                                        required
+                                                        autocomplete="off"
+                                                        readonly
+                                                        placeholder="받는분 이름을 입력해주세요."
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">전화번호</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                <div class="input-text">
+                                                    <input
+                                                        class="readonly"
+                                                        data-address="delivery_phone"
+                                                        name="delivery_phone"
+                                                        value=""
+                                                        type="text"
+                                                        required
+                                                        autocomplete="off"
+                                                        readonly
+                                                        placeholder="전화번호를 입력해주세요"
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">주소</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                        <div class="address-ui root">
+            <div class="address-ui address">
+                <div class="address-ui row">
+                    <div class="input-text address-zip-code">
+                        <input
+                            data-address="delivery_zipcode"
+                            type="text"
+                            name="delivery_zipcode"
+                            value=""
+                            placeholder="우편번호"
+                            required
+                            autocomplete="off"
+                            readonly
+                                                            class="readonly"
+                                                    >
+                    </div>
+                    <button
+                                                    style="display: none"
+                                                data-address="open"
+                        class="btn btn-m btn-white"
+                        type="button"
+                    >주소 찾기</button>
+
+                    <!-- 다음주소 layer -->
+                    <div
+                        class="daum-post-layer"
+                        style="display:none;position:relative;width:auto;margin-top:10px;overflow:auto;-webkit-overflow-scrolling:touch;"
+                    >
+                        <img
+                            src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
+                            id="btnCloseLayer"
+                            style="cursor:pointer;position:absolute;right:0;top:0;z-index:1"
+                            alt="닫기 버튼"
+                        >
+                    </div>
+                </div>
+
+                <div class="address-ui row">
+                    <div class="input-text address-address">
+                        <input
+                            data-address="delivery_address1"
+                            type="text"
+                            name="delivery_address1"
+                            value=""
+                            placeholder="기본 주소"
+                            required
+                            autocomplete="off"
+                            readonly
+                                                            class="readonly"
+                                                    >
+                    </div>
+                </div>
+                <div class="address-ui row">
+                    <div class="input-text address-address2">
+                        <input
+                            data-address="delivery_address2"
+                            type="text"
+                            name="delivery_address2"
+                            value=""
+                            autocomplete="off"
+                            placeholder="나머지 주소"
+                                                        class="readonly"
+                            readonly
+                                                    >
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+        <!-- <div
+            id="layer"
+            style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;"
+        > -->
+                                                        <div class="mt10" data-edit-address="done" style="display: none">
+                                                    <button
+                                                        class="btn btn-m btn-white"
+                                                        type="button"
+                                                        data-edit-address-btn="cancel"
+                                                    >취소</button>
+                                                    <button
+                                                        class="btn btn-m btn-point"
+                                                        type="submit"
+                                                        data-edit-address-btn="submit"
+                                                    >저장</button>
+                                                </div>
+
+                                                <div class="mt10" data-edit-address="edit">
+                                                    <button
+                                                        data-edit-address-btn="edit"
+                                                        class="btn btn-m btn-white"
+                                                        type="button"
+                                                    >수정</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+                        <form class="form-address" action="/w/me/address/update" method="post">
+                <input type="hidden" name="address_uuid" value="4b74b41c-870a-4c02-8d93-66bd5566997e">
+                <div class="section-address">
+                    <table class="table-style-head-top">
+                        <thead>
+                            <tr>
+                                <th>배송지 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="address-info root">
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">받는분</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                <div class="input-text">
+                                                    <input
+                                                        class="readonly"
+                                                        data-address="delivery_name"
+                                                        name="delivery_name"
+                                                        value=""
+                                                        type="text"
+                                                        required
+                                                        autocomplete="off"
+                                                        readonly
+                                                        placeholder="받는분 이름을 입력해주세요."
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">전화번호</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                <div class="input-text">
+                                                    <input
+                                                        class="readonly"
+                                                        data-address="delivery_phone"
+                                                        name="delivery_phone"
+                                                        value=""
+                                                        type="text"
+                                                        required
+                                                        autocomplete="off"
+                                                        readonly
+                                                        placeholder="전화번호를 입력해주세요"
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="address-info item">
+                                            <div class="address-info head">
+                                                <em class="asterisk red">∗</em>
+                                                <label for="receiver">주소</label>
+                                            </div>
+                                            <div class="address-info body">
+                                                        <div class="address-ui root">
+            <div class="address-ui address">
+                <div class="address-ui row">
+                    <div class="input-text address-zip-code">
+                        <input
+                            data-address="delivery_zipcode"
+                            type="text"
+                            name="delivery_zipcode"
+                            value=""
+                            placeholder="우편번호"
+                            required
+                            autocomplete="off"
+                            readonly
+                                                            class="readonly"
+                                                    >
+                    </div>
+                    <button
+                                                    style="display: none"
+                                                data-address="open"
+                        class="btn btn-m btn-white"
+                        type="button"
+                    >주소 찾기</button>
+
+                    <!-- 다음주소 layer -->
+                    <div
+                        class="daum-post-layer"
+                        style="display:none;position:relative;width:auto;margin-top:10px;overflow:auto;-webkit-overflow-scrolling:touch;"
+                    >
+                        <img
+                            src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
+                            id="btnCloseLayer"
+                            style="cursor:pointer;position:absolute;right:0;top:0;z-index:1"
+                            alt="닫기 버튼"
+                        >
+                    </div>
+                </div>
+
+                <div class="address-ui row">
+                    <div class="input-text address-address">
+                        <input
+                            data-address="delivery_address1"
+                            type="text"
+                            name="delivery_address1"
+                            value=""
+                            placeholder="기본 주소"
+                            required
+                            autocomplete="off"
+                            readonly
+                                                            class="readonly"
+                                                    >
+                    </div>
+                </div>
+                <div class="address-ui row">
+                    <div class="input-text address-address2">
+                        <input
+                            data-address="delivery_address2"
+                            type="text"
+                            name="delivery_address2"
+                            value=""
+                            autocomplete="off"
+                            placeholder="나머지 주소"
+                                                        class="readonly"
+                            readonly
+                                                    >
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+        <!-- <div
+            id="layer"
+            style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;"
+        > -->
+                                                        <div class="mt10" data-edit-address="done" style="display: none">
+                                                    <button
+                                                        class="btn btn-m btn-white"
+                                                        type="button"
+                                                        data-edit-address-btn="cancel"
+                                                    >취소</button>
+                                                    <button
+                                                        class="btn btn-m btn-point"
+                                                        type="submit"
+                                                        data-edit-address-btn="submit"
+                                                    >저장</button>
+                                                </div>
+
+                                                <div class="mt10" data-edit-address="edit">
+                                                    <button
+                                                        data-edit-address-btn="edit"
+                                                        class="btn btn-m btn-white"
+                                                        type="button"
+                                                    >수정</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+                    </section>
+    </div>
+</div>
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+<div data-vue="ToastPopup"></div>
+<div data-vue="BottomSheet"></div>
+<div data-vue="WideBottomSheet"></div>
+<div data-vue="FooterModal"></div>
+<div data-vue="InactiveToast"></div>
+<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
+    <img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
+</a>
+<jsp:include page="footer.jsp"/>
+
+<script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
     var newWindow = window.open(url,'name','height=450,width=400');
@@ -439,11 +812,10 @@ vuepack.create([
     }
 ]);
 </script>
-	</div>
-	<!-- div WRAP -->
-	<script type="text/javascript"
-		src="/resources/dist/js/idus.web.min.js?__v=1631078629"></script>
-	<script>
+        </div>
+        <!-- div WRAP -->
+                <script type="text/javascript" src="/resources/dist/js/idus.web.min.js?__v=1631078629"></script>
+                        <script>
         (function(){
             var applink = new vuepack.externals.Applink();
             var scheme = applink.locationToAppScheme();
@@ -469,12 +841,12 @@ vuepack.create([
             BPackr.scheme = scheme;
         }());
         </script>
-	<script>
+                <script>
         vuepack.externals.VendorLogger.sendLog([
             {
                 vendorName: 'naver',
             },
         ]);
         </script>
-</body>
+    </body>
 </html>

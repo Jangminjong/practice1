@@ -222,30 +222,31 @@
 		<div id="content" class="content">
 			<div class="inner-w layout-split" data-layout-split="orderlist">
 				<aside class="my-info">
+					<!--메뉴바-->
 					<div class="profile-area">
 						<div class="outline">
 							<label data-profile="image" class="img-bg profile-img"
 								style="background-image: url(https://image.idus.com/image/files/d247655ca3e545e89a48a43aa9318b3f.jpg)">
 								<input data-change-profile="image" type="file" name="image"
 								id="profile-image" class="profile-image-input"
-								accept=".png, .jpg, .jpeg"> <span
-								class="link-style">수정</span> <a href="/w/me/profile/image"
-								data-modal-trigger="modal-link" data-modal-id="modal-profile"
-								class="profile-modal-open" style="visibility: hidden">이미지
-									변경 모달</a>
+								accept=".png, .jpg, .jpeg"> <span class="link-style">수정</span>
+
+								<a href="/w/me/profile/image" data-modal-trigger="modal-link"
+								data-modal-id="modal-profile" class="profile-modal-open"
+								style="visibility: hidden">이미지 변경 모달</a>
 							</label>
 						</div>
 						<div class="area-txt">
-							<a href="/w/me/membership"> <span class="sp-icon grade-01-s"></span>
+							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
 								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">이소희🎗</strong>
+							</a> <strong data-profile="name">OOO</strong>
 						</div>
 					</div>
 
 					<div class="my-point clf">
-						<a href="/w/me/point" class="inner fl"> <span class="label">적립금</span>
+						<a href="mypage_point.do" class="inner fl"> <span class="label">적립금</span>
 							<em>0 P</em>
-						</a> <a href="/w/me/coupon" class="fr"> <span class="label">쿠폰</span>
+						</a> <a href="mypage_coupon.do" class="fr"> <span class="label">쿠폰</span>
 							<em>2</em>
 						</a>
 					</div>
@@ -253,22 +254,22 @@
 					<div class="my-menu">
 						<em>MY MENU</em>
 						<nav>
-							<b><span>주문 배송</span></b> <a href="/w/me/order/payment" class="">주문내역</a>
-							<a href="/w/me/order/cancel" class="">취소/환불내역</a> <b><span>알림
-									및 메시지</span></b> <a href="/w/notification" class="">알림</a> <a
-								href="/w/message" class="">메시지</a> <b><span>나의 구매후기</span></b> <a
-								href="/w/me/review/add" class="">후기 쓰기</a> <a
-								href="/w/me/review/all" class="">내가 쓴 후기</a> <b><span>관심리스트</span></b>
-							<a href="/w/me/favoriteproduct" class="">찜 목록</a> <a
-								href="/w/me/followingartist" class="active">팔로우하는 작가</a> <a
-								href="/w/me/recentproduct" class="">최근 본 작품</a> <b><span>할인혜택</span></b>
-
-							<a href="/w/me/coupon" class="">쿠폰함</a> <a href="/w/me/point"
-								class="">적립금</a> <b><span>내 정보</span></b> <a
-								href="/w/me/membership" class="">회원 등급</a> <a
-								href="/w/me/personal" class="">회원 정보 관리</a> <a
-								href="/w/me/address" class="">주소(배송지) 관리</a> <a href="/w/logout"
-								class="">로그아웃</a>
+							<b> <span>주문 배송</span>
+							</b> <a href="mypage_order_goods.do" class="">주문내역</a> <a
+								href="mypage_order_return.do" class="">취소/환불내역</a> <b> <span>알림
+									및 메시지</span>
+							</b> <a href="alarm.do" class="">알림</a> <a href="message.do"
+								class="">메시지</a> <b> <span>나의 구매후기</span>
+							</b> <a href="mypage_review_before.do" class="">후기 쓰기</a> <a
+								href="mypage_review_after.do" class="">내가 쓴 후기</a> <b> <span>관심리스트</span>
+							</b> <a href="mypage_interest_goods.do" class="">찜 목록</a> <a
+								href="mypage_follow.do" class="">팔로우하는 작가</a> <a
+								href="mypage_recent.do" class="">최근 본 작품</a> <b> <span>할인혜택</span>
+							</b> <a href="mypage_coupon.do" class="">쿠폰함</a> <a href="mypage_point.do"
+								class="">적립금</a> <b> <span>내 정보</span>
+							</b> <a href="mypage_level.do" class="">회원 등급</a> <a
+								href="mypage_info.do" class="">회원 정보 관리</a> <a
+								href="mypage_address.do" class="">주소(배송지) 관리</a>
 						</nav>
 					</div>
 				</aside>
