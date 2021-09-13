@@ -31,7 +31,7 @@ input[type="hidden" i] {
     border: initial;
 }
 
-/* ìƒë‹¨ ë°” */
+/* »ó´Ü ¹Ù */
 
 header#header.header .top-navigation.inner-w, 
 header#header.header .top-navigation .inner-w400, 
@@ -68,13 +68,8 @@ header#header.header .top-navigation .inner-w800 {
 }
 
 .inner-w .fr{
-    margin-left: 70%;
+    margin-left: 65%;
 }
-
-.inner-w .fr a{
-    margin-left: 5px;
-}
-
 
 .clf .fr, 
 [data-page=couponlist].coupon-item-list .fr, 
@@ -89,7 +84,7 @@ header#header.header .top-navigation .inner-w800 {
     clear: both;
 }
 
-/* ë¡œê·¸ì¸ ì‚¬ìš©ì ì •ë³´ ì €ì¥*/
+/* ·Î±×ÀÎ »ç¿ëÀÚ Á¤º¸ ÀúÀå*/
 
 input {
     background: #fff;
@@ -115,9 +110,6 @@ header#header .header .top-navigation .nav-btn {
     
 }
 
-.nav-btn {
-    margin-right: 10px;
-}
 
 .ui-dropdown {
     display: inline-block;
@@ -183,7 +175,7 @@ button {
 }
 
 .ui-dropdown .menu-dropdown {
-    /* display: none; */
+    display: none;
     position: absolute;
     width: auto;
     margin-top: 3px;
@@ -290,7 +282,7 @@ button {
 }
 
 #mCSB_1_scrollbar_vertical{
-    /* display: none; */
+    display: none;
 }
 
 .mCSB_outside+.mCS-minimal-dark.mCSB_scrollTools_vertical,
@@ -395,7 +387,7 @@ button {
     text-align: center;
 }
 
-/* ì•Œë¦¼ í…ŒìŠ¤íŠ¸ */
+/* ¾Ë¸² Å×½ºÆ® */
 .alarm-test{
     height: 100px;
     width: 100%;
@@ -403,7 +395,7 @@ button {
 }
 
 
-/* ë©”ì¸ */
+/* ¸ŞÀÎ */
 
 .bg-wrapper {
     padding: 8px 0 4px;
@@ -427,7 +419,7 @@ button {
     padding: 0 27px;
     vertical-align: middle;
     margin-top: -8px;
-    margin-right: -40px;
+    margin-left: 80px;
     
 }
 
@@ -616,7 +608,7 @@ header#header.header .gnb-scroll {
 .bubble-speech{
     position: absolute;
     width:17%;
-    right:65.3%;
+    right:62%;
     z-index: 110;
     animation: eduon-tooltip-move 2.6s infinite;
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -701,13 +693,8 @@ header#header.header .gnb-scroll {
     color:#ff7b30;
 }
 
-/* í˜ì´ì§€ë³„ë¡œ ì ìš©í•´ì•¼ë¨ */
-.ui_gnb__menu{
-    border-bottom: 2px solid #ff7b30;
-}
-
 .ui_gnb__submenu {
-    /* display: none; */
+    display: none;
     position: absolute;
     width: 450px;
     min-height: 100px;
