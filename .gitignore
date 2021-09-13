@@ -15,7 +15,7 @@ local.properties
 .loadpath
 .recommenders
 pom.properties
-server/
+Servers/
 MANIFEST.MF
 .classpath
 .project
