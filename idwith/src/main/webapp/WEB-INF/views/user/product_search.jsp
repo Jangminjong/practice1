@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="resources/css/search.css" />
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/idus.web.min.js"></script>
+<script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
+<script type="text/javascript" src="resources/js/vuepack.js"></script>
 
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="naver-site-verification"
@@ -271,7 +275,7 @@
 							<div data-v-974e102a="" class="KeywordSuggestion__suggestion">
 								<a data-v-343e6b1c="" data-v-974e102a=""
 									href="/search?word=%EC%B6%94%EC%84%9D%EC%84%A0%EB%AC%BC%EC%84%B8%ED%8A%B8&amp;keyword_channel=relate"
-									class="RelatedKeywordList__keyword"> 추석선물세트 </a><a
+									class="RelatedKeywordList__keyword"> 뭘까용? </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
 									href="/search?word=%EC%96%B4%EB%A6%B0%EC%9D%B4%EC%A7%91%20%EC%B6%94%EC%84%9D%EC%84%A0%EB%AC%BC&amp;keyword_channel=relate"
 									class="RelatedKeywordList__keyword"> 어린이집 추석선물 </a><a
@@ -304,10 +308,10 @@
 					</div>
 					<!---->
 					<nav data-v-52b422fc="" class="ui_tab_group">
-						<span href="/search?word=추석선물&amp;keyword_channel=placeholder"
+						<span href="product_search.jsp"
 							class="ui_tab_group__tab active"><span class="txt-desktop"><em>"추석선물"</em>
 								에 대한 작품 검색결과 </span> </span> <a
-							href="/c/search?word=추석선물&amp;keyword_channel=placeholder"
+							href="class_search.jsp"
 							class="ui_tab_group__tab"><span class="txt-desktop"><em>"추석선물"</em>
 								에 대한 클래스 검색결과 </span></a>
 					</nav>
@@ -7153,12 +7157,10 @@ vuepack.create([
 	<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="" style="display: flex;"> 
 			<img src="resources/images/common/go-to-top-image.png" alt="go to top">
 		</a>
-		<%-- <jsp:include page="footer.jsp" /> --%>
+		<jsp:include page="footer.jsp" />
 		
 	</div>
 	<!-- div WRAP -->
-	<script type="text/javascript"
-		src="/resources/dist/js/idus.web.min.js?__v=1631078629"></script>
 	<script>
         (function(){
             var applink = new vuepack.externals.Applink();

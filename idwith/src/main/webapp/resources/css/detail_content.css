@@ -1,3 +1,5 @@
+@import url(common.css);
+
 /* °øÅë */
 .inner-w, .inner-w400, .inner-w800 {
     width: 1056px;
@@ -398,7 +400,7 @@ label {
 }
 
 .sticky_aside[data-state="fixed"] {
-    position: fixed;
+    /*position: fixed;*/
     left: 50%;
     margin-left: 55px;
     top: 10px;
@@ -2181,7 +2183,7 @@ nav button i[data-v-450a0b42] {
 }
 
 .layout-split {
-    padding-top: 36px;
+    /*padding-top: 36px;*/
     position: relative;
 }
 
@@ -2742,4 +2744,211 @@ button i[data-v-b534333e] {
 .to-top img {
     width: 36px;
     height: 36px;
+}
+
+/* class */
+.ui_btn--red--large {
+    font-size: 16px;
+    padding: 0 24px;
+    line-height: 46px;
+    border-color: transparent;
+    background: #ff7b30;
+    color: #fff;
+}
+
+.vue-curtain[data-v-29616b27] {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+	background: rgba(0,0,0,0.48);
+    z-index: 1000;
+}
+
+.ui_modal[data-v-29616b27] {
+    width: 720px !important;
+    margin-left: -360px !important;
+    top: 45%;
+    margin-top: -260px;
+    background: #ffffff;
+}
+
+.ui_modal.ui_modal, .ui_prompt.ui_modal {
+    border-radius: 0;
+    width: 380px;
+    margin-left: -190px;
+}
+
+.ui_modal, .ui_prompt {
+    box-sizing: border-box;
+    z-index: 1000;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    width: 320px;
+    margin-left: -160px;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fafafa;
+    box-shadow: 0 7px 8px -4px rgb(0 0 0 / 20%), 0 5px 22px 4px rgb(0 0 0 / 12%), 0 12px 17px 2px rgb(0 0 0 / 14%);
+}
+
+.ui_modal__crossbtn[data-v-29616b27] {
+    color: #333333;
+}
+
+.ui_modal__crossbtn, .ui_prompt__crossbtn {
+    color: #333;
+    z-index: 100;
+}
+
+.ui_modal__crossbtn, .ui_prompt__crossbtn {
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: #ff7b30;
+    border: 0;
+    font-size: 30px;
+    padding: 0 10px;
+}
+
+.ui_modal .ui_modal__title, .ui_modal .ui_prompt__title {
+    margin: 0;
+    padding-top: 0;
+    border-bottom: 1px solid #555;
+}
+
+.ui_modal__title, .ui_prompt__title {
+    display: inline-block;
+    width: 100%;
+    font-weight: 700;
+    margin-top: 12px;
+    padding-bottom: 4px;
+    color: #333;
+}
+
+.fluid[data-v-29616b27] {
+    margin-top: 20px;
+}
+
+.ui_modal>:last-child, .ui_prompt>:last-child {
+    margin-bottom: 0;
+}
+
+.c-pane-container[data-v-bc55024c] {
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #393d46;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+.fluid > *[data-v-29616b27] {
+    float: left;
+    width: 50%;
+}
+
+.c-pane-container[data-v-29616b27] {
+    border: 0 none !important;
+    background: #ffffff !important;
+}
+
+.c-pane-container[data-v-bc55024c] * {
+    box-sizing: inherit;
+}
+
+.c-pane[data-v-2083cb72] {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+.c-header[data-v-2083cb72] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 10px;
+}
+
+.c-header .c-arrow-layout .c-arrow[data-v-2083cb72], .c-header .c-arrow-layout[data-v-2083cb72] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.c-header .c-arrow-layout[data-v-2083cb72] {
+    min-width: 26px;
+}
+
+.c-header .c-arrow-layout .c-arrow[data-v-2083cb72] {
+    font-size: 1.6rem;
+    transition: fill-opacity .3s ease-in-out;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.c-header .c-title-layout[data-v-2083cb72] {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.banner-artist {
+    vertical-align: middle;
+    padding: 64px 0;
+    margin-top: 48px;
 }

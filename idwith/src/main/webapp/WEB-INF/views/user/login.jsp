@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
@@ -17,7 +15,15 @@
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
 <title>아이디어스 | 로그인</title>
 <meta name="theme-color" content="#ffffff" />
+
+
 <link rel="stylesheet" href="resources/css/login.css" />
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+</head>
+
+
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
 <link rel="apple-touch-icon" sizes="256x256"
@@ -290,7 +296,7 @@
 							data-v-0eb5c308="" class="sp-icon icon-kakaotalk"></span> 카카오로
 							3초만에 시작하기 </a> <a data-v-0eb5c308="" idus-log-selector="third_party"
 							idus-log="email"
-							href="/w/join/signup?redirect_uri=https://www.idus.com/w/product/d1e300b8-c0c7-48bd-803f-dfed5543954a?keyword_channel=user&amp;search_word=맛있는 깐밤"
+							href="sing.jsp"
 							class="bar_button email">이메일로 가입하기</a>
 					</div>
 					<div data-v-38bd83a8="" data-v-668c286c=""

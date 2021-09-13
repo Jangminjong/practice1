@@ -16,6 +16,20 @@
 <title>[맛있는 깐 밤 500g ] *정직한농장 농가직송* | 아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="stylesheet" href="resources/css/detail_content.css" />
+<link rel="stylesheet" href="resources/css/vendor.client.min.css" />
+<link rel="stylesheet" href="resources/css/idus.web.min.css" />
+<link rel="stylesheet" href="resources/css/sp-icon.css" />
+
+<script type="text/javascript" src="resources/js/detail_content.js"></script>
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/idus.web.min.js"></script>
+<script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
+<script type="text/javascript" src="resources/js/vuepack.js"></script>
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+	crossorigin="anonymous">
 
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
@@ -130,12 +144,6 @@
 						'font-size: 10px; color: #515151;');
 	}
 </script>
-<link rel="stylesheet"
-	href="/resources/dist/css/idus.web.min.css?__v=1630657354">
-<link rel="stylesheet"
-	href="/resources/dist/css/vendor.client.min.css?__v=1630657354">
-<script src="/resources/dist/js/vendor.client.min.js?__v=1630657354"></script>
-<script src="/resources/dist/js/vuepack.js?__v=1630657354"></script>
 
 <link rel="stylesheet"
 	href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
@@ -267,6 +275,7 @@
 
 	<div class="wrap">
 		<!-- 로딩 중 화면 -->
+		
 		<div class="dimmed-background"></div>
 
 		<div id="content" class="content relative" data-page="prd-detail">
@@ -613,148 +622,7 @@
 
 						<!-- 작품 옵션 선택 -->
 						<div data-vue="CheckoutProduct"></div>
-						<div data-v-1c074f7f="">
-							<div data-v-1c074f7f="" class="vue-curtain"></div>
-							<form data-v-1c074f7f="" id="buyScrollable"
-								class="checkout_product Scrollable">
-								<div data-v-1c074f7f="" class="mobile-layer">
-									<button data-v-1c074f7f="" type="button"
-										class="mobile-show mobile-ui-close">
-										<i data-v-1c074f7f="" class="idus-icon-arrow-down"></i>
-									</button>
-									<button data-v-1c074f7f="" type="button"
-										class="ui_btn select_group_trigger">
-										옵션 선택 <i data-v-1c074f7f="" class="idus-icon-arrow-down"></i>
-									</button>
-									<div data-v-1c074f7f="" id="optionScrollable"
-										class="select_group Scrollable" style="display: none;">
-										<div data-v-1c074f7f="" class="select_group__header">
-											<span data-v-1c074f7f="" class="select_group__title">전체
-												옵션 1개 중 0개 선택</span>
-											<button data-v-1c074f7f="" type="button">
-												<i data-v-1c074f7f="" class="idus-icon-close"></i>
-											</button>
-										</div>
-										<div data-v-1c074f7f="" class="select_group__body">
-											<!---->
-											<ol data-v-1c074f7f=""
-												class="select_group__parent_list active">
-												<li data-v-1c074f7f=""><span data-v-1c074f7f="">1.
-														깐밤,은행</span> <span data-v-1c074f7f="" class="align_right">
-
-												</span> <i data-v-1c074f7f="" class="icon idus-icon-arrow up"></i></li>
-												<div data-v-1c074f7f="" class="bottom-border full"></div>
-												<ul data-v-1c074f7f=""
-													class="select_group__child_list active">
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">깐밤
-															500g</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">깐밤
-															1kg</span> <span data-v-1c074f7f="">(+12,000원)</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">깐은행
-															500g</span> <span data-v-1c074f7f="">(-4,000원)</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">깐은행
-															1kg</span> <span data-v-1c074f7f="">(+3,500원)</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">황률
-															(건조밤) 500g</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">황률
-															(건조밤) 1kg</span> <span data-v-1c074f7f="">(+13,900원)</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">피은행
-															500g</span> <span data-v-1c074f7f="">(-6,500원)</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">피은행
-															1kg</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">조각밤
-															(中,小)</span> <span data-v-1c074f7f="">(+4,900원)</span></li>
-												</ul>
-											</ol>
-										</div>
-										<button data-v-1c074f7f="" type="button"
-											class="ui_btn--large select_group__close">옵션 선택 닫기</button>
-									</div>
-									<div data-v-1c074f7f="" class="selected_options">
-										<!---->
-										<div data-v-5612de30="" data-v-1c074f7f="" class="option_card">
-											<p data-v-5612de30="">깐밤,은행: 깐밤 500g</p>
-											<div data-v-5612de30="" class="option_card__aligner">
-												<div data-v-5612de30="" class="option_card__counter">
-													<button data-v-5612de30="" type="button"
-														class="ui_btn--mini">-</button>
-													<input data-v-5612de30="" type="number" min="1" max="999"
-														name="count">
-													<button data-v-5612de30="" type="button"
-														class="ui_btn--mini">+</button>
-												</div>
-												<div data-v-5612de30="">
-													<span data-v-5612de30=""><b data-v-5612de30="">13,900</b>원</span>
-													<button data-v-5612de30="" type="button"
-														class="ui_btn--mini option_card__close">
-														<i data-v-5612de30="" class="idus-icon-close"></i>
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<dl data-v-1c074f7f="" class="checkout_product__cost_label">
-
-										<!-- mobile 
-										<span data-v-1c074f7f=""><span data-v-1c074f7f="">
-												배송비 <b data-v-1c074f7f="">2,900원</b>
-										</span> <span data-v-1c074f7f="" class="subtitle">(50,000원 이상
-												구매 시 무료배송)</span></span>-->
-
-										<span data-v-1c074f7f=""><span data-v-1c074f7f=""
-											class="subtitle">총 작품금액</span> 13900원 </span>
-									</dl>
-								</div>
-								<fieldset data-v-1c074f7f=""
-									class="checkout_product__btn_group show1">
-									<!---->
-									<button data-v-1c074f7f="" type="submit" data-to="cart"
-										class="ui_btn cart">장바구니</button>
-									<button data-v-1c074f7f="" type="submit" data-to="payment"
-										data-pay-type="npay" class="ui_btn npay">
-										<img data-v-1c074f7f="" src="resources/images/detail/npay.svg"
-											alt="N Pay">
-									</button>
-									<!-- <button data-v-1c074f7f="" type="submit" data-to="payment"
-										data-pay-type="npay" class="ui_btn npay_sub">
-										<img data-v-1c074f7f="" src="/resources/dist/images/npay.svg"
-											alt="N Pay"> 구매
-									</button>-->
-									<button data-v-1c074f7f="" type="submit" data-to="payment"
-										class="ui_btn--red buy">구매하기</button>
-									<button data-v-1c074f7f="" type="submit" data-to="present"
-										data-pay-type="present" class="ui_btn--redline present">
-										<div data-v-1c074f7f="" class="inner">
-											<i data-v-1c074f7f="" class="idus-icon-gift"></i>
-											<div data-v-1c074f7f="" class="btn_txt">선물하기</div>
-										</div>
-									</button>
-									<!--  <button data-v-1c074f7f="" type="submit" data-to="present"
-										data-pay-type="present" class="ui_btn--red present_sub">
-										선물하기</button>-->
-								</fieldset>
-								<div data-v-1c074f7f="" class="">
-									<div data-v-895af704="" data-v-1c074f7f=""
-										class="tooltip 
-    with-close" style="display: none;">
-										<span data-v-1c074f7f="" data-v-895af704="">전화번호만 알아도
-											선물할 수 있어요!</span> <span data-v-895af704="" class="close-btn"><i
-											data-v-895af704="" class="idus-icon-close"></i></span>
-										<div data-v-895af704="" class="triangle top end">
-											<div data-v-895af704="" class="before"></div>
-											<div data-v-895af704="" class="after"></div>
-										</div>
-									</div>
-								</div>
-								<div data-v-1c074f7f="" class="alertmsg">
-									<span data-v-1c074f7f="" class="close-btn"><i
-										data-v-1c074f7f="" class="idus-icon-close"></i></span>
-									<p data-v-1c074f7f="">장바구니에 작품이 담겼습니다.</p>
-									<a data-v-1c074f7f="" href="/w/cart"
-										class="btn btn-s btn-point">장바구니 가기</a>
-								</div>
-							</form>
-						</div>
+						
 
 
 					</div>
@@ -1297,184 +1165,13 @@
 					</div>
 					<!-- QuickProfileContainer -->
 					<div data-vue="QuickProfileContainer"></div>
-					<section data-v-2618eab2="" class="quick-profile"
-						style="border-left: 1px solid rgb(217, 217, 217); width: 480px; padding: 40px 24px 32px; margin: 39px 0px 0px 16px;">
-						<div data-v-2618eab2="" class="profile-area">
-							<a data-v-2618eab2=""
-								href="/w/artist/aaa2fe88-9572-46b6-8f4e-df8d5f91610d/product"
-								target="_blank:"
-								style="width: 68px; height: 68px; margin-right: 22px; position: relative;"><img
-								data-v-2618eab2=""
-								src="resources/images/detail/artist01.PNG"
-								alt="artist thumbnail" class="artist-thumbnail"> <!----></a>
-							<div data-v-2618eab2="" class="artist-info">
-								<div data-v-2618eab2="" class="artist-info__head">
-									<div data-v-2618eab2="">
-										<a data-v-2618eab2=""
-											href="/w/artist/aaa2fe88-9572-46b6-8f4e-df8d5f91610d/product"
-											target="_blank"><p data-v-2618eab2=""
-												class="artist-info__name">
-												충남부여 달하산농장 <i data-v-2618eab2=""
-													class="idus-icon-arrow right"></i>
-											</p></a>
-										<div data-v-2618eab2="" class="artist-info__rate">
-											<span data-v-ef94db98="" data-v-2618eab2="" data-value="4.66"
-												class="ui_rating fr"><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i></span> <span data-v-2618eab2="">
-												4.66 </span> <span data-v-2618eab2=""> (52) </span>
-										</div>
-									</div>
-									<!---->
-								</div>
-								<div data-v-2618eab2="" class="artist-info__statistics">
-									<div data-v-2618eab2="" class="data-area">
-										<p data-v-2618eab2="" class="title">작품 찜</p>
-										<span data-v-2618eab2="" class="data"> 538 </span>
-									</div>
-									<div data-v-2618eab2="" class="data-area">
-										<p data-v-2618eab2="" class="title">팔로워</p>
-										<span data-v-2618eab2="" class="data"> 61 </span>
-									</div>
-									<div data-v-2618eab2="" class="data-area">
-										<p data-v-2618eab2="" class="title">후원해주신 분들</p>
-										<span data-v-2618eab2="" class="data"> 26 </span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div data-v-2618eab2="" class="profile-contents"
-							style="margin-left: 0px;">
-							<div data-v-2618eab2="" class="introduce-area">
-								<p data-v-2618eab2="" class="introduce-txt">충남부여 월하산자락에 위치한
-									저희 농장은 정성껏 재배한 유기농 쌀, 찹쌀,현미,찰흑미깐밤,밤, 은행, 깐은행 등을 고객님들께 직접 보내드리고
-									있습니다.</p>
-								<i data-v-2618eab2="" class="idus-icon-arrow toggle-btn down"></i>
-							</div>
-							<div data-v-2618eab2="" class="btn-group">
-								<button data-v-b534333e="" data-v-2618eab2="" type="button"
-									class="follow"
-									style="background-color: rgb(255, 123, 48); min-width: 50%; width: 50%; height: 36px; font-size: 14px; color: rgb(255, 255, 255); border: 1px solid rgb(255, 123, 48); border-radius: 4px;">
-									<i data-v-b534333e="" class="idus-icon-plus"
-										style="font-size: 16px;"></i> 팔로우
-								</button>
-								<!---->
-								<!---->
-								<a data-v-2618eab2=""
-									href="/w/artist/aaa2fe88-9572-46b6-8f4e-df8d5f91610d/story"
-									target="_blank" class="story"> 스토리 보기 </a>
-								<!---->
-							</div>
-							<!---->
-						</div>
-						<!--
-						<div data-v-2618eab2="" data-modal-root=""
-							data-modal-id="support-artist" class="modal root"
-							style="display: none;">
-							<div data-v-2618eab2="" data-modal-overlay=""
-								class="modal overlay"></div>
-							<div data-v-2618eab2=""
-								class="modal wrap modal-m donation_content_modal">
-								<div data-v-2618eab2="" class="modal head">
-									<h1 data-v-2618eab2="">후원하기</h1>
-									<div data-v-2618eab2="" data-modal="close" class="modal close"></div>
-								</div>
-								<section data-v-2618eab2="" class="modal body">
-									<form data-v-2618eab2="" data-ui="form-support"
-										action="/support/payment" class="inner">
-										<fieldset data-v-2618eab2="" class="donation_content bg">
-											<label data-v-2618eab2="" class="flex-span space-between"><div
-													data-v-2618eab2="" class="flex-span">
-													<input data-v-2618eab2="" type="radio" name="support"
-														value="1000" checked="checked" class="idus-icon-radio">
-													<p data-v-2618eab2="" class="flex-span"
-														style="margin-left: 13px;">
-														<i data-v-2618eab2=""
-															class="donation_icon idus-icon-donation-01"></i>시원한 캔음료
-													</p>
-												</div>
-												<p data-v-2618eab2="">1,000원</p></label> <label data-v-2618eab2=""
-												class="flex-span space-between"><div
-													data-v-2618eab2="" class="flex-span">
-													<input data-v-2618eab2="" type="radio" name="support"
-														value="3000" class="idus-icon-radio">
-													<p data-v-2618eab2="" class="flex-span"
-														style="margin-left: 13px;">
-														<i data-v-2618eab2=""
-															class="donation_icon idus-icon-donation-02"></i>따뜻한 커피
-													</p>
-												</div>
-												<p data-v-2618eab2="">3,000원</p></label> <label data-v-2618eab2=""
-												class="flex-span space-between"><div
-													data-v-2618eab2="" class="flex-span">
-													<input data-v-2618eab2="" type="radio" name="support"
-														value="5000" class="idus-icon-radio">
-													<p data-v-2618eab2="" class="flex-span"
-														style="margin-left: 13px;">
-														<i data-v-2618eab2=""
-															class="donation_icon idus-icon-donation-03"></i>달콤한 디저트
-													</p>
-												</div>
-												<p data-v-2618eab2="">5,000원</p></label> <label data-v-2618eab2=""
-												class="flex-span space-between"><div
-													data-v-2618eab2="" class="flex-span">
-													<input data-v-2618eab2="" type="radio" name="support"
-														value="10000" class="idus-icon-radio">
-													<p data-v-2618eab2="" class="flex-span"
-														style="margin-left: 13px;">
-														<i data-v-2618eab2=""
-															class="donation_icon idus-icon-donation-04"></i>든든한 식사
-													</p>
-												</div>
-												<p data-v-2618eab2="">10,000원</p></label>
-										</fieldset>
-										<div data-v-2618eab2=""
-											class="donation_content_bottom flex-span">
-											<legend data-v-2618eab2="" class="donation_content_color">
-												결제방법 </legend>
-											<label data-v-2618eab2="" style="margin-left: 16px;"><input
-												data-v-2618eab2="" type="radio" name="payment_type"
-												value="CARD" checked="checked" class="idus-icon-radio">
-												<span data-v-2618eab2="" class="donation_content_color"
-												style="padding-left: 2px;">신용카드</span></label> <label
-												data-v-2618eab2="" style="margin-left: 16px;"><input
-												data-v-2618eab2="" type="radio" name="payment_type"
-												value="CELLPHONE" class="idus-icon-radio"> <span
-												data-v-2618eab2="" class="donation_content_color"
-												style="padding-left: 2px;">휴대폰</span></label>
-										</div>
-										<input data-v-2618eab2="" type="hidden" name="artist_uuid"
-											value="aaa2fe88-9572-46b6-8f4e-df8d5f91610d"> <input
-											data-v-2618eab2="" type="hidden" name="call_uri"
-											value="https://www.idus.com/w/product/d1e300b8-c0c7-48bd-803f-dfed5543954a?keyword_channel=user&amp;search_word=%EB%A7%9B%EC%9E%88%EB%8A%94%20%EA%B9%90%EB%B0%A4#prd-review">
-										<div data-v-2618eab2="" class="btn-center">
-											<button data-v-2618eab2="" type="submit"
-												class="btn btn-s btn-point">후원하기</button>
-										</div>
-									</form>
-								</section>
-							</div>
-						</div>-->
-					</section>
+					
 				</div>
 			</div>
 
-			<section class="inner-w prd-recommendation-section">
+			<!--  <section class="inner-w prd-recommendation-section">
 				<div data-vue="DetailRelatedProductSection"></div>
-			</section>
+			</section>-->
 
 			<section class="inner-w popular-products prd-recommendation-section"
 				title="category-list">
@@ -3623,7 +3320,7 @@
 		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="" style="display: flex;"> 
 			<img src="resources/images/common/go-to-top-image.png" alt="go to top">
 		</a>
-		<%-- <jsp:include page="footer.jsp" /> --%>
+		<jsp:include page="footer.jsp" />
 		
 	</div>
 	<!-- div WRAP -->
