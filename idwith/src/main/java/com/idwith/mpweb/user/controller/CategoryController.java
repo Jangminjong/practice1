@@ -9,4 +9,14 @@ public class CategoryController {
 	public String story() {
 		return "story";
 	}
+	
+	@GetMapping("/goods_category.do")
+	public String GoodsCategory() {
+		return "goods_category";
+	}
+	
+	@GetMapping("/goods_popular.do")
+	public String GoodsPopular() {
+		return "goods_popular";
+	}
 }

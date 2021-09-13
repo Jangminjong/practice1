@@ -108,12 +108,9 @@
 						'font-size: 10px; color: #515151;');
 	}
 </script>
-<link rel="stylesheet"
-	href="/resources/dist/css/idus.web.min.css?__v=1631255393">
-<link rel="stylesheet"
-	href="/resources/dist/css/vendor.client.min.css?__v=1631255393">
-<script src="/resources/dist/js/vendor.client.min.js?__v=1631255393"></script>
-<script src="/resources/dist/js/vuepack.js?__v=1631255393"></script>
+<link rel="stylesheet" href="resources/css/idus.web.min.css">
+<link rel="stylesheet" href="resources/css/vendor.client.min.css">
+<link rel="stylesheet" href="resources/css/cart.css">
 
 <link rel="stylesheet"
 	href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">

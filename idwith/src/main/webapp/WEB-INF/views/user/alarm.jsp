@@ -17,7 +17,7 @@
 <title>아이디어스 | 알림</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
-	href="/resources/images/icon_300.png">
+	href="resources/images/icon_300.png">
 <link rel="manifest" href="/manifest.json">
 <script>
 	if ('serviceWorker' in navigator) {

@@ -25,7 +25,7 @@
 			<div class="download-ribbon top" style="background-color: #ff7b30"
 				data-download="root" data-download-type="isRibbon">
 				<div class="inner-w">
-					<a href="/w/join" class="download-ribbon-inner"> <img
+					<a href="sign.do" class="download-ribbon-inner"> <img
 						class="pc-img"
 						src="https://image.idus.com/static/signup/web_benefit_banner.png">
 					</a>
@@ -92,8 +92,8 @@
 							</div>
 						</div>
 
-						<a href="#" class="nav-btn" data-log-object="member__notice">공지사항</a>
-						<a href="#" class="nav-btn" data-log-object="member_qna">1:1문의</a>
+						<a href="board.do" class="nav-btn" data-log-object="member__notice">공지사항</a>
+						<a href="board.do" class="nav-btn" data-log-object="member_qna">1:1문의</a>
 
 						<!-- <div class="nav-btn ui-dropdown">
                                     <button type="button" class="btn-dropdown">고객센터</button>
@@ -138,7 +138,7 @@
 
 					<nav class="profile-links">
 						<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i> 내 정보
-						</a> <a id="my-cart-button" href="/w/cart" class="btn"> <span
+						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
 							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
 							장바구니
 						</a>
@@ -160,119 +160,109 @@
 				data-state="static">
 				<div class="inner-w container_gnb" data-ui="gnb">
 					<ul class="ui_gnb" data-state="" data-type="">
-						<li class="ui_gnb__menu class-category"><span>카테고리</span>
+						<li class="ui_gnb__menu class-category">
+							<span>카테고리</span>
 							<div class="ui_gnb__submenu" style="width: 450px;">
 								<ul style="width: 50%">
 									<li><a
-										href="/w/main/category/5c6bc7d4-7760-4702-b63f-7f29eca479e3"
+										href="category_goods.do"
 										data-log-label="product_category"
-										data-log-object="5c6bc7d4-7760-4702-b63f-7f29eca479e3">디저트,
-											베이커리, 떡</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="5c6bc7d4-7760-4702-b63f-7f29eca479e3">디저트</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/613ac4c3-df73-4a0f-b3dd-362849dabb2a"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="613ac4c3-df73-4a0f-b3dd-362849dabb2a">음료
-											(커피, 차 등)</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="613ac4c3-df73-4a0f-b3dd-362849dabb2a">그 외 먹거리</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/fa340e0b-f4b1-4aba-8d9c-a29086d5a8a4"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="fa340e0b-f4b1-4aba-8d9c-a29086d5a8a4">전통주</a>
+										data-log-object="fa340e0b-f4b1-4aba-8d9c-a29086d5a8a4">의류</a>
 										<i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/b3f853b9-333d-4eec-ad04-e4604d9d501b"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="b3f853b9-333d-4eec-ad04-e4604d9d501b">수제
-											반찬</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="b3f853b9-333d-4eec-ad04-e4604d9d501b">지갑</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/8daa0fc3-d370-46c5-a58b-9a0c71a6ae08"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="8daa0fc3-d370-46c5-a58b-9a0c71a6ae08">그 외
-											수제먹거리</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="8daa0fc3-d370-46c5-a58b-9a0c71a6ae08">가방, 파우치</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/4a8cbc36-3af8-4b75-af01-8795782df80d"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="4a8cbc36-3af8-4b75-af01-8795782df80d">농축수산물</a>
+										data-log-object="4a8cbc36-3af8-4b75-af01-8795782df80d">시계</a>
 										<i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/d9e8a56d-ae4c-4020-b043-9417fe26fbec"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="d9e8a56d-ae4c-4020-b043-9417fe26fbec">의류,
-											홈웨어</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="d9e8a56d-ae4c-4020-b043-9417fe26fbec">수제화</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/1616d42d-ea77-11e4-88d5-06530c0000b4"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="1616d42d-ea77-11e4-88d5-06530c0000b4">패션잡화</a>
+										data-log-object="1616d42d-ea77-11e4-88d5-06530c0000b4">육아, 아동</a>
 										<i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/a9970f75-ea75-11e4-8a46-06fd000000c2"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="a9970f75-ea75-11e4-8a46-06fd000000c2">지갑
-											(지폐,카드,동전,명함)</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="a9970f75-ea75-11e4-8a46-06fd000000c2">액세서리</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/bc5f4be5-c6bc-11e3-8b03-06fd000000c2"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="bc5f4be5-c6bc-11e3-8b03-06fd000000c2">가방,
-											파우치</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="bc5f4be5-c6bc-11e3-8b03-06fd000000c2">꽃</a> <i class="fas fa-chevron-right"></i></li>
 								</ul>
 								<ul style="width: 50%;">
 									<li><a
-										href="/w/main/category/bc6a17ba-ea75-11e4-8878-06a6fa0000b9"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="bc6a17ba-ea75-11e4-8878-06a6fa0000b9">시계</a>
+										data-log-object="bc6a17ba-ea75-11e4-8878-06a6fa0000b9">캔들, 디퓨저, 방향제</a>
 										<i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/8b4bf95d-c6bc-11e3-8577-06f4fe0000b5"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="8b4bf95d-c6bc-11e3-8577-06f4fe0000b5">섬유,
-											퀼트</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="8b4bf95d-c6bc-11e3-8577-06f4fe0000b5">인테리어 소품</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/1fc3c71a-88d6-4333-a09e-178e85bb742f"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="1fc3c71a-88d6-4333-a09e-178e85bb742f">남성
-											수제화</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="1fc3c71a-88d6-4333-a09e-178e85bb742f">주방, 생활</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/65477a55-7f4f-4a0f-9b05-dcaa271a8385"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="65477a55-7f4f-4a0f-9b05-dcaa271a8385">여성
-											수제화</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="65477a55-7f4f-4a0f-9b05-dcaa271a8385">가구</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/0556009b-f9c6-11e3-8363-06fd000000c2"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="0556009b-f9c6-11e3-8363-06fd000000c2">육아,
-											아동</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="0556009b-f9c6-11e3-8363-06fd000000c2">반려동물 용품</a> <i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/387867a4-0da4-11e4-873e-06f4fe0000b5"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="387867a4-0da4-11e4-873e-06f4fe0000b5">반지</a>
+										data-log-object="387867a4-0da4-11e4-873e-06f4fe0000b5">공예</a>
 										<i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/ac599662-0cdf-11e4-85f1-06fd000000c2"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="ac599662-0cdf-11e4-85f1-06fd000000c2">귀걸이</a>
+										data-log-object="ac599662-0cdf-11e4-85f1-06fd000000c2">전자기기 관련</a>
 										<i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/aef50134-0cdf-11e4-8182-06530c0000b4"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="aef50134-0cdf-11e4-8182-06530c0000b4">목걸이</a>
+										data-log-object="aef50134-0cdf-11e4-8182-06530c0000b4">문구, 팬시</a>
 										<i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/b12b42eb-0cdf-11e4-85f1-06fd000000c2"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="b12b42eb-0cdf-11e4-85f1-06fd000000c2">팔찌</a>
+										data-log-object="b12b42eb-0cdf-11e4-85f1-06fd000000c2">뷰티</a>
 										<i class="fas fa-chevron-right"></i></li>
 									<li><a
-										href="/w/main/category/f0475fb1-c6bb-11e3-954e-06a6fa0000b9"
+										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="f0475fb1-c6bb-11e3-954e-06a6fa0000b9">그 외
-											액세서리</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="f0475fb1-c6bb-11e3-954e-06a6fa0000b9">기타</a> <i class="fas fa-chevron-right"></i></li>
 								</ul>
 
-							</div></li>
+							</div>
+						</li>
 						<li class="ui_gnb__menu " data-state="active"><a href="/">홈</a>
 						</li>
 						<li class="ui_gnb__menu " data-state=""><a
-							href="/w/main/popular-category">인기 작품</a></li>
-						<li class="ui_gnb__menu " data-state=""><a href="/w/story">스토리</a>
+							href="goods_popular.do">인기 작품</a></li>
+						<li class="ui_gnb__menu " data-state=""><a href="stroy.do">스토리</a>
 						</li>
 						<li class="ui_gnb__menu " data-state=""><a
 							href="/w/main/artist">인기작가</a></li>

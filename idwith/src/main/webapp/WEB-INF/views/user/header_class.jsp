@@ -23,7 +23,7 @@
 			<div class="download-ribbon top" style="background-color: #ff7b30"
 				data-download="root" data-download-type="isRibbon">
 				<div class="inner-w">
-					<a href="/w/join" class="download-ribbon-inner"> <img
+					<a href="sign.do" class="download-ribbon-inner"> <img
 						class="pc-img"
 						src="https://image.idus.com/static/signup/web_benefit_banner.png">
 					</a>
@@ -47,9 +47,9 @@
 							id="gnb-login-button" href="#" class="nav-btn"
 							data-log-object="login">로그인</a>
 						<!--3-->
-						<a href="#" class="nav-btn" data-log-object="member_join">회원가입</a>
-						<a href="#" class="nav-btn" data-log-object="member__notice">공지사항</a>
-						<a href="#" class="nav-btn" data-log-object="member_qna">1:1문의</a>
+						<a href="sign.do" class="nav-btn" data-log-object="member_join">회원가입</a>
+						<a href="board.do" class="nav-btn" data-log-object="member__notice">공지사항</a>
+						<a href="board.do" class="nav-btn" data-log-object="member_qna">1:1문의</a>
 
 						<!-- <div class="nav-btn ui-dropdown">
                                     <button type="button" class="btn-dropdown">고객센터</button>
@@ -93,8 +93,8 @@
 					</div>
 
 					<nav class="profile-links">
-						<a href="/w/me" class="btn"> <i class="far fa-user"></i> 내 정보
-						</a> <a id="my-cart-button" href="/w/cart" class="btn"> <span
+						<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i> 내 정보
+						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
 							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
 							장바구니
 						</a>

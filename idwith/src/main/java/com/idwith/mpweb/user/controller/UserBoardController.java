@@ -14,4 +14,15 @@ public class UserBoardController {
 	public String userMessage() {
 		return "message";
 	}
+	
+	@GetMapping("/board.do")
+	public String board() {
+		return "board";
+	}
+	
+	@GetMapping("/board_detail.do")
+	public String boardDetail() {
+		return "board_detail";
+	}
+	
 }

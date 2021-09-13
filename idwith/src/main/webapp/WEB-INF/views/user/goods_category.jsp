@@ -16,15 +16,7 @@
 <title>디저트, 베이커리, 떡 | 아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
-	href="resources/images/header/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="256x256"
-	href="resources/images/header/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="192x192"
-	href="resources/images/header/app-icon/icon_192.png">
-<link rel="apple-touch-icon" sizes="128x128"
-	href="resources/images/header/app-icon/icon_120.png">
-<link rel="apple-touch-icon" sizes="96x96"
-	href="resources/images/header/app-icon/icon_96.png">
+	href="resources/images/title/app-icon/icon_300.png">
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
@@ -360,7 +352,7 @@
 							<div class="ui_grid__item">
 								<!-- 컨텐츠 1개 -->
 								<div class="base-card card--vertical product">
-									<a href="/w/product/" target="_blank">
+									<a href="detail_content.do" target="_blank">
 										<div class="card-thumb-cover">
 											<!--컨텐츠 이미지-->
 											<div class="product-thumb-img"></div>
@@ -417,7 +409,7 @@
 							<div class="ui_grid__item">
 								<!-- 컨텐츠 1개 -->
 								<div class="base-card card--vertical product">
-									<a href="/w/product/" target="_blank">
+									<a href="detail_content.do" target="_blank">
 										<div class="card-thumb-cover">
 											<!--컨텐츠 이미지-->
 											<div class="product-thumb-img"></div>
@@ -474,7 +466,7 @@
 							<div class="ui_grid__item">
 								<!-- 컨텐츠 1개 -->
 								<div class="base-card card--vertical product">
-									<a href="/w/product/" target="_blank">
+									<a href="detail_content.do" target="_blank">
 										<div class="card-thumb-cover">
 											<!--컨텐츠 이미지-->
 											<div class="product-thumb-img"></div>
@@ -531,7 +523,7 @@
 							<div class="ui_grid__item">
 								<!-- 컨텐츠 1개 -->
 								<div class="base-card card--vertical product">
-									<a href="/w/product/" target="_blank">
+									<a href="detail_content.do" target="_blank">
 										<div class="card-thumb-cover">
 											<!--컨텐츠 이미지-->
 											<div class="product-thumb-img"></div>
