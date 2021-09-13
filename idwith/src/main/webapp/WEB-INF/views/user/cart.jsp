@@ -15,9 +15,24 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 장바구니</title>
+<title>아이디위드 | 장바구니</title>
 <meta name="theme-color" content="#ffffff" />
+
+<!-- css 적용 -->
 <link rel="stylesheet" href="resources/css/cart.css" />
+<link rel="stylesheet" href="resources/css/vendor.client.min.css" />
+<link rel="stylesheet" href="resources/css/idus.web.min.css" />
+
+<!-- js 적용 -->
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/idus.web.min.js"></script>
+<script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
+<script type="text/javascript" src="resources/js/vuepack.js"></script>
+
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
 <link rel="apple-touch-icon" sizes="256x256"
@@ -266,267 +281,15 @@
 		<div class="dimmed-background"></div>
 		<div id="content" class="content" data-page="shoppingBag">
 			<!---->
-			<div data-v-6d930ad9="" class="CartPage">
-				<div data-v-1e62c1aa="" data-v-6d930ad9=""
-					class="PageHeader CartPage__header">
-					<h2 data-v-1e62c1aa="" class="PageHeader__title">장바구니</h2>
-					<ol data-v-1e62c1aa="" class="PageHeader__steps">
-						<li data-v-1e62c1aa=""
-							class="PageHeader__stepsItem PageHeader__stepsItem--active"><em
-							data-v-1e62c1aa="">1.</em> <span data-v-1e62c1aa="">장바구니</span> <i
-							data-v-1e62c1aa="" class="fa fa-angle-right"></i></li>
-						<li data-v-1e62c1aa="" class="PageHeader__stepsItem"><em
-							data-v-1e62c1aa="">2.</em> <span data-v-1e62c1aa="">주문결제</span> <i
-							data-v-1e62c1aa="" class="fa fa-angle-right"></i></li>
-						<li data-v-1e62c1aa="" class="PageHeader__stepsItem"><em
-							data-v-1e62c1aa="">3.</em> <span data-v-1e62c1aa="">주문완료</span> <!----></li>
-					</ol>
-				</div>
-				<div data-v-56dfc770="" data-v-6d930ad9="" sticky-container=""
-					class="CartList">
-					<div class="vue-sticky-placeholder" style="padding-top: 0px;"></div>
-					<div data-v-56dfc770="" sticky-z-index="201"
-						on-stick="handleChangeStickTop"
-						class="CartList__sticky vue-sticky-el"
-						style="position: static; top: auto; bottom: auto; left: auto; width: auto; z-index: 201;">
-						<!---->
-					</div>
-					<div data-v-415ede24="" data-v-6d930ad9="" class="CartArtistList"
-						data-v-56dfc770="">
-						<div data-v-a6596a66="" data-v-415ede24="" class="CartArtistItem">
-							<div data-v-a6596a66="" class="CartArtistItem__header">
-								<label data-v-a6596a66=""
-									for="2b971783-c0b9-4e2c-8913-15ed3b2f419f"><div
-										data-v-5e27c696="" data-v-a6596a66="" class="checkbox">
-										<div data-v-5e27c696="" class="input-checkbox">
-											<input data-v-5e27c696="" id="" type="checkbox"
-												autocomplete="off" class="bp"
-												value="2b971783-c0b9-4e2c-8913-15ed3b2f419f">
-										</div>
-										<!---->
-									</div> <span data-v-a6596a66="" class="CartArtistItem__title">
-										영주진연농원 (안순천) 작가님 </span></label>
-							</div>
-							<section data-v-a6596a66="" class="CartArtistItem__itemList">
-								<!---->
-								<ul data-v-a6596a66="">
-									<div data-v-988391e4="" data-v-a6596a66=""
-										class="CartProductList">
-										<div data-v-2389adcc="" data-v-988391e4=""
-											class="CartProductListItem">
-											<div data-v-2389adcc=""
-												class="CartProductListItem__productInfo">
-												<div data-v-2389adcc=""
-													class="CartProductListItem__checkboxGroup">
-													<div data-v-2389adcc=""
-														class="CartProductListItem__checkboxWrap">
-														<div data-v-5e27c696="" data-v-2389adcc=""
-															class="checkbox">
-															<div data-v-5e27c696="" class="input-checkbox">
-																<input data-v-5e27c696="" id="" type="checkbox"
-																	autocomplete="off" class="bp"
-																	value="[추석9월 14일 마감] 영주사과 홍로사과 맛있는사과 ">
-															</div>
-															<!---->
-														</div>
-													</div>
-													<img data-v-2389adcc="" alt=""
-														class="CartProductListItem__productImage"
-														src="resources/images/cart/order01.PNG">
-												</div>
-												<div data-v-2389adcc=""
-													class="CartProductListItem__productInfoTextGroup">
-													<a data-v-2389adcc=""
-														href="/w/product/d846fd4c-728a-4451-b7aa-16d4f76851c1"
-														class="CartProductListItem__productName">[추석9월 14일 마감]
-														영주사과 홍로사과 맛있는사과 </a> <em data-v-2389adcc=""
-														class="CartProductListItem__productItemCount"> 주문시 제작
-													</em>
-												</div>
-												<!---->
-											</div>
-											<div data-v-2389adcc=""
-												class="CartProductListItem__optionInfo">
-												<div data-v-84a4f0f8="" data-v-2389adcc=""
-													class="CartOptionList">
-													<div data-v-7705597e="" data-v-84a4f0f8=""
-														class="CartOptionListItem">
-														<div data-v-7705597e=""
-															class="CartOptionListItem__splitLeft">
-															<em data-v-7705597e=""
-																class="CartOptionListItem__optionText"> • 사과 2.5kg
-																: 홍로사과 3kg( 대과 5~8과)(8,000원) </em>
-															<div data-v-7705597e=""
-																class="CartOptionListItem__counter">
-																<label data-v-9b324a5a="" data-v-7705597e=""
-																	for="numberCount" class="NumberCounter"><button
-																		data-v-9b324a5a="" type="button" disabled="disabled"
-																		class="NumberCounter__button">-</button> <input
-																	data-v-9b324a5a="" name="numberCount" type="text"
-																	class="NumberCounter__input">
-																	<button data-v-9b324a5a="" type="button"
-																		class="NumberCounter__button">+</button></label>
-															</div>
-														</div>
-														<div data-v-7705597e=""
-															class="CartOptionListItem__splitRight">
-															<em data-v-7705597e=""
-																class="CartOptionListItem__totalPrice"> 27,900원 </em>
-															<div data-v-7705597e=""
-																class="CartOptionListItem__btnGroup">
-																<div data-v-29633eb4="" data-v-7705597e=""
-																	class="CartOptionEditingButtonGroup">
-																	<button data-v-29633eb4="" type="button"
-																		class="CartOptionEditingButtonGroup__button CartOptionEditingButtonGroup__button--left">
-																		<i data-v-29633eb4=""
-																			class="CartOptionEditingButtonGroup__buttonIcon idus-icon-cogwheel"></i>
-																	</button>
-																	<button data-v-29633eb4="" type="button"
-																		class="CartOptionEditingButtonGroup__button CartOptionEditingButtonGroup__button--right">
-																		<i data-v-29633eb4=""
-																			class="CartOptionEditingButtonGroup__buttonIcon idus-icon-close"></i>
-																	</button>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div data-v-5eae4d4e="" data-v-2389adcc="">
-													<div data-v-5eae4d4e=""
-														class="CartOrderMessageEditor__productOrderMessage">
-														<div data-v-1934649e="" data-v-5eae4d4e=""
-															class="CommonTextEditor">
-															<textarea data-v-1934649e="" maxlength="500"
-																placeholder="주문 요청사항을 입력해주세요"
-																class="CommonTextEditor__textarea"></textarea>
-															<em data-v-1934649e=""
-																class="CommonTextEditor__maxLength">500</em>
-														</div>
-													</div>
-													<!---->
-												</div>
-											</div>
-										</div>
-									</div>
-								</ul>
-							</section>
-							<section data-v-a6596a66="" class="CartArtistItem__section">
-								<div data-v-a6596a66="" class="CartArtistItem__label">작품
-									가격</div>
-								<em data-v-a6596a66="" class="CartArtistItem__price">27,900원</em>
-							</section>
-							<section data-v-a6596a66="" class="CartArtistItem__section">
-								<div data-v-a6596a66="" class="CartArtistItem__label">배송비</div>
-								<div data-v-a6596a66="" class="CartArtistItem__price">
-									<div data-v-76555e5b="" data-v-a6596a66=""
-										class="ShippingPrice">
-										<em data-v-76555e5b="" class="ShippingPrice__price">3,000원</em>
-										<div data-v-76555e5b="" class="ShippingPrice__desc">
-											50,000원 이상 무료배송</div>
-									</div>
-								</div>
-							</section>
-							<!---->
-						</div>
-					</div>
-					<div class="vue-sticky-placeholder" style="padding-top: 0px;"></div>
-					<div data-v-56dfc770="" sticky-side="bottom"
-						on-stick="handleChangeStickBottom"
-						class="CartList__sticky vue-sticky-el"
-						style="position: static; top: auto; bottom: auto; left: auto; width: auto; z-index: 10;">
-						<div data-v-20c2da48="" data-v-6d930ad9=""
-							class="CartCheckboxControl" data-v-56dfc770="">
-							<div data-v-5e27c696="" data-v-20c2da48="" class="checkbox">
-								<div data-v-5e27c696="" class="input-checkbox">
-									<input data-v-5e27c696="" id="cart-product-all-check"
-										type="checkbox" autocomplete="off" class="bp" value="">
-								</div>
-								<label data-v-5e27c696="" for="cart-product-all-check"><span
-									data-v-20c2da48="" data-v-5e27c696=""
-									class="CartCheckboxControl__label"> 전체 선택 (<span
-										data-v-20c2da48="" data-v-5e27c696=""
-										class="CartCheckboxControl__label--bold">1</span>/1)
-								</span></label>
-							</div>
-							<button data-v-32d88566="" data-v-20c2da48=""
-								class="CommonButton CommonButton--middle CommonButton--white ">
-								선택 삭제</button>
-						</div>
-						<div data-v-261b598e="" data-v-6d930ad9="" class="CartCheckout"
-							data-v-56dfc770="">
-							<div data-v-46d2f086="" data-v-6d930ad9="" class="CartVipBanner"
-								data-v-261b598e="">
-								<div data-v-895af704="" data-v-46d2f086=""
-									class="CartVipBanner__tooltip tooltip 
-    "
-									style="right: 311px;">
-									<!--  <span data-v-46d2f086="" data-v-895af704=""
-										class="CartVipBanner__message"><p data-v-46d2f086=""
-											data-v-895af704="">작가님당 10,000원 이상 구매 시</p> <strong
-										data-v-46d2f086="" data-v-895af704=""
-										class="CartVipBanner__message"> VIP 클럽 무료배송 <i
-											data-v-46d2f086="" data-v-895af704=""
-											class="idus-icon-arrow-right"></i></strong></span>-->
-									<!---->
-									<div data-v-895af704="" class="triangle bottom end">
-										<div data-v-895af704="" class="before"></div>
-										<div data-v-895af704="" class="after"></div>
-									</div>
-								</div>
-							</div>
-							<div data-v-e14558f4="" data-v-261b598e=""
-								class="CartCheckoutDesktop">
-								<div data-v-e14558f4="" class="CartCheckoutDesktop__item">
-									<div data-v-e14558f4="" class="CartCheckoutDesktop__label">작품금액</div>
-									<div data-v-e14558f4="" class="CartCheckoutDesktop__value">
-										<span data-v-e14558f4="">27,900</span> <span
-											data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>
-									</div>
-								</div>
-								<div data-v-e14558f4="" class="CartCheckoutDesktop__item--fixed">+</div>
-								<div data-v-e14558f4="" class="CartCheckoutDesktop__item">
-									<div data-v-e14558f4="" class="CartCheckoutDesktop__label">배송비</div>
-									<div data-v-e14558f4="" class="CartCheckoutDesktop__value">
-										<span data-v-e14558f4="">3,000</span> <span data-v-e14558f4=""
-											class="CartCheckoutDesktop__priceUnit">원</span>
-										<!---->
-									</div>
-								</div>
-								<!---->
-								<div data-v-e14558f4="" class="CartCheckoutDesktop__item--fixed">=</div>
-								<div data-v-e14558f4="" class="CartCheckoutDesktop__item">
-									<div data-v-e14558f4="" class="CartCheckoutDesktop__label">결제
-										예정금액</div>
-									<div data-v-e14558f4=""
-										class="CartCheckoutDesktop__value--highlight">
-										<span data-v-e14558f4="">30,900</span> <span
-											data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div data-v-6d930ad9="" data-v-56dfc770=""
-							class="CartPage__bottom">
-							<button data-v-32d88566="" data-v-6d930ad9=""
-								class="CommonButton CartPage__paymentButton CommonButton--large CommonButton--red "
-								data-v-56dfc770="">주문하기</button>
-						</div>
-					</div>
-				</div>
-				<!---->
-				<!---->
-			</div>
+			<div data-vue="CartPage"></div>
 		</div>
 
 
 
-		<div data-vue="ModalContainer"></div>
-		<div data-vue="CartPage"></div>
+		
 
 		<!--  ========================================================================================== -->
 		<script type="application/javascript">
-			
-			
 			
     // 장바구니 pageview logging
     var Logger = vuepack.externals.IdusLog.Logger;
@@ -555,90 +318,90 @@
     })
     vuepack.create(components);
 
-		
-		
 		</script>
 		<script type="application/javascript">
 			
-			
-			
     window.kakaoPixel && kakaoPixel('4255617525139617103').viewCart();
 
-		
-		
 		</script>
 		<div data-vue="ToastPopup"></div>
 		<div data-vue="BottomSheet"></div>
 		<div data-vue="WideBottomSheet"></div>
 		<div data-vue="FooterModal"></div>
 		<div data-vue="InactiveToast"></div>
-		<!--  
+		
 <a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
     <img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
-</a>-->
-		<%-- <jsp:include page="footer.jsp" /> --%>
+</a>
+		<jsp:include page="footer.jsp" />
 		<script>
-			function escrowPopup() {
-				var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
-				var newWindow = window
-						.open(url, 'name', 'height=450,width=400');
+function escrowPopup() {
+    var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
+    var newWindow = window.open(url,'name','height=450,width=400');
 
-				if (window.focus)
-					newWindow.focus();
-				return false;
-			}
+    if (window.focus) newWindow.focus();
+    return false;
+}
 
-			vuepack.create([ {
-				selector : '[data-vue="BottomSheet"]',
-				component : 'BottomSheet'
-			}, {
-				selector : '[data-vue="WideBottomSheet"]',
-				component : 'WideBottomSheet'
-			}, {
-				selector : '[data-vue="FooterModal"]',
-				component : 'FooterModal'
-			}, {
-				selector : '[data-vue="ToastPopup"]',
-				component : 'ToastPopup'
-			}, {
-				selector : '[data-vue="InactiveToast',
-				component : 'InactiveToast'
-			} ]);
-		</script>
+vuepack.create([
+    {
+        selector: '[data-vue="BottomSheet"]',
+        component: 'BottomSheet'
+    },
+    {
+        selector: '[data-vue="WideBottomSheet"]',
+        component: 'WideBottomSheet'
+    },
+    {
+        selector: '[data-vue="FooterModal"]',
+        component: 'FooterModal'
+    },
+    {
+        selector: '[data-vue="ToastPopup"]',
+        component: 'ToastPopup'
+    },
+    {
+        selector: '[data-vue="InactiveToast',
+        component: 'InactiveToast'
+    }
+]);
+</script>
 	</div>
 	<!-- div WRAP -->
 	<script type="text/javascript"
 		src="/resources/dist/js/idus.web.min.js?__v=1630657354"></script>
 	<script>
-		(function() {
-			var applink = new vuepack.externals.Applink();
-			var scheme = applink.locationToAppScheme();
+        (function(){
+            var applink = new vuepack.externals.Applink();
+            var scheme = applink.locationToAppScheme();
 
-			var isIOS = (navigator.userAgent.match('iPhone') != null
-					|| navigator.userAgent.match('iPod') != null || navigator.userAgent
-					.match('iPad') != null);
+            var isIOS = (navigator.userAgent.match('iPhone') != null
+                || navigator.userAgent.match('iPod') != null
+                || navigator.userAgent.match('iPad') != null);
 
-			// App 충돌 이슈로 인해 Android만 wta query 적용하지 않도록 함
-			if (isIOS) {
-				var hasQueryMark = scheme.indexOf('?') !== -1;
-				var randomHash = BPackr.randomHash(16);
-				var key = "mobile_web";
+            // App 충돌 이슈로 인해 Android만 wta query 적용하지 않도록 함
+            if (isIOS) {
+                var hasQueryMark = scheme.indexOf('?') !== -1;
+                var randomHash = BPackr.randomHash(16);
+                var key = "mobile_web";
 
-				if (hasQueryMark) {
-					scheme = scheme + '&wta=' + randomHash;
-				} else {
-					scheme = scheme + '?wta=' + randomHash;
-				}
-			}
+                if (hasQueryMark) {
+                    scheme = scheme + '&wta=' +  randomHash;
+                } else {
+                    scheme = scheme + '?wta=' + randomHash;
+                }
+            }
 
-			appDownloadMask(key, scheme);
-			BPackr.scheme = scheme;
-		}());
-	</script>
+            appDownloadMask(key, scheme);
+            BPackr.scheme = scheme;
+        }());
+        </script>
 	<script>
-		vuepack.externals.VendorLogger.sendLog([ {
-			vendorName : 'naver',
-		}, ]);
-	</script>
+        vuepack.externals.VendorLogger.sendLog([
+            {
+                vendorName: 'naver',
+            },
+        ]);
+        </script>
 </body>
 </html>

@@ -50,7 +50,6 @@ function loginWithKakao() {
 
 ////////////////////////////////////////////////////////////
 function showHidden() {
-	console.log('메뉴 적용 중')
 	document.getElementsByClassName("show-more-signup-btn")[0].style.display = "none";
 	document.getElementsByClassName("hidden")[0].className = "";
 	isShowMore = true;
