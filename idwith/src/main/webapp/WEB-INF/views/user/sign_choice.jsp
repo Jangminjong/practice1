@@ -21,7 +21,7 @@
 		<div class="login section root" data-page="signup">
 			<div class="login logo">
 				<h1>
-					<a href="/"> <span class="sp-icon logo"></span>
+					<a href="index.do"><img src="resources/images/header/logo.svg" />
 					</a>
 				</h1>
 			</div>
@@ -81,13 +81,13 @@
 						</div>
 						<div class="login-sns item email" data-auth-type="email">
 							<a
-								href="sing.jsp"
+								href="sign.do"
 								data-idus-log="email"> 이메일로 가입하기 </a>
 						</div>
 					</div>
 
 					<div class="addition-txt mt30">
-						이미 가입하셨다면 <a href="login.jsp">바로 로그인하기</a>
+						이미 가입하셨다면 <a href="login.do">바로 로그인하기</a>
 					</div>
 				</div>
 			</section>

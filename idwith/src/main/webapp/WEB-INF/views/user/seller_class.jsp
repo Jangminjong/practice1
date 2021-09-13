@@ -14,6 +14,7 @@
 </head>
 <body>
 	<jsp:include page="header_goods.jsp" />
+	<jsp:include page="seller_main.jsp" />
 	<section class="artist-contents">
 		<div data-v-825a8b32="">
 			<div data-v-825a8b32="" data-trigger-detail="true"></div>
@@ -22,15 +23,15 @@
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group" data-ui-position="default">
 				<a data-v-825a8b32=""
-					href="/w/artist/9a4bd54d-a9f1-4329-93e9-6b0c9cd51d1b/profile"
+					href="seller_profile.do"
 					class="tab">프로필</a> <a data-v-825a8b32=""
-					href="/w/artist/9a4bd54d-a9f1-4329-93e9-6b0c9cd51d1b/story"
+					href="seller_story.do"
 					class="tab">스토리</a> <a data-v-825a8b32=""
-					href="/w/artist/9a4bd54d-a9f1-4329-93e9-6b0c9cd51d1b/product"
+					href="seller_goods.do"
 					class="tab">판매작품</a> <a data-v-825a8b32=""
-					href="/w/artist/9a4bd54d-a9f1-4329-93e9-6b0c9cd51d1b/class"
+					href="seller_class.do"
 					class="tab active">클래스</a> <a data-v-825a8b32=""
-					href="/w/artist/9a4bd54d-a9f1-4329-93e9-6b0c9cd51d1b/review"
+					href="seller_review.do"
 					class="tab">구매후기</a>
 			</nav>
 		</div>
@@ -43,7 +44,7 @@
 					<li data-v-71d47198=""><div data-v-796f1feb=""
 							data-v-508d53c8="" data-v-71d47198=""
 							class="base-card card--vertical artist-home-class">
-							<a data-v-796f1feb="" href="/c/class/4675" target="_blank"><div
+							<a data-v-796f1feb="" href="class_detail_content.do" target="_blank"><div
 									data-v-796f1feb="" class="card-thumb-cover">
 									<div data-v-508d53c8="" data-v-796f1feb="" class="thumb-img"
 										style="background-image: url(&quot;https://image.idus.com/image/files/d0f8f21b622140248e0f159568914890_720.png&quot;);"></div>
@@ -68,7 +69,7 @@
 					<li data-v-71d47198=""><div data-v-796f1feb=""
 							data-v-508d53c8="" data-v-71d47198=""
 							class="base-card card--vertical artist-home-class">
-							<a data-v-796f1feb="" href="/c/class/4656" target="_blank"><div
+							<a data-v-796f1feb="" href="class_detail_content.do" target="_blank"><div
 									data-v-796f1feb="" class="card-thumb-cover">
 									<div data-v-508d53c8="" data-v-796f1feb="" class="thumb-img"
 										style="background-image: url(&quot;https://image.idus.com/image/files/f69484fc46514686be0ab9f99a3dc3b5_720.jpg&quot;);"></div>
@@ -122,7 +123,7 @@
 					<li data-v-71d47198=""><div data-v-796f1feb=""
 							data-v-508d53c8="" data-v-71d47198=""
 							class="base-card card--vertical artist-home-class">
-							<a data-v-796f1feb="" href="/c/class/3021" target="_blank"><div
+							<a data-v-796f1feb="" href="class_detail_content.do" target="_blank"><div
 									data-v-796f1feb="" class="card-thumb-cover">
 									<div data-v-508d53c8="" data-v-796f1feb="" class="thumb-img"
 										style="background-image: url(&quot;https://image.idus.com/image/files/b8735e16d31845909ab3771847b64485_720.png&quot;);"></div>
@@ -174,7 +175,7 @@
 					<li data-v-71d47198=""><div data-v-796f1feb=""
 							data-v-508d53c8="" data-v-71d47198=""
 							class="base-card card--vertical artist-home-class">
-							<a data-v-796f1feb="" href="/c/class/1029" target="_blank"><div
+							<a data-v-796f1feb="" href="class_detail_content.do" target="_blank"><div
 									data-v-796f1feb="" class="card-thumb-cover">
 									<div data-v-508d53c8="" data-v-796f1feb="" class="thumb-img"
 										style="background-image: url(&quot;https://image.idus.com/image/files/7381d5b717a74bafb004301ed3bd1460_720.png&quot;);"></div>
@@ -226,7 +227,7 @@
 					<li data-v-71d47198=""><div data-v-796f1feb=""
 							data-v-508d53c8="" data-v-71d47198=""
 							class="base-card card--vertical artist-home-class">
-							<a data-v-796f1feb="" href="/c/class/961" target="_blank"><div
+							<a data-v-796f1feb="" href="class_detail_content.do" target="_blank"><div
 									data-v-796f1feb="" class="card-thumb-cover">
 									<div data-v-508d53c8="" data-v-796f1feb="" class="thumb-img"
 										style="background-image: url(&quot;https://image.idus.com/image/files/54d8000cdd12463ab25e5add45f787dc_720.jpg&quot;);"></div>

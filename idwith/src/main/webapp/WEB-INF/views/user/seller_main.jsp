@@ -11,12 +11,11 @@
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 </head>
 <body>
-	<jsp:include page="header_goods.jsp" />
 	<section data-v-2618eab2="" class="quick-profile"
 		style="width: 526px; padding: 55px 0px 36px;">
 		<div data-v-2618eab2="" class="profile-area">
 			<a data-v-2618eab2=""
-				href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/product"
+				href="seller_goods.do"
 				target="_blank:"
 				style="width: 108px; height: 108px; margin-right: 33px; position: relative;">
 				<img data-v-2618eab2=""
@@ -27,7 +26,7 @@
 				<div data-v-2618eab2="" class="artist-info__head">
 					<div data-v-2618eab2="">
 						<a data-v-2618eab2=""
-							href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/product"
+							href="seller_goods.do"
 							target="_blank">
 							<p data-v-2618eab2="" class="artist-info__name">
 								초은농장
@@ -52,7 +51,7 @@
 						</div>
 					</div>
 					<a data-v-2618eab2=""
-						href="/w/message/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a"
+						href="##"
 						data-ui="inquire-float-btn" target="_blank"
 						class="artist-inquire-float-btn" style="bottom: 30px;"> <img
 						data-v-2618eab2=""
@@ -217,6 +216,5 @@
 			</div>
 		</div>
 	</section>
-	<jsp:include page="footer.jsp" />
 </body>
 </html>

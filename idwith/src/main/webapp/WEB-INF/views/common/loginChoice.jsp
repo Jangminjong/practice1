@@ -18,12 +18,12 @@
 		</h1>
 		<div class="text-center" style="margin: 20px auto 0;">
 			<div class="direct twitter">
-				<a href="login.jsp"> <img
+				<a href="login.do"> <img
 					src="resources/images/detail/artist01.PNG" width="130px">
 				<h2>일반회원 로그인</h2></a>
 			</div>
 			<div class="direct green">
-				<a href="writerLogin.jsp"><img
+				<a href="writerLogin.wdo"><img
 					src="resources/images/common/writer.png" width="140px" height="70px">
 				<h2>작가 로그인</h2></a>
 			</div>

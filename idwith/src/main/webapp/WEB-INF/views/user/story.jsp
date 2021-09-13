@@ -61,14 +61,14 @@
 								<div data-v-52776193="" class="story-card__header">
 									<div data-v-52776193="" class="story-card-info">
 										<a data-v-52776193=""
-											href="/w/artist/66a5bf55-e7f8-4009-a33a-b66c238c7518/product"
+											href="seller_goods.do"
 											target="_blank" class="artist-thumbnail"><img
 											data-v-52776193="" alt="artist profile"
 											src="https://image.idus.com/image/files/2ebe90db39c843078d1586b1e9fb7b2a_320.jpg"></a>
 										<div data-v-52776193="" class="artist-info">
 											<span data-v-52776193="" class="artist-name"><a
 												data-v-52776193=""
-												href="/w/artist/66a5bf55-e7f8-4009-a33a-b66c238c7518/product"
+												href="seller_goods.do"
 												target="_blank"> 골든스카이베베 </a></span> <span data-v-52776193=""
 												class="story-date">2021년 09월 10일</span>
 										</div>
@@ -80,7 +80,7 @@
 											style="font-size: 12px;"></i> 팔로우
 									</button>
 								</div> <a data-v-52776193=""
-								href="/w/story/3876fe07-abda-4d06-aeee-16b41f0e1ec9"
+								href="##"
 								target="_blank"><div data-v-52776193=""
 										class="story-card__body">안녕하세요 스카이베베입니당🙇🏼‍♀️ 현재 건강상의
 										이유로 쉬고있기에 임시로 상품을 등록해 놓았습니다 :) 작가찜 해 주신 뒤 작가메세지 주시면 할인쿠폰 발급해드릴
@@ -93,6 +93,7 @@
 											<!---->
 										</div>
 									</div></a></li>
+							<%--
 							<li data-v-52776193="" data-v-5ea8b349=""
 								class="story-card card-style"><input data-v-52776193=""
 								name="page" type="hidden" value="2">
@@ -439,7 +440,7 @@
 											<!---->
 											<!---->
 										</div>
-									</div></a></li>
+									</div></a></li>--%>
 						</div>
 						<div class=""
 							style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
@@ -449,14 +450,14 @@
 								<div data-v-52776193="" class="story-card__header">
 									<div data-v-52776193="" class="story-card-info">
 										<a data-v-52776193=""
-											href="/w/artist/219e4714-5b7f-49ce-b060-16f696959d63/product"
+											href="seller_goods.do"
 											target="_blank" class="artist-thumbnail"><img
 											data-v-52776193="" alt="artist profile"
 											src="https://image.idus.com/image/files/7d53c78cf97f4163a11bf9f1bafe877d_320.jpg"></a>
 										<div data-v-52776193="" class="artist-info">
 											<span data-v-52776193="" class="artist-name"><a
 												data-v-52776193=""
-												href="/w/artist/219e4714-5b7f-49ce-b060-16f696959d63/product"
+												href="seller_goods.do"
 												target="_blank"> 보라공방 </a></span> <span data-v-52776193=""
 												class="story-date">2021년 09월 10일</span>
 										</div>
@@ -468,7 +469,7 @@
 											style="font-size: 12px;"></i> 팔로우
 									</button>
 								</div> <a data-v-52776193=""
-								href="/w/story/dc597391-9db2-4c9f-bb24-54d05deacd08"
+								href="##"
 								target="_blank"><div data-v-52776193=""
 										class="story-card__body">추석 배송안내 추석 연휴로인해 9.11일 까지 해당
 										주문건만 9.14일에 마지막 배송출고 12일부터 주문건은 23일에 출고합니당 😍😍😍😍😍즐거운 추석
@@ -480,14 +481,14 @@
 								<div data-v-52776193="" class="story-card__header">
 									<div data-v-52776193="" class="story-card-info">
 										<a data-v-52776193=""
-											href="/w/artist/052d2e76-82e0-4641-a9d9-97d8965fa50f/product"
+											href="seller_goods.do"
 											target="_blank" class="artist-thumbnail"><img
 											data-v-52776193="" alt="artist profile"
 											src="https://image.idus.com/image/files/8edc967266154aa68173e4b7b144d8ab_320.jpg"></a>
 										<div data-v-52776193="" class="artist-info">
 											<span data-v-52776193="" class="artist-name"><a
 												data-v-52776193=""
-												href="/w/artist/052d2e76-82e0-4641-a9d9-97d8965fa50f/product"
+												href="seller_goods.do"
 												target="_blank"> 달콤연구소 </a></span> <span data-v-52776193=""
 												class="story-date">2021년 09월 10일</span>
 										</div>
@@ -499,11 +500,12 @@
 											style="font-size: 12px;"></i> 팔로우
 									</button>
 								</div> <a data-v-52776193=""
-								href="/w/story/0e5a4b39-1422-4f82-a9f6-851b345f1143"
+								href="##"
 								target="_blank"><div data-v-52776193=""
 										class="story-card__body">추석연휴 택배마감9월15일 낮12시까지 12시이후건은
 										9월23일 목요일부터순차적배송합니다. 건강하고 행복한 한가위 되세요.</div>
 									<div data-v-2ce2581b="" data-v-52776193="" class="image-group"></div></a></li>
+							<%--		
 							<li data-v-52776193="" data-v-5ea8b349=""
 								class="story-card card-style"><input data-v-52776193=""
 								name="page" type="hidden" value="2">
@@ -821,6 +823,7 @@
 											<!---->
 										</div>
 									</div></a></li>
+									--%>
 						</div>
 					</div>
 					<div data-v-5ea8b349="" class="ScrollPaginationContainer">

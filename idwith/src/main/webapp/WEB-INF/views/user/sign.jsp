@@ -29,7 +29,7 @@
 			<div class="login wrap">
 				<div class="login logo">
 					<h1>
-						<a href="/"> <span class="sp-icon logo"></span>
+						<a href="index.do"><img src="resources/images/header/logo.svg" />
 						</a>
 					</h1>
 				</div>
@@ -157,7 +157,7 @@
 											data-ui-id="signup">
 									</div>
 									<a style="text-decoration: underline;" class="label"
-										target="_blank" href="/w/board/terms/use">이용약관 필수 동의 </a>
+										target="_blank" href="board_detail.do">이용약관 필수 동의 </a>
 								</div>
 								<div class="terms-item">
 									<div class="input-checkbox">
@@ -166,7 +166,7 @@
 											data-ui-id="signup">
 									</div>
 									<a style="text-decoration: underline;" class="label"
-										target="_blank" href="/w/board/terms/requirement">개인정보 수집
+										target="_blank" href="board_detail.do">개인정보 수집
 										및 이용 동의</a>
 								</div>
 								<div class="terms-item">

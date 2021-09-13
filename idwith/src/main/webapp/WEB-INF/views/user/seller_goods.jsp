@@ -19,15 +19,15 @@
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group">
 				<a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/profile"
+					href="seller_profile.do"
 					class="tab">프로필</a> <a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/story"
+					href="seller_story.do"
 					class="tab">스토리</a> <a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/product"
+					href="seller_goods.do"
 					class="tab active">판매작품</a> <a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/class"
+					href="seller_class.do"
 					class="tab">클래스</a> <a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/review"
+					href="seller_review.do"
 					class="tab">구매후기</a>
 			</nav>
 		</div>
@@ -113,7 +113,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/c8db523c-6f5a-4d60-831c-6cccab96a347"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -182,7 +182,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/c4a8211c-fee9-4154-b564-392bcfe63b37"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -252,7 +252,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/b126ac0a-3662-4841-81f3-06fb1b77115d"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -323,7 +323,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/12df6389-6f15-43ee-8254-7c6439613b34"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -391,7 +391,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/ebfbd685-83db-4048-b17f-1af90e38ffca"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -459,7 +459,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/7b0152de-57ff-45de-93e6-cf10c6041a28"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -537,7 +537,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/24ed30aa-5573-4474-a803-538d3161f34b"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -606,7 +606,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/1414384e-4ea4-46c6-bc76-313222db587e"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -676,7 +676,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/cfc41b8d-d2dd-411b-abc9-3220af850a7c"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -744,7 +744,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/693197fc-6162-4eea-b310-d704d863f97f"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -812,7 +812,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/3b44df92-f885-45da-ab6b-d393ba7a9fb0"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -882,7 +882,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/f7b35705-2e1b-4885-bf2b-38e7779b51d4"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -950,7 +950,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/f3df0302-df3a-47e5-a204-66ad6b7e20bf"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -1018,7 +1018,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/c044feab-e106-40ba-a109-e6d7cb5e8e1f"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -1087,7 +1087,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/c02e491f-2135-4c40-8809-eb7321e13330"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -1155,7 +1155,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/bc1397c7-68d8-467a-9362-e5e67be4b5b8"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -1223,7 +1223,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/ed8df1a4-db0b-4a17-95d7-1c273089d683"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -1292,7 +1292,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/e7576550-1169-4ad0-bb08-a82ff1304880"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -1360,7 +1360,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/e645ceac-3c13-4e2e-a817-87337c2a6cbb"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""
@@ -1428,7 +1428,7 @@
 							<div data-v-796f1feb="" data-v-38f53920=""
 								class="base-card card--vertical product">
 								<a data-v-796f1feb=""
-									href="/w/product/d2b1d40d-6f27-46de-8df0-c3cce8ca4b49"
+									href="detail_content.do"
 									target="_blank"><div data-v-796f1feb=""
 										class="card-thumb-cover">
 										<div data-v-796f1feb=""

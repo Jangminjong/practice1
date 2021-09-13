@@ -22,15 +22,15 @@
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group" data-ui-position="default">
 				<a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/profile"
+					href="seller_profile.do"
 					class="tab active">프로필</a> <a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/story"
+					href="seller_story.do"
 					class="tab">스토리</a> <a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/product"
+					href="seller_goods.do"
 					class="tab">판매작품</a> <a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/class"
+					href="seller_class.do"
 					class="tab">클래스</a> <a data-v-825a8b32=""
-					href="/w/artist/21b7fd4a-e03b-4dd5-b4d0-2f01e0d9b46a/review"
+					href="seller_review.do"
 					class="tab">구매후기</a>
 			</nav>
 		</div>
