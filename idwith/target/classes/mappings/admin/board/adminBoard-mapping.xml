@@ -3,7 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<mapper namespace="BoardDAO">
+<!-- <mapper namespace="BoardDAO">
  	<resultMap type="myboard" id="boardResult">
  		<id property="seq" column="SEQ" />
  		<result property="title" column="TITLE"/>
@@ -37,9 +37,9 @@
  		</if>
  		ORDER BY seq DESC
  	</select>
- 	<!-- <select id="getBoardList_C" resultMap="boardResult">
+ 	<select id="getBoardList_C" resultMap="boardResult">
  		SELECT * FROM myboard
  		WHERE content LIKE '%'||#{searchKeyword}||'%'
  		ORDER BY seq DESC
- 	</select> -->
-</mapper>
+ 	</select>
+</mapper> -->
