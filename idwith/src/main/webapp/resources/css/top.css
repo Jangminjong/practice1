@@ -68,7 +68,7 @@ header#header.header .top-navigation .inner-w800 {
 }
 
 .inner-w .fr{
-    /*margin-left: 65%;*/
+    margin-left: 65%;
 }
 
 .clf .fr, 
@@ -751,7 +751,7 @@ header#header.header .gnb-scroll {
 }
 
 ul ul {
-    list-style-type: circle;
+    list-style-type: none;
     margin-block-start: 0px;
     margin-block-end: 0px;
 }

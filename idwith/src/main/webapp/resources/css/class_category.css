@@ -482,5 +482,6 @@ b {
 
 .side_nav__menu.active .side_nav__sublist {
     display: block;
+    list-style:none;
 }
 
