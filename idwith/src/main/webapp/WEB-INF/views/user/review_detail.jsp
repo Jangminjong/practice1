@@ -42,7 +42,7 @@
 					</div>
 					<article data-v-2e68ad5e="" class="review-contents">
 						<a data-v-2e68ad5e=""
-							href="/w/product/b126ac0a-3662-4841-81f3-06fb1b77115d"
+							href="detail_content.do"
 							target="_blank" class="product"><div data-v-2e68ad5e=""
 								class="product-info">
 								<div data-v-2e68ad5e="" class="product-thumbnail"
@@ -93,7 +93,7 @@
 					<!---->
 					<li data-v-a301bac8="" data-v-2e5d0212="" class="review"><a
 						data-v-a301bac8=""
-						href="/w/review/dd71339d-3044-4214-8968-78909fb659c6"><div
+						href="review_detail.do"><div
 								data-v-a301bac8="" class="review-header">
 								<div data-v-a301bac8="" class="reviewer-info">
 									<div data-v-a301bac8="" class="reviewer-thumbnail"
@@ -133,7 +133,7 @@
 							</p></a></li>
 					<li data-v-a301bac8="" data-v-2e5d0212="" class="review"><a
 						data-v-a301bac8=""
-						href="/w/review/4bd642d1-7ea1-4768-9a59-e1bb32164c9e"><div
+						href="review_datail.do"><div
 								data-v-a301bac8="" class="review-header">
 								<div data-v-a301bac8="" class="reviewer-info">
 									<div data-v-a301bac8="" class="reviewer-thumbnail"
@@ -170,7 +170,7 @@
 							</p></a></li>
 					<li data-v-a301bac8="" data-v-2e5d0212="" class="review"><a
 						data-v-a301bac8=""
-						href="/w/review/4d05652c-5dbe-44b3-b6c7-7fb1b56c6d74"><div
+						href="review_detail.do"><div
 								data-v-a301bac8="" class="review-header">
 								<div data-v-a301bac8="" class="reviewer-info">
 									<div data-v-a301bac8="" class="reviewer-thumbnail"

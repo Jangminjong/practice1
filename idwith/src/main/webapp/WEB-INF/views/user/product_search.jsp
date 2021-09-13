@@ -260,7 +260,7 @@
 	</script>
 
 	<div class="wrap">
-
+		<jsp:include page="header_goods.jsp" />
 		<div class="dimmed-background"></div>
 		<div data-vue="search-detail">
 			<div class="content" id="content" page-data="2dep-list"
@@ -274,44 +274,44 @@
 							<div data-v-974e102a="" class="KeywordSuggestion__divider"></div>
 							<div data-v-974e102a="" class="KeywordSuggestion__suggestion">
 								<a data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EC%B6%94%EC%84%9D%EC%84%A0%EB%AC%BC%EC%84%B8%ED%8A%B8&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 뭘까용? </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EC%96%B4%EB%A6%B0%EC%9D%B4%EC%A7%91%20%EC%B6%94%EC%84%9D%EC%84%A0%EB%AC%BC&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 어린이집 추석선물 </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EB%AA%85%EC%A0%88%20%EC%84%A0%EB%AC%BC&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 명절 선물 </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EC%B6%94%EC%84%9D%EC%9A%A9%EB%8F%88%EB%B4%89%ED%88%AC&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 추석용돈봉투 </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=z%ED%94%8C%EB%A6%BD3%20%EC%BC%80%EC%9D%B4%EC%8A%A4&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> z플립3 케이스 </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EB%B6%80%EB%AA%A8%EB%8B%98%20%EC%B6%94%EC%84%9D%EC%84%A0%EB%AC%BC&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 부모님 추석선물 </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EC%88%98%EC%A0%9C%EC%B2%AD&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 수제청 </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EC%B6%94%EC%84%9D%EB%B4%89%ED%88%AC&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 추석봉투 </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EC%84%A0%EC%83%9D%EB%8B%98%EC%B6%94%EC%84%9D%EC%84%A0%EB%AC%BC&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 선생님추석선물 </a><a
 									data-v-343e6b1c="" data-v-974e102a=""
-									href="/search?word=%EA%B2%AC%EA%B3%BC%EB%A5%98%EB%B0%94&amp;keyword_channel=relate"
+									href="product_search.do"
 									class="RelatedKeywordList__keyword"> 견과류바 </a>
 							</div>
 						</div>
 					</div>
 					<!---->
 					<nav data-v-52b422fc="" class="ui_tab_group">
-						<span href="product_search.jsp"
+						<span href="product_search.do"
 							class="ui_tab_group__tab active"><span class="txt-desktop"><em>"추석선물"</em>
 								에 대한 작품 검색결과 </span> </span> <a
-							href="class_search.jsp"
+							href="class_search.do"
 							class="ui_tab_group__tab"><span class="txt-desktop"><em>"추석선물"</em>
 								에 대한 클래스 검색결과 </span></a>
 					</nav>
@@ -1197,7 +1197,7 @@
 								<div data-v-796f1feb="" data-v-74fd357a=""
 									class="base-card card--vertical product">
 									<a data-v-796f1feb=""
-										href="/w/product/ebfbb51c-9048-40af-9409-7a09807a5a3a?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="detail_content.do"
 										target="_blank"><div data-v-796f1feb=""
 											class="card-thumb-cover">
 											<div data-v-74fd357a="" data-v-796f1feb=""
@@ -1277,7 +1277,7 @@
 								<div data-v-796f1feb="" data-v-74fd357a=""
 									class="base-card card--vertical product">
 									<a data-v-796f1feb=""
-										href="/w/product/d88d7f29-a5df-456b-9521-3ed2445e7ce7?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="detail_content.do"
 										target="_blank"><div data-v-796f1feb=""
 											class="card-thumb-cover">
 											<div data-v-74fd357a="" data-v-796f1feb=""
@@ -1357,7 +1357,7 @@
 								<div data-v-796f1feb="" data-v-74fd357a=""
 									class="base-card card--vertical product">
 									<a data-v-796f1feb=""
-										href="/w/product/e4f52656-827e-4e07-aae1-1729b5d3573e?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="detail_content.do"
 										target="_blank"><div data-v-796f1feb=""
 											class="card-thumb-cover">
 											<div data-v-74fd357a="" data-v-796f1feb=""
@@ -1437,7 +1437,7 @@
 								<div data-v-796f1feb="" data-v-74fd357a=""
 									class="base-card card--vertical product">
 									<a data-v-796f1feb=""
-										href="/w/product/3c224e5d-c755-4ebc-a312-16d41cf9daff?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="detail_content.do"
 										target="_blank"><div data-v-796f1feb=""
 											class="card-thumb-cover">
 											<div data-v-74fd357a="" data-v-796f1feb=""
@@ -1515,7 +1515,7 @@
 								<div data-v-796f1feb="" data-v-74fd357a=""
 									class="base-card card--vertical product">
 									<a data-v-796f1feb=""
-										href="/w/product/2ae4363a-62d6-43c9-9e15-902199d9f0d1?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="detail_content.do"
 										target="_blank"><div data-v-796f1feb=""
 											class="card-thumb-cover">
 											<div data-v-74fd357a="" data-v-796f1feb=""
@@ -1592,7 +1592,7 @@
 								<div data-v-796f1feb="" data-v-74fd357a=""
 									class="base-card card--vertical product">
 									<a data-v-796f1feb=""
-										href="/w/product/6bd8b6f0-b2be-43bc-8d38-052e04996b5a?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="detail_content.do"
 										target="_blank"><div data-v-796f1feb=""
 											class="card-thumb-cover">
 											<div data-v-74fd357a="" data-v-796f1feb=""
@@ -1670,7 +1670,7 @@
 								<div data-v-796f1feb="" data-v-74fd357a=""
 									class="base-card card--vertical product">
 									<a data-v-796f1feb=""
-										href="/w/product/82fb28c8-7e6a-444f-b375-19fa10f464ae?keyword_channel=placeholder&amp;search_word=추석선물"
+										href=""
 										target="_blank"><div data-v-796f1feb=""
 											class="card-thumb-cover">
 											<div data-v-74fd357a="" data-v-796f1feb=""
@@ -1749,7 +1749,7 @@
 								<div data-v-796f1feb="" data-v-74fd357a=""
 									class="base-card card--vertical product">
 									<a data-v-796f1feb=""
-										href="/w/product/2746c188-5fdf-4d97-a89c-1e0962338d78?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="detail_content.do"
 										target="_blank"><div data-v-796f1feb=""
 											class="card-thumb-cover">
 											<div data-v-74fd357a="" data-v-796f1feb=""
@@ -1826,11 +1826,11 @@
 								class="showroom-search-list">
 								<div data-v-79ef34f6="" class="header">
 									<a data-v-79ef34f6=""
-										href="/w/showroom/1715?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="detail_content.do"
 										target="_blank"><h2 data-v-c9688b12="" data-v-79ef34f6=""
 											class="search-title">실속 있는 추석 선물 🎁 답례용</h2></a> <a
 										data-v-79ef34f6=""
-										href="/w/showroom/1715?keyword_channel=placeholder&amp;search_word=추석선물"
+										href="cate_goods.do"
 										target="_blank" class="more-link">더 보기</a>
 								</div>
 								<div data-v-79ef34f6="" class="carousel-wrap">
@@ -1851,7 +1851,7 @@
 																class="base-card card--vertical product--recommended"
 																data-v-25581d7d="">
 																<a data-v-796f1feb=""
-																	href="/w/product/07169e26-4f53-4aa8-8dbe-96e78e4f2c5f?keyword_channel=placeholder&amp;search_word=추석선물"
+																	href="detail_content.do"
 																	target="_blank"><div data-v-796f1feb=""
 																		class="card-thumb-cover">
 																		<div data-v-bb115d94="" data-v-796f1feb=""
@@ -1883,7 +1883,7 @@
 																class="base-card card--vertical product--recommended"
 																data-v-25581d7d="">
 																<a data-v-796f1feb=""
-																	href="/w/product/ec375a22-41bf-4d30-87dd-5c6fe4dd2290?keyword_channel=placeholder&amp;search_word=추석선물"
+																	href="detail_content.do"
 																	target="_blank"><div data-v-796f1feb=""
 																		class="card-thumb-cover">
 																		<div data-v-bb115d94="" data-v-796f1feb=""
@@ -1914,7 +1914,7 @@
 																class="base-card card--vertical product--recommended"
 																data-v-25581d7d="">
 																<a data-v-796f1feb=""
-																	href="/w/product/6bd8b6f0-b2be-43bc-8d38-052e04996b5a?keyword_channel=placeholder&amp;search_word=추석선물"
+																	href="detail_content.do"
 																	target="_blank"><div data-v-796f1feb=""
 																		class="card-thumb-cover">
 																		<div data-v-bb115d94="" data-v-796f1feb=""
@@ -1945,7 +1945,7 @@
 																class="base-card card--vertical product--recommended"
 																data-v-25581d7d="">
 																<a data-v-796f1feb=""
-																	href="/w/product/75076f81-3f5d-46e0-b8fc-6d4bb08ab3f0?keyword_channel=placeholder&amp;search_word=추석선물"
+																	href="detail_content.do"
 																	target="_blank"><div data-v-796f1feb=""
 																		class="card-thumb-cover">
 																		<div data-v-bb115d94="" data-v-796f1feb=""
@@ -1976,7 +1976,7 @@
 																class="base-card card--vertical product--recommended"
 																data-v-25581d7d="">
 																<a data-v-796f1feb=""
-																	href="/w/product/c2ac421f-3c22-4e4b-9049-904a407c1568?keyword_channel=placeholder&amp;search_word=추석선물"
+																	href="detail_content.do"
 																	target="_blank"><div data-v-796f1feb=""
 																		class="card-thumb-cover">
 																		<div data-v-bb115d94="" data-v-796f1feb=""
@@ -2007,7 +2007,7 @@
 																class="base-card card--vertical product--recommended"
 																data-v-25581d7d="">
 																<a data-v-796f1feb=""
-																	href="/w/product/72bbe6bf-8ff0-4419-be90-b1e0df855cce?keyword_channel=placeholder&amp;search_word=추석선물"
+																	href="detail_content.do"
 																	target="_blank"><div data-v-796f1feb=""
 																		class="card-thumb-cover">
 																		<div data-v-bb115d94="" data-v-796f1feb=""
@@ -2025,450 +2025,6 @@
 																				class="sale-rate">37%</span> <span
 																				data-v-bb115d94="" data-v-796f1feb=""
 																				class="price-sale"> 15,900원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/8171e885-fb95-4036-9f36-abf7da1fba12?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/dfbbbdde535f481d99c95606ef8d48d0_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">[추석선물세트]버터쿠키
-																			5종(3mix/4mix)</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-origin">13,000원</span>
-																			<!---->
-																			<!---->
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/47f9e1b7-8d44-49cc-ae0e-b53e733d7888?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/be2c2de3d7e743e880e65df5cdec7abc_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">[5+1] 추석선물 더치커피 6종
-																			선물세트</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">49%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 10,000원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/c3d2ea5b-644b-4f80-8c6a-4a565a6624d6?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/746da5a9dc3b4e5c81c577df879fe27a_512.png&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">[예약할인]3대가 이어온 수제약과</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">20%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 15,900원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/ef7ed0f1-6b10-4fd1-8390-2a568410f0a0?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/38b96d7119d744a5a5ab816b4e38457a_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">🎁추석선물🎁요거트전용
-																			샤인머스켓후르츠 수제청 생일</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">20%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 16,000원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/94ffaf23-a301-4b74-803a-742ad6201d49?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/a10d859a1f174a0895254bb938ba0638_512.png&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">궁중비법 서가 콩고물 도라지정과
-																			140 추석 명절 선물</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">34%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 19,800원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/29d1a694-465a-4e7d-aa9e-7e104d476263?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/c9c48a4c58584497ac8561399fbdf3ce_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">[추석선물]
-																			알록달록💕12종더치커피세트</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">20%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 17,500원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/29fb3790-e914-4564-bbe0-5e424faf00b7?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/62e6f7bf599147d3a90659b6971625e8_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">홍도라지생강진액청💜커피 대신
-																			마셔요👍추석선물 예약</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">35%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 19,900원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/cbf62717-be0e-4598-84a0-b198ce3458de?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/a179a3ef791d4bbdb42bf3bddefbdd21_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">[추석]❤️앙꼬절편 4종
-																			떡(흰팥,쑥팥,고구마,흑임자)</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">40%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 4,500원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/ea989439-676a-44d5-af87-e9732c0804f6?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/a14e6fa8505e4bdb9189280e57c4b6fe_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">[추석예약할인]1구3500원🎁선물포장포함🎁절편비누</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">16%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 5,900원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/2d1b84c7-3ec8-46f3-9354-3402381a0338?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/b23c5f2017724de4aeda048bdd613521_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">💛추석선물💛 찹쌀파이3종세트</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">36%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 20,500원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/b0e16540-c61c-4a64-aa34-0a4f559b2a6b?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/c50f5f7f577147f7b97d0c405a26b1e1_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">추석선물.더치커피
-																			(1+1+1)생일선물</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">25%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 11,900원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/a2352a85-78ce-4d2e-a9c1-cdac07fffb47?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/ef626b92b38f460a94e3bdc0493032ea_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">9월할인❤️예뻐서 먹기
-																			아까운🎁꽃쿠키 3종</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">23%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 10,000원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/286b75ab-0d76-4df5-bd22-6f84089c2649?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/d979af6c80094828bdc58e8765c20912_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">추석 선물 3+1행사❤️ 우리쌀
-																			오색송편 혼합 550g</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">25%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 5,900원</span>
-																		</div>
-																	</div></a>
-															</div>
-														</div>
-													</div>
-													<div data-v-25581d7d="" class="carousel__wrapper"
-														style="width: calc(12.5% - 16px); margin-right: 16px; display: none;">
-														<div data-v-d48b6b90="" data-v-25581d7d=""
-															class="slide_item">
-															<div data-v-796f1feb="" data-v-bb115d94=""
-																data-v-79ef34f6=""
-																class="base-card card--vertical product--recommended"
-																data-v-25581d7d="">
-																<a data-v-796f1feb=""
-																	href="/w/product/3446b295-6cca-4c00-af73-7e4fc4d2116c?keyword_channel=placeholder&amp;search_word=추석선물"
-																	target="_blank"><div data-v-796f1feb=""
-																		class="card-thumb-cover">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-thumb-img"
-																			style="background-image: url(&quot;https://image.idus.com/image/files/90e102b199e344ae92aadecc424ed6e0_512.jpg&quot;);"></div>
-																	</div>
-																	<div data-v-796f1feb="" class="card-info product-info">
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__name">🍓여기당 수제잼 Top6 50g
-																			샘플러박스🍓</div>
-																		<div data-v-bb115d94="" data-v-796f1feb=""
-																			class="product-info__price">
-																			<!---->
-																			<span data-v-bb115d94="" data-v-796f1feb=""
-																				class="sale-rate">20%</span> <span
-																				data-v-bb115d94="" data-v-796f1feb=""
-																				class="price-sale"> 11,760원</span>
 																		</div>
 																	</div></a>
 															</div>

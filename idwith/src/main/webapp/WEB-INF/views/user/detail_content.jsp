@@ -337,7 +337,7 @@
 						<!-- artist_card -->
 						<div class="artist_card">
 							<div class="artist_card__split">
-								<a class="artist_card__link" href="##">
+								<a class="artist_card__link" href="seller_goods.do">
 									<div class="artist_card__img"
 										style="background-image: url(resources/images/detail/artist01.PNG);"></div>
 									<span class="artist_card__label"> 충남부여 달하산농장 <i
@@ -630,7 +630,7 @@
 					<div data-vue="GetProductCoupon"></div>
 				</aside>
 				<a data-vue-ref="artist_message_url"
-					href="/w/message/aaa2fe88-9572-46b6-8f4e-df8d5f91610d?productuuid=d1e300b8-c0c7-48bd-803f-dfed5543954a"
+					href="message.do"
 					class="artist-inquire-float-btn" target="_blank"
 					data-ui="inquire-float-btn" style="bottom: 102px;">
 					<img src="resources/images/detail/artist-inquire-icon.svg" alt="작가 문의" style="bottom: 30px;">
@@ -772,12 +772,12 @@
 						<div class="center-txt">
 							<span class="txt">Category &amp; Keyword</span> <a
 								class="txt-strong"
-								href="/w/main/category/4a8cbc36-3af8-4b75-af01-8795782df80d">
+								href="cate_goods.do">
 								농축수산물 </a>
 						</div>
 						<div class="listwrap">
 							<ul>
-								<li><a href="/search?word=밤조림&keyword_channel=pdp_keyword">#밤조림</a></li>
+								<li><a href="product_search.do">#밤조림</a></li>
 								<li><a
 									href="/search?word=부모님선물&keyword_channel=pdp_keyword">#부모님선물</a></li>
 								<li><a
@@ -924,14 +924,14 @@
 					<div class="title-style-sub" style="margin-bottom: 0;">
 						<h3 class="txt">구매후기(37)</h3>
 						<a class="to-right btn btn-xs btn-white"
-							href="/w/product/d1e300b8-c0c7-48bd-803f-dfed5543954a/review/add"
+							href="review_detail.do"
 							data-modal-trigger="modal-link" data-modal-id="modal-review"
 							data-modal-type="post">구매후기 작성하기</a>
 					</div>
 					<ul data-v-2e5d0212>
 						<li data-v-a301bac8="" data-v-2e5d0212="" class="review"><a
 							data-v-a301bac8=""
-							href="/w/review/615eb7a8-1fd5-4244-879e-b3450e929fca">
+							href="review_detail.do">
 								<div data-v-a301bac8="" class="review-header">
 									<div data-v-a301bac8="" class="reviewer-info">
 										<div data-v-a301bac8="" class="reviewer-thumbnail"
@@ -1046,7 +1046,7 @@
 					<div class="ui_grid">
 						<div class="title-style-sub">
 							<h2 class="txt">판매중인 다른 작품들</h2>
-							<a href="/w/artist/aaa2fe88-9572-46b6-8f4e-df8d5f91610d/product"
+							<a href="seller_goods.do"
 								class="to-right btn btn-xs btn-white mobile-hide">더보기</a>
 						</div>
 
@@ -1061,7 +1061,7 @@
 									</button>
 
 									<div class="ui_card__imgcover">
-										<a href="/w/product/d36002f3-cd23-41b5-9b0c-6de0ef223d8f"
+										<a href="detail_content.do"
 											target="_blank"
 											aria-label="[ 유기농 햅쌀(백미) 2kg ] 왕우렁이농법&amp;쌀겨농법"
 											class="ui_card__img lazy "
@@ -1070,9 +1070,9 @@
 									</div>
 
 									<div class="ui_card__info">
-										<a href="/dalhasan" class="ui_card__label" target="_blank">충남부여
+										<a href="seller_goods.do" class="ui_card__label" target="_blank">충남부여
 											달하산농장</a> <a
-											href="/w/product/d36002f3-cd23-41b5-9b0c-6de0ef223d8f"
+											href="detail_content.do"
 											class="ui_card__title" target="_blank">[ 유기농 햅쌀(백미) 2kg ]
 											왕우렁이농법&amp;쌀겨농법</a>
 									</div>
@@ -1309,7 +1309,7 @@
 										style="width: calc(25% - 16px); margin-right: 16px;">
 										<div data-v-d48b6b90="" data-v-25581d7d="" class="slide_item">
 											<div data-v-71ed2e2c="" class="card--rect" data-v-25581d7d="">
-												<a data-v-71ed2e2c="" href="/oc/class/230" target="_blank"
+												<a data-v-71ed2e2c="" href="class_detail.content.do" target="_blank"
 													data-class-id="230" class="class-link"><div
 														data-v-71ed2e2c="" class="thumb-img-wrap">
 														<div data-v-71ed2e2c="" class="thumb-img"
@@ -1383,7 +1383,7 @@
 						</div>
 						<!---->
 					</div>
-					<a id="show-more-recommended" target="_blank" href="/oc"
+					<a id="show-more-recommended" target="_blank" href="class_index.do"
 						class="ui_btn--large"> 진행 중인 클래스 더보기 </a>
 				</div>
 			</section>

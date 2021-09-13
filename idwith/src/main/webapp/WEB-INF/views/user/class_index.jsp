@@ -304,22 +304,22 @@
 
 			<div class="inner-w">
 				<nav class="nav_group">
-					<a href="/c/category/3" class="nav_group__link"> <img
+					<a href="class_category.do" class="nav_group__link"> <img
 						src="https://image.idus.com/static/edu/category_craft.png" alt="">
 						<span>공예</span>
-					</a> <a href="/c/category/2" class="nav_group__link"> <img
+					</a> <a href="class_category.do" class="nav_group__link"> <img
 						src="https://image.idus.com/static/edu/category_cook.png" alt="">
 						<span>요리</span>
-					</a> <a href="/c/category/4" class="nav_group__link"> <img
+					</a> <a href="class_category.do" class="nav_group__link"> <img
 						src="https://image.idus.com/static/edu/category_art.png" alt="">
 						<span>미술</span>
-					</a> <a href="/c/category/5" class="nav_group__link"> <img
+					</a> <a href="class_category.do" class="nav_group__link"> <img
 						src="https://image.idus.com/static/edu/category_flower.png" alt="">
 						<span>플라워</span>
-					</a> <a href="/c/category/6" class="nav_group__link"> <img
+					</a> <a href="class_category.do" class="nav_group__link"> <img
 						src="https://image.idus.com/static/edu/category_beauty.png" alt="">
 						<span>뷰티</span>
-					</a> <a href="/c/category/7" class="nav_group__link"> <img
+					</a> <a href="class_category.do" class="nav_group__link"> <img
 						src="https://image.idus.com/static/edu/category_etc.png" alt="">
 						<span>체험 및 기타</span>
 					</a>
@@ -355,15 +355,15 @@
 									data-stats-artist="4496741" data-stats-category-depth1="2"
 									data-stats-category-depth2="11" data-state=""></button>
 								<div class="ui_card__imgcover">
-									<a href="/c/class/5291" target="_blank" class="ui_card__img"
+									<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 										data-lazy-img="https://image.idus.com/image/files/f910d620bf284ffc818656e36811c1a5_320.png"
 										style="background-image: url('https://image.idus.com/image/files/f910d620bf284ffc818656e36811c1a5_320.png');">
 									</a>
 								</div>
 								<div class="ui_card__txtarea">
 									<div class="ui_card__info">
-										<a href="/c/class/5291" target="_blank" class="ui_card__label">요리</a>
-										<a href="/c/class/5291" target="_blank" class="ui_card__title"><b>[당산역/선유도역
+										<a href="class_detail_content.do" target="_blank" class="ui_card__label">요리</a>
+										<a href="class_detail_content.do" target="_blank" class="ui_card__title"><b>[당산역/선유도역
 												티클래스] 밀크티, 집에서도 맛있게 즐겨요! </b></a>
 									</div>
 									<div class="ui_card__rating">

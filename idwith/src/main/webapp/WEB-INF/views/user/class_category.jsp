@@ -232,9 +232,9 @@
 			<div class="inner-w mobile-full padded-top">
 				<div class="breadcrumb_container">
 					<nav class="breadcrumb">
-						<a href="/c">클래스<i class="idus-icon-arrow-right"></i></a> <a
-							href="/c/category/3">공예<i class="idus-icon-arrow-right"></i></a>
-						<a href="/c/category/3/16">실크스크린, 염색</a>
+						<a href="class_index.do">클래스<i class="idus-icon-arrow-right"></i></a> <a
+							href="class_category.do">공예<i class="idus-icon-arrow-right"></i></a>
+						<a href="class_category.do">실크스크린, 염색</a>
 					</nav>
 				</div>
 			</div>
@@ -243,38 +243,38 @@
 				data-layout-split="edu-category">
 				<div class="inner-w mobile-full">
 					<ul class="side_nav">
-						<li class="side_nav__menu active"><a href="/c/category/3">공예</a>
+						<li class="side_nav__menu active"><a href="class_category.do">공예</a>
 							<ul class="side_nav__sublist">
-								<li class="side_nav__submenu "><a href="/c/category/3/15">캔들,
+								<li class="side_nav__submenu "><a href="class_category.do">캔들,
 										디퓨저, 방향제<i class="idus-icon-arrow-right"></i>
 								</a></li>
 								<li class="side_nav__submenu active"><a
-									href="/c/category/3/16">실크스크린, 염색<i
+									href="class_category.do">실크스크린, 염색<i
 										class="idus-icon-arrow-right"></i></a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/17">발향,
+								<li class="side_nav__submenu "><a href="class_category.do">발향,
 										룸스프레이<i class="idus-icon-arrow-right"></i>
 								</a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/18">자수,
+								<li class="side_nav__submenu "><a href="class_category.do">자수,
 										재봉, 펠트<i class="idus-icon-arrow-right"></i>
 								</a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/19">뜨개,
+								<li class="side_nav__submenu "><a href="class_category.do">뜨개,
 										마크라메<i class="idus-icon-arrow-right"></i>
 								</a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/20">가죽<i
+								<li class="side_nav__submenu "><a href="class_category.do">가죽<i
 										class="idus-icon-arrow-right"></i></a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/21">금속,
+								<li class="side_nav__submenu "><a href="class_category.do">금속,
 										악세사리<i class="idus-icon-arrow-right"></i>
 								</a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/22">네온사인,
+								<li class="side_nav__submenu "><a href="class_category.do">네온사인,
 										와이어<i class="idus-icon-arrow-right"></i>
 								</a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/23">유리<i
+								<li class="side_nav__submenu "><a href="class_category.do">유리<i
 										class="idus-icon-arrow-right"></i></a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/24">목공<i
+								<li class="side_nav__submenu "><a href="class_category.do">목공<i
 										class="idus-icon-arrow-right"></i></a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/25">도자기<i
+								<li class="side_nav__submenu "><a href="class_category.do">도자기<i
 										class="idus-icon-arrow-right"></i></a></li>
-								<li class="side_nav__submenu "><a href="/c/category/3/26">기타<i
+								<li class="side_nav__submenu "><a href="class_category.do">기타<i
 										class="idus-icon-arrow-right"></i></a></li>
 							</ul></li>
 						<li class="side_nav__menu "><a href="/c/category/2">요리</a>

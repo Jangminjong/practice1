@@ -194,7 +194,7 @@
 			<div class="download-ribbon top" style="background-color: #ff7b30"
 				data-download="root" data-download-type="isRibbon">
 				<div class="inner-w">
-					<a href="/w/join" class="download-ribbon-inner"> <img
+					<a href="##" class="download-ribbon-inner"> <img
 						class="pc-img"
 						src="https://image.idus.com/static/signup/thanksgiving/web_benefit_banner.png">
 					</a>
@@ -221,67 +221,67 @@
 						<ul class="inner-frame" style="margin-left: 0px;">
 							<li class="ui-slide showroom-banner"
 								style="background: #4B2C2C; width: 지정해야함; display: list-item;"
-								data-id="1709"><a href="/w/showroom/1709"> <img
+								data-id="1709"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/8817b53cb0d0441c8d6287cbcc808ab5.jpg"
 									alt="🍁추석 선물 예약 할인 기획전🍁">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #d16160"
 								data-id="1765"><a
-								href="https://www.idus.com/w/event/main/frequency/12                    ">
+								href="product_search.do">
 									<img
 									src="https://image.idus.com/image/files/7a74d4a986ab4823b277b08aab30242c.jpg"
 									alt="9월 용돈줍줍🌕 보름달처럼 커지는 혜택">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #9D6F6F"
-								data-id="1710"><a href="/w/showroom/1710"> <img
+								data-id="1710"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/c8949e03c5de4ba18d71ef9c0acd1ffd.jpg"
 									alt="감사의 마음을 담아, 추석 프리미엄 선물🍁">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #316E64"
 								data-id="1766"><a
-								href="https://www.idus.com/w/event/main/thanksgiving-benefit">
+								href="product_search.do">
 									<img
 									src="https://image.idus.com/image/files/93cc95ff4fe447068aebe90df0a420f4.png"
 									alt="가을맞이 9월 특별 혜택 이벤트🍂">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #F4F1ED"
-								data-id="1711"><a href="/w/showroom/1711"> <img
+								data-id="1711"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/e4485b2ddc654b5ca20b305da0fd7907.jpg"
 									alt="부담을 덜어주는 가성비 추석 선물🌝">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #F5BA93"
-								data-id="1767"><a href="/w/showroom/1767"> <img
+								data-id="1767"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/8ad91ba3ff274846942a2728bda5dc2d.jpg"
 									alt="가을과 함께 찾아온 9월 할인🌰">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #13456A"
-								data-id="1719"><a href="/w/showroom/1719"> <img
+								data-id="1719"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/a1125915484449788879a74274b97595.jpg"
 									alt="마음을 표현하는 확실한 선물 용돈🤑">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #FBF2E0"
-								data-id="1770"><a href="/w/showroom/1770"> <img
+								data-id="1770"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/02cb966364554bb586606f9f3cb86da1.jpg"
 									alt="즐거운 한끼를😋 위한 아름다운 구성 🍲">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #E8E1D3"
-								data-id="1753"><a href="/w/showroom/1753"> <img
+								data-id="1753"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/b3909662fd4f4cb69bd608f4e815630a.jpg"
 									alt="몸이 편한 감성룩😌 라운지웨어">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #FFE985"
-								data-id="1733"><a href="/w/showroom/1733"> <img
+								data-id="1733"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/95fca4de8f264fce82cb05939d9cf488.jpg"
 									alt="금요일에 만나요 (feat. 입점할인)">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #5585FD"
 								data-id="1254"><a
-								href="https://www.idus.com/subscribe/oc/plan"> <img
+								href="product_search.do"> <img
 									src="https://image.idus.com/image/files/8966b9bc2c004c0f8d6dc98f00cbda9b.jpg"
 									alt="🌈2주무료🌈 취미클래스 무제한스트리밍">
 							</a></li>
 							<li class="ui-slide showroom-banner" style="background: #f38586"
-								data-id="1786"><a href="/w/showroom/1786"> <img
+								data-id="1786"><a href="product_search.do"> <img
 									src="https://image.idus.com/image/files/2ca482b1286644d4890ec380bcc37776.jpg"
 									alt="9월 7일, 오늘만 할인🙌">
 							</a></li>
@@ -310,14 +310,14 @@
 				data-ui="load-all-on-scroll">
 				<div class="stickyparent">
 					<div class="ui_title">
-						<a href="/w/main/popular-category" class="ui_title__txt"> <span>인기작품</span>
+						<a href="cate_goods.do" class="ui_title__txt"> <span>인기작품</span>
 						</a>
 					</div>
 					<div data-on-scroll="load-content" data-endpoint="/mainAsync/api_category_popular?item=3&amp;p_item=10">
 						<div class="ui_title--bg">
-							<a href="##"
+							<a href="cate_goods.do"
 								data-category-uuid="5c6bc7d4-7760-4702-b63f-7f29eca479e3"
-								class="ui_title__txt">디저트, 베이커리, 떡</a> <a href="##"
+								class="ui_title__txt">디저트, 베이커리, 떡</a> <a href="cate_goods.do"
 								data-category-uuid="5c6bc7d4-7760-4702-b63f-7f29eca479e3"
 								class="ui_title__txtright">더보기<i
 								class="idus-icon-arrow-right"></i></a>
@@ -337,7 +337,7 @@
 														</button>
 
 														<div class="ui_card__imgcover">
-															<a href="##"
+															<a href="detail_content.do"
 																target="_blank"
 																aria-label="[추석할인] 시루아네 정성종합세트(개별포장, 24개입)"
 																class="ui_card__img"
@@ -347,9 +347,9 @@
 														</div>
 
 														<div class="ui_card__info">
-															<a href="##"
+															<a href="seller_goods.do"
 																class="ui_card__label" target="_blank">시루아네</a> <a
-																href="##"
+																href="detail_content.do"
 																class="ui_card__title"
 																data-product-id="046e334b-6b1d-451b-972a-a1601034f9f4"
 																target="_blank">[추석할인] 시루아네 정성종합세트(개별포장, 24개입)</a>

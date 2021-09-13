@@ -232,17 +232,17 @@
 
 			<div data-v-52b422fc="" class="inner-w mobile-full hide-gnb">
 				<nav data-v-52b422fc="" class="ui_tab_group">
-					<span href="/search?word=추석선물&amp;keyword_channel=placeholder"
+					<span href="product_search.do"
 						class="ui_tab_group__tab active"><span class="txt-desktop"><em>"추석선물"</em>
 							에 대한 작품 검색결과 </span> </span> <a
-						href="/c/search?word=추석선물&amp;keyword_channel=placeholder"
+						href="class_search.do"
 						class="ui_tab_group__tab"><span class="txt-desktop"><em>"추석선물"</em>
 							에 대한 클래스 검색결과 </span></a>
 				</nav>
 				<!-- 오프라인 클래스 검색결과 -->
 			<div class="inner-w">
 				<div class="ui_title">
-					<a href="#" class="ui_title__txt search_title search_title">추석선물
+					<a href="##" class="ui_title__txt search_title search_title">추석선물
 						관련 인기 오프라인 클래스</a>
 				</div>
 				<div class="ui_grid">
@@ -264,7 +264,7 @@
 								</button>
 								<div class="ui_card__imgcover">
 									<a
-										href="/c/class/5558?search_word=추석선물&keyword_channel=placeholder"
+										href="class_detail_content.do"
 										target="_blank" class="ui_card__img"
 										data-lazy-img="https://image.idus.com/image/files/487f32d915714b58ad975d81e3d414aa_320.jpg"
 										style="background-image: url('https://image.idus.com/image/files/487f32d915714b58ad975d81e3d414aa_320.jpg');">
@@ -272,8 +272,8 @@
 								</div>
 								<div class="ui_card__txtarea">
 									<div class="ui_card__info">
-										<a href="/c/class/5558" target="_blank" class="ui_card__label">공예</a>
-										<a href="/c/class/5558" target="_blank" class="ui_card__title"><b>감성인테리어가
+										<a href="class_detail_content.do" target="_blank" class="ui_card__label">공예</a>
+										<a href="class_detail_content.do" target="_blank" class="ui_card__title"><b>감성인테리어가
 												가능한 마크라메 해바라기 월행잉 만들기</b></a>
 									</div>
 									<div class="ui_card__rating">

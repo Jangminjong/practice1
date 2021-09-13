@@ -331,7 +331,7 @@
 					<div class="artist_card">
 						<div class="artist_card__split">
 							<a class="artist_card__link"
-								href="/w/artist/8329ae04-a7ae-4b1f-9413-2c9b5a716144/product">
+								href="seller_goods.do">
 								<div class="artist_card__img"
 									style="background-image: url(http://image.idus.com/image/files/fcc0727a576e44e88042e3106e873c35_324.jpg);"></div>
 								<span class="artist_card__label"> 스튜디오흐린 <i
@@ -1501,7 +1501,7 @@
 					</fieldset>
 				</aside>
 				<a data-vue-ref="artist_message_url"
-					href="/w/message/8329ae04-a7ae-4b1f-9413-2c9b5a716144"
+					href="message.do"
 					class="artist-inquire-float-btn" target="_blank"
 					data-ui="inquire-float-btn" style="bottom: 102px;"> <img
 					src="resources/images/detail/artist-inquire-icon.svg"
@@ -1526,7 +1526,7 @@
 							안녕하세요. <br>스튜디오흐린 입니다.
 						</h3>
 						<div>
-							<a href="/w/artist/8329ae04-a7ae-4b1f-9413-2c9b5a716144"
+							<a href="seller_goods.do"
 								target="_blank" class="article_block__circle"
 								style="background-image: url(http://image.idus.com/image/files/fcc0727a576e44e88042e3106e873c35_256.jpg);"></a>
 						</div>
@@ -1572,17 +1572,17 @@
 					<div class="hashtag-box">
 						<div class="center-txt">
 							<span class="txt">Category &amp; Keyword</span> <a
-								class="txt-strong" href="/c/category/6/40"> 비누 </a>
+								class="txt-strong" href="class_category.do"> 비누 </a>
 						</div>
 						<div class="listwrap">
 							<ul>
-								<li><a href="/c/search?word=비누">#비누</a></li>
-								<li><a href="/c/search?word=약산성비누">#약산성비누</a></li>
-								<li><a href="/c/search?word=핸드메이드">#핸드메이드</a></li>
-								<li><a href="/c/search?word=샴푸바">#샴푸바</a></li>
-								<li><a href="/c/search?word=플라스틱사용줄이기">#플라스틱사용줄이기</a></li>
-								<li><a href="/c/search?word=비누공방">#비누공방</a></li>
-								<li><a href="/c/search?word=샴푸바만들기">#샴푸바만들기</a></li>
+								<li><a href="class_search.do">#비누</a></li>
+								<li><a href="class_search.do">#약산성비누</a></li>
+								<li><a href="class_search.do">#핸드메이드</a></li>
+								<li><a href="class_search.do">#샴푸바</a></li>
+								<li><a href="class_search.do">#플라스틱사용줄이기</a></li>
+								<li><a href="class_search.do">#비누공방</a></li>
+								<li><a href="">#샴푸바만들기</a></li>
 							</ul>
 						</div>
 					</div>
@@ -1683,15 +1683,15 @@
 										data-stats-artist="2310246" data-stats-category-depth1="6"
 										data-stats-category-depth2="40" data-state=""></button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/970" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/c0b7e8f26e7943858009572217528b3b_320.jpg"
 											style="background-image: url('https://image.idus.com/image/files/c0b7e8f26e7943858009572217528b3b_320.jpg');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/970" target="_blank" class="ui_card__label">뷰티</a>
-											<a href="/c/class/970" target="_blank" class="ui_card__title"><b>[경복궁역]
+											<a href="class_detail_content.do" target="_blank" class="ui_card__label">뷰티</a>
+											<a href="class_detail_content.do" target="_blank" class="ui_card__title"><b>[경복궁역]
 													쉽게 만들어 보는 나만의 비누, MP비누 500g 만들기</b></a>
 										</div>
 										<div class="ui_card__rating">
