@@ -425,11 +425,11 @@
 							<!---->
 						</div>
 					</div>
-					<div class="vue-sticky-placeholder" style="padding-top: 259.333px;"></div>
+					<div class="vue-sticky-placeholder" style=""></div>
 					<div data-v-56dfc770="" sticky-side="bottom"
 						on-stick="handleChangeStickBottom"
 						class="CartList__sticky vue-sticky-el bottom-sticky"
-						style="position: fixed; top: auto; bottom: 0px; left: 105.333px; width: 800px; z-index: 10;">
+						style="position: static; top: auto; bottom: auto; left: auto; width: auto; z-index: 10;">
 						<div data-v-20c2da48="" data-v-6d930ad9=""
 							class="CartCheckboxControl" data-v-56dfc770="">
 							<div data-v-5e27c696="" data-v-20c2da48="" class="checkbox">
