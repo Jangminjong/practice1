@@ -262,7 +262,6 @@
 
 
 	<div class="wrap-login">
-		<div class="head_banner_group"></div>
 
 
 		<div class="login wrap">

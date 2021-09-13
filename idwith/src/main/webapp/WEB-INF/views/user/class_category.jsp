@@ -224,6 +224,7 @@
         </script>
 
 	<div class="wrap">
+	<jsp:include page="header_goods.jsp"/>
 		<div class="dimmed-background"></div>
 		<div id="content" class="content layout_navigation"
 			data-gnb-show="true">

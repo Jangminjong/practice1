@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html>
@@ -11,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="naver-site-verification" content="a8c6e5633b597db7b48d05e4a7d247011f6794ec"/>
         <meta name="google-site-verification" content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-        <title>아이디어스 | 팔로우하는 작가</title>
+        <title>아이디어스 | 회원 정보 관리</title>
         <meta name="theme-color" content="#ffffff"/>
         <link rel="apple-touch-icon" sizes="384x384" href="/resources/dist/images/app-icon/icon_300.png">
         <link rel="apple-touch-icon" sizes="256x256" href="/resources/dist/images/app-icon/icon_300.png">
@@ -42,9 +44,9 @@
         <meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
         <meta property="og:type"   content="website" />
         <meta property="og:description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-        <meta property="og:url" content="http://www.idus.com/w/me/followingartist"/>
+        <meta property="og:url" content="http://www.idus.com/w/me/personal"/>
         <meta property="og:image" content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-        <link rel="canonical" href="http://www.idus.com/w/me/followingartist"/>
+        <link rel="canonical" href="http://www.idus.com/w/me/personal"/>
                 <script>
             window.__client_env__ = 'production';
             window.CNN_DOMAIN = 'https://cnn.idus.com';
@@ -189,8 +191,9 @@
         </script>
 
         <div class="wrap">
-                        
-<div class="dimmed-background"></div><div id="content" class="content">
+<jsp:include page="header_goods.jsp"/>
+<div class="dimmed-background"></div><!-- 회원정보관리 -->
+<div id="content" class="content" data-page="mypageinfo">
     <div class="inner-w layout-split" data-layout-split="orderlist">
         <aside class="my-info">
     <div class="profile-area">
@@ -224,7 +227,7 @@
                 <span class="sp-icon grade-01-s"></span>
                 <span>아기손 &gt;</span>
             </a>
-            <strong data-profile="name">이소희🎗</strong>
+            <strong data-profile="name">OOO</strong>
                     </div>
     </div>
 
@@ -256,7 +259,13 @@
                                 <a
                     href="/w/message"
                     class="">메시지</a>
-                                        
+                                        <b><span>선물함</span></b>
+                                <a
+                    href="/w/me/present/receive"
+                    class="">받은 선물함</a>
+                                <a
+                    href="/w/me/present/give"
+                    class="">보낸 선물함</a>
                                         <b><span>나의 구매후기</span></b>
                                 <a
                     href="/w/me/review/add"
@@ -270,31 +279,42 @@
                     class="">찜 목록</a>
                                 <a
                     href="/w/me/followingartist"
-                    class="active">팔로우하는 작가</a>
+                    class="">팔로우하는 작가</a>
                                 <a
                     href="/w/me/recentproduct"
                     class="">최근 본 작품</a>
                                         <b><span>할인혜택</span></b>
-                                
+                                <a
+                    href="/w/me/vipclub"
+                    class="">VIP 클럽</a>
+                                <a
+                    href="/w/me/subscribe"
+                    class="">온라인 클래스 무제한 스트리밍</a>
                                 <a
                     href="/w/me/coupon"
                     class="">쿠폰함</a>
                                 <a
                     href="/w/me/point"
                     class="">적립금</a>
-                               
+                                <a
+                    href="/w/me/recommend"
+                    class="">친구 초대 쿠폰</a>
                                         <b><span>내 정보</span></b>
                                 <a
                     href="/w/me/membership"
                     class="">회원 등급</a>
                                 <a
                     href="/w/me/personal"
-                    class="">회원 정보 관리</a>
-                                
+                    class="active">회원 정보 관리</a>
+                                <a
+                    href="/w/me/bill"
+                    class="">신용카드 및 환불계좌 관리</a>
                                 <a
                     href="/w/me/address"
                     class="">주소(배송지) 관리</a>
-                                
+                                <a
+                    href="/w/authorization"
+                    class="">본인 인증</a>
                                 <a
                     href="/w/logout"
                     class="">로그아웃</a>
@@ -312,48 +332,177 @@ vuepack.create([{
 </script>
 
         <section>
-            <div class="title-style">
-                <h1 class="txt">팔로우하는 작가</h1>
-            </div>
-                            <p style="color: #666; margin-bottom: 24px;">
-                    <strong style="font-weight: bold;">2명</strong>의 작가를 팔로우 중입니다.
-                </p>
-                <ul class="artist-list"><li data-v-1ae32da5="" class="following-artist-container"><div data-v-1ae32da5="" class="artist-profile-area"><div data-v-1ae32da5="" class="artist-thumbnail" style="background-image: url(&quot;https://image.idus.com/image/files/e8534c6cbfb7488fbb5771f48db36e6d_324.jpg&quot;);"><!----></div> <div data-v-1ae32da5="" class="artist-profile"><div data-v-1ae32da5="" class="text-area"><h2 data-v-1ae32da5="" class="artist-name">
-                    늘해랑 떡공방
-                </h2> <p data-v-1ae32da5="" class="artist-introduce">안녕하세요 건강하고 예쁜떡을 만드는 늘해랑입니다.</p></div> <button data-v-b534333e="" data-v-1ae32da5="" type="button" class="following" style="background-color: rgb(255, 255, 255); min-width: 96px; width: 96px; height: 32px; font-size: 12px; color: rgb(51, 51, 51); border: 1px solid rgb(217, 217, 217); border-radius: 4px;"><i data-v-b534333e="" class="idus-icon-check" style="font-size: 12px;"></i>
-    팔로잉
-</button></div></div> <div data-v-1ae32da5="" class="product-thumbnails"><a data-v-1ae32da5="" href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product" target="_blank" class="thumbnail-wrapper"><div data-v-1ae32da5="" class="product-thumbnail" style="background-image: url(&quot;https://image.idus.com/image/files/7fbae09755274fc3a4ab80f30f8f86f3_512.jpg&quot;);"></div></a><a data-v-1ae32da5="" href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product" target="_blank" class="thumbnail-wrapper"><div data-v-1ae32da5="" class="product-thumbnail" style="background-image: url(&quot;https://image.idus.com/image/files/1ef90b19bca24bfdbe150b17348e85db_512.jpg&quot;);"></div></a><a data-v-1ae32da5="" href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product" target="_blank" class="thumbnail-wrapper"><div data-v-1ae32da5="" class="product-thumbnail" style="background-image: url(&quot;https://image.idus.com/image/files/8a53329ed3894cd4830ff22cde836d9f_512.jpg&quot;);"></div></a></div></li><li data-v-1ae32da5="" class="following-artist-container"><div data-v-1ae32da5="" class="artist-profile-area"><div data-v-1ae32da5="" class="artist-thumbnail" style="background-image: url(&quot;https://image.idus.com/image/files/7036aa7ce7c043f7835e6ef121c5134c_324.jpg&quot;);"><img data-v-1ae32da5="" src="/resources/dist/images/medal-award2020.png" alt="award 2020"></div> <div data-v-1ae32da5="" class="artist-profile"><div data-v-1ae32da5="" class="text-area"><h2 data-v-1ae32da5="" class="artist-name">
-                    다앤하(danha)
-                </h2> <p data-v-1ae32da5="" class="artist-introduce">작가❤️버튼을 눌러주신후
-매달 할인쿠폰과 이벤트알림을 받아보세요🌝👍🏻
-[NO정제밀, NO정제설탕]
-속이 편안한 빵&amp;디저트를 만들어요</p></div> <button data-v-b534333e="" data-v-1ae32da5="" type="button" class="following" style="background-color: rgb(255, 255, 255); min-width: 96px; width: 96px; height: 32px; font-size: 12px; color: rgb(51, 51, 51); border: 1px solid rgb(217, 217, 217); border-radius: 4px;"><i data-v-b534333e="" class="idus-icon-check" style="font-size: 12px;"></i>
-    팔로잉
-</button></div></div> <div data-v-1ae32da5="" class="product-thumbnails"><a data-v-1ae32da5="" href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product" target="_blank" class="thumbnail-wrapper"><div data-v-1ae32da5="" class="product-thumbnail" style="background-image: url(&quot;https://image.idus.com/image/files/819010ea6ed745aa9327d909c33dfab3_512.jpg&quot;);"></div></a><a data-v-1ae32da5="" href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product" target="_blank" class="thumbnail-wrapper"><div data-v-1ae32da5="" class="product-thumbnail" style="background-image: url(&quot;https://image.idus.com/image/files/280eb388cdf44f93a46837334f9853de_512.jpg&quot;);"></div></a><a data-v-1ae32da5="" href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product" target="_blank" class="thumbnail-wrapper"><div data-v-1ae32da5="" class="product-thumbnail" style="background-image: url(&quot;https://image.idus.com/image/files/880ac53a941440e4a19fb768bd6017be_512.jpg&quot;);"></div></a></div></li> <nav data-v-450a0b42=""><!----> <button data-v-450a0b42="" type="button" class="active">
-        1
-    </button> <!----></nav></ul>
-                <div data-vue="FollowingArtistList"></div>
-                    </section>
+            <form class="form-personal" action="/w/me/personal" method="post">
+                <div class="title-style no-mt clf">
+                    <a href="#" class="txt fl">회원 정보 관리</a>
+                </div>
+
+                <table class="table-style-head-left">
+                    <tbody>
+                        <tr>
+                            <th>이름</th>
+                            <td>
+                                <div class="input-text size-m">
+                                    <input
+                                        type="text"
+                                        name="username"
+                                        value="이소희🎗"
+                                        required
+                                    >
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>이메일</th>
+                            <td data-email="root">
+                                <span id="new_email" data-email="origin-email">user@gmail.com</span>
+                                <button
+                                    data-email="change-email"
+                                    class="btn btn-m btn-white"
+                                    type="button"
+                                >변경하기</button>
+
+                                <div data-email="new-email-block" style="display:none">
+                                    <p class="mt10">변경할 이메일 주소를 입력해주세요. (예.abcd@idus.me)</p>
+                                    <div class="mt5">
+                                        <div class="input-text size-m">
+                                            <input
+                                                type="email"
+                                                data-email="new-email"
+                                                name="new_email"
+                                            >
+                                        </div>
+                                        <button
+                                            class="btn btn-m btn-white"
+                                            data-email="send-email"
+                                            type="button">인증메일 발송</button>
+                                    </div>
+                                </div>
+
+                                <div data-email="send-email-msg" class="sent-email" style="display:none">
+                                    <span data-email="insert-new-email" class="c-sub">
+                                    </span>
+                                    로 인증메일을 발송하였습니다. <br>
+                                    이메일에 포함된 이메일 주소 변경 완료 링크를 눌러 주세요.
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>전화</th>
+                            <td>
+                                <span id="cell_phone" data-auth="current-phone">010-0000-0000</span>
+                                <button
+                                    data-phone="change-phone"
+                                    class="btn btn-m btn-white"
+                                    type="button"
+                                >변경하기</button>
+                                <p class="f-comment mt10">주문, 배송시 등록된 번호로 SMS를 발송해 드립니다.</p>
+
+                                <div data-auth="root" style="display:none">
+                                    <div class="mt10">
+                                        <p>변경할 전화번호를 입력해주세요.</p>
+                                        <div class="mt5">
+                                            <div class="input-text size-m">
+                                                <input
+                                                    type="tel"
+                                                    name="cell_phone"
+                                                    data-auth="cell_phone"
+                                                    placeholder="010-1234-5678"
+                                                >
+                                            </div>
+                                            <button type="button" class="btn btn-m btn-point btn-disabled" data-auth="request_btn">
+                                                인증번호 요청
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="mt10">
+                                        <div class="hidden" data-auth="auth_code_block">
+                                            <div class="ui-input-btn-combo type-static">
+                                                <div class="input-text size-m">
+                                                    <input
+                                                        type="text"
+                                                        name="auth_code"
+                                                        data-input-style="none"
+                                                        data-auth="auth_code"
+                                                        maxlength="4"
+                                                        placeholder="인증코드를 입력해주세요."
+                                                        class="filldisable"
+                                                    >
+                                                    <div data-auth="time_limit" class="time-limit"></div>
+                                                </div>
+                                                <button type="button" class="btn btn-m btn-white btn-disabled" data-auth="auth_code_submit">확인</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>성별</th>
+                            <td>
+                                                                <div class="radiogroup">
+                                    <label class="radio_label">
+                                        <input class="idus-icon-radio" type="radio" name="gender" value="female" checked>
+                                        <span>여성</span>
+                                    </label>
+                                    <label class="radio_label">
+                                        <input class="idus-icon-radio" type="radio" name="gender" value="male" >
+                                        <span>남성</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>생일</th>
+                            <td>
+                                <div class="input-text size-s">
+                                    <input
+                                        type="text"
+                                        name="birth"
+                                        placeholder="2000-01-01"
+                                        value="1996-04-01"
+                                        class="filldisable"
+                                    >
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>알림설정</th>
+                            <td>
+                                할인쿠폰/이벤트/감동적인 뉴스레터를 받아보시겠습니까?
+                                <div class="mt10">
+                                                                        <div class="radiogroup">
+                                        <label>
+                                            <input class="bp" type="checkbox" name="sms_agreement" >
+                                            SMS
+                                        </label>
+
+                                        <label>
+                                            <input class="bp" type="checkbox" name="email_agreement" >
+                                            이메일
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="ta-r mt10">
+                    <a href="/w/me/leave" class="btn btn-s btn-white">회원탈퇴</a>
+                </div>
+
+                <div class="form-submit ta-c">
+                    <button
+                        type="submit"
+                        class="btn btn-m btn-point"
+                    >회원 정보 수정하기</button>
+                </div>
+            </form>
+        </section>
     </div>
 </div>
-
-<script>
-    vuepack.create([
-        {
-            selector: '[data-vue="FollowingArtistList"]',
-            component: 'FollowingArtistList',
-            props: {
-                artists: [{"uuid":"6159ba47-76f5-40d0-98b2-7cbabde46625","artist_id":"5189261","artist_uuid":"2e754b3a-8c6e-4904-a8ab-9cac555cef5c","name":"\ub298\ud574\ub791 \ub5a1\uacf5\ubc29","image_url":"https:\/\/image.idus.com\/image\/files\/5c542b18dc614d3cad084378a4b5d3fc.jpg","userpicture_url":"https:\/\/image.idus.com\/image\/files\/e8534c6cbfb7488fbb5771f48db36e6d_324.jpg","introduce":"\uc548\ub155\ud558\uc138\uc694 \uac74\uac15\ud558\uace0 \uc608\uc05c\ub5a1\uc744 \ub9cc\ub4dc\ub294 \ub298\ud574\ub791\uc785\ub2c8\ub2e4.","is_vacation":false,"vacation_msg":"","is_award":false,"award_image_url":"","products":[{"uuid":"7eaf4f6c-f4ce-41e0-9c67-1f1e86e31542","name":"\ucd94\uc11d\uc8fc\ubb38\ub9c8\uac10\ud83c\udf39\ucd94\uc11d\uc120\ubb3c\ud83c\udf39\uc815\uc131\uac00\ub4dd \uc218\uc81c \ud654\uacfc\uc790 ","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/7fbae09755274fc3a4ab80f30f8f86f3.jpg"},{"uuid":"735cf9ca-580c-4dfd-93eb-60af27381615","name":"\ucd94\uc11d\uc8fc\ubb38\ub9c8\uac10[\ucd94\uc11d\uc120\ubb3c] \ucac4\uae43\ud55c \uc544\uc774\uc2a4\uc6d4\ubcd1 7\uad6c\uc138","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/1ef90b19bca24bfdbe150b17348e85db.jpg"},{"uuid":"720a2eed-1735-4c10-bd67-e84114e2d144","name":"[\uc2e0\ub9bc] \ucd94\uc11d\uc120\ubb3c\/\ubd80\ubaa8\ub2d8\uc0dd\uc2e0\ud83c\udf37\uace0\uae09\ubcf4\uc790\uae30\ub5a1\ucf00\uc774\ud06c\ud83c\udf37","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/8a53329ed3894cd4830ff22cde836d9f.jpg"}],"created":"1630757267999"},{"uuid":"0970be26-d09b-4ece-a49f-3e96ad6dea24","artist_id":"1879201","artist_uuid":"598fb7c4-6674-47de-ad02-95673d738a99","name":"\ub2e4\uc564\ud558(danha)","image_url":"http:\/\/image.idus.com\/image\/files\/d4477808756643d0897e01943fc00a13.jpg","userpicture_url":"https:\/\/image.idus.com\/image\/files\/7036aa7ce7c043f7835e6ef121c5134c_324.jpg","introduce":"\uc791\uac00\u2764\ufe0f\ubc84\ud2bc\uc744 \ub20c\ub7ec\uc8fc\uc2e0\ud6c4\n\ub9e4\ub2ec \ud560\uc778\ucfe0\ud3f0\uacfc \uc774\ubca4\ud2b8\uc54c\ub9bc\uc744 \ubc1b\uc544\ubcf4\uc138\uc694\ud83c\udf1d\ud83d\udc4d\ud83c\udffb\n[NO\uc815\uc81c\ubc00, NO\uc815\uc81c\uc124\ud0d5]\n\uc18d\uc774 \ud3b8\uc548\ud55c \ube75&\ub514\uc800\ud2b8\ub97c \ub9cc\ub4e4\uc5b4\uc694","is_vacation":false,"vacation_msg":"\u2764\ufe0f\uac8c\ub9b4\ub77c \ub77c\uc778\uc5c5 \uc900\ube44\uc911\uc785\ub2c8\ub2e4.\u2764\ufe0f","is_award":true,"award_image_url":"https:\/\/image.idus.com\/static\/award\/ios\/badge_2020.png","products":[{"uuid":"a867920d-c518-419f-bd8d-d7e43d973ed7","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uc2e0\uba54\ub274\u203c\ufe0f\ud83c\udf3a\uc8e0\ub9ac\ud401,\ub85c\ud22c\uc2a4,\ub2f9\ucf00,\ub179\ucc28\uc138\ud2b8","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/819010ea6ed745aa9327d909c33dfab3.jpg"},{"uuid":"557ced87-2a6c-4036-ab62-fb7b684f95c1","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uc2e0\uba54\ub274\uac8c\ub9b4\ub77c\u203c\ufe0f\ud83c\udf3a \ubf40\ub610\ud06c\uce58\ubc45,\ud398\ub808\ub85c\ubc45","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/280eb388cdf44f93a46837334f9853de.jpg"},{"uuid":"2dda9470-6e8f-457e-8abb-321942f61b36","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uac8c\ub9b4\ub77c\ud83c\udf3a\ub0b1\uac1c: \uc8e0\ub9ac\ud401,\ub85c\ud22c\uc2a4,\ub2f9\ucf00,\ub179\ucc28","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/880ac53a941440e4a19fb768bd6017be.jpg"}],"created":"1630185266542"}],
-                pagination: {"page_size":2,"total_size":1,"items_size":2,"current_page":1}            }
-        }
-    ]);
-
-    (function () {
-        var Logger = vuepack.externals.IdusLog.Logger;
-        var PageName = vuepack.externals.IdusLog.PageName;
-        Logger.sendPageView(PageName.FavoriteArtists);
-    })();
-</script>
 <div data-vue="ToastPopup"></div>
 <div data-vue="BottomSheet"></div>
 <div data-vue="WideBottomSheet"></div>
@@ -362,7 +511,8 @@ vuepack.create([{
 <a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
     <img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
 </a>
-<!-- 푸터 -->
+<jsp:include page="footer.jsp"/>
+
 <script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';

@@ -43,11 +43,11 @@
 					<nav class="fr">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a
-							id="gnb-login-button" href="#" class="nav-btn"
-							data-log-object="login">로그인</a> <a href="#" class="nav-btn"
-							data-log-object="member_join">회원가입</a> <a href="#"
+							id="gnb-login-button" href="login.jsp" class="nav-btn"
+							data-log-object="login">로그인</a> <a href="sign.jsp" class="nav-btn"
+							data-log-object="member_join">회원가입</a> <a href="board.jsp"
 							class="nav-btn" data-log-object="member__notice">공지사항</a> <a
-							href="#" class="nav-btn" data-log-object="member_qna">1:1문의</a>
+							href="board.jsp" class="nav-btn" data-log-object="member_qna">1:1문의</a>
 
 						<!-- <div class="nav-btn ui-dropdown">
                                     <button type="button" class="btn-dropdown">고객센터</button>
@@ -91,7 +91,7 @@
 					</div>
 
 					<nav class="profile-links">
-						<a href="/w/me" class="btn"> <i class="far fa-user"></i> 내 정보
+						<a href="mypage.jsp" class="btn"> <i class="far fa-user"></i> 내 정보
 						</a> <a id="my-cart-button" href="/w/cart" class="btn"> <span
 							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
 							장바구니
@@ -237,5 +237,6 @@
 				</div>
 			</div>
 		</header>
+		</div>
 </body>
 </html>

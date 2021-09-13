@@ -237,7 +237,7 @@
         </script>
 
 	<div class="wrap">
-		<!-- header 추가 -->
+		<jsp:include page="header_goods.jsp"/>
 		
 		<div class="dimmed-background"></div>
 		<script type="text/javascript"

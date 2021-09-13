@@ -26,7 +26,6 @@ p {
 .content {
     padding-bottom: 64px;
     background: #fff;
-    position: absolute;
     left: 20%;
     transform: translateX(-50%);
     transform: translateY(4.5%);
@@ -126,7 +125,7 @@ h2 {
     overflow-y: auto;
 }
 
-/* 스크롤바 */
+/* �뒪�겕濡ㅻ컮 */
 
 .mCustomScrollbar {
     -ms-touch-action: pinch-zoom;
@@ -181,7 +180,7 @@ h2 {
    
 }
 
-/* 중요한 이벤트 */
+/* 以묒슂�븳 �씠踰ㅽ듃 */
 
 .notification_important_layout_conatiner {
     padding: 18px 16px 12px 16px;
@@ -274,7 +273,7 @@ a:-webkit-any-link {
     font-size: 12px;
 }
 
-/* 이벤트 */
+/* �씠踰ㅽ듃 */
 .notification_card_link {
     display: flex;
     padding: 10px 16px;

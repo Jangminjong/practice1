@@ -188,6 +188,7 @@
         </script>
 
 	<div class="wrap">
+	<jsp:include page="header_goods.jsp"/>
 		<div class="head_banner_group">
 			<!-- 상단 리본 배너 -->
 			<div class="download-ribbon top" style="background-color: #ff7b30"

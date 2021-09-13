@@ -275,7 +275,7 @@
 
 	<div class="wrap">
 		<!-- 로딩 중 화면 -->
-		
+		<jsp:include page="header_goods.jsp"/>	
 		<div class="dimmed-background"></div>
 
 		<div id="content" class="content relative" data-page="prd-detail">
