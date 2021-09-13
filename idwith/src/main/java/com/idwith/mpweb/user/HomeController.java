@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 	@GetMapping("/home.do")
 	public String home() {
-		return "index";
+		return "index"; // 수정(나중에 지우기)
 	}
 }
