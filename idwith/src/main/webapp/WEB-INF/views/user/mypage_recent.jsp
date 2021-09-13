@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html>
@@ -6,20 +8,27 @@
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><html class="ie9"><![endif]-->
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="naver-site-verification" content="a8c6e5633b597db7b48d05e4a7d247011f6794ec"/>
-        <meta name="google-site-verification" content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-        <title>아이디어스 | 최근 본 작품</title>
-        <meta name="theme-color" content="#ffffff"/>
-        <link rel="apple-touch-icon" sizes="384x384" href="/resources/dist/images/app-icon/icon_300.png">
-        <link rel="apple-touch-icon" sizes="256x256" href="/resources/dist/images/app-icon/icon_300.png">
-        <link rel="apple-touch-icon" sizes="192x192" href="/resources/dist/images/app-icon/icon_192.png">
-        <link rel="apple-touch-icon" sizes="128x128" href="/resources/dist/images/app-icon/icon_120.png">
-        <link rel="apple-touch-icon" sizes="96x96" href="/resources/dist/images/app-icon/icon_96.png">
-        <link rel="manifest" href="/manifest.json">
-        <script>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="naver-site-verification"
+	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
+<meta name="google-site-verification"
+	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
+<title>아이디어스 | 최근 본 작품</title>
+<meta name="theme-color" content="#ffffff" />
+<link rel="apple-touch-icon" sizes="384x384"
+	href="/resources/dist/images/app-icon/icon_300.png">
+<link rel="apple-touch-icon" sizes="256x256"
+	href="/resources/dist/images/app-icon/icon_300.png">
+<link rel="apple-touch-icon" sizes="192x192"
+	href="/resources/dist/images/app-icon/icon_192.png">
+<link rel="apple-touch-icon" sizes="128x128"
+	href="/resources/dist/images/app-icon/icon_120.png">
+<link rel="apple-touch-icon" sizes="96x96"
+	href="/resources/dist/images/app-icon/icon_96.png">
+<link rel="manifest" href="/manifest.json">
+<script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
                     navigator.serviceWorker.register('/sw.js').then(function(registration) {
@@ -32,28 +41,34 @@
                 });
             }
         </script>
-        <!-- Intersection Observer polyfill -->
-        <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover"/>
-        <meta name="application-name" content="아이디어스" />
-        <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리"/>
-        <meta property="fb:app_id" content="1410666675867984" />
-                <meta name="description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-        <meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
-        <meta property="og:type"   content="website" />
-        <meta property="og:description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-        <meta property="og:url" content="http://www.idus.com/w/me/recentproduct"/>
-        <meta property="og:image" content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-        <link rel="canonical" href="http://www.idus.com/w/me/recentproduct"/>
-                <script>
+<!-- Intersection Observer polyfill -->
+<script
+	src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
+<meta name="application-name" content="아이디어스" />
+<meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리" />
+<meta property="fb:app_id" content="1410666675867984" />
+<meta name="description"
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
+<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
+<meta property="og:type" content="website" />
+<meta property="og:description"
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
+<meta property="og:url" content="http://www.idus.com/w/me/recentproduct" />
+<meta property="og:image"
+	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
+<link rel="canonical" href="http://www.idus.com/w/me/recentproduct" />
+<script>
             window.__client_env__ = 'production';
             window.CNN_DOMAIN = 'https://cnn.idus.com';
         </script>
-        <!-- project src -->
-        <link rel="icon" href="/resources/favicon_32.ico" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- project src -->
+<link rel="icon" href="/resources/favicon_32.ico" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                <script>
+<script>
             // 개발자 console에 아이디어스 로고 노출
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 // 다크모드일 경우
@@ -67,35 +82,47 @@
                 console.log('%cWant to join %cidus%c? 👉 https://www.notion.so/idus/Join-idus-61e7ca6d4b6d4211a7506e8773cc78fd', 'font-size: 10px; color: #515151;', 'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 10px; color: transparent; background-color: #515151;', 'font-size: 10px; color: #515151;');
             }
         </script>
-       <link rel="stylesheet" href="resources/css/mypage.css"/>
-       <link rel="stylesheet" href="resources/css/idus.web.min.css"/>
-       <link rel="stylesheet" href="resources/css/vendor.client.min.css"/>
-        <script src="/resources/dist/js/vendor.client.min.js?__v=1631078629"></script>
-        <script src="/resources/dist/js/vuepack.js?__v=1631078629"></script>
-        
-        <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/flowplayer.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/thumbnails.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/speed.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/hls.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/keyboard.min.js"></script>
-        <!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/cuepoints.min.js"></script> -->
+<link rel="stylesheet" href="resources/css/mypage.css" />
+<link rel="stylesheet" href="resources/css/idus.web.min.css" />
+<link rel="stylesheet" href="resources/css/vendor.client.min.css" />
+<script src="/resources/dist/js/vendor.client.min.js?__v=1631078629"></script>
+<script src="/resources/dist/js/vuepack.js?__v=1631078629"></script>
 
-        <!-- Kakao web SDK -->
-        <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-        <!-- Signin With Apple -->
-        <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+<link rel="stylesheet"
+	href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/flowplayer.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/thumbnails.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/speed.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/hls.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
+<script
+	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/keyboard.min.js"></script>
+<!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/cuepoints.min.js"></script> -->
 
-        <!-- tracker vendors -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-775263643"></script>
-        <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-        <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
-        <script src="//wcs.naver.net/wcslog.js"></script>
+<!-- Kakao web SDK -->
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<!-- Signin With Apple -->
+<script type="text/javascript"
+	src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
 
-        <!-- trackers -->
-        <script>
+<!-- tracker vendors -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=AW-775263643"></script>
+<script type="text/javascript" charset="UTF-8"
+	src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js"
+	async="true"></script>
+<script src="//wcs.naver.net/wcslog.js"></script>
+
+<!-- trackers -->
+<script>
         vuepack.externals.VendorLogger.sendLog([
             {
                 vendorName: 'google_analytics',
@@ -115,8 +142,8 @@
             },
         ]);
         </script>
-        <!-- sitelink - search box -->
-        <script type="application/ld+json">
+<!-- sitelink - search box -->
+<script type="application/ld+json">
         {
           "@context": "http://schema.org",
           "@type": "WebSite",
@@ -128,7 +155,7 @@
           }
         }
         </script>
-                <script type="application/ld+json">
+<script type="application/ld+json">
             {
                 "@context": "http://schema.org",
                 "@type": "Organization",
@@ -145,12 +172,12 @@
                 ]
             }
         </script>
-    </head>
-    <body>
-        <div data-vue="token"></div>
-        <div data-vue="globalUser"></div>
-        <div data-vue="resizeHandler"></div>
-                <script>
+</head>
+<body>
+	<div data-vue="token"></div>
+	<div data-vue="globalUser"></div>
+	<div data-vue="resizeHandler"></div>
+	<script>
         // image-only-button 위해
         if (!window.localStorage.getItem('idus-product-card-img-only-path') || window.localStorage.getItem('idus-product-card-img-only-path') !== window.location.pathname) {
             window.localStorage.setItem('idus-product-card-img-only', 'false');
@@ -188,121 +215,65 @@
         });
         </script>
 
-        <div class="wrap">
-                        <!-- 헤더 -->
-<div class="dimmed-background"></div><div id="content" class="content" data-page="my-info">
-    <div class="inner-w layout-split" data-layout-split="orderlist">
-        <aside class="my-info">
-    <div class="profile-area">
-        <div class="outline">
-            <label
-                data-profile="image"
-                class="img-bg profile-img"
-                style="background-image: url(https://image.idus.com/image/files/d247655ca3e545e89a48a43aa9318b3f.jpg)"
-            >
-                <input
-                    data-change-profile="image"
-                    type="file"
-                    name="image"
-                    id="profile-image"
-                    class="profile-image-input"
-                    accept=".png, .jpg, .jpeg"
-                >
-                <span class="link-style">수정</span>
+	<div class="wrap">
+		<!-- 헤더 -->
+		<div class="dimmed-background"></div>
+		<jsp:include page="header_goods.jsp" />
+		<div id="content" class="content" data-page="my-info">
+			<div class="inner-w layout-split" data-layout-split="orderlist">
+				<aside class="my-info">
+					<div class="profile-area">
+						<div class="outline">
+							<label data-profile="image" class="img-bg profile-img"
+								style="background-image: url(https://image.idus.com/image/files/d247655ca3e545e89a48a43aa9318b3f.jpg)">
+								<input data-change-profile="image" type="file" name="image"
+								id="profile-image" class="profile-image-input"
+								accept=".png, .jpg, .jpeg"> <span
+								class="link-style">수정</span> <a href="/w/me/profile/image"
+								data-modal-trigger="modal-link" data-modal-id="modal-profile"
+								class="profile-modal-open" style="visibility: hidden">이미지
+									변경 모달</a>
+							</label>
+						</div>
+						<div class="area-txt">
+							<a href="/w/me/membership"> <span class="sp-icon grade-01-s"></span>
+								<span>아기손 &gt;</span>
+							</a> <strong data-profile="name">이소희🎗</strong>
+						</div>
+					</div>
 
-                <a
-                    href="/w/me/profile/image"
-                    data-modal-trigger="modal-link"
-                    data-modal-id="modal-profile"
-                    class="profile-modal-open"
-                    style="visibility: hidden"
-                >이미지 변경 모달</a>
-            </label>
-        </div>
-        <div class="area-txt">
-            <a href="/w/me/membership">
-                <span class="sp-icon grade-01-s"></span>
-                <span>아기손 &gt;</span>
-            </a>
-            <strong data-profile="name">이소희🎗</strong>
-                    </div>
-    </div>
+					<div class="my-point clf">
+						<a href="/w/me/point" class="inner fl"> <span class="label">적립금</span>
+							<em>0 P</em>
+						</a> <a href="/w/me/coupon" class="fr"> <span class="label">쿠폰</span>
+							<em>2</em>
+						</a>
+					</div>
+					<div data-vue="frequency-event-mobile"></div>
+					<div class="my-menu">
+						<em>MY MENU</em>
+						<nav>
+							<b><span>주문 배송</span></b> <a href="/w/me/order/payment" class="">주문내역</a>
+							<a href="/w/me/order/cancel" class="">취소/환불내역</a> <b><span>알림
+									및 메시지</span></b> <a href="/w/notification" class="">알림</a> <a
+								href="/w/message" class="">메시지</a> <b><span>나의 구매후기</span></b> <a
+								href="/w/me/review/add" class="">후기 쓰기</a> <a
+								href="/w/me/review/all" class="">내가 쓴 후기</a> <b><span>관심리스트</span></b>
+							<a href="/w/me/favoriteproduct" class="">찜 목록</a> <a
+								href="/w/me/followingartist" class="">팔로우하는 작가</a> <a
+								href="/w/me/recentproduct" class="active">최근 본 작품</a> <b><span>할인혜택</span></b>
 
-    <div class="my-point clf">
-        <a href="/w/me/point" class="inner fl">
-            <span class="label">적립금</span>
-            <em>0 P</em>
-        </a>
-        <a href="/w/me/coupon" class="fr">
-            <span class="label">쿠폰</span>
-            <em>2</em>
-        </a>
-    </div>
-        <div data-vue="frequency-event-mobile"></div>
-        <div class="my-menu">
-        <em>MY MENU</em>
-                <nav>
-                        <b><span>주문 배송</span></b>
-                                <a
-                    href="/w/me/order/payment"
-                    class="">주문내역</a>
-                                <a
-                    href="/w/me/order/cancel"
-                    class="">취소/환불내역</a>
-                                        <b><span>알림 및 메시지</span></b>
-                                <a
-                    href="/w/notification"
-                    class="">알림</a>
-                                <a
-                    href="/w/message"
-                    class="">메시지</a>
-                                        
-                                        <b><span>나의 구매후기</span></b>
-                                <a
-                    href="/w/me/review/add"
-                    class="">후기 쓰기</a>
-                                <a
-                    href="/w/me/review/all"
-                    class="">내가 쓴 후기</a>
-                                        <b><span>관심리스트</span></b>
-                                <a
-                    href="/w/me/favoriteproduct"
-                    class="">찜 목록</a>
-                                <a
-                    href="/w/me/followingartist"
-                    class="">팔로우하는 작가</a>
-                                <a
-                    href="/w/me/recentproduct"
-                    class="active">최근 본 작품</a>
-                                        <b><span>할인혜택</span></b>
-                               
-                                <a
-                    href="/w/me/coupon"
-                    class="">쿠폰함</a>
-                                <a
-                    href="/w/me/point"
-                    class="">적립금</a>
-                                
-                                        <b><span>내 정보</span></b>
-                                <a
-                    href="/w/me/membership"
-                    class="">회원 등급</a>
-                                <a
-                    href="/w/me/personal"
-                    class="">회원 정보 관리</a>
-                                
-                                <a
-                    href="/w/me/address"
-                    class="">주소(배송지) 관리</a>
-                               
-                                <a
-                    href="/w/logout"
-                    class="">로그아웃</a>
-                                    </nav>
-    </div>
-</aside>
+							<a href="/w/me/coupon" class="">쿠폰함</a> <a href="/w/me/point"
+								class="">적립금</a> <b><span>내 정보</span></b> <a
+								href="/w/me/membership" class="">회원 등급</a> <a
+								href="/w/me/personal" class="">회원 정보 관리</a> <a
+								href="/w/me/address" class="">주소(배송지) 관리</a> <a href="/w/logout"
+								class="">로그아웃</a>
+						</nav>
+					</div>
+				</aside>
 
-<script>
+				<script>
 vuepack.create([{
     selector: '[data-vue="frequency-event-mobile"]',
     component: 'FrequencyEventMobile',
@@ -310,577 +281,475 @@ vuepack.create([{
         frequencyEvent: {"frequency_event_detail":{"id":12,"name":"9\uc6d4\ucfe0\ud3f0\uc90d\uc90d","description":"\uc791\ud488 \ucc1c\ud558\uae30 10\ud68c, \ub204\uc801 \uad6c\ub9e4 \uae08\uc561 100\ub9cc\uc6d0","start_date_time":"2021-09-01T12:00:00","end_date_time":"2021-09-30T23:59:59","reward_payment_dt":"2021-09-30","status":"IN_PROGRESS","plp_url":{"mobile_url":"https:\/\/www.idus.com\/w\/event\/main\/summer","pc_url":"https:\/\/www.idus.com\/w\/event\/main\/summer"}},"application_detail":{"applied_at":null,"title":"\uc774\ubca4\ud2b8 \uc2e0\uccad\ud558\uace0 \ub9cc\uc6d0 \uc6a9\ub3c8\ud329 \uc90d\uc90d","linked_text_label":"\uc790\uc138\ud788\ubcf4\uae30","frequency_event_url":"https:\/\/www.idus.com\/w\/event\/main\/frequency\/12","status_image_url":"https:\/\/image.idus.com\/static\/frequency\/202109\/my_01.gif"}}    }
 }]);
 </script>
-        <section>
-            <div class="title-style watch-list-title--recent">
-                <h1 class="txt">최근 본 작품</h1>
-            </div>
-            <!-- <div data-vue="product-filter"></div> -->
-            <div data-vue="product-list">
-                <div class="ui_grid col4">
-                    <ul class="ui_grid__cols--4">
-                                                    <li class="ui_grid__item">
-                                        <div class="base-card card--vertical product">
-            <a href="/w/product/" target="_blank">
-                <div class="card-thumb-cover">
-                    <div class="product-thumb-img" style="background-image: url('https://image.idus.com/image/files/7ebe95f039c041298181294b5bd4cc8e_512.jpg')"></div>
-                    <div class="product-bookmark">
-                        <button class="full-button">
-                          <button type="button" class="sp-icon icon-favorite"></button>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-info product-info">
-                    <!-- 작가 이름 -->
-                    <div class="product-info__artist-name">
-                        소소한 양과자점                    </div>
-                    <!-- 제목 -->
-                    <div class="product-info__name">
-                        ⭐️입점 쫀득쫀득 진-한 유기농재료 휘낭시에 8종 🧈                    </div>
-                    <!-- 가격 -->
-                    <div class="product-info__price">
-                                                                        <span class="price-origin">
-                            2,000<span style="font-size: 14px;">원</span>
-                        </span>
-                                                                    </div>
-                    <div class="product-info__badge-group" style="margin-top: 8px">
-                                                <div class="badge badge-food">
-                            안전식품                        </div>
-                                            </div>
-                                        <div class="product-info__review">
-                        <div class="review-rating">
-                            <span class="ui_rating fr" data-value=5>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        </span>
-                            <span class="review-count">(5)</span>
-                        </div>
-                                                <div class="review-comment">
-                            <div class="review-comment__badge">후기</div>
-                            <div class="review-comment__contents">산지 1주?2주?만에 부모님이랑 같이 얌얌 먹어버렸네용 ㅎㅎ 너무 맛있고 부모님도 넘  달지 않고 좋다고 어디서샀냐고 하실 정도 였어요 ㅎㅎ 다음에 또 맛있는 빵 나오면 구매할렵니당~~</div>
-                        </div>
-                                            </div>
-                                    </div>
-            </a>
-        </div>
-                                    </li>
-                                                    <li class="ui_grid__item">
-                                        <div class="base-card card--vertical product">
-            <a href="/w/product/" target="_blank">
-                <div class="card-thumb-cover">
-                    <div class="product-thumb-img" style="background-image: url('https://image.idus.com/image/files/825f8f0dfa514cbcbb9d9520d5bc9905_512.png')"></div>
-                    <div class="product-bookmark">
-                        <button class="full-button">
-                          <button type="button" class="sp-icon icon-favorite"></button>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-info product-info">
-                    <!-- 작가 이름 -->
-                    <div class="product-info__artist-name">
-                        도.천.빵.집                    </div>
-                    <!-- 제목 -->
-                    <div class="product-info__name">
-                        [더맛있어진]겉바속촉, 휘낭시에                    </div>
-                    <!-- 가격 -->
-                    <div class="product-info__price">
-                                                                        <span class="price-origin">
-                            1,500<span style="font-size: 14px;">원</span>
-                        </span>
-                                                                    </div>
-                    <div class="product-info__badge-group" style="margin-top: 8px">
-                                                <div class="badge badge-food">
-                            안전식품                        </div>
-                                            </div>
-                                        <div class="product-info__review">
-                        <div class="review-rating">
-                            <span class="ui_rating fr" data-value=4.8>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        </span>
-                            <span class="review-count">(187)</span>
-                        </div>
-                                                <div class="review-comment">
-                            <div class="review-comment__badge">후기</div>
-                            <div class="review-comment__contents">진짜 너무 맛있어요🥰 6개 시켰는데 오자마자 가족들이랑 다 먹었네요 곧 재구매할거에요👍🤎</div>
-                        </div>
-                                            </div>
-                                    </div>
-            </a>
-        </div>
-                                    </li>
-                                                    <li class="ui_grid__item">
-                                        <div class="base-card card--vertical product">
-            <a href="/w/product/" target="_blank">
-                <div class="card-thumb-cover">
-                    <div class="product-thumb-img" style="background-image: url('https://image.idus.com/image/files/94c4cee4fea34a4595ad546cbd8deb1e_512.jpg')"></div>
-                    <div class="product-bookmark">
-                        <button class="full-button">
-                          <button type="button" class="sp-icon icon-favorite"></button>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-info product-info">
-                    <!-- 작가 이름 -->
-                    <div class="product-info__artist-name">
-                        디디얌                    </div>
-                    <!-- 제목 -->
-                    <div class="product-info__name">
-                        13일출고 추석선물🎁❣휘낭시에 11종                    </div>
-                    <!-- 가격 -->
-                    <div class="product-info__price">
-                                                <span class="sale-rate">
-                            25%
-                        </span>
-                        <span class="price-sale">
-                            1,500<span style="font-size: 14px;">원</span>
-                        </span>
-                                                                                                <div class="price-origin--before-sale">
-                            <del>2,000원</del>    
-                        </div>
-                                            </div>
-                    <div class="product-info__badge-group" style="margin-top: 12px">
-                                                <div class="badge badge-food">
-                            안전식품                        </div>
-                                            </div>
-                                        <div class="product-info__review">
-                        <div class="review-rating">
-                            <span class="ui_rating fr" data-value=4.7>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        </span>
-                            <span class="review-count">(495)</span>
-                        </div>
-                                                <div class="review-comment">
-                            <div class="review-comment__badge">후기</div>
-                            <div class="review-comment__contents">생각보다 크기는 작았는데 얼먹하니까 꾸덕하니 진짜 맛있었어요ㅜㅜㅜ!!! 생각날때마다 시킬게요💛</div>
-                        </div>
-                                            </div>
-                                    </div>
-            </a>
-        </div>
-                                    </li>
-                                                    <li class="ui_grid__item">
-                                        <div class="base-card card--vertical product">
-            <a href="/w/product/" target="_blank">
-                <div class="card-thumb-cover">
-                    <div class="product-thumb-img" style="background-image: url('https://image.idus.com/image/files/b498906e98354a9abbadd6f3008c625f_512.jpg')"></div>
-                    <div class="product-bookmark">
-                        <button class="full-button">
-                          <button type="button" class="sp-icon icon-favorite"></button>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-info product-info">
-                    <!-- 작가 이름 -->
-                    <div class="product-info__artist-name">
-                        wetica                    </div>
-                    <!-- 제목 -->
-                    <div class="product-info__name">
-                        ✨곰돌이 3중 블랭킷✨거즈 담요                    </div>
-                    <!-- 가격 -->
-                    <div class="product-info__price">
-                                                                        <span class="price-origin">
-                            19,800<span style="font-size: 14px;">원</span>
-                        </span>
-                                                                    </div>
-                    <div class="product-info__badge-group" style="margin-top: 8px">
-                                            </div>
-                                        <div class="product-info__review">
-                        <div class="review-rating">
-                            <span class="ui_rating fr" data-value=5>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        <i
-                                style="font-size: 11px"
-                                class="ui_icon--star idus-icon-star-fill"
-                                data-state="active"
-                            ></i>
-                                                        </span>
-                            <span class="review-count">(14)</span>
-                        </div>
-                                                <div class="review-comment">
-                            <div class="review-comment__badge">후기</div>
-                            <div class="review-comment__contents">진ㅁ자 너무 부들부들 좋아요… 맨날 끌어안고 잡니다,,,</div>
-                        </div>
-                                            </div>
-                                    </div>
-            </a>
-        </div>
-                                    </li>
-                    </ul>
-                    <ul class="ui_grid__cols--4">
-                        <li class="ui_grid__item">
-            <div class="base-card card--vertical product">
-<a href="/w/product/" target="_blank">
-<div class="card-thumb-cover">
-<div class="product-thumb-img" style="background-image: url('https://image.idus.com/image/files/7ebe95f039c041298181294b5bd4cc8e_512.jpg')"></div>
-<div class="product-bookmark">
-<button class="full-button">
-<button type="button" class="sp-icon icon-favorite"></button>
-</button>
-</div>
-</div>
-<div class="card-info product-info">
-<!-- 작가 이름 -->
-<div class="product-info__artist-name">
-소소한 양과자점                    </div>
-<!-- 제목 -->
-<div class="product-info__name">
-⭐️입점 쫀득쫀득 진-한 유기농재료 휘낭시에 8종 🧈                    </div>
-<!-- 가격 -->
-<div class="product-info__price">
-                                            <span class="price-origin">
-2,000<span style="font-size: 14px;">원</span>
-</span>
-                                        </div>
-<div class="product-info__badge-group" style="margin-top: 8px">
-                    <div class="badge badge-food">
-안전식품                        </div>
-                </div>
-            <div class="product-info__review">
-<div class="review-rating">
-<span class="ui_rating fr" data-value=5>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            </span>
-<span class="review-count">(5)</span>
-</div>
-                    <div class="review-comment">
-<div class="review-comment__badge">후기</div>
-<div class="review-comment__contents">산지 1주?2주?만에 부모님이랑 같이 얌얌 먹어버렸네용 ㅎㅎ 너무 맛있고 부모님도 넘  달지 않고 좋다고 어디서샀냐고 하실 정도 였어요 ㅎㅎ 다음에 또 맛있는 빵 나오면 구매할렵니당~~</div>
-</div>
-                </div>
-        </div>
-</a>
-</div>
-        </li>
-                        <li class="ui_grid__item">
-            <div class="base-card card--vertical product">
-<a href="/w/product/" target="_blank">
-<div class="card-thumb-cover">
-<div class="product-thumb-img" style="background-image: url('https://image.idus.com/image/files/825f8f0dfa514cbcbb9d9520d5bc9905_512.png')"></div>
-<div class="product-bookmark">
-<button class="full-button">
-<button type="button" class="sp-icon icon-favorite"></button>
-</button>
-</div>
-</div>
-<div class="card-info product-info">
-<!-- 작가 이름 -->
-<div class="product-info__artist-name">
-도.천.빵.집                    </div>
-<!-- 제목 -->
-<div class="product-info__name">
-[더맛있어진]겉바속촉, 휘낭시에                    </div>
-<!-- 가격 -->
-<div class="product-info__price">
-                                            <span class="price-origin">
-1,500<span style="font-size: 14px;">원</span>
-</span>
-                                        </div>
-<div class="product-info__badge-group" style="margin-top: 8px">
-                    <div class="badge badge-food">
-안전식품                        </div>
-                </div>
-            <div class="product-info__review">
-<div class="review-rating">
-<span class="ui_rating fr" data-value=4.8>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            </span>
-<span class="review-count">(187)</span>
-</div>
-                    <div class="review-comment">
-<div class="review-comment__badge">후기</div>
-<div class="review-comment__contents">진짜 너무 맛있어요🥰 6개 시켰는데 오자마자 가족들이랑 다 먹었네요 곧 재구매할거에요👍🤎</div>
-</div>
-                </div>
-        </div>
-</a>
-</div>
-        </li>
-                        <li class="ui_grid__item">
-            <div class="base-card card--vertical product">
-<a href="/w/product/" target="_blank">
-<div class="card-thumb-cover">
-<div class="product-thumb-img" style="background-image: url('https://image.idus.com/image/files/94c4cee4fea34a4595ad546cbd8deb1e_512.jpg')"></div>
-<div class="product-bookmark">
-<button class="full-button">
-<button type="button" class="sp-icon icon-favorite"></button>
-</button>
-</div>
-</div>
-<div class="card-info product-info">
-<!-- 작가 이름 -->
-<div class="product-info__artist-name">
-디디얌                    </div>
-<!-- 제목 -->
-<div class="product-info__name">
-13일출고 추석선물🎁❣휘낭시에 11종                    </div>
-<!-- 가격 -->
-<div class="product-info__price">
-                    <span class="sale-rate">
-25%
-</span>
-<span class="price-sale">
-1,500<span style="font-size: 14px;">원</span>
-</span>
-                                                                    <div class="price-origin--before-sale">
-<del>2,000원</del>    
-</div>
-                </div>
-<div class="product-info__badge-group" style="margin-top: 12px">
-                    <div class="badge badge-food">
-안전식품                        </div>
-                </div>
-            <div class="product-info__review">
-<div class="review-rating">
-<span class="ui_rating fr" data-value=4.7>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            </span>
-<span class="review-count">(495)</span>
-</div>
-                    <div class="review-comment">
-<div class="review-comment__badge">후기</div>
-<div class="review-comment__contents">생각보다 크기는 작았는데 얼먹하니까 꾸덕하니 진짜 맛있었어요ㅜㅜㅜ!!! 생각날때마다 시킬게요💛</div>
-</div>
-                </div>
-        </div>
-</a>
-</div>
-        </li>
-                        <li class="ui_grid__item">
-            <div class="base-card card--vertical product">
-<a href="/w/product/" target="_blank">
-<div class="card-thumb-cover">
-<div class="product-thumb-img" style="background-image: url('https://image.idus.com/image/files/b498906e98354a9abbadd6f3008c625f_512.jpg')"></div>
-<div class="product-bookmark">
-<button class="full-button">
-<button type="button" class="sp-icon icon-favorite"></button>
-</button>
-</div>
-</div>
-<div class="card-info product-info">
-<!-- 작가 이름 -->
-<div class="product-info__artist-name">
-wetica                    </div>
-<!-- 제목 -->
-<div class="product-info__name">
-✨곰돌이 3중 블랭킷✨거즈 담요                    </div>
-<!-- 가격 -->
-<div class="product-info__price">
-                                            <span class="price-origin">
-19,800<span style="font-size: 14px;">원</span>
-</span>
-                                        </div>
-<div class="product-info__badge-group" style="margin-top: 8px">
-                </div>
-            <div class="product-info__review">
-<div class="review-rating">
-<span class="ui_rating fr" data-value=5>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            <i
-    style="font-size: 11px"
-    class="ui_icon--star idus-icon-star-fill"
-    data-state="active"
-></i>
-                            </span>
-<span class="review-count">(14)</span>
-</div>
-                    <div class="review-comment">
-<div class="review-comment__badge">후기</div>
-<div class="review-comment__contents">진ㅁ자 너무 부들부들 좋아요… 맨날 끌어안고 잡니다,,,</div>
-</div>
-                </div>
-        </div>
-</a>
-</div>
-        </li>
-</ul>
-                </div>
-            </div>
-            <p class="txt-bg recent">최근 본 작품은 60개까지 저장됩니다.</p>
-        </section>
-    </div>
-</div>
+				<section>
+					<div class="title-style watch-list-title--recent">
+						<h1 class="txt">최근 본 작품</h1>
+					</div>
+					<!-- <div data-vue="product-filter"></div> -->
+					<div data-vue="product-list">
+						<div class="ui_grid col4">
+							<ul class="ui_grid__cols--4">
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="/w/product/" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/7ebe95f039c041298181294b5bd4cc8e_512.jpg')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">소소한 양과자점</div>
+												<!-- 제목 -->
+												<div class="product-info__name">⭐️입점 쫀득쫀득 진-한 유기농재료
+													휘낭시에 8종 🧈</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="price-origin"> 2,000<span
+														style="font-size: 14px;">원</span>
+													</span>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 8px">
+													<div class="badge badge-food">안전식품</div>
+												</div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=5> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(5)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">산지 1주?2주?만에
+															부모님이랑 같이 얌얌 먹어버렸네용 ㅎㅎ 너무 맛있고 부모님도 넘 달지 않고 좋다고 어디서샀냐고 하실
+															정도 였어요 ㅎㅎ 다음에 또 맛있는 빵 나오면 구매할렵니당~~</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="/w/product/" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/825f8f0dfa514cbcbb9d9520d5bc9905_512.png')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">도.천.빵.집</div>
+												<!-- 제목 -->
+												<div class="product-info__name">[더맛있어진]겉바속촉, 휘낭시에</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="price-origin"> 1,500<span
+														style="font-size: 14px;">원</span>
+													</span>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 8px">
+													<div class="badge badge-food">안전식품</div>
+												</div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=4.8> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(187)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">진짜 너무 맛있어요🥰
+															6개 시켰는데 오자마자 가족들이랑 다 먹었네요 곧 재구매할거에요👍🤎</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="/w/product/" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/94c4cee4fea34a4595ad546cbd8deb1e_512.jpg')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">디디얌</div>
+												<!-- 제목 -->
+												<div class="product-info__name">13일출고 추석선물🎁❣휘낭시에 11종
+												</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="sale-rate"> 25% </span> <span
+														class="price-sale"> 1,500<span
+														style="font-size: 14px;">원</span>
+													</span>
+													<div class="price-origin--before-sale">
+														<del>2,000원</del>
+													</div>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 12px">
+													<div class="badge badge-food">안전식품</div>
+												</div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=4.7> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(495)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">생각보다 크기는 작았는데
+															얼먹하니까 꾸덕하니 진짜 맛있었어요ㅜㅜㅜ!!! 생각날때마다 시킬게요💛</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="/w/product/" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/b498906e98354a9abbadd6f3008c625f_512.jpg')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">wetica</div>
+												<!-- 제목 -->
+												<div class="product-info__name">✨곰돌이 3중 블랭킷✨거즈 담요</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="price-origin"> 19,800<span
+														style="font-size: 14px;">원</span>
+													</span>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 8px"></div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=5> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(14)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">진ㅁ자 너무 부들부들
+															좋아요… 맨날 끌어안고 잡니다,,,</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+							<ul class="ui_grid__cols--4">
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="/w/product/" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/7ebe95f039c041298181294b5bd4cc8e_512.jpg')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">소소한 양과자점</div>
+												<!-- 제목 -->
+												<div class="product-info__name">⭐️입점 쫀득쫀득 진-한 유기농재료
+													휘낭시에 8종 🧈</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="price-origin"> 2,000<span
+														style="font-size: 14px;">원</span>
+													</span>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 8px">
+													<div class="badge badge-food">안전식품</div>
+												</div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=5> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(5)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">산지 1주?2주?만에
+															부모님이랑 같이 얌얌 먹어버렸네용 ㅎㅎ 너무 맛있고 부모님도 넘 달지 않고 좋다고 어디서샀냐고 하실
+															정도 였어요 ㅎㅎ 다음에 또 맛있는 빵 나오면 구매할렵니당~~</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="/w/product/" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/825f8f0dfa514cbcbb9d9520d5bc9905_512.png')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">도.천.빵.집</div>
+												<!-- 제목 -->
+												<div class="product-info__name">[더맛있어진]겉바속촉, 휘낭시에</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="price-origin"> 1,500<span
+														style="font-size: 14px;">원</span>
+													</span>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 8px">
+													<div class="badge badge-food">안전식품</div>
+												</div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=4.8> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(187)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">진짜 너무 맛있어요🥰
+															6개 시켰는데 오자마자 가족들이랑 다 먹었네요 곧 재구매할거에요👍🤎</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="/w/product/" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/94c4cee4fea34a4595ad546cbd8deb1e_512.jpg')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">디디얌</div>
+												<!-- 제목 -->
+												<div class="product-info__name">13일출고 추석선물🎁❣휘낭시에 11종
+												</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="sale-rate"> 25% </span> <span
+														class="price-sale"> 1,500<span
+														style="font-size: 14px;">원</span>
+													</span>
+													<div class="price-origin--before-sale">
+														<del>2,000원</del>
+													</div>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 12px">
+													<div class="badge badge-food">안전식품</div>
+												</div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=4.7> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(495)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">생각보다 크기는 작았는데
+															얼먹하니까 꾸덕하니 진짜 맛있었어요ㅜㅜㅜ!!! 생각날때마다 시킬게요💛</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="/w/product/" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/b498906e98354a9abbadd6f3008c625f_512.jpg')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">wetica</div>
+												<!-- 제목 -->
+												<div class="product-info__name">✨곰돌이 3중 블랭킷✨거즈 담요</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="price-origin"> 19,800<span
+														style="font-size: 14px;">원</span>
+													</span>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 8px"></div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=5> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(14)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">진ㅁ자 너무 부들부들
+															좋아요… 맨날 끌어안고 잡니다,,,</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<p class="txt-bg recent">최근 본 작품은 60개까지 저장됩니다.</p>
+				</section>
+			</div>
+		</div>
 
-<script>
+		<script>
 let vueComponents = [];
 vueComponents.push({
     selector: '[data-vue="product-list"]',
@@ -898,16 +767,16 @@ vuepack.create(vueComponents);
     Logger.sendPageView(PageName.RecentViewed);
 })();
 </script>
-<div data-vue="ToastPopup"></div>
-<div data-vue="BottomSheet"></div>
-<div data-vue="WideBottomSheet"></div>
-<div data-vue="FooterModal"></div>
-<div data-vue="InactiveToast"></div>
-<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
-    <img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
-</a>
-<!-- 푸터 -->
-<script>
+		<div data-vue="ToastPopup"></div>
+		<div data-vue="BottomSheet"></div>
+		<div data-vue="WideBottomSheet"></div>
+		<div data-vue="FooterModal"></div>
+		<div data-vue="InactiveToast"></div>
+		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
+			<img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
+		</a>
+		<!-- 푸터 -->
+		<script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
     var newWindow = window.open(url,'name','height=450,width=400');
@@ -939,10 +808,12 @@ vuepack.create([
     }
 ]);
 </script>
-        </div>
-        <!-- div WRAP -->
-                <script type="text/javascript" src="/resources/dist/js/idus.web.min.js?__v=1631078629"></script>
-                        <script>
+	<jsp:include page="footer.jsp"></jsp:include>
+	</div>
+	<!-- div WRAP -->
+	<script type="text/javascript"
+		src="/resources/dist/js/idus.web.min.js?__v=1631078629"></script>
+	<script>
         (function(){
             var applink = new vuepack.externals.Applink();
             var scheme = applink.locationToAppScheme();
@@ -968,12 +839,12 @@ vuepack.create([
             BPackr.scheme = scheme;
         }());
         </script>
-                <script>
+	<script>
         vuepack.externals.VendorLogger.sendLog([
             {
                 vendorName: 'naver',
             },
         ]);
         </script>
-    </body>
+</body>
 </html>

@@ -11,7 +11,7 @@
 <script type="text/javascript" src="resources/js/sign.js"></script>
 </head>
 <body>
-	<link rel="stylesheet" href="resources/css/sign_choice.css">
+	<link rel="stylesheet" href="resources/css/sign_choice.css" />
 	<link rel="stylesheet" href="resources/css/common.css">
 	<link rel="stylesheet" href="resources/css/idus.web.min.css">
 	<link rel="stylesheet" href="resources/css/vendor.client.min.css">

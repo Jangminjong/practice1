@@ -5,14 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 정보 입력</title>
+<link rel="stylesheet" href="resources/css/sign.css">
+<link rel="stylesheet" href="resources/css/common.css">
+<link rel="stylesheet" href="resources/css/idus.web.min.css">
+<link rel="stylesheet" href="resources/css/vendor.client.min.css">
+
 <script type="text/javascript" src="resources/js/sign.js"></script>
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/idus.web.min.js"></script>
+<script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
+<script type="text/javascript" src="resources/js/vuepack.js"></script>
 </head>
 <body>
-	<link rel="stylesheet" href="resources/css/sign.css">
-	<link rel="stylesheet" href="resources/css/common.css">
-	<link rel="stylesheet" href="resources/css/idus.web.min.css">
-	<link rel="stylesheet" href="resources/css/vendor.client.min.css">
-	
+
 	<div class="wrap login">
 		<div class="head_banner_group"></div>
 		<form data-form="reauth-phone" class="form form-signup-step2"
@@ -188,7 +193,7 @@
 				</section>
 			</div>
 		</form>
-		
+
 		<!--  
 		<script>
 			(function() {
