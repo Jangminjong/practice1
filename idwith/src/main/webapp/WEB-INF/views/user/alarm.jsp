@@ -16,8 +16,9 @@
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
 <title>아이디어스 | 알림</title>
 <meta name="theme-color" content="#ffffff" />
-<link rel="apple-touch-icon" sizes="384x384"
-	href="resources/images/icon_300.png">
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
 <link rel="manifest" href="/manifest.json">
 <script>
 	if ('serviceWorker' in navigator) {
@@ -258,7 +259,7 @@
 		<jsp:include page="header_goods.jsp" />
 
 		<div class="dimmed-background"></div>
-		<div id="content" class="content" data-page="notification">
+		<div id="content" class="content" data-page="notification" style="margin-top:-42px;">
 			<div class="title-style-block inner-w">
 				<h2 class="txt">알림</h2>
 			</div>

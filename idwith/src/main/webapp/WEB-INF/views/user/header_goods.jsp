@@ -43,11 +43,11 @@
 					<nav class="fr">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a
-							id="gnb-login-button" href="login.jsp" class="nav-btn"
-							data-log-object="login">로그인</a> <a href="sign.jsp"
+							id="gnb-login-button" href="login.do" class="nav-btn"
+							data-log-object="login">로그인</a> <a href="sign_choice.do"
 							class="nav-btn" data-log-object="member_join">회원가입</a> <a
-							href="board.jsp" class="nav-btn" data-log-object="member__notice">공지사항</a>
-						<a href="board.jsp" class="nav-btn" data-log-object="member_qna">1:1문의</a>
+							href="board.do" class="nav-btn" data-log-object="member__notice">공지사항</a>
+						<a href="board.do" class="nav-btn" data-log-object="member_qna">1:1문의</a>
 
 						<!-- <div class="nav-btn ui-dropdown">
                                     <button type="button" class="btn-dropdown">고객센터</button>
@@ -70,14 +70,14 @@
 			<div class="bg-wrapper" data-vue="SearchHeader">
 				<div class="inner-w top">
 					<h1 class="logo" style="margin-top: -20px;">
-						<a href="/" class="icon-iduslogo"><img
+						<a href="index.do" class="icon-iduslogo"><img
 							src="resources/images/header/logo.svg"
 							alt="IDUS, Unique Lifestyle Guide"></a>
 					</h1>
 
 					<nav class="service-nav">
-						<a href="header_goods.html" class="service active goods">작품</a> <a
-							href="header_class.html" class="service">클래스</a>
+						<a href="index.do" class="service active goods">작품</a> <a
+							href="class_index.do" class="service">클래스</a>
 					</nav>
 					<div class="main-search">
 						<form class="gnb-search-form">
@@ -91,9 +91,9 @@
 					</div>
 
 					<nav class="profile-links">
-						<a href="mypage.jsp" class="btn"> <i class="far fa-user"></i>
+						<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i>
 							내 정보
-						</a> <a id="my-cart-button" href="/w/cart" class="btn"> <span
+						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
 							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
 							장바구니
 						</a>
@@ -118,7 +118,7 @@
 						<li class="ui_gnb__menu class-category"><span>카테고리</span>
 							<div class="ui_gnb__submenu" style="width: 450px;">
 								<ul style="width: 50%">
-									<li><a href="category_goods.do"
+									<li><a href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="5c6bc7d4-7760-4702-b63f-7f29eca479e3">디저트</a>
 										<i class="fas fa-chevron-right"></i></li>
@@ -203,11 +203,11 @@
 								</ul>
 
 							</div></li>
-						<li class="ui_gnb__menu " data-state="active"><a href="/">홈</a>
+						<li class="ui_gnb__menu " data-state="active"><a href="index.do">홈</a>
 						</li>
 						<li class="ui_gnb__menu " data-state=""><a
 							href="goods_popular.do">인기 작품</a></li>
-						<li class="ui_gnb__menu " data-state=""><a href="/w/story">스토리</a>
+						<li class="ui_gnb__menu " data-state=""><a href="story.do">스토리</a>
 						</li>
 						<li class="ui_gnb__menu " data-state=""><a
 							href="/w/main/artist">인기작가</a></li>

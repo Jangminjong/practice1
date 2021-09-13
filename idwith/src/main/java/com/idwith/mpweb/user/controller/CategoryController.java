@@ -11,12 +11,22 @@ public class CategoryController {
 	}
 	
 	@GetMapping("/goods_category.do")
-	public String GoodsCategory() {
+	public String goodsCategory() {
 		return "goods_category";
 	}
 	
 	@GetMapping("/goods_popular.do")
-	public String GoodsPopular() {
+	public String goodsPopular() {
 		return "goods_popular";
+	}
+
+	@GetMapping("/class_category.do")
+	public String classCategory() {
+		return "class_category";
+	}
+	
+	@GetMapping("/class_region.do")
+	public String classRegion() {
+		return "class_region";
 	}
 }

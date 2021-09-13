@@ -29,16 +29,6 @@
 	href="resources/images/title/icon_300.PNG">
 
 <meta name="theme-color" content="#ffffff" />
-<link rel="apple-touch-icon" sizes="384x384"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="256x256"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="192x192"
-	href="/resources/dist/images/app-icon/icon_192.png">
-<link rel="apple-touch-icon" sizes="128x128"
-	href="/resources/dist/images/app-icon/icon_120.png">
-<link rel="apple-touch-icon" sizes="96x96"
-	href="/resources/dist/images/app-icon/icon_96.png">
 <link rel="manifest" href="/manifest.json">
 <script>
             if ('serviceWorker' in navigator) {

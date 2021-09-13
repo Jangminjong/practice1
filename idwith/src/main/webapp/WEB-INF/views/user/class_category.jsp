@@ -24,16 +24,6 @@
 	href="resources/images/title/icon_300.PNG">
 	
 <meta name="theme-color" content="#ffffff" />
-<link rel="apple-touch-icon" sizes="384x384"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="256x256"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="192x192"
-	href="/resources/dist/images/app-icon/icon_192.png">
-<link rel="apple-touch-icon" sizes="128x128"
-	href="/resources/dist/images/app-icon/icon_120.png">
-<link rel="apple-touch-icon" sizes="96x96"
-	href="/resources/dist/images/app-icon/icon_96.png">
 <link rel="manifest" href="/manifest.json">
 <script>
             if ('serviceWorker' in navigator) {
@@ -224,7 +214,7 @@
         </script>
 
 	<div class="wrap">
-	<jsp:include page="header_goods.jsp"/>
+	<jsp:include page="header_class.jsp"/>
 		<div class="dimmed-background"></div>
 		<div id="content" class="content layout_navigation"
 			data-gnb-show="true">
@@ -373,7 +363,7 @@
 										data-stats-category-depth2="16" data-state="">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/5997" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/6a765cbb66ea4462931753dbefcbed01_320.png"
 											style="background-image: url('https://image.idus.com/image/files/6a765cbb66ea4462931753dbefcbed01_320.png');">
 										</a>
@@ -382,7 +372,7 @@
 										<div class="ui_card__info">
 											<a href="/c/class/5997" target="_blank"
 												class="ui_card__label">공예</a> <a
-												href="/c/class/5997" target="_blank" class="ui_card__title"><b>탄생
+												href="class_detail_content.do" target="_blank" class="ui_card__title"><b>탄생
 													별자리! 양말 원데이 클래스</b></a>
 										</div>
 										<div class="ui_card__rating">
@@ -408,14 +398,14 @@
 										data-stats-category-depth2="16" data-state="">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/5740" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/22c0b23dd3ba4bd1af4b496cbcf97276_320.png"
 											style="background-image: url('https://image.idus.com/image/files/22c0b23dd3ba4bd1af4b496cbcf97276_320.png');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/5740" target="_blank"
+											<a href="class_detail_content.do" target="_blank"
 												class="ui_card__label">공예</a> <a
 												href="/c/class/5740" target="_blank" class="ui_card__title"><b>커스텀
 													양말 프린팅!실크스크린 원데이클래스</b></a>
@@ -443,14 +433,14 @@
 										data-stats-category-depth2="16" data-state="">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/5071" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/c308891d766a44539e8185807b9e2bd3_320.jpg"
 											style="background-image: url('https://image.idus.com/image/files/c308891d766a44539e8185807b9e2bd3_320.jpg');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/5071" target="_blank"
+											<a href="class_detail_content.do" target="_blank"
 												class="ui_card__label">공예</a> <a
 												href="/c/class/5071" target="_blank" class="ui_card__title"><b>[인천청라]실크스크린으로
 													생활용품 만들기_인천 원데이클래스</b></a>

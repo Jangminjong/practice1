@@ -23,7 +23,7 @@
 			<div class="download-ribbon top" style="background-color: #ff7b30"
 				data-download="root" data-download-type="isRibbon">
 				<div class="inner-w">
-					<a href="sign.do" class="download-ribbon-inner"> <img
+					<a href="sign_choice.do" class="download-ribbon-inner"> <img
 						class="pc-img"
 						src="https://image.idus.com/static/signup/web_benefit_banner.png">
 					</a>
@@ -44,10 +44,10 @@
 					<nav class="fr">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a
-							id="gnb-login-button" href="#" class="nav-btn"
+							id="gnb-login-button" href="login.do" class="nav-btn"
 							data-log-object="login">로그인</a>
 						<!--3-->
-						<a href="sign.do" class="nav-btn" data-log-object="member_join">회원가입</a>
+						<a href="sign_choice.do" class="nav-btn" data-log-object="member_join">회원가입</a>
 						<a href="board.do" class="nav-btn" data-log-object="member__notice">공지사항</a>
 						<a href="board.do" class="nav-btn" data-log-object="member_qna">1:1문의</a>
 
@@ -72,14 +72,14 @@
 			<div class="bg-wrapper" data-vue="SearchHeader">
 				<div class="inner-w top">
 					<h1 class="logo" style="margin-top: -20px;">
-						<a href="/" class="icon-iduslogo"><img
+						<a href="index.do" class="icon-iduslogo"><img
 							src="resources/images/header/logo.svg"
 							alt="IDUS, Unique Lifestyle Guide"></a>
 					</h1>
 
 					<nav class="service-nav">
-						<a href="header_goods.html" class="service goods">작품</a> <a
-							href="header_goods.html" class="service active">클래스</a>
+						<a href="index.do" class="service goods">작품</a> <a
+							href="class_index.do" class="service active">클래스</a>
 					</nav>
 					<div class="main-search">
 						<form class="gnb-search-form">
@@ -116,7 +116,7 @@
 				data-state="static">
 				<div class="inner-w container_gnb" data-ui="gnb">
 					<ul class="ui_gnb" data-state="" data-type="">
-						<li class="ui_gnb__menu " data-state="active"><a href="/">홈</a>
+						<li class="ui_gnb__menu " data-state="active"><a href="class_index.do">홈</a>
 						</li>
 						<li class="ui_gnb__menu class-category"><span>카테고리</span></li>
 						<li class="ui_gnb__menu " data-state=""><a

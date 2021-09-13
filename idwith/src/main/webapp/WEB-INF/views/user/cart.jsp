@@ -18,8 +18,9 @@
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 <link rel="stylesheet" href="resources/css/cart.css">
 <meta name="theme-color" content="#ffffff" />
-<link rel="apple-touch-icon" sizes="384x384"
-	href="resources/images/icon_300.png">
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
 
 <link rel="manifest" href="/manifest.json">
 <script>
@@ -259,7 +260,7 @@
 			<a href="#gnb">메뉴목록으로 바로가기</a> <a href="#content">컨텐츠로 바로가기</a>
 		</div>
 
-		<jsp:include page="header_goods.jsp" />
+		<jsp:include page="header_goods_login.jsp" />
 		<div class="dimmed-background"></div>
 		<div id="content" class="content" data-page="shoppingBag">
 			<div data-vue="ModalContainer"></div>

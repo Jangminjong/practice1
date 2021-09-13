@@ -46,7 +46,7 @@
 	<div data-vue="resizeHandler"></div>
 
 	<div class="wrap">
-		<!-- 헤더 자리 -->
+		<jsp:include page="header_goods.jsp"/>
 		<div class="dimmed-background"></div>
 		<div data-vue="category-detail">
 			<div id="content" class="content" data-page="2dep-list">
@@ -596,7 +596,7 @@
 			<img src="/resources/images/index/go-to-top-image.png"
 			alt="go to top">
 		</a>
-		<!-- 푸터 자리 -->
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>
