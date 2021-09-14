@@ -106,7 +106,7 @@
 							<div class="ui-input-btn-combo">
 								<div class="input-text size-w type-l form-error">
 									<input class="reauth" type="hidden" name="only_auth" value="1">
-									<input type="tel" name="cell_phone" data-auth="cell_phone" id="tel"
+									<input type="tel" name="cell_phone" data-auth="cell_phone" id="tel" class="tel"
 										placeholder="010-1234-5678" value="" required=""
 										aria-describedby="cell_phone-error" style="border: 1px solid #999;" onblur="onblurEvent(this)">
 								</div>
@@ -149,24 +149,24 @@
 						<div class="terms">
 							<div class="terms-head">
 								<div class="input-checkbox">
-									<input class="bp checkAll" type="checkbox" id="terms0"
-										data-ui="check-all" data-ui-id="signup">
+									<input class="bp checkAll" type="checkbox" id="terms0" name="checkAll"
+										data-ui="check-all" data-ui-id="signup" onclick="selectAll(this)" value="selectall">
 								</div>
 								<label for="terms0">모두 동의합니다.</label>
 							</div>
 							<div class="terms-body">
 								<div class="terms-item">
 									<div class="input-checkbox form-error">
-										<input id="terms1" class="bp check" type="checkbox"
-											name="terms1" required="" data-ui="check-all-linked"
+										<input id="terms1" class="bp check" type="checkbox" name="checkAll"
+											 required="" data-ui="check-all-linked"
 											data-ui-id="signup" aria-describedby="terms1-error">
 									</div>
 									<label for="terms1">만 14세 이상입니다.</label>
 								</div>
 								<div class="terms-item">
 									<div class="input-checkbox form-error">
-										<input id="terms2" class="bp check" type="checkbox"
-											name="terms2" required="" data-ui="check-all-linked"
+										<input id="terms2" class="bp check" type="checkbox" name="checkAll"
+											 required="" data-ui="check-all-linked"
 											data-ui-id="signup" aria-describedby="terms-error">
 									</div>
 									<a style="text-decoration: underline;" class="label"
@@ -174,24 +174,13 @@
 								</div>
 								<div class="terms-item">
 									<div class="input-checkbox form-error">
-										<input id="terms3" class="bp check" type="checkbox"
-											name="terms3" required="" data-ui="check-all-linked"
+										<input id="terms3" class="bp check" type="checkbox" name="checkAll"
+											 required="" data-ui="check-all-linked"
 											data-ui-id="signup" aria-describedby="terms-error">
 									</div>
 									<a style="text-decoration: underline;" class="label"
 										target="_blank" href="board_detail.do">개인정보 수집
 										및 이용 동의</a>
-								</div>
-								<div class="terms-item">
-									<div class="input-checkbox">
-										<input id="terms4" class="bp check" type="checkbox"
-											name="marketing" data-ui="check-all-linked"
-											data-ui-id="signup">
-									</div>
-									<label for="terms4">할인쿠폰/이벤트/감동적인 뉴스레터 선택 동의 (선택)<br>
-										<span class="f-comment"> SMS, 이메일을 통해 쿠폰 및 이벤트 정보를 받아보실
-											수 있습니다. </span>
-									</label>
 								</div>
 							</div>
 						</div>
@@ -465,6 +454,25 @@ rules: {
 			});
 		</script>
 		-->
+		<script>
+			$(document).on("keyup", ".tel", function() {
+				$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
+			});
+		</script>
+		
+		<script>
+            function selectAll(selectAll) {
+               const checkboxs = document.getElementsByName('checkAll');
+
+               checkboxs.forEach((checkbox) => {
+                  checkbox.checked = selectAll.checked;
+               })
+            }
+         </script>
+         
+         <label class="form-check">
+            <input class="form-check-input" name="couponall" type="checkbox" value="selectall" onclick="selectAll(this)" />
+         </label>
 	</div>
 </body>
 </html>

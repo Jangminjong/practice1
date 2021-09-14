@@ -112,6 +112,7 @@ function onblurEvent(args){
 			const emailRe = document.getElementById('emailRe-error');
 			const email = document.getElementById('email-error');
 			if(document.signForm.email.value == ""){
+				email.style.display = "none";
 				emailRe.style.display = "";
 				document.getElementById('email').style.border = "1px solid #ff4b50";
 			}else if(exptext.test(document.signForm.email.value) == false){
@@ -132,9 +133,10 @@ function onblurEvent(args){
 			const pwd2 = document.getElementById('password-error');
 			if(document.signForm.password.value == ""){
 				pwd2.style.display = "";
+				pwd.style.display = "none";
 				document.getElementById('password').style.border = "1px solid #ff4b50";
 			}else if(regExpPw.test(document.signForm.password.value) == false){//비밀번호 조합식 비교
-				const pwd = document.getElementById('passwordFix-error');
+				pwd2.style.display = "none";
 				pwd.style.display = "";
 				document.getElementById('password').style.border = "1px solid #ff4b50";
 			}
@@ -146,34 +148,47 @@ function onblurEvent(args){
 			}
 			break;
 		case "password_confirm":
-			const pwd = document.getElementById('password_confirm-error');
-			const pwd2 = document.getElementById('passwordSame_confirm-error');
+			const pwdc = document.getElementById('password_confirm-error');
+			const pwdc2 = document.getElementById('passwordSame_confirm-error');
 			if(document.signForm.password_confirm.value == ""){
-				pwd.style.display = "";
+				pwdc.style.display = "";
+				pwdc2.style.display = "none";
 				document.getElementById('password_check').style.border = "1px solid #ff4b50";
 			}else if(document.signForm.password_confirm.value != document.signForm.password.value){//비밀번호 비교
-				pwd.stlye.display = "none";
-				pwd2.style.display = "";
+				pwdc.style.display = "none";
+				pwdc2.style.display = "";
 				document.getElementById('password_check').style.border = "1px solid #ff4b50";
 			}else{
-				pwd.style.display = "none";
-				pwd2.style.display = "none";
+				pwdc.style.display = "none";
+				pwdc2.style.display = "none";
 				document.getElementById('password_check').style.border = "1px solid #999";
 			}
 			break;
 		case "username":
-			if(document.signForm.username.value == ""){
 				const name = document.getElementById('username-error');
+			if(document.signForm.username.value == ""){
 				name.style.display = "";
 				document.getElementById('name').style.border = "1px solid #ff4b50";
+			}else{
+				name.style.display = "none";
+				document.getElementById('name').style.border = "1px solid #999";
 			}
 			break;
 		case "cell_phone":
-			if(document.signForm.cell_phone.value == ""){
 				const tel = document.getElementById('cell_phone-error');
+				const num = document.signForm.cell_phone.value;
+			if(document.signForm.cell_phone.value == ""){
 				tel.style.display = "";
 				document.getElementById('tel').style.border = "1px solid #ff4b50";
+			}else{
+				tel.style.display = "none";
+				document.getElementById('tel').style.border = "1px solid #999";
 			}
 			break;
 	}
 }
+
+/*
+$(window).load(function(){
+	$(document).on("keyup", ".tel", function() { $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); });
+});*/
