@@ -20,9 +20,9 @@
 
 	<div class="wrap login">
 		<div class="head_banner_group"></div>
-		<form data-form="reauth-phone" class="form form-signup-step2"
-			data-page="signup" action="/w/join/signup" method="post"
-			novalidate="novalidate">
+		<form data-form="reauth-phone" class="form form-signup-step2" id="form"
+			data-page="signup" action="login.do" method="post" name="signForm"
+			novalidate="novalidate" onsubmit="return false">
 			<input type="hidden" name="redirect_uri"
 				value="https://www.idus.com/w/story"> <input type="hidden"
 				name="token" value="">
@@ -50,10 +50,12 @@
 							class="asterisk red">∗</em> 이메일
 						</label>
 						<div class="form-block-body">
-							<div class="input-text size-w">
-								<input class="" type="email" name="email"
-									placeholder="이메일을 입력해주세요." required="" value="">
+							<div class="input-text size-w form-error">
+								<input class="" type="email" name="email" id="email"
+									placeholder="이메일을 입력해주세요." required="" value=""
+									aria-describedby="email-error" aria-invalid="true" style="border: 1px solid #999;">
 							</div>
+							<span id="email-error" class="form-error" style="display:none">필수 항목입니다.</span>
 						</div>
 					</div>
 
@@ -62,16 +64,21 @@
 							class="asterisk red">∗</em> 비밀번호
 						</label>
 						<div class="form-block-body">
-							<div class="input-text size-w">
-								<input type="password" name="password"
-									placeholder="비밀번호 (영문+숫자+특수문자 8자 이상)" required="">
+							<div class="input-text size-w form-error">
+								<input type="password" name="password" id="password"
+									placeholder="비밀번호 (영문+숫자+특수문자 8자 이상)" required=""
+									aria-describedby="password-error" aria-invalid="true" style="border: 1px solid #999;">
 							</div>
+							<span id="password-error" class="form-error" style="display:none">필수 항목입니다.</span>
 						</div>
 						<div class="form-block-body">
-							<div class="input-text size-w">
-								<input type="password" name="password_confirm"
-									placeholder="비밀번호 확인" required="">
+							<div class="input-text size-w form-error">
+								<input type="password" name="password_confirm" id="password_check"
+									placeholder="비밀번호 확인" required=""
+									aria-describedby="password_confirm-error" style="border: 1px solid #999;">
 							</div>
+							<span id="password_confirm-error" class="form-error" style="display:none">필수
+								항목입니다.</span>
 						</div>
 					</div>
 
@@ -80,10 +87,12 @@
 							class="asterisk red">∗</em> 이름
 						</label>
 						<div class="form-block-body">
-							<div class="input-text size-w type-l">
-								<input class="" type="text" name="username" value=""
-									placeholder="이름을 입력해주세요." required="">
+							<div class="input-text size-w type-l form-error">
+								<input class="" type="text" name="username" value="" id="name"
+									placeholder="이름을 입력해주세요." required=""
+									aria-describedby="username-error" aria-invalid="true" style="border: 1px solid #999;">
 							</div>
+							<span id="username-error" class="form-error" style="display:none">필수 항목입니다.</span>
 						</div>
 					</div>
 
@@ -93,16 +102,18 @@
 						</label>
 						<div class="form-block-body">
 							<div class="ui-input-btn-combo">
-								<div class="input-text size-w type-l">
+								<div class="input-text size-w type-l form-error">
 									<input class="reauth" type="hidden" name="only_auth" value="1">
-									<input type="tel" name="cell_phone" data-auth="cell_phone"
-										placeholder="010-1234-5678" value="" required="">
+									<input type="tel" name="cell_phone" data-auth="cell_phone" id="tel"
+										placeholder="010-1234-5678" value="" required=""
+										aria-describedby="cell_phone-error" style="border: 1px solid #999;">
 								</div>
 								<button id="auth_cellphone_button" type="button"
 									class="btn btn-login btn-point btn-disabled"
 									data-auth="request_btn" data-auth-url="/w/join/cellphone/auth"
 									data-idus-log="phone_auth">인증요청</button>
 							</div>
+							<span id="cell_phone-error" class="form-error" style="display:none">필수 항목입니다.</span>
 						</div>
 
 
@@ -137,33 +148,33 @@
 							<div class="terms-head">
 								<div class="input-checkbox">
 									<input class="bp checkAll" type="checkbox" id="terms0"
-										data-ui="check-all" data-ui-id="signup" onClick="bpCheck();" />
+										data-ui="check-all" data-ui-id="signup">
 								</div>
 								<label for="terms0">모두 동의합니다.</label>
 							</div>
 							<div class="terms-body">
 								<div class="terms-item">
-									<div class="input-checkbox">
+									<div class="input-checkbox form-error">
 										<input id="terms1" class="bp check" type="checkbox"
 											name="terms1" required="" data-ui="check-all-linked"
-											data-ui-id="signup">
+											data-ui-id="signup" aria-describedby="terms1-error">
 									</div>
 									<label for="terms1">만 14세 이상입니다.</label>
 								</div>
 								<div class="terms-item">
-									<div class="input-checkbox">
+									<div class="input-checkbox form-error">
 										<input id="terms2" class="bp check" type="checkbox"
 											name="terms2" required="" data-ui="check-all-linked"
-											data-ui-id="signup">
+											data-ui-id="signup" aria-describedby="terms-error">
 									</div>
 									<a style="text-decoration: underline;" class="label"
 										target="_blank" href="board_detail.do">이용약관 필수 동의 </a>
 								</div>
 								<div class="terms-item">
-									<div class="input-checkbox">
+									<div class="input-checkbox form-error">
 										<input id="terms3" class="bp check" type="checkbox"
 											name="terms3" required="" data-ui="check-all-linked"
-											data-ui-id="signup">
+											data-ui-id="signup" aria-describedby="terms-error">
 									</div>
 									<a style="text-decoration: underline;" class="label"
 										target="_blank" href="board_detail.do">개인정보 수집
@@ -182,11 +193,14 @@
 								</div>
 							</div>
 						</div>
+						<!--  <span id="terms1-error" class="form-error" style="display:none">만 14세 미만은 서비스를 이용할 수 없습니다.</span>-->
+						<!--  <span id="terms-error" class="form-error" style="display:none">이용약관과
+							개인정보 수집 및 이용 동의는 필수 입니다.</span>-->
 					</div>
 
 					<div class="form-block form-block-submit">
 						<div class="form-block-body">
-							<button class="btn btn-point btn-login" type="submit" id="submit">
+							<button class="btn btn-point btn-login" type="submit" id="submit" value="가입" onclick="signCheck();">
 								회원가입하기</button>
 						</div>
 					</div>

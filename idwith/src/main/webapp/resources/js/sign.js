@@ -67,5 +67,39 @@ function bpCheck(){
 }
 
 function signCheck(){
-		
+	if(document.signForm.email.value == ""){
+		const email = document.getElementById('email-error');
+		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+		email.style.display = "";
+		document.getElementById('email').style.border = "1px solid #ff4b50";
+		document.signForm.email.focus();
+ 
+		if(exptext.test(document.signForm.email.value) == false){
+			 alert("이메일형식이 올바르지 않습니다.");
+			 document.signForm.email.focus();
+			 exit;
+		 }
+	}else if(document.signForm.password.value == ""){
+		const pwd = document.getElementById('password-error');
+		pwd.style.display = "";
+		document.getElementById('password').style.border = "1px solid #ff4b50";
+		document.signForm.password.focus();
+	}else if(document.signForm.password_confirm.value == ""){
+		const pwd = document.getElementById('password_confirm-error');
+		pwd.style.display = "";
+		document.getElementById('password_check').style.border = "1px solid #ff4b50";
+		document.signForm.password_confirm.focus();
+	}else if(document.signForm.username.value == ""){
+		const name = document.getElementById('username-error');
+		name.style.display = "";
+		document.getElementById('name').style.border = "1px solid #ff4b50";
+		document.signForm.username.focus();
+	}else if(document.signForm.cell_phone.value == ""){
+		const tel = document.getElementById('cell_phone-error');
+		tel.style.display = "";
+		document.getElementById('tel').style.border = "1px solid #ff4b50";
+		document.signForm.cell_phone.focus();
+	}else{
+		document.getElementById('form').onsubmit = "return true";
+	}
 }
