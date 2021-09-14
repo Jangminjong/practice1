@@ -103,3 +103,12 @@ function signCheck(){
 		document.getElementById('form').onsubmit = "return true";
 	}
 }
+
+function onblur_event(){
+	const email = document.getElementById('email-error');
+		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+		email.style.display = "";
+		document.getElementById('email').style.border = "1px solid #ff4b50";
+		document.signForm.email.focus();
+		exit;
+}

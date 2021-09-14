@@ -53,7 +53,7 @@
 							<div class="input-text size-w form-error">
 								<input class="" type="email" name="email" id="email"
 									placeholder="이메일을 입력해주세요." required="" value=""
-									aria-describedby="email-error" aria-invalid="true" style="border: 1px solid #999;">
+									aria-describedby="email-error" aria-invalid="true" style="border: 1px solid #999;" onblur="onblur_event();">
 							</div>
 							<span id="email-error" class="form-error" style="display:none">필수 항목입니다.</span>
 						</div>
