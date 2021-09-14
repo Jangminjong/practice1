@@ -53,9 +53,10 @@
 							<div class="input-text size-w form-error">
 								<input class="" type="email" name="email" id="email"
 									placeholder="이메일을 입력해주세요." required="" value=""
-									aria-describedby="email-error" aria-invalid="true" style="border: 1px solid #999;" onblur="onblur_event();">
+									aria-describedby="email-error" aria-invalid="true" style="border: 1px solid #999;" onblur="onblurEvent(this);" />
 							</div>
-							<span id="email-error" class="form-error" style="display:none">필수 항목입니다.</span>
+							<span id="email-error" class="form-error" style="display:none">이메일 형식이 올바르지 않습니다.</span>
+							<span id="emailRe-error" class="form-error" style="display:none">필수 항목입니다.</span>
 						</div>
 					</div>
 
@@ -67,18 +68,19 @@
 							<div class="input-text size-w form-error">
 								<input type="password" name="password" id="password"
 									placeholder="비밀번호 (영문+숫자+특수문자 8자 이상)" required=""
-									aria-describedby="password-error" aria-invalid="true" style="border: 1px solid #999;">
+									aria-describedby="password-error" aria-invalid="true" style="border: 1px solid #999;" onblur="onblurEvent(this)" />
 							</div>
 							<span id="password-error" class="form-error" style="display:none">필수 항목입니다.</span>
+							<span id="passwordFix-error" class="form-error" style="display:none">영문, 숫자, 특수문자를 조합한 8자 이상의 비밀번호를 입력해주세요.</span>
 						</div>
 						<div class="form-block-body">
 							<div class="input-text size-w form-error">
 								<input type="password" name="password_confirm" id="password_check"
 									placeholder="비밀번호 확인" required=""
-									aria-describedby="password_confirm-error" style="border: 1px solid #999;">
+									aria-describedby="password_confirm-error" style="border: 1px solid #999;" onblur="onblurEvent(this)">
 							</div>
-							<span id="password_confirm-error" class="form-error" style="display:none">필수
-								항목입니다.</span>
+							<span id="password_confirm-error" class="form-error" style="display:none">필수 항목입니다.</span>
+							<span id="passwordSame_confirm-error" class="form-error" style="display:none">같은 값을 다시 입력하세요.</span>
 						</div>
 					</div>
 
@@ -90,7 +92,7 @@
 							<div class="input-text size-w type-l form-error">
 								<input class="" type="text" name="username" value="" id="name"
 									placeholder="이름을 입력해주세요." required=""
-									aria-describedby="username-error" aria-invalid="true" style="border: 1px solid #999;">
+									aria-describedby="username-error" aria-invalid="true" style="border: 1px solid #999;" onblur="onblurEvent(this)">
 							</div>
 							<span id="username-error" class="form-error" style="display:none">필수 항목입니다.</span>
 						</div>
@@ -106,7 +108,7 @@
 									<input class="reauth" type="hidden" name="only_auth" value="1">
 									<input type="tel" name="cell_phone" data-auth="cell_phone" id="tel"
 										placeholder="010-1234-5678" value="" required=""
-										aria-describedby="cell_phone-error" style="border: 1px solid #999;">
+										aria-describedby="cell_phone-error" style="border: 1px solid #999;" onblur="onblurEvent(this)">
 								</div>
 								<button id="auth_cellphone_button" type="button"
 									class="btn btn-login btn-point btn-disabled"

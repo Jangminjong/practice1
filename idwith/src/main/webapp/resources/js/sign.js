@@ -67,48 +67,113 @@ function bpCheck(){
 }
 
 function signCheck(){
-	if(document.signForm.email.value == ""){
+		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;//이메일 정규 표현식
+		var regExpPw = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/; //비밀번호 조합식
+		const emailRe = document.getElementById('emailRe-error');
 		const email = document.getElementById('email-error');
-		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-		email.style.display = "";
-		document.getElementById('email').style.border = "1px solid #ff4b50";
-		document.signForm.email.focus();
- 
-		if(exptext.test(document.signForm.email.value) == false){
-			 alert("이메일형식이 올바르지 않습니다.");
-			 document.signForm.email.focus();
-			 exit;
-		 }
-	}else if(document.signForm.password.value == ""){
-		const pwd = document.getElementById('password-error');
-		pwd.style.display = "";
-		document.getElementById('password').style.border = "1px solid #ff4b50";
-		document.signForm.password.focus();
-	}else if(document.signForm.password_confirm.value == ""){
-		const pwd = document.getElementById('password_confirm-error');
-		pwd.style.display = "";
-		document.getElementById('password_check').style.border = "1px solid #ff4b50";
-		document.signForm.password_confirm.focus();
-	}else if(document.signForm.username.value == ""){
-		const name = document.getElementById('username-error');
-		name.style.display = "";
-		document.getElementById('name').style.border = "1px solid #ff4b50";
-		document.signForm.username.focus();
-	}else if(document.signForm.cell_phone.value == ""){
-		const tel = document.getElementById('cell_phone-error');
-		tel.style.display = "";
-		document.getElementById('tel').style.border = "1px solid #ff4b50";
-		document.signForm.cell_phone.focus();
-	}else{
-		document.getElementById('form').onsubmit = "return true";
-	}
+		if(document.signForm.email.value == ""){
+			emailRe.style.display = "";
+			document.getElementById('email').style.border = "1px solid #ff4b50";
+		}else if(exptext.test(document.signForm.email.value) == false){
+			emailRe.style.display = "none";
+			email.style.display = "";
+			document.getElementById('email').style.border = "1px solid #ff4b50";
+		}else if(document.signForm.password.value == ""){//비밀번호
+			const pwd = document.getElementById('password-error');
+			pwd.style.display = "";
+			document.getElementById('password').style.border = "1px solid #ff4b50";
+		}else if(regExpPw.test(document.signForm.password.value) == false){//비밀번호 조합식 비교
+			const pwd = document.getElementById('passwordFix-error');
+			pwd.style.display = "";
+			document.getElementById('password').style.border = "1px solid #ff4b50";
+		}else if(document.signForm.password_confirm.value == ""){//비밀번호 재입력
+			const pwd = document.getElementById('password_confirm-error');
+			pwd.style.display = "";
+			document.getElementById('password_check').style.border = "1px solid #ff4b50";
+		}else if(document.signForm.password_confirm.value != document.signForm.password.value){//비밀번호 비교
+			const pwd = document.getElementById('passwordSame_confirm-error');
+			pwd.style.display = "";
+			document.getElementById('password_check').style.border = "1px solid #ff4b50";
+		}else if(document.signForm.username.value == ""){//이름
+			const name = document.getElementById('username-error');
+			name.style.display = "";
+			document.getElementById('name').style.border = "1px solid #ff4b50";
+		}else if(document.signForm.cell_phone.value == ""){//전화번호
+			const tel = document.getElementById('cell_phone-error');
+			tel.style.display = "";
+			document.getElementById('tel').style.border = "1px solid #ff4b50";
+		}
 }
 
-function onblur_event(){
-	const email = document.getElementById('email-error');
-		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-		email.style.display = "";
-		document.getElementById('email').style.border = "1px solid #ff4b50";
-		document.signForm.email.focus();
-		exit;
+function onblurEvent(args){
+	switch(args.name){
+		case "email":
+			var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+			const emailRe = document.getElementById('emailRe-error');
+			const email = document.getElementById('email-error');
+			if(document.signForm.email.value == ""){
+				emailRe.style.display = "";
+				document.getElementById('email').style.border = "1px solid #ff4b50";
+			}else if(exptext.test(document.signForm.email.value) == false){
+				emailRe.style.display = "none";
+				email.style.display = "";
+				document.getElementById('email').style.border = "1px solid #ff4b50";
+			}
+			
+			if(exptext.test(document.signForm.email.value) == true){
+				emailRe.style.display = "none";
+				email.style.display = "none";
+				document.getElementById('email').style.border = "1px solid #999";
+			}
+			break;
+		case "password":
+			var regExpPw = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/; //비밀번호 조합식
+			const pwd = document.getElementById('passwordFix-error');
+			const pwd2 = document.getElementById('password-error');
+			if(document.signForm.password.value == ""){
+				pwd2.style.display = "";
+				document.getElementById('password').style.border = "1px solid #ff4b50";
+			}else if(regExpPw.test(document.signForm.password.value) == false){//비밀번호 조합식 비교
+				const pwd = document.getElementById('passwordFix-error');
+				pwd.style.display = "";
+				document.getElementById('password').style.border = "1px solid #ff4b50";
+			}
+			
+			if(regExpPw.test(document.signForm.password.value) == true){//비밀번호 조합식 비교
+				pwd.style.display = "none";
+				pwd2.style.display = "none";
+				document.getElementById('password').style.border = "1px solid #999";
+			}
+			break;
+		case "password_confirm":
+			const pwd = document.getElementById('password_confirm-error');
+			const pwd2 = document.getElementById('passwordSame_confirm-error');
+			if(document.signForm.password_confirm.value == ""){
+				pwd.style.display = "";
+				document.getElementById('password_check').style.border = "1px solid #ff4b50";
+			}else if(document.signForm.password_confirm.value != document.signForm.password.value){//비밀번호 비교
+				pwd.stlye.display = "none";
+				pwd2.style.display = "";
+				document.getElementById('password_check').style.border = "1px solid #ff4b50";
+			}else{
+				pwd.style.display = "none";
+				pwd2.style.display = "none";
+				document.getElementById('password_check').style.border = "1px solid #999";
+			}
+			break;
+		case "username":
+			if(document.signForm.username.value == ""){
+				const name = document.getElementById('username-error');
+				name.style.display = "";
+				document.getElementById('name').style.border = "1px solid #ff4b50";
+			}
+			break;
+		case "cell_phone":
+			if(document.signForm.cell_phone.value == ""){
+				const tel = document.getElementById('cell_phone-error');
+				tel.style.display = "";
+				document.getElementById('tel').style.border = "1px solid #ff4b50";
+			}
+			break;
+	}
 }
