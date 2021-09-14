@@ -29,4 +29,9 @@ public class CategoryController {
 	public String classRegion() {
 		return "class_region";
 	}
+	
+	@GetMapping("/class_popular.do")
+	public String classPopular() {
+		return "class_popular";
+	}
 }

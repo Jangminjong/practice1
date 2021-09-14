@@ -286,17 +286,17 @@ vuepack.create([{
 </script>
 				<section>
 					<div class="title-style no-mt clf">
-						<a href="#" class="txt fl">취소/환불 내역</a>
+						<a href="mypage_order_return.do" class="txt fl">취소/환불 내역</a>
 					</div>
 					<div class="ui_tab_group--3 favorite">
 						<span class="ui_tab_group__tab active" data-state="active"
-							style="width: 50%;"> 작품 </span> <a href="/c/order"
+							style="width: 50%;"> 작품 </span> <a href="mypage_order_class.do"
 							class="ui_tab_group__tab" style="width: 50%;">클래스</a>
 					</div>
 					<div class="banner-empty">
 						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
 						<p>취소/환불 내역이 없습니다.</p>
-						<a href="/" class="btn btn-l btn-point">작품 구경하러 가기</a>
+						<a href="index.do" class="btn btn-l btn-point">작품 구경하러 가기</a>
 					</div>
 					<div class="banner-type-a root">
 						<a class="banner-type-a item" href="/w/showroom/1640"

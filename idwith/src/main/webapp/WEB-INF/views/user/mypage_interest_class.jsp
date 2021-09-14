@@ -17,16 +17,9 @@
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
 <title>아이디어스 | 찜 목록</title>
 <meta name="theme-color" content="#ffffff" />
-<link rel="apple-touch-icon" sizes="384x384"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="256x256"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="192x192"
-	href="/resources/dist/images/app-icon/icon_192.png">
-<link rel="apple-touch-icon" sizes="128x128"
-	href="/resources/dist/images/app-icon/icon_120.png">
-<link rel="apple-touch-icon" sizes="96x96"
-	href="/resources/dist/images/app-icon/icon_96.png">
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
 <link rel="manifest" href="/manifest.json">
 <script>
             if ('serviceWorker' in navigator) {
@@ -290,9 +283,9 @@ vuepack.create([{
 						</h2>
 					</div>
 					<nav class="ui_tab_group--3 favorite">
-						<a href="/w/me/favoriteproduct" class="ui_tab_group__tab "
+						<a href="mypage_interest_goods.do" class="ui_tab_group__tab "
 							data-state="" style="width: 50%;"> <span class="txt-desktop">작품</span>
-							<span class="txt-mobile">작품</span> </span> <a href="/w/me/favoriteclass"
+							<span class="txt-mobile">작품</span> </span> <a href="mypage_interest_class.do"
 							class="ui_tab_group__tab active" data-state="active"
 							style="width: 50%;"> <span class="txt-desktop">클래스</span> <span
 								class="txt-mobile">클래스</span>
@@ -317,14 +310,14 @@ vuepack.create([{
 										data-stats-category-depth2="18" data-state="active">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/2471" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/dc27c98f77c24a8a8312dd7714354ec8_320.png"
 											style="background-image: url('https://image.idus.com/image/files/dc27c98f77c24a8a8312dd7714354ec8_320.png');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/2471" target="_blank"
+											<a href="class_detail_content.do" target="_blank"
 												class="ui_card__label">공예</a> <a
 												href="/c/class/2471" target="_blank" class="ui_card__title"><b>[프랑스자수X퀼트]
 													귀염지수 폭발 동물 패턴 파우치 만들기 클래스</b></a>
@@ -359,14 +352,14 @@ vuepack.create([{
 										data-stats-category-depth2="21" data-state="active">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/3254" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/6a283a50864e40e1b7a09bb0de886e62_320.png"
 											style="background-image: url('https://image.idus.com/image/files/6a283a50864e40e1b7a09bb0de886e62_320.png');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/3254" target="_blank"
+											<a href="class_detail_content.do" target="_blank"
 												class="ui_card__label">공예</a> <a
 												href="/c/class/3254" target="_blank" class="ui_card__title"><b>[원데이클래스]
 													가죽공예 : 에어팟케이스 만들기</b></a>
@@ -401,16 +394,16 @@ vuepack.create([{
 										data-stats-category-depth2="25" data-state="active">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/4409" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/22e94b15c43b4ff693116bbe221ad0fa_320.png"
 											style="background-image: url('https://image.idus.com/image/files/22e94b15c43b4ff693116bbe221ad0fa_320.png');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/4409" target="_blank"
+											<a href="class_detail_content.do" target="_blank"
 												class="ui_card__label">공예</a> <a
-												href="/c/class/4409" target="_blank" class="ui_card__title"><b>[망원동]
+												href="class_detail_content.do" target="_blank" class="ui_card__title"><b>[망원동]
 													세상에 단 하나 접시 만들기</b></a>
 										</div>
 										<div class="ui_card__rating">
@@ -443,16 +436,16 @@ vuepack.create([{
 										data-stats-category-depth2="15" data-state="active">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/4068" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/fb8b366af3f34c67b8e0fc7707e6889a_320.png"
 											style="background-image: url('https://image.idus.com/image/files/fb8b366af3f34c67b8e0fc7707e6889a_320.png');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/4068" target="_blank"
+											<a href="class_detail_content.do" target="_blank"
 												class="ui_card__label">공예</a> <a
-												href="/c/class/4068" target="_blank" class="ui_card__title"><b>[여름방학
+												href="class_detail_content.do" target="_blank" class="ui_card__title"><b>[여름방학
 													할인] 향기로운 플라워타블렛&섬유향수 클래스</b></a>
 										</div>
 										<div class="ui_card__rating">
@@ -489,16 +482,16 @@ vuepack.create([{
 										data-stats-category-depth2="18" data-state="active">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/2471" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/dc27c98f77c24a8a8312dd7714354ec8_320.png"
 											style="background-image: url('https://image.idus.com/image/files/dc27c98f77c24a8a8312dd7714354ec8_320.png');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/2471" target="_blank"
+											<a href="class_detail_content.do" target="_blank"
 												class="ui_card__label">공예</a> <a
-												href="/c/class/2471" target="_blank" class="ui_card__title"><b>[프랑스자수X퀼트]
+												href="class_detail_content.do" target="_blank" class="ui_card__title"><b>[프랑스자수X퀼트]
 													귀염지수 폭발 동물 패턴 파우치 만들기 클래스</b></a>
 										</div>
 										<div class="ui_card__rating">
@@ -531,16 +524,16 @@ vuepack.create([{
 										data-stats-category-depth2="21" data-state="active">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="/c/class/3254" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
 											data-lazy-img="https://image.idus.com/image/files/6a283a50864e40e1b7a09bb0de886e62_320.png"
 											style="background-image: url('https://image.idus.com/image/files/6a283a50864e40e1b7a09bb0de886e62_320.png');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/3254" target="_blank"
+											<a href="class_detail_content.do" target="_blank"
 												class="ui_card__label">공예</a> <a
-												href="/c/class/3254" target="_blank" class="ui_card__title"><b>[원데이클래스]
+												href="class_detail_content.do" target="_blank" class="ui_card__title"><b>[원데이클래스]
 													가죽공예 : 에어팟케이스 만들기</b></a>
 										</div>
 										<div class="ui_card__rating">

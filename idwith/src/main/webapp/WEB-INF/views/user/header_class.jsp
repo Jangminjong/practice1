@@ -118,10 +118,10 @@
 					<ul class="ui_gnb" data-state="" data-type="">
 						<li class="ui_gnb__menu " data-state="active"><a href="class_index.do">홈</a>
 						</li>
-						<li class="ui_gnb__menu class-category"><span>카테고리</span></li>
+						<li class="ui_gnb__menu class-category"><a href="class_category.do">카테고리</a></li>
 						<li class="ui_gnb__menu " data-state=""><a
-							href="/w/main/popular-category">인기 클래스</a></li>
-						<li class="ui_gnb__menu " data-state=""><a href="/w/story">지역별</a>
+							href="class_popular.do">인기 클래스</a></li>
+						<li class="ui_gnb__menu " data-state=""><a href="class_region.do">지역별</a>
 						</li>
 					</ul>
 					<button class="ui_btn toggle_gnb" aria-label="toggle nav ui">

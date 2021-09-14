@@ -265,7 +265,7 @@
 						<li class="ui_gnb__menu " data-state=""><a href="stroy.do">스토리</a>
 						</li>
 						<li class="ui_gnb__menu " data-state=""><a
-							href="/w/main/artist">인기작가</a></li>
+							href="seller_list.do">인기작가</a></li>
 					</ul>
 					<button class="ui_btn toggle_gnb" aria-label="toggle nav ui">
 						<i class="idus-icon-arrow-down"></i>

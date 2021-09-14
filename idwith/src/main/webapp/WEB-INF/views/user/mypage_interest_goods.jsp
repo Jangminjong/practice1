@@ -291,10 +291,10 @@ vuepack.create([{
 						</h2>
 					</div>
 					<nav class="ui_tab_group--3 favorite">
-						<a href="/w/me/favoriteproduct" class="ui_tab_group__tab active"
+						<a href="mypage_interest_goods.do" class="ui_tab_group__tab active"
 							data-state="active" style="width: 50%;"> <span
 							class="txt-desktop">작품</span> <span class="txt-mobile">작품</span>
-							</span> <a href="/w/me/favoriteclass" class="ui_tab_group__tab "
+							</span> <a href="mypage_interest_class.do" class="ui_tab_group__tab "
 							data-state="" style="width: 50%;"> <span class="txt-desktop">클래스</span>
 								<span class="txt-mobile">클래스</span>
 						</a>
@@ -305,7 +305,7 @@ vuepack.create([{
 							<ul class="ui_grid__cols--4">
 								<li class="ui_grid__item">
 									<div class="base-card card--vertical product">
-										<a href="/w/product/" target="_blank">
+										<a href="detail_content.do" target="_blank">
 											<div class="card-thumb-cover">
 												<div class="product-thumb-img"
 													style="background-image: url('https://image.idus.com/image/files/e091eac14db84514aa6c0f1fb5f72061_512.png')"></div>
