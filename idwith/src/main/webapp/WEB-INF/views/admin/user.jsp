@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
-<title>Idwith[admin]</title>
+<title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
 </head>
@@ -26,7 +26,8 @@
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="main.mdo"> <span
-					class="align-middle"> <img src="resources/admin/img/white_logo.png"
+					class="align-middle"> <img
+						src="resources/admin/img/white_logo.png"
 						style="margin-bottom: 0px; margin-top: 15px; margin-left: 30px; max-width: 150px; height: auto;">
 				</span>
 				</a>
@@ -80,8 +81,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="qna.mdo"> <i class="align-middle"
-							data-feather="bell"></i> <span class="align-middle">QnA</span>
+						href="qna.mdo"> <i class="align-middle" data-feather="bell"></i>
+							<span class="align-middle">QnA</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#coupon"
@@ -186,191 +187,90 @@
 				<div class="content">
 					<div class="row">
 						<div class="container-fluid p-0">
+
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>일별 현황</h3>
+									<h3>회원 : client</h3>
+									<!--회원 아이디 가지고 오기!-->
+								</div>
+							</div>
+
+							<div class="card">
+								<div class="card-body" style="width: auto;">
+									<form>
+										<div class="mb-3">
+											<label class="form-label">아이디</label> <input type="text"
+												class="form-control" placeholder="client"
+												style="width: auto;" disabled>
+										</div>
+										<!-- 쿠폰 리스트에 있는 쿠폰 코드이면 쿠폰 코드 사용 불가 alert-->
+										<div class="mb-3">
+											<label class="form-label">회원 이름</label> <input type="text"
+												class="form-control" placeholder="이예지" style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">전화번호</label> <input type="text"
+												class="form-control" placeholder="010-1234-5678"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">우편번호</label> <input type="text"
+												class="form-control" placeholder="zipcode"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">주소</label> <input type="text"
+												class="form-control" placeholder="인천 광역시 부평구 대정로 90번길 7">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">상세 주소</label> <input type="text"
+												class="form-control" placeholder="address2">
+										</div>
+										<div class="row">
+											<div class="col-md-3">
+												<label class="form-label">회원등급</label> <input type="text"
+													class="form-control" placeholder="금손" style="width: auto;"
+													id="cpStartDate">
+											</div>
+											<div class="col-md-3">
+												<label class="form-label">누적 구매횟수</label> <input type="text"
+													class="form-control" placeholder="누적 구매횟수"
+													style="width: auto;" id="cpEndDate">
+											</div>
+											<!-- 쿠폰 발행일보다 쿠폰 마감일이 앞설때 alert
+												쿠폰 마감일이 발행일의 3개월 이후일때 alert-->
+											<div class="col-md-3">
+												<label class="form-label">누적 구매액</label> <input type="text"
+													class="form-control" placeholder="누적 구매액"
+													style="width: auto;" id="cpEndDate">
+											</div>
+											<div class="col-md-3">
+												<label class="form-label">가입일</label> <input type="text"
+													class="form-control" placeholder="가입일" style="width: auto;"
+													id="cpEndDate">
+											</div>
+										</div>
+									</form>
+
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-xl-6 col-xxl-5 d-flex">
-									<div class="w-100">
-										<div class="row">
-											<div class="col-sm-6">
-												<div class="card">
-													<div class="card-body">
-														<h5 class="card-title mb-4">회원수</h5>
-														<h1 class="mt-1 mb-3">2,382</h1>
-													</div>
-												</div>
-												<div class="card">
-													<div class="card-body">
-														<h5 class="card-title mb-4">오늘 매출</h5>
-														<h1 class="mt-1 mb-3">3,848,400</h1>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="card">
-													<div class="card-body">
-														<h5 class="card-title mb-4">작가 수</h5>
-														<h1 class="mt-1 mb-3">123</h1>
-													</div>
-												</div>
-												<div class="card">
-													<div class="card-body">
-														<h5 class="card-title mb-4">이번 달 매출</h5>
-														<h1 class="mt-1 mb-3">35,645,000</h1>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-6 col-xxl-7">
-									<div class="card flex-fill w-100">
-										<div class="card-header">
-
-											<h5 class="card-title mb-0">연 매출(만원단위)</h5>
-										</div>
-										<div class="card-body py-3">
-											<div class="chart chart-sm">
-												<canvas id="chartjs-dashboard-line"></canvas>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-12">
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title">관리자 게시판</h5>
-									<h6 class="card-subtitle text-muted"></h6>
-								</div>
-								<div class="table-responsive">
-									<table class="table mb-0">
-										<thead>
-											<tr>
-												<th scope="col">#</th>
-												<th scope="col">게시글</th>
-												<th scope="col">작성자</th>
-												<th scope="col">날짜</th>
-												<th scope="col">조회수</th>
-
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-											</tr>
-										</tbody>
-									</table>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center">
+									<a href="userList.mdo">
+										<button class="btn btn-primary">목록보기</button>
+									</a>
 								</div>
 							</div>
 						</div>
 					</div>
+				</div>
 			</main>
-
 			<script src="resources/admin/js/app.js"></script>
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-					var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-					gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-					gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-					// Line chart
-					new Chart(document.getElementById("chartjs-dashboard-line"), {
-						type: "line",
-						data: {
-							labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-							datasets: [{
-								label: "",
-								fill: true,
-								backgroundColor: gradient,
-								borderColor: window.theme.primary,
-								data: [
-									2115,
-									1562,
-									1584,
-									1892,
-									1587,
-									1923,
-									2566,
-									2448,
-									2805,
-									3438,
-									2917,
-									3327
-								]
-							}]
-						},
-						options: {
-							maintainAspectRatio: false,
-							legend: {
-								display: false
-							},
-							tooltips: {
-								intersect: false
-							},
-							hover: {
-								intersect: true
-							},
-							plugins: {
-								filler: {
-									propagate: false
-								}
-							},
-							scales: {
-								xAxes: [{
-									reverse: true,
-									gridLines: {
-										color: "rgba(0,0,0,0.0)"
-									}
-								}],
-								yAxes: [{
-									ticks: {
-										stepSize: 1000
-									},
-									display: true,
-									borderDash: [3, 3],
-									gridLines: {
-										color: "rgba(0,0,0,0.0)"
-									}
-								}]
-							}
-						}
-					});
-				});
-			</script>
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					document.getElementById("datetimepicker-dashboard").flatpickr({
-						inline: true,
-						prevArrow: "<span class=\"fas fa-chevron-left\" title=\"Previous month\"></span>",
-						nextArrow: "<span class=\"fas fa-chevron-right\" title=\"Next month\"></span>",
-					});
-				});
-			</script>
 		</div>
 	</div>
 </body>

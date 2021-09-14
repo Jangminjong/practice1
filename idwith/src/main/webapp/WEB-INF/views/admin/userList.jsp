@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
-<title>Idwith[admin]</title>
+<title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
 </head>
@@ -184,193 +184,179 @@
 
 			<main>
 				<div class="content">
-					<div class="row">
-						<div class="container-fluid p-0">
-							<div class="row mb-2 mb-xl-3">
-								<div class="col-auto d-none d-sm-block">
-									<h3>일별 현황</h3>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xl-6 col-xxl-5 d-flex">
-									<div class="w-100">
-										<div class="row">
-											<div class="col-sm-6">
-												<div class="card">
-													<div class="card-body">
-														<h5 class="card-title mb-4">회원수</h5>
-														<h1 class="mt-1 mb-3">2,382</h1>
-													</div>
-												</div>
-												<div class="card">
-													<div class="card-body">
-														<h5 class="card-title mb-4">오늘 매출</h5>
-														<h1 class="mt-1 mb-3">3,848,400</h1>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="card">
-													<div class="card-body">
-														<h5 class="card-title mb-4">작가 수</h5>
-														<h1 class="mt-1 mb-3">123</h1>
-													</div>
-												</div>
-												<div class="card">
-													<div class="card-body">
-														<h5 class="card-title mb-4">이번 달 매출</h5>
-														<h1 class="mt-1 mb-3">35,645,000</h1>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-6 col-xxl-7">
-									<div class="card flex-fill w-100">
-										<div class="card-header">
-
-											<h5 class="card-title mb-0">연 매출(만원단위)</h5>
-										</div>
-										<div class="card-body py-3">
-											<div class="chart chart-sm">
-												<canvas id="chartjs-dashboard-line"></canvas>
-											</div>
-										</div>
-									</div>
-								</div>
+					<div class="container-fluid p-0">
+						<div class="row mb-2 mb-xl-3">
+							<div class="col-auto d-none d-sm-block">
+								<h3>User List</h3>
 							</div>
 						</div>
-
-						<div class="col-12">
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title">관리자 게시판</h5>
-									<h6 class="card-subtitle text-muted"></h6>
-								</div>
-								<div class="table-responsive">
-									<table class="table mb-0">
+						<div class="row">
+							<div class="col-md-6 text-center"></div>
+							<div class="col-md-6 text-center" style="margin-bottom: 10px;">
+								<form class="d-none d-sm-inline-block float-right">
+									<ul class="nav nav-pills card-header-pills pull-right">
+										<div class="input-group">
+											<input type="text" class="form-control"
+												placeholder="검색 키워드를 입력하세요!">&nbsp; <span
+												class="input-group-btn">
+												<button class="btn btn-warning" type="button">찾기</button>
+											</span>
+									</ul>
+								</form>
+							</div>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> 블랙리스트 </label>
+						</div>
+						<div class="row">
+							<div class="card col-12">
+								<div class="card flex-fill">
+									<table class="table table-hover my-0">
 										<thead>
 											<tr>
-												<th scope="col">#</th>
-												<th scope="col">게시글</th>
-												<th scope="col">작성자</th>
-												<th scope="col">날짜</th>
-												<th scope="col">조회수</th>
+												<th scope="col">아이디</th>
+												<th scope="col">연락처</th>
+												<th scope="col">등급</th>
+												<th scope="col">가입일자</th>
+												<th scope="col">탈퇴여부</th>
+												<th scope="col">블랙여부</th>
+												<th scope="col">블랙</th>
 
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<th scope="row">1</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
+												<th><a href="user.mdo">client</a>
+												</th>
+												<th>0101234567</th>
+												<td>금손</td>
+												<td>2021-08-25</td>
+												<td>false</td>
+												<td>false</td>
+												<td>
+													<!-- BEGIN primary modal -->
+													<button type="button" class="btn btn-primary"
+														data-toggle="modal" data-target="#defaultModalPrimary">
+														Block</button>
+													<div class="modal fade" id="defaultModalPrimary"
+														tabindex="-1" role="dialog" aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title"></h5>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body m-3">
+																	<p class="mb-0">이 계정을 블랙리스트로 지정하기겠습니까??</p>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-warning">변경</button>
+																	<button type="button" class="btn btn-secondary"
+																		data-dismiss="modal">닫기</button>
+																</div>
+															</div>
+														</div>
+													</div> 
+													<!-- 블랙 활성화 후 비 활성화 버튼으로 변경--> 
+												</td>
 											</tr>
 											<tr>
-												<th scope="row">2</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
+												<th>client2</th>
+												<td>0106547890</td>
+												<td>은손</td>
+												<td>2021-05-05</td>
+												<td>부</td>
+												<td>여</td>
+												<td>
+													<!-- BEGIN primary modal -->
+													<button type="button" class="btn btn-primary"
+														data-toggle="modal" data-target="#defaultModalPrimary">
+														Blook</button>
+													<div class="modal fade" id="defaultModalPrimary"
+														tabindex="-1" role="dialog" aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title">Blook</h5>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body m-3">
+																	<p class="mb-0">이 계정을 블랙리스트로 지정하기겠습니까??</p>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-secondary"
+																		data-dismiss="modal">닫기</button>
+																	<button type="button" class="btn btn-primary">변경</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
 											</tr>
 											<tr>
-												<th scope="row">3</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
+												<th>client3</th>
+												<td>0104549875</td>
+												<td>아기손</td>
+												<td>2021-06-11</td>
+												<td>부</td>
+												<td>부</td>
+												<td>
+													<!-- BEGIN primary modal -->
+													<button type="button" class="btn btn-primary"
+														data-toggle="modal" data-target="#defaultModalPrimary">
+														Blook</button>
+													<div class="modal fade" id="defaultModalPrimary"
+														tabindex="-1" role="dialog" aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title">Blook</h5>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body m-3">
+																	<p class="mb-0">이 계정을 블랙리스트로 지정하기겠습니까??</p>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-secondary"
+																		data-dismiss="modal">닫기</button>
+																	<button type="button" class="btn btn-primary">변경</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 							</div>
 						</div>
+						<nav aria-label="Page navigation example">
+							<ul class="pagination justify-content-end">
+								<li class="page-item disabled"><a class="page-link"
+									href="#" tabindex="-1">Previous</a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">Next</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
+				</div>
 			</main>
-
 			<script src="resources/admin/js/app.js"></script>
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-					var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-					gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-					gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-					// Line chart
-					new Chart(document.getElementById("chartjs-dashboard-line"), {
-						type: "line",
-						data: {
-							labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-							datasets: [{
-								label: "",
-								fill: true,
-								backgroundColor: gradient,
-								borderColor: window.theme.primary,
-								data: [
-									2115,
-									1562,
-									1584,
-									1892,
-									1587,
-									1923,
-									2566,
-									2448,
-									2805,
-									3438,
-									2917,
-									3327
-								]
-							}]
-						},
-						options: {
-							maintainAspectRatio: false,
-							legend: {
-								display: false
-							},
-							tooltips: {
-								intersect: false
-							},
-							hover: {
-								intersect: true
-							},
-							plugins: {
-								filler: {
-									propagate: false
-								}
-							},
-							scales: {
-								xAxes: [{
-									reverse: true,
-									gridLines: {
-										color: "rgba(0,0,0,0.0)"
-									}
-								}],
-								yAxes: [{
-									ticks: {
-										stepSize: 1000
-									},
-									display: true,
-									borderDash: [3, 3],
-									gridLines: {
-										color: "rgba(0,0,0,0.0)"
-									}
-								}]
-							}
-						}
-					});
-				});
-			</script>
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					document.getElementById("datetimepicker-dashboard").flatpickr({
-						inline: true,
-						prevArrow: "<span class=\"fas fa-chevron-left\" title=\"Previous month\"></span>",
-						nextArrow: "<span class=\"fas fa-chevron-right\" title=\"Next month\"></span>",
-					});
-				});
-			</script>
 		</div>
 	</div>
 </body>
