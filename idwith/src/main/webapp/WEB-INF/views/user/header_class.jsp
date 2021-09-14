@@ -40,7 +40,7 @@
 		<header id="header" class="header ">
 			<input type="hidden" name="isLoggedIn" value="">
 			<div class="top-navigation full-w">
-				<div class="inner-w clf">
+				<div class="inner-w clf" style="margin-left: 65%;">
 					<nav class="fr">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a

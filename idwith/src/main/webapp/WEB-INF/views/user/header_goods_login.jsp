@@ -42,7 +42,7 @@
 			<input type="hidden" name="isLoggedIn" value="">
 			<div class="top-navigation full-w">
 				<div class="inner-w clf">
-					<nav class="fr">
+					<nav class="fr" style="margin-left: 65%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
 						<div class="nav-btn ui-dropdown">
