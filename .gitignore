@@ -14,8 +14,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-.pom.properties
-.Servers/
+pom.properties
+Servers/
 *.MF
 *.classpath
 *.project
