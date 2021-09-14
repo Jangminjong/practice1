@@ -14,11 +14,11 @@
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-<link rel="shortcut icon" href="resource/admin/img/tabIcon.png" />
+<link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
 <title>Idwith - admin</title>
 
-<link href="resource/admin/css/app.css" rel="stylesheet">
+<link href="resources/admin/css/app.css" rel="stylesheet">
 </head>
 
 <body>

@@ -5,12 +5,12 @@ import java.util.Date;
 public class UserVO {
 	private String email;
 	private String password;
-	private String name;
-	private String phone;
+	private String username;
+	private String cell_phone;
 	private String zipcode;
 	private String address1;
 	private String address2;
-	private String recommender;
+	private String rcmd_code;
 	private String grade;
 	private long allmcount;
 	private Date joinDate;
@@ -30,17 +30,17 @@ public class UserVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getPhone() {
-		return phone;
+	public String getCell_phone() {
+		return cell_phone;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setCell_phone(String cell_phone) {
+		this.cell_phone = cell_phone;
 	}
 	public String getZipcode() {
 		return zipcode;
@@ -60,11 +60,11 @@ public class UserVO {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
-	public String getRecommender() {
-		return recommender;
+	public String getRcmd_code() {
+		return rcmd_code;
 	}
-	public void setRecommender(String recommender) {
-		this.recommender = recommender;
+	public void setRcmd_code(String rcmd_code) {
+		this.rcmd_code = rcmd_code;
 	}
 	public String getGrade() {
 		return grade;
@@ -110,10 +110,12 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "UserVO [email=" + email + ", password=" + password + ", name=" + name + ", phone=" + phone
-				+ ", zipcode=" + zipcode + ", address1=" + address1 + ", address2=" + address2 + ", recommender="
-				+ recommender + ", grade=" + grade + ", allmcount=" + allmcount + ", joinDate=" + joinDate
-				+ ", class_sellyn=" + class_sellyn + ", option_zipcode=" + option_zipcode + ", option_address1="
-				+ option_address1 + ", option_address2=" + option_address2 + "]";
+		return "UserVO [email=" + email + ", password=" + password + ", username=" + username + ", cell_phone="
+				+ cell_phone + ", zipcode=" + zipcode + ", address1=" + address1 + ", address2=" + address2
+				+ ", rcmd_code=" + rcmd_code + ", grade=" + grade + ", allmcount=" + allmcount + ", joinDate="
+				+ joinDate + ", class_sellyn=" + class_sellyn + ", option_zipcode=" + option_zipcode
+				+ ", option_address1=" + option_address1 + ", option_address2=" + option_address2 + "]";
 	}
+	
+	
 }
