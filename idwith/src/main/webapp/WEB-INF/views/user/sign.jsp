@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 
-<script type="text/javascript" src="resources/js/sign.js"></script>
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/sign.js"></script>
 <script type="text/javascript" src="resources/js/idus.web.min.js"></script>
 <script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
 <script type="text/javascript" src="resources/js/vuepack.js"></script>
@@ -57,6 +57,7 @@
 							</div>
 							<span id="email-error" class="form-error" style="display:none">이메일 형식이 올바르지 않습니다.</span>
 							<span id="emailRe-error" class="form-error" style="display:none">필수 항목입니다.</span>
+							<span id="email-overlap" class="form-error" style="display:none">이미 가입된 이메일입니다.</span>
 						</div>
 					</div>
 
@@ -454,11 +455,6 @@ rules: {
 			});
 		</script>
 		-->
-		<script>
-			$(document).on("keyup", ".tel", function() {
-				$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
-			});
-		</script>
 		
 		<script>
             function selectAll(selectAll) {
@@ -468,6 +464,31 @@ rules: {
                   checkbox.checked = selectAll.checked;
                })
             }
+         </script>
+         
+         <script>
+         const emailOverlap = document.getElementById("email-overlap");
+     	$(document).on("blur", "#email", function() {
+     		$.ajax({
+     			url: "/sign.do",
+     			type: "GET",
+     			data: {
+     				"email":$("#email").val()	
+     			},
+     			success: function(data){
+     				if($.trim($("#email").val()) != ''){
+     					$('#email').attr("readonly", true);
+     					emailOverlap.style.display="none";
+     				}else{
+     					emailOverlap.style.display="";
+     				}
+     			},
+     			error: function(){
+     				alert("서버에러");
+     			}
+     		});
+     		
+     	});
          </script>
 	</div>
 </body>
