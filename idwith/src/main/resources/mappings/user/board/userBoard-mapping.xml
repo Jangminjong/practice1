@@ -25,6 +25,9 @@
  		INSERT INTO client (user_id, user_pwd, user_name, user_phone)
  		VALUES(#{email}, #{password}, #{username}, #{cell_phone})
  	</insert>
+ 	<select id="selectEmail" resultType="_int">
+ 		SELECT count(*) FROM client WHERE user_id=#{email}
+ 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

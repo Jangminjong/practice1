@@ -9,6 +9,7 @@ import com.idwith.mpweb.user.UserVO;
 
 @Service
 public class UserServiceImpl implements UserService {
+
 	@Autowired
 	private UserDAO dao;
 
@@ -41,4 +42,11 @@ public class UserServiceImpl implements UserService {
 	public void deleteUser(UserVO vo) {
 		dao.deleteUser(vo);
 	}
+	
+	@Override
+	public Integer emailCheck(String email){
+		int result = dao.emailCheck(email);
+		return result;
+	}
+
 }

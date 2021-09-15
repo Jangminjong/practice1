@@ -10,4 +10,6 @@ public interface UserService {
 	void updateUser(UserVO vo);
 	
 	void deleteUser(UserVO vo);
+	
+	Integer emailCheck(String email);
 }

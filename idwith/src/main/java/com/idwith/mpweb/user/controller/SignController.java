@@ -36,6 +36,14 @@ public class SignController {
 	public String signChoice() {
 		return "sign_choice";
 	}
+	
+	@RequestMapping(value="/emailCheck.do", method=RequestMethod.GET, produces="application/text; charset=utf8")
+	@ResponseBody
+	public String overlapCheck(HttpServletRequest req) throws Exception{
+		String email = req.getParameter("email");
+		int result = userService.emailCheck(email);
+		return Integer.toString(result);
+	}
 
 	/* 회원가입 - sms 인증*/
 	@RequestMapping(value = "/sendSms.do", method = RequestMethod.POST)

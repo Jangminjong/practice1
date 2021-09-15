@@ -13,6 +13,12 @@ public class UserDAO {
 		System.out.println("DAO insertUser() 실행");
 		sqlSessionTemplate.insert("UserDAO.insertUser", vo);
 	}
+	
+	public int emailCheck(String email) {
+		System.out.println("DAO emailCheck() 실행");
+		int result = sqlSessionTemplate.selectOne("UserDAO.selectEmail", email);
+		return result;
+	}
 
 	public UserVO getUser(String id) {
 		UserVO vo = new UserVO();

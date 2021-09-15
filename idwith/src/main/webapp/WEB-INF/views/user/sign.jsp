@@ -464,29 +464,34 @@ rules: {
             }
          </script>
          
-         <script>
-         const emailOverlap = document.getElementById("email-overlap");
-     	$(document).on("blur", "#email", function() {
+         <script type="text/javascript">
+         $(document).ready(function(e){
+     	$('#email').blur(function(){
      		$.ajax({
-     			url: "/sign.do",
+     			url: "${pageContext.request.contextPath}/emailCheck.do",
      			type: "GET",
      			data: {
-     				"email":$("#email").val()	
+     				"email":$("#email").val()
      			},
      			success: function(data){
-     				if($.trim($("#email").val()) != ''){
+     				if(data == 0 && $.trim($("#email").val()) != ''){
+     					
      					$('#email').attr("readonly", true);
-     					emailOverlap.style.display="none";
+     					$('#email-overlap').css({'display' : 'none'});
+     					
      				}else{
-     					emailOverlap.style.display="";
+     					
+     					$('#email-overlap').css({'display' : 'block', 'color' : '#ff4b50'});
      				}
      			},
-     			error: function(){
-     				alert("서버에러");
+     			error: function(request, status, error){
+
+     				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
      			}
      		});
      		
      	});
+         });
          </script>
 	</div>
 </body>
