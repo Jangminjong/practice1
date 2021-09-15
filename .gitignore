@@ -19,8 +19,9 @@ Servers/
 *.MF
 *.classpath
 *.project
-
-
+pom.xml
+server.xml
+target/
 
 # External tool builders
 .externalToolBuilders/
