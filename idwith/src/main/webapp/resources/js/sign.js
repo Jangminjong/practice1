@@ -184,10 +184,10 @@ function onblurEvent(args){
 				const num = document.signForm.cell_phone.value;
 			if(document.signForm.cell_phone.value == ""){
 				tel.style.display = "";
-				document.getElementById('tel').style.border = "1px solid #ff4b50";
+				document.getElementById('cell_phone').style.border = "1px solid #ff4b50";
 			}else{
 				tel.style.display = "none";
-				document.getElementById('tel').style.border = "1px solid #999";
+				document.getElementById('cell_phone').style.border = "1px solid #999";
 			}
 			break;
 	}
@@ -198,17 +198,13 @@ function sendSMS(pageName){
 	
 	 //변수 form에 id식별자 form을 담는다.
     var button = $("auth_cellphone_button").serialize();
-	/*var tel = $("tel").serialize();*/
-	var tel = $('#tel').val();
-	var form = { button : $('#auth_cellphone_button').val(),
-        		tel : $('#tel').val()};    
-
+	let cell_phone = $("#cell_phone").val();
+	alert(cell_phone);
     $.ajax({
         url : pageName + ".do",
         type : "POST",
-        dataType : "json",
-        data : { tel : JSON.stringify(tel) },
-        contentType : "application/json; charset=UTF-8",
+        dataType : "text",
+        data : { cell_phone : $('#cell_phone').val()},
         beforeSend : function() {
         },
         success : function(data) {

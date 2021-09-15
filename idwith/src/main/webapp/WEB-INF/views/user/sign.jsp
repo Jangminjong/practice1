@@ -107,7 +107,7 @@
 							<div class="ui-input-btn-combo">
 								<div class="input-text size-w type-l form-error">
 									<input class="reauth" type="hidden" name="only_auth" value="1">
-									<input type="tel" name="cell_phone" data-auth="cell_phone" id="tel" class="tel"
+									<input type="tel" name="cell_phone" data-auth="cell_phone" id="cell_phone" class="tel"
 										placeholder="010-1234-5678" value="" required=""
 										aria-describedby="cell_phone-error" style="border: 1px solid #999;" onblur="onblurEvent(this)">
 								</div>
