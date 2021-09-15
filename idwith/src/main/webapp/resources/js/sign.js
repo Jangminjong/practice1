@@ -55,22 +55,16 @@ function showHidden() {
 	isShowMore = true;
 };
 
-function bpCheck(){
-	/*
-	if(document.getElementsByClassName("checkAll").checked==true){ 
-		for(var i=0;i<5;i++) document.getElementsByClassName("check")[i].checked=true;
-	}
-	if(document.getElementsByClassName("checkAll").checked==false){
-		for(var i=0;i<5;i++) document.getElementsByClassName("check")[i].checked=false;  
-	}*/
-	
-}
-
 function signCheck(){
 		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;//이메일 정규 표현식
 		var regExpPw = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/; //비밀번호 조합식
 		const emailRe = document.getElementById('emailRe-error');
 		const email = document.getElementById('email-error');
+		var check1 = document.getElementById('terms1').checked;
+		var check2 = document.getElementById('terms2').checked;
+		var check3 = document.getElementById('terms3').checked;
+		const chk_error = document.getElementById('terms1-error');
+		const chk_error2 = document.getElementById('terms-error');
 		if(document.signForm.email.value == ""){
 			emailRe.style.display = "";
 			document.getElementById('email').style.border = "1px solid #ff4b50";
@@ -102,6 +96,17 @@ function signCheck(){
 			const tel = document.getElementById('cell_phone-error');
 			tel.style.display = "";
 			document.getElementById('tel').style.border = "1px solid #ff4b50";
+		}else if(check1 == false){
+			chk_error.style.display = "";
+			chk_error2.style.display = "none";
+		}else if(check2 == false | check3 == false){
+			chk_error.style.display = "none";
+			chk_error2.style.display = "";
+		}else{
+			chk_error.style.display = "none";
+			chk_error2.style.display = "none";
+			alert('회원가입이 완료되었습니다.');
+			document.getElementById('form').onsubmit = "return true";
 		}
 }
 
@@ -187,6 +192,8 @@ function onblurEvent(args){
 			break;
 	}
 }
+
+
 
 /*
 $(window).load(function(){

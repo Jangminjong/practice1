@@ -184,9 +184,9 @@
 								</div>
 							</div>
 						</div>
-						<!--  <span id="terms1-error" class="form-error" style="display:none">만 14세 미만은 서비스를 이용할 수 없습니다.</span>-->
-						<!--  <span id="terms-error" class="form-error" style="display:none">이용약관과
-							개인정보 수집 및 이용 동의는 필수 입니다.</span>-->
+						<span id="terms1-error" class="form-error" style="display:none">만 14세 미만은 서비스를 이용할 수 없습니다.</span>
+						<span id="terms-error" class="form-error" style="display:none">이용약관과
+							개인정보 수집 및 이용 동의는 필수 입니다.</span>
 					</div>
 
 					<div class="form-block form-block-submit">
@@ -469,10 +469,6 @@ rules: {
                })
             }
          </script>
-         
-         <label class="form-check">
-            <input class="form-check-input" name="couponall" type="checkbox" value="selectall" onclick="selectAll(this)" />
-         </label>
 	</div>
 </body>
 </html>
