@@ -114,12 +114,10 @@
 								<button id="auth_cellphone_button" type="button"
 									class="btn btn-login btn-point btn-disabled"
 									data-auth="request_btn" data-auth-url="/w/join/cellphone/auth"
-									data-idus-log="phone_auth">인증요청</button>
+									data-idus-log="phone_auth" onclick="sendSMS('sendSms')">인증요청</button>
 							</div>
 							<span id="cell_phone-error" class="form-error" style="display:none">필수 항목입니다.</span>
 						</div>
-
-
 
 						<div class="form-block-body hidden" data-auth="auth_code_block"
 							data-form-block="auth_code">
@@ -199,6 +197,13 @@
 				</section>
 			</div>
 		</form>
+		
+		<script>
+			function sendSMS(pageName){
+		        $("#auth_cellphone_button").attr("action", pageName + ".do"); //위에 있는 폼태그를 컨트롤러로 전송한다.
+		        $("#auth_cellphone_button").submit();
+		    }
+		</script>
 
 		<!--  
 		<script>

@@ -170,6 +170,22 @@
 			<version>3.2.2</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<!-- ajax -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.4</version>
+		</dependency>
+
+
 		<!-- naverLogin -->
 		<dependency>
 			<groupId>com.github.scribejava</groupId>
@@ -206,6 +222,12 @@
 			<version>5.3.4.RELEASE</version>
 		</dependency>
 
+		<!-- Cool SMS -->
+		<dependency>
+			<groupId>net.nurigo</groupId>
+			<artifactId>javaSDK</artifactId>
+			<version>2.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
