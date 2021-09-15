@@ -193,15 +193,40 @@ function onblurEvent(args){
 	}
 }
 
-$(window).ready(function(){
-	$(document).on("keyup", ".tel", function() { $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); });
-});
-
-$(window).ready(function(){
-	$(document).on("keyup", ".", function() { $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); });
-});
-
-function smsCheck(){
+function sendSMS(pageName){
+	document.getElementById('hiddenDiv').setAttribute('class', 'form-block-body');
 	
-	document.getElementsByClassName("btn-disabled")[0].className = "btn btn-login btn-point";
+	 //변수 form에 id식별자 form을 담는다.
+    var button = $("auth_cellphone_button").serialize();
+	/*var tel = $("tel").serialize();*/
+	var tel = $('#tel').val();
+	var form = { button : $('#auth_cellphone_button').val(),
+        		tel : $('#tel').val()};    
+
+    $.ajax({
+        url : pageName + ".do",
+        type : "POST",
+        dataType : "json",
+        data : { tel : JSON.stringify(tel) },
+        contentType : "application/json; charset=UTF-8",
+        beforeSend : function() {
+        },
+        success : function(data) {
+            console.log(data);
+        },
+        error : function(request, status, error) {
+            alert("list search fail :: error code: "
+            + request.status + "\n" + "error message: "
+            + error + "\n");
+        }
+    });
 }
+
+$(window).ready(function(){
+	$(document).on("keyup", ".tel", function() { 
+		$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
+			if(document.getElementsByName('cell_phone').length > 0) {
+				document.getElementById('auth_cellphone_button').setAttribute('class', 'btn btn-login btn-point');
+			}
+	});
+});

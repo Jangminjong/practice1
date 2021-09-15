@@ -1,6 +1,8 @@
 package com.idwith.mpweb.user.controller;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.service.UserService;
@@ -21,39 +26,48 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 public class SignController {
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping("/sign.do")
 	public String sign(UserVO vo) {
 		return "sign";
 	}
-	
+
 	@GetMapping("/sign_choice.do")
 	public String signChoice() {
 		return "sign_choice";
 	}
-	
+
 	/* 회원가입 - sms 인증*/
-	@RequestMapping(value = "/sendSms.do")
-    public void sendSms(HttpServletRequest request) throws Exception {
-		 String api_key = "NCSE2QVWOHHJKJLS";
-		    String api_secret = "ZPPUAJDBF60J9SU9MIE74YWWNG3YXLUJ";
-		    Message coolsms = new Message(api_key, api_secret);
+	@RequestMapping(value = "/sendSms.do", method = RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, String> sendSms(@RequestParam("tel") String tel) throws Exception {
+		System.out.println("SMS 인증 컨트롤러 실행");
+		String api_key = "NCSE2QVWOHHJKJLS";
+		String api_secret = "ZPPUAJDBF60J9SU9MIE74YWWNG3YXLUJ";
+		Message coolsms = new Message(api_key, api_secret);
+		
+		//문자 랜덤 값
+		int randomPIN = (int)(Math.random()*900000)+100000;
+		//String phoneNumber = (String) p.get("tel");
+		System.out.println("받은 전화번호 : " + tel);
 
-		    // 4 params(to, from, type, text) are mandatory. must be filled
-		    HashMap<String, String> params = new HashMap<String, String>();
-		    params.put("to", "01091592149");
-		    params.put("from", "01091592149");
-		    params.put("type", "SMS");
-		    params.put("text", "Coolsms Testing Message!");
-		    params.put("app_version", "test app 1.2"); // application name and version
+		// 4 params(to, from, type, text) are mandatory. must be filled
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("to", tel);
+		params.put("from", "IdWith");
+		params.put("type", "SMS");
+		params.put("text", "본인확인 인증번호(" +  randomPIN +") 입력시 정상처리 됩니다.");
+		params.put("app_version", "test app 1.2"); // application name and version
 
-		    try {
-		      JSONObject obj = (JSONObject) coolsms.send(params);
-		      System.out.println(obj.toString());
-		    } catch (CoolsmsException e) {
-		      System.out.println(e.getMessage());
-		      System.out.println(e.getCode());
-		    }
-		    
+		try {
+			JSONObject obj = (JSONObject) coolsms.send(params);
+			System.out.println(obj.toString() + " 테스트");
+		} catch (CoolsmsException e) {
+			System.out.println(e.getMessage());
+			System.out.println("오류");
+			System.out.println(e.getCode());
+		}
+
+		return params;
 	}
 }

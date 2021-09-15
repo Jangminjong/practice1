@@ -120,7 +120,7 @@
 						</div>
 
 						<div class="form-block-body hidden" data-auth="auth_code_block"
-							data-form-block="auth_code">
+							data-form-block="auth_code" id="hiddenDiv">
 							<div class="ui-input-btn-combo size-w">
 								<div class="input-text size-w type-l">
 									<input type="text" name="auth_code" data-input-style="none"
@@ -198,13 +198,6 @@
 			</div>
 		</form>
 		
-		<script>
-			function sendSMS(pageName){
-		        $("#auth_cellphone_button").attr("action", pageName + ".do"); //위에 있는 폼태그를 컨트롤러로 전송한다.
-		        $("#auth_cellphone_button").submit();
-		    }
-		</script>
-
 		<!--  
 		<script>
 			(function() {
