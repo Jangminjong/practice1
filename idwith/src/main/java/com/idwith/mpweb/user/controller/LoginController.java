@@ -17,13 +17,13 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
 @Controller
 public class LoginController {
 	/* Naver Login */
-	private NaverLoginBO naverLoginBO;
-	private String apiResult = null;
-
-	@Autowired
-	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
-		this.naverLoginBO = naverLoginBO;
-	}
+//	private NaverLoginBO naverLoginBO;
+//	private String apiResult = null;
+//
+//	@Autowired
+//	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
+//		this.naverLoginBO = naverLoginBO;
+//	}
 
 	@GetMapping("/loginChoice.cdo")
 	public String loginChoice() {
