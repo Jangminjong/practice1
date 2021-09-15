@@ -7,14 +7,15 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-		classpath:applicationContext.xml
-		<!-- 
-			아래처럼 추가적으로 사용할 컨텍스트를 등록하면 됩니다.
-			/WEB-INF/spring/commonContext.xml
-		 -->
+			classpath:applicationContext.xml
+			/WEB-INF/spring/security-context.xml
+			<!-- 
+				아래처럼 추가적으로 사용할 컨텍스트를 등록하면 됩니다.
+				/WEB-INF/spring/commonContext.xml
+			 -->
 		</param-value>
 	</context-param>
-	
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -103,5 +104,13 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+          <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 	
 </web-app>
