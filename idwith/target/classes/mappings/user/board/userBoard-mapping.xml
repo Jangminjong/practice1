@@ -3,20 +3,29 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<!-- <mapper namespace="BoardDAO">
- 	<resultMap type="myboard" id="boardResult">
- 		<id property="seq" column="SEQ" />
- 		<result property="title" column="TITLE"/>
- 		<result property="writer" column="WRITER"/>
- 		<result property="content" column="CONTENT"/>
- 		<result property="regDate" column="REGDATE"/>
- 		<result property="cnt" column="CNT"/>
+<mapper namespace="UserDAO">
+ 	<resultMap type="userVO" id="userResult">
+ 		<result property="email" column="user_id"/>
+ 		<result property="password" column="user_pwd"/>
+ 		<result property="username" column="user_name"/>
+ 		<result property="cell_phone" column="user_phone"/>
+ 		<result property="user_zipcode" column="user_zipcode"/>
+ 		<result property="user_address1" column="user_address1"/>
+ 		<result property="user_address2" column="user_address2"/>
+ 		<result property="user_recommender" column="user_recommender"/>
+ 		<result property="user_grade" column="user_grade"/>
+ 		<result property="user_allmcount" column="user_allmcount"/>
+ 		<result property="user_joinDate" column="user_joinDate"/>
+ 		<result property="user_class_sellyn" column="user_class_sellyn"/>
+ 		<result property="user_option_zipcode" column="user_option_zipcode"/>
+ 		<result property="user_option_addr1" column="user_option_addr1"/>
+ 		<result property="user_option_addr2" column="user_option_addr2"/>
  	</resultMap>
- 	<insert id="insertBoard" parameterType="myboard">
- 		INSERT INTO myboard (seq, title, writer, content)
- 		VALUES((select nvl(max(seq),0)+1 from myboard), #{title}, #{writer}, #{content})
+ 	<insert id="insertUser" parameterType="userVO">
+ 		INSERT INTO client (user_id, user_pwd, user_name, user_phone)
+ 		VALUES(#{email}, #{password}, #{username}, #{cell_phone})
  	</insert>
- 	<update id="updateBoard" parameterType="myboard">
+ 	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}
  	</update>
@@ -41,5 +50,5 @@
  		SELECT * FROM myboard
  		WHERE content LIKE '%'||#{searchKeyword}||'%'
  		ORDER BY seq DESC
- 	</select> 
-</mapper> -->
+ 	</select>--> 
+</mapper>

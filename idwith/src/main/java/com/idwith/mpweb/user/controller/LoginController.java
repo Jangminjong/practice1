@@ -10,12 +10,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.idwith.mpweb.user.UserVO;
+import com.idwith.mpweb.user.service.UserService;
 
 @Controller
 public class LoginController {
+	@Autowired
+	private UserService userService;
 	/* Naver Login */
 //	private NaverLoginBO naverLoginBO;
 //	private String apiResult = null;
@@ -30,8 +36,16 @@ public class LoginController {
 		return "loginChoice";
 	}
 
-	@PostMapping("/login.do")
-	public String login() {
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+	public String login(UserVO vo) {
+		System.out.println("이메일 : " + vo.getEmail());
+		return "login";
+	}
+	
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	public String signLogin(UserVO vo) {
+		System.out.println("Controller : 회원가입 후 로그인 처리");
+		userService.insertUser(vo);
 		return "login";
 	}
 

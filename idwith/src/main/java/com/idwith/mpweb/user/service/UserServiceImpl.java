@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void insertUser(UserVO vo) {
+		System.out.println("Service : 회원가입 처리");
 		dao.insertUser(vo);
 	}
 

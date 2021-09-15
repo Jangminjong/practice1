@@ -6,11 +6,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDAO {
-	//@Autowired
-	//SqlSessionTemplate sqlSessionTemplate;
+	@Autowired
+	SqlSessionTemplate sqlSessionTemplate;
 
 	public void insertUser(UserVO vo) {
 		System.out.println("DAO insertUser() ½ÇÇà");
+		sqlSessionTemplate.insert("UserDAO.insertUser", vo);
 	}
 
 	public UserVO getUser(String id) {

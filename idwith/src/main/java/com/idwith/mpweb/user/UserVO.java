@@ -7,17 +7,18 @@ public class UserVO {
 	private String password;
 	private String username;
 	private String cell_phone;
-	private String zipcode;
-	private String address1;
-	private String address2;
-	private String rcmd_code;
-	private String grade;
-	private long allmcount;
-	private Date joinDate;
-	private boolean class_sellyn;
-	private int option_zipcode;
-	private String option_address1;
-	private String option_address2;
+	private String user_zipcode;
+	private String user_address1;
+	private String user_address2;
+	private String user_recommender;
+	private String user_grade;
+	private long user_allmcount;
+	private Date user_joinDate;
+	private boolean user_class_sellyn;
+	private int user_option_zipcode;
+	private String user_option_addr1;
+	private String user_option_addr2;
+
 	public String getEmail() {
 		return email;
 	}
@@ -36,86 +37,86 @@ public class UserVO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	public String getUser_zipcode() {
+		return user_zipcode;
+	}
+	public void setUser_zipcode(String user_zipcode) {
+		this.user_zipcode = user_zipcode;
+	}
+	@Override
+	public String toString() {
+		return "UserVO [email=" + email + ", password=" + password + ", username=" + username + ", cell_phone="
+				+ cell_phone + ", user_zipcode=" + user_zipcode + ", user_address1=" + user_address1
+				+ ", user_address2=" + user_address2 + ", user_recommender=" + user_recommender + ", user_grade="
+				+ user_grade + ", user_allmcount=" + user_allmcount + ", user_joinDate=" + user_joinDate
+				+ ", user_class_sellyn=" + user_class_sellyn + ", user_option_zipcode=" + user_option_zipcode
+				+ ", user_option_addr1=" + user_option_addr1 + ", user_option_addr2=" + user_option_addr2 + "]";
+	}
+	public String getUser_address1() {
+		return user_address1;
+	}
+	public void setUser_address1(String user_address1) {
+		this.user_address1 = user_address1;
+	}
+	public String getUser_address2() {
+		return user_address2;
+	}
+	public void setUser_address2(String user_address2) {
+		this.user_address2 = user_address2;
+	}
+	public String getUser_recommender() {
+		return user_recommender;
+	}
+	public void setUser_recommender(String user_recommender) {
+		this.user_recommender = user_recommender;
+	}
+	public String getUser_grade() {
+		return user_grade;
+	}
+	public void setUser_grade(String user_grade) {
+		this.user_grade = user_grade;
+	}
+	public long getUser_allmcount() {
+		return user_allmcount;
+	}
+	public void setUser_allmcount(long user_allmcount) {
+		this.user_allmcount = user_allmcount;
+	}
+	public Date getUser_joinDate() {
+		return user_joinDate;
+	}
+	public void setUser_joinDate(Date user_joinDate) {
+		this.user_joinDate = user_joinDate;
+	}
+	public boolean isUser_class_sellyn() {
+		return user_class_sellyn;
+	}
+	public void setUser_class_sellyn(boolean user_class_sellyn) {
+		this.user_class_sellyn = user_class_sellyn;
+	}
+	public int getUser_option_zipcode() {
+		return user_option_zipcode;
+	}
+	public void setUser_option_zipcode(int user_option_zipcode) {
+		this.user_option_zipcode = user_option_zipcode;
+	}
+	public String getUser_option_addr1() {
+		return user_option_addr1;
+	}
+	public void setUser_option_addr1(String user_option_addr1) {
+		this.user_option_addr1 = user_option_addr1;
+	}
+	public String getUser_option_addr2() {
+		return user_option_addr2;
+	}
+	public void setUser_option_addr2(String user_option_addr2) {
+		this.user_option_addr2 = user_option_addr2;
+	}
 	public String getCell_phone() {
 		return cell_phone;
 	}
 	public void setCell_phone(String cell_phone) {
 		this.cell_phone = cell_phone;
 	}
-	public String getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-	public String getAddress1() {
-		return address1;
-	}
-	public void setAddress1(String address1) {
-		this.address1 = address1;
-	}
-	public String getAddress2() {
-		return address2;
-	}
-	public void setAddress2(String address2) {
-		this.address2 = address2;
-	}
-	public String getRcmd_code() {
-		return rcmd_code;
-	}
-	public void setRcmd_code(String rcmd_code) {
-		this.rcmd_code = rcmd_code;
-	}
-	public String getGrade() {
-		return grade;
-	}
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
-	public long getAllmcount() {
-		return allmcount;
-	}
-	public void setAllmcount(long allmcount) {
-		this.allmcount = allmcount;
-	}
-	public Date getJoinDate() {
-		return joinDate;
-	}
-	public void setJoinDate(Date joinDate) {
-		this.joinDate = joinDate;
-	}
-	public boolean isClass_sellyn() {
-		return class_sellyn;
-	}
-	public void setClass_sellyn(boolean class_sellyn) {
-		this.class_sellyn = class_sellyn;
-	}
-	public int getOption_zipcode() {
-		return option_zipcode;
-	}
-	public void setOption_zipcode(int option_zipcode) {
-		this.option_zipcode = option_zipcode;
-	}
-	public String getOption_address1() {
-		return option_address1;
-	}
-	public void setOption_address1(String option_address1) {
-		this.option_address1 = option_address1;
-	}
-	public String getOption_address2() {
-		return option_address2;
-	}
-	public void setOption_address2(String option_address2) {
-		this.option_address2 = option_address2;
-	}
-	@Override
-	public String toString() {
-		return "UserVO [email=" + email + ", password=" + password + ", username=" + username + ", cell_phone="
-				+ cell_phone + ", zipcode=" + zipcode + ", address1=" + address1 + ", address2=" + address2
-				+ ", rcmd_code=" + rcmd_code + ", grade=" + grade + ", allmcount=" + allmcount + ", joinDate="
-				+ joinDate + ", class_sellyn=" + class_sellyn + ", option_zipcode=" + option_zipcode
-				+ ", option_address1=" + option_address1 + ", option_address2=" + option_address2 + "]";
-	}
-	
-	
+
 }

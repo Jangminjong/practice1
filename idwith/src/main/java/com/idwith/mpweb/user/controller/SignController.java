@@ -15,7 +15,6 @@ public class SignController {
 	
 	@GetMapping("/sign.do")
 	public String sign(UserVO vo) {
-		userService.insertUser(vo);
 		return "sign";
 	}
 	
