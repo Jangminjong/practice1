@@ -48,5 +48,11 @@ public class UserServiceImpl implements UserService {
 		int result = dao.emailCheck(email);
 		return result;
 	}
+	
+	@Override
+	public Integer cellPhoneCheck(String cell_phone) {
+		int result = dao.cellPhoneCheck(cell_phone);
+		return result;
+	}
 
 }

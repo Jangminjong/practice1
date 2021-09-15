@@ -19,6 +19,12 @@ public class UserDAO {
 		int result = sqlSessionTemplate.selectOne("UserDAO.selectEmail", email);
 		return result;
 	}
+	
+	public int cellPhoneCheck(String cell_phone) {
+		System.out.println("DAO cell_phone() ½ÇÇà");
+		int result = sqlSessionTemplate.selectOne("UserDAO.selectCellPhone", cell_phone);
+		return result;
+	}
 
 	public UserVO getUser(String id) {
 		UserVO vo = new UserVO();

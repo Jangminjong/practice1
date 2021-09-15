@@ -58,6 +58,7 @@
 							<span id="email-error" class="form-error" style="display:none">이메일 형식이 올바르지 않습니다.</span>
 							<span id="emailRe-error" class="form-error" style="display:none">필수 항목입니다.</span>
 							<span id="email-overlap" class="form-error" style="display:none">이미 가입된 이메일입니다.</span>
+							<span id="email-available" class="form-error" style="display:none">사용 가능한 이메일입니다.</span>
 						</div>
 					</div>
 
@@ -114,9 +115,10 @@
 								<button id="auth_cellphone_button" type="button"
 									class="btn btn-login btn-point btn-disabled"
 									data-auth="request_btn" data-auth-url="/w/join/cellphone/auth"
-									data-idus-log="phone_auth" onclick="sendSMS('sendSms')">인증요청</button>
+									data-idus-log="phone_auth" onclick="sendSMS('sendSms')" disabled>인증요청</button>
 							</div>
 							<span id="cell_phone-error" class="form-error" style="display:none">필수 항목입니다.</span>
+							<span id="cell_phone-overlap" class="form-error" style="display:none">이미 가입된 전화번호입니다.</span>
 						</div>
 
 						<div class="form-block-body hidden" data-auth="auth_code_block"
@@ -464,8 +466,10 @@ rules: {
             }
          </script>
          
+         <!-- 이메일 중복체크 -->
          <script type="text/javascript">
          $(document).ready(function(e){
+        	 var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
      	$('#email').blur(function(){
      		$.ajax({
      			url: "${pageContext.request.contextPath}/emailCheck.do",
@@ -474,13 +478,21 @@ rules: {
      				"email":$("#email").val()
      			},
      			success: function(data){
-     				if(data == 0 && $.trim($("#email").val()) != ''){
-     					
-     					$('#email').attr("readonly", true);
+     				var email = $.trim($("#email").val());
+     				if(data == 0 && email != ''){
+     					if(exptext.test(email) == true){
+     						$('#email').attr("readonly", true);
+     						$('#email-overlap').css({'display' : 'none'});
+     						$('#email-available').css({'display' : 'block', 'color' : '#ff4b50'});
+     					}else{
+     						$('#email-overlap').css({'display' : 'none'});
+     						$('#email-available').css({'display' : 'none'});
+     					}
+     				}else if(email == ''){
      					$('#email-overlap').css({'display' : 'none'});
-     					
+ 						$('#email-available').css({'display' : 'none'});
      				}else{
-     					
+     					$('#email-available').css({'display' : 'none'});
      					$('#email-overlap').css({'display' : 'block', 'color' : '#ff4b50'});
      				}
      			},
@@ -492,6 +504,40 @@ rules: {
      		
      	});
          });
+         </script>
+         
+         <!-- 전화번호 중복체크  -->
+         <script>
+         	$(document).ready(function(e){
+         		$('#cell_phone').blur(function(){
+         			$.ajax({
+             			url:"${pageContext.request.contextPath}/cellPhoneCheck.do",
+             			type:"GET",
+             			data:{
+             				"cell_phone":$("#cell_phone").val()
+             			},
+             			success: function(data){
+             				var cell_phone = $.trim($("#cell_phone").val())
+             				if(data == 0 && cell_phone !=''){
+             					$('#cell_phone').attr("readonly", true);
+             					$('#cell_phone-overlap').css({'display' : 'none'});
+             					$('#auth_cellphone_button').attr("disabled", false);
+             				}else if(cell_phone ==''){
+             					$('#cell_phone-overlap').css({'display' : 'none'});
+             					$('#auth_cellphone_button').attr("disabled", true);
+             				}else{
+             					$('#cell_phone-overlap').css({'display' : 'block', 'color' : '#ff4b50'});
+             					$('#auth_cellphone_button').attr("disabled", true);
+             				}
+             			},
+             			error: function(request, status, error){
+
+             				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             			}
+             			
+             		});
+         		});
+         	})
          </script>
 	</div>
 </body>

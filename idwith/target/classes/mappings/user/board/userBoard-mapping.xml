@@ -28,6 +28,9 @@
  	<select id="selectEmail" resultType="_int">
  		SELECT count(*) FROM client WHERE user_id=#{email}
  	</select>
+ 	<select id="selectCellPhone" resultType="_int">
+ 		SELECT count(*) FROM client WHERE user_phone=#{cell_phone}
+ 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

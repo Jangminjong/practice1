@@ -12,4 +12,6 @@ public interface UserService {
 	void deleteUser(UserVO vo);
 	
 	Integer emailCheck(String email);
+	
+	Integer cellPhoneCheck(String cell_phone);
 }
