@@ -1,0 +1,45 @@
+.wrap {
+	margin-top: 100px;	
+}
+
+.signupText {
+	color: #e28e11fc;
+}
+
+.info {
+	display: flex;
+    justify-content: center;
+}
+
+.headerLogo {
+	width: 300px;
+}
+
+.info_text {
+	color: #999;
+}
+
+.coupon_info {
+	font-size: 18px;
+	margin-top: 30px;
+}
+
+.coupon_image {
+	width: 500px;
+}
+
+.select_btn {
+	margin-top: 40px;
+}
+
+.index_btn {
+	margin: 10px;
+	width: 250px;
+    height: 35px;
+}
+
+.login_btn {
+	margin: 10px;
+	width: 250px;
+    height: 35px;
+}

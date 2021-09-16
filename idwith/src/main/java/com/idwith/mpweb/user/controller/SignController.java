@@ -1,8 +1,6 @@
 package com.idwith.mpweb.user.controller;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.user.UserVO;
@@ -46,7 +43,7 @@ public class SignController {
 	}
 
 	/* 회원가입 - sms 인증*/
-	@RequestMapping(value = "/sendSms.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/sendSms.do", method = RequestMethod.GET)
 	@ResponseBody
 	public HashMap<String, String> sendSms(HttpServletRequest request) throws Exception {
 		System.out.println("SMS 인증 컨트롤러 실행");
@@ -55,7 +52,7 @@ public class SignController {
 		Message coolsms = new Message(api_key, api_secret);
 		
 		//문자 랜덤 값
-		int randomPIN = (int)(Math.random()*900000)+100000;
+		int randomPIN = (int)(Math.random()*9000)+1000;
 		String cell_phone = request.getParameter("cell_phone");
 		System.out.println("받은 전화번호 : " + cell_phone);
 
@@ -69,7 +66,7 @@ public class SignController {
 
 		try {
 			JSONObject obj = (JSONObject) coolsms.send(params);
-			System.out.println(obj.toString() + " 테스트");
+			System.out.println(obj.toString());
 		} catch (CoolsmsException e) {
 			System.out.println(e.getMessage());
 			System.out.println("오류");
@@ -78,4 +75,5 @@ public class SignController {
 
 		return params;
 	}
+
 }

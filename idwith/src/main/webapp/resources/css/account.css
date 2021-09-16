@@ -1,0 +1,72 @@
+@import url(common.css);
+
+.wrap-login {
+    min-height: 100%;
+    background: #fff;
+}
+
+.login.wrap {
+    padding: 1px 0 50px;
+    min-height: 100%;
+    background: #fff;
+}
+
+.login.section.root, .root.login.section--no-line {
+    width: 384px;
+    display: block;
+    margin: 0 auto;
+    border-top: 0;
+}
+
+.login.section, .login.section--no-line {
+    text-align: center;
+    margin-top: 50px;
+    border-top: 1px solid #333;
+}
+
+.ui_btn, .ui_btn--large, .ui_btn--mini, .ui_btn--red, .ui_btn--red--large, .ui_btn--red--mini, .ui_btn--red--small, .ui_btn--redline, .ui_btn--redline--large, .ui_btn--redline--mini, .ui_btn--redline--small, .ui_btn--small, .ui_field--onchange .ui_field__btn {
+    box-shadow: 0 1px 3px 0 hsl(0deg 0% 86% / 30%);
+    font-weight: 400;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 2px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    vertical-align: middle;
+    transition: background-color .2s cubic-bezier(.075,.82,.165,1);
+    transition: border-color .2s cubic-bezier(.075,.82,.165,1);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.ui_btn--red {
+    font-size: 12px;
+    padding: 0 16px;
+    line-height: 30px;
+    border-color: transparent;
+    background: #ff7b30;
+    color: #fff;
+}
+
+.ui_btn--redline {
+    font-size: 12px;
+    padding: 0 16px;
+    line-height: 30px;
+    border-color: #ff7b30;
+    background: #fff;
+    color: #ff7b30;
+}
+
+.ui_btn--red--large {
+    font-size: 16px;
+    padding: 0 24px;
+    line-height: 46px;
+    border-color: transparent;
+    background: #ff7b30;
+    color: #fff;
+}

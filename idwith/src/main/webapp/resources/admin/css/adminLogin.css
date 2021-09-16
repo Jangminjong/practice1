@@ -1,0 +1,412 @@
+.wrap-login {
+	margin-top: 120px;
+}
+
+.login_container {
+	border: 1px solid;
+	border-radius: 2px;
+	padding: 20px;
+	width: 450px;
+}
+
+/* */
+/* 공통 적용 css */
+.wrap-login {
+    min-height: 100%;
+    background: #fff;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+* {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: inherit;
+}
+
+div {
+    display: block;
+}
+
+.login.wrap {
+    padding: 1px 0 50px;
+    min-height: 100%;
+    background: #fff;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+a, button, [tabindex], .tab, input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+input {
+    background: #99999933;
+}
+
+/* ====================================================================*/
+/* container */
+.login_container[data-v-668c286c] {
+    display: block;
+    margin: 0 auto;
+}
+
+.login_container[data-v-668c286c] {
+    background: #ffffff;
+}
+
+/* head */
+.login_head_logo[data-v-668c286c] {
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}
+
+.sp-icon.logo {
+    background-position: -286px -397px;
+    width: 100px;
+    padding-top: 40px;
+}
+.sp-icon {
+    background-image: url('https://www.idus.com/resources/dist/images/sp/sp-icon_1626842591267.png');
+    /*background-image: url('images/common/sp-icon.png');*/
+    height: 0;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: 0;
+}
+
+.login_head_text[data-v-668c286c] {
+    margin-bottom: 30px;
+}
+
+.login_head_text .need_login[data-v-668c286c] {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.login_head_text p[data-v-668c286c] {
+    color: #333333;
+    text-align: center;
+}
+
+.login_head_text .background_text[data-v-668c286c] {
+    width: 50px;
+    height: 19px;
+    position: relative;
+}
+
+.login_head_text .background_text > .text[data-v-668c286c] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+strong[data-v-668c286c] {
+    font-weight: bold;
+}
+
+.login_head_text .background_text > .background[data-v-668c286c] {
+    width: 100%;
+    height: 15px;
+    background: #fbd3bc;
+    position: absolute;
+    top: 7px;
+    left: 0;
+}
+
+.login_head_text .coupon_img[data-v-668c286c] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.border_and_text[data-v-668c286c] {
+    border-top: 1px solid #999999;
+    color: #999999;
+    display: flex;
+    justify-content: center;
+}
+
+.border_and_text > span[data-v-668c286c] {
+    font-size: 12px;
+    margin-top: -8px;
+    background: #ffffff;
+    width: 130px;
+    text-align: center;
+}
+
+/* kakao */
+.vertical_buttons[data-v-0eb5c308] {
+    width: 100%;
+}
+
+.bar_button.kakao[data-v-0eb5c308] {
+    background: #fee500;
+    color: #333333;
+}
+
+.sp-icon.icon-kakaotalk {
+    background-position: -423px -618px;
+    width: 32px;
+    padding-top: 32px;
+}
+
+.sp-icon {
+    background-image: url('https://www.idus.com/resources/dist/images/sp/sp-icon_1626842591267.png');
+    height: 0;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: 0;
+}
+
+.bar_button[data-v-0eb5c308] {
+    display: block;
+    width: 100%;
+    height: 44px;
+    margin-top: 12px;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* email */
+.bar_button.email[data-v-0eb5c308] {
+    background: #ffffff;
+    color: #ff7b30;
+    border: 1px solid #ff7b30;
+}
+
+/* other */
+.horizontal_buttons[data-v-38bd83a8] {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.radius_button[data-v-38bd83a8] {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radius_button.naver[data-v-38bd83a8] {
+    background: #30c612;
+}
+
+.sp-icon.icon-naver {
+    background-position: -470px -618px;
+    width: 32px;
+    padding-top: 32px;
+}
+
+.radius_button.facebook[data-v-38bd83a8] {
+    padding-right: 4px;
+    background: #3c5b96;
+}
+
+.sp-icon.icon-facebook {
+    background-position: -329px -618px;
+    width: 32px;
+    padding-top: 32px;
+}
+
+.radius_button.twitter[data-v-38bd83a8] {
+    padding-left: 3px;
+    background: #51acf1;
+}
+
+.sp-icon.icon-twitter {
+    background-position: -564px -618px;
+    width: 32px;
+    padding-top: 32px;
+}
+
+.radius_button.apple[data-v-38bd83a8] {
+    background: #ffffff;
+    border: 1px solid #000000;
+}
+
+.sp-icon.icon-apple {
+    background-position: 0px -618px;
+    width: 32px;
+    padding-top: 32px;
+}
+
+/* signin css */
+.email_login_container[data-v-22bdcf3e] {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login_input[data-v-22bdcf3e] {
+    width: 100%;
+    height: 44px;
+    border-radius: 2px;
+    border: 1px solid #b4b4b4;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+    font-size: 14px;
+    outline: none;
+}
+
+.login_input[data-v-22bdcf3e]:last-child {
+    margin-bottom: 0;
+}
+
+.email_login_option[data-v-22bdcf3e] {
+    padding: 13px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666666;
+    font-size: 11px;
+}
+
+.input_checkbox[data-v-22bdcf3e] {
+    display: inline-block;
+}
+
+label {
+    cursor: pointer;
+}
+
+.bp[type=radio], .bp[type=checkbox] {
+    -moz-appearance: none;
+    -ms-progress-appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+    height: 18px;
+    width: 18px;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
+}
+
+.bp[type=checkbox]:before {
+    cursor: pointer;
+    content: '';
+    display: inline-block;
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 1px solid #acacac;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.login_button[data-v-22bdcf3e] {
+    margin-top: 6px;
+    width: 100%;
+    height: 44px;
+    border-radius: 2px;
+    border: none;
+    background: #ff7b30;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.CommonButton--middle[data-v-32d88566] {
+    font-size: 12px;
+    line-height: 30px;
+    padding: 0 16px;
+}
+
+.CommonButton[data-v-32d88566] {
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px 0 rgb(220 220 220 / 30%);
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    transition: border-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    vertical-align: middle;
+}
+
+.login_header{
+	font-size: 25px;
+	color: #f87111;
+	display: flex;
+    justify-content: space-around;
+}
+
+.headerLogo {
+	width: 200px;
+}
+
+.copyright {
+	display: flex;
+    justify-content: space-around;
+}
+
+.text_info {
+	margin-top: 10px;
+	margin-bottom: 14px;
+	font-size: 14px;
+	font-weight: 2px;
+}
