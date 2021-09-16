@@ -21,9 +21,34 @@ public class managementController {
 		return "storePropose";
 	}
 	
-	@GetMapping("/sellerList.mdo")
-	public String sellerList() {
-		return "sellerList";
+	@GetMapping("/productPropose.mdo")
+	public String productPropose() {
+		return "productPropose";
 	}
-
+	
+	@GetMapping("/classPropose.mdo")
+	public String classPropose() {
+		return "classPropose";
+	}
+	
+	@GetMapping("/adminList.mdo")
+	public String adminList() {
+		return "adminList";
+	}
+	
+	@GetMapping("/writerList.mdo")
+	public String writerList() {
+		return "writerList";
+	}
+	
+	@GetMapping("/productWriter.mdo")
+	public String productWriter() {
+		return "productWriter";
+	}
+	
+	@GetMapping("/classWriter.mdo")
+	public String classWriter() {
+		return "classWriter";
+	}
+	
 }

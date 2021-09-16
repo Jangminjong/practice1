@@ -14,9 +14,12 @@
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
-<title>IDWITH - 관리자</title>
+<title>Idwith[admin]</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
 </head>
@@ -77,6 +80,7 @@
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="userList.mdo">사용자 공지사항</a></li>
+
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
@@ -184,104 +188,117 @@
 
 			<main>
 				<div class="content">
-					<div class="row">
-						<div class="container-fluid p-0">
-
-							<div class="row mb-2 mb-xl-3">
-								<div class="col-auto d-none d-sm-block">
-									<h3>회원 : client</h3>
-									<!--회원 아이디 가지고 오기!-->
-								</div>
-							</div>
-
-							<div class="card">
-								<div class="card-body" style="width: auto;">
-									<form>
-										<div class="mb-3">
-											<label class="form-label">아이디</label> 
-											<input type="text"
-												class="form-control" placeholder="client"
-												style="width: auto;" disabled>
-										</div>
-										<!-- 쿠폰 리스트에 있는 쿠폰 코드이면 쿠폰 코드 사용 불가 alert-->
-										<div class="mb-3">
-											<label class="form-label">회원 이름</label> 
-											<input type="text"
-												class="form-control" placeholder="이예지" style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">전화번호</label> 
-											<input type="text"
-												class="form-control" placeholder="010-1234-5678"
-												style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">우편번호</label> 
-											<input type="text"
-												class="form-control" placeholder="zipcode"
-												style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">주소</label>
-											<input type="text"
-												class="form-control" placeholder="인천 광역시 부평구 대정로 90번길 7">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">상세 주소</label> 
-											<input type="text"
-												class="form-control" placeholder="address2">
-										</div>
-										<div class="row">
-											<div class="col-md-3">
-												<label class="form-label">회원등급</label> 
-												<input type="text"
-													class="form-control" placeholder="금손" style="width: auto;"
-													id="cpStartDate">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">누적 구매횟수</label> 
-												<input type="text"
-													class="form-control" placeholder="누적 구매횟수"
-													style="width: auto;" id="cpEndDate">
-											</div>
-											<!-- 쿠폰 발행일보다 쿠폰 마감일이 앞설때 alert
-												쿠폰 마감일이 발행일의 3개월 이후일때 alert-->
-											<div class="col-md-3">
-												<label class="form-label">누적 구매액</label> 
-												<input type="text"
-													class="form-control" placeholder="누적 구매액"
-													style="width: auto;" id="cpEndDate">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">가입일</label> 
-												<input type="text"
-													class="form-control" placeholder="가입일" style="width: auto;"
-													id="cpEndDate">
-											</div>
-										</div>
-									</form>
-
-								</div>
-							</div>
+					<div class="container-fluid p-0">
+						<h1 class="h3 mb-3">작가 목록</h1>
+						<div class="col-12 col-md-12 col-lg-12">
 							<div class="row">
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center">
-									<a href="userList.mdo">
-										<button class="btn btn-primary">목록보기</button>
-									</a>
+								<div class="col-md-6 text-center"></div>
+								<div class="col-md-6 text-center" style="margin-bottom: 10px;">
+									<form class="d-none d-sm-inline-block float-right">
+										<ul class="nav nav-pills card-header-pills pull-right">
+											<div class="input-group">
+												<input type="text" class="form-control"
+													placeholder="검색 키워드를 입력하세요!">&nbsp; <span
+													class="input-group-btn">
+													<button class="btn btn-warning" type="button">찾기</button>
+												</span>
+											</div>
+										</ul>
+									</form>
+								</div>
+							</div>
+							<ul class="nav nav-tabs">
+								<li class="nav-item"><a class="nav-link active"
+									data-toggle="tab" href="#tab1">상품작가</a></li>
+								<li class="nav-item"><a class="nav-link" data-toggle="tab"
+									href="#tab2">클래스작가</a></li>
+							</ul>
+						</div>
+						<div class="card-body">
+							<div class="tab-content">
+								<div class="tab-pane fade show active" id="tab1" role="tabpanel">
+									<div class="table-responsive">
+										<table class="table mb-0">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">작가코드</th>
+													<th scope="col">작가이름</th>
+													<th scope="col">입점날짜</th>
+													<th scope="col">입점취소</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td><a href="productWriter.mdo">Seller1</a></td>
+													<td>시루아네</td>
+													<td>2021-06-02</td>
+													<td>
+														<button type="button" class="btn btn-warning" id="storeDelete">입점취소</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane fade active" id="tab2" role="tabpanel">
+									<div class="table-responsive">
+										<table class="table mb-0">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">작가코드</th>
+													<th scope="col">작가이름</th>
+													<th scope="col">입점날짜</th>
+													<th scope="col">입점취소</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td><a href="classWriter.mdo">Seller2</a></td>
+													<td>일일일</td>
+													<td>2020-12-31</td>
+													<td>
+														<button type="button" class="btn btn-warning" id="storeDelete">입점취소</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</main>
-			<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>
+	</main>
+	<script src="resources/admin/js/app.js"></script>
+	<script>
+				$().ready(function (){ 
+					$("#storeDelete").click(function (){ 
+						Swal.fire({ 
+							title: '입점취소', 
+							text: "해장 작가의 입점을 취소하겠습니까?", 
+							icon: 'warning', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '취소', 
+							cancelButtonText: '닫기' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'입점 취소', 
+									'해당 작가의 입점이 취소되었습니다', 
+								) 
+							} 
+						}) 
+					}); 
+				});
+	</script>
 </body>
-
 </html>

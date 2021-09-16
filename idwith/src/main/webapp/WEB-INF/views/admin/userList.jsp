@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +14,9 @@
 <meta name="author" content="AdminKit">
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+	
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
@@ -55,7 +59,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="storePropose.mdo">입점신청관리</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="sellerList.mdo">작가목록</a></li>
+								href="writerList.mdo">작가목록</a></li>
 
 						</ul></li>
 
@@ -228,81 +232,29 @@
 										</thead>
 										<tbody>
 											<tr>
-												<th><a href="user.mdo">client</a>
-												</th>
-												<th>0101234567</th>
+												<th><a href="user.mdo">client</a></th>
+												<td>0101234567</td>
 												<td>금손</td>
 												<td>2021-08-25</td>
 												<td>false</td>
 												<td>false</td>
 												<td>
-													<!-- BEGIN primary modal -->
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#defaultModalPrimary">
-														Block</button>
-													<div class="modal fade" id="defaultModalPrimary"
-														tabindex="-1" role="dialog" aria-hidden="true">
-														<div class="modal-dialog" role="document">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h5 class="modal-title"></h5>
-																	<button type="button" class="close"
-																		data-dismiss="modal" aria-label="Close">
-																		<span aria-hidden="true">&times;</span>
-																	</button>
-																</div>
-																<div class="modal-body m-3">
-																	<p class="mb-0">이 계정을 블랙리스트로 지정하기겠습니까??</p>
-																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-warning">변경</button>
-																	<button type="button" class="btn btn-secondary"
-																		data-dismiss="modal">닫기</button>
-																</div>
-															</div>
-														</div>
-													</div> 
-													<!-- 블랙 활성화 후 비 활성화 버튼으로 변경--> 
+													<button type="button" class="btn btn-primary" id="blockAgree">Block</button>
 												</td>
 											</tr>
 											<tr>
-												<th>client2</th>
+												<th><a href="user.mdo">client2</a></th>
 												<td>0106547890</td>
 												<td>은손</td>
 												<td>2021-05-05</td>
 												<td>부</td>
 												<td>여</td>
 												<td>
-													<!-- BEGIN primary modal -->
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#defaultModalPrimary">
-														Blook</button>
-													<div class="modal fade" id="defaultModalPrimary"
-														tabindex="-1" role="dialog" aria-hidden="true">
-														<div class="modal-dialog" role="document">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h5 class="modal-title">Blook</h5>
-																	<button type="button" class="close"
-																		data-dismiss="modal" aria-label="Close">
-																		<span aria-hidden="true">&times;</span>
-																	</button>
-																</div>
-																<div class="modal-body m-3">
-																	<p class="mb-0">이 계정을 블랙리스트로 지정하기겠습니까??</p>
-																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-secondary"
-																		data-dismiss="modal">닫기</button>
-																	<button type="button" class="btn btn-primary">변경</button>
-																</div>
-															</div>
-														</div>
-													</div>
+													<button type="button" class="btn btn-primary" id="blockAgree">Block</button>
 												</td>
 											</tr>
 											<tr>
-												<th>client3</th>
+												<th><a href="user.mdo">client3</a></th>
 												<td>0104549875</td>
 												<td>아기손</td>
 												<td>2021-06-11</td>
@@ -310,31 +262,7 @@
 												<td>부</td>
 												<td>
 													<!-- BEGIN primary modal -->
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#defaultModalPrimary">
-														Blook</button>
-													<div class="modal fade" id="defaultModalPrimary"
-														tabindex="-1" role="dialog" aria-hidden="true">
-														<div class="modal-dialog" role="document">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h5 class="modal-title">Blook</h5>
-																	<button type="button" class="close"
-																		data-dismiss="modal" aria-label="Close">
-																		<span aria-hidden="true">&times;</span>
-																	</button>
-																</div>
-																<div class="modal-body m-3">
-																	<p class="mb-0">이 계정을 블랙리스트로 지정하기겠습니까??</p>
-																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-secondary"
-																		data-dismiss="modal">닫기</button>
-																	<button type="button" class="btn btn-primary">변경</button>
-																</div>
-															</div>
-														</div>
-													</div>
+													<button type="button" class="btn btn-primary" id="blockAgree">Block</button>
 												</td>
 											</tr>
 										</tbody>
@@ -357,6 +285,30 @@
 				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
+			<script>
+				$().ready(function (){ 
+					$("#blockAgree").click(function (){ 
+						Swal.fire({ 
+							title: '이 계정을 블랙리스트로 설정하시겠습니까?', 
+							text: "", 
+							icon: 'warning', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '변경', 
+							cancelButtonText: '취소' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'계정상태가 변경되었습니다.', 
+									'해당 사용자는 블랙리스트 처리되었습니다.', 
+								) 
+							} 
+						}) 
+					}); 
+				});
+			</script>
 		</div>
 	</div>
 </body>

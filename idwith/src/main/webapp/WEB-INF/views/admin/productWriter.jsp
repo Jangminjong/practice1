@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
-<title>IDWITH - 관리자</title>
+<title>Idwith[admin]</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
 </head>
@@ -77,6 +77,7 @@
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="userList.mdo">사용자 공지사항</a></li>
+
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
@@ -184,95 +185,105 @@
 
 			<main>
 				<div class="content">
-					<div class="row">
-						<div class="container-fluid p-0">
+					<div class="container-fluid p-0">
+
+						<form class="row g-3">
+							<div class="col-md-4">
+								<label for="inputEmail4" class="form-label">아이디</label> <input
+									type="text" class="form-control" value="client"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-md-3">
+								<label for="inputPassword4" class="form-label">이름</label> 
+								<input type="text" class="form-control" value="이예지"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-md-3">
+								<label for="inputPassword4" class="form-label">전화번호</label> <input
+									type="text" class="form-control" value="010-2580-0786"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-md-3">
+								<label for="inputCity" class="form-label">사업자 등록번호</label> <input
+									type="text" class="form-control" value="321-55-05842"
+									aria-label="readonly input example" readonly>
+							</div>
+
+							<div class="col-12">
+								<label for="inputAddress" class="form-label">주소</label> <input
+									type="text" class="form-control" value="인천 광역시 부평구 대정로 90번길 7"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress2" class="form-label ">상세주소</label> <input
+									type="text" class="form-control" value="캐슬원 000호"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-md-2">
+								<label for="inputZip" class="form-label">가입일</label> <input
+									type="text" class="form-control" value="2021-09-11"
+									aria-label="readonly input example" readonly>
+							</div>
 
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>회원 : client</h3>
-									<!--회원 아이디 가지고 오기!-->
+									<h3></h3>
 								</div>
+
+								<div class="col-auto ml-auto text-right mt-n1"></div>
 							</div>
 
-							<div class="card">
-								<div class="card-body" style="width: auto;">
-									<form>
-										<div class="mb-3">
-											<label class="form-label">아이디</label> 
-											<input type="text"
-												class="form-control" placeholder="client"
-												style="width: auto;" disabled>
-										</div>
-										<!-- 쿠폰 리스트에 있는 쿠폰 코드이면 쿠폰 코드 사용 불가 alert-->
-										<div class="mb-3">
-											<label class="form-label">회원 이름</label> 
-											<input type="text"
-												class="form-control" placeholder="이예지" style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">전화번호</label> 
-											<input type="text"
-												class="form-control" placeholder="010-1234-5678"
-												style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">우편번호</label> 
-											<input type="text"
-												class="form-control" placeholder="zipcode"
-												style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">주소</label>
-											<input type="text"
-												class="form-control" placeholder="인천 광역시 부평구 대정로 90번길 7">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">상세 주소</label> 
-											<input type="text"
-												class="form-control" placeholder="address2">
-										</div>
-										<div class="row">
-											<div class="col-md-3">
-												<label class="form-label">회원등급</label> 
-												<input type="text"
-													class="form-control" placeholder="금손" style="width: auto;"
-													id="cpStartDate">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">누적 구매횟수</label> 
-												<input type="text"
-													class="form-control" placeholder="누적 구매횟수"
-													style="width: auto;" id="cpEndDate">
-											</div>
-											<!-- 쿠폰 발행일보다 쿠폰 마감일이 앞설때 alert
-												쿠폰 마감일이 발행일의 3개월 이후일때 alert-->
-											<div class="col-md-3">
-												<label class="form-label">누적 구매액</label> 
-												<input type="text"
-													class="form-control" placeholder="누적 구매액"
-													style="width: auto;" id="cpEndDate">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">가입일</label> 
-												<input type="text"
-													class="form-control" placeholder="가입일" style="width: auto;"
-													id="cpEndDate">
-											</div>
-										</div>
-									</form>
 
+							<div class="container">
+								<div class="row">
+									<div class="col-3">
+										<div class="card text-black">
+											<div class="card-header bg-light">팔로우 수</div>
+											<div class="card-body">
+												<p class="card-text">845</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-3">
+										<div class="card text-black">
+											<div class="card-header bg-light">등록 상품 갯수</div>
+											<div class="card-body">
+												<p class="card-text">25</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-3">
+										<div class="card text-black">
+											<div class="card-header bg-light">총 누적 판매횟수</div>
+											<div class="card-body">
+												<p class="card-text">1,025</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-3">
+										<div class="card text-black">
+											<div class="card-header bg-light">월 판매액</div>
+											<div class="card-body">
+												<p class="card-text">1,125,000</p>
+											</div>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center">
-									<a href="userList.mdo">
-										<button class="btn btn-primary">목록보기</button>
-									</a>
+						</form>
+						<h1 class="h3 mb-3">매출</h1>
+
+						<div class="row">
+							<div class="col-12">
+								<div class="card flex-fill w-100">
+									<div class="card-header">
+										<h5 class="card-title">월별 매출 현황</h5>
+										<!-- <h6 class="card-subtitle text-muted">A line chart is a way of plotting data points on a line.</h6> -->
+									</div>
+									<div class="card-body">
+										<div class="chart">
+											<canvas id="chartjs-line"></canvas>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -280,6 +291,73 @@
 				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
+			<script>
+				document.addEventListener("DOMContentLoaded", function() {
+					// Line chart
+					new Chart(document.getElementById("chartjs-line"), {
+						type : "line",
+						data : {
+							labels : [ "1월", "2월", "3월", "4월", "5월", "6월",
+									"7월", "8월", "9월", "10월", "11월", "12월" ],
+							datasets : [
+									{
+										label : "Sales ($)",
+										fill : true,
+										backgroundColor : "transparent",
+										borderColor : window.theme.primary,
+										data : [ 2115, 1562, 1584, 1892, 1487,
+												2223, 2966, 2448, 2905, 3838,
+												2917, 3327 ]
+									},
+							// {
+							// 	label: "Orders",
+							// 	fill: true,
+							// 	backgroundColor: "transparent",
+							// 	borderColor: "#adb5bd",
+							// 	borderDash: [4, 4],
+							// 	data: [958, 724, 629, 883, 915, 1214, 1476, 1212, 1554, 2128, 1466, 1827]
+							// }
+							]
+						},
+						options : {
+							maintainAspectRatio : false,
+							legend : {
+								display : false
+							},
+							tooltips : {
+								intersect : false
+							},
+							hover : {
+								intersect : true
+							},
+							plugins : {
+								filler : {
+									propagate : false
+								}
+							},
+							scales : {
+								xAxes : [ {
+									reverse : true,
+									gridLines : {
+										color : "rgba(0,0,0,0.05)"
+									}
+								} ],
+								yAxes : [ {
+									ticks : {
+										stepSize : 500
+									},
+									display : true,
+									borderDash : [ 5, 5 ],
+									gridLines : {
+										color : "rgba(0,0,0,0)",
+										fontColor : "#fff"
+									}
+								} ]
+							}
+						}
+					});
+				});
+			</script>
 		</div>
 	</div>
 </body>

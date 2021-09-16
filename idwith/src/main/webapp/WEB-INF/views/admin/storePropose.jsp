@@ -13,10 +13,13 @@
 <meta name="author" content="AdminKit">
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+	
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
-<title>IDWITH - 관리자</title>
+<title>Idwith[admin]</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
 </head>
@@ -77,6 +80,7 @@
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="userList.mdo">사용자 공지사항</a></li>
+
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
@@ -184,103 +188,127 @@
 
 			<main>
 				<div class="content">
-					<div class="row">
-						<div class="container-fluid p-0">
+					<div class="container-fluid p-0">
 
-							<div class="row mb-2 mb-xl-3">
-								<div class="col-auto d-none d-sm-block">
-									<h3>회원 : client</h3>
-									<!--회원 아이디 가지고 오기!-->
+						<h1 class="h3 mb-3">입점 신청 내역</h1>
+
+						<ul class="nav nav-tabs">
+							<li class="nav-item"><a class="nav-link active"
+								data-toggle="tab" href="#tab1" id="#tab1">작품 입점신청</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab"
+								href="#tab2" id="#tab2">클래스 입점신청</a></li>
+						</ul>
+					</div>
+					<div class="card-body">
+						<div class="tab-content">
+							<div class="tab-pane fade show active" id="tab1" role="tabpanel">
+								<div class="table-responsive">
+									<table class="table mb-0">
+										<thead>
+											<tr>
+												<th scope="col">#</th>
+												<th scope="col">작가이름</th>
+												<th scope="col">사업자등록번호</th>
+												<th scope="col">신청날짜</th>
+												<th scope="col">입점승인/거절</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td><a href="productPropose.mdo">Seller2</a></td>
+												<td>555-33-12345</td>
+												<td>2021-09-01</td>
+												<td>
+													<button type="button" class="btn btn-warning" id="storeProposeAgree">승인</button>
+													<button type="button" class="btn btn-primary" id="storeProposeDisagree">거절</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
-
-							<div class="card">
-								<div class="card-body" style="width: auto;">
-									<form>
-										<div class="mb-3">
-											<label class="form-label">아이디</label> 
-											<input type="text"
-												class="form-control" placeholder="client"
-												style="width: auto;" disabled>
-										</div>
-										<!-- 쿠폰 리스트에 있는 쿠폰 코드이면 쿠폰 코드 사용 불가 alert-->
-										<div class="mb-3">
-											<label class="form-label">회원 이름</label> 
-											<input type="text"
-												class="form-control" placeholder="이예지" style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">전화번호</label> 
-											<input type="text"
-												class="form-control" placeholder="010-1234-5678"
-												style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">우편번호</label> 
-											<input type="text"
-												class="form-control" placeholder="zipcode"
-												style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">주소</label>
-											<input type="text"
-												class="form-control" placeholder="인천 광역시 부평구 대정로 90번길 7">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">상세 주소</label> 
-											<input type="text"
-												class="form-control" placeholder="address2">
-										</div>
-										<div class="row">
-											<div class="col-md-3">
-												<label class="form-label">회원등급</label> 
-												<input type="text"
-													class="form-control" placeholder="금손" style="width: auto;"
-													id="cpStartDate">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">누적 구매횟수</label> 
-												<input type="text"
-													class="form-control" placeholder="누적 구매횟수"
-													style="width: auto;" id="cpEndDate">
-											</div>
-											<!-- 쿠폰 발행일보다 쿠폰 마감일이 앞설때 alert
-												쿠폰 마감일이 발행일의 3개월 이후일때 alert-->
-											<div class="col-md-3">
-												<label class="form-label">누적 구매액</label> 
-												<input type="text"
-													class="form-control" placeholder="누적 구매액"
-													style="width: auto;" id="cpEndDate">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">가입일</label> 
-												<input type="text"
-													class="form-control" placeholder="가입일" style="width: auto;"
-													id="cpEndDate">
-											</div>
-										</div>
-									</form>
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center">
-									<a href="userList.mdo">
-										<button class="btn btn-primary">목록보기</button>
-									</a>
+							<div class="tab-pane fade active" id="tab2" role="tabpanel">
+								<div class="table-responsive">
+									<table class="table mb-0">
+										<thead>
+											<tr>
+												<th scope="col">#</th>
+												<th scope="col">작가이름</th>
+												<th scope="col">사업자등록번호</th>
+												<th scope="col">신청날짜</th>
+												<th scope="col">입점승인/거절</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td><a href="classPropose.mdo">Seller</a></td>
+												<td>123-45-67890</td>
+												<td>2021-08-31</td>
+												<td>
+													<button type="button" class="btn btn-warning" id="storeProposeAgree">승인</button>
+													<button type="button" class="btn btn-primary" id="storeProposeDisagree">거절</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</main>
-			<script src="resources/admin/js/app.js"></script>
-		</div>
+			</div>
+		</main>
+		<script src="resources/admin/js/app.js"></script>
+		<script>
+		$().ready(function (){ 
+			$("#storeProposeAgree").click(function (){ 
+				Swal.fire({ 
+					title: '입점 신청', 
+					text: "이 작가의 입점을 승인하시겠습니까?", 
+					icon: 'question', 
+					showCancelButton: true, 
+					confirmButtonColor: '#FF7B30', 
+					confirmButtonBorderColor : "#FF7B30",
+					cancelButtonColor: '#15283D', 
+					confirmButtonText: '승인', 
+					cancelButtonText: '취소' 
+				}).then((result) => { 
+					if (result.isConfirmed) { 
+						Swal.fire(
+							'입점 승인', 
+							'해당 작가의 입점이 승인되었습니다.', 
+						) 
+					} 
+				}) 
+			}); 
+		});
+			</script>
+			<script>
+				$().ready(function (){ 
+					$("#storeProposeDisagree").click(function (){ 
+						Swal.fire({ 
+							title: '입점거절', 
+							text: "이 작가의 입점을 거절하시겠습니까?", 
+							icon: 'warning', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '거절', 
+							cancelButtonText: '취소' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'입점 거절', 
+									'해당 작가의 입점이 거절되었습니다', 
+								) 
+							} 
+						}) 
+					}); 
+				});
+			</script>
 	</div>
 </body>
 

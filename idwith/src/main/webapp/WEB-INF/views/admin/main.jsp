@@ -55,7 +55,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="storePropose.mdo">입점신청관리</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="sellerList.mdo">작가목록</a></li>
+								href="writerList.mdo">작가목록</a></li>
 
 						</ul></li>
 
