@@ -1,5 +1,7 @@
 package com.idwith.mpweb.user;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,10 +28,14 @@ public class UserDAO {
 		return result;
 	}
 
-	public UserVO getUser(String id) {
-		UserVO vo = new UserVO();
+	public UserVO getUser(UserVO vo) {
 		System.out.println("DAO getUser() 실행");
-		return vo; //임시
+		
+		UserVO result = sqlSessionTemplate.selectOne("UserDAO.selectLogin", vo);
+		System.out.println("실행 : " + result.getUser_id());
+		System.out.println("실행 : " + result.getUser_pwd());
+		
+		return vo;
 	}
 
 	public void updateUser(UserVO vo) {

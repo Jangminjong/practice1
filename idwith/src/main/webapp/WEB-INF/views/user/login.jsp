@@ -18,6 +18,10 @@
 
 
 <link rel="stylesheet" href="resources/css/login.css" />
+<link rel="stylesheet" href="resources/css/sign.css" />
+
+<script type="text/javascript" src="resources/js/login.js"></script>
+
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">
@@ -266,11 +270,11 @@
 
 		<div class="login wrap">
 			<div data-v-668c286c="" class="login_container">
-			
+
 				<div data-v-668c286c="" class="login_head_logo">
 					<h1 data-v-668c286c="">
-						<a data-v-668c286c="" href="##">
-							<span data-v-668c286c="" class="sp-icon logo"></span>
+						<a data-v-668c286c="" href="##"> <span data-v-668c286c=""
+							class="sp-icon logo"></span>
 						</a>
 					</h1>
 				</div>
@@ -281,8 +285,7 @@
 							data-v-668c286c="" class="background"></span></span>이 필요한 서비스입니다.
 					</p>
 					<!-- https://image.idus.com/static/signup/web_benefit_signup.png -->
-					<img data-v-668c286c=""
-						src="resources/images/login/coupon01.PNG"
+					<img data-v-668c286c="" src="resources/images/login/coupon01.PNG"
 						alt="" class="coupon_img">
 				</div>
 				<div data-v-668c286c="" class="login_signup_content">
@@ -294,9 +297,8 @@
 							idus-log="kakaotalk" href="" class="bar_button kakao"><span
 							data-v-0eb5c308="" class="sp-icon icon-kakaotalk"></span> 카카오로
 							3초만에 시작하기 </a> <a data-v-0eb5c308="" idus-log-selector="third_party"
-							idus-log="email"
-							href="sing.jsp"
-							class="bar_button email">이메일로 가입하기</a>
+							idus-log="email" href="sign.jsp" class="bar_button email">이메일로
+							가입하기</a>
 					</div>
 					<div data-v-38bd83a8="" data-v-668c286c=""
 						class="horizontal_buttons">
@@ -323,30 +325,36 @@
 					</div>
 					<div data-v-22bdcf3e="" data-v-668c286c=""
 						class="email_login_container">
-						<div data-v-22bdcf3e="">
-							<input data-v-22bdcf3e="" id="email_login_input" type="email"
-								placeholder="이메일" required="required" class="login_input ">
-							<!---->
-							<input data-v-22bdcf3e="" type="password" placeholder="비밀번호"
-								required="required" class="login_input ">
-							<!---->
-						</div>
-						<div data-v-22bdcf3e="" class="email_login_option">
-							<div data-v-22bdcf3e="" class="check_label">
-								<div data-v-22bdcf3e="" class="input_checkbox">
-									<input data-v-22bdcf3e="" type="checkbox" class="bp">
-								</div>
-								<label data-v-22bdcf3e="" for="emailsave"> 이메일 저장하기 </label>
+						<form action="index.do" method="post">
+							<div data-v-22bdcf3e="">
+								<input data-v-22bdcf3e="" id="email_login_input" type="email"
+									placeholder="이메일" required="required" class="login_input" name="email">
+								<p data-v-22bdcf3e="" class="verify_error_message"
+									id="email_error">필수 항목입니다.</p>
+
+								<input data-v-22bdcf3e="" id="password_login_input"
+									type="password" placeholder="비밀번호" required="required"
+									class="login_input" name="password">
+								<p data-v-22bdcf3e="" class="verify_error_message"
+									id="password_error">필수 항목입니다.</p>
 							</div>
-							<a data-v-22bdcf3e="" id="find_pw_logging" href="/w/reauth">아이디
-								/ 비밀번호 찾기</a>
-						</div>
-						<button data-v-32d88566="" data-v-22bdcf3e=""
-							class="CommonButton login_button CommonButton--middle CommonButton--white "
-							id="login_logging">로그인</button>
+							<div data-v-22bdcf3e="" class="email_login_option">
+								<div data-v-22bdcf3e="" class="check_label">
+									<div data-v-22bdcf3e="" class="input_checkbox">
+										<input data-v-22bdcf3e="" type="checkbox" class="bp">
+									</div>
+									<label data-v-22bdcf3e="" for="emailsave"> 이메일 저장하기 </label>
+								</div>
+								<a data-v-22bdcf3e="" id="find_pw_logging" href="/w/reauth">아이디
+									/ 비밀번호 찾기</a>
+							</div>
+							<button data-v-32d88566="" data-v-22bdcf3e=""
+								class="CommonButton login_button CommonButton--middle CommonButton--white "
+								id="login_logging">로그인</button>
+						</form>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
@@ -527,11 +535,9 @@
 		}());
 	</script>
 	<script>
-        vuepack.externals.VendorLogger.sendLog([
-            {
-                vendorName: 'naver',
-            },
-        ]);
-        </script>
+		vuepack.externals.VendorLogger.sendLog([ {
+			vendorName : 'naver',
+		}, ]);
+	</script>
 </body>
 </html>

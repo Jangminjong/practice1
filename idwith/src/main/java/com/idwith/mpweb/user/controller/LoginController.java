@@ -38,14 +38,14 @@ public class LoginController {
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String login(UserVO vo) {
-		System.out.println("이메일 : " + vo.getEmail());
 		return "login";
 	}
 	
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/index.do", method = RequestMethod.POST)
 	public String signLogin(UserVO vo) {
-//		System.out.println("Controller : 회원가입 후 로그인 처리");
-//		userService.insertUser(vo);
+		System.out.println("Controller : 로그인 처리");
+		System.out.println("이메일 : " + vo.getUser_id());
+		userService.getUser(vo);
 		return "login";
 	}
 

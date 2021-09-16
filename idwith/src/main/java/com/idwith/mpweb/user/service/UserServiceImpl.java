@@ -20,17 +20,20 @@ public class UserServiceImpl implements UserService {
 		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
         System.out.println(vo.toString());
         //암호화 하기전
-        String password = scpwd.encode(vo.getPassword());
+        String password = scpwd.encode(vo.getUser_pwd());
         //암호화 하여 password에 저장
-        vo.setPassword(password);
+        vo.setUser_pwd(password);
         System.out.println(vo.toString());
         
 		dao.insertUser(vo);
 	}
 
 	@Override
-	public UserVO getUser(String id) {
-		return dao.getUser(id);
+	public UserVO getUser(UserVO vo) {
+		System.out.println("Service : 로그인 처리");
+		dao.getUser(vo);
+		
+		return vo;
 	}
 	
 	@Override

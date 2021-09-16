@@ -3,10 +3,10 @@ package com.idwith.mpweb.user;
 import java.util.Date;
 
 public class UserVO {
-	private String email;
-	private String password;
-	private String username;
-	private String cell_phone;
+	private String user_id;
+	private String user_pwd;
+	private String user_name;
+	private String user_phone;
 	private String user_zipcode;
 	private String user_address1;
 	private String user_address2;
@@ -19,23 +19,30 @@ public class UserVO {
 	private String user_option_addr1;
 	private String user_option_addr2;
 
-	public String getEmail() {
-		return email;
+	
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
-	public String getPassword() {
-		return password;
+	public String getUser_pwd() {
+		return user_pwd;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUser_pwd(String user_pwd) {
+		this.user_pwd = user_pwd;
 	}
-	public String getUsername() {
-		return username;
+	public String getUser_name() {
+		return user_name;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+	public String getUser_phone() {
+		return user_phone;
+	}
+	public void setUser_phone(String user_phone) {
+		this.user_phone = user_phone;
 	}
 	public String getUser_zipcode() {
 		return user_zipcode;
@@ -43,15 +50,7 @@ public class UserVO {
 	public void setUser_zipcode(String user_zipcode) {
 		this.user_zipcode = user_zipcode;
 	}
-	@Override
-	public String toString() {
-		return "UserVO [email=" + email + ", password=" + password + ", username=" + username + ", cell_phone="
-				+ cell_phone + ", user_zipcode=" + user_zipcode + ", user_address1=" + user_address1
-				+ ", user_address2=" + user_address2 + ", user_recommender=" + user_recommender + ", user_grade="
-				+ user_grade + ", user_allmcount=" + user_allmcount + ", user_joinDate=" + user_joinDate
-				+ ", user_class_sellyn=" + user_class_sellyn + ", user_option_zipcode=" + user_option_zipcode
-				+ ", user_option_addr1=" + user_option_addr1 + ", user_option_addr2=" + user_option_addr2 + "]";
-	}
+	
 	public String getUser_address1() {
 		return user_address1;
 	}
@@ -112,11 +111,4 @@ public class UserVO {
 	public void setUser_option_addr2(String user_option_addr2) {
 		this.user_option_addr2 = user_option_addr2;
 	}
-	public String getCell_phone() {
-		return cell_phone;
-	}
-	public void setCell_phone(String cell_phone) {
-		this.cell_phone = cell_phone;
-	}
-
 }

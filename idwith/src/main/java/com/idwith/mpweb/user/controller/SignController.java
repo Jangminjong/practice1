@@ -66,14 +66,14 @@ public class SignController {
 		params.put("randomPIN", String.valueOf(randomPIN));
 
 		System.out.println("랜덤번호 : " + randomPIN);
-//		try {
-//			JSONObject obj = (JSONObject) coolsms.send(params);
-//			System.out.println(obj.toString());
-//		} catch (CoolsmsException e) {
-//			System.out.println(e.getMessage());
-//			System.out.println("오류");
-//			System.out.println(e.getCode());
-//		}
+		try {
+			JSONObject obj = (JSONObject) coolsms.send(params);
+			System.out.println(obj.toString());
+		} catch (CoolsmsException e) {
+			System.out.println(e.getMessage());
+			System.out.println("오류");
+			System.out.println(e.getCode());
+		}
 
 		return params;
 	}
@@ -95,7 +95,7 @@ public class SignController {
 	
 	@RequestMapping(value = "/signupSuccess.do", method = RequestMethod.POST)
 	public String signupSuccess(UserVO vo) {
-		System.out.println("Controller : 회원가입 후 로그인 처리");
+		System.out.println("Controller : 회원가입 완료 처리");
 		userService.insertUser(vo);
 		return "signupSuccess";
 	}
