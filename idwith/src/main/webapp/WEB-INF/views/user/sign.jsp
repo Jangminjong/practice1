@@ -15,13 +15,18 @@
 <script type="text/javascript" src="resources/js/idus.web.min.js"></script>
 <script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
 <script type="text/javascript" src="resources/js/vuepack.js"></script>
+
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+	
 </head>
 <body>
 
 	<div class="wrap login">
 		<div class="head_banner_group"></div>
 		<form data-form="reauth-phone" class="form form-signup-step2" id="form"
-			data-page="signup" action="login.do" method="post" name="signForm"
+			data-page="signup" action="signupSuccess.do" method="post" name="signForm"
 			novalidate="novalidate" onsubmit="return false">
 			<input type="hidden" name="redirect_uri"
 				value="https://www.idus.com/w/story"> <input type="hidden"
@@ -128,10 +133,10 @@
 									<input type="text" name="auth_code" data-input-style="none"
 										data-auth="auth_code" maxlength="4" class="filldisable" id="auth_code"
 										placeholder="인증코드를 입력해주세요." required="">
-									<div data-auth="time_limit" class="time-limit"></div>
+									<div data-auth="time_limit" class="time-limit" id="timer"></div>
 								</div>
-								<input type="hidden" name="randomPIN" id="randomPIN">
-								<button type="button"
+								<input type="hidden" name="randomPIN" id="randomPIN" value="">
+								<button type="button" id="randomPIN_button"
 									class="btn btn-login btn-point btn-disabled"
 									data-auth="auth_code_submit" onclick="checkPIN()">확인</button>
 							</div>

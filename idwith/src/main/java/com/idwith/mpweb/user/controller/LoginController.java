@@ -44,8 +44,8 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String signLogin(UserVO vo) {
-		System.out.println("Controller : 회원가입 후 로그인 처리");
-		userService.insertUser(vo);
+//		System.out.println("Controller : 회원가입 후 로그인 처리");
+//		userService.insertUser(vo);
 		return "login";
 	}
 

@@ -206,12 +206,14 @@ function sendSMS(pageName){
     $.ajax({
         url : pageName + ".do",
         type : "POST",
-        dataType : "text",
+        dataType : "json",
         data : { cell_phone : $('#cell_phone').val()},
         beforeSend : function() {
         },
         success : function(data) {
-           document.getElementById("randomPIN").value = data("randomPIN");
+			console.log(data);
+			console.log(data.randomPIN);
+           document.getElementById("randomPIN").value = data.randomPIN;
         },
         error : function(request, status, error) {
             alert("list search fail :: error code: "
@@ -219,6 +221,26 @@ function sendSMS(pageName){
             + error + "\n");
         }
     });
+
+	var time = 180;
+		var min = "";
+		var sec = "";
+		
+	//setInterval(함수, 시간) : 주기적인 실행
+	var x = setInterval(function() {
+		//parseInt() : 정수를 반환
+		min = parseInt(time/60); //몫을 계산
+		sec = time%60; //나머지를 계산
+		
+		document.getElementById('timer').innerHTML = min + ":" + sec;
+		time--;
+		
+		//타임아웃 시
+		if(time < 0 ) {
+			clearInterval(x); //setInterval() 실행을 끝냄
+			alert('인증 시간이 끝났습니다. 재인증 해주세요');
+		}
+	}, 1000);
 }
 
 $(window).ready(function(){
@@ -227,6 +249,13 @@ $(window).ready(function(){
 			if(document.getElementsByName('cell_phone').length > 0) {
 				document.getElementById('auth_cellphone_button').setAttribute('class', 'btn btn-login btn-point');
 			}
+	});
+	
+	$(document).on("keyup", "#auth_code", function() { 
+		$(this).val( $(this).val()); 
+		if(document.getElementsByName('auth_code').length > 0) {
+			document.getElementById('randomPIN_button').setAttribute('class', 'btn btn-login btn-point');
+		}
 	});
 });
 
