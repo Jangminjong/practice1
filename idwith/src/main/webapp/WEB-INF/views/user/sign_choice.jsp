@@ -8,14 +8,19 @@
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">
-<script type="text/javascript" src="resources/js/sign.js"></script>
-</head>
-<body>
+	
+	<!-- <script type="text/javascript" src="resources/js/sign.js"></script> -->
+	<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+	<script type="text/javascript" src="resources/js/socialLogin.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<link rel="stylesheet" href="resources/css/sign_choice.css" />
 	<link rel="stylesheet" href="resources/css/common.css">
 	<link rel="stylesheet" href="resources/css/idus.web.min.css">
 	<link rel="stylesheet" href="resources/css/vendor.client.min.css">
 
+</head>
+<body>
+	
 	<div class="wrap login">
 		<div class="head_banner_group"></div>
 		<div class="login section root" data-page="signup">
@@ -42,10 +47,15 @@
 					</ul>
 					<h3 class="signup-step title">회원가입 방법 선택하기</h3>
 				</div>
+				
+				<script>
+					Kakao.init('487ca5895feb7a04e42984525f8de371');
+					console.log(Kakao.isInitialized());
+				</script>
 
 				<div class="login-sns wrap h">
 					<div class="login-sns item kakaotalk" data-auth-type="kakaotalk">
-						<a id="kakao-login-btn" href="javascript:loginWithKakao();"
+						<a id="kakao-login-btn" href="javascript:kakaoSign()"
 							data-idus-log="kakaotalk"> <span
 							class="sp-icon icon-kakaotalk"></span> 카카오톡으로 가입하기
 						</a>
@@ -93,5 +103,7 @@
 			</section>
 		</div>
 	</div>
+	
+	
 </body>
 </html>
