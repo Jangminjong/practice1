@@ -76,7 +76,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="userList.mdo">사용자 공지사항</a></li>
+								href="userNotice.mdo">사용자 공지사항</a></li>
 
 						</ul></li>
 
@@ -269,6 +269,7 @@
 										</div>
 									</div>
 								</div>
+							</div>
 						</form>
 						<h1 class="h3 mb-3">매출</h1>
 
@@ -287,6 +288,18 @@
 								</div>
 							</div>
 						</div>
+						<div class="row">
+                            <div class="col-md-2 text-center"></div>
+                            <div class="col-md-2 text-center"></div>
+                            <div class="col-md-2 text-center"></div>
+                            <div class="col-md-2 text-center"></div>
+                            <div class="col-md-2 text-center"></div>
+                            <div class="col-md-2 text-center">
+                                <a href="writerList.mdo">
+                                    <button class="btn btn-primary">목록보기</button>
+                                </a>
+                            </div>
+                        </div>
 					</div>
 				</div>
 			</main>

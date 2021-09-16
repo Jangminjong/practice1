@@ -15,5 +15,35 @@ public class noticeController {
 	public String adminInsertNotice() {
 		return "adminInsertNotice";
 	}
+	
+	@GetMapping("/adminNoticeContent.mdo")
+	public String adminNoticeContent() {
+		return "adminNoticeContent";
+	}
+	
+	@GetMapping("/userNotice.mdo")
+	public String userNotice() {
+		return "userNotice";
+	}
+	
+	@GetMapping("/userInsertNotice.mdo")
+	public String userInsertNotice() {
+		return "userInsertNotice";
+	}
+	
+	@GetMapping("/userNoticeContent.mdo")
+	public String userNoticeContent() {
+		return "userNoticeContent";
+	}
+	
+	@GetMapping("/qna.mdo")
+	public String qna() {
+		return "qna";
+	}
+	
+	@GetMapping("/answer.mdo")
+	public String answer() {
+		return "answer";
+	}
 
 }

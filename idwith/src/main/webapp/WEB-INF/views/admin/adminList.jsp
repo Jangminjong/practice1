@@ -76,7 +76,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="userList.mdo">사용자 공지사항</a></li>
+								href="userNotice.mdo">사용자 공지사항</a></li>
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"

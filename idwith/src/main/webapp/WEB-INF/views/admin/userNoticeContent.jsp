@@ -184,71 +184,56 @@
 
 			<main>
 				<div class="content">
-                    <div class="row">
-                        <div class="container-fluid p-0">
-                            <div class="row mb-2 mb-xl-3">
-                                <div class="col-auto d-none d-sm-block">
-                                    <h3>Admin Notice</h3>
-                                </div>
-                            </div>
+					<div class="row">
+						<div class="container-fluid p-0">
 
-                            <div class="row">
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center" style="margin-bottom: 10px;">
-                                    <a href="adminInsertNotice.mdo">
-                                        <button class="btn btn-warning">글쓰기</button>
-                                    </a>
-                                </div>
-                            </div>
+							<div class="row mb-2 mb-xl-3">
+								<div class="col-auto d-none d-sm-block">
+									<h3>Notice</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="table-responsive">
-                                        <table class="table mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">No.</th>
-                                                    <th scope="col">제목</th>
-                                                    <th scope="col">작성자</th>
-                                                    <th scope="col">날짜</th>
-                                                    <th scope="col">조회수</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>
-                                                        <a href="adminNoticeContent.mdo">admin test 공지사항1</a>
-                                                    </td>
-                                                    <td>관리자1</td>
-                                                    <td>2021-09-07</td>
-                                                    <td>0</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>
-                                                        <a href="adminNoticeContent.mdo">test 공지사항2</a>
-                                                    </td>
-                                                    <td>관리자2</td>
-                                                    <td>2021-09-07</td>
-                                                    <td>0</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+				<div class="card">
+					<div class="card-body">
+						<form>
+							<div class="mb-3">
+								<label class="form-label">Notice Title</label> <input
+									type="text" class="form-control" placeholder="제목"
+									style="width: auto;">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Content</label>
+								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
+							</div>
+							<div class="mb-3">
+								<label class="form-label w-100">File input</label> <input
+									type="file">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 text-center"></div>					
+					<div class="col-md-3 text-center"></div>
+					<div class="col-md-3 text-center"></div>
+					<div class="col-md-3 text-center">
+                        <a href="adminNotice.mdo">
+							<button class="btn btn-primary">등록</button>
+						</a>
+                        <a href="adminNoticeContent.mdo">
+							<button class="btn btn-primary">수정</button>
+						</a>
+							<button class="btn btn-primary">삭제</button>
+					</div>
+				</div>
 			</main>
-			<script src="resources/admin/js/app.js"></script>
+			<script src="../js/app.js"></script>
 		</div>
 	</div>
+	</main>
+	<script src="resources/admin/js/app.js"></script>
 </body>
-
 </html>

@@ -76,7 +76,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="userList.mdo">사용자 공지사항</a></li>
+								href="userNotice.mdo">사용자 공지사항</a></li>
 
 						</ul></li>
 
@@ -185,125 +185,128 @@
 
 			<main>
 				<div class="content">
-                    <div class="container-fluid p-0">
+					<div class="container-fluid p-0">
 
-                        <form class="row g-3">
-                            <div class="col-md-4">
-                                <label for="inputEmail4" class="form-label">아이디</label>
-                                <input type="text" class="form-control" value="client"
-                                    aria-label="readonly input example" readonly>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="inputPassword4" class="form-label">이름</label>
-                                <input type="text" class="form-control" value="이예지" aria-label="readonly input example"
-                                    readonly>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="inputPassword4" class="form-label">전화번호</label>
-                                <input type="text" class="form-control" value="010-2580-0786"
-                                    aria-label="readonly input example" readonly>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="inputCity" class="form-label">사업자 등록번호</label>
-                                <input type="text" class="form-control" value="321-55-05842"
-                                    aria-label="readonly input example" readonly>
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress" class="form-label">주소</label>
-                                <input type="text" class="form-control" value="인천 광역시 부평구 대정로 90번길 7"
-                                    aria-label="readonly input example" readonly>
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress2" class="form-label ">상세주소</label>
-                                <input type="text" class="form-control" value="캐슬원 000호"
-                                    aria-label="readonly input example" readonly>
-                            </div>
-                            <div class="col-md-2">
-                                <label for="inputZip" class="form-label">가입일</label>
-                                <input type="text" class="form-control" value="2021-09-11"
-                                    aria-label="readonly input example" readonly>
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress" class="form-label">클래스 주소</label>
-                                <input type="text" class="form-control" value="서울특별시 종로구 돈화문로 26"
-                                    aria-label="readonly input example" readonly>
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress2" class="form-label "> 클래스 상세주소</label>
-                                <input type="text" class="form-control" value="4층" aria-label="readonly input example"
-                                    readonly>
-                            </div>
-                            <div class="row mb-2 mb-xl-3">
-                                <div class="col-auto d-none d-sm-block">
-                                    <h3></h3>
-                                </div>
+						<form class="row g-3">
+							<div class="col-md-4">
+								<label for="inputEmail4" class="form-label">아이디</label> <input
+									type="text" class="form-control" value="client"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-md-3">
+								<label for="inputPassword4" class="form-label">이름</label> <input
+									type="text" class="form-control" value="이예지"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-md-3">
+								<label for="inputPassword4" class="form-label">전화번호</label> <input
+									type="text" class="form-control" value="010-2580-0786"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-md-3">
+								<label for="inputCity" class="form-label">사업자 등록번호</label> <input
+									type="text" class="form-control" value="321-55-05842"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress" class="form-label">주소</label> <input
+									type="text" class="form-control" value="인천 광역시 부평구 대정로 90번길 7"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress2" class="form-label ">상세주소</label> <input
+									type="text" class="form-control" value="캐슬원 000호"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-md-2">
+								<label for="inputZip" class="form-label">가입일</label> <input
+									type="text" class="form-control" value="2021-09-11"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress" class="form-label">클래스 주소</label> <input
+									type="text" class="form-control" value="서울특별시 종로구 돈화문로 26"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress2" class="form-label "> 클래스 상세주소</label>
+								<input type="text" class="form-control" value="4층"
+									aria-label="readonly input example" readonly>
+							</div>
+							<div class="row mb-2 mb-xl-3">
+								<div class="col-auto d-none d-sm-block">
+									<h3></h3>
+								</div>
 
-                                <div class="col-auto ml-auto text-right mt-n1">
-                                </div>
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div class="card text-black">
-                                            <div class="card-header bg-light">
-                                                팔로우 수
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">845</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="card text-black">
-                                            <div class="card-header bg-light">
-                                                등록 클래수 개수
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">4</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="card text-black">
-                                            <div class="card-header bg-light">
-                                                총 누적 인원 수
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">352</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="card text-black">
-                                            <div class="card-header bg-light">
-                                                월 판매액
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">1,125,000</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </form>
-                        <h1 class="h3 mb-3">매출</h1>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card flex-fill w-100">
-                                    <div class="card-header">
-                                        <h5 class="card-title">월별 매출 현황</h5>
-                                        <!-- <h6 class="card-subtitle text-muted">A line chart is a way of plotting data points on a line.</h6> -->
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="chart">
-                                            <canvas id="chartjs-line"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+								<div class="col-auto ml-auto text-right mt-n1"></div>
+							</div>
+							<div class="container">
+								<div class="row">
+									<div class="col-3">
+										<div class="card text-black">
+											<div class="card-header bg-light">팔로우 수</div>
+											<div class="card-body">
+												<p class="card-text">845</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-3">
+										<div class="card text-black">
+											<div class="card-header bg-light">등록 클래수 개수</div>
+											<div class="card-body">
+												<p class="card-text">4</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-3">
+										<div class="card text-black">
+											<div class="card-header bg-light">총 누적 인원 수</div>
+											<div class="card-body">
+												<p class="card-text">352</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-3">
+										<div class="card text-black">
+											<div class="card-header bg-light">월 판매액</div>
+											<div class="card-body">
+												<p class="card-text">1,125,000</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<h1 class="h3 mb-3">매출</h1>
+						<div class="row">
+							<div class="col-12">
+								<div class="card flex-fill w-100">
+									<div class="card-header">
+										<h5 class="card-title">월별 매출 현황</h5>
+										<!-- <h6 class="card-subtitle text-muted">A line chart is a way of plotting data points on a line.</h6> -->
+									</div>
+									<div class="card-body">
+										<div class="chart">
+											<canvas id="chartjs-line"></canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 text-center"></div>
+							<div class="col-md-2 text-center"></div>
+							<div class="col-md-2 text-center"></div>
+							<div class="col-md-2 text-center"></div>
+							<div class="col-md-2 text-center"></div>
+							<div class="col-md-2 text-center">
+								<a href="writerList.mdo">
+									<button class="btn btn-primary">목록보기</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 			<script>

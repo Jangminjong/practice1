@@ -76,7 +76,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="userList.mdo">사용자 공지사항</a></li>
+								href="userNotice.mdo">사용자 공지사항</a></li>
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
@@ -214,22 +214,15 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center"></div>
-					<div class="col-md-1 text-center">
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center">
 						<a href="adminNotice.mdo">
 							<button class="btn btn-primary">등록</button>
 						</a>
-					</div>
-					<div class="col-md-1 text-center">
 						<a href="adminInsertNotice.mdo">
 							<!--초기화 진행-->
 							<button class="btn btn-primary">초기화</button>
