@@ -43,12 +43,12 @@ public class SignController {
 	}
 
 	/* 회원가입 - sms 인증*/
-	@RequestMapping(value = "/sendSms.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/sendSms.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, String> sendSms(HttpServletRequest request) throws Exception {
 		System.out.println("SMS 인증 컨트롤러 실행");
-		String api_key = "NCSE2QVWOHHJKJLS";
-		String api_secret = "ZPPUAJDBF60J9SU9MIE74YWWNG3YXLUJ";
+		String api_key = "NCSGBCYY8LMSE49D";
+		String api_secret = "3YX2VXNGFNP0IEDRWI5ZZCPULF0DQLBE";
 		Message coolsms = new Message(api_key, api_secret);
 		
 		//문자 랜덤 값
@@ -59,10 +59,11 @@ public class SignController {
 		// 4 params(to, from, type, text) are mandatory. must be filled
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("to", cell_phone);
-		params.put("from", "01091592149");
+		params.put("from", "01047128872");
 		params.put("type", "SMS");
 		params.put("text", "본인확인 인증번호(" +  randomPIN +") 입력시 정상처리 됩니다.");
 		params.put("app_version", "test app 1.2"); // application name and version
+//		params.put("randomPIN", String.valueOf(randomPIN));
 
 		try {
 			JSONObject obj = (JSONObject) coolsms.send(params);

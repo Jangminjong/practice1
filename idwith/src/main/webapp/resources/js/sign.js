@@ -65,6 +65,7 @@ function signCheck(){
 		var check3 = document.getElementById('terms3').checked;
 		const chk_error = document.getElementById('terms1-error');
 		const chk_error2 = document.getElementById('terms-error');
+		var successPIN = $('#successPIN').css('display');
 		if(document.signForm.email.value == ""){
 			emailRe.style.display = "";
 			document.getElementById('email').style.border = "1px solid #ff4b50";
@@ -102,7 +103,9 @@ function signCheck(){
 		}else if(check2 == false | check3 == false){
 			chk_error.style.display = "none";
 			chk_error2.style.display = "";
-		}else{
+		} else if(successPIN == 'none'){
+			alert("인증이 되지 않았습니다.");
+		} else{
 			chk_error.style.display = "none";
 			chk_error2.style.display = "none";
 			alert('회원가입이 완료되었습니다.');
@@ -208,7 +211,7 @@ function sendSMS(pageName){
         beforeSend : function() {
         },
         success : function(data) {
-            console.log(data);
+           document.getElementById("randomPIN").value = data("randomPIN");
         },
         error : function(request, status, error) {
             alert("list search fail :: error code: "
@@ -226,3 +229,16 @@ $(window).ready(function(){
 			}
 	});
 });
+
+function checkPIN(){
+	var inputPIN = $("#auth_code").val();
+	var randomPIN = $("#randomPIN").val();
+	if(inputPIN == randomPIN){
+		$('#successPIN').css({'display' : 'block'});
+		$('#failPIN').css({'display' : 'none'});
+		$('#successPIN').attr("disabled", false);
+	} else {
+		$('#successPIN').css({'display' : 'none'});
+		$('#failPIN').css({'display' : 'block'});
+	}
+}

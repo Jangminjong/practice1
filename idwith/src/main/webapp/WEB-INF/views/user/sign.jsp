@@ -126,14 +126,17 @@
 							<div class="ui-input-btn-combo size-w">
 								<div class="input-text size-w type-l">
 									<input type="text" name="auth_code" data-input-style="none"
-										data-auth="auth_code" maxlength="4" class="filldisable"
+										data-auth="auth_code" maxlength="4" class="filldisable" id="auth_code"
 										placeholder="인증코드를 입력해주세요." required="">
 									<div data-auth="time_limit" class="time-limit"></div>
 								</div>
+								<input type="hidden" name="randomPIN" id="randomPIN">
 								<button type="button"
 									class="btn btn-login btn-point btn-disabled"
-									data-auth="auth_code_submit">확인</button>
+									data-auth="auth_code_submit" onclick="checkPIN()">확인</button>
 							</div>
+							<span id="successPIN" class="form-error" style="display:none">인증이 성공하였습니다.</span>
+							<span id="failPIN" class="form-error" style="display:none">인증을 실패하였습니다.</span>
 						</div>
 					</div>
 
