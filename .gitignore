@@ -19,10 +19,7 @@ Servers/
 *.MF
 *.classpath
 *.project
-pom.xml
-server.xml
 target/
-log4j.xml
 # External tool builders
 .externalToolBuilders/
 
