@@ -13,6 +13,9 @@
 <meta name="author" content="AdminKit">
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+	
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
@@ -174,55 +177,33 @@
 			</nav>
 
 			<main>
-				<div class="content">
-					<div class="row">
-						<div class="container-fluid p-0">
-
-							<div class="row mb-2 mb-xl-3">
-								<div class="col-auto d-none d-sm-block">
-									<h3>Notice</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-body">
-						<form>
-							<div class="mb-3">
-								<label class="form-label">Notice Title</label> <input
-									type="text" class="form-control" placeholder="제목"
-									style="width: auto;" disabled>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Content</label>
-								<textarea class="form-control" placeholder="내용" rows="10"
-									disabled></textarea>
-							</div>
-							<div class="mb-3">
-								<label class="form-label w-100">File input</label> <input
-									type="file">
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 text-center"></div>					
-					<div class="col-md-3 text-center"></div>
-					<div class="col-md-3 text-center"></div>
-					<div class="col-md-3 text-center">
-                        <a href="adminNotice.mdo">
-							<button class="btn btn-primary">등록</button>
-						</a>
-                        <a href="adminNoticeContent.mdo">
-							<button class="btn btn-primary">수정</button>
-						</a>
-							<button class="btn btn-primary">삭제</button>
-					</div>
-				</div>
+				
 			</main>
 			<script src="resources/admin/js/app.js"></script>
+			<script>
+				$().ready(function (){ 
+					$("#deleteCategory").click(function (){ 
+						Swal.fire({ 
+							title: '카테고리 삭제', 
+							text: "해당 카테고리를 삭제하시겠습니까?", 
+							icon: 'warning', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '삭제', 
+							cancelButtonText: '취소' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'카테고리 삭제', 
+									'해당 카테고리 삭제를 완료했습니다.', 
+								) 
+							} 
+						}) 
+					}); 
+				});
+			</script>
 		</div>
 	</div>
 </body>

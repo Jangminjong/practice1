@@ -114,19 +114,10 @@
 								href="requestCoupon.mdo">쿠폰 요청 리스트</a></li>
 						</ul></li>
 
-					<li class="sidebar-item"><a data-target="#category"
-						data-toggle="collapse" class="sidebar-link collapsed"> <i
-							class="align-middle" data-feather="edit-2"></i> <span
-							class="align-middle">카테고리</span>
-					</a>
-						<ul id="category" class="sidebar-dropdown list-unstyled collapse "
-							data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link"
-								href="productCategory.mdo">작품 카테고리</a></li>
-							<li class="sidebar-item"><a class="sidebar-link"
-								href="classCategory.mdo">클래스 카테고리</a></li>
-
-						</ul></li>
+					<li class="sidebar-item"><a class="sidebar-link"
+						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
+							<span class="align-middle">카테고리</span>
+					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
 						data-toggle="collapse" class="sidebar-link collapsed"> <i
