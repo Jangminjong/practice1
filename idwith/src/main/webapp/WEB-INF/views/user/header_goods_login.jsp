@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String emailSplit = (String)session.getAttribute("emailSplit[0]");
+	String emailSplit = (String)session.getAttribute("emailSplit");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="resources/css/event_banner.css">
 <link rel="stylesheet" href="resources/css/top.css">
-<link rel="stylesheet" href="resources/css/idus.web.min.css">
+<!-- <link rel="stylesheet" href="resources/css/idus.web.min.css">-->
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
-<script src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/common/common.js"></script>
+
 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -26,7 +28,7 @@
 		<div class="head_banner_group">
 			<!-- 상단 리본 배너 -->
 			<div class="download-ribbon top" style="background-color: #ff7b30"
-				data-download="root" data-download-type="isRibbon">
+				data-download="root" data-download-type="isRibbon" id="ribbon_close_btn">
 				<div class="inner-w">
 					<a href="sign.do" class="download-ribbon-inner"> <img
 						class="pc-img"
@@ -267,8 +269,8 @@
 							href="goods_popular.do">인기 작품</a></li>
 						<li class="ui_gnb__menu " data-state=""><a href="stroy.do">스토리</a>
 						</li>
-						<li class="ui_gnb__menu " data-state=""><a
-							href="seller_list.do">인기작가</a></li>
+						<li class="ui_gnb__menu " data-state="" style="display: contents"><a
+							href="seller_list.do" >인기작가</a></li>
 					</ul>
 					<button class="ui_btn toggle_gnb" aria-label="toggle nav ui">
 						<i class="idus-icon-arrow-down"></i>

@@ -64,6 +64,7 @@ public class LoginController {
 		
 
 		if(result == 1) {
+			System.out.println("컨트롤러 확인 : " + vo.getUser_id());
 			session.setAttribute("emailSplit", emailSplit[0]);
 		}
 		

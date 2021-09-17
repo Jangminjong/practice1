@@ -44,3 +44,9 @@ function closeCalendar(){
 	document.getElementById("calendar_background").style.display = "none";
 	document.getElementById("calendar").style.display = "none";
 }
+
+$(document).ready(function() {
+	$('#ribbon_close_btn').click(function (){
+			$('#ribbon_close_btn').css({'display' : 'none'});
+	});
+});

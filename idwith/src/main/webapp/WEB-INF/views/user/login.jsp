@@ -244,7 +244,7 @@
 					</div>
 					<div data-v-22bdcf3e="" data-v-668c286c=""
 						class="email_login_container">
-						<form action="index.do" method="post" class="form" id="form">
+						<!-- <form action="index.do" method="post" class="form" id="form"> -->
 							<div data-v-22bdcf3e="">
 								<input data-v-22bdcf3e="" id="email_login_input" type="email"
 									placeholder="이메일" required="required" class="login_input" name="user_id">
@@ -267,9 +267,9 @@
 								<a data-v-22bdcf3e="" id="find_pw_logging" href="/w/reauth">아이디
 									/ 비밀번호 찾기</a>
 							</div>
-							<input type="submit" data-v-32d88566="" data-v-22bdcf3e=""
+							<input type="button" data-v-32d88566="" data-v-22bdcf3e=""
 								class="CommonButton login_button CommonButton--middle CommonButton--white" id="login_btn" value="로그인">
-						</form>
+						<!-- </form> -->
 					</div>
 				</div>
 
@@ -330,9 +330,8 @@
 				success: function(data){
 					if(data == 0){
 						alert('아이디와 비밀번호를 다시 확인해주세요');
+						location.replace("/mpweb/login.do");
 					}else if(data == 1){
-						alert('로그인 성공');
-						document.getElementById('form').onsubmit = "return true";
 						location.replace("/mpweb/index.do");
 					}
 				},
