@@ -25,6 +25,10 @@
  		INSERT INTO client (user_id, user_pwd, user_name, user_phone)
  		VALUES(#{user_id}, #{user_pwd}, #{user_name}, #{user_phone})
  	</insert>
+ 	<insert id="insertKakao" parameterType="userVO">
+ 		INSERT INTO client (user_id, user_pwd)
+ 		VALUES(#{user_id}, #{user_pwd})
+ 	</insert>
  	<select id="selectEmail" resultType="_int">
  		SELECT count(*) FROM client WHERE user_id=#{user_id}
  	</select>

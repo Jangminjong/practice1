@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class CategoryController {
+public class UserCategoryController {
 	@GetMapping("/story.do")
 	public String story() {
 		return "story";

@@ -14,4 +14,6 @@ public interface UserService {
 	Integer emailCheck(String email);
 	
 	Integer cellPhoneCheck(String cell_phone);
+	
+	String kakaoLogin(UserVO vo);
 }

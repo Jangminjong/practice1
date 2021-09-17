@@ -53,6 +53,22 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public String kakaoLogin(UserVO vo) {
+		String result="";
+		int emailCheck = dao.emailCheck(vo.getUser_id()); // 카카오 이메일과 동일한 것이 DB에 있는지 확인 
+		if (emailCheck==0) {
+			dao.insertKakao(vo);
+			result = "success";
+		}
+		
+		if(emailCheck==1) {
+			result = "success";
+		}
+		
+		return result;
+	}
+	
+	@Override
 	public void updateUser(UserVO vo) {
 		dao.updateUser(vo);
 	}

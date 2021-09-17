@@ -33,6 +33,11 @@ public class UserDAO {
 		UserVO result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
 		return result;
 	}
+	
+	public void insertKakao(UserVO vo) {
+		System.out.println("DAO kakaoLogin() 실행");
+		sqlSessionTemplate.insert("UserDAO.insertKakao", vo);
+	}
 
 	public void updateUser(UserVO vo) {
 		System.out.println("DAO updateUser() 실행");
