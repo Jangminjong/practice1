@@ -18,22 +18,38 @@ public class UserServiceImpl implements UserService {
 		System.out.println("Service : 회원가입 처리");
 		
 		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-        System.out.println(vo.toString());
+        System.out.println("암호화 전 : " + vo.getUser_pwd());
         //암호화 하기전
         String password = scpwd.encode(vo.getUser_pwd());
         //암호화 하여 password에 저장
         vo.setUser_pwd(password);
-        System.out.println(vo.toString());
+        System.out.println("암호화 후 : " + vo.getUser_pwd());
         
 		dao.insertUser(vo);
 	}
 
+	
 	@Override
-	public UserVO getUser(UserVO vo) {
+	public int getUser(UserVO vo) {
+		int result = 0;
 		System.out.println("Service : 로그인 처리");
-		dao.getUser(vo);
 		
-		return vo;
+		String email = vo.getUser_id();
+		String password = vo.getUser_pwd();
+		
+		UserVO dbResult = dao.getUser(email);
+		String dbEmail = dbResult.getUser_id();
+		String dbPassword = dbResult.getUser_pwd();
+		
+		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+		boolean match = scpwd.matches(password, dbPassword);
+		System.out.println("암호화 비교 : " + match);
+		if(email.equals(dbEmail) && match) {
+			System.out.println("서비스 로그인 성공");
+			result = 1;
+		}
+		
+		return result;
 	}
 	
 	@Override

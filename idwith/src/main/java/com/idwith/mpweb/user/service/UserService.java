@@ -5,7 +5,7 @@ import com.idwith.mpweb.user.UserVO;
 public interface UserService {
 	void insertUser(UserVO vo);
 	
-	UserVO getUser(UserVO vo);
+	int getUser(UserVO vo);
 	
 	void updateUser(UserVO vo);
 	

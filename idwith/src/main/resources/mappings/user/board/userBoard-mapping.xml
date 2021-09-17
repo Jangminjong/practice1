@@ -32,7 +32,7 @@
  		SELECT count(*) FROM client WHERE user_phone=#{user_phone}
  	</select>
  	<select id="selectLogin" resultType="userVO">
- 		SELECT user_id, user_pwd FROM client WHERE user_id=#{user_id}
+ 		select user_id, user_pwd from client where user_id=#{user_id}
  	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard

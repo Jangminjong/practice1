@@ -28,14 +28,10 @@ public class UserDAO {
 		return result;
 	}
 
-	public UserVO getUser(UserVO vo) {
+	public UserVO getUser(String user_id) {
 		System.out.println("DAO getUser() 실행");
-		
-		UserVO result = sqlSessionTemplate.selectOne("UserDAO.selectLogin", vo);
-		System.out.println("실행 : " + result.getUser_id());
-		System.out.println("실행 : " + result.getUser_pwd());
-		
-		return vo;
+		UserVO result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
+		return result;
 	}
 
 	public void updateUser(UserVO vo) {
