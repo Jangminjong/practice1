@@ -56,7 +56,7 @@
 						</label>
 						<div class="form-block-body">
 							<div class="input-text size-w form-error">
-								<input class="" type="email" name="email" id="email"
+								<input class="" type="email" name="user_id" id="email"
 									placeholder="이메일을 입력해주세요." required="" value=""
 									aria-describedby="email-error" aria-invalid="true" style="border: 1px solid #999;" onblur="onblurEvent(this);" />
 							</div>
@@ -73,7 +73,7 @@
 						</label>
 						<div class="form-block-body">
 							<div class="input-text size-w form-error">
-								<input type="password" name="password" id="password"
+								<input type="password" name="user_pwd" id="password"
 									placeholder="비밀번호 (영문+숫자+특수문자 8자 이상)" required=""
 									aria-describedby="password-error" aria-invalid="true" style="border: 1px solid #999;" onblur="onblurEvent(this)" />
 							</div>
@@ -97,7 +97,7 @@
 						</label>
 						<div class="form-block-body">
 							<div class="input-text size-w type-l form-error">
-								<input class="" type="text" name="username" value="" id="name"
+								<input class="" type="text" name="user_name" value="" id="name"
 									placeholder="이름을 입력해주세요." required=""
 									aria-describedby="username-error" aria-invalid="true" style="border: 1px solid #999;" onblur="onblurEvent(this)">
 							</div>
@@ -113,7 +113,7 @@
 							<div class="ui-input-btn-combo">
 								<div class="input-text size-w type-l form-error">
 									<input class="reauth" type="hidden" name="only_auth" value="1">
-									<input type="tel" name="cell_phone" data-auth="cell_phone" id="cell_phone" class="tel"
+									<input type="tel" name="user_phone" data-auth="cell_phone" id="cell_phone" class="tel"
 										placeholder="010-1234-5678" value="" required=""
 										aria-describedby="cell_phone-error" style="border: 1px solid #999;" onblur="onblurEvent(this)">
 								</div>

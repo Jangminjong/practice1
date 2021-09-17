@@ -89,11 +89,11 @@ function signCheck(){
 			const pwd = document.getElementById('passwordSame_confirm-error');
 			pwd.style.display = "";
 			document.getElementById('password_check').style.border = "1px solid #ff4b50";
-		}else if(document.signForm.username.value == ""){//이름
+		}else if(document.signForm.user_name.value == ""){//이름
 			const name = document.getElementById('username-error');
 			name.style.display = "";
 			document.getElementById('name').style.border = "1px solid #ff4b50";
-		}else if(document.signForm.cell_phone.value == ""){//전화번호
+		}else if(document.signForm.user_phone.value == ""){//전화번호
 			const tel = document.getElementById('cell_phone-error');
 			tel.style.display = "";
 			document.getElementById('tel').style.border = "1px solid #ff4b50";
@@ -172,9 +172,9 @@ function onblurEvent(args){
 				document.getElementById('password_check').style.border = "1px solid #999";
 			}
 			break;
-		case "username":
+		case "user_name":
 				const name = document.getElementById('username-error');
-			if(document.signForm.username.value == ""){
+			if(document.signForm.user_name.value == ""){
 				name.style.display = "";
 				document.getElementById('name').style.border = "1px solid #ff4b50";
 			}else{
@@ -182,10 +182,9 @@ function onblurEvent(args){
 				document.getElementById('name').style.border = "1px solid #999";
 			}
 			break;
-		case "cell_phone":
+		case "user_phone":
 				const tel = document.getElementById('cell_phone-error');
-				const num = document.signForm.cell_phone.value;
-			if(document.signForm.cell_phone.value == ""){
+			if(document.signForm.user_phone.value == ""){
 				tel.style.display = "";
 				document.getElementById('cell_phone').style.border = "1px solid #ff4b50";
 			}else{
@@ -246,7 +245,7 @@ function sendSMS(pageName){
 $(window).ready(function(){
 	$(document).on("keyup", ".tel", function() { 
 		$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
-			if(document.getElementsByName('cell_phone').length > 0) {
+			if(document.getElementsByName('user_phone').length > 0) {
 				document.getElementById('auth_cellphone_button').setAttribute('class', 'btn btn-login btn-point');
 			}
 	});
