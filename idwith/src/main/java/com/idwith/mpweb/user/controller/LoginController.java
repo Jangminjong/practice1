@@ -57,11 +57,14 @@ public class LoginController {
 		UserVO vo = new UserVO();
 		vo.setUser_id(email);
 		vo.setUser_pwd(password);
+		//String[] emailSplit = vo.getUser_id().split("@");
+		String[] emailSplit = email.split("@");
 		int result = userService.getUser(vo);
 		System.out.println("컨트롤러 결과 : " + result);
 		
+
 		if(result == 1) {
-			session.setAttribute("email", vo.getUser_id());
+			session.setAttribute("emailSplit", emailSplit[0]);
 		}
 		
 		return Integer.toString(result);

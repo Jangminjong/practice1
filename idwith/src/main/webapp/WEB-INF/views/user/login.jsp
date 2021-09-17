@@ -333,7 +333,7 @@
 					}else if(data == 1){
 						alert('로그인 성공');
 						document.getElementById('form').onsubmit = "return true";
-						location.replace("/index.do");
+						location.replace("/mpweb/index.do");
 					}
 				},
 				error: function(request, status, error){

@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-	String emailSplit = (String)session.getAttribute("emailSplit[0]");
+	String emailSplit = (String)session.getAttribute("emailSplit");
+	System.out.println(emailSplit);
 %>
 <!DOCTYPE html>
 <html lang="ko">
