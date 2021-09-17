@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String emailSplit = (String)session.getAttribute("emailSplit[0]");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +50,7 @@
 							name="current_user_email" value="" readonly="readonly">
 						<div class="nav-btn ui-dropdown">
 							<button type="button" class="btn-dropdown">
-								<span data-profile="name">OOO</span> 님
+								<span data-profile="name">${emailSplit}</span> 님
 								<!-- current user email address: for parsing -->
 							</button>
 							<ul class="menu-dropdown">

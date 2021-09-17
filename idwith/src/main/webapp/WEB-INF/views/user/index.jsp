@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%
+	String emailSplit = (String)session.getAttribute("emailSplit[0]");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -188,7 +192,14 @@
         </script>
 
 	<div class="wrap">
-	<jsp:include page="header_goods.jsp"/>
+	<c:choose>
+		<c:when test="${ emailSplit eq null }">
+			<jsp:include page="header_goods.jsp"/>
+		</c:when>
+		<c:when test="${ emailSplit ne null }">
+			<jsp:include page="header_goods_login.jsp"/>
+		</c:when>
+	</c:choose>
 		<div class="head_banner_group">
 			<!-- 상단 리본 배너 -->
 			<div class="download-ribbon top" style="background-color: #ff7b30"
