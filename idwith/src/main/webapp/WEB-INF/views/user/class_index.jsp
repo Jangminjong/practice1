@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String emailSplit = (String)session.getAttribute("emailSplit");
+%>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
@@ -35,17 +38,6 @@
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">
 
-
-<link rel="apple-touch-icon" sizes="384x384"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="256x256"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="192x192"
-	href="/resources/dist/images/app-icon/icon_192.png">
-<link rel="apple-touch-icon" sizes="128x128"
-	href="/resources/dist/images/app-icon/icon_120.png">
-<link rel="apple-touch-icon" sizes="96x96"
-	href="/resources/dist/images/app-icon/icon_96.png">
 <link rel="manifest" href="/manifest.json">
 <script>
             if ('serviceWorker' in navigator) {
@@ -241,7 +233,7 @@
 			<a href="#gnb">메뉴목록으로 바로가기</a> <a href="#content">컨텐츠로 바로가기</a>
 		</div>
 
-		<jsp:include page="header_goods.jsp"/>
+		<jsp:include page="header_class.jsp"/>
 		<div class="dimmed-background"></div>
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b8f8a6447c4b332f56469b63c9b7a010&libraries=services"></script>

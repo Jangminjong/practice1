@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-	String emailSplit = (String)session.getAttribute("emailSplit[0]");
+	String emailSplit = (String)session.getAttribute("emailSplit");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -192,29 +192,8 @@
         </script>
 
 	<div class="wrap">
-	<c:choose>
-		<c:when test="${ emailSplit eq null }">
-			<jsp:include page="header_goods.jsp"/>
-		</c:when>
-		<c:when test="${ emailSplit ne null }">
-			<jsp:include page="header_goods_login.jsp"/>
-		</c:when>
-	</c:choose>
-		<div class="head_banner_group">
-			<!-- 상단 리본 배너 -->
-			<div class="download-ribbon top" style="background-color: #ff7b30"
-				data-download="root" data-download-type="isRibbon">
-				<div class="inner-w">
-					<a href="##" class="download-ribbon-inner"> <img
-						class="pc-img"
-						src="https://image.idus.com/static/signup/thanksgiving/web_benefit_banner.png">
-					</a>
-					<button class="download-ribbon-close" type="button">
-						<i class="fa fa-times-circle" aria-hidden="true"></i>
-					</button>
-				</div>
-			</div>
-		</div>
+	<jsp:include page="header_goods.jsp"/>
+		
 
 		<div id="skip-to-content">
 			<a href="#gnb">메뉴목록으로 바로가기</a> <a href="#content">컨텐츠로 바로가기</a>
