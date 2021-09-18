@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 <script src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/index.js"></script>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
 	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
@@ -82,7 +83,7 @@
 								<span data-profile="name">${emailSplit}</span> 님
 								<!-- current user email address: for parsing -->
 							</button>
-							<ul class="menu-dropdown">
+							<ul class="menu-dropdown menu-first">
 								<li><a href="mypage_order_goods.do">주문배송</a></li>
 								<li><a href="mypage_interest_goods.do">관심리스트</a></li>
 								<li><a href="mypage_coupon.do">쿠폰함</a></li>
@@ -90,13 +91,13 @@
 								<li class="add-border"><a href="/w/logout">로그아웃</a></li>
 							</ul>
 						</div>
-						<div class="nav-btn ui-dropdown message">
+						<div class="nav-btn ui-dropdown message message-list">
 							<button type="button" class="btn-dropdown"
 								data-ui="load-message-btn"
 								data-endpoint="/w/notification?page=gnb">
 								<i class="far fa-bell"></i> <span class="title">알림</span>
 							</button>
-							<div class="menu-dropdown message-list alarm">
+							<div class="menu-dropdown menu-second message-list alarm">
 								<div class="alarm_title">
 									<span class="title">알림</span>
 								</div>

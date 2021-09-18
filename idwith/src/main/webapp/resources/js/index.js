@@ -44,3 +44,18 @@ function prevSlider(){
 		//document.getElementById('ui_slide').dataset.index = index;
 	}
 }
+
+$(document).ready(function(){
+	$('.mymenu').hover(function() {
+  		$('.menu-dropdown.menu-first').stop(true, true).delay(0).fadeIn(0);
+	}, function() {
+ 		 $('.menu-dropdown.menu-first').stop(true, true).delay(0).fadeOut(0);
+	});
+
+	
+	$('.message-list').hover(function() {
+  		$('.menu-second').stop(true, true).delay(0).fadeIn(0);
+	}, function() {
+ 		 $('.menu-second').stop(true, true).delay(0).fadeOut(0);
+	});
+});

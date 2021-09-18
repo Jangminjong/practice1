@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 <script src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/index.js"></script>
 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -78,40 +79,37 @@
 						<nav class="fr" style="margin-left: 65%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
-						<div class="nav-btn ui-dropdown">
-							<button type="button" class="btn-dropdown">
+						<div class="nav-btn ui-dropdown mymenu">
+							<button type="button" class="btn-dropdown btn-first">
 								<span data-profile="name">${emailSplit}</span> 님
 								<!-- current user email address: for parsing -->
 							</button>
-							<ul class="menu-dropdown">
+							<ul class="menu-dropdown menu-first">
 								<li><a href="mypage_order_goods.do">주문배송</a></li>
 								<li><a href="mypage_interest_goods.do">관심리스트</a></li>
 								<li><a href="mypage_coupon.do">쿠폰함</a></li>
 								<li><a href="mypage_info.do">회원 정보관리</a></li>
-								<li class="add-border"><a href="/w/logout">로그아웃</a></li>
+								<li class="add-border"><a href="logout.do">로그아웃</a></li>
 							</ul>
 						</div>
-						<div class="nav-btn ui-dropdown message">
-							<button type="button" class="btn-dropdown"
+						<div class="nav-btn ui-dropdown message message-list">
+							<button type="button" class="btn-dropdown btn-second"
 								data-ui="load-message-btn"
 								data-endpoint="/w/notification?page=gnb">
 								<i class="far fa-bell"></i> <span class="title">알림</span>
 							</button>
-							<div class="menu-dropdown message-list alarm">
+							<div class="menu-dropdown menu-second alarm">
 								<div class="alarm_title">
 									<span class="title">알림</span>
 								</div>
-								<ul
-									class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
-									<div id="mCSB_1"
-										class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
+								<ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
+									<div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
 										<div class="alarm-test">알림 테스트1</div>
 										<div class="alarm-test">알림 테스트2</div>
 										<div class="alarm-test">알림 테스트3</div>
 										<div class="alarm-test">알림 테스트4</div>
 									</div>
-									<div id="mCSB_1_scrollbar_vertical"
-										class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical">
+									<div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical">
 										<div class="mCSB_draggerContainer">
 											<div id="mCSB_1_dragger_vertical" class="mCSB_dragger">
 												<div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
@@ -119,9 +117,8 @@
 											</div>
 										</div>
 									</div>
+									<a data-log-noti-object="see_all" href="alarm.do" class="link-style">모두 보기</a>
 								</ul>
-								<a data-log-noti-object="see_all" href="alarm.do"
-									class="link-style">모두 보기</a>
 							</div>
 						</div>
 
