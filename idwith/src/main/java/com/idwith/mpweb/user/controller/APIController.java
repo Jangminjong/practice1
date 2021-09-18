@@ -27,6 +27,7 @@ public class APIController {
 	@Autowired
 	private UserService userService;
 	
+//	카카오톡 
 	@RequestMapping(value="/kakao.do", method=RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, String> kakaoLogin(HttpServletRequest req) throws Exception { 
@@ -48,7 +49,43 @@ public class APIController {
 		return params;
 	}
 	
-	@RequestMapping(value="/kakao.do", method= RequestMethod.GET)
+	
+//	네이버
+	
+	// 네이버 로그인 처리 중 호출되는 컨트롤러
+	@RequestMapping(value="/naver.do", method=RequestMethod.GET)
+	public String naverLoginProcess(HttpServletRequest req, HttpSession session) {
+		return "loginPostNaver";
+	}
+	
+	@RequestMapping(value="/naver.do", method=RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, String> naverLogin(HttpServletRequest req) {
+		System.out.println("naverLogin() 실행");
+		HashMap<String, String> params = new HashMap<String, String>();
+		UserVO vo = new UserVO();
+		
+		String email= req.getParameter("email");
+		String name = req.getParameter("name");
+		String mobile = req.getParameter("mobile");
+		
+		System.out.println(name+", "+email+", "+mobile);
+		
+		vo.setUser_id(email);
+		vo.setUser_name(name);
+		vo.setUser_phone(mobile);
+		vo.setUser_pwd("naver");
+		
+		String result = userService.naverLogin(vo);
+		
+		params.put("result", result);
+		params.put("email", email);
+		
+		return params;
+	}
+	
+	// sns로 로그인 후 세션에 정보 세팅 후 index.do로 이동
+	@RequestMapping(value="/sns.do", method= RequestMethod.GET)
 	@ResponseBody
 	public String indexAfterKakaoLogin(HttpServletRequest req, HttpSession session, HttpServletResponse response) throws Exception{
 		String email = req.getParameter("email");
@@ -56,9 +93,4 @@ public class APIController {
 		session.setAttribute("emailSplit", emailSplit[0]);
 		return "success";
 	}
-
-
-//	https://kauth.kakao.com/oauth/authorize?client_id=aa1dcea4cbeb9091a826433c207cdc3c&redirect_uri=	
-//		http://localhost:8080/mpweb/oauth&response_type=code
-
 }
