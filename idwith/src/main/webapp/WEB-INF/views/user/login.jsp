@@ -22,6 +22,9 @@
 
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript" src="resources/js/socialLogin.js"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
@@ -180,9 +183,11 @@
 					}
 				});
 	</script>
-
-
-
+	
+	<script>
+		Kakao.init('487ca5895feb7a04e42984525f8de371');
+		console.log(Kakao.isInitialized());
+	</script>
 
 	<div class="wrap-login">
 
@@ -213,7 +218,7 @@
 					</div>
 					<div data-v-0eb5c308="" data-v-668c286c="" class="vertical_buttons">
 						<a data-v-0eb5c308="" idus-log-selector="third_party"
-							idus-log="kakaotalk" href="" class="bar_button kakao"><span
+							idus-log="kakaotalk" class="bar_button kakao" href="javascript:kakaoSign()"><span
 							data-v-0eb5c308="" class="sp-icon icon-kakaotalk"></span> 카카오로
 							3초만에 시작하기 </a> <a data-v-0eb5c308="" idus-log-selector="third_party"
 							idus-log="email" href="sign.do" class="bar_button email">이메일로
@@ -222,7 +227,7 @@
 					<div data-v-38bd83a8="" data-v-668c286c=""
 						class="horizontal_buttons">
 						<a data-v-38bd83a8="" idus-log-selector="third_party"
-							href="/w/naver/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%EB%A7%9B%EC%9E%88%EB%8A%94+%EA%B9%90%EB%B0%A4"
+							id="naver_id_login"
 							class="radius_button naver"><span data-v-38bd83a8=""
 							idus-log="naver" class="sp-icon icon-naver"></span></a> <a
 							data-v-38bd83a8="" idus-log-selector="third_party"
@@ -238,6 +243,15 @@
 							idus-log="apple" class="sp-icon icon-apple"></span></a>
 					</div>
 				</div>
+				
+				<script type="text/javascript">
+                    	var naver_id_login = new naver_id_login("aBJVgRXccefohvFJVX65", "http://localhost:8080/mpweb/naver.do");
+                		var state= naver_id_login.getUniqState();           	
+                		naver_id_login.setDomain("http://localhost:8080/mpweb");	//  서비스URL
+                 		naver_id_login.setState(state);
+                 		naver_id_login.init_naver_id_login("");
+                    </script>
+				
 				<div data-v-668c286c="" class="login_signin_content">
 					<div data-v-668c286c="" class="border_and_text">
 						<span data-v-668c286c="">이메일 로그인</span>

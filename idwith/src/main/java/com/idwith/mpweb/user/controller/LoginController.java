@@ -71,6 +71,12 @@ public class LoginController {
 	public String signLogin(UserVO vo) {
 		return "index";
 	}
+	
+	@GetMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "index";
+	}
 
 	//로그인 화면 요청 메소드 : 네이버
 //	@GetMapping("/login.do")

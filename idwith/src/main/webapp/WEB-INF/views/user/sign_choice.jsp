@@ -58,7 +58,7 @@
 					<div class="login-sns item kakaotalk" data-auth-type="kakaotalk">
 						<a id="kakao-login-btn" href="javascript:kakaoSign()"
 							data-idus-log="kakaotalk"> <span
-							class="sp-icon icon-kakaotalk"></span> 카카오톡으로 가입하기
+							class="sp-icon icon-kakaotalk"></span> 카카오톡으로 3초만에 시작하기
 						</a>
 						<a id="cancel" href="javascript:cancel()">연결끊기</a>
 					</div>
