@@ -5,10 +5,10 @@
  
 <mapper namespace="UserDAO">
  	<resultMap type="userVO" id="userResult">
- 		<result property="email" column="user_id"/>
- 		<result property="password" column="user_pwd"/>
- 		<result property="username" column="user_name"/>
- 		<result property="cell_phone" column="user_phone"/>
+ 		<result property="user_id" column="user_id"/>
+ 		<result property="user_pwd" column="user_pwd"/>
+ 		<result property="user_name" column="user_name"/>
+ 		<result property="user_phone" column="user_phone"/>
  		<result property="user_zipcode" column="user_zipcode"/>
  		<result property="user_address1" column="user_address1"/>
  		<result property="user_address2" column="user_address2"/>
@@ -23,13 +23,20 @@
  	</resultMap>
  	<insert id="insertUser" parameterType="userVO">
  		INSERT INTO client (user_id, user_pwd, user_name, user_phone)
- 		VALUES(#{email}, #{password}, #{username}, #{cell_phone})
+ 		VALUES(#{user_id}, #{user_pwd}, #{user_name}, #{user_phone})
+ 	</insert>
+ 	<insert id="insertKakao" parameterType="userVO">
+ 		INSERT INTO client (user_id, user_pwd)
+ 		VALUES(#{user_id}, #{user_pwd})
  	</insert>
  	<select id="selectEmail" resultType="_int">
- 		SELECT count(*) FROM client WHERE user_id=#{email}
+ 		SELECT count(*) FROM client WHERE user_id=#{user_id}
  	</select>
  	<select id="selectCellPhone" resultType="_int">
- 		SELECT count(*) FROM client WHERE user_phone=#{cell_phone}
+ 		SELECT count(*) FROM client WHERE user_phone=#{user_phone}
+ 	</select>
+ 	<select id="selectLogin" resultType="userVO">
+ 		select user_id, user_pwd from client where user_id=#{user_id}
  	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
