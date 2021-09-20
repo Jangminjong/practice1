@@ -1,7 +1,9 @@
 package com.idwith.mpweb.user.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.idwith.mpweb.user.UserVO;
@@ -41,12 +44,36 @@ public class LoginController {
 		return "login";
 	}
 	
+	//로그인 : email, password 확인
+	@RequestMapping(value="/loginCheck.do", method=RequestMethod.GET, produces="application/text; charset=utf8")
+	@ResponseBody
+	public String loginCheck(HttpServletRequest request, HttpSession session) throws Exception{
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+
+		System.out.println("컨트롤러 이메일 : " + email);
+		System.out.println("컨트롤러 비밀번호 : " + password);
+		
+		UserVO vo = new UserVO();
+		vo.setUser_id(email);
+		vo.setUser_pwd(password);
+		//String[] emailSplit = vo.getUser_id().split("@");
+		String[] emailSplit = email.split("@");
+		int result = userService.getUser(vo);
+		System.out.println("컨트롤러 결과 : " + result);
+		
+
+		if(result == 1) {
+			System.out.println("컨트롤러 확인 : " + vo.getUser_id());
+			session.setAttribute("emailSplit", emailSplit[0]);
+		}
+		
+		return Integer.toString(result);
+	}
+	
 	@RequestMapping(value = "/index.do", method = RequestMethod.POST)
 	public String signLogin(UserVO vo) {
-		System.out.println("Controller : 로그인 처리");
-		System.out.println("이메일 : " + vo.getUser_id());
-		userService.getUser(vo);
-		return "login";
+		return "index";
 	}
 
 	//로그인 화면 요청 메소드 : 네이버

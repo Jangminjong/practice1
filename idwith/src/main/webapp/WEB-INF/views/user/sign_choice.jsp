@@ -59,6 +59,8 @@
 							data-idus-log="kakaotalk"> <span
 							class="sp-icon icon-kakaotalk"></span> 카카오톡으로 가입하기
 						</a>
+						<a id="cancel" href="javascript:cancel()">연결끊기</a>
+						
 					</div>
 
 

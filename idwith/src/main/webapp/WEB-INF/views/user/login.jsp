@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="resources/css/login.css" />
 <link rel="stylesheet" href="resources/css/sign.css" />
 
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
 
 <!-- 파비콘 이미지 설정 -->
@@ -39,35 +40,10 @@
 <link rel="apple-touch-icon" sizes="96x96"
 	href="/resources/dist/images/app-icon/icon_96.png">
 <link rel="manifest" href="/manifest.json">
-<script>
-	if ('serviceWorker' in navigator) {
-		window
-				.addEventListener(
-						'load',
-						function() {
-							navigator.serviceWorker
-									.register('/sw.js')
-									.then(
-											function(registration) {
-												// Registration was successful
-												console
-														.log(
-																'ServiceWorker registration successful with scope: ',
-																registration.scope);
-											},
-											function(err) {
-												// registration failed :(
-												console
-														.log(
-																'ServiceWorker registration failed: ',
-																err);
-											});
-						});
-	}
-</script>
+
 <!-- Intersection Observer polyfill -->
-<script
-	src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>
+<!--  <script
+	src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>-->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
 <meta name="application-name" content="아이디어스" />
@@ -90,67 +66,10 @@
 	window.CNN_DOMAIN = 'https://cnn.idus.com';
 </script>
 <!-- project src -->
-<link rel="icon" href="/resources/favicon_32.ico" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script>
-	// 개발자 console에 아이디어스 로고 노출
-	if (window.matchMedia
-			&& window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		// 다크모드일 경우
-		console
-				.log(
-						'%cidus',
-						'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 90px; color: transparent; background-color: white;');
-		console.log('%cUnique Lifestyle Guide',
-				'font-weight: bold; color: white; font-size: 15px;');
-		console
-				.log(
-						'%cWant to join %cidus%c? 👉 https://www.notion.so/idus/Join-idus-61e7ca6d4b6d4211a7506e8773cc78fd',
-						'font-size: 10px; color: white;',
-						'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 10px; color: transparent; background-color: white;',
-						'font-size: 10px; color: white;');
-	} else {
-		// 아닐경우
-		console
-				.log(
-						'%cidus',
-						'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 90px; color: transparent; background-color: #515151;');
-		console.log('%cUnique Lifestyle Guide',
-				'font-weight: bold; color: #515151; font-size: 15px;');
-		console
-				.log(
-						'%cWant to join %cidus%c? 👉 https://www.notion.so/idus/Join-idus-61e7ca6d4b6d4211a7506e8773cc78fd',
-						'font-size: 10px; color: #515151;',
-						'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 10px; color: transparent; background-color: #515151;',
-						'font-size: 10px; color: #515151;');
-	}
-</script>
-<link rel="stylesheet"
-	href="/resources/dist/css/idus.web.min.css?__v=1630657354">
-<link rel="stylesheet"
-	href="/resources/dist/css/vendor.client.min.css?__v=1630657354">
-<script src="/resources/dist/js/vendor.client.min.js?__v=1630657354"></script>
-<script src="/resources/dist/js/vuepack.js?__v=1630657354"></script>
 
-<link rel="stylesheet"
-	href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/flowplayer.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/thumbnails.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/speed.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/hls.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
-<script
-	src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/keyboard.min.js"></script>
-<!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/cuepoints.min.js"></script> -->
 
 <!-- Kakao web SDK -->
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -159,13 +78,13 @@
 	src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
 
 <!-- tracker vendors -->
-<script async
+<!-- <script async
 	src="https://www.googletagmanager.com/gtag/js?id=AW-775263643"></script>
 <script type="text/javascript" charset="UTF-8"
 	src="//t1.daumcdn.net/adfit/static/kp.js"></script>
 <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js"
 	async="true"></script>
-<script src="//wcs.naver.net/wcslog.js"></script>
+<script src="//wcs.naver.net/wcslog.js"></script> -->
 
 <!-- trackers -->
 <script>
@@ -297,7 +216,7 @@
 							idus-log="kakaotalk" href="" class="bar_button kakao"><span
 							data-v-0eb5c308="" class="sp-icon icon-kakaotalk"></span> 카카오로
 							3초만에 시작하기 </a> <a data-v-0eb5c308="" idus-log-selector="third_party"
-							idus-log="email" href="sign.jsp" class="bar_button email">이메일로
+							idus-log="email" href="sign.do" class="bar_button email">이메일로
 							가입하기</a>
 					</div>
 					<div data-v-38bd83a8="" data-v-668c286c=""
@@ -325,16 +244,16 @@
 					</div>
 					<div data-v-22bdcf3e="" data-v-668c286c=""
 						class="email_login_container">
-						<form action="index.do" method="post">
+						<!-- <form action="index.do" method="post" class="form" id="form"> -->
 							<div data-v-22bdcf3e="">
 								<input data-v-22bdcf3e="" id="email_login_input" type="email"
-									placeholder="이메일" required="required" class="login_input" name="email">
+									placeholder="이메일" required="required" class="login_input" name="user_id">
 								<p data-v-22bdcf3e="" class="verify_error_message"
 									id="email_error">필수 항목입니다.</p>
 
 								<input data-v-22bdcf3e="" id="password_login_input"
 									type="password" placeholder="비밀번호" required="required"
-									class="login_input" name="password">
+									class="login_input" name="user_pwd">
 								<p data-v-22bdcf3e="" class="verify_error_message"
 									id="password_error">필수 항목입니다.</p>
 							</div>
@@ -348,10 +267,9 @@
 								<a data-v-22bdcf3e="" id="find_pw_logging" href="/w/reauth">아이디
 									/ 비밀번호 찾기</a>
 							</div>
-							<button data-v-32d88566="" data-v-22bdcf3e=""
-								class="CommonButton login_button CommonButton--middle CommonButton--white "
-								id="login_logging">로그인</button>
-						</form>
+							<input type="button" data-v-32d88566="" data-v-22bdcf3e=""
+								class="CommonButton login_button CommonButton--middle CommonButton--white" id="login_btn" value="로그인">
+						<!-- </form> -->
 					</div>
 				</div>
 
@@ -362,182 +280,67 @@
 
 
 
-	<script>
-		(function() {
-			// 회원가입 후 다시 원래 페이지로 돌아가기 위한 storage저장
-			if ('https://www.idus.com/w/product/d1e300b8-c0c7-48bd-803f-dfed5543954a?keyword_channel=user&search_word=맛있는 깐밤')
-				vuepack.externals.util
-						.saveLastVisitedUrl('https://www.idus.com/w/product/d1e300b8-c0c7-48bd-803f-dfed5543954a?keyword_channel=user&search_word=맛있는 깐밤');
-
-			var Logger = vuepack.externals.IdusLog.Logger;
-			var PageName = vuepack.externals.IdusLog.PageName;
-			Logger.sendPageView(PageName.Join);
-		})();
-
-		vuepack
-				.create([ {
-					selector : '[data-vue="login"]',
-					component : 'Login',
-					props : {
-						userData : {
-							"login_modal" : "",
-							"login_image" : "https:\/\/image.idus.com\/static\/signup\/web_benefit_signup.png",
-							"main_image" : "",
-							"user_info_image" : ""
-						},
-						redirectUrl : 'https://www.idus.com/w/product/d1e300b8-c0c7-48bd-803f-dfed5543954a?keyword_channel=user&search_word=맛있는 깐밤',
-						oauthRedirectUri : '?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%EB%A7%9B%EC%9E%88%EB%8A%94+%EA%B9%90%EB%B0%A4',
-						kakaoUniqueId : "61381a284d8f4"
-					}
-				} ]);
-
-		$(document)
-				.ready(
-						function() {
-							var $form = $('.form-signin');
-							var $email = $form.find('input[name="email"]');
-							var $saveEmail = $form.find('input#emailsave');
-							var emailKey = 'idus-login-email';
-							var $btnJoin = $('#btnJoin');
-							var $btnThirdPartyLogin = $('[data-idus-log]');
-
-							function saveEmail() {
-								window.localStorage.setItem(emailKey, window
-										.btoa($email.val()));
-							}
-
-							function setEmail() {
-								var email = window.localStorage
-										.getItem(emailKey)
-										|| '';
-
-								if (!!email) {
-									$email.val(window.atob(email));
-									$saveEmail.prop('checked', true).change();
-								}
-							}
-
-							$btnJoin
-									.on(
-											'click',
-											function() {
-												var joinUrl = '/w/join?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%EB%A7%9B%EC%9E%88%EB%8A%94+%EA%B9%90%EB%B0%A4';
-												var Logger = vuepack.externals.IdusLog.Logger;
-												var Section = vuepack.externals.IdusLog.Section;
-												var LogObject = vuepack.externals.IdusLog.LogObject;
-
-												Logger
-														.sendClick(
-																{
-																	section : Section.MemberJoin,
-																	object : LogObject.MemberJoin
-																}, true);
-												location.href = joinUrl;
-												return false;
-											});
-
-							$btnThirdPartyLogin
-									.on(
-											'click',
-											function() {
-												var Logger = vuepack.externals.IdusLog.Logger;
-												var Section = vuepack.externals.IdusLog.Section;
-												var ObjectType = vuepack.externals.IdusLog.ObjectType;
-												var logObject = $(this).data(
-														'idus-log');
-
-												Cookies.set('login_type',
-														logObject);
-												Logger
-														.sendClick({
-															section : Section.Login,
-															object : logObject,
-															objectType : ObjectType.LoginType
-														});
-											});
-
-							// skip updating localstorage
-							BPackr.pageHistory.skipUnload();
-
-							// update on pagehide - for next page
-							$(window).on(
-									'beforeunload pagehide',
-									function() {
-										BPackr.pageHistory.update(
-												'scrollOnLoad', true);
-									});
-
-							// set email field
-							$(window).on('load', setEmail);
-
-							// 다른 방법으로 로그인
-							var showMoreLoginButtonDom = document
-									.getElementsByClassName('show-more-login-btn');
-							var showMoreLoginButton = showMoreLoginButtonDom
-									&& showMoreLoginButtonDom[0] ? showMoreLoginButtonDom[0]
-									: undefined;
-							if (showMoreLoginButton) {
-								showMoreLoginButton
-										.addEventListener(
-												'click',
-												function() {
-													var hideDoms = document
-															.getElementsByClassName('show-more');
-													hideDoms
-															.forEach(function(
-																	dom) {
-																showMoreLoginButton.classList
-																		.add('hide');
-																dom.classList
-																		.remove('hide');
-															});
-												});
-							}
-						});
-	</script>
+	
 	<div data-vue="FooterModal"></div>
-	<script>
+	<!-- <script>
 		vuepack.create([ {
 			selector : '[data-vue="FooterModal"]',
 			component : 'FooterModal'
 		} ]);
-	</script>
+	</script> -->
 	<!-- =========================================================================================-->
 
 
 	<!-- div WRAP -->
-	<script type="text/javascript"
-		src="/resources/dist/js/idus.web.min.js?__v=1630657354"></script>
-	<script>
-		(function() {
-			var applink = new vuepack.externals.Applink();
-			var scheme = applink.locationToAppScheme();
-
-			var isIOS = (navigator.userAgent.match('iPhone') != null
-					|| navigator.userAgent.match('iPod') != null || navigator.userAgent
-					.match('iPad') != null);
-
-			// App 충돌 이슈로 인해 Android만 wta query 적용하지 않도록 함
-			if (isIOS) {
-				var hasQueryMark = scheme.indexOf('?') !== -1;
-				var randomHash = BPackr.randomHash(16);
-				var key = "mobile_web";
-
-				if (hasQueryMark) {
-					scheme = scheme + '&wta=' + randomHash;
-				} else {
-					scheme = scheme + '?wta=' + randomHash;
+	<!-- 로그인 체크 -->
+    <script>
+     /*$().ready(function (){
+		$('#login_btn').on("click", function(){
+			alert('안녕');
+			$.ajax({
+				url: "${pageContext.request.contextPath}/loginCheck.do",
+				type: "GET",
+				data: {
+						"email":$("#email").val()
+					},
+				success: function(data){
+					
+				},
+				error: function(request, status, error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 				}
-			}
-
-			appDownloadMask(key, scheme);
-			BPackr.scheme = scheme;
-		}());
-	</script>
-	<script>
-		vuepack.externals.VendorLogger.sendLog([ {
-			vendorName : 'naver',
-		}, ]);
+			});
+		});
+	});*/ 
+	
+     $(document).ready(function (){
+		$('#login_btn').click(function (){
+			const email = $("#email_login_input").val();
+			const password = $("#password_login_input").val();
+			console.log(email);
+			console.log(password);
+			
+			$.ajax({
+				url: "${pageContext.request.contextPath}/loginCheck.do",
+				type: "GET",
+				data: {
+						"email": $("#email_login_input").val(),
+						"password": $("#password_login_input").val()
+					},
+				success: function(data){
+					if(data == 0){
+						alert('아이디와 비밀번호를 다시 확인해주세요');
+						location.replace("/mpweb/login.do");
+					}else if(data == 1){
+						location.replace("/mpweb/index.do");
+					}
+				},
+				error: function(request, status, error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			});
+		});
+	}); 
 	</script>
 </body>
 </html>

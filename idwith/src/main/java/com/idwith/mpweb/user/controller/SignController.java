@@ -99,4 +99,9 @@ public class SignController {
 		userService.insertUser(vo);
 		return "signupSuccess";
 	}
+	
+	@GetMapping("/signupSuccess.do")
+	public String signSuccessLoad() {
+		return "signupSuccess";
+	}
 }

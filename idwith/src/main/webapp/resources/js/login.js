@@ -5,7 +5,7 @@ window.onload = function(){
 	password_error.style.display = "none";
 }
 
-$(window).ready(function() {
+/*$(window).ready(function() {
 	$('#email_error').css({'display' : 'none'});
 	$('#password_error').css({'display' : 'none'});
 	
@@ -22,5 +22,29 @@ $(window).ready(function() {
 			$('#password_error').css({'display' : ''});
 		}
 	});
-});
+});*/
 
+/* 로그인 유효성 검사 */
+/*$(window).ready(function(){
+	$(document).on("click", "#login_logging", function() {
+		$(this).val( $(this).val());
+			
+			alert('$("#email_login_input").val()');
+			alert('$("#password_login_input").val()');
+			
+			$.ajax({
+			url: "${pageContext.request.contextPath}/loginCheck.do",
+			type: "GET",
+			data: {
+				"user_id" : $("#email_login_input").val(), 
+				"user_pwd" : $("#password_login_input").val()
+			},
+			success: function(data){
+				
+			},
+			error: function(request, status, error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});//end ajax
+	});
+});*/

@@ -28,14 +28,15 @@ public class UserDAO {
 		return result;
 	}
 
-	public UserVO getUser(UserVO vo) {
+	public UserVO getUser(String user_id) {
 		System.out.println("DAO getUser() 角青");
-		
-		UserVO result = sqlSessionTemplate.selectOne("UserDAO.selectLogin", vo);
-		System.out.println("角青 : " + result.getUser_id());
-		System.out.println("角青 : " + result.getUser_pwd());
-		
-		return vo;
+		UserVO result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
+		return result;
+	}
+	
+	public void insertKakao(UserVO vo) {
+		System.out.println("DAO kakaoLogin() 角青");
+		sqlSessionTemplate.insert("UserDAO.insertKakao", vo);
 	}
 
 	public void updateUser(UserVO vo) {
