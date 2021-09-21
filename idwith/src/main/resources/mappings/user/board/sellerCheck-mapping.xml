@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="SellerCheckDAO">
+ 	<resultMap type="HashMap" id="sellerCheckResult">
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="seller_name" column="seller_name"/>
+ 		<result property="seller_sellno" column="seller_sellno"/>
+ 		<result property="user_id" column="user_id"/>
+ 	</resultMap>
+ 	<select id="sellerCheck" resultType="_boolean">
+ 		select exists (select * from seller where user_id=#{user_id}) as isChk;
+ 	</select>
+</mapper>

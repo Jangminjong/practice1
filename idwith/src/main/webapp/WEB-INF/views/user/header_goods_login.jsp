@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 <%
 	String emailSplit = (String)session.getAttribute("emailSplit");
 %>
@@ -142,11 +143,32 @@
 					</div>
 
 					<nav class="profile-links">
-						<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i> 내 정보
-						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
-							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
-							장바구니
-						</a>
+						
+						<c:choose>
+							<c:when test="${result eq 1 }">
+								<a href="작가페이지경로" class="btn"> <i class="far fa-user"></i>작가
+									홈
+								</a>
+								<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i>
+									내 정보
+								</a>
+								<a id="my-cart-button" href="cart.do" class="btn"> <span
+									class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
+									장바구니
+								</a>
+							</c:when>
+							
+							<c:when test="${ result ne 0 }">
+								<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i>
+									내 정보
+								</a>
+								<a id="my-cart-button" href="cart.do" class="btn"> <span
+									class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
+									장바구니
+								</a>
+							</c:when>
+						</c:choose>
+
 					</nav>
 
 					<div class="bubble-space">
