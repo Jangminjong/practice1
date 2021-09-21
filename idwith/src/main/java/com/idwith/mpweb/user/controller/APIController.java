@@ -91,6 +91,7 @@ public class APIController {
 		String email = req.getParameter("email");
 		String[] emailSplit = email.split("@");
 		session.setAttribute("emailSplit", emailSplit[0]);
+		session.setAttribute("email", email);
 		return "success";
 	}
 }
