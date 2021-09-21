@@ -1,20 +1,21 @@
 package com.idwith.mpweb.user.board;
 
 public class PagingVO {
-	private int nowPage, startPage, endPage, total, lastPage, start, end;
+	private int nowPage, startPage, endPage, total, countNotice, lastPage, start, end;
 	private int cntPage = 5;
 	private int cntPerPage = 20;
 
 	public PagingVO() {
 	}
 
-	public PagingVO(int total, int nowPage, int cntPerPage) {
+	public PagingVO(int total, int nowPage, int cntPerPage, int countNotice) {
 		setNowPage(nowPage);
 		setCntPerPage(cntPerPage);
 		setTotal(total);
+		setCountNotice(countNotice);
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);
-		calcStartEnd(getNowPage(), getCntPerPage());
+		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(), getCountNotice());
 	}
 
 	// 제일 마지막 페이지 계산
@@ -35,9 +36,12 @@ public class PagingVO {
 	}
 
 	// DB 쿼리에서 사용할 start, end값 계산
-	public void calcStartEnd(int nowPage, int cntPerPage) {
+	public void calcStartEnd(int nowPage, int cntPerPage, int endPage, int countNotice) {
 		setEnd(nowPage * cntPerPage);
 		setStart(getEnd() - cntPerPage + 1);
+		if(nowPage==endPage) {
+			setStart(getStart()-countNotice);
+		}
 	}
 
 	public int getNowPage() {
@@ -70,6 +74,14 @@ public class PagingVO {
 
 	public void setTotal(int total) {
 		this.total = total;
+	}
+
+	public int getCountNotice() {
+		return countNotice;
+	}
+
+	public void setCountNotice(int countNotice) {
+		this.countNotice = countNotice;
 	}
 
 	public int getCntPerPage() {
@@ -115,8 +127,10 @@ public class PagingVO {
 	@Override
 	public String toString() {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
-				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
-				+ ", cntPage=" + cntPage + "]";
+				+ ", countNotice=" + countNotice + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
+				+ ", cntPage=" + cntPage + ", cntPerPage=" + cntPerPage + "]";
 	}
+
+	
 
 }

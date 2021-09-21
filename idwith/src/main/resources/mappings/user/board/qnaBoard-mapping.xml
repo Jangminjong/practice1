@@ -37,9 +37,9 @@
 	<delete id="deleteQnA" parameterType="qnaVO">
  		DELETE FROM qna_board WHERE seq=#{seq}
  	</delete>
-	<!-- 총 게시글 개수 출력 -->
+	<!-- 공지 아닌 게시글 개수 출력 -->
 	<select id="countQnA" resultType="_int">
-		SELECT COUNT(*) FROM qna_board
+		SELECT COUNT(*) FROM qna_board 
 	</select>
 	<!-- 공지글 수 출력 -->
 	<select id="countNotice" resultType="_int">
@@ -48,7 +48,7 @@
 	<!-- 페이징 처리 후 게시글 조회 -->
 	<select id="selectQnA" resultType="qnaVO">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-	FROM qna_board ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	FROM qna_board WHERE board_fix=false ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard

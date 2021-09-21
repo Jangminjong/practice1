@@ -92,12 +92,14 @@ public class UserBoardController {
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = Integer.toString(20-countNotice);
-		} else if(Integer.parseInt(nowPage)>1) {
+		} else if(nowPage =="1") {
+			cntPerPage = Integer.toString(20-countNotice);
+		}else if(Integer.parseInt(nowPage)>1) {
 			cntPerPage = "20";
 		}
 		
 		System.out.println("nowpage: "+nowPage+"cntPerpage: "+cntPerPage);
-		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), countNotice);
 		model.addAttribute("paging", pageVO);
 		model.addAttribute("qnaList", boardService.selectQnA(pageVO));
 		return "board/board";

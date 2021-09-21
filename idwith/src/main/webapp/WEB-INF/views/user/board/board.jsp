@@ -75,22 +75,32 @@
 				</nav>
 				<div class="paging" data-ui="paging" data-sync="false">
 					<nav>
-						<c:if test="${paging.startPage != 1 }">
-							<a href="/mpweb/board.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-						</c:if>
+						<c:choose>
+							<c:when test="${paging.nowPage eq 1 }">
+								<span style="width: auto;">◀ 이전 |</span>
+							</c:when>
+							<c:when test="${paging.nowPage ne 1 }">
+								<a href="/mpweb/board.do?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}" style="width: auto;">◀ 이전 |</a>
+							</c:when>
+						</c:choose>
 						<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 							<c:choose>
-								<c:when test="${p == paging.nowPage }">
-									<b>${p }</b>
+								<c:when test="${p eq paging.nowPage }">
+									<a href="/mpweb/board.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="active" onclick="return false">${p }</a>
 								</c:when>
-								<c:when test="${p != paging.nowPage }">
+								<c:when test="${p ne paging.nowPage }">
 									<a href="/mpweb/board.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
 								</c:when>
 							</c:choose>
 						</c:forEach>
-						<c:if test="${paging.endPage != paging.lastPage}">
-							<a href="/mpweb/board.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-						</c:if>
+						<c:choose>
+							<c:when test="${paging.endPage eq paging.lastPage}">
+								<span style="width: auto;">| 다음 ▶</span>
+							</c:when>
+							<c:when test="${paging.endPage ne paging.lastPage}">
+								<a href="/mpweb/board.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}" style="width: auto;">| 다음 ▶</a>
+							</c:when>
+						</c:choose>
 						<!-- <a href="/w/board/notice?&amp;page=1" class="active">1</a> <a
 							href="/w/board/notice?&amp;page=2" class="">2</a> <a
 							href="/w/board/notice?&amp;page=2" class="next" aria-label="다음">
