@@ -15,4 +15,15 @@ public interface AdminBoardService {
 	
 	void updateAnswer(AdminQnABoardVO adminQnA);
 	
+	// 공지글 조회
+	int countNotice();
+	
+	List<AdminQnABoardVO> getQnAList(PagingVO pageVO);
+	
+	void updateNotice(AdminQnABoardVO adminQnA);
+	
+	void deleteNotice(AdminQnABoardVO adminQnA);
+	
+	void userInsertNotice(AdminQnABoardVO adminQnA);
+	
 }

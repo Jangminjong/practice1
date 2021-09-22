@@ -1,5 +1,13 @@
+<%@page import="com.idwith.mpweb.admin.board.AdminQnABoardListVO"%>
+<%@page import="com.idwith.mpweb.common.PagingVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	List<AdminQnABoardListVO> noticeList = (List<AdminQnABoardListVO>) session.getAttribute("noticeList");
+	PagingVO paging = new PagingVO();
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -220,26 +228,65 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<th scope="row">1</th>
-													<td><a href="userNoticeContent.mdo">User test
-															공지사항1</a></td>
-													<td>관리자1</td>
-													<td>2021-09-07</td>
-													<td>0</td>
-												</tr>
-												<tr>
-													<th scope="row">2</th>
-													<td><a href="userNoticeContent.mdo">test 공지사항2</a></td>
-													<td>관리자2</td>
-													<td>2021-09-07</td>
-													<td>0</td>
-												</tr>
-
+												<c:forEach var="notice" items="${noticeList}">
+													<tr>
+														<th scope="row">${notice.rownum}</th>
+														<td><a href="userNoticeContent.mdo?seq=${notice.seq }">${notice.board_title }
+															<input type="hidden" name="seq" value="${notice.seq }"/>
+														</a></td>
+														<td>관리자1</td>
+														<td>${notice.board_date }</td>
+														<td>0</td>
+													</tr>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
 								</div>
+							</div>
+							<!-- 페이징 처리 -->
+							<div class="paging" data-ui="paging" data-sync="false">
+								<nav style="float:center;" aria-label="Page navigation example">
+									<ul class="pagination justify-content-end">
+									<c:choose>
+										<c:when test="${paging.nowPage eq 1 }">
+											<li class="page-item"><span style="width: auto;" class="page-link">Previous</span></li>
+										</c:when>
+										<c:when test="${paging.nowPage ne 1 }">
+											<li class="page-item"><a
+												href="/mpweb/qna.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Previous</a>
+											</li>
+										</c:when>
+									</c:choose>
+									<c:forEach begin="${paging.startPage }"
+										end="${paging.endPage }" var="p">
+										<c:choose>
+											<c:when test="${p eq paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" onclick="return false" class="page-link">${p }</a>
+												</li>
+											</c:when>
+											<c:when test="${p ne paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="page-link">${p }</a>
+												</li>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${paging.endPage eq paging.lastPage}">
+											<li class="page-item"><span style="width: auto;" class="page-link">Next</span></li>
+										</c:when>
+										<c:when test="${paging.endPage ne paging.lastPage}">
+											<li class="page-item"><a
+												href="/mpweb/qna.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Next</a>
+											</li>
+										</c:when>
+									</c:choose>
+									</ul>
+								</nav>
 							</div>
 						</div>
 					</div>

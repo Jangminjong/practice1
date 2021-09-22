@@ -38,7 +38,19 @@ public class noticeController {
 	}
 	
 	@GetMapping("/userNotice.mdo")
-	public String userNotice() {
+	public String userNotice(PagingVO pageVO, Model model, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {
+		int countNotice = adminBoardService.countNotice();
+		System.out.println("공지글 수: "+ countNotice);
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else {
+			cntPerPage = "10";
+		}
+		System.out.println("nowpage: " + nowPage + "cntPerpage: " + cntPerPage);
+		pageVO = new PagingVO(countNotice, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", pageVO);
+		model.addAttribute("noticeList",adminBoardService.getQnAList(pageVO));
 		return "userNotice";
 	}
 	
@@ -47,9 +59,34 @@ public class noticeController {
 		return "userInsertNotice";
 	}
 	
+	@RequestMapping("/insertUserNotice.mdo")
+	public String insertUserNotice(AdminQnABoardVO adminQnA) {
+		System.out.println("공지 등록 처리");
+		System.out.println("content: "+adminQnA.getBoard_content());
+		adminBoardService.userInsertNotice(adminQnA);
+		return "userNotice";
+	}
+	
 	@GetMapping("/userNoticeContent.mdo")
-	public String userNoticeContent() {
+	public String userNoticeContent(AdminQnABoardVO adminQnA, Model model) {
+		System.out.println("공지글 상세 보기 처리");
+		System.out.println("num: "+adminQnA.getSeq());
+		model.addAttribute("adminQnA", adminBoardService.getQnA(adminQnA));
 		return "userNoticeContent";
+	}
+	
+	@RequestMapping("/updateNotice.mdo")
+	public String updateNotice(AdminQnABoardVO adminQnA) {
+		System.out.println("유저 공지사항 내용 수정 처리");
+		adminBoardService.updateNotice(adminQnA);
+		return "userNotice";
+	}
+	
+	@RequestMapping("/deleteNotice.mdo")
+	public String deleteNotice(AdminQnABoardVO adminQnA) {
+		System.out.println("유저 공지글 삭제 처리");
+		adminBoardService.deleteNotice(adminQnA);
+		return "userNotice";
 	}
 	
 	@GetMapping("/qna.mdo")

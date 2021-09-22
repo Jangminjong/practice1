@@ -31,6 +31,26 @@
  		UPDATE qna_board
  		SET board_answer=#{board_answer} WHERE seq = #{seq}
  	</update>
+ 	<!-- 공지글 조회 -->
+ 	<select id="getQnAList" resultType="adminQnA">
+	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+	FROM qna_board WHERE board_fix=true ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 공지글 수 출력 -->
+	<select id="countNotice" resultType="_int">
+		SELECT COUNT(*) FROM qna_board WHERE board_fix=true
+	</select>
+	<update id="updateNotice" parameterType="adminQnA">
+ 		UPDATE qna_board
+ 		SET board_title=#{board_title}, board_content=#{board_content} WHERE seq = #{seq}
+ 	</update>
+ 	<delete id="deleteNotice" parameterType="adminQnA">
+ 		DELETE FROM qna_board WHERE seq=#{seq}
+ 	</delete>
+ 	<insert id="userInsertNotice" parameterType="adminQnA">
+ 		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_secret, board_date, board_fix, seq)
+ 		VALUES('관리자1', '이용', #{board_title}, #{board_content}, false, now(), true, nextval('seq_qna_board'))
+ 	</insert>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

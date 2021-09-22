@@ -41,7 +41,7 @@ public class UserBoardDAO {
 	
 	public void deleteQnA(QnABoardVO qnaVO) {
 		System.out.println("DAO deleteQnA() 角青");
-		sqlSessionTemplate.update("BoardDAO.deleteQnA", qnaVO);
+		sqlSessionTemplate.delete("BoardDAO.deleteQnA", qnaVO);
 	}
 	
 	// 其捞隆 贸府

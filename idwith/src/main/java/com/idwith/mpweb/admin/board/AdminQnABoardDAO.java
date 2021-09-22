@@ -33,4 +33,26 @@ public class AdminQnABoardDAO {
 		System.out.println("DAO updateAnswer() 실행");
 		sqlSessionTemplate.update("AdminQnABoardDAO.updateAnswer", adminQnA);
 	}
+	
+	public List<AdminQnABoardVO> getQnAList(PagingVO pageVO){
+		System.out.println("DAO getQnAList() 실행");
+		return sqlSessionTemplate.selectList("AdminQnABoardDAO.getQnAList", pageVO);
+	}
+	
+	public int countNotice() {
+		System.out.println("DAO countNotice() 실행");
+		return sqlSessionTemplate.selectOne("AdminQnABoardDAO.countNotice");
+	}
+	
+	public void updateNotice(AdminQnABoardVO adminQnA) {
+		sqlSessionTemplate.update("AdminQnABoardDAO.updateNotice", adminQnA);
+	}
+	
+	public void deleteNotice(AdminQnABoardVO adminQnA) {
+		sqlSessionTemplate.update("AdminQnABoardDAO.deleteNotice", adminQnA);
+	}
+	
+	public void userInsertNotice(AdminQnABoardVO adminQnA) {
+		sqlSessionTemplate.update("AdminQnABoardDAO.userInsertNotice", adminQnA);
+	}
 }
