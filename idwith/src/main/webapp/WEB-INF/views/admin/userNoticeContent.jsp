@@ -231,7 +231,7 @@
 					<div class="col-md-3 text-center">
 						<a href="deleteNotice.mdo?seq=${adminQnA.seq}">
 							<button class="btn btn-primary">삭제</button>
-						</a> <a href="adminNotice.mdo">
+						</a> <a href="userNotice.mdo">
 							<button class="btn btn-primary">목록</button>
 						</a>
 					</div>

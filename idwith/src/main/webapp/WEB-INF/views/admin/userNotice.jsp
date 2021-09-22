@@ -236,7 +236,7 @@
 														</a></td>
 														<td>관리자1</td>
 														<td>${notice.board_date }</td>
-														<td>0</td>
+														<td>${notice.hit }</td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -264,12 +264,12 @@
 										<c:choose>
 											<c:when test="${p eq paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" onclick="return false" class="page-link">${p }</a>
+													href="/mpweb/userNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" onclick="return false" class="page-link">${p }</a>
 												</li>
 											</c:when>
 											<c:when test="${p ne paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="page-link">${p }</a>
+													href="/mpweb/userNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="page-link">${p }</a>
 												</li>
 											</c:when>
 										</c:choose>
@@ -280,7 +280,7 @@
 										</c:when>
 										<c:when test="${paging.endPage ne paging.lastPage}">
 											<li class="page-item"><a
-												href="/mpweb/qna.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+												href="/mpweb/userNotice.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
 												style="width: auto;" class="page-link">Next</a>
 											</li>
 										</c:when>
