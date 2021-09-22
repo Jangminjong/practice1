@@ -38,7 +38,9 @@
 							<c:choose>
 								<c:when test="${qnaVO.board_answer eq null}">
 									<textarea rows="26" name="board_content">${qnaVO.board_content}</textarea>
-									<input type="submit" value="수정" id="qna-submit" class="btn-qna-board">
+									<c:if test="${qnaVO.board_fix eq false }">
+										<input type="submit" value="수정" id="qna-submit" class="btn-qna-board">
+									</c:if>
 								</c:when>
 								<c:when test="${ qnaVO.board_answer ne null}">
 									<textarea rows="26" name="board_content" readonly>${qnaVO.board_content}</textarea>
@@ -54,7 +56,9 @@
 						</form>
 				<a href="board.do" ><button class="btn-qna-board">목록</button></a>
 				<c:if test="${qnaVO.board_answer eq null}">
-					<a href="deleteQnA.do?seq=${qnaVO.seq }" ><button class="btn-qna-board">삭제</button></a>
+					<c:if test="${qnaVO.board_fix eq false }">
+						<a href="deleteQnA.do?seq=${qnaVO.seq }" ><button class="btn-qna-board">삭제</button></a>
+					</c:if>
 				</c:if>
 			</div>
 		</div>
