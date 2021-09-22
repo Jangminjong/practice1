@@ -1,4 +1,4 @@
-<%@page import="com.idwith.mpweb.user.board.PagingVO"%>
+<%@page import="com.idwith.mpweb.common.PagingVO"%>
 <%@page import="com.idwith.mpweb.user.board.QnAListVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -51,10 +51,11 @@
 				</c:if>
 					<c:forEach var="qnaVO" items="${qnaList}">
 						<c:if test="${qnaVO.board_fix eq false}">
-							<a href="board_detail.do?seq=${qnaVO.seq}" class="qna-one">
-								<input id="email" type="hidden" value="${email}"/>
-								<input class="qna-seq" id="qna-seq" name="seq" type="hidden" value="${qnaVO.seq}"/>
+							<a href="board_detail.do?seq=${qnaVO.seq}" class=".qna-one">
+								<input name="user_id" type="hidden" value="${qnaVO.user_id}"/>
+								<input class="qna-seq" name="seq" type="hidden" value="${qnaVO.seq}"/>
 								<input name="board_answer" type="hidden" value="${qnaVO.board_answer }"/>
+								<input name="user_id" type="hidden" value="${qnaVO.user_id }"/>
 								<div>
 									<strong>
 									<c:choose>
@@ -66,7 +67,7 @@
 										</c:when>
 									</c:choose>
 									<span style="color: #666;">❑ ${qnaVO.board_title }</span>
-									<span class="qna-list-writer" style="color: #666;">${qnaVO.user_id}</span>
+									<span class="qna-list-writer" style="color: #666;">${qnaVO.user_id.split("@")[0]}</span>
 									</strong>
 								</div>
 							</a>

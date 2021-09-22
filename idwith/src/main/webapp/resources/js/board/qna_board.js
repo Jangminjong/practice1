@@ -12,9 +12,13 @@ $(window).ready(function(){
 		
 	});
 	
-	/*$(document).on("click", ".qna-one", function(){
-		const seq = $('#qna-seq').val();
-		console.log('seq: '+seq);
+	
+});
+
+function boardRightCheck(){
+	const seq = $('.qna-seq').val();
+	const email= $('#email').val();
+	console.log('seq: '+seq+', email: '+email);
 		$.ajax({
 			url: "/mpweb/qnaRightCheck.do",
      		type: "POST",
@@ -25,19 +29,18 @@ $(window).ready(function(){
 			success: function(data){
 				console.log('data: '+data);
 				if(data == 1){
-					document.getElementsByClassName('qna-one').onclick= "return true";
+					location.replace('mpweb/board_detail.do?seq='+seq);
 				}else{
 					alert('권한이 없습니다.');
-					
 				}
 			},
 			error: function(request, status, error){
 				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
      		},
 		});
-	});*/
-	
-});
+}
+
+
 
 /* 게시판 작성 페이지 */
 
