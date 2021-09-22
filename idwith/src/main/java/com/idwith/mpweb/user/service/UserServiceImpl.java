@@ -1,5 +1,8 @@
 package com.idwith.mpweb.user.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -90,4 +93,28 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 
+
+	@Override
+	public Integer userCheck(String user_phone) {
+		int result = dao.userCheck(user_phone);
+		return result;
+	}
+
+
+	@Override
+	public List<Map<String, String>> getUserList(String user_phone) {
+		return dao.getUserList(user_phone);
+	}
+
+
+	@Override
+	public List<Map<String, String>> getUserNameList(String user_id) {
+		return dao.getUserNameList(user_id);
+	}
+
+
+	@Override
+	public List<Map<String, String>> getUserInfo(String user_name) {
+		return dao.getUserInfo(user_name);
+	}
 }

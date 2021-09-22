@@ -1,54 +1,3 @@
-// 회원가입 후 다시 원래 페이지로 돌아가기 위한 storage저장
-/*if ("https://www.idus.com/c")
-	vuepack.externals.util
-			.saveLastVisitedUrl("https://www.idus.com/c");
-
-(function() {
-	var Logger = vuepack.externals.IdusLog.Logger;
-	var PageName = vuepack.externals.IdusLog.PageName;
-	Logger.sendPageView(PageName.MemberJoinType);
-})();
-
-$(function() {
-	var $btnThirdPartyJoin = $('[data-idus-log]');
-
-	$btnThirdPartyJoin.on('click', function() {
-		var Logger = vuepack.externals.IdusLog.Logger;
-		var Section = vuepack.externals.IdusLog.Section;
-		var ObjectType = vuepack.externals.IdusLog.ObjectType;
-		var logObject = $(this).data('idus-log');
-
-		Cookies.set('login_type', logObject);
-		Logger.sendClick({
-			object : logObject,
-			objectType : ObjectType.LoginType
-		}, logObject == 'email');
-	});
-	return false;
-});
-
-// 다른방법으로 가입하기 펼쳐짐 여부
-var isShowMore = false; 
-//Kakao.init('b8f8a6447c4b332f56469b63c9b7a010');
-function loginWithKakao() {
-	// 로그인 창을 띄웁니다.
-	Kakao.Auth.login({
-		success : function(authObj) {
-			let param = "?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fc&code="
-					+ authObj.access_token
-					+ "&state=613a4626d58d8&through=true";
-			window.location.href = "/w/kakao/login_callback"
-					+ param;
-		},
-		fail : function(err) {
-			let error = JSON.stringify(err);
-			window.location.href = "/w/join";
-		},
-		throughTalk : true
-	});
-};*/
-
-////////////////////////////////////////////////////////////
 function showHidden() {
 	document.getElementsByClassName("show-more-signup-btn")[0].style.display = "none";
 	document.getElementsByClassName("hidden")[0].className = "";
@@ -199,9 +148,6 @@ function sendSMS(pageName){
 	document.getElementById('hiddenDiv').setAttribute('class', 'form-block-body');
 	
 	 //변수 form에 id식별자 form을 담는다.
-    var button = $("auth_cellphone_button").serialize();
-	let cell_phone = $("#cell_phone").val();
-	alert(cell_phone);
     $.ajax({
         url : pageName + ".do",
         type : "POST",
@@ -210,9 +156,8 @@ function sendSMS(pageName){
         beforeSend : function() {
         },
         success : function(data) {
-			console.log(data);
-			console.log(data.randomPIN);
-           document.getElementById("randomPIN").value = data.randomPIN;
+			document.getElementById("randomPIN").value = data.randomPIN;
+		 	console.log('인증번호 : ' + data.randomPIN);
         },
         error : function(request, status, error) {
             alert("list search fail :: error code: "
@@ -238,6 +183,7 @@ function sendSMS(pageName){
 		if(time < 0 ) {
 			clearInterval(x); //setInterval() 실행을 끝냄
 			alert('인증 시간이 끝났습니다. 재인증 해주세요');
+			location.replace("/mpweb/IdSearch.do");
 		}
 	}, 1000);
 }
@@ -258,15 +204,42 @@ $(window).ready(function(){
 	});
 });
 
-function checkPIN(){
+function checkPIN(arg, user_phone){
 	var inputPIN = $("#auth_code").val();
 	var randomPIN = $("#randomPIN").val();
-	if(inputPIN == randomPIN){
-		$('#successPIN').css({'display' : 'block'});
-		$('#failPIN').css({'display' : 'none'});
-		$('#successPIN').attr("disabled", false);
-	} else {
-		$('#successPIN').css({'display' : 'none'});
-		$('#failPIN').css({'display' : 'block'});
+	if(arg === 'search'){ //아이디찾기 시 비교
+		if(inputPIN == randomPIN){
+			$('#failPIN').css({'display' : 'none'});
+		} else {
+			$('#failPIN').css({'display' : 'block'});
+		}
+	}else if(arg === sign){ //회원가입 시 비교
+		if(inputPIN == randomPIN){
+			$('#successPIN').css({'display' : 'block'});
+			$('#failPIN').css({'display' : 'none'});
+			$('#successPIN').attr("disabled", false);
+		} else {
+			$('#successPIN').css({'display' : 'none'});
+			$('#failPIN').css({'display' : 'block'});
+		}
 	}
+	
+	
 }
+
+$(window).ready(function() {
+	$(document).on("keyup", ".user_phone", function() { 
+		$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
+			if(('.user_phone').length > 0){
+				document.getElementById('auth_cellphone_button').setAttribute('class', 'btn btn-login btn-point');
+			}
+	});
+		
+	/* 승인요청 후 확인 버튼*/
+	$(document).on("keyup", ".randomPIN", function() {
+		$(this).val( $(this).val()); 
+			if(('.randomPIN').length > 0){
+				document.getElementById('randomPIN_button').setAttribute('class', 'btn btn-login btn-point');
+			}
+	});
+});

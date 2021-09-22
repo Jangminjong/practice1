@@ -1,6 +1,7 @@
 package com.idwith.mpweb.user;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,32 @@ public class UserDAO {
 
 	public void deleteUser(UserVO vo) {
 		System.out.println("DAO deleteUser() 실행");
+	}
+	
+	public int userCheck(String user_phone) {
+		int result = 0;
+		boolean dbResult = sqlSessionTemplate.selectOne("UserDAO.userCheck", user_phone);
+		
+		if(dbResult == true) {
+			result = 1;
+		}
+		return result;
+	}
+	
+	public List<Map<String, String>> getUserList(String user_phone){
+		List<Map<String, String>> userList = sqlSessionTemplate.selectList("UserDAO.getUserList", user_phone);
+		return userList;
+	}
+	
+	public List<Map<String, String>> getUserNameList(String user_id){
+		List<Map<String, String>> userList = sqlSessionTemplate.selectList("UserDAO.getUserNameList", user_id);
+		System.out.println("결과 값 : " + userList);
+		return userList;
+	}
+	
+	public List<Map<String, String>> getUserInfo(String user_name){
+		List<Map<String, String>> userInfo = sqlSessionTemplate.selectList("UserDAO.getUserInfo", user_name);
+		System.out.println("결과 값 : " +userInfo);
+		return userInfo;
 	}
 }

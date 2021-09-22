@@ -1,5 +1,8 @@
 package com.idwith.mpweb.user.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.idwith.mpweb.user.UserVO;
 
 public interface UserService {
@@ -16,4 +19,12 @@ public interface UserService {
 	Integer cellPhoneCheck(String cell_phone);
 	
 	String kakaoLogin(UserVO vo);
+	
+	Integer userCheck(String user_phone);
+	
+	List<Map<String, String>> getUserList(String user_phone);
+	
+	List<Map<String, String>> getUserNameList(String user_id);
+	
+	List<Map<String, String>> getUserInfo(String user_name);
 }

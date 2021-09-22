@@ -71,6 +71,12 @@ public class LoginController {
 		
 		return Integer.toString(result);
 	}
+	
+	@GetMapping("/IdSearch.do")
+	public String idSearch() {
+		
+		return "IdSearch";
+	}
 
 	//로그인 화면 요청 메소드 : 네이버
 //	@GetMapping("/login.do")
