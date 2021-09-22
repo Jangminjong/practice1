@@ -32,14 +32,14 @@
  		SET board_content=#{board_content} WHERE seq = #{seq}
  	</update>
  	<select id="rightCheck" resultType="_int">
-		SELECT count(*) FROM qna_board WHERE user_id='#{user_id}' AND seq=#{seq}
+		SELECT count(*) FROM qna_board WHERE user_id = #{user_id} AND seq = #{seq}
 	</select>
 	<delete id="deleteQnA" parameterType="qnaVO">
  		DELETE FROM qna_board WHERE seq=#{seq}
  	</delete>
 	<!-- 공지 아닌 게시글 개수 출력 -->
 	<select id="countQnA" resultType="_int">
-		SELECT COUNT(*) FROM qna_board 
+		SELECT COUNT(*) FROM qna_board WHERE board_fix=false
 	</select>
 	<!-- 공지글 수 출력 -->
 	<select id="countNotice" resultType="_int">
