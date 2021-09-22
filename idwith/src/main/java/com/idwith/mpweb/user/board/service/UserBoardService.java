@@ -2,10 +2,10 @@ package com.idwith.mpweb.user.board.service;
 
 import java.util.List;
 
-import com.idwith.mpweb.user.board.PagingVO;
+import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
 
-public interface BoardService {
+public interface UserBoardService {
 	void insertQnA(QnABoardVO qnaVO);
 	
 	List<QnABoardVO> getQnAList();

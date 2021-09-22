@@ -1,4 +1,4 @@
-package com.idwith.mpweb.user.board;
+package com.idwith.mpweb.common;
 
 public class PagingVO {
 	private int nowPage, startPage, endPage, total, countNotice, lastPage, start, end;
@@ -6,6 +6,15 @@ public class PagingVO {
 	private int cntPerPage = 20;
 
 	public PagingVO() {
+	}
+	
+	public PagingVO(int total, int nowPage, int cntPerPage) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
 	}
 
 	public PagingVO(int total, int nowPage, int cntPerPage, int countNotice) {

@@ -6,8 +6,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.idwith.mpweb.common.PagingVO;
+
 @Repository("boardDAO")
-public class BoardDAO {
+public class UserBoardDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	

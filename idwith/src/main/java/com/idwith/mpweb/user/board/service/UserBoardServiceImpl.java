@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.idwith.mpweb.user.board.BoardDAO;
-import com.idwith.mpweb.user.board.PagingVO;
+import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.board.UserBoardDAO;
 import com.idwith.mpweb.user.board.QnABoardVO;
 
-@Service("boardService")
-public class BoardServiceImpl implements BoardService {
+@Service("userBoardService")
+public class UserBoardServiceImpl implements UserBoardService {
 	@Autowired
-	private BoardDAO boardDAO;
+	private UserBoardDAO boardDAO;
 
 	@Override
 	public void insertQnA(QnABoardVO qnaVO) {
@@ -73,7 +73,8 @@ public class BoardServiceImpl implements BoardService {
 	public List<QnABoardVO> selectQnA(PagingVO pageVO) {
 		return boardDAO.selectQnA(pageVO);
 	}
-
+	
+	// 공지글 수
 	@Override
 	public int countNotice() {
 		return boardDAO.countNotice();
