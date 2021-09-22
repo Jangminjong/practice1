@@ -1,6 +1,7 @@
 package com.idwith.mpweb.user.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.idwith.mpweb.user.board.PagingVO;
+import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
-import com.idwith.mpweb.user.board.service.BoardService;
+import com.idwith.mpweb.user.board.service.UserBoardService;
 
 @Controller
 public class UserBoardController {
 	@Autowired
-	BoardService boardService;
+	UserBoardService boardService;
 	
 	@GetMapping("/alarm.do")
 	public String userAlarm() {
@@ -29,12 +30,6 @@ public class UserBoardController {
 	public String userMessage() {
 		return "message";
 	}
-	
-	/*
-	 * @RequestMapping("/board.do") public String getQnAList(Model model) {
-	 * System.out.println("글 목록 조회 처리"); model.addAttribute("qnaList",
-	 * boardService.getQnAList()); return "board/board"; }
-	 */
 	
 	@RequestMapping(value="/qnaRightCheck.do", method=RequestMethod.POST, produces="application/text; charset=utf8")
 	@ResponseBody
@@ -61,7 +56,7 @@ public class UserBoardController {
 	}
 	
 	@RequestMapping("/board_detail.do")
-	public String boardDetail(QnABoardVO qnaVO, Model model) {
+	public String boardDetail(QnABoardVO qnaVO, Model model){
 		System.out.println("글 상세 보기 처리");
 		System.out.println("num: "+qnaVO.getSeq());
 		model.addAttribute("qnaVO", boardService.getQnA(qnaVO));
