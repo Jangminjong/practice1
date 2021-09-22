@@ -12,6 +12,7 @@ public class QnABoardVO {
 	Date board_date;
 	boolean board_fix;
 	int seq;
+	int hit;
 
 	public String getUser_id() {
 		return user_id;
@@ -85,12 +86,20 @@ public class QnABoardVO {
 		this.seq = seq;
 	}
 
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+
 	@Override
 	public String toString() {
 		return "QnABoardVO [user_id=" + user_id + ", board_category=" + board_category + ", board_title=" + board_title
 				+ ", board_content=" + board_content + ", board_answer=" + board_answer + ", board_secret="
-				+ board_secret + ", board_date=" + board_date + ", board_fix=" + board_fix + ", seq=" + seq
-				+ "]";
+				+ board_secret + ", board_date=" + board_date + ", board_fix=" + board_fix + ", seq=" + seq + ", hit="
+				+ hit + "]";
 	}
 
 	

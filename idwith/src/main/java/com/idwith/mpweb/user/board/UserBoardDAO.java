@@ -59,4 +59,8 @@ public class UserBoardDAO {
 		System.out.println("DAO selectQnA() ½ÇÇà");
 		return sqlSessionTemplate.selectList("BoardDAO.selectQnA", pageVO);
 	}
+	
+	public void addHit(QnABoardVO qnaVO) {
+		sqlSessionTemplate.update("BoardDAO.addHit", qnaVO);
+	}
 }

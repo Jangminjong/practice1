@@ -23,4 +23,6 @@ public interface UserBoardService {
 	int countNotice();
 	
 	List<QnABoardVO> selectQnA(PagingVO pageVO);
+	
+	void addHit(QnABoardVO qnaVO);
 }

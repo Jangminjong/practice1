@@ -13,6 +13,7 @@ public class AdminQnABoardVO {
 	boolean board_fix;
 	int seq;
 	int rownum;
+	int hit;
 
 	public String getUser_id() {
 		return user_id;
@@ -93,15 +94,23 @@ public class AdminQnABoardVO {
 	public void setRownum(int rownum) {
 		this.rownum = rownum;
 	}
+	
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 
 	@Override
 	public String toString() {
 		return "AdminQnABoardVO [user_id=" + user_id + ", board_category=" + board_category + ", board_title="
 				+ board_title + ", board_content=" + board_content + ", board_answer=" + board_answer
 				+ ", board_secret=" + board_secret + ", board_date=" + board_date + ", board_fix=" + board_fix
-				+ ", seq=" + seq + ", rownum=" + rownum + "]";
+				+ ", seq=" + seq + ", rownum=" + rownum + ", hit=" + hit + "]";
 	}
 
-	
 	
 }

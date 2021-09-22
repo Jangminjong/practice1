@@ -14,6 +14,7 @@
  		<result property="board_date" column="board_date"/>
  		<result property="board_fix" column="board_fix"/>
  		<result property="seq" column="seq"/>
+ 		<result property="hit" column="hit"/>
  	</resultMap>
  	<select id="getQnA" resultType="adminQnA">
 		SELECT * FROM qna_board WHERE seq=#{seq}
@@ -48,8 +49,8 @@
  		DELETE FROM qna_board WHERE seq=#{seq}
  	</delete>
  	<insert id="userInsertNotice" parameterType="adminQnA">
- 		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_secret, board_date, board_fix, seq)
- 		VALUES('관리자1', '이용', #{board_title}, #{board_content}, false, now(), true, nextval('seq_qna_board'))
+ 		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_secret, board_date, board_fix, seq, hit)
+ 		VALUES('관리자1', '이용', #{board_title}, #{board_content}, false, now(), true, nextval('seq_qna_board'), 0)
  	</insert>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard

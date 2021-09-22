@@ -59,6 +59,7 @@ public class UserBoardController {
 	public String boardDetail(QnABoardVO qnaVO, Model model){
 		System.out.println("글 상세 보기 처리");
 		System.out.println("num: "+qnaVO.getSeq());
+		boardService.addHit(qnaVO);
 		model.addAttribute("qnaVO", boardService.getQnA(qnaVO));
 		return "board/board_detail";
 	}
@@ -69,6 +70,7 @@ public class UserBoardController {
 		boardService.updateQnA(qnaVO);
 		return "board/board";
 	}
+	
 	
 	@RequestMapping("/deleteQnA.do")
 	public String deleteQnA(QnABoardVO qnaVO) {

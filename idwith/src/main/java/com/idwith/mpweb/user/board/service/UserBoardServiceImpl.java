@@ -79,6 +79,10 @@ public class UserBoardServiceImpl implements UserBoardService {
 	public int countNotice() {
 		return boardDAO.countNotice();
 	}
-	
 
+	@Override
+	public void addHit(QnABoardVO qnaVO) {
+		boardDAO.addHit(qnaVO);
+		
+	}
 }

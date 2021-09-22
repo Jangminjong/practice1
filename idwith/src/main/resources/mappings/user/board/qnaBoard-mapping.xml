@@ -14,10 +14,11 @@
  		<result property="board_date" column="board_date"/>
  		<result property="board_fix" column="board_fix"/>
  		<result property="seq" column="seq"/>
+ 		<result property="hit" column="hit"/>
  	</resultMap>
  	<insert id="insertQnA" parameterType="qnaVO">
- 		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_secret, board_date, board_fix, seq)
- 		VALUES(#{user_id}, #{board_category}, #{board_title}, #{board_content}, ${board_secret}, now(), ${board_fix}, nextval('seq_qna_board'))
+ 		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_secret, board_date, board_fix, seq, hit)
+ 		VALUES(#{user_id}, #{board_category}, #{board_title}, #{board_content}, ${board_secret}, now(), false, nextval('seq_qna_board'), 0)
  	</insert>
  	<select id="getQnAList" resultMap="qnaResult">
  		SELECT * FROM qna_board 
@@ -50,6 +51,11 @@
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
 	FROM qna_board WHERE board_fix=false ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
+	<!-- 공지글 조회수 -->
+	<update id="addHit" parameterType="qnaVO">
+ 		UPDATE qna_board
+ 		SET hit=((SELECT hit FROM qna_board WHERE seq=#{seq})+1) WHERE seq = #{seq}
+ 	</update>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}
