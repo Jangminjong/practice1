@@ -10,15 +10,14 @@
  		<result property="board_title" column="board_title"/>
  		<result property="board_content" column="board_content"/>
  		<result property="board_answer" column="board_answer"/>
- 		<result property="board_secret" column="board_secret"/>
  		<result property="board_date" column="board_date"/>
  		<result property="board_fix" column="board_fix"/>
  		<result property="seq" column="seq"/>
  		<result property="hit" column="hit"/>
  	</resultMap>
  	<insert id="insertQnA" parameterType="qnaVO">
- 		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_secret, board_date, board_fix, seq, hit)
- 		VALUES(#{user_id}, #{board_category}, #{board_title}, #{board_content}, ${board_secret}, now(), false, nextval('seq_qna_board'), 0)
+ 		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_date, board_fix, seq, hit)
+ 		VALUES(#{user_id}, #{board_category}, #{board_title}, #{board_content}, now(), false, nextval('seq_qna_board'), 0)
  	</insert>
  	<select id="getQnAList" resultMap="qnaResult">
  		SELECT * FROM qna_board 

@@ -8,7 +8,6 @@ public class QnABoardVO {
 	String board_title;
 	String board_content;
 	String board_answer;
-	boolean board_secret;
 	Date board_date;
 	boolean board_fix;
 	int seq;
@@ -53,15 +52,7 @@ public class QnABoardVO {
 	public void setBoard_answer(String board_answer) {
 		this.board_answer = board_answer;
 	}
-
-	public boolean isBoard_secret() {
-		return board_secret;
-	}
-
-	public void setBoard_secret(boolean board_secret) {
-		this.board_secret = board_secret;
-	}
-
+	
 	public Date getBoard_date() {
 		return board_date;
 	}
@@ -97,10 +88,8 @@ public class QnABoardVO {
 	@Override
 	public String toString() {
 		return "QnABoardVO [user_id=" + user_id + ", board_category=" + board_category + ", board_title=" + board_title
-				+ ", board_content=" + board_content + ", board_answer=" + board_answer + ", board_secret="
-				+ board_secret + ", board_date=" + board_date + ", board_fix=" + board_fix + ", seq=" + seq + ", hit="
-				+ hit + "]";
+				+ ", board_content=" + board_content + ", board_answer=" + board_answer + ", board_date=" + board_date
+				+ ", board_fix=" + board_fix + ", seq=" + seq + ", hit=" + hit + "]";
 	}
-
 	
 }

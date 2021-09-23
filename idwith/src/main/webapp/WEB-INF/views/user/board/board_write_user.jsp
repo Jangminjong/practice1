@@ -43,16 +43,6 @@
 					<div class="qna-content" style="margin-bottom:24px;">
 					<textarea rows="37" name="board_content"></textarea>
 				</div>
-				<div class="qna-checkbox" style="margin-bottom:24px;">
-					<div class="qna-secret" >
-						<input type="checkbox" name="board_secret" checked>
-						<label><span>비밀글 설정</span></label>
-					</div>
-					<div class="qna-fix" >
-						<input type="checkbox" name="board_fix">
-						<label><span>고정글</span></label>
-					</div>
-				</div>
 				<input type="submit" value="등록" id="qna-submit" class="qna-submit">
 				</form>
 				<a href="board.do"><button class="btn-qna-board">목록</button></a>

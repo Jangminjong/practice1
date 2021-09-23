@@ -20,7 +20,6 @@ public class UserBoardServiceImpl implements UserBoardService {
 		System.out.println("category: "+qnaVO.getBoard_category());
 		System.out.println("title: "+qnaVO.getBoard_title());
 		System.out.println("content: "+qnaVO.getBoard_content());
-		System.out.println("secret: "+qnaVO.isBoard_secret());
 		System.out.println("fix: "+qnaVO.isBoard_fix());
 		boardDAO.insertQnA(qnaVO);
 	}
@@ -36,7 +35,6 @@ public class UserBoardServiceImpl implements UserBoardService {
 		System.out.println("category: "+qnaVO.getBoard_category());
 		System.out.println("title: "+qnaVO.getBoard_title());
 		System.out.println("content: "+qnaVO.getBoard_content());
-		System.out.println("secret: "+qnaVO.isBoard_secret());
 		System.out.println("fix: "+qnaVO.isBoard_fix());
 		System.out.println("num: "+qnaVO.getSeq());
 		return boardDAO.getQnA(qnaVO);
