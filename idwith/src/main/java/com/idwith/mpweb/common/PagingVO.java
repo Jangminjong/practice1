@@ -4,6 +4,7 @@ public class PagingVO {
 	private int nowPage, startPage, endPage, total, countNotice, lastPage, start, end;
 	private int cntPage = 5;
 	private int cntPerPage = 20;
+	private String set;
 
 	public PagingVO() {
 	}
@@ -12,6 +13,16 @@ public class PagingVO {
 		setNowPage(nowPage);
 		setCntPerPage(cntPerPage);
 		setTotal(total);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
+	}
+	
+	public PagingVO(int total, int nowPage, int cntPerPage, String set) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		setSet(set);
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);
 		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
@@ -26,6 +37,7 @@ public class PagingVO {
 		calcStartEndPage(getNowPage(), cntPage);
 		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(), getCountNotice());
 	}
+	
 
 	// 제일 마지막 페이지 계산
 	public void calcLastPage(int total, int cntPerPage) {
@@ -133,13 +145,22 @@ public class PagingVO {
 		this.cntPage = cntPage;
 	}
 
+	public String getSet() {
+		return set;
+	}
+
+	public void setSet(String set) {
+		this.set = set;
+	}
+
 	@Override
 	public String toString() {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
 				+ ", countNotice=" + countNotice + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
-				+ ", cntPage=" + cntPage + ", cntPerPage=" + cntPerPage + "]";
+				+ ", cntPage=" + cntPage + ", cntPerPage=" + cntPerPage + ", set=" + set + "]";
 	}
 
 	
-
+	
+	
 }

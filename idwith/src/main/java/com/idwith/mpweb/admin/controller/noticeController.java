@@ -64,7 +64,7 @@ public class noticeController {
 		System.out.println("공지 등록 처리");
 		System.out.println("content: "+adminQnA.getBoard_content());
 		adminBoardService.userInsertNotice(adminQnA);
-		return "userNotice";
+		return "redirect:/userNotice.mdo";
 	}
 	
 	@GetMapping("/userNoticeContent.mdo")
@@ -79,23 +79,24 @@ public class noticeController {
 	public String updateNotice(AdminQnABoardVO adminQnA) {
 		System.out.println("유저 공지사항 내용 수정 처리");
 		adminBoardService.updateNotice(adminQnA);
-		return "userNotice";
+		return "redirect:/userNotice.mdo";
 	}
 	
 	@RequestMapping("/deleteNotice.mdo")
 	public String deleteNotice(AdminQnABoardVO adminQnA) {
 		System.out.println("유저 공지글 삭제 처리");
 		adminBoardService.deleteNotice(adminQnA);
-		return "userNotice";
+		return "redirect:/userNotice.mdo";
 	}
 	
-	@GetMapping("/qna.mdo")
+	@GetMapping(value="/qna.mdo")
 	public String qnaList(PagingVO pageVO, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
-			@RequestParam(value = "cntPerPage", required = false) String cntPerPage) {
-
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
+		
 		int total = adminBoardService.countQnA();
 		System.out.println("전체 qna 수: " + total);
+		System.out.println("카테고리: "+set);
 
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -104,8 +105,14 @@ public class noticeController {
 			cntPerPage = "10";
 		}
 
-		System.out.println("nowpage: " + nowPage + "cntPerpage: " + cntPerPage);
-		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		System.out.println("nowpage: " + nowPage + ", cntPerpage: " + cntPerPage);
+		if(set == null) {
+			System.out.println("set 세팅");
+			set = "구분";
+		}
+		
+		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), set);
+		System.out.println(pageVO.getSet());
 		model.addAttribute("paging", pageVO);
 
 		model.addAttribute("adminQnAList", adminBoardService.selectQnA(pageVO));

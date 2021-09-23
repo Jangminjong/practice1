@@ -27,6 +27,8 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/admin/js/aboutUser.js"></script>
 </head>
 
 <body>
@@ -197,7 +199,7 @@
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
 									<h3>Q&A</h3>
-									<select id="qna_type" name="board_category">
+									<select id="qna_type" name="board_category" onchange="setCategory()">
 										<option value="구분">구분</option>
 										<option value="결제">결제</option>
 										<option value="배송">배송</option>
@@ -268,12 +270,12 @@
 										<c:choose>
 											<c:when test="${p eq paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" onclick="return false" class="page-link">${p }</a>
+													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}" onclick="return false" class="page-link">${p }</a>
 												</li>
 											</c:when>
 											<c:when test="${p ne paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="page-link">${p }</a>
+													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}" class="page-link">${p }</a>
 												</li>
 											</c:when>
 										</c:choose>
@@ -284,7 +286,7 @@
 										</c:when>
 										<c:when test="${paging.endPage ne paging.lastPage}">
 											<li class="page-item"><a
-												href="/mpweb/qna.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+												href="/mpweb/qna.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
 												style="width: auto;" class="page-link">Next</a>
 											</li>
 										</c:when>

@@ -21,7 +21,11 @@ public class AdminQnABoardDAO {
 
 	public List<AdminQnABoardVO> selectQnA(PagingVO pageVO) {
 		System.out.println("DAO selectQnA() 실행");
-		return sqlSessionTemplate.selectList("AdminQnABoardDAO.selectQnA", pageVO);
+		if(pageVO.getSet().equals("구분")) {
+			return sqlSessionTemplate.selectList("AdminQnABoardDAO.selectQnA", pageVO);
+		} else {
+			return sqlSessionTemplate.selectList("AdminQnABoardDAO.selectQnAWithCategory", pageVO);
+		}
 	}
 	
 	public AdminQnABoardVO getQnA(AdminQnABoardVO adminQnA) {
