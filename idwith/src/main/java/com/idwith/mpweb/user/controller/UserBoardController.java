@@ -52,7 +52,7 @@ public class UserBoardController {
 	public String insertQnA(QnABoardVO qnaVO) {
 		System.out.println("QnA 殿废 贸府");
 		boardService.insertQnA(qnaVO);
-		return "board/board";
+		return "redirect:/board.do";
 	}
 	
 	@RequestMapping("/board_detail.do")
@@ -68,7 +68,7 @@ public class UserBoardController {
 	public String updateQnA(QnABoardVO qnaVO) {
 		System.out.println("QnA 郴侩 荐沥 贸府");
 		boardService.updateQnA(qnaVO);
-		return "board/board";
+		return "redirect:/board.do";
 	}
 	
 	
@@ -76,7 +76,7 @@ public class UserBoardController {
 	public String deleteQnA(QnABoardVO qnaVO) {
 		System.out.println("臂 昏力 贸府");
 		boardService.deleteQnA(qnaVO);
-		return "board/board";
+		return "redirect:/board.do";
 	}
 	
 	// 其捞隆 贸府

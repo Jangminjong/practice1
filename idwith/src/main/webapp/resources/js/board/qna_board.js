@@ -15,8 +15,7 @@ $(window).ready(function(){
 	
 });
 
-function boardRightCheck(){
-	const seq = $('.qna-seq').val();
+function boardRightCheck(seq){
 	const email= $('#email').val();
 	console.log('seq: '+seq+', email: '+email);
 		$.ajax({
@@ -24,14 +23,15 @@ function boardRightCheck(){
      		type: "POST",
      		data: {
 				email:email,
-				seq: seq
+				seq:seq
 			},
 			success: function(data){
 				console.log('data: '+data);
 				if(data == 1){
-					location.replace('mpweb/board_detail.do?seq='+seq);
+					location.replace('board_detail.do?seq='+seq);
 				}else{
 					alert('권한이 없습니다.');
+					location.replace('board.do');
 				}
 			},
 			error: function(request, status, error){
