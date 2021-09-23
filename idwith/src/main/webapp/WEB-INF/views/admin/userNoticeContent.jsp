@@ -23,7 +23,7 @@
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="resources/admin/js/noticeUser.js"></script>
+<script type="text/javascript" src="resources/admin/js/aboutUser.js"></script>
 </head>
 
 <body>
