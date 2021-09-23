@@ -8,7 +8,6 @@ public class AdminQnABoardVO {
 	String board_title;
 	String board_content;
 	String board_answer;
-	boolean board_secret;
 	Date board_date;
 	boolean board_fix;
 	int seq;
@@ -55,13 +54,6 @@ public class AdminQnABoardVO {
 		this.board_answer = board_answer;
 	}
 
-	public boolean isBoard_secret() {
-		return board_secret;
-	}
-
-	public void setBoard_secret(boolean board_secret) {
-		this.board_secret = board_secret;
-	}
 
 	public Date getBoard_date() {
 		return board_date;
@@ -107,10 +99,9 @@ public class AdminQnABoardVO {
 	@Override
 	public String toString() {
 		return "AdminQnABoardVO [user_id=" + user_id + ", board_category=" + board_category + ", board_title="
-				+ board_title + ", board_content=" + board_content + ", board_answer=" + board_answer
-				+ ", board_secret=" + board_secret + ", board_date=" + board_date + ", board_fix=" + board_fix
-				+ ", seq=" + seq + ", rownum=" + rownum + ", hit=" + hit + "]";
+				+ board_title + ", board_content=" + board_content + ", board_answer=" + board_answer + ", board_date="
+				+ board_date + ", board_fix=" + board_fix + ", seq=" + seq + ", rownum=" + rownum + ", hit=" + hit
+				+ "]";
 	}
-
 	
 }
