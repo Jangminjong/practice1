@@ -135,7 +135,7 @@ public class noticeController {
 		System.out.println("seq: "+ adminQnA.getSeq());
 		System.out.println("answer: "+ adminQnA.getBoard_answer());
 		adminBoardService.updateAnswer(adminQnA);
-		return "qna";
+		return "redirect:/qna.mdo";
 	}
 
 }
