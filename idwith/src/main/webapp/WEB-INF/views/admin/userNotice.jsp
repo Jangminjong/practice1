@@ -4,10 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	List<AdminQnABoardListVO> noticeList = (List<AdminQnABoardListVO>) session.getAttribute("noticeList");
-	PagingVO paging = new PagingVO();
-%>
+
 <!DOCTYPE html>
 <html lang="en">
 

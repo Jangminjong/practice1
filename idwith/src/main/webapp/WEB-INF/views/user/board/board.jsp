@@ -4,12 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	List<QnAListVO> qnaList = (List<QnAListVO>) session.getAttribute("qnaList");
-	List<QnAListVO> noticeList = (List<QnAListVO>) session.getAttribute("noticeList");
-	PagingVO paging = new PagingVO();
-	String email = (String) session.getAttribute("email");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +48,7 @@
 						<c:if test="${qnaVO.board_fix eq false}">
 							<a href="javascript:boardRightCheck(${qnaVO.seq})" class=".qna-one">
 								<input name="user_id" type="hidden" value="${qnaVO.user_id}"/>
-								<input class="qna-seq" name="seq" type="text" value="${qnaVO.seq}"/>
+								<input class="qna-seq" name="seq" type="hidden" value="${qnaVO.seq}"/>
 								<input name="board_answer" type="hidden" value="${qnaVO.board_answer }"/>
 								<input name="user_id" type="hidden" value="${qnaVO.user_id }"/>
 								<div>
