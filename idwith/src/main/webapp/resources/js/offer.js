@@ -58,6 +58,16 @@ function onblurEvent(args){
 				$('#sellerPhoneUnderline').css({'background-color' : ''});
 			}
 			break;
+		case "productCategory":
+			var sel = document.getElementById("productCategory");
+			var selVal = sel.options[sel.selectedIndex].value;
+			if(selVal == ""){
+				$('.productCategory-error').css({'display' : 'flex'});
+				$('#productCategoryBorder').css({'border-color' : '#d93025'});
+			}else{
+				$('.productCategory-error').css({'display' : 'none'});
+				$('#productCategoryBorder').css({'border-color' : ''});
+			}
 		case "productName":
 			if($('#productName').val() == ""){
 				$('.productName-error').css({'display' : 'flex'});
@@ -84,5 +94,12 @@ function onblurEvent(args){
 }
 
 function textDelete(){
-	alert('ddd');
+	$('.exportInput').val('');
+	$('#sellerName').attr('placeholder', '작가 이름');
+	$('#sellerPhone').attr('placeholder', '작가 전화번호');
+	$('#productName').attr('placeholder', '작품 이름');
+	$('#productFunction').attr('placeholder', '작품 기능');
+	$('#productInfo').attr('placeholder', '작품 부가설명');
+	$('#productSellnoImg').attr('placeholder', '작품 이미지');
+	$('#productPrice').attr('placeholder', '작픔 가격');
 }
