@@ -23,6 +23,4 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="naverLoginBO" class="com.idwith.mpweb.user.controller.NaverLoginBO" />
-
 </beans>

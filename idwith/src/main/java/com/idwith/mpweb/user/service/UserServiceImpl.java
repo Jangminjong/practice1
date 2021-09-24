@@ -59,12 +59,27 @@ public class UserServiceImpl implements UserService {
 		if (emailCheck==0) {
 			dao.insertKakao(vo);
 			result = "success";
-		}
-		
-		if(emailCheck==1) {
+		}else if(emailCheck==1) {
 			result = "success";
+		}else {
+			result="fail";
 		}
 		
+		return result;
+	}
+	
+	@Override
+	public String naverLogin(UserVO vo) {
+		String result="";
+		int emailCheck = dao.emailCheck(vo.getUser_id());
+		if(emailCheck==0) {
+			dao.insertUser(vo);
+			result="success";
+		}else if(emailCheck==1) {
+			result="success";
+		}else {
+			result="fail";
+		}
 		return result;
 	}
 	

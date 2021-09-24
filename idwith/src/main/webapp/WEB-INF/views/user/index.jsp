@@ -192,15 +192,9 @@
         </script>
 
 	<div class="wrap">
-	<c:choose>
-		<c:when test="${ emailSplit eq null }">
-			<jsp:include page="header_goods.jsp"/>
-		</c:when>
-		<c:when test="${ emailSplit ne null }">
-			<jsp:include page="header_goods_login.jsp"/>
-		</c:when>
-	</c:choose>
 
+	<jsp:include page="header_goods.jsp"/>
+		
 		<div id="skip-to-content">
 			<a href="#gnb">메뉴목록으로 바로가기</a> <a href="#content">컨텐츠로 바로가기</a>
 		</div>

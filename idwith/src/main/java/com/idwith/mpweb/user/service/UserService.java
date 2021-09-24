@@ -16,4 +16,6 @@ public interface UserService {
 	Integer cellPhoneCheck(String cell_phone);
 	
 	String kakaoLogin(UserVO vo);
+	
+	String naverLogin(UserVO vo);
 }

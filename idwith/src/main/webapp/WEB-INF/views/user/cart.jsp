@@ -260,7 +260,7 @@
 			<a href="#gnb">메뉴목록으로 바로가기</a> <a href="#content">컨텐츠로 바로가기</a>
 		</div>
 
-		<jsp:include page="header_goods_login.jsp" />
+		<jsp:include page="header_goods.jsp" />
 		<div class="dimmed-background"></div>
 		<div id="content" class="content" data-page="shoppingBag">
 			<div data-vue="ModalContainer"></div>

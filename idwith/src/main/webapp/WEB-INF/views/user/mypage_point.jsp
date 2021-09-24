@@ -201,7 +201,7 @@
     <a href="#content">컨텐츠로 바로가기</a>
 </div>
 
-<jsp:include page="header_goods_login.jsp"/>
+<jsp:include page="header_goods.jsp"/>
 <div class="dimmed-background"></div><div id="content" class="content" data-page="point">
     <div class="inner-w layout-split mobile-full" data-layout-split="orderlist">
        <aside class="my-info">
