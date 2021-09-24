@@ -62,14 +62,14 @@ public class SignController {
 		params.put("randomPIN", String.valueOf(randomPIN));
 
 		System.out.println("랜덤번호 : " + randomPIN);
-//		try {
-//			JSONObject obj = (JSONObject) coolsms.send(params);
-//			System.out.println(obj.toString());
-//		} catch (CoolsmsException e) {
-//			System.out.println(e.getMessage());
-//			System.out.println("오류");
-//			System.out.println(e.getCode());
-//		}
+		try {
+			JSONObject obj = (JSONObject) coolsms.send(params);
+			System.out.println(obj.toString());
+		} catch (CoolsmsException e) {
+			System.out.println(e.getMessage());
+			System.out.println("오류");
+			System.out.println(e.getCode());
+		}
 
 		return params;
 	}
