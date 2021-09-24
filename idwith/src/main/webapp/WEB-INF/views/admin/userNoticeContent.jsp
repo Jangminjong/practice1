@@ -189,19 +189,26 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form>
-							<div class="mb-3">
-								<label class="form-label">Notice Title</label> <input
-									type="text" class="form-control" placeholder="제목"
-									style="width: auto;">
+						<form class="row g-3">
+							<div class="col-md-4">
+								<label class="form-label">제목</label>
+								<input type="text" class="form-control" placeholder="제목" style="width: auto;">
+							</div>
+                            <div class="col-md-4">
+								<label class="form-label">작성자</label>
+								<input type="text" class="form-control" placeholder="작성자" style="width: auto;" disabled>
+							</div>
+                            <div class="col-md-4">
+								<label class="form-label">작성일</label>
+								<input type="text" class="form-control" placeholder="작성일" style="width: auto;" disabled>
 							</div>
 							<div class="mb-3">
-								<label class="form-label">Content</label>
+								<label class="form-label">내용</label>
 								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
 							</div>
 							<div class="mb-3">
-								<label class="form-label w-100">File input</label> <input
-									type="file">
+								<label class="form-label w-100">파일</label>
+								<input type="file">
 							</div>
 						</form>
 					</div>
@@ -211,9 +218,6 @@
 					<div class="col-md-3 text-center"></div>
 					<div class="col-md-3 text-center"></div>
 					<div class="col-md-3 text-center">
-                        <a href="adminNotice.mdo">
-							<button class="btn btn-primary">등록</button>
-						</a>
                         <a href="adminNoticeContent.mdo">
 							<button class="btn btn-primary">수정</button>
 						</a>

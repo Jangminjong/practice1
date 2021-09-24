@@ -216,7 +216,7 @@
 						</a>
 						<a href="adminInsertNotice.mdo">
 							<!--초기화 진행-->
-							<button class="btn btn-primary">초기화</button>
+							<button class="btn btn-primary" type="reset">초기화</button>
 						</a>
 					</div>
 				</div>

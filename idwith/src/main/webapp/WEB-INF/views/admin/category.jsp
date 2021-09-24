@@ -13,9 +13,9 @@
 <meta name="author" content="AdminKit">
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-	
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
@@ -59,7 +59,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="storePropose.mdo">입점신청관리</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="sellerList.mdo">작가목록</a></li>
+								href="writerList.mdo">작가목록</a></li>
 
 						</ul></li>
 
@@ -99,10 +99,10 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="requestCoupon.mdo">쿠폰 요청 리스트</a></li>
 						</ul></li>
-						
-						<li class="sidebar-item"><a class="sidebar-link"
-						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
-							<span class="align-middle">카테고리</span>
+
+					<li class="sidebar-item"><a class="sidebar-link"
+						href="category.mdo"> <i class="align-middle"
+							data-feather="edit-2"></i> <span class="align-middle">카테고리</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
@@ -179,26 +179,7 @@
 			<main>
 				<div class="content">
 					<div class="container-fluid p-0">
-
 						<h1 class="h3 mb-3">카테고리</h1>
-						
-						<div class="row">
-                        <div class="col-md-3 text-center"></div>
-                        <div class="col-md-3 text-center"></div>
-                        <div class="col-md-3 text-center"></div>
-                        <div class="col-md-3 text-center">
-                            <a href="addCategory.html">
-                                <button class="btn btn-warning">카테고리 추가</button>
-                            </a>
-                        </div>
-                    </div>
-
-						<ul class="nav nav-tabs">
-							<li class="nav-item"><a class="nav-link active"
-								data-toggle="tab" href="#tab1" id="#tab1">작품 카테고리</a></li>
-							<li class="nav-item"><a class="nav-link" data-toggle="tab"
-								href="#tab2" id="#tab2">클래스 카테고리</a></li>
-						</ul>
 					</div>
 					<div class="card-body">
 						<div class="tab-content">
@@ -218,12 +199,15 @@
 												<th scope="row">1</th>
 												<td>BD</td>
 												<td>디저트,베이커리,떡</td>
-												<td>
-                                                    <a href="insertProductCategory.mdo">
-                                                        <button type="button" class="btn btn-warning" id="updateCategory">수정</button>
-                                                    </a>
-                                                 <button type="button" class="btn btn-primary" id="deletePDCategory">삭제</button>
-												</td>
+												<td><a href="insertProductCategory.mdo">
+														<button type="button" class="btn btn-warning"
+															id="updateCategory">등록</button>
+												</a> <a href="insertProductCategory.mdo">
+														<button type="button" class="btn btn-primary"
+															id="updateCategory">수정</button>
+												</a>
+													<button type="button" class="btn btn-primary"
+														id="deletePDCategory">삭제</button></td>
 											</tr>
 										</tbody>
 									</table>
@@ -245,12 +229,15 @@
 												<th scope="row">1</th>
 												<td>BD</td>
 												<td>디저트,베이커리,떡</td>
-												<td>
-                                                    <a href="insertClassCategory.mdo">
-                                                        <button type="button" class="btn btn-warning" id="updateCategory">수정</button>
-                                                    </a>
-                                                 <button type="button" class="btn btn-primary" id="deleteCLCategory">삭제</button>
-												</td>
+												<td><a href="insertClassCategory.mdo">
+														<button type="button" class="btn btn-warning"
+															id="updateCategory">등록</button>
+												</a> <a href="insertClassCategory.mdo">
+														<button type="button" class="btn btn-primary"
+															id="updateCategory">수정</button>
+												</a>
+													<button type="button" class="btn btn-primary"
+														id="deletePDCategory">삭제</button></td>
 											</tr>
 										</tbody>
 									</table>
@@ -259,12 +246,11 @@
 						</div>
 					</div>
 				</div>
-			</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 			<script>
 				$().ready(function (){ 
-					$("#deletePDCategory").click(function (){ 
+					$("#deletePDCategory").click(function (){ //작품 카테고리 alert
 						Swal.fire({ 
 							title: '카테고리 삭제', 
 							text: "해당 카테고리를 삭제하시겠습니까?", 
@@ -285,7 +271,7 @@
 						}) 
 					}); 
 					
-					$("#deleteCLCategory").click(function (){ 
+					$("#deleteCLCategory").click(function (){ //클래스 카테고리 alert
 						Swal.fire({ 
 							title: '카테고리 삭제', 
 							text: "해당 카테고리를 삭제하시겠습니까?", 
@@ -309,7 +295,6 @@
 				});
 			</script>
 		</div>
-	</div>
 </body>
 
 </html>
