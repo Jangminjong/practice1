@@ -289,6 +289,7 @@
 							</div>
 						</div>
 					</div>
+				</div>
 			</main>
 
 			<script src="resources/admin/js/app.js"></script>

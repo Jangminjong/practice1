@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.idwith.mpweb.admin.board.AdminNoitceBoardVO;
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.admin.board.service.AdminBoardService;
 import com.idwith.mpweb.common.PagingVO;
@@ -26,6 +27,13 @@ public class noticeController {
 		return "adminInsertNotice";
 	}
 	
+	@RequestMapping("/insertNotice.mdo")
+	public String insertNotice(AdminNoitceBoardVO adminNotice) {
+		System.out.println("ê´€ë¦¬ì ê³µì§€ì‚¬í•­ ë“±ë¡ ì²˜ë¦¬");
+		System.out.println("content : " + adminNotice.getAmdinBoardContent());
+		return "redirect:/adminNotice.mdo";
+	}
+	
 	@GetMapping("/adminNoticeContent.mdo")
 	public String adminNoticeContent() {
 		return "adminNoticeContent";
@@ -34,7 +42,7 @@ public class noticeController {
 	@GetMapping("/userNotice.mdo")
 	public String userNotice(PagingVO pageVO, Model model, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {
 		int countNotice = adminBoardService.countNotice();
-		System.out.println("°øÁö±Û ¼ö: "+ countNotice);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½: "+ countNotice);
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = "10";
@@ -55,7 +63,7 @@ public class noticeController {
 	
 	@RequestMapping("/insertUserNotice.mdo")
 	public String insertUserNotice(AdminQnABoardVO adminQnA) {
-		System.out.println("°øÁö µî·Ï Ã³¸®");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		/*
 		 * System.out.println("content: "+adminQnA.getBoard_content());
 		 * adminBoardService.userInsertNotice(adminQnA);
@@ -65,7 +73,7 @@ public class noticeController {
 	
 	@GetMapping("/userNoticeContent.mdo")
 	public String userNoticeContent(AdminQnABoardVO adminQnA, Model model) {
-		System.out.println("°øÁö±Û »ó¼¼ º¸±â Ã³¸®");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		/*
 		 * System.out.println("num: "+adminQnA.getSeq()); model.addAttribute("adminQnA",
 		 * adminBoardService.getQnA(adminQnA));
@@ -75,14 +83,14 @@ public class noticeController {
 	
 	@RequestMapping("/updateNotice.mdo")
 	public String updateNotice(AdminQnABoardVO adminQnA) {
-		System.out.println("À¯Àú °øÁö»çÇ× ³»¿ë ¼öÁ¤ Ã³¸®");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		//adminBoardService.updateNotice(adminQnA);
 		return "redirect:/userNotice.mdo";
 	}
 	
 	@RequestMapping("/deleteNotice.mdo")
 	public String deleteNotice(AdminQnABoardVO adminQnA) {
-		System.out.println("À¯Àú °øÁö±Û »èÁ¦ Ã³¸®");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		//adminBoardService.deleteNotice(adminQnA);
 		return "redirect:/userNotice.mdo";
 	}
@@ -93,8 +101,8 @@ public class noticeController {
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
 		
 		int total = adminBoardService.countQnA();
-		System.out.println("ÀüÃ¼ qna ¼ö: " + total);
-		System.out.println("Ä«Å×°í¸®: "+set);
+		System.out.println("ï¿½ï¿½Ã¼ qna ï¿½ï¿½: " + total);
+		System.out.println("Ä«ï¿½×°ï¿½: "+set);
 
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -105,8 +113,8 @@ public class noticeController {
 
 		System.out.println("nowpage: " + nowPage + ", cntPerpage: " + cntPerPage);
 		if(set == null) {
-			System.out.println("set ¼¼ÆÃ");
-			set = "±¸ºĞ";
+			System.out.println("set ï¿½ï¿½ï¿½ï¿½");
+			set = "ï¿½ï¿½ï¿½ï¿½";
 		}
 		
 		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), set);
@@ -121,7 +129,7 @@ public class noticeController {
 	
 	@RequestMapping("/answer.mdo")
 	public String answer(AdminQnABoardVO adminQnA, Model model) {
-		System.out.println("±Û »ó¼¼ º¸±â Ã³¸®");
+		System.out.println("ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		System.out.println("num: "+adminQnA.getSeq());
 		model.addAttribute("adminQnA", adminBoardService.getQnA(adminQnA));
 		return "answer";
@@ -129,7 +137,7 @@ public class noticeController {
 	
 	@RequestMapping("/updateAnswer.mdo")
 	public String updateAnswer(AdminQnABoardVO adminQnA) {
-		System.out.println("QnA ´äº¯ µî·Ï Ã³¸®");
+		System.out.println("QnA ï¿½äº¯ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		System.out.println("seq: "+ adminQnA.getSeq());
 		System.out.println("answer: "+ adminQnA.getBoard_answer());
 		adminBoardService.updateAnswer(adminQnA);
@@ -143,7 +151,7 @@ public class noticeController {
 	
 	@RequestMapping("/InsertFAQ.mdo")
 	public String insertFAQ(AdminQnABoardVO adminQnA) {
-		System.out.println("°øÁö µî·Ï Ã³¸®");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		System.out.println("content: "+adminQnA.getBoard_content());
 		adminBoardService.insertFAQ(adminQnA);
 		return "redirect:/qna.mdo";
@@ -151,7 +159,7 @@ public class noticeController {
 	
 	@RequestMapping("/detailFAQ.mdo")
 	public String detailFAQ(AdminQnABoardVO adminQnA, Model model) {
-		System.out.println("FAQ »ó¼¼ º¸±â Ã³¸®");
+		System.out.println("FAQ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		System.out.println("num: "+adminQnA.getSeq()); 
 		model.addAttribute("adminQnA", adminBoardService.getQnA(adminQnA));
 		return "detailFAQ";
@@ -159,14 +167,14 @@ public class noticeController {
 	
 	@RequestMapping("/updateFAQ.mdo")
 	public String updateFAQ(AdminQnABoardVO adminQnA) {
-		System.out.println("À¯Àú °øÁö»çÇ× ³»¿ë ¼öÁ¤ Ã³¸®");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		adminBoardService.updateFAQ(adminQnA);
 		return "redirect:/qna.mdo";
 	}
 	
 	@RequestMapping("/deleteFAQ.mdo")
 	public String deleteFAQ(AdminQnABoardVO adminQnA) {
-		System.out.println("À¯Àú °øÁö±Û »èÁ¦ Ã³¸®");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		adminBoardService.deleteFAQ(adminQnA);
 		return "redirect:/qna.mdo";
 	}

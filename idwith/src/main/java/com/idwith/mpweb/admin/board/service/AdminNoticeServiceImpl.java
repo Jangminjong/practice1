@@ -1,34 +1,20 @@
 package com.idwith.mpweb.admin.board.service;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.idwith.mpweb.admin.board.AdminNoitceBoardVO;
+import com.idwith.mpweb.admin.board.AdminNoticeBoardDAO;
 
 public class AdminNoticeServiceImpl implements AdminNoticeService {
 	
-	@Override
-	public List<AdminNoitceBoardVO> selectBoardList(AdminNoitceBoardVO vo) throws Exception {
-		return null;
-	}
+	@Autowired
+	private AdminNoticeBoardDAO adminNoticeBoardDAO;
 
 	@Override
-	public void insertBoard(AdminNoitceBoardVO vo) throws Exception {
-		
-	}
-
-	@Override
-	public void updateBoard(AdminNoitceBoardVO vo) throws Exception {
-		
-	}
-
-	@Override
-	public void deleteBoard(AdminNoitceBoardVO vo) throws Exception {
-		
-	}
-
-	@Override
-	public AdminNoitceBoardVO selectBoardByCode(AdminNoitceBoardVO vo) throws Exception {
-		return null;
+	public void insertAdminNotice(AdminNoitceBoardVO adminNotice) {
+		System.out.println("title : " + adminNotice.getAdminBoardTitle());
+		System.out.println("content : " + adminNotice.getAmdinBoardContent());
+		adminNoticeBoardDAO.insertNotice(adminNotice);
 	}
 
 }

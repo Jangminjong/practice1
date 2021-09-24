@@ -16,8 +16,8 @@
 	
 	<insert id="insertAdminNotice" parameterType="adminNotice">
 		INSERT INTO
-		admin_board(TITLE, CONTENT, FILEPATH, FIX)
-		VALUES(#{title},#{content},#{filePath}, #{fix})
+		admin_board(admin_board_seq, admin_board_id, admin_board_title, admin_board_content, admin_board_date, admin_board_cnt, admin_board_static)
+		VALUES(nextval('BOARD_SEQ'), 'admin', #{adminBoardTitle}, #{amdinBoardContent}, now(), 0, false)
 	</insert>
  	
 </mapper>
