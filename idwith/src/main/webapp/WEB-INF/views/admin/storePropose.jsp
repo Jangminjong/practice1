@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 <meta charset="utf-8">
@@ -207,23 +208,30 @@
 										<thead>
 											<tr>
 												<th scope="col">#</th>
-												<th scope="col">작가이름</th>
+												<th scope="col">작가아이디</th>
 												<th scope="col">사업자등록번호</th>
+												<th scope="col">작가명</th>
+												<th scope="col">작품 카테고리</th>
 												<th scope="col">신청날짜</th>
 												<th scope="col">입점승인/거절</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td><a href="productPropose.mdo">Seller2</a></td>
-												<td>555-33-12345</td>
-												<td>2021-09-01</td>
-												<td>
-													<button type="button" class="btn btn-warning" id="storeProposeAgree">승인</button>
-													<button type="button" class="btn btn-primary" id="storeProposeDisagree">거절</button>
-												</td>
-											</tr>
+											<c:forEach var="watingList" items="${watingList}" varStatus="status">
+												<tr>
+													<th scope="row">${status.count}</th>
+													<td><a href="classPropose.mdo">${watingList.user_id }</a></td>
+													<td>${watingList.seller_phone}</td>
+													<td id="${watingList.seller_name}">${watingList.seller_name}</td>
+													<td id="${watingList.product_category}">${watingList.product_category}</td>
+													<td>${watingList.offer_date}</td>
+													<td>
+														<button type="button" class="btn btn-warning" id="storeProposeAgree" name="${watingList.user_id}" 
+															onclick="storeProposeAgree(this.name, this.id, ${watingList.product_category}, ${watingList.seller_name})">승인</button>
+														<button type="button" class="btn btn-primary" id="storeProposeDisagree" name="${watingList.user_id }" onclick="storeProposeDisagree(this.name, this.id)">거절</button>
+													</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -261,34 +269,11 @@
 			</div>
 		</main>
 		<script src="resources/admin/js/app.js"></script>
-		<script>
-		$().ready(function (){ 
-			$("#storeProposeAgree").click(function (){ 
-				Swal.fire({ 
-					title: '입점 신청', 
-					text: "이 작가의 입점을 승인하시겠습니까?", 
-					icon: 'question', 
-					showCancelButton: true, 
-					confirmButtonColor: '#FF7B30', 
-					confirmButtonBorderColor : "#FF7B30",
-					cancelButtonColor: '#15283D', 
-					confirmButtonText: '승인', 
-					cancelButtonText: '취소' 
-				}).then((result) => { 
-					if (result.isConfirmed) { 
-						Swal.fire(
-							'입점 승인', 
-							'해당 작가의 입점이 승인되었습니다.', 
-						) 
-					} 
-				}) 
-			}); 
-		});
-			</script>
+			
 			<script>
-				$().ready(function (){ 
-					$("#storeProposeDisagree").click(function (){ 
-						Swal.fire({ 
+				function storeProposeDisagree(user_id, disagree){ 
+					var result_data;	
+					Swal.fire({ 
 							title: '입점거절', 
 							text: "이 작가의 입점을 거절하시겠습니까?", 
 							icon: 'warning', 
@@ -300,14 +285,168 @@
 							cancelButtonText: '취소' 
 						}).then((result) => { 
 							if (result.isConfirmed) { 
-								Swal.fire(
-									'입점 거절', 
-									'해당 작가의 입점이 거절되었습니다', 
-								) 
-							} 
-						}) 
-					}); 
-				});
+								
+								var promise = $.ajax({
+									url: "${pageContext.request.contextPath}/storeProposeState.mdo",
+									type: "GET",
+									async: false,
+									data: {
+											"user_id": user_id,
+											"disagree": disagree
+										},
+									success: function(data){
+										if(data == 1){
+											Swal.fire(
+													'입점 거절', 
+													'해당 작가의 입점이 거절되었습니다', 
+												)
+											result_data = data;
+										}else if(data == 0){
+											Swal.fire(
+													'거절 오류', 
+													'오류가 발생했습니다.',
+											)
+										}
+									},
+									error: function(request, status, error){
+										alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+									}
+								}); //end ajax
+								
+								/* 이메일 전송 */
+								if(result_data == 1){//승인 거절 시 이메일 전송
+									promise.done(function() {
+										console.log('이메일 전송 중...');
+										
+										$.ajax({
+											url: "${pageContext.request.contextPath}/sendEmail.mdo",
+											type: "GET",
+											async: false,
+											data: {
+													"user_id": user_id,
+													"disagree": disagree
+												},
+											success: function(data){
+												console.log('이메일 전송 완료');
+											},
+											error: function(request, status, error){
+												alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+											}
+										});
+									});
+								}else if(result_data == 0){//거절 오류 시 이메일 전송 보류
+									alert('작가 이메일 전송에 오류가 발생했습니다');
+								}
+								
+								
+							}//end if
+							
+						})
+				} 
+			</script>
+			
+			<script>
+				function storeProposeAgree(user_id, state, category, seller_name){
+					var result_data;
+					const productCategory = category[0].innerText;
+					const sellerName = seller_name.innerText;
+					
+					console.log(productCategory);
+					console.log(sellerName);
+					
+					Swal.fire({ 
+						title: '입점 신청', 
+						text: "이 작가의 입점을 승인하시겠습니까?", 
+						icon: 'question', 
+						showCancelButton: true, 
+						confirmButtonColor: '#FF7B30', 
+						confirmButtonBorderColor : "#FF7B30",
+						cancelButtonColor: '#15283D', 
+						confirmButtonText: '승인', 
+						cancelButtonText: '취소' 
+					}).then((result) => { 
+						if (result.isConfirmed) {
+							var promise = $.ajax({
+								url: "${pageContext.request.contextPath}/storeProposeState.mdo",
+								type: "GET",
+								async: false,
+								data: {
+										"user_id": user_id,
+										"agree": state
+									},
+								success: function(data){
+									if(data == 1){
+										Swal.fire(
+												'입점 승인', 
+												'해당 작가의 입점이 승인되었습니다.',
+										)
+										result_data = data;
+									}else if(data == 0){
+										Swal.fire(
+												'승인 오류', 
+												'입점 승인의 오류가 발생했습니다.',
+										)
+									}
+								},
+								error: function(request, status, error){
+									alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+								}
+							}); //end ajax
+							
+							if(result_data == 1){//승인 성공 시 작가 등록
+								promise.done(function() {
+									console.log('작가 등록 중...');
+									$.ajax({
+										url: "${pageContext.request.contextPath}/sellerInsert.mdo",
+										type: "POST",
+										async: false,
+										data: {
+												"seller_name": seller_name,
+												"product_category": category,
+												"user_id": user_id
+											},
+										success: function(data){
+											console.log('작가 등록 완료');
+										},
+										error: function(request, status, error){
+											alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+										}
+									});
+								});
+							}else if(result_data == 0){//승인 오류 시 작가 등록 보류
+								alert('작가 승인에 오류가 발생했습니다');
+							}
+							
+							/* 이메일 전송 */
+							if(result_data == 1){//승인 성공 시 이메일 전송
+								promise.done(function() {
+									console.log('이메일 전송 중...');
+									
+									$.ajax({
+										url: "${pageContext.request.contextPath}/sendEmail.mdo",
+										type: "GET",
+										async: false,
+										data: {
+												"user_id": user_id,
+												"agree": state
+											},
+										success: function(data){
+											console.log('이메일 전송 완료');
+										},
+										error: function(request, status, error){
+											alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+										}
+									});
+								});
+							}else if(result_data == 0){//승인 오류 시 이메일 전송 보류
+								alert('작가 이메일 전송에 오류가 발생했습니다');
+							}
+							
+							return result_data;
+							
+						}//end if
+					})
+				}
 			</script>
 	</div>
 </body>

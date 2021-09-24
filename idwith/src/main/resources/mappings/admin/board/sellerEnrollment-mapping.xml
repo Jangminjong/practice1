@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="SellerDAO">
+ 	<resultMap type="sellerVO" id="sellerResult">
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="seller_name" column="seller_name"/>
+ 		<result property="seller_sellno" column="seller_sellno"/>
+ 		<!-- <result property="seller_sellno_img" column="seller_sellno_img"/> -->
+ 		<result property="user_id" column="user_id"/>
+ 	</resultMap>
+ 	<insert id="insertSeller" parameterType="sellerVO">
+ 		INSERT INTO seller (seller_code, seller_name, seller_sellno, user_id)
+ 		VALUES(#{seller_code}, #{seller_name}, #{seller_sellno}, #{user_id})
+ 	</insert>
+</mapper>

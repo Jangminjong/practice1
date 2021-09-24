@@ -1,12 +1,15 @@
 package com.idwith.mpweb.user.controller;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,31 +62,64 @@ public class SignController {
 		params.put("randomPIN", String.valueOf(randomPIN));
 
 		System.out.println("랜덤번호 : " + randomPIN);
-		try {
-			JSONObject obj = (JSONObject) coolsms.send(params);
-			System.out.println(obj.toString());
-		} catch (CoolsmsException e) {
-			System.out.println(e.getMessage());
-			System.out.println("오류");
-			System.out.println(e.getCode());
-		}
+//		try {
+//			JSONObject obj = (JSONObject) coolsms.send(params);
+//			System.out.println(obj.toString());
+//		} catch (CoolsmsException e) {
+//			System.out.println(e.getMessage());
+//			System.out.println("오류");
+//			System.out.println(e.getCode());
+//		}
 
 		return params;
 	}
 
-	@GetMapping("/account_check.do")
-	public String accountCheck() {
+	/* ID 찾기 */
+	@RequestMapping(value = "/account_check.do", method = RequestMethod.POST)
+	public String accountCheck(HttpServletRequest request, Model model) {
+		String user_phone = request.getParameter("user_phone");
+		int result = userService.userCheck(user_phone);
+		
+		if(result == 1) {
+			model.addAttribute("user_phone", user_phone);
+		}
+		
+		System.out.println("ID 찾기 결과 : " + result);
 		return "account_check";
 	}
 	
-	@GetMapping("/account_step1.do")
-	public String accountStepOne() {
+	@RequestMapping(value = "/account_step1.do", method = RequestMethod.POST)
+	public String accountStepOne(HttpServletRequest request, Model model) {
+		String user_phone = request.getParameter("user_phone");
+		System.out.println("스텝1 : " + user_phone);
+		
+		List<Map<String, String>> userList = userService.getUserList(user_phone);
+		model.addAttribute("userList", userList);
 		return "account_step1";
 	}
 	
-	@GetMapping("/account_step2.do")
-	public String accountStepTwo() {
+	@RequestMapping(value = "/account_step2.do", method = RequestMethod.POST)
+	public String accountStepTwo(HttpServletRequest request, Model model) {
+		String user_id = request.getParameter("user_id");
+		System.out.println("스텝2 : " + user_id);
+		
+		List<Map<String, String>> userList = userService.getUserNameList(user_id);
+		
+		model.addAttribute("userList", userList);
+		
 		return "account_step2";
+	}
+	
+	@RequestMapping(value = "/account_success.do", method = RequestMethod.POST)
+	public String accountSuccess(HttpServletRequest request, Model model) {
+		String user_name = request.getParameter("user_name");
+		
+		List<Map<String, String>> userInfo = userService.getUserInfo(user_name);
+		System.out.println("결과 값 : " +userInfo);
+		
+		model.addAttribute("userInfo", user_name);
+		
+		return "account_success";
 	}
 	
 	@RequestMapping(value = "/signupSuccess.do", method = RequestMethod.POST)

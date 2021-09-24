@@ -1,5 +1,8 @@
 package com.idwith.mpweb.user.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.idwith.mpweb.user.UserVO;
 
 public interface UserService {
@@ -18,4 +21,5 @@ public interface UserService {
 	String kakaoLogin(UserVO vo);
 	
 	String naverLogin(UserVO vo);
+
 }

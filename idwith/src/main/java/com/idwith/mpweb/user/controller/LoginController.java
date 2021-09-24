@@ -65,15 +65,17 @@ public class LoginController {
 
 		if(result == 1) {
 			System.out.println("컨트롤러 확인 : " + vo.getUser_id());
+			session.setAttribute("email", email);
 			session.setAttribute("emailSplit", emailSplit[0]);
 		}
 		
 		return Integer.toString(result);
 	}
 	
-	@RequestMapping(value = "/index.do", method = RequestMethod.POST)
-	public String signLogin(UserVO vo) {
-		return "index";
+	@GetMapping("/IdSearch.do")
+	public String idSearch() {
+		
+		return "IdSearch";
 	}
 	
 	@GetMapping("/logout.do")
