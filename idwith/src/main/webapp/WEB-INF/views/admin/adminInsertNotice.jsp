@@ -188,18 +188,25 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form>
+						<form id="form-notice-admin" name="adminNoticeForm"
+							action="insertNotice.mdo" method="post" onsubmit="false">
 							<div class="mb-3">
-								<label class="form-label">Notice Title</label>
-								<input type="text" class="form-control" placeholder="제목" style="width: auto;">
+								<label class="form-label">Notice Title</label> <input
+									type="text" class="form-control" name="adminBoardTitle"
+									placeholder="admin" style="width: auto;">
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
-								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
+								<textarea class="form-control" name="amdinBoardContent"
+									placeholder="내용" rows="10"></textarea>
 							</div>
 							<div class="mb-3">
-								<label class="form-label w-100">File input</label>
-								<input type="file">
+								<label class="form-label w-100">File input</label> <input
+									type="file" name="adminBoardFilePath">
+							</div>
+							<div class="col-md-2 text-center">
+								<input class="btn btn-primary" type="button"
+									id="notice-admin-submit" value="등록" />
 							</div>
 						</form>
 					</div>
@@ -210,6 +217,7 @@
 					<div class="col-md-2 text-center"></div>
 					<div class="col-md-2 text-center"></div>
 					<div class="col-md-2 text-center"></div>
+<<<<<<< HEAD
 					<div class="col-md-2 text-center">
 						<a href="adminNotice.mdo">
 							<button class="btn btn-primary">등록</button>
@@ -219,11 +227,15 @@
 							<button class="btn btn-primary" type="reset">초기화</button>
 						</a>
 					</div>
+=======
+					<button class="btn btn-primary" type="reset">초기화</button>
+>>>>>>> 78e7a46c637f9da54e1cff16d724a411f839f00c
 				</div>
 			</main>
-			<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>
+	<script src="resources/admin/js/app.js"></script>
+
 </body>
 
 </html>
