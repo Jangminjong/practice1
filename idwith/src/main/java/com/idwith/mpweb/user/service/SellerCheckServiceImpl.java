@@ -11,9 +11,9 @@ public class SellerCheckServiceImpl implements SellerCheckService {
 	private SellerCheckDAO dao;
 	
 	@Override
-	public int getSeller(String user_id) {
+	public Long getSeller(String user_id) {
 		System.out.println("Service ½ÇÇà");
-		int result = dao.getSeller(user_id);
+		Long result = dao.getSeller(user_id);
 		return result;
 	}
 }

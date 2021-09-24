@@ -21,19 +21,6 @@ public class UserIndexController {
 	
 	@GetMapping("/index.do")
 	public String userIndex(HttpSession session, Model model) {
-		System.out.println("UserIndex 컨트롤러 실행");
-		
-		String user_id = (String) session.getAttribute("email");
-		
-		if(user_id != null) {
-			System.out.println("세션 값 : " + user_id);
-			int result = sellerCheckService.getSeller(user_id);
-			
-			System.out.println("컨트롤러 결과 값 : " + result);
-			session.setAttribute("result", result);
-			model.addAttribute("result", result);
-		}
-		
 		return "index";
 	}
 	 

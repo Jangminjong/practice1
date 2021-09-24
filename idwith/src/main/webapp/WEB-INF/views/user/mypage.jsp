@@ -2,11 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%
-	String emailSplit = (String)session.getAttribute("emailSplit");
-
-%>
-
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
@@ -50,12 +45,7 @@
 	<div data-vue="resizeHandler"></div>
 
 	<div class="wrap">
-
-		<c:choose>
-			<c:when test="${ emailSplit eq null }">
-				<jsp:include page="header_goods.jsp" />
-			</c:when>
-		</c:choose>
+		<jsp:include page="header_goods.jsp" />
 
 		<div class="dimmed-background"></div>
 		<div id="content" class="content" data-page="my-info">

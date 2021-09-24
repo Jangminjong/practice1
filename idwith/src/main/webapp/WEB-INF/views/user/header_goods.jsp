@@ -167,6 +167,11 @@
 					</div>
 
 					<nav class="profile-links">
+						<c:choose>
+							<c:when test="${ sellerCheck ne null }">
+								<a href="main.wdo" class="btn"> <i class="far fa-user"></i> 작가 페이지</a>
+							</c:when>
+						</c:choose>
 						<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i> 내 정보
 						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
 							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>

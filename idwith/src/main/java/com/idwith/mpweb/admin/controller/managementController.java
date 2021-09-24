@@ -84,7 +84,7 @@ public class managementController {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 	        Calendar c1 = Calendar.getInstance();
 	        String strToday = sdf.format(c1.getTime());
-	        int random = (int)(Math.random()*9000)+1000;
+	        int random = (int)(Math.random()*900000)+100000;
 	        String randomCode = Integer.toString(random);
 	        String plusCode = strToday+randomCode;
 	        
@@ -129,8 +129,10 @@ public class managementController {
 		}
 		
 		emailService.sendMail(dto, result);
+		
+		
 		System.out.println("이메일 전송 완료");
-		return null;
+		return Integer.toString(1);
 	}
 	
 	@GetMapping("/productPropose.mdo")

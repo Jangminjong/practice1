@@ -349,10 +349,10 @@
 				function storeProposeAgree(user_id, state, category, seller_name){
 					var result_data;
 					const productCategory = category[0].innerText;
-					const sellerName = seller_name.innerText;
+					const name = seller_name.innerText;
 					
 					console.log(productCategory);
-					console.log(sellerName);
+					console.log(name);
 					
 					Swal.fire({ 
 						title: '입점 신청', 
@@ -375,18 +375,8 @@
 										"agree": state
 									},
 								success: function(data){
-									if(data == 1){
-										Swal.fire(
-												'입점 승인', 
-												'해당 작가의 입점이 승인되었습니다.',
-										)
-										result_data = data;
-									}else if(data == 0){
-										Swal.fire(
-												'승인 오류', 
-												'입점 승인의 오류가 발생했습니다.',
-										)
-									}
+									result_data = data;
+									console.log('받은 값 : ' + result_data);
 								},
 								error: function(request, status, error){
 									alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -401,8 +391,8 @@
 										type: "POST",
 										async: false,
 										data: {
-												"seller_name": seller_name,
-												"product_category": category,
+												"seller_name": name,
+												"product_category": productCategory,
 												"user_id": user_id
 											},
 										success: function(data){
@@ -431,6 +421,18 @@
 												"agree": state
 											},
 										success: function(data){
+											if(data == 1){
+												Swal.fire(
+														'입점 승인', 
+														'해당 작가의 입점이 승인되었습니다.',
+												)
+												
+											}else if(data == 0){
+												Swal.fire(
+														'승인 오류', 
+														'입점 승인의 오류가 발생했습니다.',
+												)
+											}
 											console.log('이메일 전송 완료');
 										},
 										error: function(request, status, error){
@@ -441,8 +443,6 @@
 							}else if(result_data == 0){//승인 오류 시 이메일 전송 보류
 								alert('작가 이메일 전송에 오류가 발생했습니다');
 							}
-							
-							return result_data;
 							
 						}//end if
 					})

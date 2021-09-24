@@ -19,12 +19,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.idwith.mpweb.user.UserVO;
+import com.idwith.mpweb.user.service.SellerCheckService;
 import com.idwith.mpweb.user.service.UserService;
 
 @Controller
 public class LoginController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private SellerCheckService sellerCheckService;
 	/* Naver Login */
 //	private NaverLoginBO naverLoginBO;
 //	private String apiResult = null;
@@ -68,6 +72,16 @@ public class LoginController {
 			session.setAttribute("email", email);
 			session.setAttribute("emailSplit", emailSplit[0]);
 		}
+
+		if(email != null) {
+			Long sellerCheck = sellerCheckService.getSeller(email);
+
+			if(sellerCheck != null) {
+				session.setAttribute("sellerCheck", sellerCheck);
+				System.out.println("작가 코드 : " + sellerCheck);
+			}
+		}
+		
 		
 		return Integer.toString(result);
 	}

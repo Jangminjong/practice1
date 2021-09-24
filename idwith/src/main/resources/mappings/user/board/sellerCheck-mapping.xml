@@ -10,7 +10,7 @@
  		<result property="seller_sellno" column="seller_sellno"/>
  		<result property="user_id" column="user_id"/>
  	</resultMap>
- 	<select id="sellerCheck" resultType="_boolean">
- 		select exists (select * from seller where user_id=#{user_id}) as isChk;
+ 	<select id="sellerCheck" resultType="_long">
+ 		select seller_code from seller where user_id=#{user_id}
  	</select>
 </mapper>

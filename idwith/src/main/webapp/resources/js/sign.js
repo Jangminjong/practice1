@@ -213,7 +213,7 @@ function checkPIN(arg, user_phone){
 		} else {
 			$('#failPIN').css({'display' : 'block'});
 		}
-	}else if(arg === sign){ //회원가입 시 비교
+	}else if(arg === 'sign'){ //회원가입 시 비교
 		if(inputPIN == randomPIN){
 			$('#successPIN').css({'display' : 'block'});
 			$('#failPIN').css({'display' : 'none'});
