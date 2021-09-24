@@ -1,14 +1,41 @@
 package com.idwith.mpweb.user.controller;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+//import com.idwith.mpweb.user.service.MypageService;
 
 @Controller
 public class MyPageController {
-	@GetMapping("/mypage_main.do")
-	public String mypageMain() {
-		return "mypage";
-	}
+	@Autowired
+	//private MypageService myPageService;
+	
+	//@RequestMapping(value = "/mypage.do", method=RequestMethod.GET)
+//	public String mypageMain(Model model,HttpSession session) {
+//		String user_id = (String) session.getAttribute("email");
+//		
+//		System.out.println("mypage 컨트롤러 실행");
+//		System.out.println("세션 값 : " +user_id);
+		
+		//List<Map<String, String>> user = myPageService.getUser(user_id);
+		
+//		System.out.println("결과 값: " + user);
+//		
+//		
+//		session.setAttribute("user_name", user);
+//		model.addAttribute("user", user);
+//		
+//		return "mypage";
+//	}
 	
 	@GetMapping("/mypage_address.do")
 	public String mypageAddress() {
@@ -32,7 +59,7 @@ public class MyPageController {
 	
 	@GetMapping("/mypage_info.do")
 	public String mypageInfo() {
-		return "mypage_adr";
+		return "mypage_info";
 	}
 	
 	@GetMapping("/mypage_interest_class.do")
