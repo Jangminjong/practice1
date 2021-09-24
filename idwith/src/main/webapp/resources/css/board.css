@@ -1,0 +1,110 @@
+/* 게시글 리스트 */
+.btn-qna-board{
+	border-color: transparent;
+    background: #ff7b30;
+    color: #fff;
+    border-radius:4px;
+    cursor:pointer;
+    width: 80px;
+    height:40px;
+    text-align:center;
+    font-size:16px;
+    margin-top:20px;
+}
+
+.qna-list-writer, .qna-fix{
+	float: right;
+}
+
+
+/* 게시글 작성 */
+
+.qna-title{
+	display:flex;
+	align-items:center;
+}
+
+.qna-title select{
+	height:40px;
+	font-size:14px;
+}
+
+.qna-title select, .qna-title option{
+	outline:none;
+	margin:2px;
+	text-align:center;
+}
+
+.qna-title_input{
+	border:1px solid #ff7b30;
+	border-radius:4px;
+	padding:4px;
+	height:40px;
+	width:100%;
+	margin-left:10px;
+}
+
+.title_input{
+	outline: none;
+	border:none;
+	width:100%;
+	height:30px;
+	text-align: left;
+    text-indent: 12px;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.qna-content{
+	border:1px solid #d9d9d9;
+	padding:10px;
+}
+
+.qna-content textarea{
+	width:100%;
+	border:none;
+	outline:none;
+	font-size:12px;
+}
+
+.qna-checkbox{
+	display:flex;
+	align-items:center;
+}
+
+.qna-checkbox input{
+	 cursor:pointer;
+}
+
+.qna-secret, .qna-fix{
+	font-size: 12px;
+}
+
+.qna-fix{
+	margin-left:20px;
+	text-align:center;
+}
+
+.qna-submit{
+	border-color: transparent;
+    background: #ff7b30;
+    color: #fff;
+    border-radius:4px;
+    cursor:pointer;
+    width: 100%;
+    height:50px;
+    font-size:20px;
+    text-align:center;
+    font-weight: bold;
+}
+
+/* 게시글 상세 */
+
+.qna-detail{
+	height:505px;
+}
+
+.qna-answer-title{
+	font-size:14px;
+	color:#333;
+}
