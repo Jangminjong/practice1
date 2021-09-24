@@ -138,7 +138,7 @@
 								<input type="hidden" name="randomPIN" id="randomPIN" value="">
 								<button type="button" id="randomPIN_button"
 									class="btn btn-login btn-point btn-disabled"
-									data-auth="auth_code_submit" onclick="checkPIN()">확인</button>
+									data-auth="auth_code_submit" onclick="checkPIN('sign')">확인</button>
 							</div>
 							<span id="successPIN" class="form-error" style="display:none">인증이 성공하였습니다.</span>
 							<span id="failPIN" class="form-error" style="display:none">인증을 실패하였습니다.</span>

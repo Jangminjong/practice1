@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 	<script type="text/javascript" src="resources/js/socialLogin.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="resources/css/sign_choice.css" />
 	<link rel="stylesheet" href="resources/css/common.css">
 	<link rel="stylesheet" href="resources/css/idus.web.min.css">
@@ -57,13 +58,23 @@
 					<div class="login-sns item kakaotalk" data-auth-type="kakaotalk">
 						<a id="kakao-login-btn" href="javascript:kakaoSign()"
 							data-idus-log="kakaotalk"> <span
-							class="sp-icon icon-kakaotalk"></span> 카카오톡으로 가입하기
+							class="sp-icon icon-kakaotalk"></span> 카카오톡으로 3초만에 시작하기
 						</a>
 						<a id="cancel" href="javascript:cancel()">연결끊기</a>
-						
 					</div>
+					
+					<!-- '네이버 아이디로 가입하기' 버튼 -->
+					<div id="naver_id_login" class="login-sns item naver" data-auth-type="naver"></div>
 
-
+                    <script type="text/javascript">
+                    	var naver_id_login = new naver_id_login("aBJVgRXccefohvFJVX65", "http://localhost:8080/mpweb/naver.do");
+                		var state= naver_id_login.getUniqState();           	
+                		naver_id_login.setDomain("http://localhost:8080/mpweb");	//  서비스URL
+                 		naver_id_login.setState(state);
+                 		naver_id_login.init_naver_id_login("");
+                    </script>
+                    
+					
 					<div class="login-sns item more">
 						<button class="show-more-signup-btn" data-ui="toggle_view"
 							onclick="showHidden();" >다른 방법으로 가입하기</button>

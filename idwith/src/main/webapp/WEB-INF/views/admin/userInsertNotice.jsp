@@ -19,6 +19,8 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/admin/js/aboutUser.js"></script>
 </head>
 
 <body>
@@ -198,19 +200,22 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form>
+						<form id="form-notice-user" name="noticeUserForm" action="insertUserNotice.mdo" method="post" onsubmit="return false">
 							<div class="mb-3">
 								<label class="form-label">Notice Title</label> <input
-									type="text" class="form-control" placeholder="제목"
+									type="text" class="form-control" name="board_title" placeholder="제목"
 									style="width: auto;">
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
-								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
+								<textarea class="form-control" name="board_content" placeholder="내용" rows="10"></textarea>
 							</div>
 							<div class="mb-3">
 								<label class="form-label w-100">File input</label> <input
 									type="file">
+							</div>
+							<div class="col-md-2 text-center">
+								<input type="submit" id="notice-user-submit" class="btn btn-primary" value="등록"/>
 							</div>
 						</form>
 					</div>
@@ -222,9 +227,7 @@
 					<div class="col-md-2 text-center"></div>
 					<div class="col-md-2 text-center"></div>
 					<div class="col-md-2 text-center">
-						<a href="userNotice.mdo">
-							<button class="btn btn-primary">등록</button>
-						</a> <a href="userInsertNotice.mdo"> <!--초기화 진행-->
+						<a href="userInsertNotice.mdo"> <!--초기화 진행-->
 							<button class="btn btn-primary">초기화</button>
 						</a>
 					</div>

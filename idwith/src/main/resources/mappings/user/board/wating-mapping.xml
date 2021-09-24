@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="WatingDAO">
+ 	<resultMap type="watingVO" id="watingResult">
+ 		<result property="user_id" column="user_id"/>
+		<result property="seller_name" column="seller_name"/>
+		<result property="seller_phone" column="seller_phone"/>
+		<result property="product_name" column="product_name"/>
+		<result property="product_price" column="product_price"/>
+		<result property="product_category" column="product_category"/>
+		<result property="product_function" column="product_function"/>
+		<result property="product_info" column="product_info"/>
+		<result property="seller_sellno_img" column="seller_sellno_img"/>
+ 	</resultMap>
+ 	<insert id="insertWating" parameterType="watingVO">
+ 		INSERT INTO wating (user_id, seller_name, seller_phone, product_name, product_price, product_category, product_function, product_info)
+ 		VALUES(#{user_id}, #{seller_name}, #{seller_phone}, #{product_name}, #{product_price}, #{product_category}, #{product_function}, #{product_info})
+ 	</insert>
+</mapper>

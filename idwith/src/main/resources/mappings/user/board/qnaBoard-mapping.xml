@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="BoardDAO">
+ 	<resultMap type="qnaVO" id="qnaResult">
+ 		<result property="user_id" column="user_id"/>
+ 		<result property="board_category" column="board_category"/>
+ 		<result property="board_title" column="board_title"/>
+ 		<result property="board_content" column="board_content"/>
+ 		<result property="board_answer" column="board_answer"/>
+ 		<result property="board_date" column="board_date"/>
+ 		<result property="board_fix" column="board_fix"/>
+ 		<result property="seq" column="seq"/>
+ 		<result property="hit" column="hit"/>
+ 	</resultMap>
+ 	<insert id="insertQnA" parameterType="qnaVO">
+ 		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_date, board_fix, seq, hit)
+ 		VALUES(#{user_id}, #{board_category}, #{board_title}, #{board_content}, now(), false, nextval('seq_qna_board'), 0)
+ 	</insert>
+ 	<select id="getQnAList" resultMap="qnaResult">
+ 		SELECT * FROM qna_board 
+ 		WHERE board_fix=true
+ 		ORDER BY seq DESC
+ 	</select>
+ 	<select id="getQnA" resultType="qnaVO">
+		SELECT * FROM qna_board WHERE seq=#{seq}
+	</select>
+	<update id="updateQnA" parameterType="qnaVO">
+ 		UPDATE qna_board
+ 		SET board_content=#{board_content} WHERE seq = #{seq}
+ 	</update>
+ 	<select id="rightCheck" resultType="_int">
+		SELECT count(*) FROM qna_board WHERE user_id = #{user_id} AND seq = #{seq}
+	</select>
+	<delete id="deleteQnA" parameterType="qnaVO">
+ 		DELETE FROM qna_board WHERE seq=#{seq}
+ 	</delete>
+	<!-- 공지 아닌 게시글 개수 출력 -->
+	<select id="countQnA" resultType="_int">
+		SELECT COUNT(*) FROM qna_board WHERE board_fix=false
+	</select>
+	<!-- 공지글 수 출력 -->
+	<select id="countNotice" resultType="_int">
+		SELECT COUNT(*) FROM qna_board WHERE board_fix=true
+	</select>
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectQnA" resultType="qnaVO">
+	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+	FROM qna_board WHERE board_fix=false ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 공지글 조회수 -->
+	<update id="addHit" parameterType="qnaVO">
+ 		UPDATE qna_board
+ 		SET hit=((SELECT hit FROM qna_board WHERE seq=#{seq})+1) WHERE seq = #{seq}
+ 	</update>
+ 	<!--  <update id="updateBoard" parameterType="myboard">
+ 		UPDATE myboard
+ 		SET title=#{title}, content=#{content} WHERE seq = #{seq}
+ 	</update>
+ 	<delete id="deleteBoard" parameterType="myboard">
+ 		DELETE FROM myboard WHERE seq=#{seq}
+ 	</delete>
+ 	<select id="getBoard" resultType="myboard">
+ 		SELECT * FROM myboard WHERE seq=#{seq}
+ 	</select>
+ 	<select id="getBoardList" resultMap="boardResult">
+ 		SELECT * FROM myboard
+ 		WHERE 1=1 
+ 		<if test="searchCondition=='TITLE'">
+ 			AND title LIKE '%'||#{searchKeyword}||'%'
+ 		</if>
+ 		<if test="searchCondition=='CONTENT'">
+ 			AND content LIKE '%'||#{searchKeyword}||'%'
+ 		</if>
+ 		ORDER BY seq DESC
+ 	</select>
+ 	<select id="getBoardList_C" resultMap="boardResult">
+ 		SELECT * FROM myboard
+ 		WHERE content LIKE '%'||#{searchKeyword}||'%'
+ 		ORDER BY seq DESC
+ 	</select>--> 
+</mapper>

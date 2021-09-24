@@ -19,7 +19,7 @@ Servers/
 *.MF
 *.classpath
 *.project
-
+target/
 # External tool builders
 .externalToolBuilders/
 

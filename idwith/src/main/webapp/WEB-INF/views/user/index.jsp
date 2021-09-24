@@ -11,6 +11,11 @@
 <meta charset="UTF-8">
 <title>아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
 <link href="resources/css/content.css" rel="stylesheet" />
+
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+	
 <!--
       	<meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="naver-site-verification" content="a8c6e5633b597db7b48d05e4a7d247011f6794ec"/>
@@ -192,15 +197,9 @@
         </script>
 
 	<div class="wrap">
-	<c:choose>
-		<c:when test="${ emailSplit eq null }">
-			<jsp:include page="header_goods.jsp"/>
-		</c:when>
-		<c:when test="${ emailSplit ne null }">
-			<jsp:include page="header_goods_login.jsp"/>
-		</c:when>
-	</c:choose>
 
+	<jsp:include page="header_goods.jsp"/>
+		
 		<div id="skip-to-content">
 			<a href="#gnb">메뉴목록으로 바로가기</a> <a href="#content">컨텐츠로 바로가기</a>
 		</div>

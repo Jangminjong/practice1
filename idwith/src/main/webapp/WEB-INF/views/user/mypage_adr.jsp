@@ -193,7 +193,7 @@
         </script>
 
         <div class="wrap">
-        <jsp:include page="header_goods_login.jsp"/>
+        <jsp:include page="header_goods.jsp"/>
                         
 <div class="dimmed-background"></div><!-- 회원정보관리 -->
 <div id="content" class="content" data-page="mypageinfo address">
