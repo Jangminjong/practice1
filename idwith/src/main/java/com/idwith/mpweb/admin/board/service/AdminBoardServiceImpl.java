@@ -2,69 +2,55 @@ package com.idwith.mpweb.admin.board.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.idwith.mpweb.admin.board.AdminQnABoardDAO;
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.common.PagingVO;
 
-@Service("adminBoardService")
 public class AdminBoardServiceImpl implements AdminBoardService {
-	@Autowired
-	private AdminQnABoardDAO adminBoardDAO;
 
-	// ÆäÀÌÂ¡ Ã³¸®
 	@Override
 	public int countQnA() {
-		return adminBoardDAO.countQnA(); // ÃÑ °Ô½Ã±Û ¼ö
+		return 0;
 	}
 
 	@Override
 	public List<AdminQnABoardVO> selectQnA(PagingVO pageVO) {
-		return adminBoardDAO.selectQnA(pageVO);
+		return null;
 	}
 
 	@Override
 	public AdminQnABoardVO getQnA(AdminQnABoardVO adminQnA) {
-		return adminBoardDAO.getQnA(adminQnA);
+		return null;
 	}
 
 	@Override
 	public void updateAnswer(AdminQnABoardVO adminQnA) {
-		System.out.println("num: " + adminQnA.getSeq());
-		System.out.println("answer: " + adminQnA.getBoard_answer());
-		adminBoardDAO.updateAnswer(adminQnA);
-	}
 
-	@Override
-	public List<AdminQnABoardVO> getQnAList(PagingVO pageVO) {
-		return adminBoardDAO.getQnAList(pageVO);
 	}
 
 	@Override
 	public int countNotice() {
-		return adminBoardDAO.countNotice();
+		return 0;
+	}
+
+	@Override
+	public List<AdminQnABoardVO> getQnAList(PagingVO pageVO) {
+		return null;
 	}
 
 	@Override
 	public void updateFAQ(AdminQnABoardVO adminQnA) {
-		System.out.println("num: "+adminQnA.getSeq());
-		System.out.println("content: "+adminQnA.getBoard_content());
-		adminBoardDAO.updateFAQ(adminQnA);
+
 	}
 
 	@Override
 	public void deleteFAQ(AdminQnABoardVO adminQnA) {
-		System.out.println("num: "+adminQnA.getSeq());
-		adminBoardDAO.deleteFAQ(adminQnA);
+
 	}
 
 	@Override
 	public void insertFAQ(AdminQnABoardVO adminQnA) {
-		System.out.println("title: "+adminQnA.getBoard_title());
-		System.out.println("content: "+adminQnA.getBoard_content());
-		adminBoardDAO.insertFAQ(adminQnA);
+		// TODO Auto-generated method stub
+
 	}
 
 }

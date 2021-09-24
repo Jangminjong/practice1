@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="AdminNoticeBoardDAO">
+	<resultMap type="adminNotice" id="adminNoticeResult">
+		<id property="adminBoardSeq" column="admin_board_seq" />
+		<result property="adminBoardId" column="admin_board_id" />
+		<result property="adminBoardTitle" column="admin_board_title" />
+		<result property="amdinBoardContent" column="admin_board_content" />
+		<result property="adminBoardRegDate" column="admin_board_date" />
+		<result property="adminBoardCnt" column="admin_board_cnt" />
+		<result property="adminBoardFilePath" column="admin_board_file"/>
+		<result property="adminBoardStatic" column="admin_board_static"/>
+	</resultMap>
+	
+	<insert id="insertAdminNotice" parameterType="adminNotice">
+		INSERT INTO
+		admin_board(TITLE, CONTENT, FILEPATH, FIX)
+		VALUES(#{title},#{content},#{filePath}, #{fix})
+	</insert>
+ 	
+</mapper>
