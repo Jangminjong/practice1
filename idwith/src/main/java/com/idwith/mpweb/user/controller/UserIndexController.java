@@ -30,6 +30,7 @@ public class UserIndexController {
 			int result = sellerCheckService.getSeller(user_id);
 			
 			System.out.println("컨트롤러 결과 값 : " + result);
+			session.setAttribute("result", result);
 			model.addAttribute("result", result);
 		}
 		

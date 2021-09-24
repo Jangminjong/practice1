@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%
+	String emailSplit = (String)session.getAttribute("emailSplit");
+
+%>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><html class="ie9"><![endif]-->
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -46,8 +51,16 @@
 
 	<div class="wrap">
 
+		<c:choose>
+			<c:when test="${ emailSplit eq null }">
+				<jsp:include page="header_goods.jsp" />
+			</c:when>
+			<c:when test="${ emailSplit ne null }">
+				<jsp:include page="header_goods_login.jsp" />
+			</c:when>
+		</c:choose>
+
 		<div class="dimmed-background"></div>
-		<jsp:include page="header_goods.jsp" />
 		<div id="content" class="content" data-page="my-info">
 			<div class="inner-w layout-split mobile-full"
 				data-layout-split="orderlist" data-page="me-main">
@@ -67,9 +80,11 @@
 							</label>
 						</div>
 						<div class="area-txt">
-							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
-								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">OOO</strong>
+								<c:forEach items="${user}" var="user" >
+									<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
+									<span>${user.user_grade} &gt;</span>
+									</a> <strong data-profile="name">${user.user_name}</strong>
+								</c:forEach>
 						</div>
 					</div>
 
@@ -100,6 +115,7 @@
 							</b> <a href="mypage_level.do" class="">회원 등급</a> <a
 								href="mypage_info.do" class="">회원 정보 관리</a> <a
 								href="mypage_address.do" class="">주소(배송지) 관리</a>
+								<a href="mypage_address.do" class="">주소(배송지) 관리</a>
 						</nav>
 					</div>
 				</aside>
