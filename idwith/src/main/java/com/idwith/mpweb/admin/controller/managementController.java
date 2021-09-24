@@ -81,14 +81,10 @@ public class managementController {
 		
 		//작가코드 설정
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-	        Calendar c1 = Calendar.getInstance();
-	        String strToday = sdf.format(c1.getTime());
 	        int random = (int)(Math.random()*900000)+100000;
 	        String randomCode = Integer.toString(random);
-	        String plusCode = strToday+randomCode;
 	        
-	        resultCode = Long.parseLong(plusCode);
+	        resultCode = Long.parseLong(randomCode);
 	        System.out.println("작품 번호 : " + request.getParameter("product_category"));
 
 	        vo.setSeller_code(resultCode);
