@@ -3,11 +3,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	List<AdminQnABoardListVO> adminQnAList = (List<AdminQnABoardListVO>) session.getAttribute("adminQnAList");
-	PagingVO paging = new PagingVO();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -199,70 +196,108 @@
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
 									<h3>Q&A</h3>
-									<select id="qna_type" name="board_category" onchange="setCategory()">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-2 text-center">
+									<select id="qna_type" name="board_category"
+										onchange="setCategory()">
 										<option value="구분">구분</option>
+										<option value="공지">공지</option>
 										<option value="결제">결제</option>
 										<option value="배송">배송</option>
 										<option value="교환/반품/취소">교환/반품/취소</option>
 										<option>이용</option>
 									</select>
 								</div>
-							</div>
-
-							<div class="col-12">
-								<div class="card">
-									<div class="table-responsive">
-										<table class="table mb-0">
-											<thead>
-												<tr>
-													<th scope="col">No.</th>
-													<th scope="col">분류</th>
-													<th scope="col">제목</th>
-													<th scope="col">작성자</th>
-													<th scope="col">날짜</th>
-													<th scope="col">답변상태</th>
-													<th scope="col">답변</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="adminQnA" items="${adminQnAList}">
-													<tr>
-														<th scope="row">${adminQnA.seq}</th>
-														<td>${adminQnA.board_category }</td>
-														<td>${adminQnA.board_title }</td>
-														<td>${adminQnA.user_id }</td>
-														<td>${adminQnA.board_date }</td>
-														<c:choose>
-															<c:when test="${ adminQnA.board_answer eq null }">
-																<td>답변전</td>
-															</c:when>
-															<c:when  test="${ adminQnA.board_answer ne null }">
-																<td>답변완료</td>
-															</c:when>
-														</c:choose>
-														<td><a href="answer.mdo?seq=${adminQnA.seq}">
-															<button class="btn btn-primary">답변하기</button>
-														</a></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center" style="margin-bottom: 10px;">
+									<a href="userInsertFAQ.mdo">
+										<button class="btn btn-warning">글쓰기</button>
+									</a>
 								</div>
 							</div>
-							<!-- 페이징 처리 -->
-							<div class="paging" data-ui="paging" data-sync="false">
-								<nav style="float:center;" aria-label="Page navigation example">
-									<ul class="pagination justify-content-end">
+
+						</div>
+
+						<div class="col-12">
+							<div class="card">
+								<div class="table-responsive">
+									<table class="table mb-0">
+										<thead>
+											<tr>
+												<th scope="col">No.</th>
+												<th scope="col">분류</th>
+												<th scope="col">제목</th>
+												<th scope="col">작성자</th>
+												<th scope="col">날짜</th>
+												<th scope="col">답변상태</th>
+												<th scope="col">답변</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="adminQnA" items="${adminQnAList}">
+												<tr>
+													<th scope="row">${adminQnA.rownum}</th>
+													<td>${adminQnA.board_category }</td>
+													<td>${adminQnA.board_title }</td>
+													<td>${adminQnA.user_id }</td>
+													<td>${adminQnA.board_date }</td>
+													<c:choose>
+														<c:when test="${ adminQnA.board_answer eq null }">
+															<c:if test="${ adminQnA.board_fix eq true }">
+																<td>***</td>
+															</c:if>
+															<c:if test="${ adminQnA.board_fix eq false }">
+																<td>답변전</td>
+															</c:if>
+														</c:when>
+														<c:when test="${ adminQnA.board_answer ne null }">
+															<c:if test="${ adminQnA.board_fix eq true }">
+																<td>***</td>
+															</c:if>
+															<c:if test="${ adminQnA.board_fix eq false }">
+																<td>답변완료</td>
+															</c:if>
+														</c:when>
+													</c:choose>
+													<c:choose>
+														<c:when test="${ adminQnA.board_fix eq false }">
+															<td><a href="answer.mdo?seq=${adminQnA.seq}">
+																	<button class="btn btn-primary">답변하기</button>
+															</a></td>
+														</c:when>
+														<c:when test="${ adminQnA.board_fix eq true }">
+															<td><a href="detailFAQ.mdo?seq=${adminQnA.seq}">
+																	<button class="btn btn-primary"
+																		style="background-color: #6c757d; border-color: #6c757d;">내용조회</button>
+															</a></td>
+														</c:when>
+													</c:choose>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- 페이징 처리 -->
+						<div class="paging" data-ui="paging" data-sync="false">
+							<nav style="float: center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
 									<c:choose>
 										<c:when test="${paging.nowPage eq 1 }">
-											<li class="page-item"><span style="width: auto;" class="page-link">Previous</span></li>
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Previous</span></li>
 										</c:when>
 										<c:when test="${paging.nowPage ne 1 }">
 											<li class="page-item"><a
 												href="/mpweb/qna.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
-												style="width: auto;" class="page-link">Previous</a>
-											</li>
+												style="width: auto;" class="page-link">Previous</a></li>
 										</c:when>
 									</c:choose>
 									<c:forEach begin="${paging.startPage }"
@@ -270,37 +305,37 @@
 										<c:choose>
 											<c:when test="${p eq paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}" onclick="return false" class="page-link">${p }</a>
-												</li>
+													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													onclick="return false" class="page-link">${p }</a></li>
 											</c:when>
 											<c:when test="${p ne paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}" class="page-link">${p }</a>
-												</li>
+													href="/mpweb/qna.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													class="page-link">${p }</a></li>
 											</c:when>
 										</c:choose>
 									</c:forEach>
 									<c:choose>
 										<c:when test="${paging.endPage eq paging.lastPage}">
-											<li class="page-item"><span style="width: auto;" class="page-link">Next</span></li>
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Next</span></li>
 										</c:when>
 										<c:when test="${paging.endPage ne paging.lastPage}">
 											<li class="page-item"><a
 												href="/mpweb/qna.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
-												style="width: auto;" class="page-link">Next</a>
-											</li>
+												style="width: auto;" class="page-link">Next</a></li>
 										</c:when>
 									</c:choose>
-									</ul>
-								</nav>
-							</div>
-							<!-- 페이징 처리 끝 -->
+								</ul>
+							</nav>
 						</div>
+						<!-- 페이징 처리 끝 -->
 					</div>
 				</div>
-			</main>
-			<script src="resources/admin/js/app.js"></script>
 		</div>
+		</main>
+		<script src="resources/admin/js/app.js"></script>
+	</div>
 	</div>
 </body>
 

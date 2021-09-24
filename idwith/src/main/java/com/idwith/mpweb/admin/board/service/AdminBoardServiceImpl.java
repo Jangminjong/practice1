@@ -48,23 +48,23 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 	}
 
 	@Override
-	public void updateNotice(AdminQnABoardVO adminQnA) {
+	public void updateFAQ(AdminQnABoardVO adminQnA) {
 		System.out.println("num: "+adminQnA.getSeq());
 		System.out.println("content: "+adminQnA.getBoard_content());
-		adminBoardDAO.updateNotice(adminQnA);
+		adminBoardDAO.updateFAQ(adminQnA);
 	}
 
 	@Override
-	public void deleteNotice(AdminQnABoardVO adminQnA) {
+	public void deleteFAQ(AdminQnABoardVO adminQnA) {
 		System.out.println("num: "+adminQnA.getSeq());
-		adminBoardDAO.deleteNotice(adminQnA);
+		adminBoardDAO.deleteFAQ(adminQnA);
 	}
 
 	@Override
-	public void userInsertNotice(AdminQnABoardVO adminQnA) {
+	public void insertFAQ(AdminQnABoardVO adminQnA) {
 		System.out.println("title: "+adminQnA.getBoard_title());
 		System.out.println("content: "+adminQnA.getBoard_content());
-		adminBoardDAO.userInsertNotice(adminQnA);
+		adminBoardDAO.insertFAQ(adminQnA);
 	}
 
 }

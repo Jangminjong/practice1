@@ -25,11 +25,11 @@
 	<!-- 페이징 처리 후 게시글 조회 -->
 	<select id="selectQnA" resultType="adminQnA">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-	FROM qna_board WHERE board_fix=false ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	FROM qna_board ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
 	<select id="selectQnAWithCategory" resultType="adminQnA">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-	FROM qna_board WHERE board_fix=false AND board_category=#{set} ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	FROM qna_board WHERE board_category=#{set} ORDER BY seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
 	<update id="updateAnswer" parameterType="adminQnA">
  		UPDATE qna_board
@@ -44,16 +44,16 @@
 	<select id="countNotice" resultType="_int">
 		SELECT COUNT(*) FROM qna_board WHERE board_fix=true
 	</select>
-	<update id="updateNotice" parameterType="adminQnA">
+	<update id="updateFAQ" parameterType="adminQnA">
  		UPDATE qna_board
  		SET board_title=#{board_title}, board_content=#{board_content} WHERE seq = #{seq}
  	</update>
- 	<delete id="deleteNotice" parameterType="adminQnA">
+ 	<delete id="deleteFAQ" parameterType="adminQnA">
  		DELETE FROM qna_board WHERE seq=#{seq}
  	</delete>
- 	<insert id="userInsertNotice" parameterType="adminQnA">
+ 	<insert id="insertFAQ" parameterType="adminQnA">
  		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_date, board_fix, seq, hit)
- 		VALUES('관리자1', '이용', #{board_title}, #{board_content}, now(), true, nextval('seq_qna_board'), 0)
+ 		VALUES('관리자1', '공지', #{board_title}, #{board_content}, now(), true, nextval('seq_qna_board'), 0)
  	</insert>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard

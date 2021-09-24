@@ -1,10 +1,5 @@
-<%@page import="com.idwith.mpweb.admin.board.AdminQnABoardListVO"%>
-<%@page import="com.idwith.mpweb.common.PagingVO"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +19,8 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/admin/js/aboutUser.js"></script>
 </head>
 
 <body>
@@ -194,104 +191,48 @@
 
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>User Notice</h3>
+									<h3>FAQ</h3>
 								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center" style="margin-bottom: 10px;">
-									<a href="userInsertNotice.mdo">
-										<button class="btn btn-warning">글쓰기</button>
-									</a>
-								</div>
-							</div>
-
-							<div class="col-12">
-								<div class="card">
-									<div class="table-responsive">
-										<table class="table mb-0">
-											<thead>
-												<tr>
-													<th scope="col">No.</th>
-													<th scope="col">제목</th>
-													<th scope="col">작성자</th>
-													<th scope="col">날짜</th>
-													<th scope="col">조회수</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="notice" items="${noticeList}">
-													<tr>
-														<th scope="row">${notice.rownum}</th>
-														<td><a href="userNoticeContent.mdo?seq=${notice.seq }">${notice.board_title }
-															<input type="hidden" name="seq" value="${notice.seq }"/>
-														</a></td>
-														<td>관리자1</td>
-														<td>${notice.board_date }</td>
-														<td>${notice.hit }</td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-							<!-- 페이징 처리 -->
-							<div class="paging" data-ui="paging" data-sync="false">
-								<nav style="float:center;" aria-label="Page navigation example">
-									<ul class="pagination justify-content-end">
-									<c:choose>
-										<c:when test="${paging.nowPage eq 1 }">
-											<li class="page-item"><span style="width: auto;" class="page-link">Previous</span></li>
-										</c:when>
-										<c:when test="${paging.nowPage ne 1 }">
-											<li class="page-item"><a
-												href="/mpweb/qna.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
-												style="width: auto;" class="page-link">Previous</a>
-											</li>
-										</c:when>
-									</c:choose>
-									<c:forEach begin="${paging.startPage }"
-										end="${paging.endPage }" var="p">
-										<c:choose>
-											<c:when test="${p eq paging.nowPage }">
-												<li class="page-item"><a
-													href="/mpweb/userNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" onclick="return false" class="page-link">${p }</a>
-												</li>
-											</c:when>
-											<c:when test="${p ne paging.nowPage }">
-												<li class="page-item"><a
-													href="/mpweb/userNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="page-link">${p }</a>
-												</li>
-											</c:when>
-										</c:choose>
-									</c:forEach>
-									<c:choose>
-										<c:when test="${paging.endPage eq paging.lastPage}">
-											<li class="page-item"><span style="width: auto;" class="page-link">Next</span></li>
-										</c:when>
-										<c:when test="${paging.endPage ne paging.lastPage}">
-											<li class="page-item"><a
-												href="/mpweb/userNotice.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
-												style="width: auto;" class="page-link">Next</a>
-											</li>
-										</c:when>
-									</c:choose>
-									</ul>
-								</nav>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<form id="form-notice-user" name="noticeUserForm" action="InsertFAQ.mdo" method="post" onsubmit="return false">
+							<div class="mb-3">
+								<label class="form-label">FAQ Title</label> <input
+									type="text" class="form-control" name="board_title" placeholder="제목"
+									style="width: auto;">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Content</label>
+								<textarea class="form-control" name="board_content" placeholder="내용" rows="10"></textarea>
+							</div>
+							<div class="col-md-2 text-center">
+								<input type="submit" id="notice-user-submit" class="btn btn-primary" value="등록"/>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center">
+						<a href="userInsertFAQ.mdo"> <!--초기화 진행-->
+							<button class="btn btn-primary">초기화</button>
+						</a>
+					</div>
+				</div>
 			</main>
-			<script src="resources/admin/js/app.js"></script>
+			<script src="../js/app.js"></script>
 		</div>
 	</div>
+	<script src="resources/admin/js/app.js"></script>
 </body>
 
 </html>
