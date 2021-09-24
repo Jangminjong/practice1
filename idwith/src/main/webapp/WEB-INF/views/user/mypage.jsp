@@ -55,9 +55,6 @@
 			<c:when test="${ emailSplit eq null }">
 				<jsp:include page="header_goods.jsp" />
 			</c:when>
-			<c:when test="${ emailSplit ne null }">
-				<jsp:include page="header_goods_login.jsp" />
-			</c:when>
 		</c:choose>
 
 		<div class="dimmed-background"></div>
