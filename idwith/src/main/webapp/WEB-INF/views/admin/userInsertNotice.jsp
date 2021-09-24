@@ -220,6 +220,7 @@
 						</form>
 					</div>
 				</div>
+				<!-- 변경예정 -->
 				<div class="row">
 					<div class="col-md-2 text-center"></div>
 					<div class="col-md-2 text-center"></div>

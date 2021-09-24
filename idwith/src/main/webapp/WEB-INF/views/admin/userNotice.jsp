@@ -200,9 +200,19 @@
 									<h3>User Notice</h3>
 								</div>
 							</div>
-
+							<!-- 변경예정 -->
 							<div class="row">
-								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center">
+									<select id="qna_type" name="board_category"
+										onchange="setCategory()">
+										<option value="구분">구분</option>
+										<option value="공지">공지</option>
+										<option value="이벤트">이벤트</option>
+										<option value="배송">배송</option>
+										<option value="교환/반품/취소">교환/반품/취소</option>
+										<option>이용</option>
+									</select>
+								</div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>

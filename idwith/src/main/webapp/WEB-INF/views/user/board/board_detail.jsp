@@ -47,12 +47,14 @@
 								</c:when>
 							</c:choose>
 							</div>
-							<strong>❑ <span style="color: #ff6600; font-size:16px;">답변</strong><br><br>
-							<div class="qna-content qna-answer">
-								<div class="qna-answer-text" style="margin-bottom:10px;">
-									${qnaVO.board_answer}
+							<c:if test="${qnaVO.board_fix eq false }">
+								<strong>❑ <span style="color: #ff6600; font-size:16px;">답변</strong><br><br>
+								<div class="qna-content qna-answer">
+									<div class="qna-answer-text" style="margin-bottom:10px;">
+										${qnaVO.board_answer}
+									</div>
 								</div>
-							</div>
+							</c:if>
 						</form>
 				<a href="board.do" ><button class="btn-qna-board">목록</button></a>
 				<c:if test="${qnaVO.board_answer eq null}">

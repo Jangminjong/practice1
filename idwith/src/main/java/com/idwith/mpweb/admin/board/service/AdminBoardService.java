@@ -20,10 +20,10 @@ public interface AdminBoardService {
 	
 	List<AdminQnABoardVO> getQnAList(PagingVO pageVO);
 	
-	void updateNotice(AdminQnABoardVO adminQnA);
+	void updateFAQ(AdminQnABoardVO adminQnA);
 	
-	void deleteNotice(AdminQnABoardVO adminQnA);
+	void deleteFAQ(AdminQnABoardVO adminQnA);
 	
-	void userInsertNotice(AdminQnABoardVO adminQnA);
+	void insertFAQ(AdminQnABoardVO adminQnA);
 	
 }

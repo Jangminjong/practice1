@@ -48,15 +48,15 @@ public class AdminQnABoardDAO {
 		return sqlSessionTemplate.selectOne("AdminQnABoardDAO.countNotice");
 	}
 	
-	public void updateNotice(AdminQnABoardVO adminQnA) {
-		sqlSessionTemplate.update("AdminQnABoardDAO.updateNotice", adminQnA);
+	public void updateFAQ(AdminQnABoardVO adminQnA) {
+		sqlSessionTemplate.update("AdminQnABoardDAO.updateFAQ", adminQnA);
 	}
 	
-	public void deleteNotice(AdminQnABoardVO adminQnA) {
-		sqlSessionTemplate.update("AdminQnABoardDAO.deleteNotice", adminQnA);
+	public void deleteFAQ(AdminQnABoardVO adminQnA) {
+		sqlSessionTemplate.delete("AdminQnABoardDAO.deleteFAQ", adminQnA);
 	}
 	
-	public void userInsertNotice(AdminQnABoardVO adminQnA) {
-		sqlSessionTemplate.update("AdminQnABoardDAO.userInsertNotice", adminQnA);
+	public void insertFAQ(AdminQnABoardVO adminQnA) {
+		sqlSessionTemplate.update("AdminQnABoardDAO.insertFAQ", adminQnA);
 	}
 }

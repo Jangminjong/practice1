@@ -41,7 +41,7 @@
 								<input class="qna-seq" id="qna-seq" name="seq" type="hidden" value="${qnaVO.seq}"/>
 								<div>
 									<strong style="float: left;">
-										<span style="color: #f52e05;">[공지]</span>
+										<span style="color: #f52e05;">[자주 묻는 질문]</span>
 										<span style="color: #666;">❑ ${qnaVO.board_title }</span>
 									</strong>
 								</div>

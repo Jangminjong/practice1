@@ -1,21 +1,15 @@
 package com.idwith.mpweb.admin.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.admin.board.service.AdminBoardService;
 import com.idwith.mpweb.common.PagingVO;
-import com.idwith.mpweb.user.board.QnABoardVO;
-import com.idwith.mpweb.user.board.service.UserBoardService;
 
 @Controller
 public class noticeController {
@@ -62,30 +56,34 @@ public class noticeController {
 	@RequestMapping("/insertUserNotice.mdo")
 	public String insertUserNotice(AdminQnABoardVO adminQnA) {
 		System.out.println("공지 등록 처리");
-		System.out.println("content: "+adminQnA.getBoard_content());
-		adminBoardService.userInsertNotice(adminQnA);
+		/*
+		 * System.out.println("content: "+adminQnA.getBoard_content());
+		 * adminBoardService.userInsertNotice(adminQnA);
+		 */
 		return "redirect:/userNotice.mdo";
 	}
 	
 	@GetMapping("/userNoticeContent.mdo")
 	public String userNoticeContent(AdminQnABoardVO adminQnA, Model model) {
 		System.out.println("공지글 상세 보기 처리");
-		System.out.println("num: "+adminQnA.getSeq());
-		model.addAttribute("adminQnA", adminBoardService.getQnA(adminQnA));
+		/*
+		 * System.out.println("num: "+adminQnA.getSeq()); model.addAttribute("adminQnA",
+		 * adminBoardService.getQnA(adminQnA));
+		 */
 		return "userNoticeContent";
 	}
 	
 	@RequestMapping("/updateNotice.mdo")
 	public String updateNotice(AdminQnABoardVO adminQnA) {
 		System.out.println("유저 공지사항 내용 수정 처리");
-		adminBoardService.updateNotice(adminQnA);
+		//adminBoardService.updateNotice(adminQnA);
 		return "redirect:/userNotice.mdo";
 	}
 	
 	@RequestMapping("/deleteNotice.mdo")
 	public String deleteNotice(AdminQnABoardVO adminQnA) {
 		System.out.println("유저 공지글 삭제 처리");
-		adminBoardService.deleteNotice(adminQnA);
+		//adminBoardService.deleteNotice(adminQnA);
 		return "redirect:/userNotice.mdo";
 	}
 	
@@ -135,6 +133,41 @@ public class noticeController {
 		System.out.println("seq: "+ adminQnA.getSeq());
 		System.out.println("answer: "+ adminQnA.getBoard_answer());
 		adminBoardService.updateAnswer(adminQnA);
+		return "redirect:/qna.mdo";
+	}
+	
+	@RequestMapping("/userInsertFAQ.mdo")
+	public String userInsertFAQ() {
+		return "userInsertFAQ";
+	}
+	
+	@RequestMapping("/InsertFAQ.mdo")
+	public String insertFAQ(AdminQnABoardVO adminQnA) {
+		System.out.println("공지 등록 처리");
+		System.out.println("content: "+adminQnA.getBoard_content());
+		adminBoardService.insertFAQ(adminQnA);
+		return "redirect:/qna.mdo";
+	}
+	
+	@RequestMapping("/detailFAQ.mdo")
+	public String detailFAQ(AdminQnABoardVO adminQnA, Model model) {
+		System.out.println("FAQ 상세 보기 처리");
+		System.out.println("num: "+adminQnA.getSeq()); 
+		model.addAttribute("adminQnA", adminBoardService.getQnA(adminQnA));
+		return "detailFAQ";
+	}
+	
+	@RequestMapping("/updateFAQ.mdo")
+	public String updateFAQ(AdminQnABoardVO adminQnA) {
+		System.out.println("유저 공지사항 내용 수정 처리");
+		adminBoardService.updateFAQ(adminQnA);
+		return "redirect:/qna.mdo";
+	}
+	
+	@RequestMapping("/deleteFAQ.mdo")
+	public String deleteFAQ(AdminQnABoardVO adminQnA) {
+		System.out.println("유저 공지글 삭제 처리");
+		adminBoardService.deleteFAQ(adminQnA);
 		return "redirect:/qna.mdo";
 	}
 

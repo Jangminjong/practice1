@@ -203,45 +203,48 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form action="updateAnswer.mdo" method="post" name="answerForm">
-						<input type="hidden" name="seq" value="${adminQnA.seq }"/>
-						<div class="row">
-							<div class="col-md-3">
-								<label class="form-label">제목</label> <input
-									type="text" class="form-control" placeholder="${adminQnA.board_title}"
-									style="width: auto;" disabled>
-							</div>
-							<div class="col-md-3">
-								<label class="form-label">작성자</label> <input
-									type="text" class="form-control" placeholder="${adminQnA.user_id}"
-									style="width: auto;" disabled>
-							</div>
-						</div>
-							<div class="mb-3">
-								<label class="form-label">Content</label>
-								<textarea class="form-control" rows="5" name="board_content"
-									disabled>${adminQnA.board_content}</textarea>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">답변하기</label>
+							<form action="updateAnswer.mdo" method="post" name="answerForm">
+								<input type="hidden" name="seq" value="${adminQnA.seq }" />
+								<div class="row">
+
+									<div class="col-md-3">
+										<label class="form-label">제목</label> <input type="text"
+											class="form-control" placeholder="${adminQnA.board_title}"
+											style="width: auto;" disabled>
+									</div>
+									<div class="col-md-3">
+										<label class="form-label">작성자</label> <input type="text"
+											class="form-control" placeholder="${adminQnA.user_id}"
+											style="width: auto;" disabled>
+									</div>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Content</label>
+									<textarea class="form-control" rows="5" name="board_content"
+										disabled>${adminQnA.board_content}</textarea>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">답변하기</label>
+									<c:choose>
+										<c:when test="${ adminQnA.board_answer eq null }">
+											<textarea class="form-control" placeholder="답변내용" rows="5"
+												name="board_answer"></textarea>
+										</c:when>
+										<c:when test="${ adminQnA.board_answer ne null }">
+											<textarea class="form-control" placeholder="답변내용" rows="5"
+												name="board_answer">${adminQnA.board_answer}</textarea>
+										</c:when>
+									</c:choose>
+								</div>
 								<c:choose>
 									<c:when test="${ adminQnA.board_answer eq null }">
-										<textarea class="form-control" placeholder="답변내용" rows="5" name="board_answer"></textarea>
+										<input type="submit" class="btn btn-primary" value="답변등록" />
 									</c:when>
-									<c:when  test="${ adminQnA.board_answer ne null }">
-										<textarea class="form-control" placeholder="답변내용" rows="5" name="board_answer">${adminQnA.board_answer}</textarea>
+									<c:when test="${ adminQnA.board_answer ne null }">
+										<input type="submit" class="btn btn-primary" value="답변수정" />
 									</c:when>
 								</c:choose>
-							</div>
-							<c:choose>
-								<c:when test="${ adminQnA.board_answer eq null }">
-									<input type="submit" class="btn btn-primary" value="답변등록"/>
-								</c:when>
-								<c:when  test="${ adminQnA.board_answer ne null }">
-									<input type="submit" class="btn btn-primary" value="답변수정"/>
-								</c:when>
-							</c:choose>
-						</form>
+							</form>
 					</div>
 				</div>
 				<div class="row">

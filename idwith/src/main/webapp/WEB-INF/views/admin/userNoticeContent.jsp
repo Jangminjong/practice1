@@ -137,7 +137,7 @@
 				<a class="sidebar-toggle d-flex"> <i
 					class="hamburger align-self-center"></i>
 				</a>
-
+				<!-- 변경예정 -->
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">
 						<li class="nav-item dropdown"><a
