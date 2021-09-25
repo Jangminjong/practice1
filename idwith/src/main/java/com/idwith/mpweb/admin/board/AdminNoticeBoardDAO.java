@@ -11,7 +11,7 @@ public class AdminNoticeBoardDAO {
 	/** 관리자 공지사항 insert */
 	public void insertNotice(AdminNoitceBoardVO adminNotice) {
 		System.out.println("insertNotice() 기능 처리");
-		sqlSessionTemplate.insert("AdminNoitceBoardDAO.insertNotice", adminNotice);
+		sqlSessionTemplate.insert("AdminNoticeBoardDAO.insertAdminNotice", adminNotice);
 	}
 
 }
