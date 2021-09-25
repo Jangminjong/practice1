@@ -57,6 +57,36 @@ public class AdminQnABoardDAO {
 	}
 	
 	public void insertFAQ(AdminQnABoardVO adminQnA) {
-		sqlSessionTemplate.update("AdminQnABoardDAO.insertFAQ", adminQnA);
+		sqlSessionTemplate.insert("AdminQnABoardDAO.insertFAQ", adminQnA);
+	}
+	
+	// 사용자 공지사항 --------------------------------------------------------------------------------
+	
+	public void userInsertNotice(AdminEventBoardVO adminEventVO) {
+		sqlSessionTemplate.insert("AdminEventBoardDAO.insertEvent", adminEventVO);
+	}
+	
+	public int countEventNotice() {
+		return sqlSessionTemplate.selectOne("AdminEventBoardDAO.countEventNotice");
+	}
+	
+	public List<AdminEventBoardVO> getEventNoticeList(PagingVO pageVO){
+		if(pageVO.getSet().equals("구분")) {
+			return sqlSessionTemplate.selectList("AdminEventBoardDAO.getEventNoticeList", pageVO);
+		}else {
+			return sqlSessionTemplate.selectList("AdminEventBoardDAO.getEventNoticeListWithCategory", pageVO);
+		}
+	}
+	
+	public AdminEventBoardVO getEventNotice(AdminEventBoardVO adminEventVO) {
+		return sqlSessionTemplate.selectOne("AdminEventBoardDAO.getEventNotice", adminEventVO);
+	}
+	
+	public void updateEventNotice(AdminEventBoardVO adminEventVO) {
+		sqlSessionTemplate.update("AdminEventBoardDAO.updateEventNotice", adminEventVO);
+	}
+	
+	public void deleteEventNotice(AdminEventBoardVO adminEventVO) {
+		sqlSessionTemplate.update("AdminEventBoardDAO.deleteEventNotice", adminEventVO);
 	}
 }

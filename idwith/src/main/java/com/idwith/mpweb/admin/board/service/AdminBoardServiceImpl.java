@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.admin.board.AdminEventBoardVO;
 import com.idwith.mpweb.admin.board.AdminQnABoardDAO;
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.common.PagingVO;
@@ -14,6 +15,7 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 	@Autowired
 	private AdminQnABoardDAO adminBoardDAO;
 
+	// QnA 부분-------------------------------------------------------------
 	// 페이징 처리
 	@Override
 	public int countQnA() {
@@ -65,6 +67,39 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		System.out.println("title: "+adminQnA.getBoard_title());
 		System.out.println("content: "+adminQnA.getBoard_content());
 		adminBoardDAO.insertFAQ(adminQnA);
+	}
+	
+	//----사용자 공지사항 부분-------------------------------------------------------------------
+	
+	@Override
+	public void userInsertNotice(AdminEventBoardVO adminEventVO) {
+		adminBoardDAO.userInsertNotice(adminEventVO);
+	}
+
+	@Override
+	public int countEventNotice() {
+		return adminBoardDAO.countEventNotice();
+	}
+
+	@Override
+	public List<AdminEventBoardVO> getEventNoticeList(PagingVO pageVO) {
+		return adminBoardDAO.getEventNoticeList(pageVO);
+	}
+
+	@Override
+	public AdminEventBoardVO getEventNotice(AdminEventBoardVO adminEventVO) {
+		return adminBoardDAO.getEventNotice(adminEventVO);
+	}
+
+	@Override
+	public void updateEventNotice(AdminEventBoardVO adminEventVO) {
+		adminBoardDAO.updateEventNotice(adminEventVO);
+	}
+
+	@Override
+	public void deleteEventNotice(AdminEventBoardVO adminEventVO) {
+		adminBoardDAO.deleteEventNotice(adminEventVO);
+		
 	}
 
 }

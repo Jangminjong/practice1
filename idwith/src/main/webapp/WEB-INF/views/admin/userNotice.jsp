@@ -24,6 +24,8 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/admin/js/aboutUser.js"></script>
 </head>
 
 <body>
@@ -199,7 +201,14 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center">
+									<select id="qna_type" name="board_category"
+										onchange="setEventCategory()">
+										<option value="구분">구분</option>
+										<option value="공지">공지</option>
+										<option value="이벤트">이벤트</option>
+									</select>
+								</div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
@@ -218,6 +227,7 @@
 											<thead>
 												<tr>
 													<th scope="col">No.</th>
+													<th scope="col">분류</th>
 													<th scope="col">제목</th>
 													<th scope="col">작성자</th>
 													<th scope="col">날짜</th>
@@ -228,12 +238,13 @@
 												<c:forEach var="notice" items="${noticeList}">
 													<tr>
 														<th scope="row">${notice.rownum}</th>
-														<td><a href="userNoticeContent.mdo?seq=${notice.seq }">${notice.board_title }
-															<input type="hidden" name="seq" value="${notice.seq }"/>
+														<th scope="row">${notice.user_event_board_category}</th>
+														<td><a href="userNoticeContent.mdo?user_event_board_seq=${notice.user_event_board_seq}">
+															${notice.user_event_board_title1} / ${notice.user_event_board_title2}
 														</a></td>
-														<td>관리자1</td>
-														<td>${notice.board_date }</td>
-														<td>${notice.hit }</td>
+														<td>${notice.user_event_board_id}</td>
+														<td>${notice.user_event_board_start}</td>
+														<td>${notice.user_event_board_cnt}</td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -251,7 +262,7 @@
 										</c:when>
 										<c:when test="${paging.nowPage ne 1 }">
 											<li class="page-item"><a
-												href="/mpweb/qna.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												href="/mpweb/userNotice.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
 												style="width: auto;" class="page-link">Previous</a>
 											</li>
 										</c:when>
@@ -261,12 +272,12 @@
 										<c:choose>
 											<c:when test="${p eq paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/userNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" onclick="return false" class="page-link">${p }</a>
+													href="/mpweb/userNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}" onclick="return false" class="page-link">${p }</a>
 												</li>
 											</c:when>
 											<c:when test="${p ne paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/userNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="page-link">${p }</a>
+													href="/mpweb/userNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}" class="page-link">${p }</a>
 												</li>
 											</c:when>
 										</c:choose>
@@ -277,7 +288,7 @@
 										</c:when>
 										<c:when test="${paging.endPage ne paging.lastPage}">
 											<li class="page-item"><a
-												href="/mpweb/userNotice.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+												href="/mpweb/userNotice.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
 												style="width: auto;" class="page-link">Next</a>
 											</li>
 										</c:when>
