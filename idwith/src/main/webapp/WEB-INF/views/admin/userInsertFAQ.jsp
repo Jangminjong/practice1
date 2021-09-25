@@ -200,7 +200,7 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form id="form-notice-user" name="noticeUserForm" action="InsertFAQ.mdo" method="post" onsubmit="return false">
+						<form id="form-notice-user" name="noticeUserForm" action="insertFAQ.mdo" method="post" onsubmit="return false">
 							<div class="mb-3">
 								<label class="form-label">FAQ Title</label> <input
 									type="text" class="form-control" name="board_title" placeholder="제목"
