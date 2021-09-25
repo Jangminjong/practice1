@@ -14,7 +14,7 @@ import java.sql.Timestamp;
  * admin_board_static
  */
 
-public class AdminNoitceBoardVO {
+public class AdminNoticeBoardVO {
 	
 	private Integer adminBoardSeq;
 	private String adminBoardId;

@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.WatingVO" alias="watingVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.ProposeVO" alias="proposeVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.SellerVO" alias="sellerVO"/>
- 		<typeAlias type="com.idwith.mpweb.admin.AdminNoticeBoardVO" alias="adminNotice"/>
+ 		<typeAlias type="com.idwith.mpweb.admin.board.AdminNoticeBoardVO" alias="adminNotice"/>
  	</typeAliases>
  	<mappers>
  		<mapper resource="mappings/user/board/userBoard-mapping.xml" />

@@ -8,9 +8,9 @@ public class AdminNoticeBoardDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	/** 관리자 공지사항 insert */
-	public void insertNotice(AdminNoitceBoardVO adminNotice) {
-		System.out.println("insertNotice() 기능 처리");
+	/** 愿�由ъ옄 怨듭��궗�빆 insert */
+	public void insertNotice(AdminNoticeBoardVO adminNotice) {
+		System.out.println("insertNotice() 湲곕뒫 泥섎━");
 		sqlSessionTemplate.insert("AdminNoitceBoardDAO.insertNotice", adminNotice);
 	}
 

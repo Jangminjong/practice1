@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.idwith.mpweb.admin.board.AdminNoitceBoardVO;
+import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.admin.board.service.AdminBoardService;
 import com.idwith.mpweb.common.PagingVO;
@@ -28,7 +28,7 @@ public class noticeController {
 	}
 	
 	@RequestMapping("/insertNotice.mdo")
-	public String insertNotice(AdminNoitceBoardVO adminNotice) {
+	public String insertNotice(AdminNoticeBoardVO adminNotice) {
 		System.out.println("관리자 공지사항 등록 처리");
 		System.out.println("content : " + adminNotice.getAmdinBoardContent());
 		return "redirect:/adminNotice.mdo";

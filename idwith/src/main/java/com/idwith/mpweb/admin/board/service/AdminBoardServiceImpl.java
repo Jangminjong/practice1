@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.idwith.mpweb.admin.board.AdminEventBoardVO;
+//import com.idwith.mpweb.admin.board.AdminEventBoardVO;
 import com.idwith.mpweb.admin.board.AdminQnABoardDAO;
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.common.PagingVO;
@@ -15,11 +15,11 @@ public class AdminBoardServiceImpl implements AdminBoardService {
    @Autowired
    private AdminQnABoardDAO adminBoardDAO;
 
-   // QnA 부분-------------------------------------------------------------
-   // 페이징 처리
+   // QnA 遺�遺�-------------------------------------------------------------
+   // �럹�씠吏� 泥섎━
    @Override
    public int countQnA() {
-      return adminBoardDAO.countQnA(); // 총 게시글 수
+      return adminBoardDAO.countQnA(); // 珥� 寃뚯떆湲� �닔
    }
 
    @Override
@@ -69,26 +69,26 @@ public class AdminBoardServiceImpl implements AdminBoardService {
       adminBoardDAO.insertFAQ(adminQnA);
    }
    
-   //----사용자 공지사항 부분-------------------------------------------------------------------
+   //----�궗�슜�옄 怨듭��궗�빆 遺�遺�-------------------------------------------------------------------
    
-   @Override
-   public void userInsertNotice(AdminEventBoardVO adminEventVO) {
-      adminBoardDAO.userInsertNotice(adminEventVO);
-   }
-
-   @Override
-   public int countEventNotice() {
-      return adminBoardDAO.countEventNotice();
-   }
-
-   @Override
-   public List<AdminEventBoardVO> getEventNoticeList(PagingVO pageVO) {
-      return adminBoardDAO.getEventNoticeList(pageVO);
-   }
-
-   @Override
-   public AdminEventBoardVO getEventNotice(AdminEventBoardVO adminEventVO) {
-      return adminBoardDAO.getEventNotice(adminEventVO);
-   }
+//   @Override
+//   public void userInsertNotice(AdminEventBoardVO adminEventVO) {
+//      adminBoardDAO.userInsertNotice(adminEventVO);
+//   }
+//
+//   @Override
+//   public int countEventNotice() {
+//      return adminBoardDAO.countEventNotice();
+//   }
+//
+//   @Override
+//   public List<AdminEventBoardVO> getEventNoticeList(PagingVO pageVO) {
+//      return adminBoardDAO.getEventNoticeList(pageVO);
+//   }
+//
+//   @Override
+//   public AdminEventBoardVO getEventNotice(AdminEventBoardVO adminEventVO) {
+//      return adminBoardDAO.getEventNotice(adminEventVO);
+//   }
 
 }
