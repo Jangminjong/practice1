@@ -1,10 +1,12 @@
 package com.idwith.mpweb.admin.board.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
 import com.idwith.mpweb.admin.board.AdminNoticeBoardDAO;
 
+@Service("adminNoticeService")
 public class AdminNoticeServiceImpl implements AdminNoticeService {
 	
 	@Autowired
@@ -18,3 +20,4 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	}
 
 }
+     

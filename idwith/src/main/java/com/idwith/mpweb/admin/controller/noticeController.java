@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.admin.board.service.AdminBoardService;
+import com.idwith.mpweb.admin.board.service.AdminNoticeService;
 import com.idwith.mpweb.common.PagingVO;
 
 @Controller
 public class noticeController {
 	@Autowired
 	AdminBoardService adminBoardService;
+	
+	@Autowired
+	AdminNoticeService adminNoticeService;
 	
 	@GetMapping("/adminNotice.mdo")
 	public String adminNotice() {
@@ -31,6 +35,7 @@ public class noticeController {
 	public String insertNotice(AdminNoticeBoardVO adminNotice) {
 		System.out.println("관리자 공지사항 등록 처리");
 		System.out.println("content : " + adminNotice.getAmdinBoardContent());
+		adminNoticeService.insertAdminNotice(adminNotice);
 		return "redirect:/adminNotice.mdo";
 	}
 	

@@ -202,7 +202,7 @@
 							<div class="mb-3">
 								<label class="form-label">Notice Title</label> <input
 									type="text" class="form-control" name="adminBoardTitle"
-									placeholder="admin" style="width: auto;">
+									placeholder="제목" style="width: auto;">
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
@@ -213,20 +213,19 @@
 								<label class="form-label w-100">File input</label> <input
 									type="file" name="adminBoardFilePath">
 							</div>
-							<div class="col-md-2 text-center">
-								<input class="btn btn-primary" type="button"
-									id="notice-admin-submit" value="등록" />
+							<div class="row">
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center">
+									<input class="btn btn-primary" type="submit" id="notice-admin-submit" value="등록" />
+									<input class="btn btn-primary" type="reset" value="초기화" />
+								</div>
 							</div>
 						</form>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<button class="btn btn-primary" type="reset">초기화</button>
 				</div>
 			</main>
 		</div>
