@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%-- <c:set var="path" value="${pageContext.request.contextPath}" />
+<c:url var="getNoticeList" value="/search.mdo">
+	<c:param name="page" value="${pagination.page}" />
+	<c:param name="range" value="${pagination.range}" />
+	<c:param name="rangeSize" value="${pagination.rangeSize}" />
+	<c:param name="fix" value="${pagination.fix }" />
+</c:url> --%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +28,64 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+
+<!-- <script>
+   //이전 버튼 이벤트
+
+   function fn_prev(page, range, rangeSize, searchKeyword) {
+
+      var page = ((range - 2) * rangeSize) + 1;
+
+      var range = range - 1;
+
+      var url = "${pageContext.request.contextPath}/search.mdo";
+
+      url = url + "?page=" + page;
+
+      url = url + "&range=" + range;
+
+      url = url + "&searchKeyword=" + searchKeyword;
+
+      location.href = url;
+
+   }
+
+   //페이지 번호 클릭
+   function fn_pagination(page, range, rangeSize, searchKeyword, fix) {
+      
+      var url = "${pageContext.request.contextPath}/search.mdo";
+
+      url = url + "?page=" + page;
+
+      url = url + "&range=" + range;
+
+      url = url + "&searchKeyword=" + searchKeyword;
+
+      location.href = url;
+      
+      
+   }
+   
+   
+   //다음 버튼 이벤트
+
+   function fn_next(page, range, rangeSize, searchKeyword) {
+
+      var page = parseInt((range * rangeSize)) + 1;
+
+      var range = parseInt(range) + 1;
+
+      var url = "${pageContext.request.contextPath}/search.mdo";
+
+      url = url + "?page=" + page;
+
+      url = url + "&range=" + range;
+
+      url = url + "&searchKeyword=" + searchKeyword;
+
+      location.href = url;
+   }
+</script> -->
 </head>
 
 <body>
@@ -184,67 +251,124 @@
 
 			<main>
 				<div class="content">
-                    <div class="row">
-                        <div class="container-fluid p-0">
-                            <div class="row mb-2 mb-xl-3">
-                                <div class="col-auto d-none d-sm-block">
-                                    <h3>Admin Notice</h3>
-                                </div>
-                            </div>
+					<div class="row">
+						<div class="container-fluid p-0">
+							<div class="row mb-2 mb-xl-3">
+								<div class="col-auto d-none d-sm-block">
+									<h3>Admin Notice</h3>
+								</div>
+							</div>
 
-                            <div class="row">
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center" style="margin-bottom: 10px;">
-                                    <a href="adminInsertNotice.mdo">
-                                        <button class="btn btn-warning">글쓰기</button>
-                                    </a>
-                                </div>
-                            </div>
+							<div class="row">
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center" style="margin-bottom: 10px;">
+									<a href="adminInsertNotice.mdo">
+										<button class="btn btn-warning">글쓰기</button>
+									</a>
+								</div>
+							</div>
 
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="table-responsive">
-                                        <table class="table mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">No.</th>
-                                                    <th scope="col">제목</th>
-                                                    <th scope="col">작성자</th>
-                                                    <th scope="col">날짜</th>
-                                                    <th scope="col">조회수</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>
-                                                        <a href="adminNoticeContent.mdo">admin test 공지사항1</a>
-                                                    </td>
-                                                    <td>관리자1</td>
-                                                    <td>2021-09-07</td>
-                                                    <td>0</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>
-                                                        <a href="adminNoticeContent.mdo">test 공지사항2</a>
-                                                    </td>
-                                                    <td>관리자2</td>
-                                                    <td>2021-09-07</td>
-                                                    <td>0</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+							<div class="col-12">
+								<div class="card">
+									<div class="table-responsive">
+										<table class="table mb-0">
+											<thead>
+												<tr>
+													<th scope="col">No.</th>
+													<th scope="col">제목</th>
+													<th scope="col">작성자</th>
+													<th scope="col">날짜</th>
+													<th scope="col">조회수</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="adminNotice" items="${adminNoticeList}">
+													<tr>
+														<c:set var="fix" value="${adminNotice.adminBoardStatic }" />
+														<c:choose>
+															<c:when test="${adminBoardStatic eq 'true'}">
+																<td><img src="resource/admin/img/icon_notice.png"></td>
+																<td align="left"><a type="hidden"
+																	href="adminNoticeContent.mdo?ADMIN_BOARD_SEQ=${adminNotice.adminBoardSeq}">
+																		${adminNotice.adminBoardTitle} </a></td>
+																<td>${adminNotice.adminBoardId}</td>
+																<td><fmt:formatDate
+																		value="${adminNotice.adminBoardRegDate}"
+																		pattern="yyyy-MM-dd " /></td>
+																<td>0</td>
+															</c:when>
+
+															<c:otherwise>
+																<td>${adminNotice.rownum}</td>
+																<td align="left"><a type="hidden"
+																	href="adminNoticeContent.mdo?ADMIN_BOARD_SEQ=${adminNotice.adminBoardSeq}">
+																		${adminNotice.adminBoardTitle} </a></td>
+																<td>${adminNotice.adminBoardId}</td>
+																<td><fmt:formatDate
+																		value="${adminNotice.adminBoardRegDate}"
+																		pattern="yyyy-MM-dd " /></td>
+																<td>0</td>
+															</c:otherwise>
+														</c:choose>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- 페이징 처리 -->
+						<div class="paging" data-ui="paging" data-sync="false">
+							<nav style="float: center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+									<c:choose>
+										<c:when test="${paging.nowPage eq 1 }">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Previous</span></li>
+										</c:when>
+										<c:when test="${paging.nowPage ne 1 }">
+											<li class="page-item"><a
+												href="/mpweb/qna.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Previous</a></li>
+										</c:when>
+									</c:choose>
+									<c:forEach begin="${paging.startPage }"
+										end="${paging.endPage }" var="p">
+										<c:choose>
+											<c:when test="${p eq paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/adminNoice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													onclick="return false" class="page-link">${p }</a></li>
+											</c:when>
+											<c:when test="${p ne paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/adminNoice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													class="page-link">${p }</a></li>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${paging.endPage eq paging.lastPage}">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Next</span></li>
+										</c:when>
+										<c:when test="${paging.endPage ne paging.lastPage}">
+											<li class="page-item"><a
+												href="/mpweb/adminNoice.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+												style="width: auto;" class="page-link">Next</a></li>
+										</c:when>
+									</c:choose>
+								</ul>
+							</nav>
+						</div>
+						<!-- 페이징 처리 끝 -->
+						</div>
+					</div>
+				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>

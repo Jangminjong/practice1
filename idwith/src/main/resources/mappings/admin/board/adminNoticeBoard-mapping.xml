@@ -4,20 +4,47 @@
  
 <mapper namespace="AdminNoticeBoardDAO">
 	<resultMap type="adminNotice" id="adminNoticeResult">
-		<id property="adminBoardSeq" column="admin_board_seq" />
-		<result property="adminBoardId" column="admin_board_id" />
-		<result property="adminBoardTitle" column="admin_board_title" />
-		<result property="amdinBoardContent" column="admin_board_content" />
-		<result property="adminBoardRegDate" column="admin_board_date" />
-		<result property="adminBoardCnt" column="admin_board_cnt" />
-		<result property="adminBoardFilePath" column="admin_board_file"/>
-		<result property="adminBoardStatic" column="admin_board_static"/>
+		<id property="adminBoardSeq" column="ADMIN_BOARD_SEQ" />
+		<result property="adminBoardId" column="ADMIN_BOARD_ID" />
+		<result property="adminBoardTitle" column="ADMIN_BOARD_TITLE" />
+		<result property="amdinBoardContent" column="ADMIN_BOARD_CONTENT" />
+		<result property="adminBoardRegDate" column="ADMIN_BOARD_DATE" />
+		<result property="adminBoardCnt" column="ADMIN_BOARD_CNT" />
+		<result property="adminBoardFilePath" column="ADMIN_BOARD_FILE"/>
+		<result property="adminBoardStatic" column="ADMIN_BOARD_STATIC"/>
 	</resultMap>
 	
+	<!-- 관리자 공지사항 글 등록 -->
 	<insert id="insertAdminNotice" parameterType="adminNotice">
 		INSERT INTO
-		admin_board(admin_board_seq, admin_board_id, admin_board_title, admin_board_content, admin_board_date, admin_board_cnt, admin_board_static)
+		admin_board(ADMIN_BOARD_SEQ, ADMIN_BOARD_ID, ADMIN_BOARD_TITLE, ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_CNT, ADMIN_BOARD_STATIC)
 		VALUES(nextval('BOARD_SEQ'), 'admin', #{adminBoardTitle}, #{amdinBoardContent}, now(), 0, false)
 	</insert>
+ 	
+ 	<!-- 관리자 공지사항 글 목록 -->
+ 	<select id="getAdminNoticeList" parameterType="adminNotice" resultType="adminNotice">
+ 		SELECT * FROM admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
+ 	</select>
+ 	
+ 	<!-- 페이징 처리 -->
+ 	<select id="pagingList" resultType="adminNotice" parameterType="adminNotice">
+ 		select * from
+		( select ROW_NUMBER() OVER() rownum, ADMIN_BOARD_SEQ, ADMIN_BOARD_TITLE, ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_FILE, ADMIN_BOARD_STATIC
+		from admin_board where ADMIN_BOARD_STATIC = true order by ADMIN_BOARD_DATE desc ) as one
+		union all
+		select * from (
+		select ROW_NUMBER() OVER() rownum, ADMIN_BOARD_SEQ, ADMIN_BOARD_TITLE, ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_FILE, ADMIN_BOARD_STATIC
+		from
+		( select * from admin_board where ADMIN_BOARD_STATIC = false order by ADMIN_BOARD_SEQ asc ) as
+		three
+		order by ADMIN_BOARD_DATE desc,rownum desc
+		limit #{listSize} offset #{startList}
+		) as two
+ 	</select>
+ 	
+ 	<select id="pagingCnt" resultType="int">
+		select count(*) as listCnt
+		from admin_board
+	</select>
  	
 </mapper>
