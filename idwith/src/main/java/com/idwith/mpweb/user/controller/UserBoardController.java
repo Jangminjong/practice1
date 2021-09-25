@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.board.EventBoardVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
 import com.idwith.mpweb.user.board.service.UserBoardService;
 
@@ -30,6 +31,8 @@ public class UserBoardController {
 	public String userMessage() {
 		return "message";
 	}
+	
+	// 1:1문의 게시판 ------------------------------------------------------------------------------------
 	
 	@RequestMapping(value="/qnaRightCheck.do", method=RequestMethod.POST, produces="application/text; charset=utf8")
 	@ResponseBody
@@ -101,6 +104,35 @@ public class UserBoardController {
 		model.addAttribute("qnaList", boardService.selectQnA(pageVO));
 		return "board/board";
 		
+	}
+	
+	// 이벤트, 공지 게시판 ------------------------------------------------------------------------------------------
+	
+	@GetMapping("/eventNoticeBoard.do")
+	public String noticeEventList(PagingVO pageVO, Model model, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {
+		int total = boardService.countEventNotice();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "20";
+		}else{
+			cntPerPage = "20";
+		}
+		
+		System.out.println("nowpage: "+nowPage+"cntPerpage: "+cntPerPage);
+		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", pageVO);
+		model.addAttribute("noticeEventList",boardService.getEventNoticeList(pageVO));
+		return "board/event_board";
+		
+	}
+	
+	@RequestMapping("/eventNotice_detail.do")
+	public String eventNoticeDetail(EventBoardVO eventVO, Model model){
+		System.out.println("글 상세 보기 처리");
+		System.out.println("num: "+eventVO.getUser_event_board_seq());
+		boardService.addCnt(eventVO);
+		model.addAttribute("eventVO", boardService.getEventNotice(eventVO));
+		return "board/event_detail";
 	}
 	
 }

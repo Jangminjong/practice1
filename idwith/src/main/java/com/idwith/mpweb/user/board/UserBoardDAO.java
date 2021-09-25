@@ -13,6 +13,7 @@ public class UserBoardDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
+	//1:1 문의 게시판 ------------------------------------------------------
 	public void insertQnA(QnABoardVO qnaVO) {
 		System.out.println("DAO insertQnA() 실행");
 		sqlSessionTemplate.insert("BoardDAO.insertQnA", qnaVO);
@@ -62,5 +63,23 @@ public class UserBoardDAO {
 	
 	public void addHit(QnABoardVO qnaVO) {
 		sqlSessionTemplate.update("BoardDAO.addHit", qnaVO);
+	}
+	
+	// 이벤트, 공지 게시판 -----------------------------------------------------------
+	
+	public int countEventNotice() {
+		return sqlSessionTemplate.selectOne("BoardDAO.countEventNotice");
+	}
+	
+	public List<EventBoardVO> getEventNoticeList(PagingVO pageVO){
+		return sqlSessionTemplate.selectList("BoardDAO.getEventNoticeList", pageVO);
+	}
+	
+	public void addCnt(EventBoardVO eventVO) {
+		sqlSessionTemplate.update("BoardDAO.addCnt", eventVO);
+	}
+	
+	public EventBoardVO getEventNotice(EventBoardVO eventVO) {
+		return sqlSessionTemplate.selectOne("BoardDAO.getEventNotice", eventVO);
 	}
 }

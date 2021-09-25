@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.UserBoardDAO;
+import com.idwith.mpweb.user.board.EventBoardVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
 
 @Service("userBoardService")
 public class UserBoardServiceImpl implements UserBoardService {
 	@Autowired
 	private UserBoardDAO boardDAO;
+	
+	// 1:1 문의 게시판----------------------------------------------------
 
 	@Override
 	public void insertQnA(QnABoardVO qnaVO) {
@@ -83,4 +86,28 @@ public class UserBoardServiceImpl implements UserBoardService {
 		boardDAO.addHit(qnaVO);
 		
 	}
+	
+	// 이벤트, 공지 게시판 --------------------------------------------------------
+
+	@Override
+	public int countEventNotice() {
+		return boardDAO.countEventNotice();
+	}
+
+	@Override
+	public List<EventBoardVO> getEventNoticeList(PagingVO pageVO) {
+		return boardDAO.getEventNoticeList(pageVO);
+	}
+
+	@Override
+	public void addCnt(EventBoardVO eventVO) {
+		boardDAO.addCnt(eventVO);
+	}
+
+	@Override
+	public EventBoardVO getEventNotice(EventBoardVO eventVO) {
+		return boardDAO.getEventNotice(eventVO);
+	}
+	
+	
 }
