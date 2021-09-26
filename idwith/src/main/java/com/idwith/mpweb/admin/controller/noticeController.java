@@ -1,21 +1,18 @@
 package com.idwith.mpweb.admin.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.admin.board.service.AdminBoardService;
 import com.idwith.mpweb.admin.board.service.AdminNoticeService;
-import com.idwith.mpweb.common.Pagination;
 import com.idwith.mpweb.common.PagingVO;
+
 
 @Controller
 public class noticeController {
@@ -25,13 +22,35 @@ public class noticeController {
 	@Autowired
 	AdminNoticeService adminNoticeService;
 	
+	/**관리자 공지사항 글 목록 요청*/
 	@GetMapping("/adminNotice.mdo")
-	public String adminNotice() {
+	public String adminNoticeList(PagingVO pagination, Model model,
+			@RequestParam(value = "nowPage", required = false)String nowPage,
+			@RequestParam(value = "cntPerPage", required = false)String cntPerPage) {
+		
+		System.out.println("글 목록 요청 처리");
+		
+		int adminNoticeTotal = adminNoticeService.countAdminNotice();
+		
+		if(nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		} else if(nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "5";
+		}
+		
+		pagination = new PagingVO(adminNoticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		model.addAttribute("paging", pagination);
+		model.addAttribute("NoticeViewAll", adminNoticeService.getNoticeList(pagination));
+		
 		return "adminNotice";
 	}
 	
 	/**관리자 공지사항 글 등록 화면*/
-	@GetMapping("/adminInsertNotice.mdo")
+	@RequestMapping("/adminInsertNotice.mdo")
 	public String adminInsertNotice() {
 		return "adminInsertNotice";
 	}
@@ -43,40 +62,6 @@ public class noticeController {
 		System.out.println("content : " + adminNotice.getAmdinBoardContent());
 		adminNoticeService.insertAdminNotice(adminNotice);
 		return "redirect:/adminNotice.mdo";
-	}
-	
-	/**관리자 공지사항 글 목록 요청*/
-	@GetMapping("/getAdminNoticeList.mdo")
-	public String getAdminNoticeList(AdminNoticeBoardVO adminNotice, Model model,
-			@RequestParam(required = false, defaultValue = "1") int page,
-			@RequestParam(required = false, defaultValue = "1") int range) {
-
-		System.out.println("글 목록 요청 처리");
-		
-		System.out.println("page : " + page);
-		System.out.println("range : " + range);
-		
-		// 전체 게시글 개수
-		int listCnt = adminNoticeService.countAdminNotice();
-		
-		System.out.println("listCnt : " + listCnt);
-		
-		//페이징 처리
-		Pagination pagination = new Pagination();
-		pagination.pageInfo(page, range, listCnt);
-		
-		List<AdminNoticeBoardVO> pageList = adminNoticeService.getNoticeList(pagination);
-		
-		model.addAttribute("pagination", pagination);
-		model.addAttribute("adminNoticeList", pageList);
-		
-		return "adminNotice";
-	}
-	
-	@RequestMapping(value = "/cnt.mdo", method = RequestMethod.GET)
-	public String getPageListCnt() {
-		System.out.println(adminNoticeService.countAdminNotice());
-		return "adminNotice";
 	}
 	
 	/**관계자 공지사항 글 상세보기 화면*/

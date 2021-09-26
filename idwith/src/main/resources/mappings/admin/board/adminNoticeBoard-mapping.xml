@@ -1,50 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="AdminNoticeBoardDAO">
 	<resultMap type="adminNotice" id="adminNoticeResult">
 		<id property="adminBoardSeq" column="ADMIN_BOARD_SEQ" />
 		<result property="adminBoardId" column="ADMIN_BOARD_ID" />
 		<result property="adminBoardTitle" column="ADMIN_BOARD_TITLE" />
-		<result property="amdinBoardContent" column="ADMIN_BOARD_CONTENT" />
+		<result property="amdinBoardContent"
+			column="ADMIN_BOARD_CONTENT" />
 		<result property="adminBoardRegDate" column="ADMIN_BOARD_DATE" />
 		<result property="adminBoardCnt" column="ADMIN_BOARD_CNT" />
-		<result property="adminBoardFilePath" column="ADMIN_BOARD_FILE"/>
-		<result property="adminBoardStatic" column="ADMIN_BOARD_STATIC"/>
+		<result property="adminBoardFilePath" column="ADMIN_BOARD_FILE" />
+		<result property="adminBoardStatic" column="ADMIN_BOARD_STATIC" />
 	</resultMap>
-	
+
 	<!-- 관리자 공지사항 글 등록 -->
 	<insert id="insertAdminNotice" parameterType="adminNotice">
 		INSERT INTO
-		admin_board(ADMIN_BOARD_SEQ, ADMIN_BOARD_ID, ADMIN_BOARD_TITLE, ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_CNT, ADMIN_BOARD_STATIC)
-		VALUES(nextval('BOARD_SEQ'), 'admin', #{adminBoardTitle}, #{amdinBoardContent}, now(), 0, false)
+		admin_board(ADMIN_BOARD_SEQ, ADMIN_BOARD_ID, ADMIN_BOARD_TITLE,
+		ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_CNT,
+		ADMIN_BOARD_STATIC)
+		VALUES(nextval('BOARD_SEQ'), 'admin',
+		#{adminBoardTitle}, #{amdinBoardContent}, now(), 0, false)
 	</insert>
- 	
- 	<!-- 관리자 공지사항 글 목록 -->
- 	<select id="getAdminNoticeList" parameterType="adminNotice" resultType="adminNotice">
- 		SELECT * FROM admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
- 	</select>
- 	
- 	<!-- 페이징 처리 -->
- 	<select id="pagingList" resultType="adminNotice" parameterType="adminNotice">
- 		select * from
-		( select ROW_NUMBER() OVER() rownum, ADMIN_BOARD_SEQ, ADMIN_BOARD_TITLE, ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_FILE, ADMIN_BOARD_STATIC
-		from admin_board where ADMIN_BOARD_STATIC = true order by ADMIN_BOARD_DATE desc ) as one
-		union all
-		select * from (
-		select ROW_NUMBER() OVER() rownum, ADMIN_BOARD_SEQ, ADMIN_BOARD_TITLE, ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_FILE, ADMIN_BOARD_STATIC
-		from
-		( select * from admin_board where ADMIN_BOARD_STATIC = false order by ADMIN_BOARD_SEQ asc ) as
-		three
-		order by ADMIN_BOARD_DATE desc,rownum desc
-		limit #{listSize} offset #{startList}
-		) as two
- 	</select>
- 	
- 	<select id="pagingCnt" resultType="int">
-		select count(*) as listCnt
-		from admin_board
+
+	<!-- 관리자 공지사항 글 수정 -->
+	<update id="updateAdminNotice" parameterType="adminNotice">
+		UPDATE admin_board
+		SET ADMIN_BOARD_TITLE=#{adminBoardTitle},
+		amdinBoardContent=#{amdinBoardContent},
+		ADMIN_BOARD_STATIC=#{adminBoardStatic}
+		WHERE
+		ADMIN_BOARD_SEQ=#{adminBoardSeq}
+	</update>
+
+	<!-- 관리자 공지사항 글 삭제 -->
+	<delete id="deleteAdminNotice" parameterType="adminNotice">
+		DELETE FROM
+		admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
+	</delete>
+
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectAdminNotice" resultType="adminNotice">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+		FROM admin_board ORDER BY ADMIN_BOARD_SEQ DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
- 	
+
+	<select id="countAdminNotice" resultType="int">
+		select count(*) from admin_board
+	</select>
+
+
 </mapper>
