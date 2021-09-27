@@ -102,19 +102,10 @@
 								href="requestCoupon.mdo">쿠폰 요청 리스트</a></li>
 						</ul></li>
 
-					<li class="sidebar-item"><a data-target="#category"
-						data-toggle="collapse" class="sidebar-link collapsed"> <i
-							class="align-middle" data-feather="edit-2"></i> <span
-							class="align-middle">카테고리</span>
-					</a>
-						<ul id="category" class="sidebar-dropdown list-unstyled collapse "
-							data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link"
-								href="productCategory.mdo">작품 카테고리</a></li>
-							<li class="sidebar-item"><a class="sidebar-link"
-								href="classCategory.mdo">클래스 카테고리</a></li>
-
-						</ul></li>
+					<li class="sidebar-item"><a class="sidebar-link"
+						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
+							<span class="align-middle">카테고리</span>
+					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
 						data-toggle="collapse" class="sidebar-link collapsed"> <i
@@ -255,8 +246,8 @@
 												<td>123-45-67890</td>
 												<td>2021-08-31</td>
 												<td>
-													<button type="button" class="btn btn-warning" id="storeProposeAgree">승인</button>
-													<button type="button" class="btn btn-primary" id="storeProposeDisagree">거절</button>
+													<button type="button" class="btn btn-warning" id="classProposeAgree">승인</button>
+													<button type="button" class="btn btn-primary" id="classProposeDisagree">거절</button>
 												</td>
 											</tr>
 										</tbody>
@@ -269,6 +260,105 @@
 			</div>
 		</main>
 		<script src="resources/admin/js/app.js"></script>
+<<<<<<< HEAD
+		<script>
+		$().ready(function (){ 
+			$("#storeProposeAgree").click(function (){ 
+				Swal.fire({ 
+					title: '입점 신청', 
+					text: "이 작가의 입점을 승인하시겠습니까?", 
+					icon: 'question', 
+					showCancelButton: true, 
+					confirmButtonColor: '#FF7B30', 
+					confirmButtonBorderColor : "#FF7B30",
+					cancelButtonColor: '#15283D', 
+					confirmButtonText: '승인', 
+					cancelButtonText: '취소' 
+				}).then((result) => { 
+					if (result.isConfirmed) { 
+						Swal.fire(
+							'입점 승인', 
+							'해당 작가의 입점이 승인되었습니다.', 
+						) 
+					} 
+				}) 
+			});
+			
+			$("#storeProposeDisagree").click(function (){ 
+				Swal.fire({ 
+					title: '입점거절', 
+					text: "이 작가의 입점을 거절하시겠습니까?", 
+					icon: 'warning', 
+					showCancelButton: true, 
+					confirmButtonColor: '#FF7B30', 
+					confirmButtonBorderColor : "#FF7B30",
+					cancelButtonColor: '#15283D', 
+					confirmButtonText: '거절', 
+					cancelButtonText: '취소' 
+				}).then((result) => { 
+					if (result.isConfirmed) { 
+						Swal.fire(
+							'입점 거절', 
+							'해당 작가의 입점이 거절되었습니다', 
+						) 
+					} 
+				}) 
+			}); 
+			
+		});
+		
+		
+		
+			</script>
+			<script>
+		$().ready(function (){ 
+			$("#classProposeAgree").click(function (){ 
+				Swal.fire({ 
+					title: '입점 신청', 
+					text: "이 작가의 입점을 승인하시겠습니까?", 
+					icon: 'question', 
+					showCancelButton: true, 
+					confirmButtonColor: '#FF7B30', 
+					confirmButtonBorderColor : "#FF7B30",
+					cancelButtonColor: '#15283D', 
+					confirmButtonText: '승인', 
+					cancelButtonText: '취소' 
+				}).then((result) => { 
+					if (result.isConfirmed) { 
+						Swal.fire(
+							'입점 승인', 
+							'해당 작가의 입점이 승인되었습니다.', 
+						) 
+					} 
+				}) 
+			});
+			
+			$("#classProposeDisagree").click(function (){ 
+				Swal.fire({ 
+					title: '입점거절', 
+					text: "이 작가의 입점을 거절하시겠습니까?", 
+					icon: 'warning', 
+					showCancelButton: true, 
+					confirmButtonColor: '#FF7B30', 
+					confirmButtonBorderColor : "#FF7B30",
+					cancelButtonColor: '#15283D', 
+					confirmButtonText: '거절', 
+					cancelButtonText: '취소' 
+				}).then((result) => { 
+					if (result.isConfirmed) { 
+						Swal.fire(
+							'입점 거절', 
+							'해당 작가의 입점이 거절되었습니다', 
+						) 
+					} 
+				}) 
+			}); 
+			
+		});
+		
+		
+		
+=======
 			
 			<script>
 				function storeProposeDisagree(user_id, disagree){ 
@@ -447,6 +537,7 @@
 						}//end if
 					})
 				}
+>>>>>>> 78e7a46c637f9da54e1cff16d724a411f839f00c
 			</script>
 	</div>
 </body>
