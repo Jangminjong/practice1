@@ -51,4 +51,12 @@ public interface UserBoardService {
 	void updateReadState(String msg_id);
 	
 	void updateNewState(UserMessageVO msgVO);
+	
+	// 알림 --------------------------------------------------
+	
+	EventBoardVO getNewEvent();
+	
+	List<EventBoardVO> getEventList();
+	
+	String dueDateCheck(String seq);
 }

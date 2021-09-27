@@ -137,5 +137,22 @@ public class UserBoardServiceImpl implements UserBoardService {
 		boardDAO.updateNewState(msgVO);
 	}
 	
+	// 알림 --------------------------------------------------
+
+	@Override
+	public EventBoardVO getNewEvent() {
+		return boardDAO.getNewEvent();
+	}
+
+	@Override
+	public List<EventBoardVO> getEventList() {
+		return boardDAO.getEventList();
+	}
+
+	@Override
+	public String dueDateCheck(String seq) {
+		return boardDAO.dueDateCheck(seq);
+	}
+	
 	
 }

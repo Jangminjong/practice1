@@ -104,4 +104,23 @@ public class UserBoardDAO {
 	public void updateNewState(UserMessageVO msgVO) {
 		sqlSessionTemplate.update("BoardDAO.updateNewState", msgVO);
 	}
+	
+	// 알림 -------------------------------------------------------------------------
+	
+	public EventBoardVO getNewEvent() {
+		return sqlSessionTemplate.selectOne("BoardDAO.getNewEvent");
+	}
+	
+	public List<EventBoardVO> getEventList(){
+		return sqlSessionTemplate.selectList("BoardDAO.getEventList");
+	}
+	
+	public String dueDateCheck(String seq) {
+		int result = sqlSessionTemplate.selectOne("BoardDAO.dueDateCheck", Integer.parseInt(seq));
+		if(result>0) {
+			return "0";
+		}else {
+			return "1";
+		}
+	}
 }

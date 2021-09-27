@@ -27,8 +27,16 @@ public class UserBoardController {
 	UserBoardService boardService;
 	
 	@GetMapping("/alarm.do")
-	public String userAlarm() {
+	public String userAlarm(Model model) {
+		model.addAttribute("newEvent", boardService.getNewEvent());  // 중요이벤트(최신) 출력
+		model.addAttribute("event", boardService.getEventList()); // 이벤트 리스트 출력
 		return "board/alarm";
+	}
+	
+	@RequestMapping("/dueDateCheck.do")
+	@ResponseBody
+	public String dueDateCheck(HttpServletRequest req) {
+		return boardService.dueDateCheck(req.getParameter("seq"));
 	}
 	
 	

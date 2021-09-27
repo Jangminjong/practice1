@@ -28,4 +28,13 @@
  		UPDATE user_event_board
  		SET user_event_board_cnt=((SELECT user_event_board_cnt FROM user_event_board WHERE user_event_board_seq=#{user_event_board_seq})+1) WHERE user_event_board_seq = #{user_event_board_seq}
  	</update>
+ 	<select id="getNewEvent" resultType="eventVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *FROM user_event_board WHERE user_event_board_category='이벤트' ORDER BY user_event_board_seq DESC)A)AS foo WHERE rownum=1;
+	</select>
+	<select id="getEventList" resultType="eventVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *FROM user_event_board WHERE user_event_board_category='이벤트' ORDER BY user_event_board_seq DESC)A)AS foo;
+	</select>
+	<select id="dueDateCheck" resultType="_int" parameterType="_int">
+		SELECT CURRENT_DATE - user_event_board_end::date AS diff_days FROM user_event_board WHERE user_event_board_seq=#{seq}
+	</select>
 </mapper>
