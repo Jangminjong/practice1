@@ -23,6 +23,8 @@ public class AdminNoticeBoardDAO {
 	/** 관리자 공지사항 목록 페이지 */
 	public List<AdminNoticeBoardVO> getNoticeList(PagingVO pagination) {
 		System.out.println("getNoticeList() 기능 처리");
+		System.out.println(pagination.getStart());
+		System.out.println(pagination.getEnd());
 		System.out.println(sqlSessionTemplate.selectList("AdminNoticeBoardDAO.selectAdminNotice", pagination));
 		return sqlSessionTemplate.selectList("AdminNoticeBoardDAO.selectAdminNotice", pagination);
 	}

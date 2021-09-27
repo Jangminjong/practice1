@@ -28,6 +28,8 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	@Override
 	public List<AdminNoticeBoardVO> getNoticeList(PagingVO pagination) {
 		System.out.println("글 목록 처리 service");
+		System.out.println(pagination.getStart());
+		System.out.println(pagination.getEnd());
 		return adminNoticeBoardDAO.getNoticeList(pagination);
 	}
 
