@@ -98,8 +98,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
-							<span class="align-middle">카테고리</span>
+						href="category.mdo"> <i class="align-middle"
+							data-feather="edit-2"></i> <span class="align-middle">카테고리</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
@@ -180,7 +180,7 @@
 
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>Notice</h3>
+									<h3>Notice Content</h3>
 								</div>
 							</div>
 						</div>
@@ -189,41 +189,44 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form class="row g-3">
+						<form class="row g-3" id="form-detailnotice-admin" name="detailAdminNoticeForm" action="updateNotice.mdo" method="post">
+						<input type="hidden" name="seq" value="${adminNotice.adminBoardSeq}"/>
 							<div class="col-md-4">
-								<label class="form-label">제목</label>
-								<input type="text" class="form-control" placeholder="제목" style="width: auto;">
+								<label class="form-label">제목</label> <input type="text"
+									class="form-control" value="${adminNotice.adminBoardTitle }"
+									style="width: auto;">
 							</div>
-                            <div class="col-md-4">
-								<label class="form-label">작성자</label>
-								<input type="text" class="form-control" placeholder="작성자" style="width: auto;" disabled>
+							<div class="col-md-4">
+								<label class="form-label">작성자</label> <input type="text"
+									class="form-control" value="${adminNotice.adminBoardId}"
+									style="width: auto;" disabled>
 							</div>
-                            <div class="col-md-4">
-								<label class="form-label">작성일</label>
-								<input type="text" class="form-control" placeholder="작성일" style="width: auto;" disabled>
+							<div class="col-md-4">
+								<label class="form-label">작성일</label> <input type="text"
+									class="form-control" value="${adminNotice.adminBoardRegDate }"
+									style="width: auto;" disabled>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">내용</label>
-								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
+								<textarea class="form-control" rows="10" value="${adminNotice.amdinBoardContent}"></textarea>
 							</div>
 							<div class="mb-3">
-								<label class="form-label w-100">파일</label>
-								<input type="file">
+								<label class="form-label w-100">파일</label> <input type="file">
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center">
+									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" /> 
+									<input type="submit" class="btn btn-primary" value="수정" />
+									<button class="btn btn-primary">삭제</button>
+								</div>
 							</div>
 						</form>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-3 text-center"></div>					
-					<div class="col-md-3 text-center"></div>
-					<div class="col-md-3 text-center"></div>
-					<div class="col-md-3 text-center">
-                        <a href="adminNoticeContent.mdo">
-							<button class="btn btn-primary">수정</button>
-						</a>
-							<button class="btn btn-primary">삭제</button>
-					</div>
-				</div>
+
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>

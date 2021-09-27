@@ -41,7 +41,11 @@
 	</delete>
 	
 	<!-- 관리자 공지사항 글 상세조회 -->
-	
+	<select id="getAdminNotice" resultType="adminNotice">
+		<![CDATA[
+			SELECT * FROM admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
+		]]>
+	</select>
 
 	<!-- 페이징 처리 후 게시글 조회 -->
 	<select id="selectAdminNotice" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="adminNoticeResult">
@@ -55,6 +59,6 @@
 	<select id="countAdminNotice" resultType="int">
 		select count(*) from admin_board
 	</select>
-
+	
 
 </mapper>

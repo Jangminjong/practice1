@@ -2,13 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%-- <c:set var="path" value="${pageContext.request.contextPath}" />
-<c:url var="getNoticeList" value="/search.mdo">
-	<c:param name="page" value="${pagination.page}" />
-	<c:param name="range" value="${pagination.range}" />
-	<c:param name="rangeSize" value="${pagination.rangeSize}" />
-	<c:param name="fix" value="${pagination.fix }" />
-</c:url> --%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,63 +23,6 @@
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
 
-<!-- <script>
-   //이전 버튼 이벤트
-
-   function fn_prev(page, range, rangeSize, searchKeyword) {
-
-      var page = ((range - 2) * rangeSize) + 1;
-
-      var range = range - 1;
-
-      var url = "${pageContext.request.contextPath}/search.mdo";
-
-      url = url + "?page=" + page;
-
-      url = url + "&range=" + range;
-
-      url = url + "&searchKeyword=" + searchKeyword;
-
-      location.href = url;
-
-   }
-
-   //페이지 번호 클릭
-   function fn_pagination(page, range, rangeSize, searchKeyword, fix) {
-      
-      var url = "${pageContext.request.contextPath}/search.mdo";
-
-      url = url + "?page=" + page;
-
-      url = url + "&range=" + range;
-
-      url = url + "&searchKeyword=" + searchKeyword;
-
-      location.href = url;
-      
-      
-   }
-   
-   
-   //다음 버튼 이벤트
-
-   function fn_next(page, range, rangeSize, searchKeyword) {
-
-      var page = parseInt((range * rangeSize)) + 1;
-
-      var range = parseInt(range) + 1;
-
-      var url = "${pageContext.request.contextPath}/search.mdo";
-
-      url = url + "?page=" + page;
-
-      url = url + "&range=" + range;
-
-      url = url + "&searchKeyword=" + searchKeyword;
-
-      location.href = url;
-   }
-</script> -->
 </head>
 
 <body>
@@ -266,9 +203,7 @@
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center" style="margin-bottom: 10px;">
-									<a href="adminInsertNotice.mdo">
-										<button class="btn btn-warning">글쓰기</button>
-									</a>
+									<button class="btn btn-warning" onclick="location.href='adminInsertNotice.mdo'">글쓰기</button>
 								</div>
 							</div>
 
@@ -286,34 +221,13 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="adminNotice" items="${adminNoticeList}">
+												<c:forEach var="adminNotice" items="${NoticeViewAll}">
 													<tr>
-														<c:set var="fix" value="${adminNotice.adminBoardStatic }" />
-														<c:choose>
-															<c:when test="${adminBoardStatic eq 'true'}">
-																<td><img src="resource/admin/img/icon_notice.png"></td>
-																<td align="left"><a type="hidden"
-																	href="adminNoticeContent.mdo?ADMIN_BOARD_SEQ=${adminNotice.adminBoardSeq}">
-																		${adminNotice.adminBoardTitle} </a></td>
-																<td>${adminNotice.adminBoardId}</td>
-																<td><fmt:formatDate
-																		value="${adminNotice.adminBoardRegDate}"
-																		pattern="yyyy-MM-dd " /></td>
-																<td>0</td>
-															</c:when>
-
-															<c:otherwise>
-																<td>${adminNotice.rownum}</td>
-																<td align="left"><a type="hidden"
-																	href="adminNoticeContent.mdo?ADMIN_BOARD_SEQ=${adminNotice.adminBoardSeq}">
-																		${adminNotice.adminBoardTitle} </a></td>
-																<td>${adminNotice.adminBoardId}</td>
-																<td><fmt:formatDate
-																		value="${adminNotice.adminBoardRegDate}"
-																		pattern="yyyy-MM-dd " /></td>
-																<td>0</td>
-															</c:otherwise>
-														</c:choose>
+														<td>${adminNotice.rownum}</td>
+														<td><a href="detailAdminNotice.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">${adminNotice.adminBoardTitle}</a></td>
+														<td>${adminNotice.adminBoardId }</td>
+														<td>${adminNotice.adminBoardRegDate}</td>
+														<td>0</td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -332,7 +246,7 @@
 										</c:when>
 										<c:when test="${paging.nowPage ne 1 }">
 											<li class="page-item"><a
-												href="/mpweb/qna.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												href="/mpweb/adminNotice.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
 												style="width: auto;" class="page-link">Previous</a></li>
 										</c:when>
 									</c:choose>
@@ -341,12 +255,12 @@
 										<c:choose>
 											<c:when test="${p eq paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/adminNoice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													href="/mpweb/adminNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
 													onclick="return false" class="page-link">${p }</a></li>
 											</c:when>
 											<c:when test="${p ne paging.nowPage }">
 												<li class="page-item"><a
-													href="/mpweb/adminNoice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													href="/mpweb/adminNotice.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
 													class="page-link">${p }</a></li>
 											</c:when>
 										</c:choose>
@@ -358,7 +272,7 @@
 										</c:when>
 										<c:when test="${paging.endPage ne paging.lastPage}">
 											<li class="page-item"><a
-												href="/mpweb/adminNoice.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+												href="/mpweb/adminNotice.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
 												style="width: auto;" class="page-link">Next</a></li>
 										</c:when>
 									</c:choose>

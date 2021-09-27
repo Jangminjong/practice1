@@ -66,12 +66,17 @@ public class noticeController {
 		return "redirect:/adminNotice.mdo";
 	}
 	
-	/**관계자 공지사항 글 상세보기 화면*/
-	@GetMapping("/detailAdminNotice.mdo")
-	public String adminNoticeContent(AdminNoticeBoardVO adminNotice, Model model) {
-		System.out.println("Seq : " + adminNotice.getAdminBoardSeq());
+	/**관계자 공지사항 글 상세보기 */
+	@RequestMapping("/detailAdminNotice.mdo")
+	public String detailAdminNotice(AdminNoticeBoardVO adminNotice, Model model) {
+		System.out.println("관리자 공지사항 상세보기 처리 Seq : " + adminNotice.getAdminBoardSeq());
+		model.addAttribute("adminNotice", adminNoticeService.getAdminNotice(adminNotice));
 		return "detailAdminNotice";
 	}
+	
+	/**관계자 공지사항 글 수정*/
+	//@RequestMapping("/updateAdminNotice.mdo")
+	
 	
 	@GetMapping("/userNotice.mdo")
 	public String userNotice(PagingVO pageVO, Model model, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {
@@ -109,7 +114,8 @@ public class noticeController {
 	public String userNoticeContent(AdminQnABoardVO adminQnA, Model model) {
 		System.out.println("������ �� ���� ó��");
 		/*
-		 * System.out.println("num: "+adminQnA.getSeq()); model.addAttribute("adminQnA",
+		 * System.out.println("num: "+adminQnA.getSeq()); 
+		 * model.addAttribute("adminQnA",
 		 * adminBoardService.getQnA(adminQnA));
 		 */
 		return "userNoticeContent";

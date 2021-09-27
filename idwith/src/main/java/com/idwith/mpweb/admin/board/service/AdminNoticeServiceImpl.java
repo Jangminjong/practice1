@@ -28,8 +28,6 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	@Override
 	public List<AdminNoticeBoardVO> getNoticeList(PagingVO pagination) {
 		System.out.println("글 목록 처리 service");
-		System.out.println(pagination.getStart());
-		System.out.println(pagination.getEnd());
 		return adminNoticeBoardDAO.getNoticeList(pagination);
 	}
 
@@ -37,8 +35,14 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	public int countAdminNotice() {
 		return adminNoticeBoardDAO.countAdminNotice();
 	}
-	
+
 	/**글 상세보기*/
+	@Override
+	public AdminNoticeBoardVO getAdminNotice(AdminNoticeBoardVO adminNotice) {
+		System.out.println("글 상세보기 처리 service");
+		return adminNoticeBoardDAO.getAdminNotice(adminNotice);
+	}
+	
 
 
 }

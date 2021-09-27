@@ -23,9 +23,6 @@ public class AdminNoticeBoardDAO {
 	/** 관리자 공지사항 목록 페이지 */
 	public List<AdminNoticeBoardVO> getNoticeList(PagingVO pagination) {
 		System.out.println("getNoticeList() 기능 처리");
-		System.out.println(pagination.getStart());
-		System.out.println(pagination.getEnd());
-		System.out.println(sqlSessionTemplate.selectList("AdminNoticeBoardDAO.selectAdminNotice", pagination));
 		return sqlSessionTemplate.selectList("AdminNoticeBoardDAO.selectAdminNotice", pagination);
 	}
 
@@ -35,7 +32,10 @@ public class AdminNoticeBoardDAO {
 		return sqlSessionTemplate.selectOne("AdminNoticeBoardDAO.countAdminNotice");
 	}
 	
-	
-
-
+	/** 관리자 공지사항 상세페이지 */
+	public AdminNoticeBoardVO getAdminNotice(AdminNoticeBoardVO adminNotice) {
+		System.out.println("getAdminNotice() 기능 처리");
+		AdminNoticeBoardVO notice = sqlSessionTemplate.selectOne("AdminNoticeBoardDAO.getAdminNotice", adminNotice);
+		return notice;
+	}
 }

@@ -17,4 +17,7 @@ public interface AdminNoticeService {
 	//페이징처리 개수
 	int countAdminNotice();
 	
+	// 글 상세보기
+	AdminNoticeBoardVO getAdminNotice(AdminNoticeBoardVO adminNotice);
+	
 }
