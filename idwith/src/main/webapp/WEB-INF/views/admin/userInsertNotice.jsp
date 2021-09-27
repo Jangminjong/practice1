@@ -100,8 +100,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
-							<span class="align-middle">카테고리</span>
+						href="category.mdo"> <i class="align-middle"
+							data-feather="edit-2"></i> <span class="align-middle">카테고리</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
@@ -191,38 +191,40 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form id="form-notice-user" name="noticeUserForm" action="insertUserNotice.mdo" method="post" onsubmit="return false">
+						<form id="form-notice-user" name="noticeUserForm"
+							action="insertUserNotice.mdo" method="post"
+							onsubmit="return false">
 							<div class="mb-3">
 								<label class="form-label">Notice Title</label> <input
-									type="text" class="form-control" name="board_title" placeholder="제목"
-									style="width: auto;">
+									type="text" class="form-control" name="board_title"
+									placeholder="제목" style="width: auto;">
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
-								<textarea class="form-control" name="board_content" placeholder="내용" rows="10"></textarea>
+								<textarea class="form-control" name="board_content"
+									placeholder="내용" rows="10"></textarea>
 							</div>
 							<div class="mb-3">
 								<label class="form-label w-100">File input</label> <input
 									type="file">
 							</div>
-							<div class="col-md-2 text-center">
-								<input type="submit" id="notice-user-submit" class="btn btn-primary" value="등록"/>
+							<div class="row">
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center">
+									<input type="submit" id="notice-user-submit"
+										class="btn btn-primary" value="등록" /> <a
+										href="userInsertNotice.mdo"> <!--초기화 진행-->
+										<button class="btn btn-primary">초기화</button>
+									</a>
+									<button class="btn btn-primary">목록</button>
+								</div>
 							</div>
 						</form>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center">
-						<a href="userInsertNotice.mdo"> <!--초기화 진행-->
-							<button class="btn btn-primary">초기화</button>
-						</a>
-					</div>
-				</div>
+
 			</main>
 			<script src="../js/app.js"></script>
 		</div>

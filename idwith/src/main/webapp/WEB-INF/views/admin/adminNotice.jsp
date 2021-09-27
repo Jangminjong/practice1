@@ -229,7 +229,7 @@
 														<td>
 															<fmt:formatDate value="${adminNotice.adminBoardRegDate}" pattern="yyyy.MM.dd"/>
 														</td>
-														<td>0</td>
+														<td>${adminNotice.adminBoardCnt}</td>
 													</tr>
 												</c:forEach>
 											</tbody>

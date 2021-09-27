@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -223,8 +224,10 @@
 															<input type="hidden" name="seq" value="${notice.seq }"/>
 														</a></td>
 														<td>관리자1</td>
-														<td>${notice.board_date }</td>
-														<td>${notice.hit }</td>
+														<td>
+															<fmt:formatDate value="${notice.board_date}" pattern="yyyy.MM.dd"/>
+														</td>
+														<td>${notice.hit}</td>
 													</tr>
 												</c:forEach>
 											</tbody>

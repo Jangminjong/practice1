@@ -101,8 +101,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
-							<span class="align-middle">카테고리</span>
+						href="category.mdo"> <i class="align-middle"
+							data-feather="edit-2"></i> <span class="align-middle">카테고리</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
@@ -192,59 +192,56 @@
 
 				<div class="card">
 					<div class="card-body">
-<<<<<<< HEAD
 						<form class="row g-3">
 							<div class="col-md-4">
-								<label class="form-label">제목</label>
-								<input type="text" class="form-control" placeholder="제목" style="width: auto;">
+								<label class="form-label">제목</label> <input type="text"
+									class="form-control" placeholder="제목" style="width: auto;">
 							</div>
-                            <div class="col-md-4">
-								<label class="form-label">작성자</label>
-								<input type="text" class="form-control" placeholder="작성자" style="width: auto;" disabled>
+							<div class="col-md-4">
+								<label class="form-label">작성자</label> <input type="text"
+									class="form-control" placeholder="작성자" style="width: auto;"
+									disabled>
 							</div>
-                            <div class="col-md-4">
-								<label class="form-label">작성일</label>
-								<input type="text" class="form-control" placeholder="작성일" style="width: auto;" disabled>
+							<div class="col-md-4">
+								<label class="form-label">작성일</label> <input type="text"
+									class="form-control" placeholder="작성일" style="width: auto;"
+									disabled>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">내용</label>
 								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
-						<form id="form-notice-user" name="noticeUserForm" action="updateNotice.mdo" method="post" onsubmit="return false">
-							<input name="seq" type="hidden" value="${adminQnA.seq}"/>
-							<div class="mb-3">
-								<label class="form-label">Notice Title</label> <input
-									type="text" class="form-control" name="board_title" placeholder="${adminQnA.board_title }"
-									style="width: auto;">
+								<form id="form-notice-user" name="noticeUserForm"
+									action="updateNotice.mdo" method="post" onsubmit="return false">
+									<input name="seq" type="hidden" value="${adminQnA.seq}" />
+									<div class="mb-3">
+										<label class="form-label">Notice Title</label> <input
+											type="text" class="form-control" name="board_title"
+											placeholder="${adminQnA.board_title }" style="width: auto;">
+									</div>
+									<div class="mb-3">
+										<label class="form-label">Content</label>
+										<textarea class="form-control" name="board_content"
+											placeholder="${adminQnA.board_content }" rows="10"></textarea>
+									</div>
+									<div class="mb-3">
+										<label class="form-label w-100">파일</label> <input type="file">
+									</div>
+									<div class="row">
+										<div class="col-md-3 text-center"></div>
+										<div class="col-md-3 text-center"></div>
+										<div class="col-md-3 text-center">
+											<input type="submit" id="notice-user-submit"
+												class="btn btn-primary" value="수정" /> <a
+												href="deleteNotice.mdo?seq=${adminQnA.seq}">
+												<button class="btn btn-primary">삭제</button>
+											</a> <a href="userNotice.mdo">
+												<button class="btn btn-primary">목록</button>
+											</a>
+										</div>
+									</div>
+								</form>
 							</div>
-							<div class="mb-3">
-								<label class="form-label">Content</label>
-								<textarea class="form-control" name="board_content" placeholder="${adminQnA.board_content }" rows="10"></textarea>
-							</div>
-							<div class="mb-3">
-								<label class="form-label w-100">파일</label>
-								<input type="file">
-							</div>
-							<div class="col-md-3 text-center">
-								<input type="submit" id="notice-user-submit" class="btn btn-primary" value="수정"/>
-							</div>
-						
-						</form>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 text-center"></div>					
-					<div class="col-md-3 text-center"></div>
-					<div class="col-md-3 text-center">
-                        <a href="adminNoticeContent.mdo">
-							<button class="btn btn-primary">수정</button>
-						</a>
-						<a href="deleteNotice.mdo?seq=${adminQnA.seq}">
-							<button class="btn btn-primary">삭제</button>
-						</a> <a href="userNotice.mdo">
-							<button class="btn btn-primary">목록</button>
-						</a>
-					</div>
-				</div>
 			</main>
 			<script src="../js/app.js"></script>
 		</div>
