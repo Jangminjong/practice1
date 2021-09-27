@@ -220,6 +220,7 @@
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center">
+									<button class="btn btn-primary" onclick="location.href='adminNotice.mdo'">목록</button>
 									<input class="btn btn-primary" type="submit" id="notice-admin-submit" value="등록" />
 									<input class="btn btn-primary" type="reset" value="초기화" />
 								</div>

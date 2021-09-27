@@ -67,9 +67,10 @@ public class noticeController {
 	}
 	
 	/**관계자 공지사항 글 상세보기 화면*/
-	@GetMapping("/adminNoticeContent.mdo")
-	public String adminNoticeContent() {
-		return "adminNoticeContent";
+	@GetMapping("/detailAdminNotice.mdo")
+	public String adminNoticeContent(AdminNoticeBoardVO adminNotice, Model model) {
+		System.out.println("Seq : " + adminNotice.getAdminBoardSeq());
+		return "detailAdminNotice";
 	}
 	
 	@GetMapping("/userNotice.mdo")

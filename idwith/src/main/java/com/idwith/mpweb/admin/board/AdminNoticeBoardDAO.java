@@ -34,6 +34,8 @@ public class AdminNoticeBoardDAO {
 		System.out.println("countAdminNotice() 기능 처리");
 		return sqlSessionTemplate.selectOne("AdminNoticeBoardDAO.countAdminNotice");
 	}
+	
+	
 
 
 }

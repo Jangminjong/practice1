@@ -37,6 +37,8 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	public int countAdminNotice() {
 		return adminNoticeBoardDAO.countAdminNotice();
 	}
+	
+	/**글 상세보기*/
 
 
 }
