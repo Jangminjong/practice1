@@ -1,9 +1,12 @@
 package com.idwith.mpweb.user.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.EventBoardVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
+import com.idwith.mpweb.user.board.UserMessageVO;
 import com.idwith.mpweb.user.board.service.UserBoardService;
 
 @Controller
@@ -24,15 +28,70 @@ public class UserBoardController {
 	
 	@GetMapping("/alarm.do")
 	public String userAlarm() {
-		return "alarm";
+		return "board/alarm";
+	}
+	
+	
+	// ë©”ì‹œì§€ -----------------------------------------------------------------
+	// ë©”ì‹œì§€ ë“œë¡­ë‹¤ìš´ì— ì„¸íŒ…
+	@RequestMapping("/messageList.do")
+	@ResponseBody
+	public List<UserMessageVO>  messageList(HttpServletRequest req, HttpSession session) {
+		System.out.println("email: "+req.getParameter("email"));
+		List<UserMessageVO> list = boardService.getMessageList(req.getParameter("email"));
+		session.setAttribute("msgList", list);
+		for(UserMessageVO i: list) {
+			System.out.println("msg_id: "+i.getMsg_id());
+		}
+		return list;
 	}
 	
 	@GetMapping("/message.do")
-	public String userMessage() {
-		return "message";
+	public String userMessage(HttpSession session, Model model) {
+		String email = session.getAttribute("email").toString();
+		System.out.println("email:"+email);
+		model.addAttribute("msgList", boardService.getMessageList(email));
+		return "board/message";
 	}
 	
-	// 1:1¹®ÀÇ °Ô½ÃÆÇ ------------------------------------------------------------------------------------
+	@RequestMapping("/message_choice.do")
+	public String userMessageChoice() {
+		return "board/message_choice";
+	}
+	
+	@RequestMapping(value="/message_detail.do", produces="application/text; charset=utf8")
+	public String userMessageDetail(HttpSession session, HttpServletRequest req, UserMessageVO msgVO, Model model) {
+		boardService.updateReadState(req.getParameter("msgd_id"));
+		String email = session.getAttribute("email").toString();
+		model.addAttribute("msgd_id", req.getParameter("msgd_id"));
+		msgVO.setMsg_id(email);
+		msgVO.setMsgd_id(req.getParameter("msgd_id"));
+		
+		System.out.println("msg_id "+ email);
+		System.out.println("msgd_id "+ req.getParameter("msgd_id"));
+		model.addAttribute("msgContextList", boardService.getMsgContextList(msgVO));
+		
+		return "board/message_detail";
+	}
+	
+	@RequestMapping("/insertMessage.do")
+	public String insertMessage(UserMessageVO msgVO) {
+		String[] msgd_id = msgVO.getMsgd_id().split(",");
+		System.out.println(msgd_id[0]);
+		if(msgd_id[0].equals(null)){
+			msgVO.setMsgd_id(msgVO.getMsgd_id());
+		}else {
+			msgVO.setMsgd_id(msgd_id[0]);
+		}
+		// ìµœì‹  ìƒíƒœê°’ ë³€ê²½
+		boardService.updateNewState(msgVO);
+		System.out.println("context: "+ msgVO.getMsg_context());
+		
+		boardService.insertMessage(msgVO);
+		return "redirect:/message.do";
+	}
+	
+	// 1:1 ë¬¸ì˜ ------------------------------------------------------------------------------------
 	
 	@RequestMapping(value="/qnaRightCheck.do", method=RequestMethod.POST, produces="application/text; charset=utf8")
 	@ResponseBody
@@ -53,14 +112,14 @@ public class UserBoardController {
 	
 	@RequestMapping("/insertQnA.do")
 	public String insertQnA(QnABoardVO qnaVO) {
-		System.out.println("QnA µî·Ï Ã³¸®");
+		System.out.println("QnA ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		boardService.insertQnA(qnaVO);
 		return "redirect:/board.do";
 	}
 	
 	@RequestMapping("/board_detail.do")
 	public String boardDetail(QnABoardVO qnaVO, Model model){
-		System.out.println("±Û »ó¼¼ º¸±â Ã³¸®");
+		System.out.println("ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		System.out.println("num: "+qnaVO.getSeq());
 		boardService.addHit(qnaVO);
 		model.addAttribute("qnaVO", boardService.getQnA(qnaVO));
@@ -69,7 +128,7 @@ public class UserBoardController {
 	
 	@RequestMapping("/updateQnA.do")
 	public String updateQnA(QnABoardVO qnaVO) {
-		System.out.println("QnA ³»¿ë ¼öÁ¤ Ã³¸®");
+		System.out.println("QnA ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		boardService.updateQnA(qnaVO);
 		return "redirect:/board.do";
 	}
@@ -77,18 +136,18 @@ public class UserBoardController {
 	
 	@RequestMapping("/deleteQnA.do")
 	public String deleteQnA(QnABoardVO qnaVO) {
-		System.out.println("±Û »èÁ¦ Ã³¸®");
+		System.out.println("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		boardService.deleteQnA(qnaVO);
 		return "redirect:/board.do";
 	}
 	
-	// ÆäÀÌÂ¡ Ã³¸®
+	
 	@GetMapping("/board.do")
 	public String qnaList(PagingVO pageVO, Model model, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {
 		model.addAttribute("noticeList",boardService.getQnAList());
 		int total = boardService.countQnA();
 		int countNotice = boardService.countNotice();
-		System.out.println("°øÁö±Û ¼ö: "+ countNotice);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½: "+ countNotice);
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = Integer.toString(20-countNotice);
@@ -106,7 +165,7 @@ public class UserBoardController {
 		
 	}
 	
-	// ÀÌº¥Æ®, °øÁö °Ô½ÃÆÇ ------------------------------------------------------------------------------------------
+	// ê³µì§€ì‚¬í•­ ------------------------------------------------------------------------------------------
 	
 	@GetMapping("/eventNoticeBoard.do")
 	public String noticeEventList(PagingVO pageVO, Model model, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {
@@ -128,7 +187,7 @@ public class UserBoardController {
 	
 	@RequestMapping("/eventNotice_detail.do")
 	public String eventNoticeDetail(EventBoardVO eventVO, Model model){
-		System.out.println("±Û »ó¼¼ º¸±â Ã³¸®");
+		System.out.println("ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 		System.out.println("num: "+eventVO.getUser_event_board_seq());
 		boardService.addCnt(eventVO);
 		model.addAttribute("eventVO", boardService.getEventNotice(eventVO));

@@ -32,6 +32,17 @@ $(window).ready(function(){
 			document.getElementById('form-event-user').onsubmit="return true";
 		}
 	});
+	
+	// 메시지 작성할 때
+	$(document).on("click", '#msg-form-submit', function(){
+		if(document.msgForm.msg_context.value==""){
+			alert('메시지 내용을 입력해주세요.');
+			document.msgForm.msg_context.focus();
+		}else{
+			document.getElementById('msg-form').onsubmit="return true";
+		}
+	});
+	
 });
 
 // qna 페이지에서 특정 카테고리로 정렬할 때
@@ -55,3 +66,6 @@ function setEventCategory(){
 	var set = $('#qna_type').val();
 	location.replace('/mpweb/userNotice.mdo?set='+set);
 }
+
+
+

@@ -5,10 +5,11 @@ import java.util.List;
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.EventBoardVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
+import com.idwith.mpweb.user.board.UserMessageVO;
 
 public interface UserBoardService {
 	
-	//1:1 ¹®ÀÇ °Ô½ÃÆÇ ----------------------------------
+	//1:1ë¬¸ì˜ ----------------------------------
 	void insertQnA(QnABoardVO qnaVO);
 	
 	List<QnABoardVO> getQnAList();
@@ -29,7 +30,7 @@ public interface UserBoardService {
 	
 	void addHit(QnABoardVO qnaVO);
 	
-	// ÀÌº¥Æ®, °øÁö»çÇ× °Ô½ÃÆÇ -----------------------------
+	// ê³µì§€ì‚¬í•­ -----------------------------
 	
 	int countEventNotice();
 	
@@ -39,5 +40,15 @@ public interface UserBoardService {
 	
 	EventBoardVO getEventNotice(EventBoardVO eventVO);
 	
+	// ë©”ì‹œì§€ ----------------------------------------------
 	
+	List<UserMessageVO> getMessageList(String email);
+	
+	List<UserMessageVO> getMsgContextList(UserMessageVO msgVO);
+	
+	void insertMessage(UserMessageVO msgVO);
+	
+	void updateReadState(String msg_id);
+	
+	void updateNewState(UserMessageVO msgVO);
 }

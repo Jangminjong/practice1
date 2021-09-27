@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.UserBoardDAO;
+import com.idwith.mpweb.user.board.UserMessageVO;
 import com.idwith.mpweb.user.board.EventBoardVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
 
@@ -15,7 +16,7 @@ public class UserBoardServiceImpl implements UserBoardService {
 	@Autowired
 	private UserBoardDAO boardDAO;
 	
-	// 1:1 πÆ¿« ∞‘Ω√∆«----------------------------------------------------
+	// 1:1 Î¨∏Ïùò ----------------------------------------------------
 
 	@Override
 	public void insertQnA(QnABoardVO qnaVO) {
@@ -53,7 +54,7 @@ public class UserBoardServiceImpl implements UserBoardService {
 
 	@Override
 	public Integer qnaRightCheck(QnABoardVO qnaVO) {
-		System.out.println("BoardServiceImpl() Ω««‡, email: "+qnaVO.getUser_id()+", seq: "+qnaVO.getSeq());
+		System.out.println("BoardServiceImpl() ÔøΩÔøΩÔøΩÔøΩ, email: "+qnaVO.getUser_id()+", seq: "+qnaVO.getSeq());
 		return boardDAO.qnaRightCheck(qnaVO);
 	}
 
@@ -63,19 +64,19 @@ public class UserBoardServiceImpl implements UserBoardService {
 		boardDAO.deleteQnA(qnaVO);
 	}
 	
-	// ∆‰¿Ã¬° √≥∏Æ
+	
 	@Override
 	public int countQnA() {
-		return boardDAO.countQnA(); // √— ∞‘Ω√±€ ºˆ
+		return boardDAO.countQnA(); 
 	}
 	
-	// ∆‰¿Ã¬° √≥∏Æ ∞‘Ω√±€ √ »∏
+
 	@Override
 	public List<QnABoardVO> selectQnA(PagingVO pageVO) {
 		return boardDAO.selectQnA(pageVO);
 	}
 	
-	// ∞¯¡ˆ±€ ºˆ
+
 	@Override
 	public int countNotice() {
 		return boardDAO.countNotice();
@@ -87,7 +88,7 @@ public class UserBoardServiceImpl implements UserBoardService {
 		
 	}
 	
-	// ¿Ã∫•∆Æ, ∞¯¡ˆ ∞‘Ω√∆« --------------------------------------------------------
+	//Í≥µÏßÄÏÇ¨Ìï≠--------------------------------------------------------
 
 	@Override
 	public int countEventNotice() {
@@ -107,6 +108,33 @@ public class UserBoardServiceImpl implements UserBoardService {
 	@Override
 	public EventBoardVO getEventNotice(EventBoardVO eventVO) {
 		return boardDAO.getEventNotice(eventVO);
+	}
+	
+	//Î©îÏãúÏßÄ --------------------------------------------------
+
+	@Override
+	public List<UserMessageVO> getMessageList(String email) {
+		return boardDAO.getMessageList(email);
+	}
+
+	@Override
+	public List<UserMessageVO> getMsgContextList(UserMessageVO msgVO) {
+		return boardDAO.getMsgContextList(msgVO);
+	}
+
+	@Override
+	public void insertMessage(UserMessageVO msgVO) {
+		boardDAO.insertMessage(msgVO);
+	}
+
+	@Override
+	public void updateReadState(String msg_id) {
+		boardDAO.updateReadState(msg_id);
+	}
+
+	@Override
+	public void updateNewState(UserMessageVO msgVO) {
+		boardDAO.updateNewState(msgVO);
 	}
 	
 	

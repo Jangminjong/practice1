@@ -53,9 +53,37 @@ $(document).ready(function(){
 	});
 
 	
-	$('.message-list').hover(function() {
+	$('#message-list-alarm').hover(function() {
   		$('.menu-second').stop(true, true).delay(0).fadeIn(0);
 	}, function() {
  		 $('.menu-second').stop(true, true).delay(0).fadeOut(0);
 	});
+	
+	$('#message-list-msg').hover(function() {
+  		$('.menu-third').stop(true, true).delay(0).fadeIn(0);
+	}, function() {
+ 		 $('.menu-third').stop(true, true).delay(0).fadeOut(0);
+	});
+	
 });
+
+function messageView(){
+	var email = document.getElementById('email').value;
+	$.ajax({
+		url:"messageList.do",
+		type:"POST",
+		data:{
+			email:email
+		},
+		success: function(data){
+			if(data != null){
+				console.log('성공..');
+			}else{
+				console.log('실패..');
+			}
+		},
+		error: function(request,status,error){
+			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
+}

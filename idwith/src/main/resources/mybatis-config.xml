@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.UserVO" alias="userVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.QnABoardVO" alias="qnaVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.EventBoardVO" alias="eventVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.board.UserMessageVO" alias="msgVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminQnABoardVO" alias="adminQnA"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminEventBoardVO" alias="adminEventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.WatingVO" alias="watingVO"/>
@@ -17,6 +18,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/user/board/userBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/qnaBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/eventBoard-mapping.xml" />
+ 		<mapper resource="mappings/user/board/userMessage-mapping.xml" />
  		<mapper resource="mappings/admin/board/adminQnABoard-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminEventBoard-mapping.xml"/>
  		<mapper resource="mappings/user/board/wating-mapping.xml" />

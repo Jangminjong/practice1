@@ -20,7 +20,8 @@
 	crossorigin="anonymous">
 <title>아이디어스 임시 메인</title>
 </head>
-<body>
+<body id="body">
+	<input type="hidden" id="email" value="${email }"/>
 	<div class="wrap">
 		<div class="head_banner_group">
 			<!-- 상단 리본 배너 -->
@@ -73,7 +74,7 @@
 						</nav>
 					</c:when>
 					<c:when test="${ emailSplit ne null }">
-						<nav class="fr" style="margin-left: 65%;">
+						<nav class="fr" style="margin-left: 60%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
 						<div class="nav-btn ui-dropdown mymenu">
@@ -89,7 +90,7 @@
 								<li class="add-border"><a href="logout.do">로그아웃</a></li>
 							</ul>
 						</div>
-						<div class="nav-btn ui-dropdown message message-list">
+						<div class="nav-btn ui-dropdown message message-list" id="message-list-alarm">
 							<button type="button" class="btn-dropdown btn-second"
 								data-ui="load-message-btn"
 								data-endpoint="/w/notification?page=gnb">
@@ -105,21 +106,49 @@
 										<div class="alarm-test">알림 테스트2</div>
 										<div class="alarm-test">알림 테스트3</div>
 										<div class="alarm-test">알림 테스트4</div>
+										<div class="alarm-test">알림 테스트4</div>
+										<div class="alarm-test">알림 테스트4</div>
+										<div class="alarm-test">알림 테스트4</div>
 									</div>
-									<div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical">
-										<div class="mCSB_draggerContainer">
-											<div id="mCSB_1_dragger_vertical" class="mCSB_dragger">
-												<div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
-												<div class="mCSB_draggerRail"></div>
+									
+									<a data-log-noti-object="see_all" href="alarm.do" class="dropdown-link-style link-style">모두 보기</a>
+								</ul>
+							</div>
+						</div>
+						<div class="nav-btn ui-dropdown message message-list" id="message-list-msg" onmouseover="messageView()">
+							<button type="button" class="btn-dropdown btn-third"
+								data-ui="load-message-btn">
+								<i class="far fa-bell"></i> <span class="title">메시지</span>
+							</button>
+							<div class="menu-dropdown menu-third message"  style="margin-left: -140px;">
+								<div class="message_title">
+									<span class="title">메시지</span>
+								</div>
+								<ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
+									<div id="mCSB_2" class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
+												<c:forEach var="msg" items="${msgList}">
+													<li class="msg-item" style="width:100%; height:auto;"><a
+														href="message_detail.do?msgd_id=${msg.msg_id }">
+															<div class="split">
+																<div class="img-bg"
+																	style="background-image: url('https://image.idus.com/image/files/e8534c6cbfb7488fbb5771f48db36e6d_320.jpg');"></div>
+																<div class="area-txt">
+																	<span>${msg.msg_id }</span>
+																	<p class="txt">${msg.msg_context }</p>
+																</div>
+															</div>
+															<div class="split fixed">
+																<time class="timestamp">${msg.msg_date}</time>
+															</div>
+													</a></li>
+												</c:forEach>
 											</div>
-										</div>
-									</div>
-									<a data-log-noti-object="see_all" href="alarm.do" class="link-style">모두 보기</a>
+									<a data-log-noti-object="see_all" href="message.do" class="dropdown-link-style link-style">모두 보기</a>
 								</ul>
 							</div>
 						</div>
 
-						<a href="board.do" class="nav-btn" data-log-object="member__notice">공지사항</a>
+						<a href="eventNoticeBoard.do" class="nav-btn" data-log-object="member__notice">공지사항</a>
 						<a href="board.do" class="nav-btn" data-log-object="member_qna">1:1문의</a>
 
 						<!-- <div class="nav-btn ui-dropdown">
@@ -294,7 +323,7 @@
 							href="goods_popular.do">인기 작품</a></li>
 						<li class="ui_gnb__menu " data-state=""><a href="stroy.do">스토리</a>
 						</li>
-						<li class="ui_gnb__menu " data-state=""><a
+						<li class="ui_gnb__menu " data-state="" style="display: inline-block;"><a
 							href="seller_list.do">인기작가</a></li>
 					</ul>
 					<button class="ui_btn toggle_gnb" aria-label="toggle nav ui">

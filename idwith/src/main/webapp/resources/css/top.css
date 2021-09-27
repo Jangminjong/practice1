@@ -31,7 +31,7 @@ input[type="hidden" i] {
     border: initial;
 }
 
-/* »ó´Ü ¹Ù */
+/* ï¿½ï¿½ï¿½ ï¿½ï¿½ */
 
 header#header.header .top-navigation.inner-w, 
 header#header.header .top-navigation .inner-w400, 
@@ -84,7 +84,7 @@ header#header.header .top-navigation .inner-w800 {
     clear: both;
 }
 
-/* ·Î±×ÀÎ »ç¿ëÀÚ Á¤º¸ ÀúÀå*/
+/* ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 
 input {
     background: #fff;
@@ -122,7 +122,7 @@ header#header .header .top-navigation .nav-btn {
     padding-right: 1px;
 }
 
-.alarm .alarm_title{
+.alarm .alarm_title, .message_title{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +132,7 @@ header#header .header .top-navigation .nav-btn {
     border-bottom: 1px solid #d9d9d9;
 }
 
-.alarm_title span{
+.alarm_title span, .message_title span{
     margin-bottom: 10px;
 }
 
@@ -269,7 +269,17 @@ button {
 }
 
 #mCSB_1{
-    max-height: none;
+   	width:300px; 
+	height:300px; 
+	overflow:auto;
+	margin-bottom: 1px solid #9d9d9d;
+}
+
+#mCSB_2{
+	width:300px; 
+	height:300px; 
+	overflow:auto;
+	margin-bottom: 1px solid #9d9d9d;
 }
 
 .mCustomScrollBox {
@@ -330,6 +340,7 @@ button {
     bottom: 0;
 }
 
+
 .menu-dropdown.message-list .link-style {
     border-bottom: 0;
     color: #ff7b30;
@@ -387,7 +398,20 @@ button {
     text-align: center;
 }
 
-/* ¾Ë¸² Å×½ºÆ® */
+.dropdown-link-style{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	 font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    border-top: 1px solid ;
+    text-decoration:none;
+    border-top: 1px solid #d9d9d9;
+	
+}
+
+/* ï¿½Ë¸ï¿½ ï¿½×½ï¿½Æ® */
 .alarm-test{
     height: 100px;
     width: 100%;
@@ -395,7 +419,7 @@ button {
 }
 
 
-/* ¸ÞÀÎ */
+/* ï¿½ï¿½ï¿½ï¿½ */
 
 .bg-wrapper {
     padding: 8px 0 4px;
@@ -694,7 +718,7 @@ header#header.header .gnb-scroll {
 }
 
 .ui_gnb__submenu {
-    display: none;
+    /* display: none; */
     position: absolute;
     width: 450px;
     min-height: 100px;
