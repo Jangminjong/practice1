@@ -29,7 +29,7 @@
 	<update id="updateAdminNotice" parameterType="adminNotice">
 		UPDATE admin_board
 		SET ADMIN_BOARD_TITLE=#{adminBoardTitle},
-		amdinBoardContent=#{amdinBoardContent},
+		ADMIN_BOARD_CONTENT=#{amdinBoardContent},
 		ADMIN_BOARD_STATIC=#{adminBoardStatic}
 		WHERE
 		ADMIN_BOARD_SEQ=#{adminBoardSeq}

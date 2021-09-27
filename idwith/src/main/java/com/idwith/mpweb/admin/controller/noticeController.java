@@ -32,6 +32,8 @@ public class noticeController {
 		
 		int adminNoticeTotal = adminNoticeService.countAdminNotice();
 		
+		System.out.println("글 수:"+adminNoticeTotal);
+		
 		if(nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = "5";

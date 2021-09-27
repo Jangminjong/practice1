@@ -14,9 +14,6 @@ public interface AdminNoticeService {
 	// 글 목록 조회
 	List<AdminNoticeBoardVO> getNoticeList(PagingVO pagination);
 	
-	// 페이징 리스트
-	List<AdminNoticeBoardVO> getPageList(PagingVO pagination);
-	
 	//페이징처리 개수
 	int countAdminNotice();
 	

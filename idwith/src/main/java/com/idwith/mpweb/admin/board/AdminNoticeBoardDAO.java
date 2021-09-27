@@ -32,8 +32,5 @@ public class AdminNoticeBoardDAO {
 		return sqlSessionTemplate.selectOne("AdminNoticeBoardDAO.countAdminNotice");
 	}
 
-	public List<AdminNoticeBoardVO> getPageList(PagingVO pagination) {
-		return sqlSessionTemplate.selectList("AdminNoticeBoardDAO.pagingList", pagination);
-	}
 
 }

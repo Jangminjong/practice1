@@ -36,10 +36,5 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 		return adminNoticeBoardDAO.countAdminNotice();
 	}
 
-	@Override
-	public List<AdminNoticeBoardVO> getPageList(PagingVO pagination) {
-		System.out.println("글 페이징 리스트 처리 service");
-		return adminNoticeBoardDAO.getPageList(pagination);
-	}
 
 }
