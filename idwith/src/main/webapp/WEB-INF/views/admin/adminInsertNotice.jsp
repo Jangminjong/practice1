@@ -214,15 +214,13 @@
 									type="file" name="adminBoardFilePath">
 							</div>
 							<div class="row">
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center">
-									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" />
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center">
 									<input class="btn btn-primary" type="submit" id="notice-admin-submit" value="등록" />
 									<input class="btn btn-primary" type="reset" value="초기화" />
+									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" />
 								</div>
 							</div>ㄴ
 						</form>

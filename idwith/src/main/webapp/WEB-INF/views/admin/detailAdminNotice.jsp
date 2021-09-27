@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -189,7 +189,7 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form class="row g-3" id="form-detailnotice-admin" name="detailAdminNoticeForm" action="updateNotice.mdo" method="post">
+						<form class="row g-3" id="form-detailNotice-admin" name="detailAdminNoticeForm" action="updateAdminNotice.mdo" method="post">
 						<input type="hidden" name="seq" value="${adminNotice.adminBoardSeq}"/>
 							<div class="col-md-4">
 								<label class="form-label">제목</label> <input type="text"
@@ -202,13 +202,13 @@
 									style="width: auto;" disabled>
 							</div>
 							<div class="col-md-4">
-								<label class="form-label">작성일</label> <input type="text"
-									class="form-control" value="${adminNotice.adminBoardRegDate }"
-									style="width: auto;" disabled>
+								<label class="form-label">작성일</label> 
+								<fmt:formatDate var="fmtRegdate" value="${adminNotice.adminBoardRegDate}" pattern="yyyy.MM.dd"/>
+								<input type="text" class="form-control" value="${fmtRegdate}" style="width: auto;" disabled>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">내용</label>
-								<textarea class="form-control" rows="10" value="${adminNotice.amdinBoardContent}"></textarea>
+								<textarea class="form-control" rows="10">${adminNotice.amdinBoardContent}</textarea>
 							</div>
 							<div class="mb-3">
 								<label class="form-label w-100">파일</label> <input type="file">
@@ -219,8 +219,10 @@
 								<div class="col-md-3 text-center"></div>
 								<div class="col-md-3 text-center">
 									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" /> 
-									<input type="submit" class="btn btn-primary" value="수정" />
-									<button class="btn btn-primary">삭제</button>
+									<input type="submit" class="btn btn-primary" id="updateNotice-admin-submit" value="수정" />
+									<a href="deleteAdminNotice.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">
+										<button type="button" class="btn btn-primary">삭제</button>
+									</a>
 								</div>
 							</div>
 						</form>

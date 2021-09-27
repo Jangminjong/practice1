@@ -226,7 +226,9 @@
 														<td>${adminNotice.rownum}</td>
 														<td><a href="detailAdminNotice.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">${adminNotice.adminBoardTitle}</a></td>
 														<td>${adminNotice.adminBoardId }</td>
-														<td>${adminNotice.adminBoardRegDate}</td>
+														<td>
+															<fmt:formatDate value="${adminNotice.adminBoardRegDate}" pattern="yyyy.MM.dd"/>
+														</td>
 														<td>0</td>
 													</tr>
 												</c:forEach>

@@ -38,4 +38,18 @@ public class AdminNoticeBoardDAO {
 		AdminNoticeBoardVO notice = sqlSessionTemplate.selectOne("AdminNoticeBoardDAO.getAdminNotice", adminNotice);
 		return notice;
 	}
+	
+	/** 관리자 공지사항 update */
+	public void updateAdminNotice(AdminNoticeBoardVO adminNotice) {
+		System.out.println("updateAdminNotice() 기능 처리");
+		sqlSessionTemplate.update("AdminNoticeBoardDAO.updateAdminNotice", adminNotice);
+	}
+	
+	/** 관리자 공지사항 delete */
+	public void deleteAdminNoitce(AdminNoticeBoardVO adminNotice) {
+		System.out.println("deleteAdminNotice() 기능 처리");
+		sqlSessionTemplate.delete("AdminNoticeBoardDAO.deleteAdminNotice", adminNotice);
+	}
+	
+	
 }

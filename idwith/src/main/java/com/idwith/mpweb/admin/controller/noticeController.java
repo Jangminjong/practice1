@@ -75,8 +75,20 @@ public class noticeController {
 	}
 	
 	/**관계자 공지사항 글 수정*/
-	//@RequestMapping("/updateAdminNotice.mdo")
+	@RequestMapping("/updateAdminNotice.mdo")
+	public String updateAdminNotice(AdminNoticeBoardVO adminNotice) {
+		System.out.println("관리자 공지사항 수정 처리");
+		adminNoticeService.updateAdminNotice(adminNotice);
+		return "redirect:/adminNotice.mdo";
+	}
 	
+	/**관계자 공지사항 글 삭제*/
+	@RequestMapping("/deleteAdminNotice.mdo")
+	public String deleteAdminNotice(AdminNoticeBoardVO adminNotice) {
+		System.out.println("관리자 공지사항 삭제 처리");
+		adminNoticeService.deleteAdminNoitce(adminNotice);
+		return "redirect:/adminNotice.mdo";
+	}
 	
 	@GetMapping("/userNotice.mdo")
 	public String userNotice(PagingVO pageVO, Model model, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {

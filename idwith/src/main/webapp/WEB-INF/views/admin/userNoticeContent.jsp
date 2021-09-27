@@ -209,7 +209,6 @@
 							<div class="mb-3">
 								<label class="form-label">내용</label>
 								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
-=======
 						<form id="form-notice-user" name="noticeUserForm" action="updateNotice.mdo" method="post" onsubmit="return false">
 							<input name="seq" type="hidden" value="${adminQnA.seq}"/>
 							<div class="mb-3">
@@ -220,7 +219,6 @@
 							<div class="mb-3">
 								<label class="form-label">Content</label>
 								<textarea class="form-control" name="board_content" placeholder="${adminQnA.board_content }" rows="10"></textarea>
->>>>>>> 78e7a46c637f9da54e1cff16d724a411f839f00c
 							</div>
 							<div class="mb-3">
 								<label class="form-label w-100">파일</label>
@@ -237,13 +235,10 @@
 					<div class="col-md-3 text-center"></div>					
 					<div class="col-md-3 text-center"></div>
 					<div class="col-md-3 text-center">
-<<<<<<< HEAD
                         <a href="adminNoticeContent.mdo">
 							<button class="btn btn-primary">수정</button>
 						</a>
-=======
 						<a href="deleteNotice.mdo?seq=${adminQnA.seq}">
->>>>>>> 78e7a46c637f9da54e1cff16d724a411f839f00c
 							<button class="btn btn-primary">삭제</button>
 						</a> <a href="userNotice.mdo">
 							<button class="btn btn-primary">목록</button>

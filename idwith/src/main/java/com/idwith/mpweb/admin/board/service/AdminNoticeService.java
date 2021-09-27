@@ -20,4 +20,9 @@ public interface AdminNoticeService {
 	// 글 상세보기
 	AdminNoticeBoardVO getAdminNotice(AdminNoticeBoardVO adminNotice);
 	
+	// 글 수정
+	void updateAdminNotice(AdminNoticeBoardVO adminNotice);
+	
+	// 글 삭제
+	void deleteAdminNoitce(AdminNoticeBoardVO adminNotice);
 }

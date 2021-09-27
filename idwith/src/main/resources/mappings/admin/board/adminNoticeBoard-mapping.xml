@@ -25,26 +25,22 @@
 	</insert>
 
 	<!-- 관리자 공지사항 글 수정 -->
-	<update id="updateAdminNotice" parameterType="adminNotice">
-		UPDATE admin_board
-		SET ADMIN_BOARD_TITLE=#{adminBoardTitle},
-		ADMIN_BOARD_CONTENT=#{amdinBoardContent},
-		ADMIN_BOARD_STATIC=#{adminBoardStatic}
-		WHERE
-		ADMIN_BOARD_SEQ=#{adminBoardSeq}
-	</update>
-
+	<update id="updateAdminNotice" parameterType="com.idwith.mpweb.admin.board.AdminNoticeBoardVO">
+		<![CDATA[
+	 		UPDATE admin_board
+	 		SET ADMIN_BOARD_TITLE=#{adminBoardTitle}, ADMIN_BOARD_CONTENT=#{amdinBoardContent} 
+	 		WHERE ADMIN_BOARD_SEQ = #{adminBoardSeq}
+ 		]]>
+ 	</update>
+	
 	<!-- 관리자 공지사항 글 삭제 -->
 	<delete id="deleteAdminNotice" parameterType="adminNotice">
-		DELETE FROM
-		admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
+		DELETE FROM admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
 	</delete>
 	
 	<!-- 관리자 공지사항 글 상세조회 -->
-	<select id="getAdminNotice" resultType="adminNotice">
-		<![CDATA[
-			SELECT * FROM admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
-		]]>
+	<select id="getAdminNotice" parameterType="com.idwith.mpweb.admin.board.AdminNoticeBoardVO" resultMap="adminNoticeResult">
+		SELECT * FROM admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
 	</select>
 
 	<!-- 페이징 처리 후 게시글 조회 -->

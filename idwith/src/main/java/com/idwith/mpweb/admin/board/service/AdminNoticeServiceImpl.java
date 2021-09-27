@@ -42,7 +42,23 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 		System.out.println("글 상세보기 처리 service");
 		return adminNoticeBoardDAO.getAdminNotice(adminNotice);
 	}
-	
+
+	/**글 수정 */
+	@Override
+	public void updateAdminNotice(AdminNoticeBoardVO adminNotice) {
+		System.out.println("글 수정 처리 service");
+		System.out.println("num : " + adminNotice.getAdminBoardSeq());
+		System.out.println("content : " + adminNotice.getAmdinBoardContent());
+		adminNoticeBoardDAO.updateAdminNotice(adminNotice);
+	}
+
+	/**글 삭제*/
+	@Override
+	public void deleteAdminNoitce(AdminNoticeBoardVO adminNotice) {
+		System.out.println("글 삭제 처리 service");
+		System.out.println("num : " + adminNotice.getAdminBoardSeq());
+		adminNoticeBoardDAO.deleteAdminNoitce(adminNotice);
+	}
 
 
 }
