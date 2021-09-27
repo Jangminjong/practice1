@@ -24,6 +24,7 @@ public class AdminNoticeBoardVO {
 	private Integer adminBoardCnt;
 	private String adminBoardFilePath;
 	private boolean adminBoardStatic;
+	private int rownum;
 	
 	
 	public Integer getAdminBoardSeq() {
@@ -75,14 +76,22 @@ public class AdminNoticeBoardVO {
 		this.adminBoardStatic = adminBoardStatic;
 	}
 	
-	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	
 	@Override
 	public String toString() {
-		return "AdminNoitceBoardVO [adminBoardSeq=" + adminBoardSeq + ", adminBoardId=" + adminBoardId
+		return "AdminNoticeBoardVO [adminBoardSeq=" + adminBoardSeq + ", adminBoardId=" + adminBoardId
 				+ ", adminBoardTitle=" + adminBoardTitle + ", amdinBoardContent=" + amdinBoardContent
 				+ ", adminBoardRegDate=" + adminBoardRegDate + ", adminBoardCnt=" + adminBoardCnt
-				+ ", adminBoardFilePath=" + adminBoardFilePath + ", adminBoardStatic=" + adminBoardStatic + "]";
+				+ ", adminBoardFilePath=" + adminBoardFilePath + ", adminBoardStatic=" + adminBoardStatic + ", rownum="
+				+ rownum + "]";
 	}
+	
+	
 
 }

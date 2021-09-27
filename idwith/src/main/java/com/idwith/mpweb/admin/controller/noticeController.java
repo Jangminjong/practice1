@@ -153,7 +153,6 @@ public class noticeController {
 		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), set);
 		System.out.println(pageVO.getSet());
 		model.addAttribute("paging", pageVO);
-
 		model.addAttribute("adminQnAList", adminBoardService.selectQnA(pageVO));
 
 		return "qna";
