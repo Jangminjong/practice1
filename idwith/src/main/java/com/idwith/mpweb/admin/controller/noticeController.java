@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
+import com.idwith.mpweb.admin.board.AdminEventBoardVO;
+
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.admin.board.service.AdminBoardService;
 import com.idwith.mpweb.admin.board.service.AdminNoticeService;
@@ -23,6 +25,7 @@ public class noticeController {
 	AdminNoticeService adminNoticeService;
 	
 	/**관리자 공지사항 글 목록 요청*/
+
 	@GetMapping("/adminNotice.mdo")
 	public String adminNoticeList(PagingVO pagination, Model model,
 			@RequestParam(value = "nowPage", required = false)String nowPage,
@@ -91,20 +94,32 @@ public class noticeController {
 		return "redirect:/adminNotice.mdo";
 	}
 	
+	//--------------------------------------------
+	
 	@GetMapping("/userNotice.mdo")
-	public String userNotice(PagingVO pageVO, Model model, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {
-		int countNotice = adminBoardService.countNotice();
-		System.out.println("������ ��: "+ countNotice);
-		if (nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "10";
-		} else {
-			cntPerPage = "10";
-		}
-		System.out.println("nowpage: " + nowPage + "cntPerpage: " + cntPerPage);
-		pageVO = new PagingVO(countNotice, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		model.addAttribute("paging", pageVO);
-		model.addAttribute("noticeList",adminBoardService.getQnAList(pageVO));
+	public String userNotice(PagingVO pageVO, Model model,
+			@RequestParam(value = "nowPage", required = false) String nowPage,
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
+		 int countEventNotice = adminBoardService.countEventNotice(); // ��ü �� ��
+		 System.out.println("��ü�� ��: "+ countEventNotice);
+		 System.out.println("ī�װ�: "+set);
+		 
+		 if (nowPage == null && cntPerPage == null) { 
+			 nowPage = "1";
+			 cntPerPage = "10"; 
+		 } else { 
+			 cntPerPage = "10"; 
+		 }
+		 
+		 System.out.println("nowpage: " + nowPage + "cntPerpage: " + cntPerPage);
+		 if(set == null) {
+				System.out.println("set ����");
+				set = "����";
+		 }
+		 
+		 pageVO = new PagingVO(countEventNotice, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), set); 
+		 model.addAttribute("paging", pageVO);
+		 model.addAttribute("noticeList",adminBoardService.getEventNoticeList(pageVO));
 		return "userNotice";
 	}
 	
@@ -114,66 +129,67 @@ public class noticeController {
 	}
 	
 	@RequestMapping("/insertUserNotice.mdo")
-	public String insertUserNotice(AdminQnABoardVO adminQnA) {
+	public String insertUserNotice(AdminEventBoardVO adminEventVO) {
 		System.out.println("���� ��� ó��");
-		/*
-		 * System.out.println("content: "+adminQnA.getBoard_content());
-		 * adminBoardService.userInsertNotice(adminQnA);
-		 */
+		 System.out.println("content: "+adminEventVO.getUser_event_board_content());
+		 adminBoardService.userInsertNotice(adminEventVO);
+
 		return "redirect:/userNotice.mdo";
 	}
 	
 	@GetMapping("/userNoticeContent.mdo")
-	public String userNoticeContent(AdminQnABoardVO adminQnA, Model model) {
+	public String userNoticeContent(AdminEventBoardVO adminEventVO, Model model) {
 		System.out.println("������ �� ���� ó��");
-		/*
-		 * System.out.println("num: "+adminQnA.getSeq()); 
-		 * model.addAttribute("adminQnA",
-		 * adminBoardService.getQnA(adminQnA));
-		 */
+		
+		System.out.println("num: "+adminEventVO.getUser_event_board_seq()); 
+		model.addAttribute("adminEventVO", adminBoardService.getEventNotice(adminEventVO));
+		 
 		return "userNoticeContent";
 	}
 	
-	@RequestMapping("/updateNotice.mdo")
-	public String updateNotice(AdminQnABoardVO adminQnA) {
+	@RequestMapping("/updateEventNotice.mdo")
+	public String updateEventNotice(AdminEventBoardVO adminEventVO) {
 		System.out.println("���� �������� ���� ���� ó��");
-		//adminBoardService.updateNotice(adminQnA);
+		adminBoardService.updateEventNotice(adminEventVO);
 		return "redirect:/userNotice.mdo";
 	}
 	
-	@RequestMapping("/deleteNotice.mdo")
-	public String deleteNotice(AdminQnABoardVO adminQnA) {
+	@RequestMapping("/deleteEventNotice.mdo")
+	public String deleteEventNotice(AdminEventBoardVO adminEventVO) {
 		System.out.println("���� ������ ���� ó��");
-		//adminBoardService.deleteNotice(adminQnA);
+		adminBoardService.deleteEventNotice(adminEventVO);
+
 		return "redirect:/userNotice.mdo";
 	}
+	
+	//--------------------------------------------
 	
 	@GetMapping(value="/qna.mdo")
 	public String qnaList(PagingVO pageVO, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
-		
-		int total = adminBoardService.countQnA();
+		int total = adminBoardService.countQnA(); // ��ü �� �� ��ȸ 
 		System.out.println("��ü qna ��: " + total);
 		System.out.println("ī�װ�: "+set);
 
-		if (nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "10";
+		if (nowPage == null && cntPerPage == null) { // ���� �������� ��ȸ�� �� ������ �Ҵ���� ���� ��쿡��
+			nowPage = "1"; // �������� 1�� �ϰ�
+			cntPerPage = "10"; // ���� 10���� �ҷ����ڴ�.
 		} else {
-			cntPerPage = "10";
+			cntPerPage = "10"; // ������ ��쿡�� 10���� �ҷ����ڴ�.(�������ѹ� �Ҵ�� ���)
 		}
 
 		System.out.println("nowpage: " + nowPage + ", cntPerpage: " + cntPerPage);
-		if(set == null) {
+		if(set == null) { // ī�װ��� null�� ���(ó�� �������� �ε����� ��)
 			System.out.println("set ����");
-			set = "����";
+			set = "����"; // �������� �ϰڴ�. ���⼭�� ������ ī�װ� ��ü�� �����ϰ� ó���Ͽ���. - ī�װ� ���о��� ���� �� �ҷ����ڴٴ� �ǹ�
 		}
 		
-		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), set);
+		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), set); // ����¡ ����
 		System.out.println(pageVO.getSet());
-		model.addAttribute("paging", pageVO);
-		model.addAttribute("adminQnAList", adminBoardService.selectQnA(pageVO));
+		model.addAttribute("paging", pageVO); // jsp���� ����¡ ó���� ���� �𵨿� ����ش�. 
+
+		model.addAttribute("adminQnAList", adminBoardService.selectQnA(pageVO)); // selectQnA()�� �����Ͽ� ������ ����Ʈ�� �𵨿� ����
 
 		return "qna";
 	}
@@ -201,7 +217,7 @@ public class noticeController {
 		return "userInsertFAQ";
 	}
 	
-	@RequestMapping("/InsertFAQ.mdo")
+	@RequestMapping("/insertFAQ.mdo")
 	public String insertFAQ(AdminQnABoardVO adminQnA) {
 		System.out.println("���� ��� ó��");
 		System.out.println("content: "+adminQnA.getBoard_content());

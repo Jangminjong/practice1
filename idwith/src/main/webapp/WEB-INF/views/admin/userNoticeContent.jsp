@@ -1,6 +1,7 @@
 <%@page import="com.idwith.mpweb.admin.board.AdminQnABoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -192,56 +193,64 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form class="row g-3">
-							<div class="col-md-4">
-								<label class="form-label">제목</label> <input type="text"
-									class="form-control" placeholder="제목" style="width: auto;">
-							</div>
-							<div class="col-md-4">
-								<label class="form-label">작성자</label> <input type="text"
-									class="form-control" placeholder="작성자" style="width: auto;"
-									disabled>
-							</div>
-							<div class="col-md-4">
-								<label class="form-label">작성일</label> <input type="text"
-									class="form-control" placeholder="작성일" style="width: auto;"
-									disabled>
+						<form  id="form-event-user" name="eventUserForm" action="updateEventNotice.mdo" method="post" onsubmit="return false">
+							<input type="hidden" name="user_event_board_seq" value="${adminEventVO.user_event_board_seq}"/>
+							<div class="mb-3">
+								<label class="form-label">Notice Title1</label>
+								<input type="text" class="form-control" name="user_event_board_title1" placeholder="${adminEventVO.user_event_board_title1}" style="width: auto;"> 
 							</div>
 							<div class="mb-3">
-								<label class="form-label">내용</label>
-								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
-								<form id="form-notice-user" name="noticeUserForm"
-									action="updateNotice.mdo" method="post" onsubmit="return false">
-									<input name="seq" type="hidden" value="${adminQnA.seq}" />
-									<div class="mb-3">
-										<label class="form-label">Notice Title</label> <input
-											type="text" class="form-control" name="board_title"
-											placeholder="${adminQnA.board_title }" style="width: auto;">
-									</div>
-									<div class="mb-3">
-										<label class="form-label">Content</label>
-										<textarea class="form-control" name="board_content"
-											placeholder="${adminQnA.board_content }" rows="10"></textarea>
-									</div>
-									<div class="mb-3">
-										<label class="form-label w-100">파일</label> <input type="file">
-									</div>
-									<div class="row">
-										<div class="col-md-3 text-center"></div>
-										<div class="col-md-3 text-center"></div>
-										<div class="col-md-3 text-center">
-											<input type="submit" id="notice-user-submit"
-												class="btn btn-primary" value="수정" /> <a
-												href="deleteNotice.mdo?seq=${adminQnA.seq}">
-												<button class="btn btn-primary">삭제</button>
-											</a> <a href="userNotice.mdo">
-												<button class="btn btn-primary">목록</button>
-											</a>
-										</div>
-									</div>
-								</form>
+								<label class="form-label">Notice Title2</label>
+								<input type="text" class="form-control" name="user_event_board_title2" placeholder="${adminEventVO.user_event_board_title2}" style="width: auto;">
+							</div> 
+							<div class="mb-3">
+								<label class="form-label">카테고리</label>
+								<c:choose>
+									<c:when test="${ adminEventVO.user_event_board_category eq '공지' }">
+										<select id="qna_type" class="form-control" name="user_event_board_category" style="width:auto;" onclick="eventCategory()" disabled>
+											<option value="구분">구분</option>
+											<option value="공지" selected>공지</option>
+											<option value="이벤트">이벤트</option>
+										</select>
+									</c:when>
+									<c:when test="${ adminEventVO.user_event_board_category eq '이벤트' }">
+										<select id="qna_type" class="form-control" name="user_event_board_category" style="width:auto;" onclick="eventCategory()" disabled>
+											<option value="구분">구분</option>
+											<option value="공지" selected>공지</option>
+											<option value="이벤트" selected>이벤트</option>
+										</select>
+									</c:when>
+								</c:choose>
 							</div>
+							<c:if test="${ adminEventVO.user_event_board_category == '이벤트' }">
+								<div class="mb-3">
+									<label class="form-label">이벤트 마감일</label>
+									<input type='date' id="event-end-date" class="form-control" name='user_event_board_end' value="${adminEventVO.user_event_board_end }" style="width:auto;"/>
+								</div>
+							</c:if>
+							<div class="mb-3">
+								<label class="form-label">Content</label>
+								<textarea class="form-control" name="user_event_board_content" placeholder="${adminEventVO.user_event_board_content}" rows="10"></textarea>
+							</div>
+							<div class="mb-3">
+								<label class="form-label w-100">File input</label>
+								<input type="file">
+							</div>
+							<input type="submit" id="event-user-submit" class="btn btn-primary" value="수정"/>
+						</form>
 					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 text-center"></div>					
+					<div class="col-md-3 text-center"></div>
+					<div class="col-md-3 text-center">
+						<a href="deleteEventNotice.mdo?user_event_board_seq=${adminEventVO.user_event_board_seq}">
+							<button class="btn btn-primary">삭제</button>
+						</a> <a href="userNotice.mdo">
+							<button class="btn btn-primary">목록</button>
+						</a>
+					</div>
+				</div>
 			</main>
 			<script src="../js/app.js"></script>
 		</div>

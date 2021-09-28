@@ -16,6 +16,10 @@
 <script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
 <script type="text/javascript" src="resources/js/vuepack.js"></script>
 
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+  />
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">

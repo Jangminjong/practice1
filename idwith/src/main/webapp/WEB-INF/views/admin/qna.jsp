@@ -193,7 +193,7 @@
 							<div class="row">
 								<div class="col-md-2 text-center">
 									<select id="qna_type" name="board_category"
-										onchange="setCategory()">
+										onchange="setQnACategory()">
 										<option value="구분">구분</option>
 										<option value="공지">공지</option>
 										<option value="결제">결제</option>
@@ -287,7 +287,7 @@
 										</c:when>
 										<c:when test="${paging.nowPage ne 1 }">
 											<li class="page-item"><a
-												href="/mpweb/qna.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												href="/mpweb/qna.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
 												style="width: auto;" class="page-link">Previous</a></li>
 										</c:when>
 									</c:choose>

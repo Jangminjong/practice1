@@ -179,7 +179,6 @@
 				<div class="content">
 					<div class="row">
 						<div class="container-fluid p-0">
-
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
 									<h3>Notice</h3>
@@ -191,47 +190,58 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form id="form-notice-user" name="noticeUserForm"
-							action="insertUserNotice.mdo" method="post"
-							onsubmit="return false">
+						<form  id="form-event-user" name="eventUserForm" action="insertUserNotice.mdo" method="post" onsubmit="return false">
 							<div class="mb-3">
-								<label class="form-label">Notice Title</label> <input
-									type="text" class="form-control" name="board_title"
-									placeholder="제목" style="width: auto;">
+								<label class="form-label">Notice Title1</label>
+								<input type="text" class="form-control" name="user_event_board_title1" placeholder="제목" style="width: auto;"> 
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Notice Title2</label>
+								<input type="text" class="form-control" name="user_event_board_title2" placeholder="제목" style="width: auto;">
+							</div> 
+							<div class="mb-3">
+								<label class="form-label">카테고리</label>
+								<select id="qna_type" class="form-control" name="user_event_board_category" style="width:auto;" onclick="eventCategory()">
+									<option value="구분">구분</option>
+									<option value="공지">공지</option>
+									<option value="이벤트">이벤트</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">이벤트 마감일</label>
+								<input type='date' id="event-end-date" class="form-control" name='user_event_board_end' style="width:auto;"/>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
-								<textarea class="form-control" name="board_content"
-									placeholder="내용" rows="10"></textarea>
+								<textarea class="form-control" name="user_event_board_content" placeholder="내용" rows="10"></textarea>
 							</div>
 							<div class="mb-3">
-								<label class="form-label w-100">File input</label> <input
-									type="file">
+								<label class="form-label w-100">File input</label>
+								<input type="file">
 							</div>
-							<div class="row">
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center">
-									<input type="submit" id="notice-user-submit"
-										class="btn btn-primary" value="등록" /> <a
-										href="userInsertNotice.mdo"> <!--초기화 진행-->
-										<button class="btn btn-primary">초기화</button>
-									</a>
-									<button class="btn btn-primary">목록</button>
-								</div>
-							</div>
+							<input type="submit" id="event-user-submit" class="btn btn-primary" value="등록"/>
 						</form>
 					</div>
 				</div>
-
+				<div class="row">
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center">
+						<a href="adminNotice.mdo">
+							<button class="btn btn-primary">등록</button>
+						</a>
+						<a href="adminInsertNotice.mdo">
+							<!--초기화 진행-->
+							<button class="btn btn-primary">초기화</button>
+						</a>
+					</div>
+				</div>
 			</main>
-			<script src="../js/app.js"></script>
+			<script src="resources/admin/js/app.js"></script>
 		</div>
-	</div>
-	</main>
-	<script src="resources/admin/js/app.js"></script>
-	</div>
 	</div>
 </body>
 

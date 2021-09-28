@@ -1,5 +1,27 @@
 @import url(common.css);
 
+.msg-title{
+	display:flex;
+	justify-content: space-between;
+	item-aligns:center;
+}
+
+.msg-btn{
+	border-color: transparent;
+    background: #ff7b30;
+    border-radius:4px;
+    cursor:pointer;
+    width: 80px;
+    height:40px;
+}
+
+.msg-btn a{
+	color: #fff;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	text-decoration:none;
+}
 
 a, button, [tabindex], .tab, input {
     -webkit-tap-highlight-color: transparent;

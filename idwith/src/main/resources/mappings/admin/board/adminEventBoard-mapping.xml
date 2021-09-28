@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="AdminEventBoardDAO">
+ 	<resultMap type="adminEventVO" id="adminEventResult">
+ 		<result property="user_event_board_seq" column="user_event_board_seq"/>
+ 		<result property="user_event_board_id" column="user_event_board_id"/>
+ 		<result property="user_event_board_category" column="user_event_board_category"/>
+ 		<result property="user_event_board_title1" column="user_event_board_title1"/>
+ 		<result property="user_event_board_title2" column="user_event_board_title2"/>
+ 		<result property="user_event_board_content" column="user_event_board_content"/>
+ 		<result property="user_event_board_start" column="user_event_board_start"/>
+ 		<result property="user_event_board_cnt" column="user_event_board_cnt"/>
+ 		<result property="user_event_board_end" column="user_event_board_end"/>
+ 	</resultMap>
+ 	<insert id="insertEvent" parameterType="adminEventVO">
+ 		INSERT INTO user_event_board (user_event_board_seq, user_event_board_id, user_event_board_category, user_event_board_title1, user_event_board_title2, user_event_board_content, user_event_board_start, user_event_board_end, user_event_board_cnt)
+ 		VALUES( nextval('seq_user_event_board'), '관리자1', #{user_event_board_category}, #{user_event_board_title1}, #{user_event_board_title2}, #{user_event_board_content}, now(), #{user_event_board_end}, 0)
+ 	</insert>
+ 	<select id="countEventNotice" resultType="_int">
+		SELECT COUNT(*) FROM user_event_board
+	</select>
+	<select id="getEventNoticeListWithCategory" resultType="adminEventVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *FROM user_event_board WHERE user_event_board_category=#{set} ORDER BY user_event_board_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	</select>
+	<select id="getEventNoticeList" resultType="adminEventVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *FROM user_event_board ORDER BY user_event_board_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	</select>
+	<select id="getEventNotice" resultType="adminEventVO">
+		SELECT * FROM user_event_board WHERE user_event_board_seq=#{user_event_board_seq}
+	</select>
+	<update id="updateEventNotice" parameterType="adminEventVO">
+ 		UPDATE user_event_board
+ 		SET user_event_board_title1=#{user_event_board_title1}, user_event_board_title2=#{user_event_board_title2}, user_event_board_end=#{user_event_board_end}, user_event_board_content=#{user_event_board_content} WHERE user_event_board_seq = #{user_event_board_seq}
+ 	</update>
+ 	<delete id="deleteEventNotice" parameterType="adminEventVO">
+ 		DELETE FROM user_event_board WHERE user_event_board_seq=#{user_event_board_seq}
+ 	</delete>
+ 	<!--  <update id="updateBoard" parameterType="myboard">
+ 		UPDATE myboard
+ 		SET title=#{title}, content=#{content} WHERE seq = #{seq}
+ 	</update>
+ 	<delete id="deleteBoard" parameterType="myboard">
+ 		DELETE FROM myboard WHERE seq=#{seq}
+ 	</delete>
+ 	<select id="getBoard" resultType="myboard">
+ 		SELECT * FROM myboard WHERE seq=#{seq}
+ 	</select>
+ 	<select id="getBoardList" resultMap="boardResult">
+ 		SELECT * FROM myboard
+ 		WHERE 1=1 
+ 		<if test="searchCondition=='TITLE'">
+ 			AND title LIKE '%'||#{searchKeyword}||'%'
+ 		</if>
+ 		<if test="searchCondition=='CONTENT'">
+ 			AND content LIKE '%'||#{searchKeyword}||'%'
+ 		</if>
+ 		ORDER BY seq DESC
+ 	</select>
+ 	<select id="getBoardList_C" resultMap="boardResult">
+ 		SELECT * FROM myboard
+ 		WHERE content LIKE '%'||#{searchKeyword}||'%'
+ 		ORDER BY seq DESC
+ 	</select>--> 
+</mapper>

@@ -13314,10 +13314,10 @@ header#header.header nav.service-nav>*.active {
 .ui_gnb__menu i {
 	display: none
 }
-
+/*
 .ui_gnb__menu:last-child {
 	display: none
-}
+}*/
 
 .ui_gnb__menu:first-child:hover .ui_gnb__submenu {
 	display: block
@@ -13499,9 +13499,9 @@ header#header.header nav.service-nav>*.active {
 	.ui_gnb__menu:nth-child(2) {
 		display: inline-block
 	}
-	.ui_gnb__menu:last-child {
+	/* .ui_gnb__menu:last-child {
 		display: none
-	}
+	} */
 	[data-state=active] .ui_gnb__menu {
 		display: block;
 		width: -webkit-calc(( 100% - 24px)/3);
@@ -13526,9 +13526,9 @@ header#header.header nav.service-nav>*.active {
 	[data-state=active] .ui_gnb__menu:after {
 		display: none
 	}
-	[data-state=active] .ui_gnb__menu:last-child {
+	/* [data-state=active] .ui_gnb__menu:last-child {
 		display: none
-	}
+	} */
 }
 
 @media ( max-width : 320px) {

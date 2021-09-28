@@ -13,54 +13,114 @@ public class UserBoardDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
+	// 1ëŒ€1 ë¬¸ì˜ ----------------------------------------------------------------
 	public void insertQnA(QnABoardVO qnaVO) {
-		System.out.println("DAO insertQnA() ½ÇÇà");
+		System.out.println("DAO insertQnA() ï¿½ï¿½ï¿½ï¿½");
 		sqlSessionTemplate.insert("BoardDAO.insertQnA", qnaVO);
 	}
 	
-	// °øÁö(°íÁ¤±Û) Á¶È¸
+	
 	public List<QnABoardVO> getQnAList(){
-		System.out.println("DAO getQnAList() ½ÇÇà");
+		System.out.println("DAO getQnAList() ï¿½ï¿½ï¿½ï¿½");
 		return sqlSessionTemplate.selectList("BoardDAO.getQnAList");
 	}
 	
 	public QnABoardVO getQnA(QnABoardVO qnaVO) {
-		System.out.println("DAO getQnA() ½ÇÇà");
+		System.out.println("DAO getQnA() ï¿½ï¿½ï¿½ï¿½");
 		return (QnABoardVO) sqlSessionTemplate.selectOne("BoardDAO.getQnA", qnaVO);
 	}
 	
 	public void updateQnA(QnABoardVO qnaVO) {
-		System.out.println("DAO updateQnA() ½ÇÇà");
+		System.out.println("DAO updateQnA() ï¿½ï¿½ï¿½ï¿½");
 		sqlSessionTemplate.update("BoardDAO.updateQnA", qnaVO);
 	}
 	
 	public Integer qnaRightCheck(QnABoardVO qnaVO) {
-		System.out.println("DAO qnaRightCheck() ½ÇÇà");
+		System.out.println("DAO qnaRightCheck() ï¿½ï¿½ï¿½ï¿½");
 		return sqlSessionTemplate.selectOne("BoardDAO.rightCheck", qnaVO);
 	}
 	
 	public void deleteQnA(QnABoardVO qnaVO) {
-		System.out.println("DAO deleteQnA() ½ÇÇà");
+		System.out.println("DAO deleteQnA() ï¿½ï¿½ï¿½ï¿½");
 		sqlSessionTemplate.delete("BoardDAO.deleteQnA", qnaVO);
 	}
 	
-	// ÆäÀÌÂ¡ Ã³¸®
+	
 	public int countQnA() {
-		System.out.println("DAO countQnA() ½ÇÇà");
+		System.out.println("DAO countQnA() ï¿½ï¿½ï¿½ï¿½");
 		return sqlSessionTemplate.selectOne("BoardDAO.countQnA");
 	}
 	
 	public int countNotice() {
-		System.out.println("DAO countNotice() ½ÇÇà");
+		System.out.println("DAO countNotice() ï¿½ï¿½ï¿½ï¿½");
 		return sqlSessionTemplate.selectOne("BoardDAO.countNotice");
 	}
 	
 	public List<QnABoardVO> selectQnA(PagingVO pageVO){
-		System.out.println("DAO selectQnA() ½ÇÇà");
+		System.out.println("DAO selectQnA() ï¿½ï¿½ï¿½ï¿½");
 		return sqlSessionTemplate.selectList("BoardDAO.selectQnA", pageVO);
 	}
 	
 	public void addHit(QnABoardVO qnaVO) {
 		sqlSessionTemplate.update("BoardDAO.addHit", qnaVO);
+	}
+	
+	// ê³µì§€ì‚¬í•­ -----------------------------------------------------------
+	
+	public int countEventNotice() {
+		return sqlSessionTemplate.selectOne("BoardDAO.countEventNotice");
+	}
+	
+	public List<EventBoardVO> getEventNoticeList(PagingVO pageVO){
+		return sqlSessionTemplate.selectList("BoardDAO.getEventNoticeList", pageVO);
+	}
+	
+	public void addCnt(EventBoardVO eventVO) {
+		sqlSessionTemplate.update("BoardDAO.addCnt", eventVO);
+	}
+	
+	public EventBoardVO getEventNotice(EventBoardVO eventVO) {
+		return sqlSessionTemplate.selectOne("BoardDAO.getEventNotice", eventVO);
+	}
+	
+	// ë©”ì‹œì§€--------------------------------------------------------------------------
+	
+	public List<UserMessageVO> getMessageList(String email){
+		return sqlSessionTemplate.selectList("BoardDAO.getMessageList", email);
+	}
+	
+	public List<UserMessageVO> getMsgContextList(UserMessageVO msgVO){
+		return sqlSessionTemplate.selectList("BoardDAO.getMsgContextList", msgVO);
+	}
+	
+	public void insertMessage(UserMessageVO msgVO) {
+		sqlSessionTemplate.insert("BoardDAO.insertMessage", msgVO);
+	}
+	
+	public void updateReadState(String msg_id) {
+		sqlSessionTemplate.update("BoardDAO.updateReadState", msg_id);
+	}
+	
+	public void updateNewState(UserMessageVO msgVO) {
+		sqlSessionTemplate.update("BoardDAO.updateNewState", msgVO);
+	}
+	
+	// ì•Œë¦¼ -------------------------------------------------------------------------
+	
+	public EventBoardVO getNewEvent() {
+		return sqlSessionTemplate.selectOne("BoardDAO.getNewEvent");
+	}
+	
+	public List<EventBoardVO> getEventList(){
+		return sqlSessionTemplate.selectList("BoardDAO.getEventList");
+	}
+	
+	public String dueDateCheck(String seq) {
+		int result = sqlSessionTemplate.selectOne("BoardDAO.dueDateCheck", Integer.parseInt(seq));
+		if(result>0) {
+			return "0";
+		}else {
+			return "1";
+		}
 	}
 }

@@ -14,10 +14,10 @@
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 <script src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/js/index.js"></script>
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-	crossorigin="anonymous">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+  />
 <title>아이디어스 임시 메인</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 						src="https://image.idus.com/static/signup/web_benefit_banner.png">
 					</a>
 					<button class="download-ribbon-close" type="button">
-						<i class="far fa-times-circle" aria-hidden="true"></i>
+						<i class="fa fa-times-circle" aria-hidden="true"></i>
 					</button>
 				</div>
 			</div>
@@ -73,11 +73,11 @@
 						</nav>
 					</c:when>
 					<c:when test="${ emailSplit ne null }">
-						<nav class="fr" style="margin-left: 65%;">
+						<nav class="fr" style="margin-left: 55%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
-						<div class="nav-btn ui-dropdown">
-							<button type="button" class="btn-dropdown">
+						<div class="nav-btn ui-dropdown mymenu">
+							<button type="button" class="btn-dropdown btn-first">
 								<span data-profile="name">${emailSplit}</span> 님
 								<!-- current user email address: for parsing -->
 							</button>
@@ -86,44 +86,68 @@
 								<li><a href="mypage_interest_goods.do">관심리스트</a></li>
 								<li><a href="mypage_coupon.do">쿠폰함</a></li>
 								<li><a href="mypage_info.do">회원 정보관리</a></li>
-								<li class="add-border"><a href="/w/logout">로그아웃</a></li>
+								<li class="add-border"><a href="logout.do">로그아웃</a></li>
 							</ul>
 						</div>
-						<div class="nav-btn ui-dropdown message message-list">
-							<button type="button" class="btn-dropdown"
+						<div class="nav-btn ui-dropdown message message-list" id="message-list-alarm">
+							<button type="button" class="btn-dropdown btn-second"
 								data-ui="load-message-btn"
 								data-endpoint="/w/notification?page=gnb">
-								<i class="far fa-bell"></i> <span class="title">알림</span>
+								<i class="fa fa-bell-o" aria-hidden="true"></i><span class="title">알림</span>
 							</button>
-							<div class="menu-dropdown menu-second message-list alarm">
+							<div class="menu-dropdown menu-second alarm">
 								<div class="alarm_title">
 									<span class="title">알림</span>
 								</div>
-								<ul
-									class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
-									<div id="mCSB_1"
-										class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
+								<ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
+									<div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
 										<div class="alarm-test">알림 테스트1</div>
 										<div class="alarm-test">알림 테스트2</div>
 										<div class="alarm-test">알림 테스트3</div>
 										<div class="alarm-test">알림 테스트4</div>
+										<div class="alarm-test">알림 테스트4</div>
+										<div class="alarm-test">알림 테스트4</div>
+										<div class="alarm-test">알림 테스트4</div>
 									</div>
-									<div id="mCSB_1_scrollbar_vertical"
-										class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical">
-										<div class="mCSB_draggerContainer">
-											<div id="mCSB_1_dragger_vertical" class="mCSB_dragger">
-												<div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
-												<div class="mCSB_draggerRail"></div>
-											</div>
-										</div>
-									</div>
+									
+									<a data-log-noti-object="see_all" href="alarm.do" class="dropdown-link-style link-style">모두 보기</a>
 								</ul>
-								<a data-log-noti-object="see_all" href="alarm.do"
-									class="link-style">모두 보기</a>
+							</div>
+						</div>
+						<div class="nav-btn ui-dropdown message message-list" id="message-list-msg" onmouseover="messageView()">
+							<button type="button" class="btn-dropdown btn-third"
+								data-ui="load-message-btn">
+								<i class="fa fa-commenting-o" aria-hidden="true"></i> <span class="title">메시지</span>
+							</button>
+							<div class="menu-dropdown menu-third message"  style="margin-left: -140px;">
+								<div class="message_title">
+									<span class="title">메시지</span>
+								</div>
+								<ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
+									<div id="mCSB_2" class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
+												<c:forEach var="msg" items="${msgList}">
+													<li class="msg-item" style="width:100%; height:auto;"><a
+														href="message_detail.do?msgd_id=${msg.msg_id }">
+															<div class="split">
+																<div class="img-bg"
+																	style="background-image: url('https://image.idus.com/image/files/e8534c6cbfb7488fbb5771f48db36e6d_320.jpg');"></div>
+																<div class="area-txt">
+																	<span>${msg.msg_id }</span>
+																	<p class="txt">${msg.msg_context }</p>
+																</div>
+															</div>
+															<div class="split fixed">
+																<time class="timestamp">${msg.msg_date}</time>
+															</div>
+													</a></li>
+												</c:forEach>
+											</div>
+									<a data-log-noti-object="see_all" href="message.do" class="dropdown-link-style link-style">모두 보기</a>
+								</ul>
 							</div>
 						</div>
 
-						<a href="board.do" class="nav-btn" data-log-object="member__notice">공지사항</a>
+						<a href="eventNoticeBoard.do" class="nav-btn" data-log-object="member__notice">공지사항</a>
 						<a href="board.do" class="nav-btn" data-log-object="member_qna">1:1문의</a>
 
 						<!-- <div class="nav-btn ui-dropdown">
@@ -163,16 +187,16 @@
 							<input id="header-search" type="text" autocomplete="off"
 								placeholder="추석할인을 검색해보세요"> <label class="searchLabel">
 								<button type="submit" name="search">
-									<i class="fas fa-search"></i>
+									<i class="fa fa-search" aria-hidden="true"></i>
 								</button>
 							</label>
 						</form>
 					</div>
 
 					<nav class="profile-links">
-						<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i> 내 정보
+						<a href="mypage_main.do" class="btn"> <i class="fa fa-user-o" aria-hidden="true"></i> 내 정보
 						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
-							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
+							class="cart-counter">0</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							장바구니
 						</a>
 					</nav>
@@ -188,24 +212,27 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="full-w gnb-scroll " data-ui="gnb-scroll"
-				data-state="static">
-				<div class="inner-w container_gnb" data-ui="gnb">
-					<ul class="ui_gnb" data-state="" data-type="">
-						<li class="ui_gnb__menu " data-state="active"><a href="class_index.do">홈</a>
-						</li>
-						<li class="ui_gnb__menu class-category"><a href="class_category.do">카테고리</a></li>
-						<li class="ui_gnb__menu " data-state=""><a
-							href="class_popular.do">인기 클래스</a></li>
-						<li class="ui_gnb__menu " data-state=""><a href="class_region.do">지역별</a>
-						</li>
-					</ul>
-					<button class="ui_btn toggle_gnb" aria-label="toggle nav ui">
-						<i class="idus-icon-arrow-down"></i>
-					</button>
-				</div>
-			</div>
+			 <div class="full-w gnb-scroll " data-ui="gnb-scroll" data-state="static">
+                        <div class="inner-w container_gnb" data-ui="gnb">
+                            <ul class="ui_gnb" data-state="" data-type="">
+                                <li class="ui_gnb__menu " data-state="active">
+                                    <a href="/">홈</a>
+                                </li>
+                                <li class="ui_gnb__menu class-category">
+                                    <span>카테고리</span>
+                                </li>
+                                <li class="ui_gnb__menu " data-state="">
+                                    <a href="/w/main/popular-category">인기 클래스</a>
+                                </li>
+                                <li class="ui_gnb__menu " data-state="">
+                                    <a href="/w/story">지역별</a>
+                                </li>
+                            </ul>
+                            <button class="ui_btn toggle_gnb" aria-label="toggle nav ui">
+                                <i class="idus-icon-arrow-down"></i>
+                            </button>
+                        </div>
+                    </div>
 		</header>
 </body>
 </html>

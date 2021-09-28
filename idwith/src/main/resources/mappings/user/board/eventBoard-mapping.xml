@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="BoardDAO">
+	<resultMap type="eventVO" id="eventResult">
+ 		<result property="user_event_board_seq" column="user_event_board_seq"/>
+ 		<result property="user_event_board_id" column="user_event_board_id"/>
+ 		<result property="user_event_board_category" column="user_event_board_category"/>
+ 		<result property="user_event_board_title1" column="user_event_board_title1"/>
+ 		<result property="user_event_board_title2" column="user_event_board_title2"/>
+ 		<result property="user_event_board_content" column="user_event_board_content"/>
+ 		<result property="user_event_board_start" column="user_event_board_start"/>
+ 		<result property="user_event_board_cnt" column="user_event_board_cnt"/>
+ 		<result property="user_event_board_end" column="user_event_board_end"/>
+ 	</resultMap>
+ 	<select id="countEventNotice" resultType="_int">
+		SELECT COUNT(*) FROM user_event_board
+	</select>
+	<select id="getEventNoticeList" resultType="eventVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *FROM user_event_board ORDER BY user_event_board_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	</select>
+	<select id="getEventNotice" resultType="eventVO">
+		SELECT * FROM user_event_board WHERE user_event_board_seq=#{user_event_board_seq}
+	</select>
+	<update id="addCnt" parameterType="eventVO">
+ 		UPDATE user_event_board
+ 		SET user_event_board_cnt=((SELECT user_event_board_cnt FROM user_event_board WHERE user_event_board_seq=#{user_event_board_seq})+1) WHERE user_event_board_seq = #{user_event_board_seq}
+ 	</update>
+ 	<select id="getNewEvent" resultType="eventVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *FROM user_event_board WHERE user_event_board_category='이벤트' ORDER BY user_event_board_seq DESC)A)AS foo WHERE rownum=1;
+	</select>
+	<select id="getEventList" resultType="eventVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *FROM user_event_board WHERE user_event_board_category='이벤트' ORDER BY user_event_board_seq DESC)A)AS foo;
+	</select>
+	<select id="dueDateCheck" resultType="_int" parameterType="_int">
+		SELECT CURRENT_DATE - user_event_board_end::date AS diff_days FROM user_event_board WHERE user_event_board_seq=#{seq}
+	</select>
+</mapper>

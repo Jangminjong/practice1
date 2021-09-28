@@ -1,10 +1,13 @@
+<%@page import="com.idwith.mpweb.user.board.QnABoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>1:1 문의 | 새 글 작성</title>
+<title>공지사항 | 게시글 보기</title>
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 <link rel="stylesheet" href="resources/css/board.css">
@@ -20,14 +23,24 @@
 		<jsp:include page="../header_goods.jsp" />
 		<div id="content" class="content" data-gnb-show="true"
 			data-page="board">
+			<div class="title-style-block inner-w">
+				<h2 class="txt">공지사항</h2>
+			</div>
 			<div class="inner-w cnn-board">
-				<div class="board-err">
-					<strong><span style="font-size: 50px; color: #f52e05;">조회 권한이 없습니다.</span></strong>
+				<strong>❑ 
+					<span style="color: #ff6600; font-size:16px;">[${eventVO.user_event_board_title1}]</span>
+					<span style="color: #666; font-size:16px;"> ${eventVO.user_event_board_title2}</span>
+				</strong><br><br>
+				
+				<div class="qna-content qna-detail" style="margin-bottom: 24px;">
+					<textarea rows="26" name="board_content">${eventVO.user_event_board_content}</textarea>
+					<div class="event-board-img"></div>
 				</div>
-				<a href="board.do" style="float: center;"><button class="btn-qna-board">목록으로 돌아가기</button></a>
+				<a href="eventNoticeBoard.do" ><button class="btn-qna-board">목록</button></a>
 			</div>
 		</div>
 		<jsp:include page="../footer.jsp" />
 	</div>
+
 </body>
 </html>
