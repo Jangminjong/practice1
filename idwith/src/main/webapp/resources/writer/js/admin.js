@@ -460,7 +460,7 @@ $(function () {
 
 
 
-angular
+/*angular
   .module('mwl.calendar.docs') //you will need to declare your module with the dependencies ['mwl.calendar', 'ui.bootstrap', 'ngAnimate']
   .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig) {
 
@@ -564,4 +564,14 @@ angular
 
     };
 
-  });
+  });*/
+
+//==============================================================================================
+// 파일업로드 추가
+function inputGroupAdd(){
+	var inputClone = $(".mb-3 input:first-child").clone();
+	var buttonClone = $(".mb-3 button:last-child").clone();
+	$(".addImage-group").append(inputClone);
+	$(".addImage-group").append(buttonClone);
+	
+}

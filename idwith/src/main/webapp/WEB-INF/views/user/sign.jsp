@@ -30,7 +30,7 @@
 	<div class="wrap login">
 		<div class="head_banner_group"></div>
 		<form data-form="reauth-phone" class="form form-signup-step2" id="form"
-			data-page="signup" action="signupSuccess.do" method="post" name="signForm"
+			data-page="signup" action="classInsertApply.wdo" method="post" name="signForm"
 			novalidate="novalidate" onsubmit="return false">
 			<input type="hidden" name="redirect_uri"
 				value="https://www.idus.com/w/story"> <input type="hidden"

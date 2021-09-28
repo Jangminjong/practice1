@@ -8160,3 +8160,18 @@ html.ie11 .bs-searchbox .form-control {
   .dropdown:hover .dropbtn span {
     color: white;
   }
+  
+  .addImage-group input{
+  	border : none;
+  	margin-left : -12px;
+  	margin-bottom : 5px;
+  	margin-top : 5px;
+  }
+  .addImage-group button{
+  	margin-bottom : 5px;
+  }
+  .addImage-group {
+  	border : none;
+  	margin-bottom : 20px;
+  }
+  
