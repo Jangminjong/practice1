@@ -28,7 +28,7 @@
 </head>
 
 <body>
-	
+	<input type="hidden" id="admin_role" value="${admin_role }">
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -293,7 +293,7 @@
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 			<script>
-				$().ready(function (){ 
+				/* $().ready(function (){ 
 					$("#productCalculate").click(function (){ 
 						Swal.fire({ 
 							title: '', 
@@ -314,7 +314,7 @@
 							} 
 						}) 
 					}); 
-				});
+				}); */
 			</script>
 			<script>
 				$().ready(function (){ 
@@ -341,7 +341,7 @@
 				});
 			</script>
 			<script>
-				$().ready(function () {
+				/* $().ready(function () {
 		            $("#noSuperAdmin").click(function () {
 		                Swal.fire({
 		                    icon: 'error',
@@ -349,7 +349,8 @@
 		                    text: '정산은 최고관리자님만 가능합니다.',
 		                });
 		            });
-		        });
+		        }); */
+		        
 			</script>
 		</div>
 	</div>

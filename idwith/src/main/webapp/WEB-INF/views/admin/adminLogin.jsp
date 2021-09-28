@@ -11,6 +11,9 @@
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">
 
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/admin/js/admin.js"></script>
+
 </head>
 <body bgcolor="#15283D">
 	<div class="wrap-login" style="background: #15283D">
@@ -28,14 +31,14 @@
 			<div data-v-668c286c="" class="login_container">
 				<div data-v-668c286c="" class="login_signin_content">
 					<div class="login_header">IdWith 관리자 사이트 로그인</div>
-					<form action="main.mdo" method="post" onsubmit="return false">
+					<form action="main.mdo" id="form" method="post" onsubmit="return false">
 						<div data-v-22bdcf3e="" data-v-668c286c=""
 							class="email_login_container">
 							<div data-v-22bdcf3e="">
 								<input data-v-22bdcf3e="" id="email_login_input" name="admin_id" type="text"
 									placeholder="ID" required="required" class="login_input ">
 								<!---->
-								<input data-v-22bdcf3e="" name="admin_pwd" type="password" placeholder="Password"
+								<input data-v-22bdcf3e="" id="password_login_input" name="admin_pwd" type="password" placeholder="Password"
 									required="required" class="login_input ">
 								<!---->
 							</div>
