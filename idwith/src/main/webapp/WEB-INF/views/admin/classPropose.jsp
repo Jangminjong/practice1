@@ -124,6 +124,20 @@
 					class="hamburger align-self-center"></i>
 				</a>
 
+				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
+						<a class="nav-link d-none d-sm-inline-block" href="#"> 
+							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
+								<span class="text-dark">로그아웃</span>
+						</a>
+				</div>
+			</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle d-flex"> <i
+					class="hamburger align-self-center"></i>
+				</a>
+
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">
 						<li class="nav-item dropdown"><a

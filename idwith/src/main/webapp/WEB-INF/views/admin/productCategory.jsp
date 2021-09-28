@@ -29,8 +29,7 @@
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="main.mdo"> <span
-					class="align-middle"> <img
-						src="resources/admin/img/white_logo.png"
+					class="align-middle"> <img src="resources/admin/img/white_logo.png"
 						style="margin-bottom: 0px; margin-top: 15px; margin-left: 30px; max-width: 150px; height: auto;">
 				</span>
 				</a>
@@ -59,7 +58,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="storePropose.mdo">입점신청관리</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="sellerList.mdo">작가목록</a></li>
+								href="writerList.mdo">작가목록</a></li>
 
 						</ul></li>
 
@@ -80,11 +79,12 @@
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="userNotice.mdo">사용자 공지사항</a></li>
+
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="qna.mdo"> <i class="align-middle" data-feather="bell"></i>
-							<span class="align-middle">QnA</span>
+						href="qna.mdo"> <i class="align-middle"
+							data-feather="bell"></i> <span class="align-middle">QnA</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#coupon"
@@ -100,19 +100,10 @@
 								href="requestCoupon.mdo">쿠폰 요청 리스트</a></li>
 						</ul></li>
 
-					<li class="sidebar-item"><a data-target="#category"
-						data-toggle="collapse" class="sidebar-link collapsed"> <i
-							class="align-middle" data-feather="edit-2"></i> <span
-							class="align-middle">카테고리</span>
-					</a>
-						<ul id="category" class="sidebar-dropdown list-unstyled collapse "
-							data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link"
-								href="productCategory.mdo">작품 카테고리</a></li>
-							<li class="sidebar-item"><a class="sidebar-link"
-								href="classCategory.mdo">클래스 카테고리</a></li>
-
-						</ul></li>
+					<li class="sidebar-item"><a class="sidebar-link"
+						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
+							<span class="align-middle">카테고리</span>
+					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
 						data-toggle="collapse" class="sidebar-link collapsed"> <i
@@ -136,52 +127,11 @@
 					class="hamburger align-self-center"></i>
 				</a>
 
-				<div class="navbar-collapse collapse">
-					<ul class="navbar-nav navbar-align">
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle" href="#" id="alertsDropdown"
-							data-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="bell"></i>
-								</div>
-						</a>
-							<div
-								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
-								aria-labelledby="alertsDropdown">
-								<div class="dropdown-menu-header">알림</div>
-
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">모든 알림 보기</a>
-								</div>
-							</div></li>
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
-							data-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="message-square"></i>
-								</div>
-						</a> <!-- 메세지 -->
-							<div
-								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
-								aria-labelledby="messagesDropdown">
-								<div class="dropdown-menu-header">
-									<div class="position-relative"></div>
-								</div>
-
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">모든 메세지 보기</a>
-								</div>
-							</div></li>
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle d-inline-block d-sm-none"
-							href="#" data-toggle="dropdown"> <i class="align-middle"
-								data-feather="settings"></i>
-						</a> <!-- 관리자 프로필--> <a
-							class="nav-link dropdown-toggle d-none d-sm-inline-block"
-							href="#"> <i class="align-middle" data-feather="log-out"></i>
+				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
+						<a class="nav-link d-none d-sm-inline-block" href="#"> 
+							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
 								<span class="text-dark">로그아웃</span>
-						</a></li>
-					</ul>
+						</a>
 				</div>
 			</nav>
 
