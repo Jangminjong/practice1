@@ -190,25 +190,27 @@
 				<div class="card">
 					<div class="card-body">
 						<form class="row g-3" id="form-detailNotice-admin" name="detailAdminNoticeForm" action="updateAdminNotice.mdo" method="post">
-						<input type="hidden" name="seq" value="${adminNotice.adminBoardSeq}"/>
+						<input type="hidden" name="adminBoardSeq" value="${adminNotice.adminBoardSeq}"/>
 							<div class="col-md-4">
-								<label class="form-label">제목</label> <input type="text"
+								<label class="form-label">제목</label> 
+								<input type="text" name="adminBoardTitle"
 									class="form-control" value="${adminNotice.adminBoardTitle }"
 									style="width: auto;">
 							</div>
 							<div class="col-md-4">
-								<label class="form-label">작성자</label> <input type="text"
+								<label class="form-label">작성자</label> 
+								<input type="text" name="adminBoardId"
 									class="form-control" value="${adminNotice.adminBoardId}"
 									style="width: auto;" disabled>
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">작성일</label> 
 								<fmt:formatDate var="fmtRegdate" value="${adminNotice.adminBoardRegDate}" pattern="yyyy.MM.dd"/>
-								<input type="text" class="form-control" value="${fmtRegdate}" style="width: auto;" disabled>
+								<input type="text" class="form-control" name="adminBoardRegDate" value="${fmtRegdate}" style="width: auto;" disabled>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">내용</label>
-								<textarea class="form-control" rows="10">${adminNotice.amdinBoardContent}</textarea>
+								<textarea class="form-control" rows="10" name="amdinBoardContent">${adminNotice.amdinBoardContent}</textarea>
 							</div>
 							<div class="mb-3">
 								<label class="form-label w-100">파일</label> <input type="file">

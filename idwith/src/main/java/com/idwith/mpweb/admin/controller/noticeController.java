@@ -78,6 +78,7 @@ public class noticeController {
 	@RequestMapping("/updateAdminNotice.mdo")
 	public String updateAdminNotice(AdminNoticeBoardVO adminNotice) {
 		System.out.println("관리자 공지사항 수정 처리");
+		System.out.println("seq : " + adminNotice.getAdminBoardSeq());
 		adminNoticeService.updateAdminNotice(adminNotice);
 		return "redirect:/adminNotice.mdo";
 	}
