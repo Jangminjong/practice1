@@ -28,32 +28,34 @@
 			<div data-v-668c286c="" class="login_container">
 				<div data-v-668c286c="" class="login_signin_content">
 					<div class="login_header">IdWith 관리자 사이트 로그인</div>
-					<div data-v-22bdcf3e="" data-v-668c286c=""
-						class="email_login_container">
-						<div data-v-22bdcf3e="">
-							<input data-v-22bdcf3e="" id="email_login_input" name="admin_id" type="email"
-								placeholder="ID" required="required" class="login_input ">
-							<!---->
-							<input data-v-22bdcf3e="" name="admin_pwd" type="password" placeholder="Password"
-								required="required" class="login_input ">
-							<!---->
-						</div>
-						<!--  
-						<div data-v-22bdcf3e="" class="email_login_option">
-							<div data-v-22bdcf3e="" class="check_label">
-								<div data-v-22bdcf3e="" class="input_checkbox">
-									<input data-v-22bdcf3e="" type="checkbox" class="bp">
-								</div>
-								<label data-v-22bdcf3e="" for="emailsave"> 이메일 저장하기 </label>
+					<form action="main.mdo" method="post">
+						<div data-v-22bdcf3e="" data-v-668c286c=""
+							class="email_login_container">
+							<div data-v-22bdcf3e="">
+								<input data-v-22bdcf3e="" id="email_login_input" name="admin_id" type="text"
+									placeholder="ID" required="required" class="login_input ">
+								<!---->
+								<input data-v-22bdcf3e="" name="admin_pwd" type="password" placeholder="Password"
+									required="required" class="login_input ">
+								<!---->
 							</div>
-							<a data-v-22bdcf3e="" id="find_pw_logging" href="/w/reauth">아이디
-								/ 비밀번호 찾기</a>
+							<!--  
+							<div data-v-22bdcf3e="" class="email_login_option">
+								<div data-v-22bdcf3e="" class="check_label">
+									<div data-v-22bdcf3e="" class="input_checkbox">
+										<input data-v-22bdcf3e="" type="checkbox" class="bp">
+									</div>
+									<label data-v-22bdcf3e="" for="emailsave"> 이메일 저장하기 </label>
+								</div>
+								<a data-v-22bdcf3e="" id="find_pw_logging" href="/w/reauth">아이디
+									/ 비밀번호 찾기</a>
+							</div>
+							-->
+							<button type="submit" data-v-32d88566="" data-v-22bdcf3e=""
+								class="CommonButton login_button CommonButton--middle CommonButton--white "
+								id="login_logging" style="margin-top: 20px">로그인</button>
 						</div>
-						-->
-						<button data-v-32d88566="" data-v-22bdcf3e=""
-							class="CommonButton login_button CommonButton--middle CommonButton--white "
-							id="login_logging" style="margin-top: 20px">로그인</button>
-					</div>
+					</form>
 					<div class="text_info">
 						<h6>본 시스템은 등록한 관리자에 한하여 사용하실 수 있습니다.<br>
 						불법적인 접근 및 사용 시 관련 법규에 의해 처벌 될 수 있습니다.</h6>

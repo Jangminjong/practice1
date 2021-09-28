@@ -3,7 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<mapper namespace="AdminDAO">
+<mapper namespace="AdminLoginDAO">
  	<resultMap type="adminVO" id="adminResult">
  		<result property="admin_id" column="admin_id"/>
  		<result property="admin_name" column="admin_name"/>
@@ -12,13 +12,7 @@
  		<result property="admin_role" column="admin_role"/>
  		
  	</resultMap>
- 	<select id="getWatingList" resultType="map">
- 		select seller_name, product_category, user_id, seller_phone, offer_date from wating where state=null
+ 	<select id="getAdmin" resultType="adminVO" resultMap="adminResult">
+		select * from manager where admin_id=#{admin_id}
  	</select>
- 	<update id="updateAgree">
- 		update wating set state=true where user_id=#{user_id}
- 	</update>
- 	<update id="updateDisagree">
- 		update wating set state=false where user_id=#{user_id}
- 	</update>
 </mapper>
