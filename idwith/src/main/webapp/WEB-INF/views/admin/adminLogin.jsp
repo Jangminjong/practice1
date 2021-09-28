@@ -31,10 +31,10 @@
 					<div data-v-22bdcf3e="" data-v-668c286c=""
 						class="email_login_container">
 						<div data-v-22bdcf3e="">
-							<input data-v-22bdcf3e="" id="email_login_input" type="email"
+							<input data-v-22bdcf3e="" id="email_login_input" name="admin_id" type="email"
 								placeholder="ID" required="required" class="login_input ">
 							<!---->
-							<input data-v-22bdcf3e="" type="password" placeholder="Password"
+							<input data-v-22bdcf3e="" name="admin_pwd" type="password" placeholder="Password"
 								required="required" class="login_input ">
 							<!---->
 						</div>
