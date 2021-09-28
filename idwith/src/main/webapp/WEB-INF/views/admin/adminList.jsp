@@ -19,9 +19,12 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
+	<input type="hidden" id="admin_role" value="${admin_role }">
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -125,6 +128,7 @@
 				</a>
 
 				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
+						<h3>${admin_name} 님</h3>
 						<a class="nav-link d-none d-sm-inline-block" href="#"> 
 							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
 								<span class="text-dark">로그아웃</span>
@@ -145,7 +149,7 @@
                             <div class="col-md-6 text-center" style="margin-bottom: 10px;">
                                 <form class="d-none d-sm-inline-block float-right">
                                     <ul class="nav nav-pills card-header-pills pull-right">
-                                        <button type="button" class="btn btn-warning">계정 등록</button>
+                                        <button type="button" class="btn btn-warning" id="account_btn">계정 등록</button>
                                         <!-- 계정 등록 페이지 만들어야겠다.... -->
                                     </ul>
                                 </form>
@@ -183,6 +187,15 @@
 			<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function() {
+			var role = $('#admin_role').val();
+		
+			if(role != 'all'){
+				$('#account_btn').css({'display': 'none'});
+			}
+		});
+	</script>
 </body>
 
 </html>

@@ -22,9 +22,13 @@
 <title>Idwith[admin]</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/admin/js/admin.js"></script>
 </head>
 
 <body>
+	<input type="hidden" id="admin_role" value="${admin_role }">
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -128,6 +132,7 @@
 				</a>
 
 				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
+						<h4>${admin_name} 님</h4>
 						<a class="nav-link d-none d-sm-inline-block" href="#"> 
 							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
 								<span class="text-dark">로그아웃</span>
@@ -181,18 +186,18 @@
 											<td>1,400,000</td>
 											<td>78,000</td>
 											<td>5,223,500</td>
-											<td><button type="button " class="btn btn-warning"
+											<td><button type="button" class="btn btn-warning"
 													data-toggle="modal" data-target="#defaultModalcalculate"
-													disabled>정산</button>
+													id="calculate">정산</button>
 												<div class="modal fade" id="defaultModalcalculate"
-													tabindex="-1" role="dialog" aria-hidden="true">
+													tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
 													<div class="modal-dialog" role="document">
 														<div class="modal-content">
 															<div class="modal-header">
 																<h5 class="modal-title">정산</h5>
 																<button type="button" class="close" data-dismiss="modal"
 																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
+																	<span aria-hidden="false">&times;</span>
 																</button>
 															</div>
 															<div class="modal-body m-3">
@@ -207,7 +212,7 @@
 													</div>
 												</div></td>
 										</tr>
-										<tr>
+										<!-- <tr>
 											<th scope="row">Seller02</th>
 											<td>554-32-15223</td>
 											<td>110-352841-22</td>
@@ -274,7 +279,7 @@
 														</div>
 													</div>
 												</div></td>
-										</tr>
+										</tr> -->
 									</tbody>
 								</table>
 							</div>

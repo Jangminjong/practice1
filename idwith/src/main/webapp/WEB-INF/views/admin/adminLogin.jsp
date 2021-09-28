@@ -28,7 +28,7 @@
 			<div data-v-668c286c="" class="login_container">
 				<div data-v-668c286c="" class="login_signin_content">
 					<div class="login_header">IdWith 관리자 사이트 로그인</div>
-					<form action="main.mdo" method="post">
+					<form action="main.mdo" method="post" onsubmit="return false">
 						<div data-v-22bdcf3e="" data-v-668c286c=""
 							class="email_login_container">
 							<div data-v-22bdcf3e="">
