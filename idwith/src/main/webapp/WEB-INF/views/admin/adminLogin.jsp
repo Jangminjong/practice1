@@ -24,7 +24,7 @@
 			</h1>
 		</div>
 
-		<div class="login wrap">
+		<div class="login wrap" style="background: #15283D">
 			<div data-v-668c286c="" class="login_container">
 				<div data-v-668c286c="" class="login_signin_content">
 					<div class="login_header">IdWith 관리자 사이트 로그인</div>
