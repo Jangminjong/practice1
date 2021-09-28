@@ -12,14 +12,14 @@
 	href="resources/images/title/icon_300.PNG">
 
 </head>
-<body>
-	<div class="wrap-login">
+<body bgcolor="#15283D">
+	<div class="wrap-login" style="background: #15283D">
 		<div class="head_banner_group"></div>
 
 		<div data-v-668c286c="" class="login_head_logo">
 			<h1 data-v-668c286c="">
 				<a data-v-668c286c="" href="##">
-					<img src="resources/images/common/headerLogo.png" class="headerLogo"/>
+					<img src="resources/admin/img/white_logo.png" class="headerLogo"/>
 				</a>
 			</h1>
 		</div>
