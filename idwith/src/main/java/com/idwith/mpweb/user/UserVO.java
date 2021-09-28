@@ -18,8 +18,29 @@ public class UserVO {
 	private int user_option_zipcode;
 	private String user_option_addr1;
 	private String user_option_addr2;
+	private String user_birth;
+	private String user_update_email;
+	private int user_order; //3개의 배송지를 나누는 변수
 
 	
+	public int getUser_order() {
+		return user_order;
+	}
+	public void setUser_order(int user_order) {
+		this.user_order = user_order;
+	}
+	public String getUser_update_email() {
+		return user_update_email;
+	}
+	public void setUser_update_email(String user_update_email) {
+		this.user_update_email = user_update_email;
+	}
+	public String getUser_birth() {
+		return user_birth;
+	}
+	public void setUser_birth(String user_birth) {
+		this.user_birth = user_birth;
+	}
 	public String getUser_id() {
 		return user_id;
 	}

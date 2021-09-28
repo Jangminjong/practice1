@@ -402,7 +402,7 @@ button i[data-v-b534333e] {
     display: flex;
 }
 
-/* 찜 목록 */
+/* 李� 紐⑸줉 */
 
 .ui_grid{
     margin-top: 10px;
@@ -580,7 +580,7 @@ button i[data-v-b534333e] {
     line-height: 1.1;
 }
 
-/* 스크롤 */
+/* �뒪�겕濡� */
 
 .scroll-pagination[data-v-70d95496] {
     width: 100%;
@@ -591,7 +591,7 @@ button i[data-v-b534333e] {
     margin-left: 12.5px;
 }
 
-/* 팔로우한 작가 */
+/* �뙏濡쒖슦�븳 �옉媛� */
 
 .following-artist-container[data-v-1ae32da5] {
     border-radius: 4px;
@@ -706,7 +706,7 @@ nav button[data-v-450a0b42] {
     cursor: pointer;
 }
 
-/* 쿠폰함 */
+/* 荑좏룿�븿 */
 
 .coupon-list{
     display: flex;
@@ -873,7 +873,7 @@ nav button[data-v-450a0b42] {
     margin-bottom: 24px;
 }
 
-/* 회원 등급 */
+/* �쉶�썝 �벑湲� */
 
 .ui_title, .ui_title--bg, .ui_title--sub {
     box-sizing: border-box;
@@ -962,7 +962,7 @@ nav button[data-v-450a0b42] {
     letter-spacing: 0;
 }
 
-/* 작성 전 후기 */
+/* �옉�꽦 �쟾 �썑湲� */
 
 .ui_card__img {
     position: relative;
@@ -988,4 +988,8 @@ nav button[data-v-450a0b42] {
     font-size: 16px;
     padding: 0 24px;
     line-height: 46px;
+}
+
+.auth-code-error {
+	color: red;
 }

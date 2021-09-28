@@ -211,7 +211,9 @@
 								<a href="main.wdo" class="btn"> <i class="far fa-user"></i> 작가 페이지</a>
 							</c:when>
 						</c:choose>
-						<a href="mypage_main.do" class="btn"> <i class="fa fa-user-o" aria-hidden="true"></i> 내 정보
+
+						<a href="mypage.do" class="btn"> <i class="fa fa-user-o" aria-hidden="true"></i> 내 정보
+						<!-- <a href="mypage.do" class="btn"> <i class="far fa-user"></i> 내 정보 -->
 						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
 							class="cart-counter">0</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							장바구니

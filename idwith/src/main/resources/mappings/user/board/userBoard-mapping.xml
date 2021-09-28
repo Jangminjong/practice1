@@ -20,30 +20,52 @@
  		<result property="user_option_zipcode" column="user_option_zipcode"/>
  		<result property="user_option_addr1" column="user_option_addr1"/>
  		<result property="user_option_addr2" column="user_option_addr2"/>
+ 		<result property="user_order" column="user_order"/>
  	</resultMap>
+ 	<!-- 회원가입 -->
  	<insert id="insertUser" parameterType="userVO">
  		INSERT INTO client (user_id, user_pwd, user_name, user_phone)
  		VALUES(#{user_id}, #{user_pwd}, #{user_name}, #{user_phone})
  	</insert>
+ 	
+ 	<!-- 회원가입 시 배송지(1)에 회원정보 저장 -->
+ 	<insert id="insertAddress" parameterType="userVO">
+ 		insert into user_address (user_id, user_order, user_name, user_phone)
+ 		values(#{user_id}, #{user_order}, #{user_name}, #{user_phone})
+ 	</insert>
+ 	
+ 	<!-- 카카오로 회원가입 -->
  	<insert id="insertKakao" parameterType="userVO">
  		INSERT INTO client (user_id, user_pwd)
  		VALUES(#{user_id}, #{user_pwd})
  	</insert>
+ 	
+ 	<!-- 이메일 중복체크 -->
  	<select id="selectEmail" resultType="_int">
  		SELECT count(*) FROM client WHERE user_id=#{user_id}
  	</select>
+ 	
+ 	<!-- 전화번호 중복체크 -->
  	<select id="selectCellPhone" resultType="_int">
  		SELECT count(*) FROM client WHERE user_phone=#{user_phone}
  	</select>
+ 	
+ 	<!-- 아이디 찾기 -->
  	<select id="selectLogin" resultType="userVO">
  		select user_id, user_pwd from client where user_id=#{user_id}
  	</select>
+ 	
+ 	<!-- 아이디 찾기 시 해당ID가 테이블에 존재하는지 확인 -->
  	<select id="userCheck" resultType="_boolean">
  		select exists (select * from client where user_phone=#{user_phone}) as isChk;
  	</select>
+ 	
+ 	<!-- 아이디 찾기 시 해당 전화번호로 회원가입한 ID목록 불러오기 -->
  	<select id="getUserList" resultType="map">
  		select user_id from client where user_phone=#{user_phone}
  	</select>
+ 	
+ 	<!-- 아이디 찾기 시 가입한 ID에 저장했던 이름목록 가져오기 -->
  	<select id="getUserNameList" resultType="map">
  		select user_name from client where user_id=#{user_id}
  	</select>
@@ -51,6 +73,7 @@
  	<select id="getUserInfo" resultType="map">
  		select user_name from client where user_name=#{user_name}
  	</select>
+ 	
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

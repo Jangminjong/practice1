@@ -6,6 +6,7 @@ import java.util.Map;
 import com.idwith.mpweb.user.UserVO;
 
 public interface UserService {
+	//회원가입
 	void insertUser(UserVO vo);
 
 	int getUser(UserVO vo);

@@ -20,8 +20,26 @@
  		<result property="user_option_zipcode" column="user_option_zipcode"/>
  		<result property="user_option_addr1" column="user_option_addr1"/>
  		<result property="user_option_addr2" column="user_option_addr2"/>
+ 		<result property="user_birth" column="user_birth"/>
+ 		<result property="user_update_email" column="user_id"/>
+ 		<result property="user_order" column="user_order"/>
+ 		
  	</resultMap>
  	<select id="getUser" resultType="hashmap">
 		select * from client where user_id=#{user_id}
  	</select>
+ 	<update id="updatePhone">
+ 		update client set user_phone=#{user_phone} where user_id=#{user_id}
+ 	</update>
+ 	<update id="updateEmail">
+ 		update client set user_id=#{user_update_email} where user_id=#{user_id}
+ 	</update>
+ 	<update id="updateUserInfo">
+		update client set user_birth=#{user_birth} where user_id=#{user_id}
+ 	</update>
+ 	<update id="updateAddress">
+		update user_address
+		set user_id=#{user_id}, user_name=#{user_name}, user_phone=#{user_phone}, user_zipcode=#{user_zipcode}, user_address1=#{user_address1}, user_address2=#{user_address2}
+		where user_id={user_id} and user_order=#{user_order}
+ 	</update>
 </mapper>

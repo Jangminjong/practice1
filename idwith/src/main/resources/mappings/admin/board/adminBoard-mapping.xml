@@ -12,7 +12,7 @@
  		<result property="offer_date" column="offer_date"/>
  	</resultMap>
  	<select id="getWatingList" resultType="map">
- 		select seller_name, product_category, user_id, seller_phone, offer_date from wating
+ 		select seller_name, product_category, user_id, seller_phone, offer_date from wating where state=null
  	</select>
  	<update id="updateAgree">
  		update wating set state=true where user_id=#{user_id}
