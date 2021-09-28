@@ -23,7 +23,7 @@
 					class="m-show">|</span> <a class="m-show" href="/w/board/notice">공지사항</a>
 				<span class="m-show">|</span> <a href="/w/board/faq">자주 묻는 질문</a> <span>|</span>
 				<a href="/w/board/event">이벤트</a> <span>|</span> <a
-					href="https://idus.kr/ialAD" target="blank">입점문의</a> <span>|</span>
+					href="enterWriterNotice.do" target="blank">입점문의</a> <span>|</span>
 				<a class="m-show" href="https://about.idus.com" target="blank">About
 					idus</a> <span>|</span> <a href="https://recruit.idus.com"
 					target="blank">인재 영입</a>

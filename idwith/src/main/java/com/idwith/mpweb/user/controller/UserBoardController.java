@@ -192,7 +192,7 @@ public class UserBoardController {
 		int total = boardService.countEventNotice();
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
-			cntPerPage = "20";
+			cntPerPage = "19";
 		}else{
 			cntPerPage = "20";
 		}
@@ -212,6 +212,11 @@ public class UserBoardController {
 		boardService.addCnt(eventVO);
 		model.addAttribute("eventVO", boardService.getEventNotice(eventVO));
 		return "board/event_detail";
+	}
+	
+	@GetMapping("/enterWriterNotice.do")
+	public String enterWriterNotice() {
+		return "board/enterWriterNotice";
 	}
 	
 }
