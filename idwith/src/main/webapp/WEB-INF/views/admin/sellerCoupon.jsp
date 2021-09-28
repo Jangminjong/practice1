@@ -102,8 +102,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
-							<span class="align-middle">카테고리</span>
+						href="category.mdo"> <i class="align-middle"
+							data-feather="edit-2"></i> <span class="align-middle">카테고리</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
@@ -128,52 +128,12 @@
 					class="hamburger align-self-center"></i>
 				</a>
 
-				<div class="navbar-collapse collapse">
-					<ul class="navbar-nav navbar-align">
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle" href="#" id="alertsDropdown"
-							data-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="bell"></i>
-								</div>
-						</a>
-							<div
-								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
-								aria-labelledby="alertsDropdown">
-								<div class="dropdown-menu-header">알림</div>
-
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">모든 알림 보기</a>
-								</div>
-							</div></li>
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
-							data-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="message-square"></i>
-								</div>
-						</a> <!-- 메세지 -->
-							<div
-								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
-								aria-labelledby="messagesDropdown">
-								<div class="dropdown-menu-header">
-									<div class="position-relative"></div>
-								</div>
-
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">모든 메세지 보기</a>
-								</div>
-							</div></li>
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle d-inline-block d-sm-none"
-							href="#" data-toggle="dropdown"> <i class="align-middle"
-								data-feather="settings"></i>
-						</a> <!-- 관리자 프로필--> <a
-							class="nav-link dropdown-toggle d-none d-sm-inline-block"
-							href="#"> <i class="align-middle" data-feather="log-out"></i>
-								<span class="text-dark">로그아웃</span>
-						</a></li>
-					</ul>
+				<div class="navbar-collapse collapse"
+					style="display: flex; justify-content: flex-end;">
+					<a class="nav-link d-none d-sm-inline-block" href="#"> <i
+						class="align-middle" data-feather="log-out" style="color: black;"></i>
+						<span class="text-dark">로그아웃</span>
+					</a>
 				</div>
 			</nav>
 
@@ -194,28 +154,22 @@
 										<table class="table">
 											<thead>
 												<tr>
-													<th scope="col">
-														<label class="form-check">
-															<input class="form-check-input" name="couponall"
-																type="checkbox" value="selectall"
-																onclick="selectAll(this)" />
-														</label>
-													</th>
+													<th scope="col"><label class="form-check"> <input
+															class="form-check-input" name="couponall" type="checkbox"
+															value="selectall" onclick="selectAll(this)" />
+													</label></th>
 													<th scope="col">팔로워</th>
 													<th scope="col">팔로잉 날짜</th>
 													<th scope="col"">user grade</th>
-													<th scope=" col">누적 구매량</th>
+													<th scope="col">누적 구매량</th>
 													<th scope="col">누적 구매금액</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<td>
-														<label class="form-check">
-															<input class="form-check-input" name="couponall"
-																type="checkbox" >
-														</label>
-													</td>
+													<td><label class="form-check"> <input
+															class="form-check-input" name="couponall" type="checkbox">
+													</label></td>
 													<td>user</td>
 													<td>2021-05-05</td>
 													<td>아기손</td>
@@ -223,12 +177,10 @@
 													<td>100,000원</td>
 												</tr>
 												<tr>
-													<td>
-														<label class="form-check">
-															<input class="form-check-input" name="couponall"
-																type="checkbox" value>
-														</label>
-													</td>
+													<td><label class="form-check"> <input
+															class="form-check-input" name="couponall" type="checkbox"
+															value>
+													</label></td>
 													<td>user2</td>
 													<td>2021-07-09</td>
 													<td>금손</td>
@@ -294,9 +246,7 @@
 					})
 				}
 			</script>
-</body>
 		</div>
 	</div>
 </body>
-
 </html>

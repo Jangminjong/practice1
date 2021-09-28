@@ -13,15 +13,13 @@ public class AdminQnABoardDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	// ÆäÀÌÂ¡ Ã³¸®
+	// ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
 	public int countQnA() {
-		System.out.println("DAO countQnA() ½ÇÇà");
 		return sqlSessionTemplate.selectOne("AdminQnABoardDAO.countQnA");
 	}
 
 	public List<AdminQnABoardVO> selectQnA(PagingVO pageVO) {
-		System.out.println("DAO selectQnA() ½ÇÇà");
-		if(pageVO.getSet().equals("±¸ºÐ")) {
+		if(pageVO.getSet().equals("êµ¬ë¶„")) {
 			return sqlSessionTemplate.selectList("AdminQnABoardDAO.selectQnA", pageVO);
 		} else {
 			return sqlSessionTemplate.selectList("AdminQnABoardDAO.selectQnAWithCategory", pageVO);
@@ -29,22 +27,18 @@ public class AdminQnABoardDAO {
 	}
 	
 	public AdminQnABoardVO getQnA(AdminQnABoardVO adminQnA) {
-		System.out.println("DAO getQnA() ½ÇÇà");
 		return (AdminQnABoardVO) sqlSessionTemplate.selectOne("AdminQnABoardDAO.getQnA", adminQnA);
 	}
 	
 	public void updateAnswer(AdminQnABoardVO adminQnA) {
-		System.out.println("DAO updateAnswer() ½ÇÇà");
 		sqlSessionTemplate.update("AdminQnABoardDAO.updateAnswer", adminQnA);
 	}
 	
 	public List<AdminQnABoardVO> getQnAList(PagingVO pageVO){
-		System.out.println("DAO getQnAList() ½ÇÇà");
 		return sqlSessionTemplate.selectList("AdminQnABoardDAO.getQnAList", pageVO);
 	}
 	
 	public int countNotice() {
-		System.out.println("DAO countNotice() ½ÇÇà");
 		return sqlSessionTemplate.selectOne("AdminQnABoardDAO.countNotice");
 	}
 	
@@ -60,7 +54,7 @@ public class AdminQnABoardDAO {
 		sqlSessionTemplate.insert("AdminQnABoardDAO.insertFAQ", adminQnA);
 	}
 	
-	// »ç¿ëÀÚ °øÁö»çÇ× --------------------------------------------------------------------------------
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ --------------------------------------------------------------------------------
 	
 	public void userInsertNotice(AdminEventBoardVO adminEventVO) {
 		sqlSessionTemplate.insert("AdminEventBoardDAO.insertEvent", adminEventVO);
@@ -71,7 +65,7 @@ public class AdminQnABoardDAO {
 	}
 	
 	public List<AdminEventBoardVO> getEventNoticeList(PagingVO pageVO){
-		if(pageVO.getSet().equals("±¸ºÐ")) {
+		if(pageVO.getSet().equals("ï¿½ï¿½ï¿½ï¿½")) {
 			return sqlSessionTemplate.selectList("AdminEventBoardDAO.getEventNoticeList", pageVO);
 		}else {
 			return sqlSessionTemplate.selectList("AdminEventBoardDAO.getEventNoticeListWithCategory", pageVO);

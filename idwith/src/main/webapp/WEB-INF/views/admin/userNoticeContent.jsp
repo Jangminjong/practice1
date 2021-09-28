@@ -60,7 +60,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="storePropose.mdo">입점신청관리</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="sellerList.mdo">작가목록</a></li>
+								href="writerList.mdo">작가목록</a></li>
 
 						</ul></li>
 
@@ -81,6 +81,7 @@
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="userNotice.mdo">사용자 공지사항</a></li>
+
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
@@ -128,52 +129,12 @@
 					class="hamburger align-self-center"></i>
 				</a>
 
-				<div class="navbar-collapse collapse">
-					<ul class="navbar-nav navbar-align">
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle" href="#" id="alertsDropdown"
-							data-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="bell"></i>
-								</div>
-						</a>
-							<div
-								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
-								aria-labelledby="alertsDropdown">
-								<div class="dropdown-menu-header">알림</div>
-
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">모든 알림 보기</a>
-								</div>
-							</div></li>
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
-							data-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="message-square"></i>
-								</div>
-						</a> <!-- 메세지 -->
-							<div
-								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
-								aria-labelledby="messagesDropdown">
-								<div class="dropdown-menu-header">
-									<div class="position-relative"></div>
-								</div>
-
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">모든 메세지 보기</a>
-								</div>
-							</div></li>
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle d-inline-block d-sm-none"
-							href="#" data-toggle="dropdown"> <i class="align-middle"
-								data-feather="settings"></i>
-						</a> <!-- 관리자 프로필--> <a
-							class="nav-link dropdown-toggle d-none d-sm-inline-block"
-							href="#"> <i class="align-middle" data-feather="log-out"></i>
-								<span class="text-dark">로그아웃</span>
-						</a></li>
-					</ul>
+				<div class="navbar-collapse collapse"
+					style="display: flex; justify-content: flex-end;">
+					<a class="nav-link d-none d-sm-inline-block" href="#"> <i
+						class="align-middle" data-feather="log-out" style="color: black;"></i>
+						<span class="text-dark">로그아웃</span>
+					</a>
 				</div>
 			</nav>
 
