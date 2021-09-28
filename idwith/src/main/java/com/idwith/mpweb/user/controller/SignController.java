@@ -125,6 +125,10 @@ public class SignController {
 	@RequestMapping(value = "/signupSuccess.do", method = RequestMethod.POST)
 	public String signupSuccess(UserVO vo) {
 		System.out.println("Controller : 회원가입 완료 처리");
+		
+		//회원가입하는 회원의 이름, 전화번호는 무조건 첫번째 주소지로 저장
+		vo.setUser_order(1);
+		
 		userService.insertUser(vo);
 		return "signupSuccess";
 	}

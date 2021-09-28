@@ -16,7 +16,22 @@ public class MyPageDAO {
 	public List<Map<String, String>> getUser(String user_id){
 		
 		List<Map<String, String>> user = sqlSessionTemplate.selectList("MyPageDAO.getUser", user_id);
-		//System.out.println("°á°ú °ª : " + );
 		return user;
+	}
+	
+	public void updatePhone(UserVO vo) {
+		sqlSessionTemplate.update("MyPageDAO.updatePhone", vo);
+	}
+	
+	public void updateEmail(UserVO vo) {
+		sqlSessionTemplate.update("MyPageDAO.updateEmail", vo);
+	}
+	
+	public void updateUserInfo(UserVO vo) {
+		sqlSessionTemplate.update("MyPageDAO.updateUserInfo", vo);
+	}
+
+	public void updateAddress(UserVO vo) {
+		sqlSessionTemplate.update("MyPageDAO.updateAddress", vo);
 	}
 }

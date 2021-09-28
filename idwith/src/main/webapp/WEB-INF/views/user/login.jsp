@@ -331,8 +331,6 @@
 		$('#login_btn').click(function (){
 			const email = $("#email_login_input").val();
 			const password = $("#password_login_input").val();
-			console.log(email);
-			console.log(password);
 			
 			$.ajax({
 				url: "${pageContext.request.contextPath}/loginCheck.do",

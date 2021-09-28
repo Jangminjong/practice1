@@ -76,8 +76,10 @@
                     
 					
 					<div class="login-sns item more">
-						<button class="show-more-signup-btn" data-ui="toggle_view"
+						 <button class="show-more-signup-btn" data-ui="toggle_view"
 							onclick="showHidden();" >다른 방법으로 가입하기</button>
+						<!-- <button class="show-more-signup-btn" data-ui="toggle_view"
+							href="sign.do">이메일로 가입하기</button> -->
 					</div>
 
 					<div class="hidden" data-ui="toggle_target">

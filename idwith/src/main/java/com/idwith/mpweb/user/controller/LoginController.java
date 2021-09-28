@@ -55,8 +55,6 @@ public class LoginController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		System.out.println("컨트롤러 이메일 : " + email);
-		System.out.println("컨트롤러 비밀번호 : " + password);
 		
 		UserVO vo = new UserVO();
 		vo.setUser_id(email);
@@ -64,11 +62,9 @@ public class LoginController {
 		//String[] emailSplit = vo.getUser_id().split("@");
 		String[] emailSplit = email.split("@");
 		int result = userService.getUser(vo);
-		System.out.println("컨트롤러 결과 : " + result);
 		
 
 		if(result == 1) {
-			System.out.println("컨트롤러 확인 : " + vo.getUser_id());
 			session.setAttribute("email", email);
 			session.setAttribute("emailSplit", emailSplit[0]);
 		}
@@ -78,7 +74,6 @@ public class LoginController {
 
 			if(sellerCheck != null) {
 				session.setAttribute("sellerCheck", sellerCheck);
-				System.out.println("작가 코드 : " + sellerCheck);
 			}
 		}
 		

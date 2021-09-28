@@ -67,11 +67,9 @@
 							</label>
 						</div>
 						<div class="area-txt">
-								<c:forEach items="${user}" var="user" >
-									<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
-									<span>${user.user_grade} &gt;</span>
-									</a> <strong data-profile="name">${user.user_name}</strong>
-								</c:forEach>
+							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
+								<span>${user_grade} &gt;</span>
+							</a> <strong data-profile="name">${user_name}</strong>
 						</div>
 					</div>
 
@@ -101,8 +99,8 @@
 								class="">적립금</a> <b> <span>내 정보</span>
 							</b> <a href="mypage_level.do" class="">회원 등급</a> <a
 								href="mypage_info.do" class="">회원 정보 관리</a> <a
-								href="mypage_address.do" class="">주소(배송지) 관리</a>
-								<a href="mypage_address.do" class="">주소(배송지) 관리</a>
+								href="mypage_address.do" class="" onClick="goPost()">주소(배송지) 관리</a>
+								<a href="mypage_address.do" class="" >주소(배송지) 관리</a>
 						</nav>
 					</div>
 				</aside>
@@ -421,5 +419,15 @@
 		</a>
 		<jsp:include page="footer.jsp" />
 	</div>
+	<script>
+		function goPost(){
+			console.log('포스트방식');
+			let f = document.createElement('form');
+		    f.setAttribute('method', 'post');
+		    f.setAttribute('action', 'mypage_address.do');
+		    document.body.appendChild(f);
+		    f.submit();
+		}
+	</script>
 </body>
 </html>

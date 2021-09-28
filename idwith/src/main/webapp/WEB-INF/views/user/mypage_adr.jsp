@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
     
     <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
-	<script type="text/javascript" src="resources/js/mypage.js"></script>
+	
 
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
@@ -43,7 +43,7 @@
 						<div class="area-txt">
 							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
 								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">OOO</strong>
+							</a> <strong data-profile="name">${user_name }</strong>
 						</div>
 					</div>
 
@@ -85,7 +85,7 @@
                 <a href="#" class="txt fl">주소(배송지) 관리</a>
             </div>
 
-			<form class="form-address" action="mypage.address.do" method="post">
+			<form class="form-address" action="mypage_address.do" method="post" onsubmit="return false">
                 <input type="hidden" name="address_uuid" value="c89bec8d-2490-4686-a697-5dd1f6aaf1c6">
                 <div class="section-address">
                     <table class="table-style-head-top">
@@ -94,7 +94,7 @@
                                 <th>배송지 1</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="adress_one">
                             <tr>
                                 <td>
                                     <div class="address-info root">
@@ -106,10 +106,11 @@
                                             <div class="address-info body">
                                                 <div class="input-text">
                                                     <input
-                                                        class="readonly"
+                                                        class="readonly delivery_name"
                                                         data-address="delivery_name"
                                                         name="delivery_name"
-                                                        value="OOO"
+                                                        id="first_name"
+                                                        value="${user_name }"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -128,10 +129,11 @@
                                             <div class="address-info body">
                                                 <div class="input-text">
                                                     <input
-                                                        class="readonly"
+                                                        class="readonly delivery_phone"
                                                         data-address="delivery_phone"
                                                         name="delivery_phone"
-                                                        value="010-0000-0000"
+                                                        id="first_phone"
+                                                        value="${user_phone }"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -156,12 +158,13 @@
                             data-address="delivery_zipcode"
                             type="text"
                             name="delivery_zipcode"
-                            value="00000"
+                            id="first_zipcode"
+                            value="${user_zipcode }"
                             placeholder="우편번호"
                             required
                             autocomplete="off"
                             readonly
-                                                            class="readonly"
+                                                            class="readonly delivery_zipcode"
                                                     >
                     </div>
                     <button
@@ -191,12 +194,13 @@
                             data-address="delivery_address1"
                             type="text"
                             name="delivery_address1"
-                            value="서울 광진구"
+                            id="first_address1"
+                            value="${user_address1 }"
                             placeholder="기본 주소"
                             required
                             autocomplete="off"
                             readonly
-                                                            class="readonly"
+                                                            class="readonly delivery_address1"
                                                     >
                     </div>
                 </div>
@@ -206,10 +210,11 @@
                             data-address="delivery_address2"
                             type="text"
                             name="delivery_address2"
-                            value=""
+                            id="first_address1"
+                            value="${user_address2 }"
                             autocomplete="off"
                             placeholder="나머지 주소"
-                                                        class="readonly"
+                                                        class="readonly delivery_address2"
                             readonly
                                                     >
                     </div>
@@ -217,13 +222,13 @@
 
             </div>
         </div>
-												<div class="mt10 addBtn" data-edit-address="done" style="display: none">
-												    <button class="btn btn-m btn-white" type="button" id="cancle_btn" data-edit-address-btn="cancel">취소</button>
-												    <button class="btn btn-m btn-point" type="submit" id="save_btn" data-edit-address-btn="submit">저장</button>
+												<div class="mt10" id="add-btn-first" data-edit-address="done" style="display: none">
+												    <button class="btn btn-m btn-white" type="button" id="cancle_btn_first" data-edit-address-btn="cancel" onclick="updateCancle(this.id)">취소</button>
+												    <button class="btn btn-m btn-point" type="submit" data-edit-address-btn="submit" id="save_btn_first" onclick="updateAddress(this.id)">저장</button>
 												</div>
 
                                                 <div class="mt10" data-edit-address="edit">
-                                                    <button data-edit-address-btn="edit" class="btn btn-m btn-white" id="update_btn" type="button">수정</button>
+                                                    <button data-edit-address-btn="edit" class="btn btn-m btn-white" id="update_btn_first" type="button" onclick="updateBtn(this.id)">수정</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -234,7 +239,7 @@
                     </table>
                 </div>
             </form>
-                        <form class="form-address" action="/w/me/address/update" method="post">
+            <form class="form-address" action="mypage_address.do" method="post" onsubmit="return false">
                 <input type="hidden" name="address_uuid" value="149ec997-c398-4c66-b57e-14be4960b47e">
                 <div class="section-address">
                     <table class="table-style-head-top">
@@ -243,7 +248,7 @@
                                 <th>배송지 2</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="adress_second">
                             <tr>
                                 <td>
                                     <div class="address-info root">
@@ -258,6 +263,7 @@
                                                         class="readonly"
                                                         data-address="delivery_name"
                                                         name="delivery_name"
+                                                        id="second_name"
                                                         value=""
                                                         type="text"
                                                         required
@@ -280,6 +286,7 @@
                                                         class="readonly"
                                                         data-address="delivery_phone"
                                                         name="delivery_phone"
+                                                        id="second_phone"
                                                         value=""
                                                         type="text"
                                                         required
@@ -305,6 +312,7 @@
                             data-address="delivery_zipcode"
                             type="text"
                             name="delivery_zipcode"
+                            id="second_zipcode"
                             value=""
                             placeholder="우편번호"
                             required
@@ -340,6 +348,7 @@
                             data-address="delivery_address1"
                             type="text"
                             name="delivery_address1"
+                            id="second_address1"
                             value=""
                             placeholder="기본 주소"
                             required
@@ -355,6 +364,7 @@
                             data-address="delivery_address2"
                             type="text"
                             name="delivery_address2"
+                            id="second_address2"
                             value=""
                             autocomplete="off"
                             placeholder="나머지 주소"
@@ -366,16 +376,20 @@
 
             </div>
         </div>
-                                                        <div class="mt10" data-edit-address="done" style="display: none">
+                                                        <div class="mt10" id="add-btn-second" data-edit-address="done" style="display: none">
                                                     <button
                                                         class="btn btn-m btn-white"
                                                         type="button"
                                                         data-edit-address-btn="cancel"
+                                                        id="cancle_btn_second"
+                                                        onclick="updateCancle(this.id)"
                                                     >취소</button>
                                                     <button
                                                         class="btn btn-m btn-point"
                                                         type="submit"
                                                         data-edit-address-btn="submit"
+                                                        id="save_btn_second" 
+                                                        onclick ="updateAddress(this.id)"
                                                     >저장</button>
                                                 </div>
 
@@ -384,6 +398,8 @@
                                                         data-edit-address-btn="edit"
                                                         class="btn btn-m btn-white"
                                                         type="button"
+														id="update_btn_second"
+														onclick="updateBtn(this.id)"
                                                     >수정</button>
                                                 </div>
                                             </div>
@@ -395,7 +411,7 @@
                     </table>
                 </div>
             </form>
-                        <form class="form-address" action="/w/me/address/update" method="post">
+            <form class="form-address" action="mypage_address.do" method="post" onsubmit="return false">
                 <input type="hidden" name="address_uuid" value="4b74b41c-870a-4c02-8d93-66bd5566997e">
                 <div class="section-address">
                     <table class="table-style-head-top">
@@ -404,7 +420,7 @@
                                 <th>배송지 3</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="adress_third">
                             <tr>
                                 <td>
                                     <div class="address-info root">
@@ -419,6 +435,7 @@
                                                         class="readonly"
                                                         data-address="delivery_name"
                                                         name="delivery_name"
+                                                        id="third_name"
                                                         value=""
                                                         type="text"
                                                         required
@@ -441,6 +458,7 @@
                                                         class="readonly"
                                                         data-address="delivery_phone"
                                                         name="delivery_phone"
+                                                        id="third_phone"
                                                         value=""
                                                         type="text"
                                                         required
@@ -466,6 +484,7 @@
                             data-address="delivery_zipcode"
                             type="text"
                             name="delivery_zipcode"
+                            id="third_zipcode"
                             value=""
                             placeholder="우편번호"
                             required
@@ -501,6 +520,7 @@
                             data-address="delivery_address1"
                             type="text"
                             name="delivery_address1"
+                            id="third_address1"
                             value=""
                             placeholder="기본 주소"
                             required
@@ -516,6 +536,7 @@
                             data-address="delivery_address2"
                             type="text"
                             name="delivery_address2"
+                            id="third_address2"
                             value=""
                             autocomplete="off"
                             placeholder="나머지 주소"
@@ -528,16 +549,20 @@
             </div>
         </div>
 
-                                                        <div class="mt10" data-edit-address="done" style="display: none">
+                                                        <div class="mt10" id="add-btn-third" data-edit-address="done" style="display: none">
                                                     <button
                                                         class="btn btn-m btn-white"
                                                         type="button"
                                                         data-edit-address-btn="cancel"
+                                                        id="cancle_btn_third"
+                                                        onclick="updateCancle(this.id)"
                                                     >취소</button>
                                                     <button
                                                         class="btn btn-m btn-point"
                                                         type="submit"
                                                         data-edit-address-btn="submit"
+                                                        id="save_btn_third"
+                                                        onclick = "updateAddress(this.id)"
                                                     >저장</button>
                                                 </div>
 
@@ -546,6 +571,8 @@
                                                         data-edit-address-btn="edit"
                                                         class="btn btn-m btn-white"
                                                         type="button"
+                                                        id="update_btn_third"
+														onclick="updateBtn(this.id)"
                                                     >수정</button>
                                                 </div>
                                             </div>
@@ -569,5 +596,7 @@
 
         </div>
         <!-- div WRAP -->
+        
+        <script type="text/javascript" src="resources/js/mypage.js"></script>
     </body>
 </html>

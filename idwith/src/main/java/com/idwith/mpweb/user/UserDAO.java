@@ -17,6 +17,10 @@ public class UserDAO {
 		sqlSessionTemplate.insert("UserDAO.insertUser", vo);
 	}
 	
+	public void insertAddress(UserVO vo) {
+		sqlSessionTemplate.insert("UserDAO.insertAddress", vo);
+	}
+	
 	public int emailCheck(String email) {
 		System.out.println("DAO emailCheck() ½ÇÇà");
 		int result = sqlSessionTemplate.selectOne("UserDAO.selectEmail", email);
