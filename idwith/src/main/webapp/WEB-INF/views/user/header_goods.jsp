@@ -297,7 +297,7 @@
 						</li>
 						<li class="ui_gnb__menu " data-state=""><a
 							href="goods_popular.do">인기 작품</a></li>
-						<li class="ui_gnb__menu " data-state=""><a href="stroy.do">스토리</a>
+						<li class="ui_gnb__menu " data-state=""><a href="story.do">스토리</a>
 						</li>
 						<li class="ui_gnb__menu " data-state=""><a
 							href="seller_list.do">인기작가</a></li>

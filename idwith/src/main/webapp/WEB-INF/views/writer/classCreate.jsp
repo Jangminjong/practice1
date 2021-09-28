@@ -193,7 +193,7 @@
                             
                         </div>
                         <div class="body">
-                            <form id="form_validation" method="POST">
+                            <form id="form_validation" action="classCreate.do" method="POST" enctype="multipart/form-data" >
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="클래스명" required>
@@ -214,7 +214,7 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="email" class="form-control" name="인원" required>
+                                        <input type="number" class="form-control" name="인원" required>
                                         <label class="form-label">최대인원</label>
                                     </div>
                                 </div>
@@ -226,12 +226,17 @@
                                         <label class="form-label">수업 상세설명</label>
                                     </div>
                                 </div>
-
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
-                                    <input type="file" class="form-control" id="inputGroupFile01">
+                                <div>
+                                	<label class="input-group-text" for="inputGroupFile01">Upload</label>
+                                	<button type="button" class="addimagegroup" onclick="inputGroupAdd()">업로드 파일 추가</button>
                                 </div>
-                              
+                                <div class="image-group">
+	                                <div class="input-group mb-3">
+	                                   	<input type="file" class="form-control">
+	                                </div>                              	
+                                </div>
+                                <div class="addImage-group">
+                                </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label class="form-label">클래스 오픈일</label>
@@ -243,14 +248,13 @@
                                         <input type="date" class="form-control" placeholder="End Date"
                                             style="width: auto;" id="cpEndDate">
                                     </div>
-
+                                    
                                 </div>
-
-
                                 
-
-
                                 <button class="btn btn-primary waves-effect" type="submit">저장하기</button>
+                                <a href="classManagement.wdo">
+                  	              <button class="btn btn-primary waves-effect" type="button">목록으로</button>
+                  	            </a>
                             </form>
                         </div>
                     </div>
@@ -288,27 +292,27 @@
     <script src="resources/writer/plugins/morrisjs/morris.js"></script>
 
     <!-- ChartJs -->
-    <script src="resource/writer/plugins/chartjs/Chart.bundle.js"></script>
+    <script src="resources/writer/plugins/chartjs/Chart.bundle.js"></script>
 
     <!-- Flot Charts Plugin Js -->
-    <script src="resources/writer/plugins/flot-charts/jquery.flot.js"></script>
+    <!-- <script src="resources/writer/plugins/flot-charts/jquery.flot.js"></script>
     <script src="resources/writer/plugins/flot-charts/jquery.flot.resize.js"></script>
     <script src="resources/writer/plugins/flot-charts/jquery.flot.pie.js"></script>
     <script src="resources/writer/plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="resources/writer/plugins/flot-charts/jquery.flot.time.js"></script>
+    <script src="resources/writer/plugins/flot-charts/jquery.flot.time.js"></script> -->
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="resources/writer/plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
     <!-- Custom Js -->
     <script src="resources/writer/js/admin.js"></script>
-    <script src="resources/writer/js/pages/index.js"></script>
+    <!-- <script src="resources/writer/js/pages/index.js"></script> -->
 
     <!-- Demo Js -->
-    <script src="resources/writer/js/demo.js"></script>
+    <!-- <script src="resources/writer/js/demo.js"></script> -->
 
     <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="resources/writer/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <!-- <script src="resources/writer/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script> -->
 
     <!-- Moment Plugin Js -->
     <script src="resources/writer/plugins/momentjs/moment.js"></script>

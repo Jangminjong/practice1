@@ -20,6 +20,9 @@ Servers/
 *.classpath
 *.project
 target/
+database.properties
+s3.properties
+
 # External tool builders
 .externalToolBuilders/
 
