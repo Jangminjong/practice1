@@ -14,10 +14,10 @@
 <script src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/js/index.js"></script>
 
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-	crossorigin="anonymous">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+  />
 <title>아이디어스 임시 메인</title>
 </head>
 <body id="body">
@@ -33,7 +33,7 @@
 						src="https://image.idus.com/static/signup/web_benefit_banner.png">
 					</a>
 					<button class="download-ribbon-close" type="button">
-						<i class="far fa-times-circle" aria-hidden="true"></i>
+						<i class="fa fa-times-circle" aria-hidden="true"></i>
 					</button>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 						</nav>
 					</c:when>
 					<c:when test="${ emailSplit ne null }">
-						<nav class="fr" style="margin-left: 60%;">
+						<nav class="fr" style="margin-left: 55%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
 						<div class="nav-btn ui-dropdown mymenu">
@@ -90,11 +90,11 @@
 								<li class="add-border"><a href="logout.do">로그아웃</a></li>
 							</ul>
 						</div>
-						<div class="nav-btn ui-dropdown message message-list" id="message-list-alarm">
+						<div class="nav-btn ui-dropdown message message-list" id="message-list-alarm" onmouseover="alarmView()">
 							<button type="button" class="btn-dropdown btn-second"
 								data-ui="load-message-btn"
 								data-endpoint="/w/notification?page=gnb">
-								<i class="far fa-bell"></i> <span class="title">알림</span>
+								<i class="fa fa-bell-o" aria-hidden="true"></i><span class="title">알림</span>
 							</button>
 							<div class="menu-dropdown menu-second alarm">
 								<div class="alarm_title">
@@ -102,14 +102,24 @@
 								</div>
 								<ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
 									<div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
-										<div class="alarm-test">알림 테스트1</div>
-										<div class="alarm-test">알림 테스트2</div>
-										<div class="alarm-test">알림 테스트3</div>
-										<div class="alarm-test">알림 테스트4</div>
-										<div class="alarm-test">알림 테스트4</div>
-										<div class="alarm-test">알림 테스트4</div>
-										<div class="alarm-test">알림 테스트4</div>
-									</div>
+												<c:forEach var="event" items="${event}">
+													<div class="notification_card_container">
+														<input type="hidden" name="paging_param"> <a
+															href="javascript:dueDateCheck(${event.user_event_board_seq})"
+															class="notification_card_link"> <img
+															src="https://image.idus.com/image/files/1b943d7e4df14e029705d57b9c2e55ed.jpg"
+															class="notification_card_artist_img mCS_img_loaded">
+															<div class="notification_card_content_box">
+																<p class="label">이벤트</p>
+																<p class="title">${event.user_event_board_title2}</p>
+																<p class="message" style="overflow: hidden;">${event.user_event_board_content }</p>
+															</div>
+															<p class="notification_card_date">${event.user_event_board_start }</p>
+														</a>
+
+													</div>
+												</c:forEach>
+											</div>
 									
 									<a data-log-noti-object="see_all" href="alarm.do" class="dropdown-link-style link-style">모두 보기</a>
 								</ul>
@@ -118,7 +128,7 @@
 						<div class="nav-btn ui-dropdown message message-list" id="message-list-msg" onmouseover="messageView()">
 							<button type="button" class="btn-dropdown btn-third"
 								data-ui="load-message-btn">
-								<i class="far fa-bell"></i> <span class="title">메시지</span>
+								<i class="fa fa-commenting-o" aria-hidden="true"></i> <span class="title">메시지</span>
 							</button>
 							<div class="menu-dropdown menu-third message"  style="margin-left: -140px;">
 								<div class="message_title">
@@ -175,8 +185,8 @@
 			<div class="bg-wrapper" data-vue="SearchHeader">
 				<div class="inner-w top">
 					<h1 class="logo" style="margin-top: -20px;">
-						<a href="/" class="icon-iduslogo"><img
-							src="resources/images/header/logo.svg"
+						<a href="index.do" class="icon-iduslogo"><img
+							src="resources/images/index/idwith_logo_back.png"
 							alt="IDUS, Unique Lifestyle Guide"></a>
 					</h1>
 
@@ -189,16 +199,16 @@
 							<input id="header-search" type="text" autocomplete="off"
 								placeholder="추석할인을 검색해보세요"> <label class="searchLabel">
 								<button type="submit" name="search">
-									<i class="fas fa-search"></i>
+									<i class="fa fa-search" aria-hidden="true"></i>
 								</button>
 							</label>
 						</form>
 					</div>
 
 					<nav class="profile-links">
-						<a href="mypage_main.do" class="btn"> <i class="far fa-user"></i> 내 정보
+						<a href="mypage_main.do" class="btn"> <i class="fa fa-user-o" aria-hidden="true"></i> 내 정보
 						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
-							class="cart-counter">0</span> <i class="fas fa-shopping-cart"></i>
+							class="cart-counter">0</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							장바구니
 						</a>
 					</nav>
@@ -226,24 +236,24 @@
 									<li><a
 										href="category_goods.do"
 										data-log-label="product_category"
-										data-log-object="5c6bc7d4-7760-4702-b63f-7f29eca479e3">디저트</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="5c6bc7d4-7760-4702-b63f-7f29eca479e3">디저트</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="613ac4c3-df73-4a0f-b3dd-362849dabb2a">그 외 먹거리</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="613ac4c3-df73-4a0f-b3dd-362849dabb2a">그 외 먹거리</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="fa340e0b-f4b1-4aba-8d9c-a29086d5a8a4">의류</a>
-										<i class="fas fa-chevron-right"></i></li>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="b3f853b9-333d-4eec-ad04-e4604d9d501b">지갑</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="b3f853b9-333d-4eec-ad04-e4604d9d501b">지갑</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="8daa0fc3-d370-46c5-a58b-9a0c71a6ae08">가방, 파우치</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="8daa0fc3-d370-46c5-a58b-9a0c71a6ae08">가방, 파우치</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
@@ -252,7 +262,7 @@
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="d9e8a56d-ae4c-4020-b043-9417fe26fbec">수제화</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="d9e8a56d-ae4c-4020-b043-9417fe26fbec">수제화</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
@@ -261,58 +271,58 @@
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="a9970f75-ea75-11e4-8a46-06fd000000c2">액세서리</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="a9970f75-ea75-11e4-8a46-06fd000000c2">액세서리</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="bc5f4be5-c6bc-11e3-8b03-06fd000000c2">꽃</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="bc5f4be5-c6bc-11e3-8b03-06fd000000c2">꽃</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 								</ul>
 								<ul style="width: 50%;">
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="bc6a17ba-ea75-11e4-8878-06a6fa0000b9">캔들, 디퓨저, 방향제</a>
-										<i class="fas fa-chevron-right"></i></li>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="8b4bf95d-c6bc-11e3-8577-06f4fe0000b5">인테리어 소품</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="8b4bf95d-c6bc-11e3-8577-06f4fe0000b5">인테리어 소품</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="1fc3c71a-88d6-4333-a09e-178e85bb742f">주방, 생활</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="1fc3c71a-88d6-4333-a09e-178e85bb742f">주방, 생활</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="65477a55-7f4f-4a0f-9b05-dcaa271a8385">가구</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="65477a55-7f4f-4a0f-9b05-dcaa271a8385">가구</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="0556009b-f9c6-11e3-8363-06fd000000c2">반려동물 용품</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="0556009b-f9c6-11e3-8363-06fd000000c2">반려동물 용품</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="387867a4-0da4-11e4-873e-06f4fe0000b5">공예</a>
-										<i class="fas fa-chevron-right"></i></li>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="ac599662-0cdf-11e4-85f1-06fd000000c2">전자기기 관련</a>
-										<i class="fas fa-chevron-right"></i></li>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="aef50134-0cdf-11e4-8182-06530c0000b4">문구, 팬시</a>
-										<i class="fas fa-chevron-right"></i></li>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="b12b42eb-0cdf-11e4-85f1-06fd000000c2">뷰티</a>
-										<i class="fas fa-chevron-right"></i></li>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
-										data-log-object="f0475fb1-c6bb-11e3-954e-06a6fa0000b9">기타</a> <i class="fas fa-chevron-right"></i></li>
+										data-log-object="f0475fb1-c6bb-11e3-954e-06a6fa0000b9">기타</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 								</ul>
 
 							</div>
