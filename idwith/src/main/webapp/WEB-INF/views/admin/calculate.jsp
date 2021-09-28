@@ -174,106 +174,14 @@
 									</thead>
 									<tbody>
 										<tr>
-											<th scope="row">Seller01</th>
+											<td scope="row">Seller01</td>
 											<td>352-25-05245</td>
 											<td>352-0525-3851-08</td>
 											<td>6,553,500</td>
 											<td>1,400,000</td>
 											<td>78,000</td>
 											<td>5,223,500</td>
-											<td><button type="button " class="btn btn-warning"
-													data-toggle="modal" data-target="#defaultModalcalculate"
-													disabled>정산</button>
-												<div class="modal fade" id="defaultModalcalculate"
-													tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">정산</h5>
-																<button type="button" class="close" data-dismiss="modal"
-																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body m-3">
-																<p class="mb-0">정산처리를 하시겠습니까??</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-warning">정산하기</button>
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">닫기</button>
-															</div>
-														</div>
-													</div>
-												</div></td>
-										</tr>
-										<tr>
-											<th scope="row">Seller02</th>
-											<td>554-32-15223</td>
-											<td>110-352841-22</td>
-											<td>7,505,000</td>
-											<td>1,500,000</td>
-											<td>153,000</td>
-											<td>6,200,800</td>
-											<td><button type="button" class="btn btn-warning"
-													data-toggle="modal" data-target="#defaultModalcalculate">
-													정산</button>
-												<div class="modal fade" id="defaultModalcalculate"
-													tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">정산</h5>
-																<button type="button" class="close" data-dismiss="modal"
-																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body m-3">
-																<p class="mb-0">정산처리를 하시겠습니까??</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-primary">정산</button>
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">닫기</button>
-															</div>
-														</div>
-													</div>
-												</div></td>
-										</tr>
-										<tr>
-											<th scope="row">Seller3</th>
-											<td>987-02-02152</td>
-											<td>110-354-1523550</td>
-											<td>3,450,000</td>
-											<td>1,350,000</td>
-											<td>50,000</td>
-											<td>2,160,000</td>
-											<td><button type="button" class="btn btn-warning"
-													data-toggle="modal" data-target="#defaultModalcalculate"
-													disabled>정산</button>
-												<div class="modal fade" id="defaultModalcalculate"
-													tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">정산</h5>
-																<button type="button" class="close" data-dismiss="modal"
-																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body m-3">
-																<p class="mb-0">정산처리를 하시겠습니까??</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">닫기</button>
-																<button type="button" class="btn btn-primary">정산하기</button>
-															</div>
-														</div>
-													</div>
-												</div></td>
+											<td><button type="button" class="btn btn-warning" id="productCalculate">정산</button></td>
 										</tr>
 									</tbody>
 								</table>
@@ -294,106 +202,14 @@
 									</thead>
 									<tbody>
 										<tr>
-											<th scope="row">author</th>
+											<td scope="row">author</td>
 											<td>987-02-02152</td>
 											<td>110-354-1523550</td>
 											<td>3,450,000</td>
 											<td>1,350,000</td>
 											<td>50,000</td>
 											<td>2,160,000</td>
-											<td><button type="button" class="btn btn-warning"
-													data-toggle="modal" data-target="#defaultModalwaring">
-													정산</button>
-												<div class="modal fade" id="defaultModalwaring"
-													tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">정산</h5>
-																<button type="button" class="close" data-dismiss="modal"
-																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body m-3">
-																<p class="mb-0">정산처리를 하시겠습니까??</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-primary">정산하기</button>
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">닫기</button>
-															</div>
-														</div>
-													</div>
-												</div></td>
-										</tr>
-										<tr>
-											<th scope="row">author2</th>
-											<td>987-02-02152</td>
-											<td>110-354-1523550</td>
-											<td>3,450,000</td>
-											<td>1,350,000</td>
-											<td>50,000</td>
-											<td>2,160,000</td>
-											<td><button type="button" class="btn btn-warning"
-													data-toggle="modal" data-target="#defaultModalwaring"
-													disabled>정산</button>
-												<div class="modal fade" id="defaultModalwaring"
-													tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">정산</h5>
-																<button type="button" class="close" data-dismiss="modal"
-																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body m-3">
-																<p class="mb-0">정산처리를 하시겠습니까??</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-primary">정산하기</button>
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">닫기</button>
-															</div>
-														</div>
-													</div>
-												</div></td>
-										</tr>
-										<tr>
-											<th scope="row">author3</th>
-											<td>987-02-02152</td>
-											<td>110-354-1523550</td>
-											<td>3,450,000</td>
-											<td>1,350,000</td>
-											<td>50,000</td>
-											<td>2,160,000</td>
-											<td><button type="button" class="btn btn-warning"
-													data-toggle="modal" data-target="#defaultModalwarning">
-													정산</button>
-												<div class="modal fade" id="defaultModalwarning"
-													tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">정산</h5>
-																<button type="button" class="close" data-dismiss="modal"
-																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body m-3">
-																<p class="mb-0">정산처리를 하시겠습니까??</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-primary">정산하기</button>
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">닫기</button>
-															</div>
-														</div>
-													</div>
-												</div></td>
+											<td><button type="button" class="btn btn-warning" id="classCalculate">정산</button></td>
 										</tr>
 									</tbody>
 								</table>
@@ -403,6 +219,65 @@
 				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
+			<script>
+				$().ready(function (){ 
+					$("#productCalculate").click(function (){ 
+						Swal.fire({ 
+							title: '', 
+							text: "작품 작가님의 정산을 진행하시겠습니까?", 
+							icon: 'warning', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '정산', 
+							cancelButtonText: '취소' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'정산되었습니다', 
+									'정산 내용은 작가님 메일로 전송되었습니다.', 
+								) 
+							} 
+						}) 
+					}); 
+				});
+			</script>
+			<script>
+				$().ready(function (){ 
+					$("#classCalculate").click(function (){ 
+						Swal.fire({ 
+							title: '', 
+							text: "클래스 작가님의 정산을 진행하시겠습니까?", 
+							icon: 'warning', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '정산', 
+							cancelButtonText: '취소' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'정산되었습니다', 
+									'정산 내용은 작가님 메일로 전송되었습니다.', 
+								) 
+							} 
+						}) 
+					}); 
+				});
+			</script>
+			<script>
+				$().ready(function () {
+		            $("#noSuperAdmin").click(function () {
+		                Swal.fire({
+		                    icon: 'error',
+		                    title: 'No SuperAdmin',
+		                    text: '정산은 최고관리자님만 가능합니다.',
+		                });
+		            });
+		        });
+			</script>
 		</div>
 	</div>
 </body>
