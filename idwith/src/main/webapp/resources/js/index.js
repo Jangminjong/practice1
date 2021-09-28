@@ -87,3 +87,24 @@ function messageView(){
 		}
 	});
 }
+
+function alarmView(){
+	var email = document.getElementById('email').value;
+	$.ajax({
+		url:"alarmList.do",
+		type:"POST",
+		data:{
+			email:email
+		},
+		success: function(data){
+			if(data != null){
+				console.log('성공..');
+			}else{
+				console.log('실패..');
+			}
+		},
+		error: function(request,status,error){
+			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
+}

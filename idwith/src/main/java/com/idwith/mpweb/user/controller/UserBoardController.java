@@ -39,6 +39,18 @@ public class UserBoardController {
 		return boardService.dueDateCheck(req.getParameter("seq"));
 	}
 	
+	@RequestMapping("/alarmList.do")
+	@ResponseBody
+	public List<EventBoardVO> alarmList(HttpServletRequest req, HttpSession session) {
+		System.out.println("email: "+req.getParameter("email"));
+		List<EventBoardVO> list = boardService.getEventList();
+		session.setAttribute("event", list);
+		for(EventBoardVO i: list) {
+			System.out.println("msg_id: "+i.getUser_event_board_title2());
+		}
+		return list;
+	}
+	
 	
 	// 메시지 -----------------------------------------------------------------
 	// 메시지 드롭다운에 세팅
