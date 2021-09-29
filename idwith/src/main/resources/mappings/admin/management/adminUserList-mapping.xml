@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserListDAO">
+	<resultMap type="userList" id="userListResult">
+		<result property="userId" column="USER_ID" />
+		<result property="userPwd" column="USER_PWD" />
+		<result property="userName" column="USER_NAME" />
+		<result property="userPhone" column="USER_PHONE" />
+		<result property="userZipcode" column="USER_ZIPCODE" />
+		<result property="userAddress1" column="USER_ADDRESS1" />
+		<result property="userAddress2" column="USER_ADDRESS2" />
+		<result property="userGrade" column="USER_GRADE" />
+		<result property="userAllmcount" column="USER_ALLMCOUNT" />
+		<result property="userJoinDate" column="USER_JOINDATE" />
+		<result property="userBlackCheck" column="USER_BLACK_CHECK"></result>
+	</resultMap>
+	
+	<!-- 사용자 목록 페이징 후 게시글 조회 -->
+	<select id="selectUserList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="userListResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM client ORDER BY USER_ID DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="countUserList" resultType="int">
+		select count(*) from client;
+	</select>
+	
+	<update id="blockStatusUpdate">
+		update client set USER_BLACK_CHECK = true where USER_ID=#{userId}
+	</update>
+	
+	<update id="blockCancelUpdate">
+		update client set USER_BLACK_CHECK = false where USER_ID=#{userId}
+	</update>
+	
+
+</mapper>

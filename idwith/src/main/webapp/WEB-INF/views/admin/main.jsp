@@ -125,6 +125,7 @@
 				</a>
 
 				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
+						<h3>${admin_name} 님</h3>
 						<a class="nav-link d-none d-sm-inline-block" href="#"> 
 							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
 								<span class="text-dark">로그아웃</span>

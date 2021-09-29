@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.EmailDTO;
@@ -22,6 +23,8 @@ import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.admin.service.EmailService;
 import com.idwith.mpweb.admin.service.ProposeService;
 import com.idwith.mpweb.admin.service.SellerService;
+import com.idwith.mpweb.admin.service.UserListService;
+import com.idwith.mpweb.common.PagingVO;
 
 @Controller
 public class managementController {
@@ -34,16 +37,69 @@ public class managementController {
 	@Autowired
 	private EmailService emailService;
 	
+	@Autowired
+	UserListService userListService;
+	
+	
+	// íšŒì› 
 	@GetMapping("/user.mdo")
 	public String adminUser() {
 		return "user";
 	}
 	
 	@GetMapping("/userList.mdo")
-	public String adminUserList() {
+	public String adminUserList(PagingVO pagination, Model model,
+			@RequestParam(value = "nowPage", required = false)String nowPage,
+			@RequestParam(value = "cntPerPage", required = false)String cntPerPage) {
+		
+		System.out.println("ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸ ì¶œë ¥");
+		
+		int userListTotal = userListService.countUserList();
+		
+		System.out.println("userTotal : " + userListTotal);
+		
+		if(nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if(nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		pagination = new PagingVO(userListTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		model.addAttribute("paging", pagination);
+		model.addAttribute("UserListAll", userListService.getUserList(pagination));
+		
 		return "userList";
 	}
 	
+	// ë¸”ë½ ì²˜ë¦¬
+	@RequestMapping(value="/blockUpdate.mdo", method=RequestMethod.GET, produces="application/text; charset=utf8")
+	@ResponseBody
+	public String blockUpdate(HttpServletRequest request) {
+		String userId = request.getParameter("userId");
+		int result = 0;
+		
+		result = userListService.blockUpdate(userId);
+		
+		return Integer.toString(result);
+	}
+	
+	//ë³µì› ì²˜ë¦¬
+	@RequestMapping(value="/blockCancel.mdo", method=RequestMethod.GET, produces="application/text; charset=utf8")
+	@ResponseBody
+	public String blockCancel(HttpServletRequest request) {
+		String userId = request.getParameter("userId");
+		int result = 0;
+		
+		result = userListService.blockCancel(userId);
+		
+		return Integer.toString(result);
+	}
+	
+	// ì‘ê°€
 	@GetMapping("/storePropose.mdo")
 	public String storePropose(Model model) {
 		List<Map<String, String>> watingList = proposeService.getWatingClient();
@@ -51,7 +107,7 @@ public class managementController {
 		return "storePropose";
 	}
 	
-	//ÀÛÇ° ÀÔÁ¡ °ü¸® ¸Ş¼­µå
+	//ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½
 	@RequestMapping(value="/storeProposeState.mdo", method=RequestMethod.GET, produces="application/text; charset=utf8")
 	@ResponseBody
 	public String storeProposeState(HttpServletRequest request) {
@@ -60,10 +116,10 @@ public class managementController {
 		String disagree = request.getParameter("disagree");
 		int result = 0;
 		
-		if(agree != null) {//ÀÔÁ¡ ½ÂÀÎ
+		if(agree != null) {//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			result = proposeService.updateAgree(user_id);
 			System.out.println("Controller result : " + result);
-		}else if(disagree != null) {//ÀÔÁ¡ °ÅÀı
+		}else if(disagree != null) {//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			result = proposeService.updateDisagree(user_id);
 			System.out.println("Controller result : " + result);
 		}
@@ -71,21 +127,21 @@ public class managementController {
 		return Integer.toString(result);
 	}
 	
-	//ÀÛ°¡ µî·ÏÀ» À§ÇÑ ¸Ş¼­µå
+	//ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½
 	@RequestMapping(value="/sellerInsert.mdo", method=RequestMethod.POST, produces="application/text; charset=utf8")
 	@ResponseBody
 	public String sellerInsert(HttpServletRequest request) {
-		System.out.println("ÀÛ°¡ µî·Ï ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		SellerVO vo = new SellerVO();
 		long resultCode = 0;
 		
-		//ÀÛ°¡ÄÚµå ¼³Á¤
+		//ï¿½Û°ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 		try {
 	        int random = (int)(Math.random()*900000)+100000;
 	        String randomCode = Integer.toString(random);
 	        
 	        resultCode = Long.parseLong(randomCode);
-	        System.out.println("ÀÛÇ° ¹øÈ£ : " + request.getParameter("product_category"));
+	        System.out.println("ï¿½ï¿½Ç° ï¿½ï¿½È£ : " + request.getParameter("product_category"));
 
 	        vo.setSeller_code(resultCode);
 			vo.setSeller_name(request.getParameter("seller_name"));
@@ -101,33 +157,33 @@ public class managementController {
 		return null;
 	}
 	
-	//ÀÌ¸ŞÀÏ Àü¼ÛÀ» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/sendEmail.mdo", method=RequestMethod.GET)
 	@ResponseBody
 	public String sendEmail(HttpServletRequest request) {
-		System.out.println("ÀÌ¸ŞÀÏ Àü¼Û ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		EmailDTO dto = new EmailDTO();
 		
 		int result = 0;
 		String agree = request.getParameter("agree");
 		String disagree = request.getParameter("disagree");
 		
-		if(agree != null) {//ÀÔÁ¡ ½ÂÀÎ
+		if(agree != null) {//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			dto.setSenderMail("wnguds1101@gmail.com");
 			dto.setReceiveMail(request.getParameter("user_id"));
-			dto.setSubject("Idwith ÀÛ°¡ µî·Ï ½ÂÀÎ");
+			dto.setSubject("Idwith ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			result = 1;
-		}else if(disagree != null) {//ÀÔÁ¡ °ÅÀı
+		}else if(disagree != null) {//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			dto.setSenderMail("wnguds1101@gmail.com");
 			dto.setReceiveMail(request.getParameter("user_id"));
-			dto.setSubject("Idwith ÀÛ°¡ ÀÔÁ¡ Å»¶ô");
+			dto.setSubject("Idwith ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½");
 			result = 0;
 		}
 		
 		emailService.sendMail(dto, result);
 		
 		
-		System.out.println("ÀÌ¸ŞÀÏ Àü¼Û ¿Ï·á");
+		System.out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 		return Integer.toString(1);
 	}
 	

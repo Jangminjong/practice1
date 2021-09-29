@@ -4,7 +4,7 @@
 
 <mapper namespace="AdminNoticeBoardDAO">
 	<resultMap type="adminNotice" id="adminNoticeResult">
-		<id property="adminBoardSeq" column="ADMIN_BOARD_SEQ" />
+		<result property="adminBoardSeq" column="ADMIN_BOARD_SEQ" />
 		<result property="adminBoardId" column="ADMIN_BOARD_ID" />
 		<result property="adminBoardTitle" column="ADMIN_BOARD_TITLE" />
 		<result property="amdinBoardContent" column="ADMIN_BOARD_CONTENT" />
@@ -25,7 +25,7 @@
 	</insert>
 
 	<!-- 관리자 공지사항 글 수정 -->
-	<update id="updateAdminNotice" parameterType="com.idwith.mpweb.admin.board.AdminNoticeBoardVO">
+	<update id="updateAdminNotice" parameterType="adminNotice">
 		<![CDATA[
 	 		UPDATE admin_board
 	 		SET ADMIN_BOARD_TITLE=#{adminBoardTitle}, ADMIN_BOARD_CONTENT=#{amdinBoardContent} 

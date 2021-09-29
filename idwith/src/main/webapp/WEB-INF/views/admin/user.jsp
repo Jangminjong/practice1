@@ -141,7 +141,7 @@
 
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>회원 : client</h3>
+									<h3>회원 : ${userList.userId}</h3>
 									<!--회원 아이디 가지고 오기!-->
 								</div>
 							</div>
@@ -149,25 +149,23 @@
 							<div class="card">
 								<div class="card-body" style="width: auto;">
 									<form>
-										<div class="mb-3">
+									<div class="row" style="margin-bottom: 5px;">
+										<div class="col-md-4">
 											<label class="form-label">아이디</label> 
-											<input type="text"
-												class="form-control" placeholder="client"
-												style="width: auto;" disabled>
+											<input type="text" class="form-control" placeholder="client" style="width: auto;" disabled>
 										</div>
 										<!-- 쿠폰 리스트에 있는 쿠폰 코드이면 쿠폰 코드 사용 불가 alert-->
-										<div class="mb-3">
-											<label class="form-label">회원 이름</label> 
-											<input type="text"
-												class="form-control" placeholder="이예지" style="width: auto;">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">전화번호</label> 
-											<input type="text"
-												class="form-control" placeholder="010-1234-5678"
-												style="width: auto;">
-										</div>
-										<div class="mb-3">
+											<div class="col-md-4">
+												<label class="form-label">회원 이름</label> 
+												<input type="text"
+													class="form-control" placeholder="이예지" style="width: auto;">
+											</div>
+											<div class="col-md-4">
+												<label class="form-label">전화번호</label> 
+												<input type="text" class="form-control" placeholder="010-1234-5678" style="width: auto;">
+											</div>
+											</div>
+										<div class="mb-3" style="margin-top: 10px;">
 											<label class="form-label">우편번호</label> 
 											<input type="text"
 												class="form-control" placeholder="zipcode"
@@ -183,36 +181,27 @@
 											<input type="text"
 												class="form-control" placeholder="address2">
 										</div>
-										<div class="row">
-											<div class="col-md-3">
+										<div class="row" style="margin-bottom: 5px;">
+											<div class="col-md-4">
 												<label class="form-label">회원등급</label> 
 												<input type="text"
 													class="form-control" placeholder="금손" style="width: auto;"
 													id="cpStartDate">
 											</div>
-											<div class="col-md-3">
-												<label class="form-label">누적 구매횟수</label> 
-												<input type="text"
-													class="form-control" placeholder="누적 구매횟수"
-													style="width: auto;" id="cpEndDate">
-											</div>
-											<!-- 쿠폰 발행일보다 쿠폰 마감일이 앞설때 alert
-												쿠폰 마감일이 발행일의 3개월 이후일때 alert-->
-											<div class="col-md-3">
+											<div class="col-md-4">
 												<label class="form-label">누적 구매액</label> 
 												<input type="text"
 													class="form-control" placeholder="누적 구매액"
 													style="width: auto;" id="cpEndDate">
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-4">
 												<label class="form-label">가입일</label> 
 												<input type="text"
 													class="form-control" placeholder="가입일" style="width: auto;"
 													id="cpEndDate">
 											</div>
-										</div>
+											</div>
 									</form>
-
 								</div>
 							</div>
 							<div class="row">
@@ -221,7 +210,7 @@
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center">
+								<div class="col-md-2 text-right">
 									<a href="userList.mdo">
 										<button class="btn btn-primary">목록보기</button>
 									</a>

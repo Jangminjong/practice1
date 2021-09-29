@@ -23,6 +23,7 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+<script type="text/javascript" src="resources/admin/js/userListBlock.js"></script>
 </head>
 
 <body>
@@ -157,6 +158,7 @@
 												class="input-group-btn">
 												<button class="btn btn-warning" type="button">찾기</button>
 											</span>
+										</div>
 									</ul>
 								</form>
 							</div>
@@ -176,91 +178,92 @@
 												<th scope="col">연락처</th>
 												<th scope="col">등급</th>
 												<th scope="col">가입일자</th>
-												<th scope="col">탈퇴여부</th>
 												<th scope="col">블랙여부</th>
 												<th scope="col">블랙</th>
 
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach var="userList" items="${UserListAll}">
 											<tr>
-												<th><a href="user.mdo">client</a></th>
-												<td>0101234567</td>
-												<td>금손</td>
-												<td>2021-08-25</td>
-												<td>false</td>
-												<td>false</td>
+												<td><a href="user.mdo?userId=${userId}">${userList.userId}</a></td>
+												<td>${userList.userPhone}</td>
+												<td>${userList.userGrade}</td>
 												<td>
-													<button type="button" class="btn btn-primary" id="blockAgree">Block</button>
+													<fmt:formatDate value="${userList.userJoinDate}" pattern="yyyy.MM.dd"/>
 												</td>
+												<c:set var="block" value="${userList.userBlackCheck}" />
+												<c:choose>
+													<c:when test="${block eq false}">
+														<td><span class="badge bg-success">정상계정</span></td>
+														<td>
+															<button class="btn btn-primary" id="${userList.userId}" onclick="blockAgree(this.id)">&nbsp;&nbsp;Block&nbsp;&nbsp;</button>
+														</td>
+													</c:when>
+													<c:otherwise>
+														<td><span class="badge bg-danger">정지계정</span></td>
+														<td>
+															<button class="btn btn-primary" id="${userList.userId}" onclick="blockCancle(this.id)">Restore</button>
+														</td>
+													</c:otherwise>
+												</c:choose>
 											</tr>
-											<tr>
-												<th><a href="user.mdo">client2</a></th>
-												<td>0106547890</td>
-												<td>은손</td>
-												<td>2021-05-05</td>
-												<td>부</td>
-												<td>여</td>
-												<td>
-													<button type="button" class="btn btn-primary" id="blockAgree">Block</button>
-												</td>
-											</tr>
-											<tr>
-												<th><a href="user.mdo">client3</a></th>
-												<td>0104549875</td>
-												<td>아기손</td>
-												<td>2021-06-11</td>
-												<td>부</td>
-												<td>부</td>
-												<td>
-													<!-- BEGIN primary modal -->
-													<button type="button" class="btn btn-primary" id="blockAgree">Block</button>
-												</td>
-											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
 							</div>
 						</div>
-						<nav aria-label="Page navigation example">
-							<ul class="pagination justify-content-end">
-								<li class="page-item disabled"><a class="page-link"
-									href="#" tabindex="-1">Previous</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next</a>
-								</li>
-							</ul>
-						</nav>
+						<!-- 페이징 처리 -->
+						<div class="paging" data-ui="paging" data-sync="false">
+							<nav style="float: center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+									<c:choose>
+										<c:when test="${paging.nowPage eq 1 }">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Previous</span></li>
+										</c:when>
+										<c:when test="${paging.nowPage ne 1 }">
+											<li class="page-item"><a
+												href="/mpweb/userList.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Previous</a></li>
+										</c:when>
+									</c:choose>
+									<c:forEach begin="${paging.startPage }"
+										end="${paging.endPage }" var="p">
+										<c:choose>
+											<c:when test="${p eq paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/userList.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													onclick="return false" class="page-link">${p }</a></li>
+											</c:when>
+											<c:when test="${p ne paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/userList.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													class="page-link">${p }</a></li>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${paging.endPage eq paging.lastPage}">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Next</span></li>
+										</c:when>
+										<c:when test="${paging.endPage ne paging.lastPage}">
+											<li class="page-item"><a
+												href="/mpweb/userList.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+												style="width: auto;" class="page-link">Next</a></li>
+										</c:when>
+									</c:choose>
+								</ul>
+							</nav>
+						</div>
+						<!-- 페이징 처리 끝 -->
 					</div>
 				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
-			<script>
-				$().ready(function (){ 
-					$("#blockAgree").click(function (){ 
-						Swal.fire({ 
-							title: '이 계정을 블랙리스트로 설정하시겠습니까?', 
-							text: "", 
-							icon: 'warning', 
-							showCancelButton: true, 
-							confirmButtonColor: '#FF7B30', 
-							confirmButtonBorderColor : "#FF7B30",
-							cancelButtonColor: '#15283D', 
-							confirmButtonText: '변경', 
-							cancelButtonText: '취소' 
-						}).then((result) => { 
-							if (result.isConfirmed) { 
-								Swal.fire(
-									'계정상태가 변경되었습니다.', 
-									'해당 사용자는 블랙리스트 처리되었습니다.', 
-								) 
-							} 
-						}) 
-					}); 
-				});
-			</script>
+			
 		</div>
 	</div>
 </body>

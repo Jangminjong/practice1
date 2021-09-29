@@ -14,9 +14,9 @@
 <meta name="author" content="AdminKit">
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-	
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
@@ -168,7 +168,8 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="watingList" items="${watingList}" varStatus="status">
+											<c:forEach var="watingList" items="${watingList}"
+												varStatus="status">
 												<tr>
 													<th scope="row">${status.count}</th>
 													<td><a href="classPropose.mdo">${watingList.user_id }</a></td>
@@ -177,9 +178,12 @@
 													<td id="${watingList.product_category}">${watingList.product_category}</td>
 													<td>${watingList.offer_date}</td>
 													<td>
-														<button type="button" class="btn btn-warning" id="storeProposeAgree" name="${watingList.user_id}" 
+														<button type="button" class="btn btn-warning"
+															id="storeProposeAgree" name="${watingList.user_id}"
 															onclick="storeProposeAgree(this.name, this.id, ${watingList.product_category}, ${watingList.seller_name})">승인</button>
-														<button type="button" class="btn btn-primary" id="storeProposeDisagree" name="${watingList.user_id }" onclick="storeProposeDisagree(this.name, this.id)">거절</button>
+														<button type="button" class="btn btn-primary"
+															id="storeProposeDisagree" name="${watingList.user_id }"
+															onclick="storeProposeDisagree(this.name, this.id)">거절</button>
 													</td>
 												</tr>
 											</c:forEach>
@@ -206,8 +210,10 @@
 												<td>123-45-67890</td>
 												<td>2021-08-31</td>
 												<td>
-													<button type="button" class="btn btn-warning" id="classProposeAgree">승인</button>
-													<button type="button" class="btn btn-primary" id="classProposeDisagree">거절</button>
+													<button type="button" class="btn btn-warning"
+														id="classProposeAgree">승인</button>
+													<button type="button" class="btn btn-primary"
+														id="classProposeDisagree">거절</button>
 												</td>
 											</tr>
 										</tbody>
@@ -217,11 +223,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</main>
-		<script src="resources/admin/js/app.js"></script>
-<<<<<<< HEAD
-		<script>
+			</main>
+			<script src="resources/admin/js/app.js"></script>
+			<script>
 		$().ready(function (){ 
 			$("#storeProposeAgree").click(function (){ 
 				Swal.fire({ 
@@ -266,9 +270,6 @@
 			}); 
 			
 		});
-		
-		
-		
 			</script>
 			<script>
 		$().ready(function (){ 
@@ -315,11 +316,6 @@
 			}); 
 			
 		});
-		
-		
-		
-=======
-			
 			<script>
 				function storeProposeDisagree(user_id, disagree){ 
 					var result_data;	
@@ -394,7 +390,7 @@
 						})
 				} 
 			</script>
-			
+
 			<script>
 				function storeProposeAgree(user_id, state, category, seller_name){
 					var result_data;
@@ -497,8 +493,8 @@
 						}//end if
 					})
 				}
->>>>>>> 78e7a46c637f9da54e1cff16d724a411f839f00c
 			</script>
+		</div>
 	</div>
 </body>
 
