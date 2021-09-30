@@ -4951,7 +4951,7 @@ section.content {
 /* Input Group ================================= */
 .input-group {
   width: 100%;
-  margin-bottom: 20px; }
+  margin-bottom: 5px; }
   .input-group .form-line {
     display: inline-block;
     width: 100%;
@@ -8173,5 +8173,19 @@ html.ie11 .bs-searchbox .form-control {
   .addImage-group {
   	border : none;
   	margin-bottom : 20px;
+  }
+	
+  .upload-group {
+  	display : flex;
+  	justify-content: space-between;
+  }
+  
+  #form-line-address{
+  	display : flex;
+  }
+  
+  .address-find {
+  	border-radius: 5px;
+  	border: grey;
   }
   

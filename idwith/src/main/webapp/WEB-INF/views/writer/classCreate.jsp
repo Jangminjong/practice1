@@ -189,83 +189,109 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>클래스 등록 </h3>
+                            <h3>클래스 신청 </h3>
                             
                         </div>
                         <div class="body">
-                            <form id="form_validation" action="classCreate.do" method="POST" enctype="multipart/form-data" >
-                                <div class="form-group form-float">
+                         <div class="table-responsive">
+                            <form id="form_validation" action="classInsertApply.wdo" method="POST" enctype="multipart/form-data" >
+								<label>
+									<select  name='DataTables_Table_0_length' id="productCategory" aria-controls="DataTables_Table_0" class=" form-control input-sm"><!--   -->
+										<option value='11'>11</option>
+										<option value='ceramic'>도자기</option>
+										<option value='doll'>인형</option>
+										<option value='phone_case'>휴대폰 케이스</option>
+									</select>
+								</label>
+								<div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="클래스명" required>
+                                        <input type="text" class="form-control" name="classApplyName" required>
                                         <label class="form-label">클래스명</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="진행지역" required>
-                                        <label class="form-label">상세 주소</label>
+                                        <input type="number" class="form-control" name="classApplyPrice" required>
+                                        <label class="form-label">가격</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-bottom: -5px;">
+	                                	<div class="form-group form-float">
+		                                    <div class="form-line" id="form-line-address">
+		                                    	<label class="form-label" id="postlabel">우편번호</label>
+		                                   		<input type="text" class="form-control" name="classApplyPostAddress" id="postcode" onchange="postLBChange()" maxlength="6" readonly required>
+		                                   		<button class="address-find" onclick="execDaumPostcode()" style="font-size: 7px; width:100px;">우편번호찾기</button>
+		                                    </div>
+	                                    </div>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="난이도" required>
+                                        <input type="text" class="form-control" name="classApplyAddress" id="address" readonly required>
+                                        <label class="form-label" id="addrlabel">주소</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="classApplyDetailAddress" id="detailAddress" required>
+                                        <label class="form-label" >상세 주소</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="classApplyReference" id="extraAddress" readonly required>
+                                        <label class="form-label" id="extaddrlabel">참고 항목</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="classApplyDifficult" required>
                                         <label class="form-label">난이도</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="인원" required>
+                                        <input type="number" class="form-control" name="classApplyPerson" required>
                                         <label class="form-label">최대인원</label>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize"
+                                        <textarea name="classApplyInfo" cols="30" rows="5" class="form-control no-resize"
                                             required></textarea>
                                         <label class="form-label">수업 상세설명</label>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="upload-group">
                                 	<label class="input-group-text" for="inputGroupFile01">Upload</label>
                                 	<button type="button" class="addimagegroup" onclick="inputGroupAdd()">업로드 파일 추가</button>
                                 </div>
                                 <div class="image-group">
 	                                <div class="input-group mb-3">
-	                                   	<input type="file" class="form-control">
+	                                   	<input type="file" class="form-control" name="file">
 	                                </div>                              	
                                 </div>
                                 <div class="addImage-group">
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label class="form-label">클래스 오픈일</label>
-                                        <input type="date" class="form-control" placeholder="Start Date"
-                                            style="width: auto;" id="cpStartDate">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="form-label">클래스 마감일</label>
-                                        <input type="date" class="form-control" placeholder="End Date"
-                                            style="width: auto;" id="cpEndDate">
-                                    </div>
-                                    
-                                </div>
-                                
-                                <button class="btn btn-primary waves-effect" type="submit">저장하기</button>
+                              
+                                <button class="btn btn-primary waves-effect" type="submit">신청하기</button>
                                 <a href="classManagement.wdo">
                   	              <button class="btn btn-primary waves-effect" type="button">목록으로</button>
                   	            </a>
                             </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+			
 
 
 
 
-
-        </div>
+		</div>
 
     </section>
 
@@ -319,6 +345,13 @@
 
     <!-- Autosize Plugin Js -->
     <script src="resources/writer/plugins/autosize/autosize.js"></script>
+    
+    <!-- Daum address js -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+	<!-- 카테고리 선택 js -->
+	<script src="resources/js/offer.js"></script>
+
 </body>
 
 </html>

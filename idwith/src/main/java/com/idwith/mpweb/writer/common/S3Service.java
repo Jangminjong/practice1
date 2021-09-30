@@ -1,4 +1,4 @@
-package com.idwith.mpweb.common;
+package com.idwith.mpweb.writer.common;
 
 import java.io.File;
 import java.io.IOException;
