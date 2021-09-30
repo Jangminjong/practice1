@@ -15,6 +15,7 @@
 <body>
 	<jsp:include page="header_goods.jsp" />
 	<section class="artist-contents">
+	<jsp:include page="seller_main.jsp" />
 		<div data-v-825a8b32="">
 			<div data-v-825a8b32="" data-trigger-detail="true"></div>
 			<div data-v-825a8b32="" data-trigger="fixposition"></div>

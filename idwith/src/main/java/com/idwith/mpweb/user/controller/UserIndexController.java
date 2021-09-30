@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.user.UserVO;
-import com.idwith.mpweb.user.service.SellerCheckService;
+import com.idwith.mpweb.user.service.SellerViewService;
 
 @Controller
 public class UserIndexController {
 	@Autowired
-	private SellerCheckService sellerCheckService;
+	private SellerViewService sellerCheckService;
 	
 	@GetMapping("/index.do")
 	public String userIndex(HttpSession session, Model model) {

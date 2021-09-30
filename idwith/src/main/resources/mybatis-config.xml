@@ -5,9 +5,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 	<!-- 별칭 예시 -->
 	<typeAliases>
  		<typeAlias type="com.idwith.mpweb.user.UserVO" alias="userVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.CartVO" alias="cartVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.QnABoardVO" alias="qnaVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.EventBoardVO" alias="eventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.UserMessageVO" alias="msgVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.UserSellerVO" alias="userSellerVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminQnABoardVO" alias="adminQnA"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminEventBoardVO" alias="adminEventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.WatingVO" alias="watingVO"/>
@@ -16,16 +18,21 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminNoticeBoardVO" alias="adminNotice"/>
  		<typeAlias type="com.idwith.mpweb.admin.AdminVO" alias="adminVO"/>
  	</typeAliases>
+ 	<typeHandlers>
+ 		<typeHandler handler="org.apache.ibatis.type.ArrayTypeHandler" jdbcType="ARRAY" javaType="String" />
+ 	</typeHandlers>
  	<mappers>
  		<mapper resource="mappings/user/board/userBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/qnaBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/eventBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/userMessage-mapping.xml" />
+ 		<mapper resource="mappings/user/board/cart-mapping.xml" />
  		<mapper resource="mappings/admin/board/adminQnABoard-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminEventBoard-mapping.xml"/>
  		<mapper resource="mappings/user/board/wating-mapping.xml" />
  		<mapper resource="mappings/user/board/sellerCheck-mapping.xml" />
  		<mapper resource="mappings/user/board/myPage-mapping.xml"/>
+ 		<mapper resource="mappings/user/board/userCategory-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminBoard-mapping.xml"/>
  		<mapper resource="mappings/admin/board/sellerEnrollment-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminNoticeBoard-mapping.xml"/>

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.idwith.mpweb.user.UserVO;
-import com.idwith.mpweb.user.service.SellerCheckService;
+import com.idwith.mpweb.user.service.SellerViewService;
 import com.idwith.mpweb.user.service.UserService;
 
 @Controller
@@ -28,7 +28,7 @@ public class LoginController {
 	private UserService userService;
 	
 	@Autowired
-	private SellerCheckService sellerCheckService;
+	private SellerViewService sellerService;
 	/* Naver Login */
 //	private NaverLoginBO naverLoginBO;
 //	private String apiResult = null;
@@ -48,7 +48,7 @@ public class LoginController {
 		return "login";
 	}
 	
-	//·Î±×ÀÎ : email, password È®ÀÎ
+	//ï¿½Î±ï¿½ï¿½ï¿½ : email, password È®ï¿½ï¿½
 	@RequestMapping(value="/loginCheck.do", method=RequestMethod.GET, produces="application/text; charset=utf8")
 	@ResponseBody
 	public String loginCheck(HttpServletRequest request, HttpSession session) throws Exception{
@@ -70,7 +70,7 @@ public class LoginController {
 		}
 
 		if(email != null) {
-			Long sellerCheck = sellerCheckService.getSeller(email);
+			Long sellerCheck = sellerService.getSeller(email);
 
 			if(sellerCheck != null) {
 				session.setAttribute("sellerCheck", sellerCheck);
@@ -93,7 +93,7 @@ public class LoginController {
 		return "index";
 	}
 
-	//·Î±×ÀÎ È­¸é ¿äÃ» ¸Þ¼Òµå : ³×ÀÌ¹ö
+	//ï¿½Î±ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Þ¼Òµï¿½ : ï¿½ï¿½ï¿½Ì¹ï¿½
 //	@GetMapping("/login.do")
 //	public String naverLogin(HttpSession session, Model model) {
 //		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
@@ -101,30 +101,30 @@ public class LoginController {
 //		return "login";
 //	}
 
-	//³×ÀÌ¹ö ·Î±×ÀÎ ¼º°ø ½Ã callback È£Ãâ ¸Þ¼Òµå
+	//ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ callback È£ï¿½ï¿½ ï¿½Þ¼Òµï¿½
 //	@GetMapping("/callback.do")
 //	public String callback(@RequestParam String code, @RequestParam String state, HttpSession session, HttpServletResponse servletResponse, Model model)throws IOException {
 //		OAuth2AccessToken oauthToken;
 //		oauthToken = naverLoginBO.getAccessToken(session, code, state);
 
-		//1. ·Î±×ÀÎ »ç¿ëÀÚ Á¤º¸¸¦ ÀÐ¾î¿Â´Ù.
-		//apiResult = naverLoginBO.getUserProfile(oauthToken); //StringÇü½ÄÀÇ jsonµ¥ÀÌÅÍ 
+		//1. ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½Â´ï¿½.
+		//apiResult = naverLoginBO.getUserProfile(oauthToken); //Stringï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ jsonï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		
-		/** apiResult json ±¸Á¶ {"resultcode":"00", "message":"success", "response":{"id":"33666449","nickname":"shinn****","age":"20-29","gender":"M","email":"sh@naver.com","name":"\uc2e0\ubc94\ud638"}} **/
+		/** apiResult json ï¿½ï¿½ï¿½ï¿½ {"resultcode":"00", "message":"success", "response":{"id":"33666449","nickname":"shinn****","age":"20-29","gender":"M","email":"sh@naver.com","name":"\uc2e0\ubc94\ud638"}} **/
 		
-		//2. StringÇü½ÄÀÎ apiResult¸¦ jsonÇüÅÂ·Î ¹Ù²Þ 
+		//2. Stringï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ apiResultï¿½ï¿½ jsonï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ù²ï¿½ 
 		//JSONParser parser = new JSONParser();
 		//Object obj = parser.parse(apiResult);
 		//JSONObject jsonObj = (JSONObject) obj; 
 		
-		//3. µ¥ÀÌÅÍ ÆÄ½Ì //Top·¹º§ ´Ü°è _response ÆÄ½Ì 
+		//3. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä½ï¿½ //Topï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ _response ï¿½Ä½ï¿½ 
 		//JSONObject response_obj = (JSONObject)jsonObj.get("response"); 
-		//responseÀÇ nickname°ª ÆÄ½Ì 
+		//responseï¿½ï¿½ nicknameï¿½ï¿½ ï¿½Ä½ï¿½ 
 		//String nickname = (String)response_obj.get("nickname"); 
 		//System.out.println(nickname); 
 		
-		//4.ÆÄ½Ì ´Ð³×ÀÓ ¼¼¼ÇÀ¸·Î ÀúÀå 
-		//session.setAttribute("sessionId",nickname); //¼¼¼Ç »ý¼º 
+		//4.ï¿½Ä½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+		//session.setAttribute("sessionId",nickname); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 //		model.addAttribute("result", apiResult); 
 //		return "login";
 //	}

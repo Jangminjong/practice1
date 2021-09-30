@@ -4,13 +4,23 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="SellerCheckDAO">
- 	<resultMap type="HashMap" id="sellerCheckResult">
+ 	<resultMap type="userSellerVO" id="sellerCheckResult">
  		<result property="seller_code" column="seller_code"/>
  		<result property="seller_name" column="seller_name"/>
  		<result property="seller_sellno" column="seller_sellno"/>
+ 		<result property="seller_sellno_img" column="seller_sellno_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
  		<result property="user_id" column="user_id"/>
+ 		<result property="seller_profile" column="seller_profile"/>
+ 		<result property="seller_profile_img" column="seller_profile_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="seller_done" column="seller_done"/>
+ 		<result property="seller_goods_yn" column="seller_goods_yn"/>
+ 		<result property="seller_class_yn" column="seller_class_yn"/>
+ 		<result property="seller_status" column="seller_status"/>
  	</resultMap>
  	<select id="sellerCheck" resultType="_long">
  		select seller_code from seller where user_id=#{user_id}
+ 	</select>
+ 	<select id="getSellerList" resultType="userSellerVO" resultMap="sellerCheckResult">
+ 		select * from seller
  	</select>
 </mapper>

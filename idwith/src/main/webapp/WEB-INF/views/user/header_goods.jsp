@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 <script src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/js/index.js"></script>
+<script type="text/javascript" src="resources/js/cart.js"></script>
 
 <link
     rel="stylesheet"
@@ -214,10 +215,11 @@
 
 						<a href="mypage.do" class="btn"> <i class="fa fa-user-o" aria-hidden="true"></i> 내 정보
 						<!-- <a href="mypage.do" class="btn"> <i class="far fa-user"></i> 내 정보 -->
-						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
-							class="cart-counter">0</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							장바구니
-						</a>
+						</a> 
+							<a id="my-cart-button" href="cart.do" class="btn"> <span
+								class="cart-counter">0</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+								장바구니
+							</a>
 					</nav>
 
 					<div class="bubble-space">

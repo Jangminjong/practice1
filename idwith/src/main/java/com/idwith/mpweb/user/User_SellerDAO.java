@@ -1,20 +1,30 @@
 package com.idwith.mpweb.user;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class SellerCheckDAO {
+public class User_SellerDAO {
 
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	public Long getSeller(String user_id) {
-		System.out.println("DAO ÀÛ°¡ Ã¼Å© : " + user_id);
+		System.out.println("DAO ï¿½Û°ï¿½ Ã¼Å© : " + user_id);
 		Long result = sqlSessionTemplate.selectOne("SellerCheckDAO.sellerCheck", user_id);
-		System.out.println("DB°á°ú °ª : " + result);
+		System.out.println("DBï¿½ï¿½ï¿½ ï¿½ï¿½ : " + result);
 		
 		return result;
+	}
+
+	public List<UserSellerVO> getSellerList() {
+		List<UserSellerVO> sellerList = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerList");
+		
+		System.out.println("ê²°ê³¼ ê°’ : " + sellerList);
+		
+		return sellerList;
 	}
 }

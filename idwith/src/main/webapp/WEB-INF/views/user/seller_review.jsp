@@ -5,13 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" href="resources/css/seller_story.css">
+<link rel="stylesheet" href="resources/css/seller_review.css">
 <link rel="stylesheet" href="resources/css/common.css">
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 </head>
 <body>
 	<jsp:include page="header_goods.jsp" />
+	<jsp:include page="seller_main.jsp" />
 	<section class="artist-contents">
 		<div data-v-825a8b32="">
 			<div data-v-825a8b32="" data-trigger-detail="true"></div>
@@ -19,7 +20,7 @@
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group">
 				<a data-v-825a8b32=""
-					href="seller_profile.de"
+					href="seller_profile.do"
 					class="tab">프로필</a> <a data-v-825a8b32=""
 					href="seller_story.do"
 					class="tab">스토리</a> <a data-v-825a8b32=""
