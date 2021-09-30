@@ -11,190 +11,18 @@
 <meta charset="UTF-8">
 <title>아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
 <link href="resources/css/content.css" rel="stylesheet" />
+<script src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/index.js"></script>
 
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">
-	
-<!--
-      	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="naver-site-verification" content="a8c6e5633b597db7b48d05e4a7d247011f6794ec"/>
-        <meta name="google-site-verification" content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-        <meta name="theme-color" content="#ffffff"/>
-        <link rel="apple-touch-icon" sizes="384x384" href="/resources/dist/images/app-icon/icon_300.png">
-        <link rel="apple-touch-icon" sizes="256x256" href="/resources/dist/images/app-icon/icon_300.png">
-        <link rel="apple-touch-icon" sizes="192x192" href="/resources/dist/images/app-icon/icon_192.png">
-        <link rel="apple-touch-icon" sizes="128x128" href="/resources/dist/images/app-icon/icon_120.png">
-        <link rel="apple-touch-icon" sizes="96x96" href="/resources/dist/images/app-icon/icon_96.png">
-        <link rel="manifest" href="/manifest.json">
-        <script>
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }, function(err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                    });
-                });
-            }
-        </script>
-        <!-- Intersection Observer polyfill
-        <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover"/>
-        <meta name="application-name" content="아이디어스" />
-        <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리"/>
-        <meta property="fb:app_id" content="1410666675867984" />
-                <meta name="description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-        <meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
-        <meta property="og:type"   content="website" />
-        <meta property="og:description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-        <meta property="og:url" content="http://www.idus.com/"/>
-        <meta property="og:image" content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-        <link rel="canonical" href="http://www.idus.com/"/>
-                <script>
-            window.__client_env__ = 'production';
-            window.CNN_DOMAIN = 'https://cnn.idus.com';
-        </script>
-        <!-- project src
-        <link rel="icon" href="/resources/favicon_32.ico" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                <script>
-            // 개발자 console에 아이디어스 로고 노출
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                // 다크모드일 경우
-                console.log('%cidus', 'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 90px; color: transparent; background-color: white;');
-                console.log('%cUnique Lifestyle Guide', 'font-weight: bold; color: white; font-size: 15px;');
-                console.log('%cWant to join %cidus%c? 👉 https://www.notion.so/idus/Join-idus-61e7ca6d4b6d4211a7506e8773cc78fd', 'font-size: 10px; color: white;', 'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 10px; color: transparent; background-color: white;', 'font-size: 10px; color: white;');
-            } else {
-                // 아닐경우
-                console.log('%cidus', 'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 90px; color: transparent; background-color: #515151;');
-                console.log('%cUnique Lifestyle Guide', 'font-weight: bold; color: #515151; font-size: 15px;');
-                console.log('%cWant to join %cidus%c? 👉 https://www.notion.so/idus/Join-idus-61e7ca6d4b6d4211a7506e8773cc78fd', 'font-size: 10px; color: #515151;', 'background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url("https://www.idus.com/resources/dist/images/logo.svg"); width: 300px; height: auto; font-size: 10px; color: transparent; background-color: #515151;', 'font-size: 10px; color: #515151;');
-            }
-        </script>
-        <link rel="stylesheet" href="/resources/dist/css/idus.web.min.css?__v=1630657354">
-        <link rel="stylesheet" href="/resources/dist/css/vendor.client.min.css?__v=1630657354">
-        <script src="/resources/dist/js/vendor.client.min.js?__v=1630657354"></script>
-        <script src="/resources/dist/js/vuepack.js?__v=1630657354"></script>
-        
-        <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/flowplayer.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/thumbnails.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/speed.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/hls.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/dash.min.js"></script>
-        <script src="//cdn.flowplayer.com/releases/native/v2.5.14/plugins/keyboard.min.js"></script>
-        <!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/cuepoints.min.js"></script> -->
-
-<!-- Kakao web SDK
-        <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-        <!-- Signin With Apple -->
-<!--  <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>-->
-
-<!-- tracker vendors
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-775263643"></script>
-        <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-        <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
-        <script src="//wcs.naver.net/wcslog.js"></script>
-
-        <!-- trackers
-        <script>
-        vuepack.externals.VendorLogger.sendLog([
-            {
-                vendorName: 'google_analytics',
-                eventName: 'pageview'
-            },
-            {
-                vendorName: 'google_ads',
-                eventName: 'page_view'
-            },
-            {
-                vendorName: 'facebook',
-                eventName: 'PageView'
-            },
-            {
-                vendorName: 'kakao',
-                eventName: 'pageView'
-            },
-        ]);
-        </script>
-        <!-- sitelink - search box
-        <script type="application/ld+json">
-        {
-          "@context": "http://schema.org",
-          "@type": "WebSite",
-          "url": "https://www.idus.com/",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.idus.com/search?word={ring}",
-            "query-input": "required name=ring"
-          }
-        }
-        </script>
-                <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "name": "아이디어스",
-                "url": "https://www.idus.com",
-                "sameAs": [
-                    "https://www.instagram.com/idus.me",
-                    "https://post.naver.com/idus_me",
-                    "https://www.facebook.com/idus.me",
-                    "https://blog.naver.com/idus_me",
-                    "https://play.google.com/store/apps/details?id=kr.backpackr.me.idus",
-                    "https://apps.apple.com/kr/app/id872469884",
-                    "https://twitter.com/idus_kr"
-                ]
-            }
-        </script>
--->
 </head>
 <body>
 	<div data-vue="token"></div>
 	<div data-vue="globalUser"></div>
 	<div data-vue="resizeHandler"></div>
-	<script>
-        // image-only-button 위해
-        if (!window.localStorage.getItem('idus-product-card-img-only-path') || window.localStorage.getItem('idus-product-card-img-only-path') !== window.location.pathname) {
-            window.localStorage.setItem('idus-product-card-img-only', 'false');
-        }
-        vuepack.createResizeHandler('[data-vue="resizeHandler"]');
-        vuepack.createUser('[data-vue="globalUser"]', {
-            id: 0,
-            thumb: '',
-            age: 0,
-            gender: 'none',
-            grade: 0,
-            uuid: '',
-            isVip: false        });
-        vuepack.createToken('[data-vue="token"]', {
-            token: {},
-            userId: 0        });
-
-        /* Idus Log V2 */
-                vuepack.externals.IdusLog.Logger.setIdentityId('ap-northeast-2:2dc1cfd9-6d87-4b2e-86e9-527ab8d8b91b');
-                vuepack.externals.IdusLog.Logger.initialize({
-            isApp: false,
-            region: 'ap-northeast-2',
-            identityPoolId: 'ap-northeast-2:f4c028af-cb84-43cc-a8e5-b047d272b323',
-            accountId: '773161815152',
-            userData: {
-                userId: '',
-                userAge: '',
-                userGrade: '',
-                userGender: 'none'
-            },
-            appData: {
-                env: 'prod',
-                appVersion: '1630657354'
-            }
-        });
-        </script>
 
 	<div class="wrap">
 
@@ -208,86 +36,58 @@
 		<div id="content" class="content" data-page="main">
 			<!-- 메인 -->
 			<section id="main_visual">
-				<div class="ui-slider style-main home" data-ui="slider"
+				<div class="index-slider style-main home" data-ui="slider"
 					data-resize="true" data-rolling="true" data-indicator-type="label"
 					tabindex="-1"
 					style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0)">
-					<div class="outer-frame">
+					<div id="slider" class="outer-frame">
 						<ul class="inner-frame" style="margin-left: 0px;">
 							<li class="ui-slide showroom-banner"
-								style="background: #4B2C2C; width: 지정해야함; display: list-item;"
-								data-id="1709"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/8817b53cb0d0441c8d6287cbcc808ab5.jpg"
-									alt="🍁추석 선물 예약 할인 기획전🍁">
+								style="background: #4B2C2C; display: list-item;"1709"><a
+								href="index.do"> <img
+									src="resources/images/index/indexBannerImg1.jpg"
+									alt="🍁가을 별미 열전🍁">
 							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #d16160"
-								data-id="1765"><a
-								href="product_search.do">
-									<img
-									src="https://image.idus.com/image/files/7a74d4a986ab4823b277b08aab30242c.jpg"
-									alt="9월 용돈줍줍🌕 보름달처럼 커지는 혜택">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #9D6F6F"
-								data-id="1710"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/c8949e03c5de4ba18d71ef9c0acd1ffd.jpg"
-									alt="감사의 마음을 담아, 추석 프리미엄 선물🍁">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #316E64"
-								data-id="1766"><a
-								href="product_search.do">
-									<img
-									src="https://image.idus.com/image/files/93cc95ff4fe447068aebe90df0a420f4.png"
-									alt="가을맞이 9월 특별 혜택 이벤트🍂">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #F4F1ED"
-								data-id="1711"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/e4485b2ddc654b5ca20b305da0fd7907.jpg"
-									alt="부담을 덜어주는 가성비 추석 선물🌝">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #F5BA93"
-								data-id="1767"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/8ad91ba3ff274846942a2728bda5dc2d.jpg"
-									alt="가을과 함께 찾아온 9월 할인🌰">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #13456A"
-								data-id="1719"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/a1125915484449788879a74274b97595.jpg"
-									alt="마음을 표현하는 확실한 선물 용돈🤑">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #FBF2E0"
-								data-id="1770"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/02cb966364554bb586606f9f3cb86da1.jpg"
-									alt="즐거운 한끼를😋 위한 아름다운 구성 🍲">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #E8E1D3"
-								data-id="1753"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/b3909662fd4f4cb69bd608f4e815630a.jpg"
-									alt="몸이 편한 감성룩😌 라운지웨어">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #FFE985"
-								data-id="1733"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/95fca4de8f264fce82cb05939d9cf488.jpg"
-									alt="금요일에 만나요 (feat. 입점할인)">
-							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #5585FD"
-								data-id="1254"><a
+							<li class="ui-slide showroom-banner" style="background: #d16160;"1765"><a
 								href="product_search.do"> <img
-									src="https://image.idus.com/image/files/8966b9bc2c004c0f8d6dc98f00cbda9b.jpg"
-									alt="🌈2주무료🌈 취미클래스 무제한스트리밍">
+									src="resources/images/index/indexBannerImg2.jpg"
+									alt="🌕프리미엄 주얼리 할인혜택">
 							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #f38586"
-								data-id="1786"><a href="product_search.do"> <img
-									src="https://image.idus.com/image/files/2ca482b1286644d4890ec380bcc37776.jpg"
-									alt="9월 7일, 오늘만 할인🙌">
+							<li class="ui-slide showroom-banner" style="background: #9D6F6F;"
+								data-id="1710"><a href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg3.jpg" alt="🍁오늘만 할인">
+							</a></li>
+							<li class="ui-slide showroom-banner" style="background: #316E64;"
+								data-id="1766"><a href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg4.jpg"
+									alt="🍂이번주 인기 신상">
+							</a></li>
+							<li class="ui-slide showroom-banner" style="background: #F4F1ED;"
+								data-id="1711"><a href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg5.jpg"
+									alt="🌝입점 기념 할인🌕매주 금요일🌕">
+							</a></li>
+							<li class="ui-slide showroom-banner" style="background: #F5BA93;"
+								data-id="1767"><a href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg6.jpg"
+									alt="🌰환절기 피부고민 끝">
+							</a></li>
+							<li class="ui-slide showroom-banner"
+								style="background: #13456A; height: 480px;" data-id="1719"><a
+								href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg7.jpg"
+									alt="🤑가을 스타일 탐구 생활">
 							</a></li>
 						</ul>
 					</div>
 					<fieldset class="ui-control" style="display: block;">
-						<button type="button" class="ui-btn prev" aria-label="이전">
+						<button type="button" class="ui-btn prev control-prev"
+							aria-label="이전" >
 							<i class="fa fa-chevron-left fa-2x"></i>
 						</button>
 						<nav class="indicator"></nav>
-						<button type="button" class="ui-btn next" aria-label="다음">
+						<button type="button" class="ui-btn next control-next"
+							aria-label="다음" >
 							<i class="fa fa-chevron-right fa-2x"></i>
 						</button>
 					</fieldset>
@@ -802,207 +602,7 @@
 			<div data-vue="MainBottomSheet"></div>
 		</div>
 
-		<script type="text/javascript">
-    vuepack.create([
-        {
-            selector: '[data-vue="MainBottomSheet"]',
-            component: 'MainBottomSheet',
-            props: {
-                bottomSheetList: []            }
-        },
-        {
-            selector: '[data-vue="MainRelatedProductSection"]',
-            component: 'MainRelatedProductSection',
-            props: {
-                productList: [],
-                recentProductUuid: ''
-            }
-        }
-    ]);
-</script>
-		<script type="text/javascript">
-    vuepack.externals.VendorLogger.sendLog([
-        {
-            vendorName: 'criteo',
-            eventName: 'event',
-            params: [
-                { event: "setAccount", account: 50752 },
-                { event: "setEmail", email: "guest@idus.me" },
-                { event: "setSiteType", type: "d" },
-                { event: "viewHome" }   
-            ],
-        },
-    ]);
-
-    (function () {
-        var Logger = vuepack.externals.IdusLog.Logger;
-        var PageName = vuepack.externals.IdusLog.PageName;
-        var Section = vuepack.externals.IdusLog.Section;
-        var LogLabel = vuepack.externals.IdusLog.LogLabel;
-        var LogObject = vuepack.externals.IdusLog.LogObject;
-        var ObjectType = vuepack.externals.IdusLog.ObjectType;
-        Logger.sendPageView(PageName.Home)
-
-        let timer;
-        function sendShowroomBannerImpressionLog (id) {
-            if (timer) {
-                clearTimeout(timer);
-            }
-            timer = setTimeout(function() {
-                Logger.sendImpression({
-                   section: Section.MainBanner,
-                   objectType: ObjectType.ShowroomId,
-                   object: Number(id)
-                });
-            }, 1000);
-        }
-
-        // 스크롤에 따른 배너 노출정도(%) 파악
-        var io = vuepack.externals.util.intersectionObserverApi('MainBanner', sendShowroomBannerImpressionLog, 0.5);
-        var banner = document.getElementById("main_visual");
-        io.observe(banner);
-
-        // 슬라이드 롤링 이벤트 리스너
-        document.addEventListener("rolling", function(e) {
-            sendShowroomBannerImpressionLog(e.detail.id);
-        });
-
-        var showroomBannerElements = document.getElementsByClassName("showroom-banner");
-
-        function sendShowroomBannerClickEventLog (id) {
-            Logger.sendClick({
-                section: Section.MainBanner,
-                objectType: ObjectType.ShowroomId,
-                object: Number(id)
-            });
-        }
-
-        if (showroomBannerElements.length > 0) {
-            showroomBannerElements.forEach(function(el) {
-                var bannerId = el.getAttribute('data-id');
-                el.addEventListener('click', function() {
-                    sendShowroomBannerClickEventLog(bannerId);
-                })
-            })
-        }
-
-        /* Log v2 Click */
-        $(function () {
-            var productListUnitSelectors = [
-                '#today_recommend', // 오늘의 작품
-                '#live_order', // 실시간 구매
-                '#review', // 실시간 후기
-                '#artist_recommend', // 작가님 추천작품
-                '#live_recommend', // 실시간 추천작품
-                '#ranking', // 인기작품
-                '#new_product', // 최신작품
-                '#story', // 스토리
-                '#popular_artist', // 인기작가
-                '#category' // 전체 카테고리
-            ];
-            $(productListUnitSelectors.join(',')).on('click', 'a', function (event) {
-                var $target = $(event.currentTarget);
-                var section = '';
-                if ($target.parents('#today_recommend').length > 0) {
-                    section = Section.TodayDiscovery;
-                } else if ($target.parents('#live_order').length > 0) {
-                    section = Section.LiveSold;
-                } else if ($target.parents('#artist_recommend').length > 0) {
-                    section = Section.ArtistPickAD;
-                } else if ($target.parents('#live_recommend').length > 0) {
-                    section = Section.LivePickAD;
-                } else if ($target.parents('#ranking').length > 0) {
-                    section = Section.CategoryPopular;
-                } else if ($target.parents('#new_product').length > 0) {
-                    section = Section.NewProducts;
-                } else if ($target.parents('#review').length > 0) {
-                    section = Section.LiveReviews;
-                } else if ($target.parents('#story').length > 0) {
-                    section = Section.StoryAll;
-                } else if ($target.parents('#popular_artist').length > 0) {
-                    section = Section.PopularArtists;
-                } else if ($target.parents('#category').length > 0) {
-                    section = Section.ProductCategory;
-                }
-
-                if (section) {
-                    if ($target.hasClass('ui_title__txt') || $target.hasClass('ui_title__txtright')) {
-                        if ($target.data('categoryUuid')) {
-                            Logger.sendClick({
-                                logLabel: LogLabel.SubHeader,
-                                section: section,
-                                object: LogObject.SeeAll,
-                                property: {
-                                    product_category_uuid: $target.data('categoryUuid')
-                                }
-                            }, true);
-                        } else {
-                            Logger.sendClick({
-                                logLabel: LogLabel.SubHeader,
-                                section: section,
-                                object: LogObject.SeeAll
-                            }, true);
-                        }
-                    } else if ($target.hasClass('ui_btn--large')) {
-                        Logger.sendClick({
-                            section: section,
-                            object: LogObject.SeeAll
-                        }, true);
-                    } else if ($target.data('productId')) {
-                        var $rankingProductListUnitWrapper = $target.parents('[data-category-uuid]')
-                        if ($rankingProductListUnitWrapper.length > 0 && $rankingProductListUnitWrapper.data('categoryUuid')) {
-                            Logger.sendClick({
-                                section: section,
-                                objectType: ObjectType.ProductUuid,
-                                object: $target.data('productId'),
-                                property: {
-                                    product_category_uuid: $rankingProductListUnitWrapper.data('categoryUuid')
-                                }
-                            })
-                        } else {
-                            Logger.sendClick({
-                                section: section,
-                                objectType: ObjectType.ProductUuid,
-                                object: $target.data('productId')
-                            })
-                        }
-                    } else if ($target.data('storyUuid')) {
-                        Logger.sendClick({
-                            section: section,
-                            objectType: ObjectType.StoryUuid,
-                            object: $target.data('storyUuid'),
-                        })
-                    } else if ($target.data('artistUuid')) {
-                        Logger.sendClick({
-                            section: section,
-                            objectType: ObjectType.ArtistUuid,
-                            object: $target.data('artistUuid'),
-                        }, true);
-                    } else if ($target.data('starredType') === 'artist') {
-                        var action = $target.attr('data-state') === 'active' ? 'off' : 'on';
-                        var targetId = $target.data('targetId');
-                        Logger.sendClick({
-                            section: section,
-                            object: LogObject.FollowArtist,
-                            property: {
-                                artist_uuid: targetId,
-                                action: action
-                            }
-                        });
-                    } else if ($target.data('categoryUuid')) {
-                        Logger.sendClick({
-                            section: section,
-                            objectType: ObjectType.CategoryUuid,
-                            property: {
-                                product_category_uuid: $target.data('categoryUuid')
-                            }
-                        }, true);
-                    }
-                }
-            });
-        });
-    })();
-</script>
+		
 		<div data-vue="ToastPopup"></div>
 		<div data-vue="BottomSheet"></div>
 		<div data-vue="WideBottomSheet"></div>
@@ -1011,75 +611,9 @@
 		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
 			<img src="resources/images/go-to-top-image.png">
 		</a>
-		<script>
-function escrowPopup() {
-    var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
-    var newWindow = window.open(url,'name','height=450,width=400');
-
-    if (window.focus) newWindow.focus();
-    return false;
-}
-
-vuepack.create([
-    {
-        selector: '[data-vue="BottomSheet"]',
-        component: 'BottomSheet'
-    },
-    {
-        selector: '[data-vue="WideBottomSheet"]',
-        component: 'WideBottomSheet'
-    },
-    {
-        selector: '[data-vue="FooterModal"]',
-        component: 'FooterModal'
-    },
-    {
-        selector: '[data-vue="ToastPopup"]',
-        component: 'ToastPopup'
-    },
-    {
-        selector: '[data-vue="InactiveToast',
-        component: 'InactiveToast'
-    }
-]);
-</script>
+		
 	</div>
 	<!-- div WRAP -->
-	<script type="text/javascript"
-		src="/resources/dist/js/idus.web.min.js?__v=1630657354"></script>
-	<script>
-        (function(){
-            var applink = new vuepack.externals.Applink();
-            var scheme = applink.locationToAppScheme();
-
-            var isIOS = (navigator.userAgent.match('iPhone') != null
-                || navigator.userAgent.match('iPod') != null
-                || navigator.userAgent.match('iPad') != null);
-
-            // App 충돌 이슈로 인해 Android만 wta query 적용하지 않도록 함
-            if (isIOS) {
-                var hasQueryMark = scheme.indexOf('?') !== -1;
-                var randomHash = BPackr.randomHash(16);
-                var key = "mobile_web";
-
-                if (hasQueryMark) {
-                    scheme = scheme + '&wta=' +  randomHash;
-                } else {
-                    scheme = scheme + '?wta=' + randomHash;
-                }
-            }
-
-            appDownloadMask(key, scheme);
-            BPackr.scheme = scheme;
-        }());
-        </script>
-	<script>
-        vuepack.externals.VendorLogger.sendLog([
-            {
-                vendorName: 'naver',
-            },
-        ]);
-        </script>
 	 <jsp:include page="footer.jsp" />
 </body>
 </html>
