@@ -43,12 +43,12 @@
 					<div id="slider" class="outer-frame">
 						<ul class="inner-frame" style="margin-left: 0px;">
 							<li class="ui-slide showroom-banner"
-								style="background: #4B2C2C; display: list-item;"1709"><a
+								style="background: #4B2C2C; display: list-item;" data-id="1709"><a
 								href="index.do"> <img
 									src="resources/images/index/indexBannerImg1.jpg"
 									alt="🍁가을 별미 열전🍁">
 							</a></li>
-							<li class="ui-slide showroom-banner" style="background: #d16160;"1765"><a
+							<li class="ui-slide showroom-banner" style="background: #d16160;" data-id="1765"><a
 								href="product_search.do"> <img
 									src="resources/images/index/indexBannerImg2.jpg"
 									alt="🌕프리미엄 주얼리 할인혜택">
@@ -81,12 +81,12 @@
 						</ul>
 					</div>
 					<fieldset class="ui-control" style="display: block;">
-						<button type="button" class="ui-btn prev control-prev"
+						<button type="button" class="ui-btn prev control-prev goods-prev"
 							aria-label="이전" >
 							<i class="fa fa-chevron-left fa-2x"></i>
 						</button>
 						<nav class="indicator"></nav>
-						<button type="button" class="ui-btn next control-next"
+						<button type="button" class="ui-btn next control-next goods-next"
 							aria-label="다음" >
 							<i class="fa fa-chevron-right fa-2x"></i>
 						</button>

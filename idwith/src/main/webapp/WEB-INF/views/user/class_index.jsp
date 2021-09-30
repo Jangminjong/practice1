@@ -28,11 +28,11 @@
 <link rel="stylesheet" href="resources/css/sp-icon.css" />
 
 <!-- js -->
-<script type="text/javascript" src="resources/js/index.js"></script>
-<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/js/idus.web.min.js"></script>
 <script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
 <script type="text/javascript" src="resources/js/vuepack.js"></script>
+<script src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/index.js"></script>
 
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
@@ -71,52 +71,47 @@
 			data-page="c-main">
 			<!-- 메인 -->
 			<section id="main_visual">
-				<div class="ui-slider style-main" data-ui="slider"
-					data-resize="true" data-rolling="false" data-indicator-type="label"
+				<div class="index-slider style-main home" data-ui="slider"
+					data-resize="true" data-rolling="true" data-indicator-type="label"
 					tabindex="-1"
-					style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-					<div class="outer-frame">
-						<ul class="inner-frame">
-							<li class="ui-slide c-banner-mobile" id="ui_slide1"
-								style="background: rgb(223, 223, 223); width: 6200px;"
-								data-index="0"><a href="/c/showroom/26"> <img
-									src="https://image.idus.com/image/files/ec5ec20056ab46388a9c2c1d8cf80c8c.jpg"
-									alt="전국 클래스 모음집? 서울 남부 편">
+					style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0)">
+					<div id="slider" class="outer-frame">
+						<ul class="inner-frame" style="margin-left: 0px;">
+							<li class="ui-slide showroom-banner" style="background: #d16160;" data-id="1765"><a
+								href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg9.jpg"
+									alt="서울동부편">
 							</a></li>
-							<li class="ui-slide c-banner-mobile" id="ui_slide2"
-								style="background: rgb(223, 223, 223); width: 6200px;"
-								data-index="1"><a href="/c/showroom/44"> <img
-									src="https://image.idus.com/image/files/c5eb0e177bb8407db9503ff3f5ad8e7a.jpg"
-									alt="전국 클래스 모음집 ?서울 동부 편">
+							<li class="ui-slide showroom-banner" style="background: #9D6F6F;"
+								data-id="1710"><a href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg10.jpg" alt="서울서부편">
 							</a></li>
-							<li class="ui-slide c-banner-mobile" id="ui_slide3"
-								style="background: rgb(223, 223, 223); width: 6200px;"
-								data-index="2"><a href="/c/showroom/45"> <img
-									src="https://image.idus.com/image/files/a160243837024748ba701bb76a4c9992.jpg"
-									alt="전국 클래스 모음집 ?서울 서부 편">
+							<li class="ui-slide showroom-banner" style="background: #316E64;"
+								data-id="1766"><a href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg11.jpg"
+									alt="서울북부편">
 							</a></li>
-							<li class="ui-slide c-banner-mobile" id="ui_slide4"
-								style="background: rgb(223, 223, 223); width: 6200px;"
-								data-index="3"><a href="/c/showroom/25"> <img
-									src="https://image.idus.com/image/files/c7cc4e42dfeb45af886442106bd6e570.jpg"
-									alt="전국 클래스 모음집? 서울 북부 편">
+							<li class="ui-slide showroom-banner" style="background: #F4F1ED;"
+								data-id="1711"><a href="product_search.do"> <img
+									src="resources/images/index/indexBannerImg12.jpg"
+									alt="부산편">
 							</a></li>
-							<li class="ui-slide c-banner-mobile" id="ui_slide5"
-								style="background: rgb(223, 223, 223); width: 1303px;"
-								data-index="4"><a href="/c/showroom/29"> <img
-									src="https://image.idus.com/image/files/297fca2ae5814b5dac2bf02a07c58d1e.jpg"
-									alt="전국 클래스 모음집  ?부산 편">
+							<li class="ui-slide showroom-banner"
+								style="background: #4B2C2C; display: list-item;" data-id="1709"><a
+								href="index.do"> <img
+									src="resources/images/index/indexBannerImg8.jpg"
+									alt="서울남부편">
 							</a></li>
 						</ul>
 					</div>
 					<fieldset class="ui-control" style="display: block;">
-						<button type="button" class="ui-btn prev" aria-label="이전" onclick="prevSlider();">
+						<button type="button" class="ui-btn prev control-prev"
+							aria-label="이전" >
 							<i class="fa fa-chevron-left fa-2x"></i>
 						</button>
-						<nav class="indicator">
-							<span class="ui-paging-current" id="current_page">1</span>/5
-						</nav>
-						<button type="button" class="ui-btn next" aria-label="다음" onclick="nextSlider();">
+						<nav class="indicator"></nav>
+						<button type="button" class="ui-btn next control-next"
+							aria-label="다음" >
 							<i class="fa fa-chevron-right fa-2x"></i>
 						</button>
 					</fieldset>

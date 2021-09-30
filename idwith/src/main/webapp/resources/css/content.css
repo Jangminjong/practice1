@@ -863,7 +863,6 @@ i {
 }
 
 .control-next{
-	
 	margin-left: 1300px;
 	text-shadow: 0 1px 1px #444;
 }
@@ -873,6 +872,6 @@ i {
 	text-shadow: 0 1px 1px #444;
 }
 
-.ui-slide img{
-	margin-left: -150px;
+.showroom-banner img{
+	 margin-left: -150px; 
 }
