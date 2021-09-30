@@ -225,22 +225,11 @@
 							가입하기</a>
 					</div>
 					<div data-v-38bd83a8="" data-v-668c286c=""
-						class="horizontal_buttons">
+						class="horizontal_buttons" style="background-color:#04cf5c; height:45px; width:100%; margin-top:10px;">
 						<a data-v-38bd83a8="" idus-log-selector="third_party"
 							id="naver_id_login"
-							class="radius_button naver"><span data-v-38bd83a8=""
-							idus-log="naver" class="sp-icon icon-naver"></span></a> <a
-							data-v-38bd83a8="" idus-log-selector="third_party"
-							href="/w/facebook/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%EB%A7%9B%EC%9E%88%EB%8A%94+%EA%B9%90%EB%B0%A4"
-							class="radius_button facebook"><span data-v-38bd83a8=""
-							idus-log="facebook" class="sp-icon icon-facebook"></span></a> <a
-							data-v-38bd83a8="" idus-log-selector="third_party"
-							href="/w/twitter/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%EB%A7%9B%EC%9E%88%EB%8A%94+%EA%B9%90%EB%B0%A4"
-							class="radius_button twitter"><span data-v-38bd83a8=""
-							idus-log="twitter" class="sp-icon icon-twitter"></span></a> <a
-							data-v-38bd83a8="" idus-log-selector="third_party" href=""
-							class="radius_button apple"><span data-v-38bd83a8=""
-							idus-log="apple" class="sp-icon icon-apple"></span></a>
+							class="bar_button naver" style="float:center;"><span data-v-38bd83a8=""
+							idus-log="naver" class="sp-icon icon-naver"></span></a>
 					</div>
 				</div>
 				

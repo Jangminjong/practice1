@@ -57,16 +57,19 @@
 				<div class="login-sns wrap h">
 					<div class="login-sns item kakaotalk" data-auth-type="kakaotalk">
 						<a id="kakao-login-btn" href="javascript:kakaoSign()"
-							data-idus-log="kakaotalk"> <span
-							class="sp-icon icon-kakaotalk"></span> 카카오톡으로 3초만에 시작하기
+							data-idus-log="kakaotalk">
+							<img alt="" src="resources/images/login/kakao.png" style="width:44px; height:44px;">
 						</a>
-						<a id="cancel" href="javascript:cancel()">연결끊기</a>
 					</div>
 					
+					<a id="cancel" href="javascript:cancel()" style="display:none;">연결끊기</a>
 					<!-- '네이버 아이디로 가입하기' 버튼 -->
 					<div id="naver_id_login" class="login-sns item naver" data-auth-type="naver"></div>
 
-                    <script type="text/javascript">
+					<div class="login-sns item email" data-auth-type="email">
+						<a href="sign.do" data-idus-log="email"> 이메일로 가입하기 </a>
+					</div>
+					<script type="text/javascript">
                     	var naver_id_login = new naver_id_login("aBJVgRXccefohvFJVX65", "http://localhost:8080/mpweb/naver.do");
                 		var state= naver_id_login.getUniqState();           	
                 		naver_id_login.setDomain("http://localhost:8080/mpweb");	//  서비스URL
@@ -74,42 +77,7 @@
                  		naver_id_login.init_naver_id_login("");
                     </script>
                     
-					
-					<div class="login-sns item more">
-						 <button class="show-more-signup-btn" data-ui="toggle_view"
-							onclick="showHidden();" >다른 방법으로 가입하기</button>
-						<!-- <button class="show-more-signup-btn" data-ui="toggle_view"
-							href="sign.do">이메일로 가입하기</button> -->
-					</div>
 
-					<div class="hidden" data-ui="toggle_target">
-						<div class="login-sns item naver" data-auth-type="naver">
-							<a data-sns-login="naver"
-								href="/w/naver/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fc"
-								data-idus-log="naver"> <span class="sp-icon icon-naver"></span>
-								네이버로 가입하기
-							</a>
-						</div>
-						<div class="login-sns item facebook" data-auth-type="facebook">
-							<a data-sns-login="facebook"
-								href="/w/facebook/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fc"
-								data-idus-log="facebook"> <span
-								class="sp-icon icon-facebook"></span> 페이스북으로 가입하기
-							</a>
-						</div>
-						<div class="login-sns item twitter" data-auth-type="twitter">
-							<a data-sns-login="twiiter"
-								href="/w/twitter/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fc"
-								data-idus-log="twitter"> <span class="sp-icon icon-twitter"></span>
-								트위터로 가입하기
-							</a>
-						</div>
-						<div class="login-sns item email" data-auth-type="email">
-							<a
-								href="sign.do"
-								data-idus-log="email"> 이메일로 가입하기 </a>
-						</div>
-					</div>
 
 					<div class="addition-txt mt30">
 						이미 가입하셨다면 <a href="login.do">바로 로그인하기</a>
