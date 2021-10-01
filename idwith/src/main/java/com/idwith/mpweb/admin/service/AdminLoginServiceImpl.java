@@ -16,4 +16,8 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 	public List<AdminVO> getAdmin(AdminVO vo) {
 		return adminLoginDAO.getAdmin(vo);
 	}
+	
+	public int CheckID(String id, String pwd) {
+		return adminLoginDAO.CheckID(id, pwd);
+	}
 }

@@ -15,4 +15,7 @@
  	<select id="getAdmin" resultType="adminVO" resultMap="adminResult">
 		select * from manager where admin_id=#{admin_id}
  	</select>
+ 	<select id="InfoCheck" resultType="adminVO">
+		select admin_id, admin_pwd from manager where admin_id=#{admin_id}
+ 	</select>
 </mapper>
