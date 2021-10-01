@@ -1,4 +1,5 @@
 
+// 사용자 블랙 설정
 function blockAgree(userId) {
 	console.log(userId);
 	Swal.fire({
@@ -27,7 +28,6 @@ function blockAgree(userId) {
 							'해당 사용자는 블랙리스트 처리되었습니다.'
 						)
 						location.href = "userList.mdo";
-
 					} else if (data == 0) {
 						Swal.fire(
 							'블랙 오류',
@@ -39,11 +39,12 @@ function blockAgree(userId) {
 				error: function(request, status, error) {
 					alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
 				}
-			});
+			}); // end ajax
 		}
 	})
 }
 
+// 사용자 계정 복원
 function blockCancle(userId) {
 	console.log(userId);
 	Swal.fire({
@@ -88,5 +89,3 @@ function blockCancle(userId) {
 		}
 	})
 }
-
-

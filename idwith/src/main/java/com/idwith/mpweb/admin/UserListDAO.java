@@ -37,4 +37,12 @@ public class UserListDAO {
 		int result = sqlSessionTemplate.update("UserListDAO.blockCancelUpdate", userId);
 		return result;
 	}
+	
+	/**사용자 상세내용 처리*/
+	public UserListVO getUserContent(UserListVO userList) {
+		System.out.println("getUserContent 기능 처리");
+		UserListVO user = sqlSessionTemplate.selectOne("UserListDAO.getUserContent", userList);
+		return user;
+	}
+	
 }

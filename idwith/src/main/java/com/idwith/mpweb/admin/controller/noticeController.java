@@ -77,6 +77,14 @@ public class noticeController {
 		return "detailAdminNotice";
 	}
 	
+	@RequestMapping("/adminNoticeContent.mdo")
+	public String adminNoticeContent(AdminNoticeBoardVO adminNotice, Model model) {
+		System.out.println("글 상세내용 조회");
+		System.out.println("내용 조회 seq : " + adminNotice.getAdminBoardSeq());
+		model.addAttribute("adminNoticeCont", adminNoticeService.getAdminNotice(adminNotice));
+		return "adminNoticeContent";
+	}
+	
 	/**愿�怨꾩옄 怨듭��궗�빆 湲� �닔�젙*/
 	@RequestMapping("/updateAdminNotice.mdo")
 	public String updateAdminNotice(AdminNoticeBoardVO adminNotice) {

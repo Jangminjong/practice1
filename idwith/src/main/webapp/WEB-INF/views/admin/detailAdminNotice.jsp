@@ -153,7 +153,7 @@
 							<div class="col-md-4">
 								<label class="form-label">제목</label> 
 								<input type="text" name="adminBoardTitle"
-									class="form-control" value="${adminNotice.adminBoardTitle }"
+									class="form-control" value="${adminNotice.adminBoardTitle}"
 									style="width: auto;">
 							</div>
 							<div class="col-md-4">
@@ -180,7 +180,7 @@
 								<div class="col-md-3 text-center"></div>
 								<div class="col-md-3 text-center">
 									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" /> 
-									<input type="submit" class="btn btn-primary" id="updateNotice-admin-submit" value="수정" />
+									<input type="submit" class="btn btn-primary" id="updateNotice-admin-submit" value="등록" />
 									<a href="deleteAdminNotice.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">
 										<button type="button" class="btn btn-primary">삭제</button>
 									</a>

@@ -35,4 +35,10 @@ public class UserListServiceImpl implements UserListService {
 		return userListDAO.blockCancelUpdate(userId);
 	}
 
+	@Override
+	public UserListVO getUserContent(UserListVO userList) {
+		System.out.println("사용자 상세보기 처리 service");
+		return userListDAO.getUserContent(userList);
+	}
+
 }

@@ -30,6 +30,7 @@
 		select count(*) from client;
 	</select>
 	
+	<!-- Block 처리 -->
 	<update id="blockStatusUpdate">
 		update client set USER_BLACK_CHECK = true where USER_ID=#{userId}
 	</update>
@@ -37,6 +38,11 @@
 	<update id="blockCancelUpdate">
 		update client set USER_BLACK_CHECK = false where USER_ID=#{userId}
 	</update>
+	
+	<!-- 사용자 상세보기 -->
+	<select id="getUserContent" parameterType="com.idwith.mpweb.admin.UserListVO" resultMap="userListResult">
+		SELECT * From client WHERE USER_ID=#{userId}
+	</select>
 	
 
 </mapper>

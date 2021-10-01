@@ -20,11 +20,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.idwith.mpweb.admin.EmailDTO;
 import com.idwith.mpweb.admin.ProposeVO;
 import com.idwith.mpweb.admin.SellerVO;
+import com.idwith.mpweb.admin.UserListDAO;
+import com.idwith.mpweb.admin.UserListVO;
 import com.idwith.mpweb.admin.service.EmailService;
 import com.idwith.mpweb.admin.service.ProposeService;
 import com.idwith.mpweb.admin.service.SellerService;
 import com.idwith.mpweb.admin.service.UserListService;
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.service.UserService;
 
 @Controller
 public class managementController {
@@ -42,8 +45,11 @@ public class managementController {
 	
 	
 	// 회원 
-	@GetMapping("/user.mdo")
-	public String adminUser() {
+	@RequestMapping("/user.mdo")
+	public String getUserContent(UserListVO userList, Model model) {
+		System.out.println("사용자 상세보기 출력");
+		System.out.println("내용 출력 ID : " + userList.getUserId());
+		model.addAttribute("userList", userListService.getUserContent(userList));
 		return "user";
 	}
 	

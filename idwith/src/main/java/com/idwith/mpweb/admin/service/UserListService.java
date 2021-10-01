@@ -18,5 +18,9 @@ public interface UserListService {
 
 	// 복원 처리
 	int blockCancel(String userId);
+
+	// 회원 상세보기
+	UserListVO getUserContent(UserListVO userList);
+	
 	
 }

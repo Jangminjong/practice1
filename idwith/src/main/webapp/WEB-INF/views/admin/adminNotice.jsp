@@ -174,7 +174,7 @@
 												<c:forEach var="adminNotice" items="${NoticeViewAll}">
 													<tr>
 														<td>${adminNotice.rownum}</td>
-														<td><a href="detailAdminNotice.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">${adminNotice.adminBoardTitle}</a></td>
+														<td><a href="adminNoticeContent.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">${adminNotice.adminBoardTitle}</a></td>
 														<td>${adminNotice.adminBoardId }</td>
 														<td>
 															<fmt:formatDate value="${adminNotice.adminBoardRegDate}" pattern="yyyy.MM.dd"/>

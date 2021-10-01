@@ -23,7 +23,7 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
-<script type="text/javascript" src="resources/admin/js/userListBlock.js"></script>
+<script type="text/javascript" src="resources/admin/js/userList.js"></script>
 </head>
 
 <body>
@@ -170,24 +170,25 @@
 						</div>
 						<div class="row">
 							<div class="card col-12">
+							<form>
 								<div class="card flex-fill">
 									<table class="table table-hover my-0">
 										<thead>
 											<tr>
-												<th scope="col">아이디</th>
-												<th scope="col">연락처</th>
-												<th scope="col">등급</th>
-												<th scope="col">가입일자</th>
-												<th scope="col">블랙여부</th>
-												<th scope="col">블랙</th>
+												<th scope="col" width="25%">아이디</th>
+												<th scope="col" width="15%">이름</th>
+												<th scope="col" width="15%">등급</th>
+												<th scope="col" width="15%">가입일자</th>
+												<th scope="col" width="15%">블랙여부</th>
+												<th scope="col" width="15%">블랙</th>
 
 											</tr>
 										</thead>
 										<tbody>
 											<c:forEach var="userList" items="${UserListAll}">
 											<tr>
-												<td><a href="user.mdo?userId=${userId}">${userList.userId}</a></td>
-												<td>${userList.userPhone}</td>
+												<td><a href="user.mdo?userId=${userList.userId}">${userList.userId}</a></td>
+												<td>${userList.userName }</td>
 												<td>${userList.userGrade}</td>
 												<td>
 													<fmt:formatDate value="${userList.userJoinDate}" pattern="yyyy.MM.dd"/>
@@ -263,7 +264,6 @@
 				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
-			
 		</div>
 	</div>
 </body>

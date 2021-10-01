@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -383,8 +383,6 @@
 								}else if(result_data == 0){//거절 오류 시 이메일 전송 보류
 									alert('작가 이메일 전송에 오류가 발생했습니다');
 								}
-								
-								
 							}//end if
 							
 						})

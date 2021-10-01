@@ -39,7 +39,7 @@
 	</delete>
 	
 	<!-- 관리자 공지사항 글 상세조회 -->
-	<select id="getAdminNotice" parameterType="com.idwith.mpweb.admin.board.AdminNoticeBoardVO" resultMap="adminNoticeResult">
+	<select id="getAdminNotice" parameterType="adminNotice" resultMap="adminNoticeResult">
 		SELECT * FROM admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
 	</select>
 

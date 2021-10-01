@@ -26,8 +26,7 @@
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="main.mdo"> <span
-					class="align-middle"> <img
-						src="resources/admin/img/white_logo.png"
+					class="align-middle"> <img src="resources/admin/img/white_logo.png"
 						style="margin-bottom: 0px; margin-top: 15px; margin-left: 30px; max-width: 150px; height: auto;">
 				</span>
 				</a>
@@ -81,8 +80,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="qna.mdo"> <i class="align-middle" data-feather="bell"></i>
-							<span class="align-middle">QnA</span>
+						href="qna.mdo"> <i class="align-middle"
+							data-feather="bell"></i> <span class="align-middle">QnA</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#coupon"
@@ -99,8 +98,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="category.mdo"> <i class="align-middle"
-							data-feather="edit-2"></i> <span class="align-middle">카테고리</span>
+						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
+							<span class="align-middle">카테고리</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
@@ -125,12 +124,11 @@
 					class="hamburger align-self-center"></i>
 				</a>
 
-				<div class="navbar-collapse collapse"
-					style="display: flex; justify-content: flex-end;">
-					<a class="nav-link d-none d-sm-inline-block" href="#"> <i
-						class="align-middle" data-feather="log-out" style="color: black;"></i>
-						<span class="text-dark">로그아웃</span>
-					</a>
+				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
+						<a class="nav-link d-none d-sm-inline-block" href="#"> 
+							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
+								<span class="text-dark">로그아웃</span>
+						</a>
 				</div>
 			</nav>
 
@@ -141,83 +139,57 @@
 
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>회원 : ${userList.userId}</h3>
-								</div>
-							</div>
-
-							<div class="card">
-								<div class="card-body" style="width: auto;">
-									<form>
-									<div class="row" style="margin-bottom: 5px;">
-										<div class="col-md-4">
-											<label class="form-label">아이디</label> 
-											<input type="text" class="form-control" name="userId" style="width: auto;" disabled="disabled" value="${userList.userId}">
-										</div>
-											<div class="col-md-4">
-												<label class="form-label">회원 이름</label> 
-												<input type="text"
-													class="form-control" style="width: auto;" name="userName" disabled="disabled" value="${userList.userName}">
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">전화번호</label> 
-												<input type="text" class="form-control"name="userPhone" style="width: auto;" disabled="disabled" value="${userList.userPhone}"">
-											</div>
-											</div>
-										<div class="mb-3" style="margin-top: 10px;">
-											<label class="form-label">우편번호</label> 
-											<input type="text"
-												class="form-control" name="userZipcode"
-												style="width: auto;" disabled="disabled" value="${userList.userZipcode}">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">주소</label>
-											<input type="text"
-												class="form-control" name="userAddress1" disabled="disabled" value="${userList.userAddress1 }">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">상세 주소</label> 
-											<input type="text"
-												class="form-control" name="userAddress2" disabled="disabled" value="${userList.userAddress2}">
-										</div>
-										<div class="row" style="margin-bottom: 5px;">
-											<div class="col-md-4">
-												<label class="form-label">회원등급</label> 
-												<input type="text"
-													class="form-control" name="userGrade" style="width: auto;"
-													id="cpStartDate" disabled="disabled" value="${userList.userGrade}">
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">누적 구매액</label> 
-												<input type="text"
-													class="form-control" name="userAllmcount"
-													style="width: auto;" id="cpEndDate" disabled="disabled" value="${userList.userAllmcount}">
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">가입일</label>
-												<fmt:formatDate value="${userList.userJoinDate}" var="fmtRegDate" pattern="yyyy.MM.dd"/>
-												<input type="text"
-													class="form-control" name="userJoinDate" style="width: auto;"
-													id="cpEndDate" disabled="disabled" value="${fmtRegDate}">
-											</div>
-											</div>
-									</form>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-right">
-									<a href="userList.mdo">
-										<button class="btn btn-primary">목록보기</button>
-									</a>
+									<h3>Notice Content</h3>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<form class="row g-3" id="form-detailNotice-admin" name="detailAdminNoticeForm" action="detailAdminNotice.mdo" method="post">
+						<input type="hidden" name="adminBoardSeq" value="${adminNotice.adminBoardSeq}"/>
+							<div class="col-md-4">
+								<label class="form-label">제목</label> 
+								<input type="text" name="adminBoardTitle"
+									class="form-control" value="${adminNotice.adminBoardTitle }"
+									style="width: auto;" disabled="disabled">
+							</div>
+							<div class="col-md-4">
+								<label class="form-label">작성자</label> 
+								<input type="text" name="adminBoardId"
+									class="form-control" value="${adminNotice.adminBoardId}"
+									style="width: auto;" disabled="disabled">
+							</div>
+							<div class="col-md-4">
+								<label class="form-label">작성일</label> 
+								<fmt:formatDate var="fmtRegdate" value="${adminNotice.adminBoardRegDate}" pattern="yyyy.MM.dd"/>
+								<input type="text" class="form-control" name="adminBoardRegDate" value="${fmtRegdate}" style="width: auto;" disabled="disabled">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">내용</label>
+								<textarea class="form-control" rows="10" name="amdinBoardContent" disabled="disabled">${adminNotice.amdinBoardContent}</textarea>
+							</div>
+							<div class="mb-3">
+								<label class="form-label w-100">파일</label> <input type="file">
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center">
+									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" /> 
+									<input type="submit" class="btn btn-primary" id="updateNotice-admin-submit" value="수정" />
+									<a href="deleteAdminNotice.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">
+										<button type="button" class="btn btn-primary">삭제</button>
+									</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>
