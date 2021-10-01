@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -213,27 +214,14 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-												<td>Cell</td>
-											</tr>
+											<c:forEach var="adminNotice" items="${NoticeViewAll}" begin="1" end="3">
+												<tr>
+													<td>${adminNotice.rownum}</td>
+													<td>${adminNotice.adminBoardTitle}</td>
+													<td>${adminNotice.adminBoardId}</td>
+													<td>${adminNotice.adminBoardCnt}</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>

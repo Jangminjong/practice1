@@ -19,6 +19,11 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+
+<script type="text/javascript" src="resources/admin/js/admiNotice.js"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 
 <body>
@@ -151,17 +156,17 @@
 							action="insertNotice.mdo" method="post" onsubmit="false">
 							<div class="mb-3">
 								<label class="form-label">Notice Title</label> <input
-									type="text" class="form-control" name="adminBoardTitle"
+									type="text" class="form-control" name="adminBoardTitle" id="adminBoardTitle"
 									placeholder="제목" style="width: auto;">
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
-								<textarea class="form-control" name="amdinBoardContent"
+								<textarea class="form-control" name="amdinBoardContent" id="amdinBoardContent"
 									placeholder="내용" rows="10"></textarea>
 							</div>
 							<div class="mb-3">
 								<label class="form-label w-100">File input</label> <input
-									type="file" name="adminBoardFilePath">
+									type="file" name="adminBoardFilePath" id="adminBoardFilePath">
 							</div>
 							<div class="row">
 								<div class="col-md-3 text-center"></div>
@@ -172,7 +177,7 @@
 									<input class="btn btn-primary" type="reset" value="초기화" />
 									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" />
 								</div>
-							</div>ㄴ
+							</div>
 						</form>
 					</div>
 				</div>

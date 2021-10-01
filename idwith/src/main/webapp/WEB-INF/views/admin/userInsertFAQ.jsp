@@ -21,6 +21,8 @@
 <link href="resources/admin/css/app.css" rel="stylesheet">
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/admin/js/aboutUser.js"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>

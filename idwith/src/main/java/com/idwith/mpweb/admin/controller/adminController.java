@@ -33,8 +33,6 @@ public class adminController {
 			admin_role = admin.getAdmin_role();
 		}
 		
-		
-		
 		session.setAttribute("admin_name", admin_name);
 		session.setAttribute("admin_role", admin_role);
 		
