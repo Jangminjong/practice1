@@ -189,20 +189,19 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>클래스 신청 </h3>
-                            
+                            <h3>클래스 신청 </h3>          
                         </div>
                         <div class="body">
-                         <div class="table-responsive">
                             <form id="form_validation" action="classInsertApply.wdo" method="POST" enctype="multipart/form-data" >
-								<label>
-									<select  name='DataTables_Table_0_length' id="productCategory" aria-controls="DataTables_Table_0" class=" form-control input-sm"><!--   -->
-										<option value='11'>11</option>
-										<option value='ceramic'>도자기</option>
-										<option value='doll'>인형</option>
-										<option value='phone_case'>휴대폰 케이스</option>
-									</select>
-								</label>
+								<div class="form-group form-float"> 카테고리 &nbsp;&nbsp;
+								<select name='product_category' id="productCategory"
+									onblur="onblurEvent(this);">
+									<option value='' selected>-- 선택 --</option>
+									<option value='ceramic'>도자기</option>
+									<option value='doll'>인형</option>
+									<option value='phone_case'>휴대폰 케이스</option>
+								</select>
+								</div>
 								<div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="classApplyName" required>
@@ -302,7 +301,7 @@
     <script src="resources/writer/plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="resources/writer/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <!-- <script src="resources/writer/plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
 
     <!-- Slimscroll Plugin Js -->
     <script src="resources/writer/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
