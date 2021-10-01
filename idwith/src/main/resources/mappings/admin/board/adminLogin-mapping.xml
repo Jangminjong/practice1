@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="AdminLoginDAO">
+ 	<resultMap type="adminVO" id="adminResult">
+ 		<result property="admin_id" column="admin_id"/>
+ 		<result property="admin_name" column="admin_name"/>
+ 		<result property="admin_pwd" column="admin_pwd"/>
+ 		<result property="admin_phone" column="admin_phone"/>
+ 		<result property="admin_role" column="admin_role"/>
+ 		
+ 	</resultMap>
+ 	<select id="getAdmin" resultType="adminVO" resultMap="adminResult">
+		select * from manager where admin_id=#{admin_id}
+ 	</select>
+</mapper>

@@ -11,49 +11,44 @@ package com.idwith.mpweb.admin;
 
 public class AdminVO {
 	
-	private String adminId;
-	private String adminName;
-	private String adminPwd;
-	private String adminPhone;
-	private String adminRole;
+	private String admin_id;
+	private String admin_name;
+	private String admin_pwd;
+	private String admin_phone;
+	private String admin_role;
 	
 	
-	public String getAdminId() {
-		return adminId;
+	public String getAdmin_id() {
+		return admin_id;
 	}
-	public void setAdminId(String adminId) {
-		this.adminId = adminId;
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
 	}
-	public String getAdminName() {
-		return adminName;
+	public String getAdmin_name() {
+		return admin_name;
 	}
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
+	public void setAdmin_name(String admin_name) {
+		this.admin_name = admin_name;
 	}
-	public String getAdminPwd() {
-		return adminPwd;
+	public String getAdmin_pwd() {
+		return admin_pwd;
 	}
-	public void setAdminPwd(String adminPwd) {
-		this.adminPwd = adminPwd;
+	public void setAdmin_pwd(String admin_pwd) {
+		this.admin_pwd = admin_pwd;
 	}
-	public String getAdminPhone() {
-		return adminPhone;
+	public String getAdmin_phone() {
+		return admin_phone;
 	}
-	public void setAdminPhone(String adminPhone) {
-		this.adminPhone = adminPhone;
+	public void setAdmin_phone(String admin_phone) {
+		this.admin_phone = admin_phone;
 	}
-	public String getAdminRole() {
-		return adminRole;
+	public String getAdmin_role() {
+		return admin_role;
 	}
-	public void setAdminRole(String adminRole) {
-		this.adminRole = adminRole;
+	public void setAdmin_role(String admin_role) {
+		this.admin_role = admin_role;
 	}
 	
 	
-	@Override
-	public String toString() {
-		return "AdminVO [adminId=" + adminId + ", adminName=" + adminName + ", adminPwd=" + adminPwd + ", adminPhone="
-				+ adminPhone + ", adminRole=" + adminRole + "]";
-	}
 
 }
