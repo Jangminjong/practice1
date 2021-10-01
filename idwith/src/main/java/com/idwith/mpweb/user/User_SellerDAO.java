@@ -27,4 +27,40 @@ public class User_SellerDAO {
 		
 		return sellerList;
 	}
+
+	public List<UserSellerVO> getSellerInfo(String seller_code) {
+		List<UserSellerVO> sellerInfo = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerInfo", seller_code);
+		
+		System.out.println("결과 값 : " + sellerInfo);
+		
+		return sellerInfo;
+	}
+
+	public List<UserSellerVO> getSellerProfile(String seller_code) {
+		List<UserSellerVO> profile = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerProfile", seller_code);
+		
+		return profile;
+	}
+
+	public List<UserSellerVO> getSellerStory(String seller_code) {
+		List<UserSellerVO> story = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerStory", seller_code);
+		
+		return story;
+	}
+
+	public int getClassCheck(String seller_code) {
+		boolean result = sqlSessionTemplate.selectOne("SellerCheckDAO.getClassCheck", seller_code);
+		int classCheck = 0;
+		
+		if(result == true) {
+			classCheck = 1;
+		}
+		
+		return classCheck;
+	}
+
+	public List<SellerClassVO> getClassList(String seller_code) {
+		List<SellerClassVO> classList = sqlSessionTemplate.selectList("SellerCheckDAO.getClassList", seller_code);
+		return classList;
+	}
 }

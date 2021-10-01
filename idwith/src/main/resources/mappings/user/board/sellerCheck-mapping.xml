@@ -17,10 +17,44 @@
  		<result property="seller_class_yn" column="seller_class_yn"/>
  		<result property="seller_status" column="seller_status"/>
  	</resultMap>
+ 	
+ 	<resultMap type="sellerClassVO" id="sellerClassResult">
+ 		<result property="seller_code" column="seller_code"/>
+ 		
+ 	</resultMap>
+ 	
+ 	<!-- 로그인 시 작가인지 판별 -->
  	<select id="sellerCheck" resultType="_long">
  		select seller_code from seller where user_id=#{user_id}
  	</select>
+ 	
+ 	<!-- 인기작가 리스트 -->
  	<select id="getSellerList" resultType="userSellerVO" resultMap="sellerCheckResult">
  		select * from seller
+ 	</select>
+ 	
+ 	<!-- 작가 정보 가져오기 -->
+ 	<select id="getSellerInfo" resultType="userSellerVO" resultMap="sellerCheckResult">
+ 		select * from seller where seller_code=${seller_code}
+ 	</select>
+ 	
+ 	<!-- 작가 프로필 가져오기 -->
+ 	<select id="getSellerProfile" resultType="userSellerVO" resultMap="sellerCheckResult">
+ 		select * from seller where seller_code=${seller_code}
+ 	</select>
+ 	
+ 	<!-- 작가 스토리 가져오기 -->
+ 	<select id="getSellerStory" resultType="userSellerVO" resultMap="sellerCheckResult">
+ 		select * from seller where seller_code=${seller_code}
+ 	</select>
+ 	
+ 	<!-- 클래스 작가 여부 체크 -->
+ 	<select id="getClassCheck" resultType="_boolean">
+ 		select seller_class_yn from seller where seller_code=${seller_code}
+ 	</select>
+ 	
+ 	<!-- 작가가 등록한 클래스리스트 가져오기 -->
+ 	<select id="getClassList" resultType="sellerClassVO" resultMap="sellerClassResult">
+ 		select * from class_reg where seller_code=#{seller_code}
  	</select>
 </mapper>

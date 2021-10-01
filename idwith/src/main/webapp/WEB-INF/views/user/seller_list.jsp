@@ -41,13 +41,13 @@
 								<a class="img-profile"
 									style="background-image: url('resources/images/detail/artist01.PNG');"
 									target="_blank"
-									href="seller_goods.do">
+									href="seller_goods.do?seller_code=${list.seller_code}">
 								</a>
 							</div>
 							<div class="split">
 								<div class="area-txt">
 									<a
-										href="seller_goods.do"
+										href="seller_goods.do?seller_code=${list.seller_code}"
 										class="title" target="_blank">${list.seller_name }</a>
 									<div class="ui_rating" data-ui="rating" data-value="5">
 										<i class="idus-icon-star-fill" style="font-size: 14px;"
@@ -74,7 +74,7 @@
 									</div>
 									<div class="col popular-artist-col">
 										<a class="btn btn-s btn-white" target="_blank"
-											href="seller_goods.do">
+											href="seller_goods.do?seller_code=${list.seller_code}">
 											작품 더보기 </a>
 									</div>
 								</div>
