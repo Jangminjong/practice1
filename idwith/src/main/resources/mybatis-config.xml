@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.admin.ProposeVO" alias="proposeVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.SellerVO" alias="sellerVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminNoticeBoardVO" alias="adminNotice"/>
- 		<typeAlias type="com.idwith.mpweb.writer.WriterClassApplyVO" alias="writerClassApply"/>
+ 		<typeAlias type="com.idwith.mpweb.writer.WriterClassRegVO" alias="writerClassReg"/>
  	</typeAliases>
  	<typeHandlers>
  		<typeHandler handler="org.apache.ibatis.type.ArrayTypeHandler" jdbcType="ARRAY" javaType="String"/>
@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/admin/board/adminBoard-mapping.xml"/>
  		<mapper resource="mappings/admin/board/sellerEnrollment-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminNoticeBoard-mapping.xml"/>
- 		<mapper resource="mappings/writer/apply/classApply-mapping.xml"/>
+ 		<mapper resource="mappings/writer/reg/classReg-mapping.xml"/>
  		<!--  <mapper resource="mappings/admin/board/adminBoard-mapping.xml"/> -->
  		<!-- <mapper resource="mappings/writer/board/userBoard-mapping.xml"/> -->
  	</mappers>

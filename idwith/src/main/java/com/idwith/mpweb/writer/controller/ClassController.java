@@ -20,7 +20,7 @@ import com.idwith.mpweb.writer.common.S3Service;
 import com.idwith.mpweb.writer.service.ClassApplyService;
 
 
-import com.idwith.mpweb.writer.WriterClassApplyVO;
+import com.idwith.mpweb.writer.WriterClassRegVO;
 
 @Controller
 public class ClassController {
@@ -52,14 +52,13 @@ public class ClassController {
 		return "classOpen";
 	}
 	
-	@RequestMapping(value="/classInsertApply.wdo", method=RequestMethod.POST)
-	public String classInsertApply(WriterClassApplyVO writerClassApplyVO, HttpServletRequest request,MultipartFile[] file, Model model,HttpSession session)  throws IOException, PSQLException, IllegalStateException {
+	@RequestMapping(value="/classInsertReg.wdo", method=RequestMethod.POST)
+	public String classInsertApply(WriterClassRegVO writerClassRegVO, HttpServletRequest request,MultipartFile[] file, Model model,HttpSession session)  throws IOException, PSQLException, IllegalStateException {
 		
 		String writerId = session.getAttribute("email").toString();
 		String sellerCode = session.getAttribute("sellerCheck").toString();		
 		System.out.println("file.length=========>" + file.length);
-		writerClassApplyVO.setClassApplyId(writerId);
-		writerClassApplyVO.setClassApplySeller(sellerCode);
+		writerClassRegVO.setClassSeller(sellerCode);
 		String[] photo = new String[file.length];
 		
 		for (int i = 0; i < file.length; i++) {
@@ -76,14 +75,14 @@ public class ClassController {
 	            String contentType = file[i].getContentType();
 	            long contentLength = file[i].getSize();
 
-	            String bucket = "idwith/writer/" + writerId + "/" + writerClassApplyVO.getClassApplyName();
+	            String bucket = "idwith/writer/" + writerId + "/" + writerClassRegVO.getClassName();
 	            s3Service.upload(is, uploadKey, contentType, contentLength, bucket);
 	            String filePath = "https://idwith.s3.ap-northeast-2.amazonaws.com/writer/"+ writerId + "/" + uploadKey;
 	            photo[i] = filePath;
 	         }
 	      }
-		writerClassApplyVO.setClassApplyPhoto(photo);
-		classApplyService.classApplyInsert(writerClassApplyVO);
+		writerClassRegVO.setClassPhoto(photo);
+		classApplyService.classApplyInsert(writerClassRegVO);
 		return "redirect:/classManagement.wdo";
 	}
 	

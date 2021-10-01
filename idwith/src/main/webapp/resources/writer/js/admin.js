@@ -568,9 +568,16 @@ $(function () {
 
 //==============================================================================================
 // 파일업로드 추가
+var imgInt = 1;
+var imgInput = "imageinput";
 function inputGroupAdd(){
-	var inputClone = $(".mb-3 input:first-child").clone();
-	$(".addImage-group").append(inputClone);	
+	imgInt += 1;
+	var inputClone = $(".mb-3 input:first-child").clone().prop('id',imgInput+imgInt);
+	var buttonClone = $(".mb-3 button:last-child").clone().css({'display' : ''});
+	$(".addImage-group").append(inputClone);
+	console.log(buttonClone.val());
+	$(".addImage-group").append(buttonClone);	
+	console.log(imgInput+imgInt);
 }
 
 function execDaumPostcode() {
@@ -628,6 +635,12 @@ function execDaumPostcode() {
     }).open();
 }
 
-function postLBChange(){
-	console.log('확인');
+function uploadDiscard(){
+	
 }
+
+$(window).ready(function(){
+	$(document).on("keyup", "#tel", function() { 
+		$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
+	});
+});
