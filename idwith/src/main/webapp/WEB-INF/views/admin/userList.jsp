@@ -150,27 +150,27 @@
 						<div class="row">
 							<div class="col-md-6 text-center"></div>
 							<div class="col-md-6 text-center" style="margin-bottom: 10px;">
-								<form class="d-none d-sm-inline-block float-right">
+								<form class="d-none d-sm-inline-block float-right" action="searchUser.mdo" method="get">
 									<ul class="nav nav-pills card-header-pills pull-right">
 										<div class="input-group">
+											<select class="form-control mb-3" style="margin-right: 10px; width: 85px;" name="searchCondition">
+												<option selected="selected" value="userName">이름</option>
+												<option value="userId">아이디</option>
+												<option value="userGrade">등급</option>
+												<option value="userBlackCheck">블랙</option>
+											</select>
 											<input type="text" class="form-control"
-												placeholder="검색 키워드를 입력하세요!">&nbsp; <span
+												placeholder="검색 키워드를 입력하세요!" style="width: 200px; height: 10px;" name="searchKeyword">&nbsp; <span
 												class="input-group-btn">
-												<button class="btn btn-warning" type="button">찾기</button>
+												<input class="btn btn-warning" type="submit" value="찾기">
 											</span>
 										</div>
 									</ul>
 								</form>
 							</div>
 						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> 블랙리스트 </label>
-						</div>
 						<div class="row">
 							<div class="card col-12">
-							<form>
 								<div class="card flex-fill">
 									<table class="table table-hover my-0">
 										<thead>

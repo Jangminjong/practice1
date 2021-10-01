@@ -150,9 +150,9 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-2 text-center">
+								<div class="col-md-2 text-left">
 									<select id="qna_type" name="board_category"
-										onchange="setQnACategory()">
+										onchange="setQnACategory()" class="form-control mb-3" style="width: 120px;">
 										<option value="구분">구분</option>
 										<option value="공지">공지</option>
 										<option value="결제">결제</option>

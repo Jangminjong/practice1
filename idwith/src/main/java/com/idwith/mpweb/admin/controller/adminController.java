@@ -19,7 +19,7 @@ public class adminController {
 	@Autowired
 	private AdminLoginService adminLoginService;
 	
-	@RequestMapping(value = "/main.mdo", method = RequestMethod.POST)
+	@RequestMapping(value = "/main.mdo", method = {RequestMethod.POST, RequestMethod.GET})
 	public String adminMain(AdminVO vo, HttpSession session) {
 		System.out.println("로그인 컨트롤러 실행");
 		
@@ -32,6 +32,8 @@ public class adminController {
 			admin_name = admin.getAdmin_name();
 			admin_role = admin.getAdmin_role();
 		}
+		
+		
 		
 		session.setAttribute("admin_name", admin_name);
 		session.setAttribute("admin_role", admin_role);

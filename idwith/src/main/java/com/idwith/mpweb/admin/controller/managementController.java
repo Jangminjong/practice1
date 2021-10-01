@@ -8,7 +8,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +17,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.EmailDTO;
-import com.idwith.mpweb.admin.ProposeVO;
 import com.idwith.mpweb.admin.SellerVO;
-import com.idwith.mpweb.admin.UserListDAO;
 import com.idwith.mpweb.admin.UserListVO;
 import com.idwith.mpweb.admin.service.EmailService;
 import com.idwith.mpweb.admin.service.ProposeService;
 import com.idwith.mpweb.admin.service.SellerService;
 import com.idwith.mpweb.admin.service.UserListService;
 import com.idwith.mpweb.common.PagingVO;
-import com.idwith.mpweb.user.service.UserService;
 
 @Controller
 public class managementController {
@@ -81,6 +77,36 @@ public class managementController {
 		return "userList";
 	}
 	
+	/**검색 리스트 처리*/
+	@GetMapping("/searchUser.mdo")
+	public String getSearchUser(PagingVO pagination, Model model, UserListVO userList,
+			@RequestParam(required = false, value = "nowPage")String nowPage,
+			@RequestParam(required = false, value = "cntPerPage")String cntPerPage) {
+		
+		System.out.println(pagination.getSearchCondition());
+		
+		int cnt = userListService.getSearchUserCnt(userList.getSearchKeyword());
+		
+		if(nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if(nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+
+		pagination = new PagingVO(cnt, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), pagination.getSearchCondition(), pagination.getSearchKeyword());
+		
+		List<UserListVO> pagingList = userListService.getSearchUser(pagination);
+		
+		model.addAttribute("paging", pagination);
+		model.addAttribute("UserListAll", pagingList);
+		model.addAttribute("cnt", cnt);
+		
+		return "userList";
+	}
+	
 	// 블락 처리
 	@RequestMapping(value="/blockUpdate.mdo", method=RequestMethod.GET, produces="application/text; charset=utf8")
 	@ResponseBody
@@ -103,19 +129,6 @@ public class managementController {
 		result = userListService.blockCancel(userId);
 		
 		return Integer.toString(result);
-	}
-	
-	/** 검색 기능 */
-	@GetMapping("/searchUser.mdo")
-	public String searchUser(Model model, UserListVO userList, 
-			@RequestParam(required = false, defaultValue ="1") int nowPage,
-			@RequestParam(required = false, defaultValue = "1") int cntPerPage,
-			@RequestParam("searchKeyword") String searchKeyword) {
-		
-		int userListTotal = userListService.countUserList();
-		
-		
-		return null;
 	}
 	
 	// 작가

@@ -22,5 +22,9 @@ public interface UserListService {
 	// 회원 상세보기
 	UserListVO getUserContent(UserListVO userList);
 	
+	// 회원 검색, 페이징
+	int getSearchUserCnt(String searchKeyword);
+	List<UserListVO> getSearchUser(PagingVO pagination);
+	
 	
 }

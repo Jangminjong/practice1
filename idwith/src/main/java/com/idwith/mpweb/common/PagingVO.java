@@ -6,6 +6,7 @@ public class PagingVO {
 	private int cntPage = 5;
 	private int cntPerPage = 20;
 	private String set;
+	private String searchCondition;
 	private String searchKeyword;
 
 	public PagingVO() {
@@ -25,6 +26,16 @@ public class PagingVO {
 		setCntPerPage(cntPerPage);
 		setTotal(total);
 		setSet(set);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
+	}
+	
+	public PagingVO(int total, int nowPage, int cntPerPage, String searchCondition, String searchKeyword) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		setSearchCondition(searchCondition);
 		setSearchKeyword(searchKeyword);
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);
@@ -155,11 +166,12 @@ public class PagingVO {
 		this.set = set;
 	}
 
-	@Override
-	public String toString() {
-		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
-				+ ", countNotice=" + countNotice + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
-				+ ", cntPage=" + cntPage + ", cntPerPage=" + cntPerPage + ", set=" + set + "]";
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
 	}
 
 	public String getSearchKeyword() {
@@ -170,7 +182,15 @@ public class PagingVO {
 		this.searchKeyword = searchKeyword;
 	}
 
+	@Override
+	public String toString() {
+		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
+				+ ", countNotice=" + countNotice + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
+				+ ", cntPage=" + cntPage + ", cntPerPage=" + cntPerPage + ", set=" + set + ", searchCondition="
+				+ searchCondition + ", searchKeyword=" + searchKeyword + "]";
+	}
 	
+
 	
 	
 }

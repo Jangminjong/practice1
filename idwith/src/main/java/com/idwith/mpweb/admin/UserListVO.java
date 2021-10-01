@@ -15,13 +15,14 @@ public class UserListVO {
 	private long userAllmcount;
 	private Timestamp userJoinDate;
 	private boolean userBlackCheck;
-	private String serchKeyword;
+	private String searchContdition;
+	private String searchKeyword;
 	
-	public String getSerchKeyword() {
-		return serchKeyword;
+	public String getSearchKeyword() {
+		return searchKeyword;
 	}
 	public void setSerchKeyword(String serchKeyword) {
-		this.serchKeyword = serchKeyword;
+		this.searchKeyword = serchKeyword;
 	}
 	public String getUserId() {
 		return userId;
@@ -91,12 +92,19 @@ public class UserListVO {
 		this.userBlackCheck = userBlackCheck;
 	}
 	
+	public String getSearchContdition() {
+		return searchContdition;
+	}
+	public void setSearchContdition(String searchContdition) {
+		this.searchContdition = searchContdition;
+	}
 	@Override
 	public String toString() {
 		return "UserListVO [userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName + ", userPhone="
 				+ userPhone + ", userZipcode=" + userZipcode + ", userAddress1=" + userAddress1 + ", userAddress2="
 				+ userAddress2 + ", userGrade=" + userGrade + ", userAllmcount=" + userAllmcount + ", userJoinDate="
-				+ userJoinDate + ", userBlackCheck=" + userBlackCheck + ", serchKeyword=" + serchKeyword + "]";
+				+ userJoinDate + ", userBlackCheck=" + userBlackCheck + ", searchContdition=" + searchContdition
+				+ ", serchKeyword=" + searchKeyword + "]";
 	}
-
+	
 }

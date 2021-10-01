@@ -44,5 +44,30 @@ public class UserListDAO {
 		UserListVO user = sqlSessionTemplate.selectOne("UserListDAO.getUserContent", userList);
 		return user;
 	}
+
+	public int getSearchCnt(String searchKeyword) {
+		System.out.println("UserListDAO - getSearchCnt() 실행");
+		return sqlSessionTemplate.selectOne("UserListDAO.getSearchCnt", searchKeyword);
+	}
+
+	public List<UserListVO> getSearchPagingList(PagingVO pagination) {
+		System.out.println("UserListDAO - getSearchPagingList() 실행");
+		
+		List<UserListVO> result = null;
+		
+		if(pagination.getSearchCondition().equals("userName")) {
+			result = sqlSessionTemplate.selectList("UserListDAO.getSearchNameList", pagination);
+		} else if(pagination.getSearchCondition().equals("userId")) {
+			result = sqlSessionTemplate.selectList("UserListDAO.getSearchIdList", pagination);
+		} else if(pagination.getSearchCondition().equals("userGrade")) {
+			result = sqlSessionTemplate.selectList("UserListDAO.getSearchGradeList", pagination);
+		} else if(pagination.getSearchCondition().equals("userBlackCheck")) {
+			result = sqlSessionTemplate.selectList("UserListDAO.getSearchBlackList", pagination);
+		}
+		
+		return result;
+	}
+
+
 	
 }

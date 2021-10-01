@@ -44,5 +44,42 @@
 		SELECT * From client WHERE USER_ID=#{userId}
 	</select>
 	
+	<!-- 검색 후 페이징처리 -->
+	<select id="getSearchCnt" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM client WHERE USER_NAME Like '%'||#{searchKeyword}||'%'
+	</select>
+	
+	<select id="getSearchNameList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="userListResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM client WHERE USER_NAME Like '%'||#{searchKeyword}||'%' OR USER_NAME is null ORDER BY USER_ID DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getSearchIdList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="userListResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM client WHERE USER_ID Like '%'||#{searchKeyword}||'%' ORDER BY USER_ID DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getSearchGradeList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="userListResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM client WHERE USER_GRADE Like '%'||#{searchKeyword}||'%' ORDER BY USER_ID DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getSearchBlackList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="userListResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM client WHERE USER_BLACK_CHECK=true AND USER_NAME Like '%'||#{searchKeyword}||'%' ORDER BY USER_ID DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
 
 </mapper>

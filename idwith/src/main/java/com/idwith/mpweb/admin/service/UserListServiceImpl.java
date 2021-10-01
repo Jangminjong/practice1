@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.idwith.mpweb.admin.UserListDAO;
 import com.idwith.mpweb.admin.UserListVO;
@@ -40,5 +41,17 @@ public class UserListServiceImpl implements UserListService {
 		System.out.println("사용자 상세보기 처리 service");
 		return userListDAO.getUserContent(userList);
 	}
+
+	@Override
+	@Transactional
+	public int getSearchUserCnt(String searchKeyword) {
+		return userListDAO.getSearchCnt(searchKeyword);
+	}
+
+	@Override
+	public List<UserListVO> getSearchUser(PagingVO pagination) {
+		return userListDAO.getSearchPagingList(pagination);
+	}
+
 
 }
