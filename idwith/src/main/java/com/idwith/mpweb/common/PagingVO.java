@@ -6,6 +6,7 @@ public class PagingVO {
 	private int cntPage = 5;
 	private int cntPerPage = 20;
 	private String set;
+	private String searchKeyword;
 
 	public PagingVO() {
 	}
@@ -24,11 +25,12 @@ public class PagingVO {
 		setCntPerPage(cntPerPage);
 		setTotal(total);
 		setSet(set);
+		setSearchKeyword(searchKeyword);
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);
 		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
 	}
-
+	
 	public PagingVO(int total, int nowPage, int cntPerPage, int countNotice) {
 		setNowPage(nowPage);
 		setCntPerPage(cntPerPage);
@@ -39,7 +41,6 @@ public class PagingVO {
 		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(), getCountNotice());
 	}
 	
-
 	// 제일 마지막 페이지 계산
 	public void calcLastPage(int total, int cntPerPage) {
 		setLastPage((int) Math.ceil((double) total / (double) cntPerPage));
@@ -159,6 +160,14 @@ public class PagingVO {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
 				+ ", countNotice=" + countNotice + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
 				+ ", cntPage=" + cntPage + ", cntPerPage=" + cntPerPage + ", set=" + set + "]";
+	}
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
 	}
 
 	

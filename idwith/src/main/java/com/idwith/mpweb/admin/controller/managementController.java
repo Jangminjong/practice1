@@ -105,6 +105,19 @@ public class managementController {
 		return Integer.toString(result);
 	}
 	
+	/** 검색 기능 */
+	@GetMapping("/searchUser.mdo")
+	public String searchUser(Model model, UserListVO userList, 
+			@RequestParam(required = false, defaultValue ="1") int nowPage,
+			@RequestParam(required = false, defaultValue = "1") int cntPerPage,
+			@RequestParam("searchKeyword") String searchKeyword) {
+		
+		int userListTotal = userListService.countUserList();
+		
+		
+		return null;
+	}
+	
 	// 작가
 	@GetMapping("/storePropose.mdo")
 	public String storePropose(Model model) {

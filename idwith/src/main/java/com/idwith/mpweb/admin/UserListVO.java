@@ -15,7 +15,14 @@ public class UserListVO {
 	private long userAllmcount;
 	private Timestamp userJoinDate;
 	private boolean userBlackCheck;
+	private String serchKeyword;
 	
+	public String getSerchKeyword() {
+		return serchKeyword;
+	}
+	public void setSerchKeyword(String serchKeyword) {
+		this.serchKeyword = serchKeyword;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -89,8 +96,7 @@ public class UserListVO {
 		return "UserListVO [userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName + ", userPhone="
 				+ userPhone + ", userZipcode=" + userZipcode + ", userAddress1=" + userAddress1 + ", userAddress2="
 				+ userAddress2 + ", userGrade=" + userGrade + ", userAllmcount=" + userAllmcount + ", userJoinDate="
-				+ userJoinDate + ", userBlackCheck=" + userBlackCheck + "]";
+				+ userJoinDate + ", userBlackCheck=" + userBlackCheck + ", serchKeyword=" + serchKeyword + "]";
 	}
-	
 
 }
