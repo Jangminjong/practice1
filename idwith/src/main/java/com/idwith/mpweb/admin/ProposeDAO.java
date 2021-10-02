@@ -14,23 +14,23 @@ public class ProposeDAO {
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	public List<Map<String, String>> getWatingClient(){
-		System.out.println("DAO getWatingClient ½ÇÇà");
+		System.out.println("DAO getWatingClient ï¿½ï¿½ï¿½ï¿½");
 		List<Map<String, String>> watingList = sqlSessionTemplate.selectList("ProposeDAO.getWatingList");
-		System.out.println("°¡Á®¿Â °ª : " + watingList);
+		System.out.println("ë¦¬ìŠ¤íŠ¸ ëŒ€ê¸°ì DB ê²°ê³¼ ê°’ : " + watingList);
 		return watingList;
 	}
 	
-	//ÀÔÁ¡ ½ÂÀÎ
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int updateAgree(String user_id) {
-		System.out.println("DAO updateAgree ½ÇÇà");
+		System.out.println("DAO updateAgree ï¿½ï¿½ï¿½ï¿½");
 		System.out.println("DAO user_id : " + user_id);
 		int result = sqlSessionTemplate.update("ProposeDAO.updateAgree", user_id);
 		return result;
 	}
 
-	//ÀÔÁ¡ °ÅÀı
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int updateDisagree(String user_id) {
-		System.out.println("DAO updateAgree ½ÇÇà");
+		System.out.println("DAO updateAgree ï¿½ï¿½ï¿½ï¿½");
 		System.out.println("DAO user_id : " + user_id);
 		int result = sqlSessionTemplate.update("ProposeDAO.updateDisagree", user_id);
 		return result;

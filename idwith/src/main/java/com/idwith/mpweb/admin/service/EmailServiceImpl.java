@@ -35,6 +35,9 @@ public class EmailServiceImpl implements EmailService {
 			}else if(result == 0) {
 				content = "<h1>�ȳ��ϼ���.<br>" + to + "ȸ����" + "</h1>" + 
 						"<br>�˼��մϴ�.<br>Idwith ������û�� �����ϼ̽��ϴ�. �����Ϸ� �Ǽ���.<br></p>";
+			}else if(result == 2) {
+				content = "<h5>안내드립니다<br>" + to + "님 </h5>" + 
+						  "<br><h6>귀하의 계정은 Idwith의 운영사항에 위반되어 Block 처리 되었음을 알려드립니다.<br>계정 문의가 있으시면 관리자 메일로 문의주시기 바랍니다.</h6>";
 			}
 			
 			helper.setSubject(subject); //����

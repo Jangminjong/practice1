@@ -135,6 +135,8 @@ public class managementController {
 	@GetMapping("/storePropose.mdo")
 	public String storePropose(Model model) {
 		List<Map<String, String>> watingList = proposeService.getWatingClient();
+		
+		System.out.println("입점 승인 리스트 대기자 : " + watingList);
 		model.addAttribute("watingList", watingList);
 		return "storePropose";
 	}
@@ -200,22 +202,29 @@ public class managementController {
 		String agree = request.getParameter("agree");
 		String disagree = request.getParameter("disagree");
 		
+		dto.setSenderMail("idwithproject@gmail.com");
+		dto.setReceiveMail(request.getParameter("user_id"));
+		
 		if(agree != null) {//���� ����
-			dto.setSenderMail("wnguds1101@gmail.com");
-			dto.setReceiveMail(request.getParameter("user_id"));
 			dto.setSubject("Idwith �۰� ��� ����");
 			result = 1;
 		}else if(disagree != null) {//���� ����
-			dto.setSenderMail("wnguds1101@gmail.com");
-			dto.setReceiveMail(request.getParameter("user_id"));
 			dto.setSubject("Idwith �۰� ���� Ż��");
 			result = 0;
+		}
+		
+		String blockState = request.getParameter("result");
+		
+		if(Integer.parseInt(blockState) == 2) {
+			dto.setSubject("[IDWITH] 계정 BLOCK 처리 안내");
+			result = 2;
 		}
 		
 		emailService.sendMail(dto, result);
 		
 		
 		System.out.println("�̸��� ���� �Ϸ�");
+		
 		return Integer.toString(1);
 	}
 	
