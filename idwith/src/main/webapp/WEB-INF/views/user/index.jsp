@@ -18,6 +18,8 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
   />
+<link rel="stylesheet" href="resources/css/sp-icon.css">
+  
 </head>
 <body>
 	<div data-vue="token"></div>
@@ -138,13 +140,12 @@
 												<em class="icon-num" data-ranking="${goodsVO.rownum }">${goodsVO.rownum }</em>
 												<div class="ui_card">
 													<!-- 찜 버튼 -->
-													<div>
-														<button 
-															aria-label="찜하기" class="full-button"
-															style="width: 24px; height: 24px;" tabindex="0">
-															<i class="fa fa-heart-o" aria-hidden="true"></i>
-														</button>
-													</div>
+													<button type="button"
+														class="ui_card__overlay btn-ico sp-icon icon-favorite"
+														data-name="starred-toolbar" data-starred-type="product"
+														data-init="" data-starred=""
+														data-target-id="2e45a5ed-59cc-4008-81ee-68e7614b44a1">
+													</button>
 
 													<!-- 썸네일 -->
 													<div class="ui_card__imgcover">
