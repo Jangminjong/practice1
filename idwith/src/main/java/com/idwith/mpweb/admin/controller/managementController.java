@@ -195,7 +195,7 @@ public class managementController {
 	@RequestMapping(value="/sendEmail.mdo", method=RequestMethod.GET)
 	@ResponseBody
 	public String sendEmail(HttpServletRequest request) {
-		System.out.println("�̸��� ���� ��Ʈ�ѷ� ����");
+		System.out.println("이메일 보내기 컨트롤러 실행");
 		EmailDTO dto = new EmailDTO();
 		
 		int result = 0;
@@ -220,10 +220,15 @@ public class managementController {
 			result = 2;
 		}
 		
+		if(Integer.parseInt(blockState) == 3) {
+			dto.setSubject("[IDWITH] 계정 복원 처리 안내");
+			result = 3;
+		}
+		
 		emailService.sendMail(dto, result);
 		
 		
-		System.out.println("�̸��� ���� �Ϸ�");
+		System.out.println("컨트롤러에서 이메일 보내기 완료");
 		
 		return Integer.toString(1);
 	}
