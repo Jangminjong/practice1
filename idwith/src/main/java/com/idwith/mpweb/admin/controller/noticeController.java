@@ -24,8 +24,7 @@ public class noticeController {
 	@Autowired
 	AdminNoticeService adminNoticeService;
 	
-	/**愿�由ъ옄 怨듭��궗�빆 湲� 紐⑸줉 �슂泥�*/
-
+	/**관리자 공지사항 페이지 출력*/
 	@GetMapping("/adminNotice.mdo")
 	public String adminNoticeList(PagingVO pagination, Model model,
 			@RequestParam(value = "nowPage", required = false)String nowPage,
@@ -54,13 +53,13 @@ public class noticeController {
 		return "adminNotice";
 	}
 	
-	/**愿�由ъ옄 怨듭��궗�빆 湲� �벑濡� �솕硫�*/
+	/**관리자 공지사항 입력 폼*/
 	@RequestMapping("/adminInsertNotice.mdo")
 	public String adminInsertNotice() {
 		return "adminInsertNotice";
 	}
 	
-	/**愿�由ъ옄 怨듭��궗�빆 湲� �벑濡� 湲곕뒫*/
+	/**관리자 공지사항 입력 기능*/
 	@RequestMapping("/insertNotice.mdo")
 	public String insertNotice(AdminNoticeBoardVO adminNotice) {
 		System.out.println("愿�由ъ옄 怨듭��궗�빆 �벑濡� 泥섎━");
@@ -69,7 +68,7 @@ public class noticeController {
 		return "redirect:/adminNotice.mdo";
 	}
 	
-	/**愿�怨꾩옄 怨듭��궗�빆 湲� �긽�꽭蹂닿린 */
+	/**관리자 공지사항 상세보기 기능 */
 	@RequestMapping("/detailAdminNotice.mdo")
 	public String detailAdminNotice(AdminNoticeBoardVO adminNotice, Model model) {
 		System.out.println("愿�由ъ옄 怨듭��궗�빆 �긽�꽭蹂닿린 泥섎━ Seq : " + adminNotice.getAdminBoardSeq());
@@ -85,7 +84,7 @@ public class noticeController {
 		return "adminNoticeContent";
 	}
 	
-	/**愿�怨꾩옄 怨듭��궗�빆 湲� �닔�젙*/
+	/**관리자 공지사항 수정 기능*/
 	@RequestMapping("/updateAdminNotice.mdo")
 	public String updateAdminNotice(AdminNoticeBoardVO adminNotice) {
 		System.out.println("愿�由ъ옄 怨듭��궗�빆 �닔�젙 泥섎━");
@@ -94,7 +93,7 @@ public class noticeController {
 		return "redirect:/adminNotice.mdo";
 	}
 	
-	/**愿�怨꾩옄 怨듭��궗�빆 湲� �궘�젣*/
+	/**관리자 공지사항 삭제 기능*/
 	@RequestMapping("/deleteAdminNotice.mdo")
 	public String deleteAdminNotice(AdminNoticeBoardVO adminNotice) {
 		System.out.println("愿�由ъ옄 怨듭��궗�빆 �궘�젣 泥섎━");

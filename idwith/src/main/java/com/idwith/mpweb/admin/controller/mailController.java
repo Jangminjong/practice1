@@ -5,35 +5,38 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
-public class MailController {
+public class mailController {
 
 	@Autowired
 	private JavaMailSender mailSender;
 
+	// mailSending ì½”ë“œ
 	@RequestMapping(value = "mailSending.mdo")
-	public String mailSending(HttpServletRequest request) {
+	public String mailSending(HttpServletRequest request, MultipartHttpServletRequest multi) {
 
 		String setfrom = "";
-		String tomail = request.getParameter("tomail"); // ¹Ş´Â »ç¶÷ ÀÌ¸ŞÀÏ
-		String title = request.getParameter("title"); // Á¦¸ñ
-		String content = request.getParameter("content"); // ³»¿ë
+		String tomail = request.getParameter("tomail"); //ë°›ëŠ” ì‚¬ëŒ ì´ë©”ì¼
+		String title = request.getParameter("title"); // ì œëª©
+		String content = request.getParameter("content"); // ë‚´ìš©
 
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message,
 					true, "UTF-8");
 
-			messageHelper.setFrom(setfrom); // º¸³»´Â»ç¶÷ »ı·«ÇÏ¸é Á¤»óÀÛµ¿À» ¾ÈÇÔ
-			messageHelper.setTo(tomail); // ¹Ş´Â»ç¶÷ ÀÌ¸ŞÀÏ
-			messageHelper.setSubject(title); // ¸ŞÀÏÁ¦¸ñÀº »ı·«ÀÌ °¡´ÉÇÏ´Ù
-			messageHelper.setText(content); // ¸ŞÀÏ ³»¿ë
-
+			messageHelper.setFrom(setfrom); //ë³´ë‚´ëŠ”ì‚¬ëŒì„ ìƒëµí•˜ë©´ ì •ìƒì‘ë™ì„ í•˜ì§€ ì•ŠìŒ
+			messageHelper.setTo(tomail); // ë°›ëŠ” ì‚¬ëŒ ì´ë©”ì¼
+			messageHelper.setSubject(title); // ë©”ì¼ ì œëª©ì€ ìƒëµì´ ê°€ëŠ¥
+			messageHelper.setText(content); // ë©”ì¼ ë‚´ìš©
+			
 			mailSender.send(message);
 		} catch (Exception e) {
 			System.out.println(e);

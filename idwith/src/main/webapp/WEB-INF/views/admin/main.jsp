@@ -205,12 +205,10 @@
 									<table class="table mb-0">
 										<thead>
 											<tr>
-												<th scope="col">#</th>
+												<th scope="col"></th>
 												<th scope="col">게시글</th>
 												<th scope="col">작성자</th>
 												<th scope="col">날짜</th>
-												<th scope="col">조회수</th>
-
 											</tr>
 										</thead>
 										<tbody>
@@ -219,7 +217,6 @@
 													<td>${adminNotice.rownum}</td>
 													<td>${adminNotice.adminBoardTitle}</td>
 													<td>${adminNotice.adminBoardId}</td>
-													<td>${adminNotice.adminBoardCnt}</td>
 												</tr>
 											</c:forEach>
 										</tbody>

@@ -1,11 +1,18 @@
 package com.idwith.mpweb.admin;
 
 public class EmailDTO {
-    private String senderMail; //¹ß½ÅÀÚ ÀÌ¸ŞÀÏ ÁÖ¼Ò
-    private String receiveMail; //¼ö½ÅÀÚ ÀÌ¸ŞÀÏ ÁÖ¼Ò
-    private String subject; //Á¦¸ñ
-    private String message; //º»¹®
+	private String senderName; // ë°œì‹ ì ì´ë¦„
+    private String senderMail; //ë°œì‹ ì ì´ë©”ì¼ ì£¼ì†Œ
+    private String receiveMail; // ìˆ˜ì‹ ì ì´ë©”ì¼ ì£¼ì†Œ
+    private String subject; // ì œëª©
+    private String message; //ë³¸ë¬¸
     
+	public String getSenderName() {
+		return senderName;
+	}
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
 	public String getSenderMail() {
 		return senderMail;
 	}
