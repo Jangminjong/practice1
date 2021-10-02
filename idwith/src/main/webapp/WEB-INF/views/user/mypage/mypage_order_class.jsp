@@ -15,7 +15,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 찜 목록</title>
+<title>아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
@@ -55,11 +55,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:description"
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:url"
-	content="http://www.idus.com/w/me/favoriteproduct" />
+<meta property="og:url" content="http://www.idus.com/c/order" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-<link rel="canonical" href="http://www.idus.com/w/me/favoriteproduct" />
+<link rel="canonical" href="http://www.idus.com/c/order" />
 <script>
             window.__client_env__ = 'production';
             window.CNN_DOMAIN = 'https://cnn.idus.com';
@@ -86,8 +85,6 @@
 <link rel="stylesheet" href="resources/css/mypage.css" />
 <link rel="stylesheet" href="resources/css/idus.web.min.css" />
 <link rel="stylesheet" href="resources/css/vendor.client.min.css" />
-<script src="/resources/dist/js/vendor.client.min.js?__v=1631078629"></script>
-<script src="/resources/dist/js/vuepack.js?__v=1631078629"></script>
 
 <link rel="stylesheet"
 	href="//cdn.flowplayer.com/releases/native/v2.5.14/style/flowplayer.css">
@@ -193,7 +190,7 @@
             uuid: 'e47f44d5-3f79-42dd-9c1b-1772866c0371',
             isVip: false        });
         vuepack.createToken('[data-vue="token"]', {
-            token: {"token_type":"Bearer","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODAwMTkzNywicGVybWlzc2lvbiI6IlVTRVIiLCJ0eXBlIjoiY2xpZW50IiwidG9rZW5fdHlwZSI6ImFjY2VzcyIsImV4cCI6MTYzOTA5OTEzNiwic2FsdCI6ImY0MWQwM2YzLWU4MjctNGIwYS1iNzRjLTMxZjlhYmMxNDg0NiIsImNyZWF0ZWQiOiIyMDIxLTA5LTEwVDEwOjE4OjU2KzA5OjAwIn0.1sbItzf_f-sgtun3S4L1sqKm7p6oRbW_qQF5FRo_cfI","refresh_token":"$2y$10$Vqh9LBA\/wSdBQPKcUR.RTO9hpC\/ifZgE5PzXzFJO8BAI8sEX1oUim","expired_access_token":"2021-12-10 10:18:56+09:00","expired_refresh_token":"2022-03-10 10:18:56+09:00"},
+            token: {"token_type":"Bearer","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODAwMTkzNywicGVybWlzc2lvbiI6IlVTRVIiLCJ0eXBlIjoiY2xpZW50IiwidG9rZW5fdHlwZSI6ImFjY2VzcyIsImV4cCI6MTYzOTM3MDA4Niwic2FsdCI6ImM0ZjFmMTAwLTc0YzYtNDgwMS1hNjIzLTk5NDBjNmZhYTA1MyIsImNyZWF0ZWQiOiIyMDIxLTA5LTEzVDEzOjM0OjQ2KzA5OjAwIn0.WmbRiY9muwjcPtxgUoifqT8lbeBshSstqRIZByrCArE","refresh_token":"$2y$10$0gFd8KcN0sNxzoiwU1Dch.tGbe\/DXGjtnWNh5xwoawkNbuSoKU7ja","expired_access_token":"2021-12-13 13:34:46+09:00","expired_refresh_token":"2022-03-13 13:34:46+09:00"},
             userId: 8001937        });
 
         /* Idus Log V2 */
@@ -211,16 +208,21 @@
             },
             appData: {
                 env: 'prod',
-                appVersion: '1631078629'
+                appVersion: '1631255393'
             }
         });
         </script>
 
 	<div class="wrap">
+		<div class="head_banner_group"></div>
 
+		<div id="skip-to-content">
+			<a href="#gnb">메뉴목록으로 바로가기</a> <a href="#content">컨텐츠로 바로가기</a>
+		</div>
+
+		<jsp:include page="../header_goods.jsp" />
 		<div class="dimmed-background"></div>
-		<jsp:include page="header_goods.jsp" />
-		<div id="content" class="content" data-page="favorite">
+		<div id="content" class="content">
 			<div class="inner-w layout-split" data-layout-split="orderlist">
 				<aside class="my-info">
 					<!--메뉴바-->
@@ -284,116 +286,36 @@ vuepack.create([{
 }]);
 </script>
 				<section>
-					<div class="title-style watch-list-title--favorite">
-						<h2 class="txt">
-							찜 목록
-							<!-- 작품(★) -->
-						</h2>
+					<div class="title-style no-mt clf">
+						<span class="txt fl">주문 내역</span>
 					</div>
-					<nav class="ui_tab_group--3 favorite">
-						<a href="mypage_interest_goods.do" class="ui_tab_group__tab active"
-							data-state="active" style="width: 50%;"> <span
-							class="txt-desktop">작품</span> <span class="txt-mobile">작품</span>
-							</span> <a href="mypage_interest_class.do" class="ui_tab_group__tab "
-							data-state="" style="width: 50%;"> <span class="txt-desktop">클래스</span>
-								<span class="txt-mobile">클래스</span>
-						</a>
-					</nav>
-					<!-- <div data-vue="product-filter"></div> -->
-					<div data-vue="product-list">
-						<div class="ui_grid">
-							<ul class="ui_grid__cols--4">
-								<li class="ui_grid__item">
-									<div class="base-card card--vertical product">
-										<a href="detail_content.do" target="_blank">
-											<div class="card-thumb-cover">
-												<div class="product-thumb-img"
-													style="background-image: url('https://image.idus.com/image/files/e091eac14db84514aa6c0f1fb5f72061_512.png')"></div>
-												<div class="product-bookmark">
-													<button class="full-button">
-														<button type="button" class="sp-icon icon-favorite"></button>
-													</button>
-												</div>
-											</div>
-											<div class="card-info product-info">
-												<!-- 작가 이름 -->
-												<div class="product-info__artist-name">에즈아이</div>
-												<!-- 제목 -->
-												<div class="product-info__name">[가을플랫] 둥글둥글 귀여운 플랫펌프스
-													- 9col</div>
-												<!-- 가격 -->
-												<div class="product-info__price">
-													<span class="sale-rate"> 53% </span> <span
-														class="price-sale"> 35,000<span
-														style="font-size: 14px;">원</span>
-													</span>
-													<div class="price-origin--before-sale">
-														<del>75,000원</del>
-													</div>
-												</div>
-												<div class="product-info__badge-group"
-													style="margin-top: 12px"></div>
-												<div class="product-info__review">
-													<div class="review-rating">
-														<span class="ui_rating fr" data-value=5> <i
-															style="font-size: 11px"
-															class="ui_icon--star idus-icon-star-fill"
-															data-state="active"></i> <i
-															style="font-size: 11px"
-															class="ui_icon--star idus-icon-star-fill"
-															data-state="active"></i> <i
-															style="font-size: 11px"
-															class="ui_icon--star idus-icon-star-fill"
-															data-state="active"></i> <i
-															style="font-size: 11px"
-															class="ui_icon--star idus-icon-star-fill"
-															data-state="active"></i> <i
-															style="font-size: 11px"
-															class="ui_icon--star idus-icon-star-fill"
-															data-state="active"></i>
-														</span> <span class="review-count">(10)</span>
-													</div>
-													<div class="review-comment">
-														<div class="review-comment__badge">후기</div>
-														<div class="review-comment__contents">두번째 구매입니다. 제가
-															왼발이 오른발보다 티나게 많이 큰 편인데, 처음에 260을 주문했는데 (평소 운동화 260신고
-															드라이빙슈즈 남자용 260 잘 맞아요) 왼쪽 발가락이 너무 눌리는 것 같아서 동생에게 넘겼습니다.
-															그리고 잊고 살다가 가을이 오길래 한 번 쓰윽~ 검색해보고 270 주문했어요. 잘 맞을거라는 확신이
-															있어서요. 3일만에 배송완료되었는데 역시 기대대로 딱 잘 맞습니다. 편하게 평소에 신기에 딱 좋은 것
-															같아요. 가격도 좋고, 닳으면 다른 색으로 주문하고 싶네요. 계속 270파셨으면 좋겠어요.</div>
-													</div>
-												</div>
-											</div>
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
+					<div class="ui_tab_group--3 favorite">
+						<a href="/w/me/order/payment" class="ui_tab_group__tab"
+							data-state="none" style="width: 50%;"> 작품 </a> <a href="/c/order"
+							class="ui_tab_group__tab active" data-state="active"
+							style="width: 50%;">클래스</a>
+					</div>
+					<div class="banner-empty">
+						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
+						<p>예약하신 클래스가 없습니다.</p>
+						<a href="/c" class="btn btn-l btn-point">클래스 구경하러 가기</a>
 					</div>
 				</section>
 			</div>
+			<div data-vue="reviewModal">ReviewModal</div>
 		</div>
 
 		<script>
-
-let vueComponents = [];
-vueComponents.push({
-    selector: '[data-vue="product-list"]',
-    component: 'ProductList',
-    props: {
-        productList: [{"uuid":"e7de4f8f-f989-4d51-bc15-b6c52e2af8c9","name":"[\uac00\uc744\ud50c\ub7ab] \ub465\uae00\ub465\uae00 \uadc0\uc5ec\uc6b4 \ud50c\ub7ab\ud38c\ud504\uc2a4  - 9col","category_uuid":"65477a55-7f4f-4a0f-9b05-dcaa271a8385","artist_uuid":"7de82d94-07cc-4ac8-804c-a5ce298d23f9","artist_name":"\uc5d0\uc988\uc544\uc774","is_sale":true,"sale_rate":53,"price_origin":75000,"price_sale":35000,"thumb_image_url":"https:\/\/image.idus.com\/image\/files\/e091eac14db84514aa6c0f1fb5f72061_1080.png","is_favorite":true,"review":{"count":10,"rate":5,"contents":"\ub450\ubc88\uc9f8 \uad6c\ub9e4\uc785\ub2c8\ub2e4. \n\uc81c\uac00 \uc67c\ubc1c\uc774 \uc624\ub978\ubc1c\ubcf4\ub2e4 \ud2f0\ub098\uac8c \ub9ce\uc774 \ud070 \ud3b8\uc778\ub370, \ucc98\uc74c\uc5d0 260\uc744 \uc8fc\ubb38\ud588\ub294\ub370 (\ud3c9\uc18c \uc6b4\ub3d9\ud654 260\uc2e0\uace0 \ub4dc\ub77c\uc774\ube59\uc288\uc988 \ub0a8\uc790\uc6a9 260 \uc798 \ub9de\uc544\uc694) \uc67c\ucabd \ubc1c\uac00\ub77d\uc774 \ub108\ubb34 \ub20c\ub9ac\ub294 \uac83 \uac19\uc544\uc11c \ub3d9\uc0dd\uc5d0\uac8c \ub118\uacbc\uc2b5\ub2c8\ub2e4. \n\uadf8\ub9ac\uace0 \uc78a\uace0 \uc0b4\ub2e4\uac00 \uac00\uc744\uc774 \uc624\uae38\ub798 \ud55c \ubc88 \uc4f0\uc73d~ \uac80\uc0c9\ud574\ubcf4\uace0 270 \uc8fc\ubb38\ud588\uc5b4\uc694. \uc798 \ub9de\uc744\uac70\ub77c\ub294 \ud655\uc2e0\uc774 \uc788\uc5b4\uc11c\uc694. \n\n3\uc77c\ub9cc\uc5d0 \ubc30\uc1a1\uc644\ub8cc\ub418\uc5c8\ub294\ub370 \uc5ed\uc2dc \uae30\ub300\ub300\ub85c \ub531 \uc798 \ub9de\uc2b5\ub2c8\ub2e4. \n\n\ud3b8\ud558\uac8c \ud3c9\uc18c\uc5d0 \uc2e0\uae30\uc5d0 \ub531 \uc88b\uc740 \uac83 \uac19\uc544\uc694. \uac00\uaca9\ub3c4 \uc88b\uace0, \ub2f3\uc73c\uba74 \ub2e4\ub978 \uc0c9\uc73c\ub85c \uc8fc\ubb38\ud558\uace0 \uc2f6\ub124\uc694. \uacc4\uc18d 270\ud30c\uc168\uc73c\uba74 \uc88b\uaca0\uc5b4\uc694."},"badges":[],"created":"1631245070936","is_active":true}],
-        pageType: 'favorite',
-        itemType: "product",
-        paginationCursor: {"next":null,"previous":null,"page_size":20}    }
-});
-vuepack.create(vueComponents);
+// vuepack.createEduOrderCard('[data-vue="eduCard"]');
+vuepack.createPagination('[data-vue="pagination"]');
+vuepack.createReviewModal('[data-vue="reviewModal"]');
 
 (function () {
     var Logger = vuepack.externals.IdusLog.Logger;
     var PageName = vuepack.externals.IdusLog.PageName;
-    Logger.sendPageView(PageName.FavoriteList, {
+    Logger.sendPageView(PageName.OrderList, {
         property: {
-            service_type: 'product'
+            service_type: 'edu_off'
         }
     });
 })();
@@ -406,7 +328,7 @@ vuepack.create(vueComponents);
 		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
 			<img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
 		</a>
-
+		<jsp:include page="../footer.jsp" />
 		<script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
@@ -439,11 +361,10 @@ vuepack.create([
     }
 ]);
 </script>
-	<jsp:include page="footer.jsp" />
 	</div>
 	<!-- div WRAP -->
 	<script type="text/javascript"
-		src="/resources/dist/js/idus.web.min.js?__v=1631078629"></script>
+		src="/resources/dist/js/idus.web.min.js?__v=1631255393"></script>
 	<script>
         (function(){
             var applink = new vuepack.externals.Applink();

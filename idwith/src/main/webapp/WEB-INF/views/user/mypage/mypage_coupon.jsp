@@ -217,7 +217,7 @@
 
 	<div class="wrap">
 
-		<jsp:include page="header_goods.jsp"/>
+		<jsp:include page="../header_goods.jsp"/>
 		<div class="dimmed-background"></div>
 		<!-- 회원정보관리 -->
 		<div id="content" class="content" data-page="couponlist">
@@ -438,7 +438,7 @@ vuepack.create([{
 		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
 			<img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
 		</a>
-		<jsp:include page="footer.jsp"/>
+		<jsp:include page="../footer.jsp"/>
 		<script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';

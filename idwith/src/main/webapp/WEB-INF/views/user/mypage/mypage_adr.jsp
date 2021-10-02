@@ -20,7 +20,7 @@
 </head>
     <body>
         <div class="wrap">
-        <jsp:include page="header_goods.jsp"/>
+        <jsp:include page="../header_goods.jsp"/>
                         
 <div class="dimmed-background"></div><!-- 회원정보관리 -->
 <div id="content" class="content" data-page="mypageinfo address">
@@ -591,7 +591,7 @@
 <a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
     <img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
 </a>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="../footer.jsp"/>
 
 
         </div>

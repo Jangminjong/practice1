@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><html class="ie9"><![endif]-->
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,12 +15,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 회원 등급</title>
-
-<!-- 파비콘 이미지 설정 -->
-<link rel="shortcut icon" type="image/x-icon"
-	href="resources/images/title/icon_300.PNG">
-
+<title>아이디어스 | 찜 목록</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
@@ -58,10 +55,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:description"
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:url" content="http://www.idus.com/w/me/membership" />
+<meta property="og:url"
+	content="http://www.idus.com/w/me/favoriteproduct" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-<link rel="canonical" href="http://www.idus.com/w/me/membership" />
+<link rel="canonical" href="http://www.idus.com/w/me/favoriteproduct" />
 <script>
             window.__client_env__ = 'production';
             window.CNN_DOMAIN = 'https://cnn.idus.com';
@@ -219,10 +217,10 @@
         </script>
 
 	<div class="wrap">
-		<jsp:include page="header_goods.jsp" />
+
 		<div class="dimmed-background"></div>
-		<!-- 회원정보관리 -->
-		<div id="content" class="content" data-page="m-no-padding">
+		<jsp:include page="../header_goods.jsp" />
+		<div id="content" class="content" data-page="favorite">
 			<div class="inner-w layout-split" data-layout-split="orderlist">
 				<aside class="my-info">
 					<!--메뉴바-->
@@ -285,110 +283,121 @@ vuepack.create([{
         frequencyEvent: {"frequency_event_detail":{"id":12,"name":"9\uc6d4\ucfe0\ud3f0\uc90d\uc90d","description":"\uc791\ud488 \ucc1c\ud558\uae30 10\ud68c, \ub204\uc801 \uad6c\ub9e4 \uae08\uc561 100\ub9cc\uc6d0","start_date_time":"2021-09-01T12:00:00","end_date_time":"2021-09-30T23:59:59","reward_payment_dt":"2021-09-30","status":"IN_PROGRESS","plp_url":{"mobile_url":"https:\/\/www.idus.com\/w\/event\/main\/summer","pc_url":"https:\/\/www.idus.com\/w\/event\/main\/summer"}},"application_detail":{"applied_at":null,"title":"\uc774\ubca4\ud2b8 \uc2e0\uccad\ud558\uace0 \ub9cc\uc6d0 \uc6a9\ub3c8\ud329 \uc90d\uc90d","linked_text_label":"\uc790\uc138\ud788\ubcf4\uae30","frequency_event_url":"https:\/\/www.idus.com\/w\/event\/main\/frequency\/12","status_image_url":"https:\/\/image.idus.com\/static\/frequency\/202109\/my_01.gif"}}    }
 }]);
 </script>
-				<section class="membership-page">
-					<div class="title-style mobile-hide">
-						<h1 class="txt">회원 등급</h1>
+				<section>
+					<div class="title-style watch-list-title--favorite">
+						<h2 class="txt">
+							찜 목록
+							<!-- 작품(★) -->
+						</h2>
 					</div>
-					<div class="membership-board">
-						<div class="user-card">
-							<i class="sp-icon grade-01" data-grade="1"></i>
-							<div class="txt-group">
-								<strong>아기손</strong> <em>작품 구매시 적립률 0.5%</em>
-							</div>
-						</div>
-						<div class="user-progress">
-							<strong>10월 예상 등급</strong>
-							<div class="progress-bar" data-ui="progressbar" data-value="0">
-								<div class="split" data-value="100000">
-									<div class="inner"></div>
-								</div>
-								<div class="split" data-value="300000">
-									<div class="inner"></div>
-								</div>
-								<div class="split" data-value="600000">
-									<div class="inner"></div>
-								</div>
-							</div>
-							<ul class="label-list" data-grade="1">
-								<li>아기손</li>
-								<li>곰손</li>
-								<li>은손</li>
-								<li>금손</li>
+					<nav class="ui_tab_group--3 favorite">
+						<a href="mypage_interest_goods.do" class="ui_tab_group__tab active"
+							data-state="active" style="width: 50%;"> <span
+							class="txt-desktop">작품</span> <span class="txt-mobile">작품</span>
+							</span> <a href="mypage_interest_class.do" class="ui_tab_group__tab "
+							data-state="" style="width: 50%;"> <span class="txt-desktop">클래스</span>
+								<span class="txt-mobile">클래스</span>
+						</a>
+					</nav>
+					<!-- <div data-vue="product-filter"></div> -->
+					<div data-vue="product-list">
+						<div class="ui_grid">
+							<ul class="ui_grid__cols--4">
+								<li class="ui_grid__item">
+									<div class="base-card card--vertical product">
+										<a href="detail_content.do" target="_blank">
+											<div class="card-thumb-cover">
+												<div class="product-thumb-img"
+													style="background-image: url('https://image.idus.com/image/files/e091eac14db84514aa6c0f1fb5f72061_512.png')"></div>
+												<div class="product-bookmark">
+													<button class="full-button">
+														<button type="button" class="sp-icon icon-favorite"></button>
+													</button>
+												</div>
+											</div>
+											<div class="card-info product-info">
+												<!-- 작가 이름 -->
+												<div class="product-info__artist-name">에즈아이</div>
+												<!-- 제목 -->
+												<div class="product-info__name">[가을플랫] 둥글둥글 귀여운 플랫펌프스
+													- 9col</div>
+												<!-- 가격 -->
+												<div class="product-info__price">
+													<span class="sale-rate"> 53% </span> <span
+														class="price-sale"> 35,000<span
+														style="font-size: 14px;">원</span>
+													</span>
+													<div class="price-origin--before-sale">
+														<del>75,000원</del>
+													</div>
+												</div>
+												<div class="product-info__badge-group"
+													style="margin-top: 12px"></div>
+												<div class="product-info__review">
+													<div class="review-rating">
+														<span class="ui_rating fr" data-value=5> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i> <i
+															style="font-size: 11px"
+															class="ui_icon--star idus-icon-star-fill"
+															data-state="active"></i>
+														</span> <span class="review-count">(10)</span>
+													</div>
+													<div class="review-comment">
+														<div class="review-comment__badge">후기</div>
+														<div class="review-comment__contents">두번째 구매입니다. 제가
+															왼발이 오른발보다 티나게 많이 큰 편인데, 처음에 260을 주문했는데 (평소 운동화 260신고
+															드라이빙슈즈 남자용 260 잘 맞아요) 왼쪽 발가락이 너무 눌리는 것 같아서 동생에게 넘겼습니다.
+															그리고 잊고 살다가 가을이 오길래 한 번 쓰윽~ 검색해보고 270 주문했어요. 잘 맞을거라는 확신이
+															있어서요. 3일만에 배송완료되었는데 역시 기대대로 딱 잘 맞습니다. 편하게 평소에 신기에 딱 좋은 것
+															같아요. 가격도 좋고, 닳으면 다른 색으로 주문하고 싶네요. 계속 270파셨으면 좋겠어요.</div>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
 							</ul>
-							<p class="pointy-box" data-grade="1">
-								9월 30일까지 100,000원 이상 더 사면,<br>
-								<b>곰손 등급!</b>
-							</p>
 						</div>
 					</div>
-
-					<div class="ui_title--sub no-border">
-						<h2 class="ui_title__txt">등급별 혜택 알아보기</h2>
-					</div>
-					<ul class="list-style">
-						<li class="member-card">
-							<div class="img-area">
-								<i class="sp-icon grade-03-m"></i> <span>금손</span>
-							</div>
-							<dl>
-								<dt>작품 구매시 적립률</dt>
-								<dd class="hilight red">2.0%</dd>
-								<dt>등급조건</dt>
-								<dd>60만원 이상 구매시</dd>
-							</dl>
-						</li>
-						<li class="member-card">
-							<div class="img-area">
-								<i class="sp-icon grade-03-m"></i> <span>은손</span>
-							</div>
-							<dl>
-								<dt>작품 구매시 적립률</dt>
-								<dd class="hilight red">1.5%</dd>
-								<dt>등급조건</dt>
-								<dd>30만원 이상, 60만원 미만 구매시</dd>
-							</dl>
-						</li>
-						<li class="member-card">
-							<div class="img-area">
-								<i class="sp-icon grade-02-m"></i> <span>곰손</span>
-							</div>
-							<dl>
-								<dt>작품 구매시 적립률</dt>
-								<dd class="hilight red">1.0%</dd>
-								<dt>등급조건</dt>
-								<dd>10만원 이상, 30만원 미만 구매시</dd>
-							</dl>
-						</li>
-						<li class="member-card">
-							<div class="img-area">
-								<i class="sp-icon grade-01-m"></i> <span>아기손</span>
-							</div>
-							<dl>
-								<dt>작품 구매시 적립률</dt>
-								<dd class="hilight red">0.5%</dd>
-								<dt>등급조건</dt>
-								<dd>10만원 미만 구매시</dd>
-							</dl>
-						</li>
-					</ul>
-
-					<div class="ui_title--sub no-border">
-						<h2 class="ui_title__txt">안내사항</h2>
-						<span class="ui_title__txtright"> <a
-							href="/w/board/notice/detail?id=149" target="_blank"
-							class="ui_btn--small">자세히 보기<i class="idus-icon-arrow-right"
-								style="font-size: 10px;"></i></a>
-						</span>
-					</div>
-					<p class="list-style-bg">
-						‣ 회원 등급은 최근 3개월간 결제 금액을 산정하여 다음 달 15일에 변경됩니다.<br>‣ 등급에 반영되는
-						결제 금액은 배송비, 제주/도서산간 추가 비용, 후원하기, 쿠폰할인, 적립금 사용이 제외된 작품 금액입니다.<br>‣
-						매월 등급이 변경되기 전 취소/환불시, 등급조건의 구매 금액에서 제외됩니다.<br>‣ 회원 등급 산정 및
-						혜택은 당사 사정에 의해 변경될 수 있습니다.<br>
-					</p>
 				</section>
 			</div>
 		</div>
+
+		<script>
+
+let vueComponents = [];
+vueComponents.push({
+    selector: '[data-vue="product-list"]',
+    component: 'ProductList',
+    props: {
+        productList: [{"uuid":"e7de4f8f-f989-4d51-bc15-b6c52e2af8c9","name":"[\uac00\uc744\ud50c\ub7ab] \ub465\uae00\ub465\uae00 \uadc0\uc5ec\uc6b4 \ud50c\ub7ab\ud38c\ud504\uc2a4  - 9col","category_uuid":"65477a55-7f4f-4a0f-9b05-dcaa271a8385","artist_uuid":"7de82d94-07cc-4ac8-804c-a5ce298d23f9","artist_name":"\uc5d0\uc988\uc544\uc774","is_sale":true,"sale_rate":53,"price_origin":75000,"price_sale":35000,"thumb_image_url":"https:\/\/image.idus.com\/image\/files\/e091eac14db84514aa6c0f1fb5f72061_1080.png","is_favorite":true,"review":{"count":10,"rate":5,"contents":"\ub450\ubc88\uc9f8 \uad6c\ub9e4\uc785\ub2c8\ub2e4. \n\uc81c\uac00 \uc67c\ubc1c\uc774 \uc624\ub978\ubc1c\ubcf4\ub2e4 \ud2f0\ub098\uac8c \ub9ce\uc774 \ud070 \ud3b8\uc778\ub370, \ucc98\uc74c\uc5d0 260\uc744 \uc8fc\ubb38\ud588\ub294\ub370 (\ud3c9\uc18c \uc6b4\ub3d9\ud654 260\uc2e0\uace0 \ub4dc\ub77c\uc774\ube59\uc288\uc988 \ub0a8\uc790\uc6a9 260 \uc798 \ub9de\uc544\uc694) \uc67c\ucabd \ubc1c\uac00\ub77d\uc774 \ub108\ubb34 \ub20c\ub9ac\ub294 \uac83 \uac19\uc544\uc11c \ub3d9\uc0dd\uc5d0\uac8c \ub118\uacbc\uc2b5\ub2c8\ub2e4. \n\uadf8\ub9ac\uace0 \uc78a\uace0 \uc0b4\ub2e4\uac00 \uac00\uc744\uc774 \uc624\uae38\ub798 \ud55c \ubc88 \uc4f0\uc73d~ \uac80\uc0c9\ud574\ubcf4\uace0 270 \uc8fc\ubb38\ud588\uc5b4\uc694. \uc798 \ub9de\uc744\uac70\ub77c\ub294 \ud655\uc2e0\uc774 \uc788\uc5b4\uc11c\uc694. \n\n3\uc77c\ub9cc\uc5d0 \ubc30\uc1a1\uc644\ub8cc\ub418\uc5c8\ub294\ub370 \uc5ed\uc2dc \uae30\ub300\ub300\ub85c \ub531 \uc798 \ub9de\uc2b5\ub2c8\ub2e4. \n\n\ud3b8\ud558\uac8c \ud3c9\uc18c\uc5d0 \uc2e0\uae30\uc5d0 \ub531 \uc88b\uc740 \uac83 \uac19\uc544\uc694. \uac00\uaca9\ub3c4 \uc88b\uace0, \ub2f3\uc73c\uba74 \ub2e4\ub978 \uc0c9\uc73c\ub85c \uc8fc\ubb38\ud558\uace0 \uc2f6\ub124\uc694. \uacc4\uc18d 270\ud30c\uc168\uc73c\uba74 \uc88b\uaca0\uc5b4\uc694."},"badges":[],"created":"1631245070936","is_active":true}],
+        pageType: 'favorite',
+        itemType: "product",
+        paginationCursor: {"next":null,"previous":null,"page_size":20}    }
+});
+vuepack.create(vueComponents);
+
+(function () {
+    var Logger = vuepack.externals.IdusLog.Logger;
+    var PageName = vuepack.externals.IdusLog.PageName;
+    Logger.sendPageView(PageName.FavoriteList, {
+        property: {
+            service_type: 'product'
+        }
+    });
+})();
+</script>
 		<div data-vue="ToastPopup"></div>
 		<div data-vue="BottomSheet"></div>
 		<div data-vue="WideBottomSheet"></div>
@@ -397,7 +406,7 @@ vuepack.create([{
 		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
 			<img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
 		</a>
-		<!-- 푸터 -->
+
 		<script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
@@ -430,7 +439,7 @@ vuepack.create([
     }
 ]);
 </script>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="../footer.jsp" />
 	</div>
 	<!-- div WRAP -->
 	<script type="text/javascript"

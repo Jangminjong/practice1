@@ -218,7 +218,7 @@
 	<div class="wrap">
 		<!-- 헤더 -->
 		<div class="dimmed-background"></div>
-		<jsp:include page="header_goods.jsp" />
+		<jsp:include page="../header_goods.jsp" />
 		<div id="content" class="content" data-page="my-info">
 			<div class="inner-w layout-split" data-layout-split="orderlist">
 				<aside class="my-info">
@@ -809,7 +809,7 @@ vuepack.create([
     }
 ]);
 </script>
-	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="../footer.jsp"></jsp:include>
 	</div>
 	<!-- div WRAP -->
 	<script type="text/javascript"
