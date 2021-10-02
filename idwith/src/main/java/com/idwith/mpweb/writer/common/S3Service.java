@@ -38,7 +38,7 @@ public class S3Service {
 		createS3Client();	
 	}
 
-	// aws S3 client ����
+	// aws S3 client 객체 생성
 	private void createS3Client() {
 		AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
 		s3Client = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials))
@@ -68,8 +68,7 @@ public class S3Service {
 		uploadToS3(new PutObjectRequest(bucket, key, is, objectMetadata));
 	}
 
-	// PutObjectRequest�� Aws S3 ��Ŷ�� ���ε��� ��ü ��Ÿ �����Ϳ� ���� �����ͷ�
-	// �̷�����ִ�.
+	// PutObjectRequest는 Aws S3 버킷에 업로드할 객체 메타 데이터와 파일 데이터로 이루어져있다.
 	private void uploadToS3(PutObjectRequest putObjectRequest) {
 
 		try {
@@ -87,7 +86,7 @@ public class S3Service {
 
 	public void copy(String orgKey, String copyKey) {
 		try {
-			// Copy ��ü ����
+			// Copy 객체 생성
 			CopyObjectRequest copyObjRequest = new CopyObjectRequest(bucketName, orgKey, bucketName, copyKey);
 			// Copy
 			this.s3Client.copyObject(copyObjRequest);
@@ -103,7 +102,7 @@ public class S3Service {
 
 	public void delete(String key) {
 		try {
-			// Delete ��ü ����
+			// Delete 객체 생성
 			DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(bucketName, key);
 			// Delete
 			this.s3Client.deleteObject(deleteObjectRequest);
