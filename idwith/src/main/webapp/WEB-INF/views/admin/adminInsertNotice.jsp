@@ -222,7 +222,7 @@
 									<input class="btn btn-primary" type="reset" value="초기화" />
 									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" />
 								</div>
-							</div>ㄴ
+							</div>
 						</form>
 					</div>
 				</div>

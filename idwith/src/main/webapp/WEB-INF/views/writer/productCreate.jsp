@@ -185,35 +185,72 @@
             <!-- Basic Validation -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
+                    <div class="card" style="height: auto">
                         <div class="header">
                             <h3>작품 등록 </h3>
                           
                         </div>
                         <div class="body">
-                            <form id="form_validation" method="POST">
-                                <div class="form-group form-float">
+                                    <form id="form_validation" action="classInsertReg.wdo" method="POST" enctype="multipart/form-data" >
+                        <div class="form-group form-float"> 카테고리 &nbsp;&nbsp;
+                        <select name='classCategory' id="productCategory">
+                           <option value='ceramic'>도자기</option>
+                           <option value='doll'>인형</option>
+                           <option value='phone_case'>휴대폰 케이스</option>
+                        </select>
+                        </div>
+
+                                                        
+                                <div class="form-group form-float">                                
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="작품명" required>
                                         <label class="form-label">Name</label>
                                     </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="카테고리" required>
-                                        <label class="form-label">Category</label>
-                                    </div>
-                                </div>
+                                </div>                                                       
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="가격" required>
                                         <label class="form-label">Price</label>
                                     </div>
+                                </div>                                
+                               
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                <div class="upload-group pull-right">
+                                   <button type="button" class="optiongroup" onclick="inputTextAdd()">상세옵션 추가</button>
+                                </div>
+                                        <input type="text" class="form-control" name="text" required>
+                                        <label class="form-label">옵션(대분류)</label>                                                                                
+                                    </div>                          
+                                </div>  
+                                                                             
+                                   <div class="form-group form-float">
+                                    <div class="col-4">
+                                    <div class="form-line opt1" style=width:300px>
+                                        <input type="text" class="form-control" name="text" required>
+                                        <label class="form-label">옵션(소분류)</label>
+                                    </div>
+                                    
+                                    <div class="form-line opt1" style=width:300px>
+                                        <input type="text" class="form-control" name="text" required>
+                                        <label class="form-label">옵션(가격)</label>
+                                    </div> 
+                                   </div>
+                                                                  
+                               
+                                </div>
+                                <div class="option-group">
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">Option</label>
+                                        <input type="text" class="form-control" name="text" required>
+                                        <label class="form-label">옵션(대분류)</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="text" required>
+                                        <label class="form-label">옵션(대분류)</label>
                                     </div>
                                 </div>
                                 
@@ -223,15 +260,29 @@
                                         <label class="form-label">작품 상세설명</label>
                                     </div>
                                 </div>
-
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
-                                    <input type="file" class="form-control" id="inputGroupFile01">
-                                  </div>
-                               
-                                <button class="btn btn-primary waves-effect" type="submit">저장하기</button>
+                                
+                                <div class="upload-group">
+                                   <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                                   <button type="button" class="addimagegroup" onclick="inputGroupAdd()">업로드 파일 추가</button>
+                                </div>
+                                <div class="image-group">
+                                   <div class="input-group mb-3">
+                                         <input type="file" class="form-control" name="file" id="imageinput1">
+                                      <button onclick="uploadDiscard()" style="display : none;">업로드 파일 취소</button>
+                                   </div>                                 
+                                </div>
+                                <div class="addImage-group">
+                                </div>
+                                 
+                                
+                                
+                            <div>
+                                <button class="btn btn-primary waves-effect pull-right" type="submit">저장하기</button>
+                            </div>                        
                             </form>
+                            
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -243,6 +294,7 @@
         </div>
            
     </section>
+   
 
     <!-- Jquery Core Js -->
     <script src="resources/writer/plugins/jquery/jquery.min.js"></script>
@@ -251,8 +303,8 @@
     <script src="resources/writer/plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="resources/writer/plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
+ <!--     <script src="resources/writer/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+  -->
     <!-- Slimscroll Plugin Js -->
     <script src="resources/writer/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
@@ -287,4 +339,6 @@
     <script src="resources/writer/js/demo.js"></script>
 </body>
 
+
 </html>
+

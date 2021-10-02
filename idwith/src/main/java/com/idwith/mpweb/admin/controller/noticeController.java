@@ -99,7 +99,8 @@ public class noticeController {
 	@GetMapping("/userNotice.mdo")
 	public String userNotice(PagingVO pageVO, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
-			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+			@RequestParam(value="set", required=false) String set) {
 		 int countEventNotice = adminBoardService.countEventNotice(); // ��ü �� ��
 		 System.out.println("��ü�� ��: "+ countEventNotice);
 		 System.out.println("ī�װ�: "+set);
@@ -167,7 +168,8 @@ public class noticeController {
 	@GetMapping(value="/qna.mdo")
 	public String qnaList(PagingVO pageVO, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
-			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, 
+			@RequestParam(value="set", required=false) String set) {
 		int total = adminBoardService.countQnA(); // ��ü �� �� ��ȸ 
 		System.out.println("��ü qna ��: " + total);
 		System.out.println("ī�װ�: "+set);

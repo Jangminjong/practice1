@@ -14,6 +14,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.admin.ProposeVO" alias="proposeVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.SellerVO" alias="sellerVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminNoticeBoardVO" alias="adminNotice"/>
+ 		<typeAlias type="com.idwith.mpweb.writer.storyboard.StoryBoardVO" alias="storyBoard"/>
  	</typeAliases>
  	<mappers>
  		<mapper resource="mappings/user/board/userBoard-mapping.xml" />
@@ -28,6 +29,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/admin/board/adminBoard-mapping.xml"/>
  		<mapper resource="mappings/admin/board/sellerEnrollment-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminNoticeBoard-mapping.xml"/>
+ 		<mapper resource="mappings/writer/story/storyBoard-mapping.xml"/>
  		<!--  <mapper resource="mappings/admin/board/adminBoard-mapping.xml"/> -->
  		<!-- <mapper resource="mappings/writer/board/userBoard-mapping.xml"/> -->
  	</mappers>

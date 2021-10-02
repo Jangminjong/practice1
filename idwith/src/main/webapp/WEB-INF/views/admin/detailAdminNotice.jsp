@@ -225,7 +225,7 @@
 									<a href="deleteAdminNotice.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">
 										<button type="button" class="btn btn-primary">삭제</button>
 									</a>
-								</div>
+								</div>	
 							</div>
 						</form>
 					</div>
