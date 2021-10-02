@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.MyPageDAO;
 import com.idwith.mpweb.user.UserVO;
 
@@ -37,5 +38,10 @@ public class MyPageServiceImpl implements MypageService {
 	@Override
 	public void updateAddress(UserVO vo) {
 		dao.updateAddress(vo);
+	}
+
+	@Override
+	public List<GoodsOrderDetailVO> getReviewBeforeList(String order_id) {
+		return dao.getReviewBeforeList(order_id);
 	}
 }

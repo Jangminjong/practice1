@@ -34,4 +34,8 @@ public class MyPageDAO {
 	public void updateAddress(UserVO vo) {
 		sqlSessionTemplate.update("MyPageDAO.updateAddress", vo);
 	}
+	
+	public List<GoodsOrderDetailVO> getReviewBeforeList(String order_id){
+		return sqlSessionTemplate.selectList("MyPageDAO.getReviewBeforeList", order_id);
+	}
 }

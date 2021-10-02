@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.EmailDTO;
+import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.service.EmailUpdateService;
 import com.idwith.mpweb.user.service.MypageService;
@@ -37,8 +38,8 @@ public class MyPageController {
 	public String mypageMain(Model model,HttpSession session) {
 		String user_id = (String) session.getAttribute("email");
 
-		System.out.println("mypage ÄÁÆ®·Ñ·¯ ½ÇÇà");
-		System.out.println("¼¼¼Ç °ª : " +user_id);
+		System.out.println("mypage ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : " +user_id);
 
 		List<Map<String, String>> user = myPageService.getUser(user_id);
 
@@ -54,111 +55,119 @@ public class MyPageController {
 		session.setAttribute("user_grade", user_grade);
 		session.setAttribute("user_birth", user_birth);
 
-		return "mypage";
+		return "mypage/mypage";
 	}
 	
 	@RequestMapping(value = "/mypage_address.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String mypageAddress() {
-		return "mypage_adr";
+		return "mypage/mypage_adr";
 	}
 
 	@GetMapping("/mypage_coupon.do")
 	public String mypageCoupon() {
-		return "mypage_coupon";
+		return "mypage/mypage_coupon";
 	}
 
 	@GetMapping("/mypage_point.do")
 	public String mypagePoint() {
-		return "mypage_point";
+		return "mypage/mypage_point";
 	}
 
 	@GetMapping("/mypage_follow.do")
 	public String mypageFollow() {
-		return "mypage_follow";
+		return "mypage/mypage_follow";
 	}
 
 	@GetMapping("/mypage_info.do")
 	public String mypageInfo() {
-		return "mypage_info";
+		return "mypage/mypage_info";
 	}
 
 	@GetMapping("/mypage_interest_class.do")
 	public String mypageInterestClass() {
-		return "mypage_interest_class";
+		return "mypage/mypage_interest_class";
 	}
 
 	@GetMapping("/mypage_interest_goods.do")
 	public String mypageInterestGoods() {
-		return "mypage_interest_goods";
+		return "mypage/mypage_interest_goods";
 	}
 
 	@GetMapping("/mypage_level.do")
 	public String mypageLevel() {
-		return "mypage_level";
+		return "mypage/mypage_level";
 	}
 
 	@GetMapping("/mypage_order_return.do")
 	public String mypageOrderReturn() {
-		return "mypage_order_return";
+		return "mypage/mypage_order_return";
 	}
 
 	@GetMapping("/mypage_order_goods.do")
 	public String mypageOrderGoods() {
-		return "mypage_order_goods";
+		return "mypage/mypage_order_goods";
 	}
 
 	@GetMapping("/mypage_order_class.do")
 	public String mypageOrderClass() {
-		return "mypage_order_class";
+		return "mypage/mypage_order_class";
 	}
 
 
 	@GetMapping("/mypage_recent.do")
 	public String mypageRecent() {
-		return "mypage_recent";
+		return "mypage/mypage_recent";
 	}
 
 	@GetMapping("/mypage_review_after.do")
 	public String mypageReviewAfter() {
-		return "mypage_review_after";
+		return "mypage/mypage_review_after";
 	}
 
-	@GetMapping("/mypage_review_before.do")
-	public String mypageReviewBefore() {
-		return "mypage_review_before";
+	@RequestMapping("/mypage_review_before.do")
+	public String mypageReviewBefore(HttpSession session, Model model) {
+		String order_id = (String) session.getAttribute("email");
+		List<GoodsOrderDetailVO> reviewBeforeList = myPageService.getReviewBeforeList(order_id);
+		model.addAttribute("reviewBeforeList", reviewBeforeList);
+		return "mypage/mypage_review_before";
+	}
+	
+	@GetMapping("/write_review.do")
+	public String writeReview() {
+		return "mypage/write_review";
 	}
 
 
-	//ÀÌ¸ÞÀÏ Àü¼ÛÀ» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/sendEmailUpdate.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String sendUpdateEmail(HttpServletRequest request) {
-		System.out.println("ÀÌ¸ÞÀÏ Àü¼Û ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		EmailDTO dto = new EmailDTO();
 
 
 		dto.setSenderMail("wnguds1101@gmail.com");
 		dto.setReceiveMail(request.getParameter("user_id"));
-		dto.setSubject("Idwith ÀÌ¸ÞÀÏ º¯°æ");
+		dto.setSubject("Idwith ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
 		emailUpdateService.sendMail(dto);
 
 
-		System.out.println("ÀÌ¸ÞÀÏ Àü¼Û ¿Ï·á");
+		System.out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 		return Integer.toString(1);
 	}
 
-	//ÀÌ¸ÞÀÏ ¼öÁ¤ º»ÀÎÈ®ÀÎ ¿Ï·áÃ¢
+	//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½ ï¿½Ï·ï¿½Ã¢
 	@GetMapping("/emailUpdateSuccess.do")
 	public String emailUpdateSuccess() {
 		return "emailUpdateSuccess";
 	}
 	
-	//ÀÌ¸ÞÀÏ ¼öÁ¤ ÄÁÆ®·Ñ·¯
+	//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/updateEmail.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String updateEmail(HttpServletRequest request, HttpSession session) {
-		System.out.println("ÀÌ¸ÞÀÏ ¼öÁ¤ ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		String user_id = (String) session.getAttribute("user_id");
 		String update_email = request.getParameter("update_email");
 		
@@ -166,7 +175,7 @@ public class MyPageController {
 		vo.setUser_id(user_id);
 		vo.setUser_update_email(update_email);
 		
-		System.out.println("ÄÁÆ®·Ñ·¯ ¹øÈ£ : " + update_email);
+		System.out.println("ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½È£ : " + update_email);
 		
 		myPageService.updateEmail(vo);
 		
@@ -174,11 +183,11 @@ public class MyPageController {
 		return null;
 	}
 
-	//ÀüÈ­¹øÈ£ ¼öÁ¤À» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ï¿½ï¿½È­ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/updatePhone.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String updatePhone(HttpServletRequest request, HttpSession session) {
-		System.out.println("ÀüÈ­¹øÈ£ ¼öÁ¤ Àü¼Û ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½ï¿½È­ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		String user_id = (String) session.getAttribute("user_id");
 		String user_phone = request.getParameter("user_phone");
 		
@@ -186,7 +195,7 @@ public class MyPageController {
 		vo.setUser_id(user_id);
 		vo.setUser_phone(user_phone);
 		
-		System.out.println("ÄÁÆ®·Ñ·¯ ¹øÈ£ : " + user_phone);
+		System.out.println("ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½È£ : " + user_phone);
 		
 		myPageService.updatePhone(vo);
 		
@@ -194,11 +203,11 @@ public class MyPageController {
 		return null;
 	}
 	
-	//À¯Àú ÀüÃ¼ ¼öÁ¤À» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/update_user_info.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String updateBirth(HttpServletRequest request, HttpSession session) {
-		System.out.println("À¯ÀúÁ¤º¸ ¼öÁ¤ ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		String user_id = (String) session.getAttribute("user_id");
 		String user_birth = request.getParameter("user_birth");
 		
@@ -206,7 +215,7 @@ public class MyPageController {
 		vo.setUser_id(user_id);
 		vo.setUser_birth(user_birth);
 		
-		System.out.println("ÄÁÆ®·Ñ·¯ ¹øÈ£ : " + user_birth);
+		System.out.println("ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½È£ : " + user_birth);
 		
 		myPageService.updateUserInfo(vo);
 		
@@ -214,11 +223,11 @@ public class MyPageController {
 		return null;
 	}
 	
-	//À¯Àú ¹è¼ÛÁö(ÁÖ¼Ò) ¼öÁ¤À» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ö¼ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 		@RequestMapping(value="/updateAddress.do", method=RequestMethod.POST)
 		@ResponseBody
 		public String updateAddress(HttpServletRequest request, HttpSession session) {
-			System.out.println("ÁÖ¼Ò ¼öÁ¤ ÄÁÆ®·Ñ·¯ ½ÇÇà");
+			System.out.println("ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			String user_id = (String) session.getAttribute("user_id");
 			String user_address_order = request.getParameter("user_address_order");
 			String user_name = request.getParameter("user_name");
@@ -237,12 +246,12 @@ public class MyPageController {
 			vo.setUser_address2(user_address2);
 			vo.setUser_order(order);
 			
-			System.out.println("ÁÖ¼ÒÁö ¼ø¼­ : " + order);
-			System.out.println("ÀÌ¸§ : " + user_name);
-			System.out.println("ÀüÈ­ : " + user_phone);
-			System.out.println("¿ìÆí : " + user_zipcode);
-			System.out.println("ÁÖ¼Ò1 : " + user_address1);
-			System.out.println("ÁÖ¼Ò2 : " + user_address2);
+			System.out.println("ï¿½Ö¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + order);
+			System.out.println("ï¿½Ì¸ï¿½ : " + user_name);
+			System.out.println("ï¿½ï¿½È­ : " + user_phone);
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ : " + user_zipcode);
+			System.out.println("ï¿½Ö¼ï¿½1 : " + user_address1);
+			System.out.println("ï¿½Ö¼ï¿½2 : " + user_address2);
 			
 			
 			myPageService.updateAddress(vo);
