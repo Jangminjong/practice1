@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -177,9 +179,7 @@
     </section>
        
 
-    <section class="content">      
-         
-                
+    <section class="content">           
                     <div class="container-fluid p-0">
 
                         <div class="row mb-2 mb-xl-3">
@@ -208,64 +208,75 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">No.</th>
-                                                <th scope="col">제목</th>
-                                                <th scope="col">작성자</th>
+                                                <th scope="col">제목</th>                                                
                                                 <th scope="col">날짜</th>
                                                 <th scope="col">조회수</th>
+                                                <th scope="col">삭제하기</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                          
+                                           <c:forEach var="storyBoard" items="${StoryBoardViewAll}">
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>
-                                                    <a href="storyModify.wdo">추석 연휴 공지</a>
-                                                </td>
-                                                <td>Seller01</td>
-                                                <td>2021-09-07</td>
-                                                <td>0</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>
-                                                    <a href="#">1주년 기념 이벤트</a>
-                                                </td>
-                                                <td>Seller1</td>
-                                                <td>2021-09-07</td>
-                                                <td>0</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>
-                                                    <a href="#">1주년 기념 이벤트</a>
-                                                </td>
-                                                <td>Seller1</td>
-                                                <td>2021-09-07</td>
-                                                <td>0</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>
-                                                    <a href="#">1주년 기념 이벤트</a>
-                                                </td>
-                                                <td>Seller1</td>
-                                                <td>2021-09-07</td>
-                                                <td>0</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>
-                                                    <a href="#">1주년 기념 이벤트</a>
-                                                </td>
-                                                <td>Seller1</td>
-                                                <td>2021-09-07</td>
-                                                <td>0</td>
-                                            </tr>
-
+                                                <th scope="row">${storyBoard.rownum}</th>                                                
+                                                <td><a href="storyModify.wdo?storyBoardSeq=${storyBoard.story_tseq}" > ${storyBoard.storyBoardTitle}</a></td>                                                                   
+                                                <td><fmt:formatDate value="${storyBoard.storyBoardRegDate}" pattern="yyyy.MM.dd"/></td>
+                                                <td>${storyBoard.storyCnt}</td>
+                                                <td><a href="deleteStoryBoard.wdo?story_tseq=${storyBoard.story_tseq}"><button class="btn btn-danger waves-effect" type="submit">삭제</button></a>
+							</td>
+                                            </tr>     
+                                            </c:forEach>                                    
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
+                        	<!-- 페이징 처리 -->
+					  	<div class="paging" data-ui="paging" data-sync="false">
+							<nav style="float:center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+									<c:choose>
+										<c:when test="${paging.nowPage eq 1 }">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Previous</span></li>
+										</c:when>
+										<c:when test="${paging.nowPage ne 1 }">
+											<li class="page-item"><a
+												href="/mpweb/writerStory.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Previous</a></li>
+										</c:when>
+									</c:choose>
+									<c:forEach begin="${paging.startPage }"
+										end="${paging.endPage }" var="p">
+										<c:choose>
+											<c:when test="${p eq paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/writerStory.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													onclick="return false" class="page-link">${p }</a></li>
+											</c:when>
+											<c:when test="${p ne paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/writerStory.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													class="page-link">${p }</a></li>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${paging.endPage eq paging.lastPage}">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Next</span></li>
+										</c:when>
+										<c:when test="${paging.endPage ne paging.lastPage}">
+											<li class="page-item"><a
+												href="/mpweb/writerStory.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+												style="width: auto;" class="page-link">Next</a></li>
+										</c:when>
+									</c:choose>
+								</ul>
+							</nav>
+						</div> 
+						
+						<!-- 페이징 처리 끝 -->
                     </div>
        
     </section>

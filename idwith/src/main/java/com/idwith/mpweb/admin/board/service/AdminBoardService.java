@@ -8,6 +8,7 @@ import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
 
 public interface AdminBoardService {
+	
 	int countQnA();
 	
 	List<AdminQnABoardVO> selectQnA(PagingVO pageVO);
@@ -16,7 +17,7 @@ public interface AdminBoardService {
 	
 	void updateAnswer(AdminQnABoardVO adminQnA);
 	
-	// °øÁö±Û Á¶È¸
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	int countNotice();
 	
 	List<AdminQnABoardVO> getQnAList(PagingVO pageVO);
@@ -27,7 +28,7 @@ public interface AdminBoardService {
 	
 	void insertFAQ(AdminQnABoardVO adminQnA);
 	
-	// »ç¿ëÀÚ °øÁö»çÇ× -----------------------------------------
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -----------------------------------------
 	
 	void userInsertNotice(AdminEventBoardVO adminEventVO);
 	

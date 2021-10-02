@@ -106,8 +106,15 @@ public class noticeController {
 	@GetMapping("/userNotice.mdo")
 	public String userNotice(PagingVO pageVO, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
-			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
-		 int countEventNotice = adminBoardService.countEventNotice(); 
+
+//			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
+//		 int countEventNotice = adminBoardService.countEventNotice(); 
+
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+			@RequestParam(value="set", required=false) String set) {
+		 int countEventNotice = adminBoardService.countEventNotice(); // ��ü �� ��
+		 System.out.println("��ü�� ��: "+ countEventNotice);
+		 System.out.println("ī�װ�: "+set);
 		 
 		 if (nowPage == null && cntPerPage == null) { 
 			 nowPage = "1";
@@ -167,10 +174,17 @@ public class noticeController {
 	@GetMapping(value="/qna.mdo")
 	public String qnaList(PagingVO pageVO, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
-			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
-		int total = adminBoardService.countQnA(); 
-		System.out.println("占쏙옙체 qna 占쏙옙: " + total);
-		System.out.println("카占쌓곤옙: "+set);
+
+//			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
+//		int total = adminBoardService.countQnA(); 
+//		System.out.println("占쏙옙체 qna 占쏙옙: " + total);
+//		System.out.println("카占쌓곤옙: "+set);
+
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, 
+			@RequestParam(value="set", required=false) String set) {
+		int total = adminBoardService.countQnA(); // ��ü �� �� ��ȸ 
+		System.out.println("��ü qna ��: " + total);
+		System.out.println("ī�װ�: "+set);
 
 		if (nowPage == null && cntPerPage == null) { 
 			nowPage = "1"; 

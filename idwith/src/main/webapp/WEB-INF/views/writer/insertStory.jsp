@@ -189,21 +189,25 @@
             </div>
         </div>
 
-        <div class="card" style="height: 400px;">
+        <div class="card" style="height: 430px;">
             <div class="card-body container-fluid p-0">
-                <form>
+                <form  id="form-StoryBoard" name="StoryBoard" action="writerStory.wdo">
                     <div class="mb-3">
                         <label class="form-label">Story Title</label>
-                        <input type="text" class="form-control" placeholder="제목" style="width: auto;">
+                        <input type="text" class="form-control" placeholder="${storyBoard.storyBoardTitle}" name="storyBoardTitle" style="width: auto;">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Content</label>
-                        <textarea class="form-control" placeholder="내용" rows="10"></textarea>
+                        <label class="form-label">Context</label>
+                        <textarea class="form-control" placeholder="${storyBoard.storyBoardContext}" name="storyBoardContext"rows="10"></textarea>
                     </div>
                     <div class="mb-3">
                         <label class="form-label w-100">File input</label>
-                        <input type="file">
+                        <input type="file" name="storyBoardFilePath">
                     </div>
+                    <div class="col-md-2 text-center pull-right">
+                       <a href="writerStory.wdo"><button class="btn btn-dark">작성하기</button></a>
+                    </div>
+                 
                 </form>
             </div>
         </div>
@@ -218,11 +222,7 @@
             <div class="col-md-1 text-center"></div>
             <div class="col-md-1 text-center"></div>
             <div class="col-md-1 text-center"></div>
-            <div class="col-md-1 text-center">
-                <a href="WriterStory.html">
-                    <button class="btn btn-primary pull-right">등록하기</button>
-                </a>
-            </div>
+
 
         </div>
 

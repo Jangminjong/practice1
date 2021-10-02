@@ -8174,7 +8174,7 @@ html.ie11 .bs-searchbox .form-control {
   	border : none;
   	margin-bottom : 20px;
   }
-	
+
   .upload-group {
   	display : flex;
   	justify-content: space-between;
@@ -8188,4 +8188,13 @@ html.ie11 .bs-searchbox .form-control {
   	border-radius: 5px;
   	border: grey;
   }
+
+  .option-group{
+   border : none;
+   margin-top : 5px;
+   margin-left : 10px;
+   
+  }
+  
+  
   
