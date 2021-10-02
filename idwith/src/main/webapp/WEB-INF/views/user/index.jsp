@@ -19,6 +19,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
   />
 <link rel="stylesheet" href="resources/css/sp-icon.css">
+<link rel="stylesheet" href="resources/css/uipack-local.css">
+<link rel="stylesheet" href="resources/css/idus.web.min.css">
+<link rel="stylesheet" href="resources/css/vendor.client.min.css">
   
 </head>
 <body>
@@ -137,14 +140,13 @@
 									<c:forEach var="goodsVO" items="${items }">
 										<li class="ui_grid__item">
 											<div class="card-add-icon">
-												<em class="icon-num" data-ranking="${goodsVO.rownum }">${goodsVO.rownum }</em>
+												<em class="icon-num" data-ranking="${goodsVO.rownum }" style="z-index:1;">${goodsVO.rownum }</em>
 												<div class="ui_card">
 													<!-- 찜 버튼 -->
 													<button type="button"
 														class="ui_card__overlay btn-ico sp-icon icon-favorite"
 														data-name="starred-toolbar" data-starred-type="product"
-														data-init="" data-starred=""
-														data-target-id="2e45a5ed-59cc-4008-81ee-68e7614b44a1">
+														data-init="" data-starred="" style="background-image:url(resources/images/index/sp-icon.png); z-index:80;">
 													</button>
 
 													<!-- 썸네일 -->
