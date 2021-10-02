@@ -65,7 +65,7 @@ public class AdminQnABoardDAO {
 	}
 	
 	public List<AdminEventBoardVO> getEventNoticeList(PagingVO pageVO){
-		if(pageVO.getSet().equals("����")) {
+		if(pageVO.getSet().equals("구분")) {
 			return sqlSessionTemplate.selectList("AdminEventBoardDAO.getEventNoticeList", pageVO);
 		}else {
 			return sqlSessionTemplate.selectList("AdminEventBoardDAO.getEventNoticeListWithCategory", pageVO);
