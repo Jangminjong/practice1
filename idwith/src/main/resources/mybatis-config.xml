@@ -7,6 +7,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.UserVO" alias="userVO"/>
  		<typeAlias type="com.idwith.mpweb.user.CartVO" alias="cartVO"/>
  		<typeAlias type="com.idwith.mpweb.user.SellerClassVO" alias="sellerClassVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.SellerStoryVO" alias="sellerStoryVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.SellerProductReviewVO" alias="sellerProductReviewVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.QnABoardVO" alias="qnaVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.EventBoardVO" alias="eventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.UserMessageVO" alias="msgVO"/>

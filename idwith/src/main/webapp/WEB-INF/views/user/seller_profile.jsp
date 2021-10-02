@@ -22,16 +22,17 @@
 				style="height: 0px;"></div>
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group" data-ui-position="default">
+				
 				<a data-v-825a8b32=""
-					href="seller_profile.do"
+					href="seller_profile.do?seller_code=${seller_code}"
 					class="tab active">프로필</a> <a data-v-825a8b32=""
-					href="seller_story.do"
+					href="seller_story.do?seller_code=${seller_code}"
 					class="tab">스토리</a> <a data-v-825a8b32=""
-					href="seller_goods.do"
+					href="seller_goods.do?seller_code=${seller_code}"
 					class="tab">판매작품</a> <a data-v-825a8b32=""
-					href="seller_class.do"
+					href="seller_class.do?seller_code=${seller_code}"
 					class="tab">클래스</a> <a data-v-825a8b32=""
-					href="seller_review.do"
+					href="seller_review.do?seller_code=${seller_code}"
 					class="tab">구매후기</a>
 			</nav>
 		</div>
@@ -41,7 +42,7 @@
 				<div data-v-fda01bb2="" class="profile-info">
 					<p data-v-fda01bb2="" class="title">History</p>
 					<div data-v-fda01bb2="" class="contents">
-						<div data-v-fda01bb2="" class="txt">${info.seller_profile}</div>
+						<div data-v-fda01bb2="" class="txt">${info.seller_history}</div>
 						<div data-v-fda01bb2="" class="img"
 							style="background-image: url(&quot;https://image.idus.com/image/files/9429acb8ee22457e9249bc8908719cdb.jpg&quot;);"></div>
 					</div>

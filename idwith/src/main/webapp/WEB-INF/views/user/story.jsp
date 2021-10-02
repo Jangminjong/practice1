@@ -68,7 +68,7 @@
 							style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
 
 							<c:forEach var="rightList" items="${storyList}"
-								begin="${listLength }">
+								begin="${listLength+1}">
 								<li data-v-52776193="" data-v-5ea8b349=""
 									class="story-card card-style"><input data-v-52776193=""
 									name="page" type="hidden" value="2">

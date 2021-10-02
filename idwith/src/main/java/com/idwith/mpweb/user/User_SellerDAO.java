@@ -28,24 +28,16 @@ public class User_SellerDAO {
 		return sellerList;
 	}
 
-	public List<UserSellerVO> getSellerInfo(String seller_code) {
-		List<UserSellerVO> sellerInfo = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerInfo", seller_code);
+	public int getSellerInfo(String seller_code) {
+		int countInfo = sqlSessionTemplate.selectOne("SellerCheckDAO.countSellerGoods", seller_code);
 		
-		System.out.println("결과 값 : " + sellerInfo);
-		
-		return sellerInfo;
+		return countInfo;
 	}
 
-	public List<UserSellerVO> getSellerProfile(String seller_code) {
-		List<UserSellerVO> profile = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerProfile", seller_code);
+	public UserSellerVO getSellerProfile(String seller_code) {
+		UserSellerVO profile = sqlSessionTemplate.selectOne("SellerCheckDAO.getSellerInfo", seller_code);
 		
 		return profile;
-	}
-
-	public List<UserSellerVO> getSellerStory(String seller_code) {
-		List<UserSellerVO> story = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerStory", seller_code);
-		
-		return story;
 	}
 
 	public int getClassCheck(String seller_code) {
@@ -62,5 +54,20 @@ public class User_SellerDAO {
 	public List<SellerClassVO> getClassList(String seller_code) {
 		List<SellerClassVO> classList = sqlSessionTemplate.selectList("SellerCheckDAO.getClassList", seller_code);
 		return classList;
+	}
+
+	public List<SellerStoryVO> getSellerStory(String seller_id) {
+		List<SellerStoryVO> storyList = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerStory", Integer.parseInt(seller_id));
+		
+		System.out.println("스토리 리스트 : " + storyList);
+		return storyList;
+	}
+
+	public List<SellerProductReviewVO> getSellerProductReviewList(String seller_code) {
+		List<SellerProductReviewVO> reviewList = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerProductReviewList", Integer.parseInt(seller_code));
+		
+		System.out.println("리뷰 리스트 : " + reviewList);
+		
+		return reviewList;
 	}
 }

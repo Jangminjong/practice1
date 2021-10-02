@@ -22,11 +22,18 @@
 				style="height: 0px;"></div>
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group" data-ui-position="default">
-				<a data-v-825a8b32="" href="seller_profile.do" class="tab">프로필</a> <a
-					data-v-825a8b32="" href="seller_story.do" class="tab">스토리</a> <a
-					data-v-825a8b32="" href="seller_goods.do" class="tab">판매작품</a> <a
-					data-v-825a8b32="" href="seller_class.do" class="tab active">클래스</a>
-				<a data-v-825a8b32="" href="seller_review.do" class="tab">구매후기</a>
+				
+				<a data-v-825a8b32=""
+					href="seller_profile.do?seller_code=${seller_code}"
+					class="tab">프로필</a> <a data-v-825a8b32=""
+					href="seller_story.do?seller_code=${seller_code}"
+					class="tab">스토리</a> <a data-v-825a8b32=""
+					href="seller_goods.do?seller_code=${seller_code}"
+					class="tab">판매작품</a> <a data-v-825a8b32=""
+					href="seller_class.do?seller_code=${seller_code}"
+					class="tab active">클래스</a> <a data-v-825a8b32=""
+					href="seller_review.do?seller_code=${seller_code}"
+					class="tab">구매후기</a>
 			</nav>
 		</div>
 		<div class="contents-container">

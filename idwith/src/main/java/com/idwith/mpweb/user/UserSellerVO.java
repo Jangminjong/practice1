@@ -14,7 +14,35 @@ public class UserSellerVO {
 	private boolean seller_goods_yn;
 	private boolean seller_class_yn;
 	private int seller_status;
+	private String seller_history;
+	private String seller_idea;
+	private String seller_identity;
+	private String seller_ideal;
 	
+	public String getSeller_history() {
+		return seller_history;
+	}
+	public void setSeller_history(String seller_history) {
+		this.seller_history = seller_history;
+	}
+	public String getSeller_idea() {
+		return seller_idea;
+	}
+	public void setSeller_idea(String seller_idea) {
+		this.seller_idea = seller_idea;
+	}
+	public String getSeller_identity() {
+		return seller_identity;
+	}
+	public void setSeller_identity(String seller_identity) {
+		this.seller_identity = seller_identity;
+	}
+	public String getSeller_ideal() {
+		return seller_ideal;
+	}
+	public void setSeller_ideal(String seller_ideal) {
+		this.seller_ideal = seller_ideal;
+	}
 	public int getSeller_code() {
 		return seller_code;
 	}

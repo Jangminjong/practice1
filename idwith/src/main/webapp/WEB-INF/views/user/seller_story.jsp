@@ -21,11 +21,19 @@
 			<div data-v-825a8b32="" data-trigger="fixposition"></div>
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group">
-				<a data-v-825a8b32="" href="seller_profile.do" class="tab">프로필</a> <a
-					data-v-825a8b32="" href="seller_story.do" class="tab active">스토리</a>
-				<a data-v-825a8b32="" href="seller_goods.do" class="tab">판매작품</a> <a
-					data-v-825a8b32="" href="seller_class.do" class="tab">클래스</a> <a
-					data-v-825a8b32="" href="seller_review.do" class="tab">구매후기</a>
+				
+				<a data-v-825a8b32=""
+					href="seller_profile.do?seller_code=${seller_code}"
+					class="tab">프로필</a> <a data-v-825a8b32=""
+					href="seller_story.do?seller_code=${seller_code}"
+					class="tab active">스토리</a> <a data-v-825a8b32=""
+					href="seller_goods.do?seller_code=${seller_code}"
+					class="tab">판매작품</a> <a data-v-825a8b32=""
+					href="seller_class.do?seller_code=${seller_code}"
+					class="tab">클래스</a> <a data-v-825a8b32=""
+					href="seller_review.do?seller_code=${seller_code}"
+					class="tab">구매후기</a>
+
 			</nav>
 		</div>
 		<div class="contents-container">
@@ -35,7 +43,7 @@
 						style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
 
 
-						<c:forEach var="info" items="${info}">
+						<c:forEach var="info" items="${info}" end="${listLength}">
 							<li data-v-52776193="" data-v-5ea8b349=""
 								class="story-card card-style"><input data-v-52776193=""
 								name="page" type="hidden" value="2">
@@ -48,16 +56,16 @@
 										<div data-v-52776193="" class="artist-info">
 											<span data-v-52776193="" class="artist-name"><a
 												data-v-52776193="" href="seller_goods.do" target="_blank">
-													${info.seller_name } </a></span> <span data-v-52776193=""
+													${info.seller_name} </a></span> <span data-v-52776193=""
 												class="story-date">
-												<!-- 작가 스토리 작성시간 -->
+												${info.story_date}
 											</span>
 										</div>
 									</div>
 									<!---->
 								</div> <a data-v-52776193="" href="##" target="_blank"><div
 										data-v-52776193="" class="story-card__body">
-										<!-- 작가 스토리 내용 -->
+										${info.story_context}
 									</div>
 									<div data-v-2ce2581b="" data-v-52776193="" class="image-group">
 										<div data-v-2ce2581b="" class="image-container">
@@ -85,7 +93,7 @@
 						style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
 
 
-						<c:forEach var="info" items="${info}">
+						<c:forEach var="info" items="${info}" begin="${listLength+1}">
 							<li data-v-52776193="" data-v-5ea8b349=""
 								class="story-card card-style"><input data-v-52776193=""
 								name="page" type="hidden" value="2">
@@ -100,14 +108,14 @@
 												data-v-52776193="" href="seller_goods.do" target="_blank">
 													${info.seller_name } </a></span> <span data-v-52776193=""
 												class="story-date">
-												<!-- 작가 스토리 작성시간 -->
+												${info.story_date}<!-- 작가 스토리 작성시간 -->
 											</span>
 										</div>
 									</div>
 									<!---->
 								</div> <a data-v-52776193="" href="##" target="_blank"><div
 										data-v-52776193="" class="story-card__body">
-										<!-- 작가 스토리 내용 -->
+										${info.story_context}
 									</div>
 									<div data-v-2ce2581b="" data-v-52776193="" class="image-group">
 										<div data-v-2ce2581b="" class="image-container">

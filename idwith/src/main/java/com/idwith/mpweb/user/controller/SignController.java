@@ -38,43 +38,43 @@ public class SignController {
 	}
 	
 
-	/* È¸¿ø°¡ÀÔ - sms ÀÎÁõ*/
+	/* È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - sms ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value = "/sendSms.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, String> sendSms(HttpServletRequest request) throws Exception {
-		System.out.println("SMS ÀÎÁõ ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("SMS ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		String api_key = "NCSE2QVWOHHJKJLS";
 		String api_secret = "ZPPUAJDBF60J9SU9MIE74YWWNG3YXLUJ";
 		Message coolsms = new Message(api_key, api_secret);
 		
-		//¹®ÀÚ ·£´ı °ª
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		int randomPIN = (int)(Math.random()*9000)+1000;
 		String cell_phone = request.getParameter("cell_phone");
-		System.out.println("¹ŞÀº ÀüÈ­¹øÈ£ : " + cell_phone);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½È£ : " + cell_phone);
 
 		// 4 params(to, from, type, text) are mandatory. must be filled
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("to", cell_phone);
 		params.put("from", "01091592149");
 		params.put("type", "SMS");
-		params.put("text", "º»ÀÎÈ®ÀÎ ÀÎÁõ¹øÈ£(" +  randomPIN +") ÀÔ·Â½Ã Á¤»óÃ³¸® µË´Ï´Ù.");
+		params.put("text", "ë³¸ì¸ì¸ì¦ ë²ˆí˜¸ì…ë‹ˆë‹¤.(" +  randomPIN +") ì¸ì¦ ë¶€íƒë“œë¦½ë‹ˆë‹¤.");
 		params.put("app_version", "test app 1.2"); // application name and version
 		params.put("randomPIN", String.valueOf(randomPIN));
 
-		System.out.println("·£´ı¹øÈ£ : " + randomPIN);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ : " + randomPIN);
 		try {
 			JSONObject obj = (JSONObject) coolsms.send(params);
 			System.out.println(obj.toString());
 		} catch (CoolsmsException e) {
 			System.out.println(e.getMessage());
-			System.out.println("¿À·ù");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½");
 			System.out.println(e.getCode());
 		}
 
 		return params;
 	}
 
-	/* ID Ã£±â */
+	/* ID Ã£ï¿½ï¿½ */
 	@RequestMapping(value = "/account_check.do", method = RequestMethod.POST)
 	public String accountCheck(HttpServletRequest request, Model model) {
 		String user_phone = request.getParameter("user_phone");
@@ -84,14 +84,14 @@ public class SignController {
 			model.addAttribute("user_phone", user_phone);
 		}
 		
-		System.out.println("ID Ã£±â °á°ú : " + result);
+		System.out.println("ID Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ : " + result);
 		return "account_check";
 	}
 	
 	@RequestMapping(value = "/account_step1.do", method = RequestMethod.POST)
 	public String accountStepOne(HttpServletRequest request, Model model) {
 		String user_phone = request.getParameter("user_phone");
-		System.out.println("½ºÅÜ1 : " + user_phone);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½1 : " + user_phone);
 		
 		List<Map<String, String>> userList = userService.getUserList(user_phone);
 		model.addAttribute("userList", userList);
@@ -101,7 +101,7 @@ public class SignController {
 	@RequestMapping(value = "/account_step2.do", method = RequestMethod.POST)
 	public String accountStepTwo(HttpServletRequest request, Model model) {
 		String user_id = request.getParameter("user_id");
-		System.out.println("½ºÅÜ2 : " + user_id);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½2 : " + user_id);
 		
 		List<Map<String, String>> userList = userService.getUserNameList(user_id);
 		
@@ -115,7 +115,7 @@ public class SignController {
 		String user_name = request.getParameter("user_name");
 		
 		List<Map<String, String>> userInfo = userService.getUserInfo(user_name);
-		System.out.println("°á°ú °ª : " +userInfo);
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ : " +userInfo);
 		
 		model.addAttribute("userInfo", user_name);
 		
@@ -124,9 +124,9 @@ public class SignController {
 	
 	@RequestMapping(value = "/signupSuccess.do", method = RequestMethod.POST)
 	public String signupSuccess(UserVO vo) {
-		System.out.println("Controller : È¸¿ø°¡ÀÔ ¿Ï·á Ã³¸®");
+		System.out.println("Controller : È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ Ã³ï¿½ï¿½");
 		
-		//È¸¿ø°¡ÀÔÇÏ´Â È¸¿øÀÇ ÀÌ¸§, ÀüÈ­¹øÈ£´Â ¹«Á¶°Ç Ã¹¹øÂ° ÁÖ¼ÒÁö·Î ÀúÀå
+		//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½, ï¿½ï¿½È­ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¹ï¿½ï¿½Â° ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		vo.setUser_order(1);
 		
 		userService.insertUser(vo);
