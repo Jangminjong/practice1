@@ -29,6 +29,13 @@
 			</div>
 			<div class="inner-w mobile-full">
 				<nav class="cnn-list">
+					<a href="enterWriterNotice.do"> 
+						<strong> 
+							❑ 
+							<span style="color: #ff7a31;">[작가 입점 안내]</span> 
+							<span style="color: #666666; font-size: 16px;">금손이라면 누구나 작가가 될 수 있습니다.</span>
+						</strong>
+					</a>
 					<c:forEach var="eventVO" items="${noticeEventList}">
 							<a href="eventNotice_detail.do?user_event_board_seq=${eventVO.user_event_board_seq }">
 								<div>

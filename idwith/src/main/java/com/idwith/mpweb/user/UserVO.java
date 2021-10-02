@@ -20,7 +20,8 @@ public class UserVO {
 	private String user_option_addr2;
 	private String user_birth;
 	private String user_update_email;
-	private int user_order; //3개의 배송지를 나누는 변수
+	private int user_order; 
+	private boolean user_black_check;
 
 	
 	public int getUser_order() {
@@ -132,4 +133,11 @@ public class UserVO {
 	public void setUser_option_addr2(String user_option_addr2) {
 		this.user_option_addr2 = user_option_addr2;
 	}
+	public boolean isUser_black_check() {
+		return user_black_check;
+	}
+	public void setUser_black_check(boolean user_black_check) {
+		this.user_black_check = user_black_check;
+	}
+	
 }

@@ -808,3 +808,70 @@ i {
 .ui_icon--star[data-state='active'][data-v-ef94db98] {
     color: #ffc500 !important;
 }
+
+/* 인덱스 배너 */
+
+.index-slider{
+	postion:relative;
+}
+
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: auto auto 0 auto;
+}
+
+#slider ul {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  float:left;
+  margin: 0;
+  padding: 0;
+  height: 480px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 480px;
+  text-align: center;
+}
+
+.control-prev, .control-next{
+	position:absolute;
+}
+
+.ui-control {
+	position: absolute;
+	top: 55%;
+	z-index: 999;
+	display: block;
+	padding: 4% 3%;
+	width: auto;
+	height: auto;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.control-next{
+	margin-left: 1300px;
+	text-shadow: 0 1px 1px #444;
+}
+
+.control-prev{
+	margin-left: 150px;
+	text-shadow: 0 1px 1px #444;
+}
+
+.showroom-banner img{
+	 margin-left: -150px; 
+}

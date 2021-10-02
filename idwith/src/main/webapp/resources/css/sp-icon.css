@@ -12807,7 +12807,7 @@ header#header.header .gnb-scroll {
 	-webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #d9d9d9;
 	-moz-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #d9d9d9;
 	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #d9d9d9;
-	position: absolute;
+	/*position: absolute;*/
 	width: 100%;
 	z-index: 99
 }

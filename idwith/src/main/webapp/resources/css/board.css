@@ -1,4 +1,4 @@
-/* °Ô½Ã±Û ¸®½ºÆ® */
+/* ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® */
 .btn-qna-board{
 	border-color: transparent;
     background: #ff7b30;
@@ -17,7 +17,7 @@
 }
 
 
-/* °Ô½Ã±Û ÀÛ¼º */
+/* ï¿½Ô½Ã±ï¿½ ï¿½Û¼ï¿½ */
 
 .qna-title{
 	display:flex;
@@ -98,7 +98,7 @@
     font-weight: bold;
 }
 
-/* °Ô½Ã±Û »ó¼¼ */
+/* ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ */
 
 .qna-detail{
 	height:505px;
@@ -107,4 +107,26 @@
 .qna-answer-title{
 	font-size:14px;
 	color:#333;
+}
+
+/* ê³µì§€ì‚¬í•­ - ì…ì  ì•ˆë‚´ í˜ì´ì§€ */
+
+.offer-btn-wrap{
+	display:flex;
+	justify-content:space-around;
+}
+
+.offer-btn {
+	width: 300px;
+	height: 80px;
+	border-radius: 40px;
+	background-color:#ff7a31;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	margin: 45px 0;
+	
+}
+
+.offer-btn a{
+	font-size: 26px;
+	font-weight:bold;
 }

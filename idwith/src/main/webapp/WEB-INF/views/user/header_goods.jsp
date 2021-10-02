@@ -23,7 +23,7 @@
 <body id="body">
 	<input type="hidden" id="email" value="${email }"/>
 	<div class="wrap">
-		<div class="head_banner_group">
+		<div class="head_banner_group" id="header-banner">
 			<!-- 상단 리본 배너 -->
 			<div class="download-ribbon top" style="background-color: #ff7b30"
 				data-download="root" data-download-type="isRibbon">
@@ -33,7 +33,7 @@
 						src="https://image.idus.com/static/signup/web_benefit_banner.png">
 					</a>
 					<button class="download-ribbon-close" type="button">
-						<i class="fa fa-times-circle" aria-hidden="true"></i>
+						<i class="fa fa-times-circle" aria-hidden="true" onclick="bannerHide()"></i>
 					</button>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 				
 				<c:choose>
 					<c:when test="${ emailSplit eq null }">
-						<nav class="fr">
+						<nav class="fr" style="margin-left: 700px;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a
 							id="gnb-login-button" href="login.do" class="nav-btn"
@@ -96,25 +96,27 @@
 								data-endpoint="/w/notification?page=gnb">
 								<i class="fa fa-bell-o" aria-hidden="true"></i><span class="title">알림</span>
 							</button>
-							<div class="menu-dropdown menu-second alarm">
+							<div class="menu-dropdown menu-second alarm" style="width:360px; margin-left: -160px;">
 								<div class="alarm_title">
 									<span class="title">알림</span>
 								</div>
-								<ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar">
+								<ul class="msg-lists mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar alarm-dropdown">
 									<div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
 												<c:forEach var="event" items="${event}">
 													<div class="notification_card_container">
-														<input type="hidden" name="paging_param"> <a
-															href="javascript:dueDateCheck(${event.user_event_board_seq})"
-															class="notification_card_link"> <img
-															src="https://image.idus.com/image/files/1b943d7e4df14e029705d57b9c2e55ed.jpg"
-															class="notification_card_artist_img mCS_img_loaded">
-															<div class="notification_card_content_box">
-																<p class="label">이벤트</p>
+														<input type="hidden" name="paging_param"> 
+														<a href="javascript:dueDateCheck(${event.user_event_board_seq})" class="notification_card_link alarm-card-link">
+															<div>
+																<img src="resources/images/title/icon_300.PNG" class="notification_card_artist_img mCS_img_loaded alarm-logo">
+															</div>
+															<div class="notification_card_content_box alarm-box">
+																<p class="label" style="font-weight:bold; color:#ff7b30;">이벤트</p>
 																<p class="title">${event.user_event_board_title2}</p>
 																<p class="message" style="overflow: hidden;">${event.user_event_board_content }</p>
 															</div>
-															<p class="notification_card_date">${event.user_event_board_start }</p>
+															<div>
+																<p class="notification_card_date" style="float:right;">${event.user_event_board_start }</p>
+															</div>
 														</a>
 
 													</div>
@@ -182,12 +184,12 @@
 				</div>
 			</div>
 
-			<div class="bg-wrapper" data-vue="SearchHeader">
+			<div class="bg-wrapper" id="header-main" data-vue="SearchHeader">
 				<div class="inner-w top">
 					<h1 class="logo" style="margin-top: -20px;">
 						<a href="index.do" class="icon-iduslogo"><img
 							src="resources/images/index/idwith_logo_back.png"
-							alt="IDUS, Unique Lifestyle Guide"></a>
+							alt="IDUS, Unique Lifestyle Guide" style="height: 85px;"></a>
 					</h1>
 
 					<nav class="service-nav">
@@ -232,7 +234,7 @@
 				</div>
 			</div>
 
-			<div class="full-w gnb-scroll " data-ui="gnb-scroll"
+			<div class="full-w gnb-scroll " data-ui="gnb-scroll" id="topBar"
 				data-state="static">
 				<div class="inner-w container_gnb" data-ui="gnb">
 					<ul class="ui_gnb" data-state="" data-type="">
@@ -243,7 +245,7 @@
 									<li><a
 										href="category_goods.do"
 										data-log-label="product_category"
-										data-log-object="5c6bc7d4-7760-4702-b63f-7f29eca479e3">디저트</a> <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+										data-log-object="5c6bc7d4-7760-4702-b63f-7f29eca479e3">디저트</a> <i class="fa fa-chevron-right" aria-hidden="true" style="color:#ff7a31;"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
@@ -265,7 +267,7 @@
 										href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="4a8cbc36-3af8-4b75-af01-8795782df80d">시계</a>
-										<i class="fas fa-chevron-right"></i></li>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"
@@ -274,7 +276,7 @@
 										href="goods_category.do"
 										data-log-label="product_category"
 										data-log-object="1616d42d-ea77-11e4-88d5-06530c0000b4">육아, 아동</a>
-										<i class="fas fa-chevron-right"></i></li>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 									<li><a
 										href="goods_category.do"
 										data-log-label="product_category"

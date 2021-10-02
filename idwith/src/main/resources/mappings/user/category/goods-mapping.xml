@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="GoodsDAO">
+ 	<resultMap type="goodsVO" id="goodsResult">
+ 		<result property="goods_code" column="goods_code"/>
+ 		<result property="goods_name" column="goods_name"/>
+ 		<result property="goods_price" column="goods_price"/>
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="goods_category" column="goods_category"/>
+ 		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_stock" column="goods_stock"/>
+ 		<result property="goods_volume" column="goods_volume"/>
+ 		<result property="goods_income" column="goods_income"/>
+ 		<result property="goods_grade" column="goods_grade"/>
+ 		<result property="goods_info" column="goods_info"/>
+ 		<result property="goode_select" column="goode_select"/>
+ 		<result property="goods_view" column="goods_view"/>
+ 		<result property="goods_op1_code" column="goods_op1_code"/>
+ 		<result property="goods_op2_code" column="goods_op2_code"/>
+ 		<result property="goods_op3_code" column="goods_op3_code"/>
+ 		<result property="goods_seq" column="goods_seq"/>
+ 		<result property="goods_apply_date" column="goods_apply_date"/>
+ 		<result property="goods_status" column="goods_status"/>
+ 	</resultMap>
+ 	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
+	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+	FROM goods where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10;
+ 	</select>
+</mapper>

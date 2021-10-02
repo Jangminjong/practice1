@@ -5,6 +5,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 	<!-- 별칭 예시 -->
 	<typeAliases>
  		<typeAlias type="com.idwith.mpweb.user.UserVO" alias="userVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.GoodsCategoryVO" alias="goodsCateVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.GoodsVO" alias="goodsVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.QnABoardVO" alias="qnaVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.EventBoardVO" alias="eventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.UserMessageVO" alias="msgVO"/>
@@ -23,6 +25,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  	</typeHandlers>
  	<mappers>
  		<mapper resource="mappings/user/board/userBoard-mapping.xml" />
+ 		<mapper resource="mappings/user/category/goodsCategory-mapping.xml" />
+ 		<mapper resource="mappings/user/category/goods-mapping.xml" />
  		<mapper resource="mappings/user/board/qnaBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/eventBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/userMessage-mapping.xml" />

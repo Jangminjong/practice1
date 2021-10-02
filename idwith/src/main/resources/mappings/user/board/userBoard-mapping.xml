@@ -21,6 +21,7 @@
  		<result property="user_option_addr1" column="user_option_addr1"/>
  		<result property="user_option_addr2" column="user_option_addr2"/>
  		<result property="user_order" column="user_order"/>
+ 		<result property="user_black_check" column="user_black_check"/>
  	</resultMap>
  	<!-- 회원가입 -->
  	<insert id="insertUser" parameterType="userVO">

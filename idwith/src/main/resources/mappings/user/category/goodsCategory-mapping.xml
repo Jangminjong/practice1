@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="GoodsDAO">
+ 	<resultMap type="goodsCateVO" id="goodsCateResult">
+ 		<result property="goods_category_code" column="goods_category_code"/>
+ 		<result property="goods_category_name" column="goods_category_name"/>
+ 	</resultMap>
+ 	<select id="selectGoodsCategory" resultMap="goodsCateResult">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+	FROM goods_category)A)AS foo WHERE rownum BETWEEN 1 AND 5;
+ 	</select>
+</mapper>
