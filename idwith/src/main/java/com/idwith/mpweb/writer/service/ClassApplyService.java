@@ -1,5 +1,10 @@
 package com.idwith.mpweb.writer.service;
 
-public interface ClassApplyService {
+import java.util.List;
 
+import com.idwith.mpweb.writer.WriterClassRegVO;
+
+public interface ClassApplyService {
+	void classApplyInsert(WriterClassRegVO writerClassApplyVO);
+	List<WriterClassRegVO> getWriterClassApplyList(String sellerCheck);
 }

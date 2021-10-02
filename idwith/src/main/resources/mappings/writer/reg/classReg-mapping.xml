@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="WriterClassRegDAO">
+ 	<resultMap type="writerClassReg" id="writerClassRegResult">
+ 		<result property="classSeller" column="class_seller"/>
+ 		<result property="classCategory" column="class_category"/>
+ 		<result property="className" column="class_name"/>
+ 		<result property="classCode" column="class_code"/>
+ 		<result property="classPrice" column="class_price"/>
+ 		<result property="classPostAddress" column="class_post_address"/>
+ 		<result property="classAddress" column="class_address"/>
+ 		<result property="classDetailAddress" column="class_detail_address"/>
+ 		<result property="classReference" column="class_reference"/>
+ 		<result property="classDifficult" column="class_difficult"/>
+ 		<result property="classPerson" column="class_person"/>
+ 		<result property="classInfo" column="class_info"/>
+ 		<result property="classRegDate" column="class_reg_date"/>
+ 		<result property="classPhone" column="class_phone" />
+ 		<result property="classPhoto" column="class_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="classStatus" column="class_status"/>
+ 	</resultMap>
+ 	<!-- 클래스신청 테이블에 등록  -->
+ 	<insert id="insertClassReg" parameterType="writerClassReg">
+ 		INSERT INTO class_apply (
+ 								 class_seller,
+ 								 class_category,
+ 								 class_name,
+ 								 class_code,
+ 								 class_price,
+ 								 class_post_address,
+ 								 class_address,
+ 								 class_detail_address,
+ 								 class_reference,
+ 								 class_difficult,
+ 								 class_person,
+ 								 class_info,
+ 								 class_phone,
+ 								 class_photo,
+ 								 class_status
+ 								 )
+ 		VALUES(#{classSeller},
+ 			   #{classCategory},
+ 			   #{className},
+ 			   #{classCode},
+ 			   #{classPrice},
+ 			   #{classPostAddress},
+ 			   #{classAddress},
+ 			   #{classDetailAddress},
+ 			   #{classReference},
+ 			   #{classDifficult},
+ 			   #{classPerson},
+ 			   #{classInfo},
+ 			   #{classPhone},
+ 			   #{classPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler},
+ 			   0
+ 			   )
+ 	</insert>
+ 	<!-- 클래스 신청 목록 -->
+ 	<!-- <select id="getClassApplyList" resultType="writerClassApply" resultMap="writerClassApplyResult">
+ 		SELECT class_apply_name,
+ 			   class_apply_price,
+ 			   class_apply_post_address,
+ 			   class_apply_address,
+ 			   class_apply_detail_address,
+ 			   class_apply_reference,
+ 			   
+ 	</select> -->
+ 	
+</mapper>

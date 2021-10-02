@@ -280,7 +280,7 @@
         </div>    
         <div class="body pull-right">
             <div class="button">
-                <a href="ProductCreate.html">
+                <a href="productCreate.wdo">
                 <button type="button" class="btn bg-deep-purple waves-effect">작품 등록</button>
                 </a>
             </div>

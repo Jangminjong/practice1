@@ -1,4 +1,4 @@
-package com.idwith.mpweb.common;
+package com.idwith.mpweb.writer.common;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,7 +38,7 @@ public class S3Service {
 		createS3Client();	
 	}
 
-	// aws S3 client 생성
+	// aws S3 client 객체 생성
 	private void createS3Client() {
 		AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
 		s3Client = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials))

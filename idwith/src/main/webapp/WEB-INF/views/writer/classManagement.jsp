@@ -199,15 +199,13 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>순번</th>
                                         <th>클래스코드</th>
                                         <th>클래스명</th>
-                                        <th>진행 지역</th>
-                                        <th>수업 진행시간</th>
-                                        <th>수업 요일</th>
                                         <th>가격</th>
-                                        <th>등록일</th>
-                                        <th>삭제</th>
+                                        <th>진행 지역</th>
+                                        <th>신청일</th>
+                                        <th>승인</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -215,11 +213,9 @@
                                         <th scope="row">1</th>
                                         <td><a href="classModify.wdo">CW02021</a></td>
                                         <td>내 감성을 담은 베지터블가죽 카드지갑 만들기</td>
+                                        <td>50000</td>
                                         <td>종로구</td>
-                                        <td>2시간</td>
-                                        <td>토, 일</td>
                                         <td>50,000</td>
-                                        <td>2021-08-15</td>
                                         <td>
                                             <!-- BEGIN primary modal -->
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -255,7 +251,6 @@
                                         <th scope="row">2</th>
                                         <td>Jacob</td>
                                         <td>Thornton</td>
-                                        <td>@fat</td>
                                         <td>@fat</td>
                                         <td>@fat</td>
                                         <td>@fat</td>
