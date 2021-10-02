@@ -13,37 +13,36 @@ import com.idwith.mpweb.admin.EmailDTO;
 public class EmailServiceImpl implements EmailService {
 
 	@Autowired
-	private JavaMailSender mailSender; // root-context.xml¿¡ ¼³Á¤ÇÑ bean, ÀÇÁ¸¼ºÀ» ÁÖÀÔ
+	private JavaMailSender mailSender; // root-context.xmlì— ì„¤ì •í•œ bean, ì˜ì¡´ì„±ì„ ì£¼ì…
 	
 	@Override
 	public void sendMail(EmailDTO dto, int result) {
-		System.out.println("Service sendMail ½ÇÇà");
+		System.out.println("Service sendMail ì‹¤í–‰");
 		try {
 			String subject = dto.getSubject();
 			String from = dto.getSenderMail();
 			String to = dto.getReceiveMail();
 			String content = null;
 			
-			// ÀÌ¸ŞÀÏ °´Ã¼
+			// ì´ë©”ì¼ ê°ì²´
 			MimeMessage mail = mailSender.createMimeMessage();
 
 			MimeMessageHelper helper = new MimeMessageHelper(mail, "utf-8");
 			
 			if(result == 1) {
-				content = "<h1>È¯¿µÇÕ´Ï´Ù.<br>" + to + "ÀÛ°¡´Ô" + "</h1>" + 
-						"<br>¾È³çÇÏ¼¼¿ä!<br>Idwith ÀÛ°¡¿¡ µî·ÏÇØ ÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù.<br></p>";
+				content = "<h1>È¯ï¿½ï¿½ï¿½Õ´Ï´ï¿½.<br>" + to + "ï¿½Û°ï¿½ï¿½ï¿½" + "</h1>" + 
+						"<br>ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½!<br>Idwith ï¿½Û°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Å¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.<br></p>";
 			}else if(result == 0) {
-				content = "<h1>¾È³çÇÏ¼¼¿ä.<br>" + to + "È¸¿ø´Ô" + "</h1>" + 
-						"<br>ÁË¼ÛÇÕ´Ï´Ù.<br>Idwith ÀÔÁ¡½ÅÃ»¿¡ ½ÇÆĞÇÏ¼Ì½À´Ï´Ù. ÁÁÀºÇÏ·ç µÇ¼¼¿ä.<br></p>";
+				content = "<h1>ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.<br>" + to + "È¸ï¿½ï¿½ï¿½ï¿½" + "</h1>" + 
+						"<br>ï¿½Ë¼ï¿½ï¿½Õ´Ï´ï¿½.<br>Idwith ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½.<br></p>";
 			}
 			
-			
-			helper.setSubject(subject); //Á¦¸ñ
-			helper.setFrom(from); //º¸³»´Â »ç¶÷
-			helper.setTo(to); //¹Ş´Â »ç¶÷
-			helper.setText(content, true); //¸ŞÀÏ ³»¿ë
+			helper.setSubject(subject); //ï¿½ï¿½ï¿½ï¿½
+			helper.setFrom(from); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			helper.setTo(to); //ï¿½Ş´ï¿½ ï¿½ï¿½ï¿½
+			helper.setText(content, true); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-			// ÀÌ¸ŞÀÏ º¸³»±â
+			// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			mailSender.send(mail);
 		} catch (Exception e) {
 			e.printStackTrace();
