@@ -20,8 +20,8 @@
 				<a class="m-show" href="/w/board/terms/use">이용약관</a> <span
 					class="m-show">|</span> <a class="m-show"
 					href="/w/board/terms/privacy"><strong>개인정보 처리방침</strong></a> <span
-					class="m-show">|</span> <a class="m-show" href="/w/board/notice">공지사항</a>
-				<span class="m-show">|</span> <a href="/w/board/faq">자주 묻는 질문</a> <span>|</span>
+					class="m-show">|</span> <a class="m-show" href="eventNoticeBoard.do">공지사항</a>
+				<span class="m-show">|</span> <a href="board.do">자주 묻는 질문</a> <span>|</span>
 				<a href="/w/board/event">이벤트</a> <span>|</span> <a
 					href="enterWriterNotice.do" target="blank">입점문의</a> <span>|</span>
 				<a class="m-show" href="https://about.idus.com" target="blank">About
