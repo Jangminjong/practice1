@@ -57,7 +57,7 @@ public class SignController {
 		params.put("to", cell_phone);
 		params.put("from", "01091592149");
 		params.put("type", "SMS");
-		params.put("text", "����Ȯ�� ������ȣ(" +  randomPIN +") �Է½� ����ó�� �˴ϴ�.");
+		params.put("text", "본인인증 번호입니다.(" +  randomPIN +") 인증 부탁드립니다.");
 		params.put("app_version", "test app 1.2"); // application name and version
 		params.put("randomPIN", String.valueOf(randomPIN));
 

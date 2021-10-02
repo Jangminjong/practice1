@@ -9,9 +9,4 @@ public class PaymentController {
 	public String payment() {
 		return "payment";
 	}
-	
-	@GetMapping("/cart.do")
-	public String cart() {
-		return "cart";
-	}
 }

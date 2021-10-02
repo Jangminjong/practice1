@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,8 @@
 							href="seller_goods.do"
 							target="_blank">
 							<p data-v-2618eab2="" class="artist-info__name">
-								초은농장
+								<%-- <c:set var="info" target="${info}"/>
+								${info.seller_name} --%>
 								<!---->
 							</p>
 						</a>
@@ -134,10 +136,6 @@
 			<div data-v-2618eab2="" data-modal-overlay="" class="modal overlay"></div>
 			<div data-v-2618eab2=""
 				class="modal wrap modal-m donation_content_modal">
-				<div data-v-2618eab2="" class="modal head">
-					<h1 data-v-2618eab2="">후원하기</h1>
-					<div data-v-2618eab2="" data-modal="close" class="modal close"></div>
-				</div>
 				<section data-v-2618eab2="" class="modal body">
 					<form data-v-2618eab2="" data-ui="form-support"
 						action="/support/payment" class="inner">

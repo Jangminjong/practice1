@@ -13,37 +13,37 @@ import com.idwith.mpweb.admin.EmailDTO;
 public class EmailUpdateServiceImpl implements EmailUpdateService {
 
 	@Autowired
-	private JavaMailSender mailSender; // root-context.xml¿¡ ¼³Á¤ÇÑ bean, ÀÇÁ¸¼ºÀ» ÁÖÀÔ
+	private JavaMailSender mailSender; // root-context.xmlï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bean, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	@Override
 	public void sendMail(EmailDTO dto) {
-		System.out.println("Service sendMail ½ÇÇà");
+		System.out.println("Service sendMail ï¿½ï¿½ï¿½ï¿½");
 		try {
 			String subject = dto.getSubject();
 			String from = dto.getSenderMail();
 			String to = dto.getReceiveMail();
 			String content = null;
 			
-			// ÀÌ¸ŞÀÏ °´Ã¼
+			// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 			MimeMessage mail = mailSender.createMimeMessage();
 
 			MimeMessageHelper helper = new MimeMessageHelper(mail, "utf-8");
 			
-			content = "<h2>¸ŞÀÏ ÁÖ¼Ò º¯°æ »çÇ×À» È®ÀÎÇØ ÁÖ¼¼¿ä..<br></h2>" + 
-					"ÀÌ ¸ŞÀÏÀº" + to + "°¡ Á¤È®ÇÑ ÀÌ¸ŞÀÏ ÁÖ¼ÒÀÎÁö È®ÀÎÇÏ´Â ¸ŞÀÏÀÔ´Ï´Ù.<br>"
-							+ "¾Æ·¡ÀÇ ¸µÅ©¸¦ Å¬¸¯ÇÏ½Ã¸é, ÀÌ¸ŞÀÏ ÀÎÁõÀÌ È®ÀÎµÇ¾î º¯°æµÈ ÀÌ¸ŞÀÏ·Î È¸¿øÁ¤º¸°¡ ¹İ¿µµË´Ï´Ù.<br>"
-							+ "<a href='http://localhost:8080/mpweb/emailUpdateSuccess.do'>ÀÌ¸ŞÀÏ ÁÖ¼Ò º¯°æ ¿Ï·áÇÏ·¯ °¡±â</a><br>"
-							+ "¾ÆÀÌµğÀ§µå¸¦ ÀÌ¿ëÇØ ÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù.<br>"
-							+ "ÀşÀº ÀÛ°¡µéÀÇ ¾ÆÀÌµğ¾î ¸¶ÄÏ<br>"
+			content = "<h2>[IdWith]<br></h2>" + 
+					"ì•ˆë…•í•˜ì„¸ìš”!" + to + "íšŒì›ë‹˜.<br>"
+							+ "ì´ë©”ì¼ë³€ê²½ ì¸ì¦ë©”ì¼ ì…ë‹ˆë‹¤.<br>"
+							+ "<a href='http://localhost:8080/mpweb/emailUpdateSuccess.do'></a><br>"
+							+ "ìœ„ì˜ ë§í¬ë¥¼ í´ë¦­í•˜ì‹œë©´, ì´ë©”ì¼ ì¸ì¦ì´ í™•ì¸ë˜ì–´ ë³€ê²½ëœ ì´ë©”ì¼ë¡œ íšŒì›ì •ë³´ê°€ ë°˜ì˜ë©ë‹ˆë‹¤. <br>"
+							+ "ì•„ì´ë””ì–´ìŠ¤ë¥¼ ì´ìš©í•´ ì£¼ì…”ì„œ ê°ì‚¬í•©ë‹ˆë‹¤.<br>"
 							+ "http://localhost:8080/mpweb/index.do";
 			
 			
-			helper.setSubject(subject); //Á¦¸ñ
-			helper.setFrom(from); //º¸³»´Â »ç¶÷
-			helper.setTo(to); //¹Ş´Â »ç¶÷
-			helper.setText(content, true); //¸ŞÀÏ ³»¿ë
+			helper.setSubject(subject); //ï¿½ï¿½ï¿½ï¿½
+			helper.setFrom(from); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			helper.setTo(to); //ï¿½Ş´ï¿½ ï¿½ï¿½ï¿½
+			helper.setText(content, true); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-			// ÀÌ¸ŞÀÏ º¸³»±â
+			// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			mailSender.send(mail);
 		} catch (Exception e) {
 			e.printStackTrace();

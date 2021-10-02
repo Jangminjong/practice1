@@ -15,22 +15,24 @@
 <body>
 	<jsp:include page="header_goods.jsp" />
 	<section class="artist-contents">
+	<jsp:include page="seller_main.jsp" />
 		<div data-v-825a8b32="">
 			<div data-v-825a8b32="" data-trigger-detail="true"></div>
 			<div data-v-825a8b32="" data-trigger="fixposition"
 				style="height: 0px;"></div>
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group" data-ui-position="default">
+				
 				<a data-v-825a8b32=""
-					href="seller_profile.do"
+					href="seller_profile.do?seller_code=${seller_code}"
 					class="tab active">프로필</a> <a data-v-825a8b32=""
-					href="seller_story.do"
+					href="seller_story.do?seller_code=${seller_code}"
 					class="tab">스토리</a> <a data-v-825a8b32=""
-					href="seller_goods.do"
+					href="seller_goods.do?seller_code=${seller_code}"
 					class="tab">판매작품</a> <a data-v-825a8b32=""
-					href="seller_class.do"
+					href="seller_class.do?seller_code=${seller_code}"
 					class="tab">클래스</a> <a data-v-825a8b32=""
-					href="seller_review.do"
+					href="seller_review.do?seller_code=${seller_code}"
 					class="tab">구매후기</a>
 			</nav>
 		</div>
@@ -40,10 +42,7 @@
 				<div data-v-fda01bb2="" class="profile-info">
 					<p data-v-fda01bb2="" class="title">History</p>
 					<div data-v-fda01bb2="" class="contents">
-						<div data-v-fda01bb2="" class="txt">자유롭게 항생제 없이 사는 돼지들~ 건강하고
-							온순하게 키워지는 한우암소들~ 초은농장은 2007년 최초 국가인증 1호로 무항생제 인증을 받고 판로가 마땅치 않아
-							직접 판매하게 되었어요~ 산지직송으로 15년이란 세월동안 고객님들과 소통하고 판매하게 되었습니다. 안전하고 건강한
-							고기를 드셔야 한다는 신념아래 끈임없이 연구하고 노력하고 있습니다.</div>
+						<div data-v-fda01bb2="" class="txt">${info.seller_history}</div>
 						<div data-v-fda01bb2="" class="img"
 							style="background-image: url(&quot;https://image.idus.com/image/files/9429acb8ee22457e9249bc8908719cdb.jpg&quot;);"></div>
 					</div>
@@ -51,10 +50,7 @@
 				<div data-v-fda01bb2="" class="profile-info">
 					<p data-v-fda01bb2="" class="title">Idea</p>
 					<div data-v-fda01bb2="" class="contents">
-						<div data-v-fda01bb2="" class="txt">초은이라는 첫째 딸아이의 이름으로
-							시작하였습니다. (지금은 딸셋~ㅎㅎ 딸바보 아빠엄마♥) 무항생제 돼지와 한우암소 자연농법으로 농장을 운영하고
-							있습니다. 내 가족,내 아이들이 먹는다는 신념으로 믿고 드시는 안전한 고기를 생산하고 있습니다. 품질 일등! 육질
-							차별화! 신선도 만점! 맛으로 승부!</div>
+						<div data-v-fda01bb2="" class="txt">${info.seller_idea}</div>
 						<div data-v-fda01bb2="" class="img"
 							style="background-image: url(&quot;http://image.idus.com/image/files/74e1dc51ee154690ba6c02e5e8d284a8.jpg&quot;);"></div>
 					</div>
@@ -62,9 +58,7 @@
 				<div data-v-fda01bb2="" class="profile-info">
 					<p data-v-fda01bb2="" class="title">Identity</p>
 					<div data-v-fda01bb2="" class="contents">
-						<div data-v-fda01bb2="" class="txt">초은농장만의 특별한 고기 노하우 건강한
-							무항생제 돼지 갓 도축하여 최대~3일 판매 초신선한 육질로 산지에서 고객님댁으로~ 1등급이상 한우암소 도축 직접
-							손질가공하며 일주일간 저온숙성으로 한우암소의 풍미를 최대화합니다.</div>
+						<div data-v-fda01bb2="" class="txt">${info.seller_identity}</div>
 						<div data-v-fda01bb2="" class="img"
 							style="background-image: url(&quot;https://image.idus.com/image/files/a92d34302b7b4867892bc3b125ebe55b.jpg&quot;);"></div>
 					</div>
@@ -73,10 +67,7 @@
 					style="border-bottom: 1px solid rgb(217, 217, 217); padding-bottom: 48px;">
 					<p data-v-fda01bb2="" class="title">Ideal</p>
 					<div data-v-fda01bb2="" class="contents">
-						<div data-v-fda01bb2="" class="txt">어느덧, 15년이란 세월이 흘렀습니다. 서툰
-							초은지기 부부도 세월이 흘러 전문 축산인이 되었고 지금은 전문 축산청년들과 함께 이끌어 나가고 있습니다. 안전한
-							고기를 내 가족이 먹는다는 마음으로 늘 꼼꼼하게 손질 포장하여 판매하고 있습니다. 안심하고 찾는 축산신선식품를 위해
-							앞으로도 더욱 노력하겠습니다.</div>
+						<div data-v-fda01bb2="" class="txt">${info.seller_ideal}</div>
 						<div data-v-fda01bb2="" class="img"
 							style="background-image: url(&quot;https://image.idus.com/image/files/e9c2eb2776f8408f8861f5ee107a0271.jpg&quot;);"></div>
 					</div>

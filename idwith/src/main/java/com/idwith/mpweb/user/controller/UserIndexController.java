@@ -16,13 +16,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.idwith.mpweb.user.GoodsCategoryVO;
 import com.idwith.mpweb.user.GoodsVO;
 import com.idwith.mpweb.user.UserVO;
+
 import com.idwith.mpweb.user.service.GoodsService;
-import com.idwith.mpweb.user.service.SellerCheckService;
+import com.idwith.mpweb.user.service.SellerViewService;
 
 @Controller
 public class UserIndexController {
 	@Autowired
-	private SellerCheckService sellerCheckService;
+	private SellerViewService sellerCheckService;
 	
 	@Autowired
 	private GoodsService goodsService;

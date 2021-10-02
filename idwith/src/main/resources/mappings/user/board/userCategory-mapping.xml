@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="userCategoryDAO">
+	<resultMap type="HashMap" id="categoryResult">
+ 		<result property="user_event_board_seq" column="user_event_board_seq"/>
+ 		<result property="user_event_board_id" column="user_event_board_id"/>
+ 		<result property="user_event_board_category" column="user_event_board_category"/>
+ 		<result property="user_event_board_title1" column="user_event_board_title1"/>
+ 		<result property="user_event_board_title2" column="user_event_board_title2"/>
+ 		<result property="user_event_board_content" column="user_event_board_content"/>
+ 		<result property="user_event_board_start" column="user_event_board_start"/>
+ 		<result property="user_event_board_cnt" column="user_event_board_cnt"/>
+ 		<result property="user_event_board_end" column="user_event_board_end"/>
+ 	</resultMap>
+ 	
+	<select id="getStoryList" resultType="map">
+		select * from story
+	</select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="CartDAO">
+	<resultMap type="cartVO" id="cartResult">
+ 		<result property="cart_num" column="cart_num"/>
+ 		<result property="goods_code" column="goods_code"/>
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="goods_price" column="goods_price"/>
+ 		<result property="cart_quantity" column="cart_quantity"/>
+ 		<result property="goods_option1" column="goods_option1"/>
+ 		<result property="goods_option2" column="goods_option2"/>
+ 		<result property="goods_option3" column="goods_option3"/>
+ 		<result property="cart_delivery_fee" column="cart_delivery_fee"/>
+ 		<result property="cart_donation" column="cart_donation"/>
+ 		<result property="cart_save" column="cart_save"/>
+ 		<result property="user_id" column="user_id"/>
+ 		<result property="cart_pay_check" column="cart_pay_check"/>
+ 		<result property="cart_order_content" column="cart_order_content"/>
+ 		
+ 	</resultMap>
+ 	<select id="getCart" resultType="cartVO" resultMap="cartResult">
+		select * from cart where user_id=#{user_id}
+	</select>
+</mapper>
