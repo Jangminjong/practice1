@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminNoticeBoardVO" alias="adminNotice"/>
  	</typeAliases>
  	<typeHandlers>
-       <typeHandler handler="org.apache.ibatis.type.ArrayTypeHandler" jdbcType="ARRAY" javaType="String"/>
+       <typeHandler handler="org.apache.ibatis.type.ArrayTypeHandler" jdbcType="ARRAY" javaType="String"/>  
     </typeHandlers>
  	<mappers>
  		<mapper resource="mappings/user/board/userBoard-mapping.xml" />

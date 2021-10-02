@@ -29,6 +29,7 @@ public class UserIndexController {
 	
 	@RequestMapping("/index.do")
 	public String userIndex(HttpSession session, Model model) {
+		GoodsVO goodsVO = new GoodsVO();
 		// 인기 상품
 		
 		//카테고리 조회
@@ -37,8 +38,15 @@ public class UserIndexController {
 		
 		// 카테고리마다의 상품 가쳐오기
 		for(int i=0; i<goodsCategoryList.size();i++) {
-			List<GoodsVO> goodsList = goodsService.getGoodsList(goodsCategoryList.get(i).getGoods_category_name()); 
-			model.addAttribute(goodsCategoryList.get(i).getGoods_category_name(), goodsList);
+			System.out.println("goodsCategoryList.get(i).getGoods_category_code() : "+ goodsCategoryList.get(i).getGoods_category_code());
+
+			goodsVO.setGoods_category(goodsCategoryList.get(i).getGoods_category_code());
+			List<GoodsVO> goodsList = goodsService.getGoodsList(goodsVO);
+			for(int j=0; j<10; j++) {
+				System.out.println("goodsList.get(i).getGoods_name() : "+goodsList.get(j).getGoods_name());
+			}
+			System.out.println("goodsList"+i);
+			model.addAttribute("goodsList"+i, goodsList);
 		}
 		return "index";
 	}

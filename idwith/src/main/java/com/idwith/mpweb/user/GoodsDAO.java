@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository("GoodsDAO")
+@Repository
 public class GoodsDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
@@ -15,8 +15,9 @@ public class GoodsDAO {
 		return sqlSessionTemplate.selectList("GoodsDAO.selectGoodsCategory");
 	}
 	
-	public List<GoodsVO> getGoodsList(String goodsCategory){
-		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsCategory);
+	public List<GoodsVO> getGoodsList(GoodsVO goodsVO){
+		System.out.println("goodsCategory: "+goodsVO.goods_category);
+		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsVO);
 	}
 
 }

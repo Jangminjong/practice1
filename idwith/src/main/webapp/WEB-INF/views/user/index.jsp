@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%
-	String emailSplit = (String)session.getAttribute("emailSplit");
-%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,7 +14,10 @@
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">
-
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+  />
 </head>
 <body>
 	<div data-vue="token"></div>
@@ -102,28 +102,49 @@
 						<a href="goods_popular.do" class="ui_title__txt"> <span>인기작품</span>
 							<i class="bubble"></i></a>
 					</div>
-					<c:forEach var="goodsCategoryList" items="${goodsCategoryList}">
+					 <c:set var="i" value="-1"/>
+					<c:forEach var="goodsCategory" items="${goodsCategoryList}">
 						<div data-on-scroll="load-content"
 							data-endpoint="/mainAsync/api_category_popular?item=3&amp;p_item=10">
 							<div class="ui_title--bg">
 								<a
-									href="goods_category.do?goods_category=${goodsCategoryList.goods_category_name}"
+									href="goods_category.do?goods_category=${goodsCategory.goods_category_code}"
 									data-category-uuid="8daa0fc3-d370-46c5-a58b-9a0c71a6ae08"
-									class="ui_title__txt">${goodsCategoryList.goods_category_name}</a>
+									class="ui_title__txt">${goodsCategory.goods_category_name}</a>
 							</div>
 							<div class="ui_grid">
 								<ul class="ui_grid__cols--5">
-									<c:forEach var="goodsVO"
-										items="${goodsCategoryList.goods_category_name}">
+								 <c:set var="i" value="${i + 1}"/>
+								 <c:choose>
+								 	<c:when test="${i eq 0}">
+										<c:set var="items" value="${goodsList0 }"/>
+									</c:when>
+									<c:when test="${i eq 1}">
+										<c:set var="items" value="${goodsList1 }"/>
+									</c:when>
+									<c:when test="${i eq 2}">
+										<c:set var="items" value="${goodsList2 }"/>
+									</c:when>
+									<c:when test="${i eq 3}">
+										<c:set var="items" value="${goodsList3 }"/>
+									</c:when>
+									<c:when test="${i eq 4}">
+										<c:set var="items" value="${goodsList4 }"/>
+									</c:when>
+								</c:choose>
+									<c:forEach var="goodsVO" items="${items }">
 										<li class="ui_grid__item">
 											<div class="card-add-icon">
 												<em class="icon-num" data-ranking="${goodsVO.rownum }">${goodsVO.rownum }</em>
 												<div class="ui_card">
 													<!-- 찜 버튼 -->
-													<button type="button"
-														class="ui_card__overlay btn-ico sp-icon icon-favorite"
-														data-name="starred-toolbar" data-starred-type="product"
-														data-init="1" data-starred=""></button>
+													<div>
+														<button 
+															aria-label="찜하기" class="full-button"
+															style="width: 24px; height: 24px;" tabindex="0">
+															<i class="fa fa-heart-o" aria-hidden="true"></i>
+														</button>
+													</div>
 
 													<!-- 썸네일 -->
 													<div class="ui_card__imgcover">
@@ -146,7 +167,7 @@
 														<div class="ui_card__vcenter">
 															<div class="ui_rating" data-ui="rating"
 																data-value="${goodsVO.goods_grade }">
-																<i class="idus-icon-star-fill" data-state="active"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
 																<span>${goodsVO.goods_grade }</span>
 															</div>
 														</div>

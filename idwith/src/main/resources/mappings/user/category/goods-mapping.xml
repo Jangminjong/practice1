@@ -21,9 +21,12 @@
  		<result property="goods_op1_code" column="goods_op1_code"/>
  		<result property="goods_op2_code" column="goods_op2_code"/>
  		<result property="goods_op3_code" column="goods_op3_code"/>
+ 		<result property="goods_seq" column="goods_seq"/>
+ 		<result property="goods_apply_date" column="goods_apply_date"/>
+ 		<result property="goods_status" column="goods_status"/>
  	</resultMap>
- 	<select id="getGoodsList" resultMap="goodsResult" parameterType="string">
+ 	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-	FROM goods where goods_category='#{goodsCategory}' ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10;
+	FROM goods where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10;
  	</select>
 </mapper>

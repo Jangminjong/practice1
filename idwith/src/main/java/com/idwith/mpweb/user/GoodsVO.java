@@ -1,5 +1,6 @@
 package com.idwith.mpweb.user;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 public class GoodsVO {
@@ -17,6 +18,9 @@ public class GoodsVO {
 	int goode_select;
 	int goods_view;
 	String goods_op1_code, goods_op2_code, goods_op3_code;
+	int goods_seq;
+	Timestamp goods_apply_date;
+	int goods_status;
 	int rownum;
 
 	public String getGoods_code() {
@@ -148,6 +152,30 @@ public class GoodsVO {
 	}
 	
 
+	public int getGoods_seq() {
+		return goods_seq;
+	}
+
+	public void setGoods_seq(int goods_seq) {
+		this.goods_seq = goods_seq;
+	}
+
+	public Timestamp getGoods_apply_date() {
+		return goods_apply_date;
+	}
+
+	public void setGoods_apply_date(Timestamp goods_apply_date) {
+		this.goods_apply_date = goods_apply_date;
+	}
+
+	public int getGoods_status() {
+		return goods_status;
+	}
+
+	public void setGoods_status(int goods_status) {
+		this.goods_status = goods_status;
+	}
+
 	public int getRownum() {
 		return rownum;
 	}
@@ -163,10 +191,10 @@ public class GoodsVO {
 				+ Arrays.toString(goods_photo) + ", goods_stock=" + goods_stock + ", goods_volume=" + goods_volume
 				+ ", goods_income=" + goods_income + ", goods_grade=" + goods_grade + ", goods_info=" + goods_info
 				+ ", goode_select=" + goode_select + ", goods_view=" + goods_view + ", goods_op1_code=" + goods_op1_code
-				+ ", goods_op2_code=" + goods_op2_code + ", goods_op3_code=" + goods_op3_code + ", rownum=" + rownum
-				+ "]";
+				+ ", goods_op2_code=" + goods_op2_code + ", goods_op3_code=" + goods_op3_code + ", goods_seq="
+				+ goods_seq + ", goods_apply_date=" + goods_apply_date + ", goods_status=" + goods_status + ", rownum="
+				+ rownum + "]";
 	}
-	
 	
 
 }

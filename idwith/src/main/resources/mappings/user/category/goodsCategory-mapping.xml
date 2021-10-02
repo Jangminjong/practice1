@@ -9,6 +9,7 @@
  		<result property="goods_category_name" column="goods_category_name"/>
  	</resultMap>
  	<select id="selectGoodsCategory" resultMap="goodsCateResult">
-		SELECT * FROM goods_category LIMIT 5;
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+	FROM goods_category)A)AS foo WHERE rownum BETWEEN 1 AND 5;
  	</select>
 </mapper>

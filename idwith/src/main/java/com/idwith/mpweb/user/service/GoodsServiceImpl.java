@@ -20,9 +20,10 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsDAO.selectGoodsCategory();
 	}
 
-	@Override
-	public List<GoodsVO> getGoodsList(String goodsCategory) {
-		return goodsDAO.getGoodsList(goodsCategory);
+	
+	@Override public List<GoodsVO> getGoodsList(GoodsVO goodsVO) { 
+		System.out.println("goodsCategory: "+goodsVO.getGoods_category());
+		 return goodsDAO.getGoodsList(goodsVO); 
 	}
 
 }
