@@ -21,6 +21,7 @@ public class GoodsVO {
 	int goods_seq;
 	Timestamp goods_apply_date;
 	int goods_status;
+	String goods_review_context;
 	int rownum;
 
 	public String getGoods_code() {
@@ -184,16 +185,12 @@ public class GoodsVO {
 		this.rownum = rownum;
 	}
 
-	@Override
-	public String toString() {
-		return "GoodsVO [goods_code=" + goods_code + ", goods_name=" + goods_name + ", goods_price=" + goods_price
-				+ ", seller_code=" + seller_code + ", goods_category=" + goods_category + ", goods_photo="
-				+ Arrays.toString(goods_photo) + ", goods_stock=" + goods_stock + ", goods_volume=" + goods_volume
-				+ ", goods_income=" + goods_income + ", goods_grade=" + goods_grade + ", goods_info=" + goods_info
-				+ ", goode_select=" + goode_select + ", goods_view=" + goods_view + ", goods_op1_code=" + goods_op1_code
-				+ ", goods_op2_code=" + goods_op2_code + ", goods_op3_code=" + goods_op3_code + ", goods_seq="
-				+ goods_seq + ", goods_apply_date=" + goods_apply_date + ", goods_status=" + goods_status + ", rownum="
-				+ rownum + "]";
+	public String getGoods_review_context() {
+		return goods_review_context;
+	}
+
+	public void setGoods_review_context(String goods_review_context) {
+		this.goods_review_context = goods_review_context;
 	}
 	
 

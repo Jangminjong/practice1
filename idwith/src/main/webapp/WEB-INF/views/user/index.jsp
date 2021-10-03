@@ -174,7 +174,7 @@
 																<span>${goodsVO.goods_grade }</span>
 															</div>
 														</div>
-														<span class="ui_card__comment"></span>
+														<span class="ui_card__comment">${goodsVO.goods_review_context }</span>
 													</div><!-- 별점이랑 후기 -->
 												</div>
 											</div>
