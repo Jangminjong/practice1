@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="resources/css/uipack-local.css">
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
+<link rel="stylesheet" href="resources/css/index.css">
   
 </head>
 <body>
@@ -194,8 +195,10 @@
 					data-indicator-type="label" tabindex="-1"
 					style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
 					<div class="ui_title">
-						<a href="/w/review" class="ui_title__txt"> <span>실시간 후기</span>
-							<i class="bubble"></i></a>
+						<a href="index.do" class="ui_title__txt"> 
+							<span>후기</span>
+							<i class="bubble"></i>
+						</a>
 					</div>
 					<div class="outer-frame">
 						<ul class="inner-frame">
@@ -203,36 +206,33 @@
 								style="width: 1056px;">
 								<ul class="ui_grid__cols--2 ui_grid__cols--m1">
 									<!-- 후기 하나 시작 -->
+									<c:forEach var="review" items="${reviewList }">
 									<li class="ui_grid__item">
 										<div class="ui_card--side">
 											<div class="ui_card__inner">
 												<div class="ui_card__imgcover">
-													<a href="/w/product/13ca986c-5c6e-4d49-989c-42110b4e564b"
+													<a href="detail_content.do?goods_code=${review.goods_review_code }"
 														class="ui_card__img"
-														data-product-id="13ca986c-5c6e-4d49-989c-42110b4e564b"
 														target="_blank"
-														style="background-image: url(https://image.idus.com/image/files/a3c952ea78414a18991b184c048f28b9_720.png)">
+														style="background-image: url(resources/images/review/${review.goods_review_image[0]})">
 													</a>
 												</div>
 
 												<div class="ui_card__txtarea">
 													<div class="ui_card__info">
-														<a href="/w/product/13ca986c-5c6e-4d49-989c-42110b4e564b"
-															data-product-id="13ca986c-5c6e-4d49-989c-42110b4e564b"
+														<a href="detail_content.do?goods_code=${review.goods_review_code }"
 															 target="_blank"
-															class="ui_card__title">코코넛소보로쿠키</a> <span
-															class="ui_card__para"> 언제 먹어도 맛나요 </span>
+															class="ui_card__title">${review.goods_name }</a> <span
+															class="ui_card__para">${review.goods_review_context}</span>
 													</div>
 
 													<div class="ui_card__rating">
 														<div class="ui_card__vcenter">
 															<div class="ui_rating" data-ui="rating" data-value="5">
-																<i class="idus-icon-star-fill" data-state="active"></i>
-																<i class="idus-icon-star-fill" data-state="active"></i>
-																<i class="idus-icon-star-fill" data-state="active"></i>
-																<i class="idus-icon-star-fill" data-state="active"></i>
-																<i class="idus-icon-star-fill" data-state="active"></i>
-																<span>&nbsp;| 꿀꿀이</span>
+																<c:forEach var="i" begin="1" end="${review.goods_review_point}" >
+																	<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+																</c:forEach>
+																<span>&nbsp;| ${review.goods_review_id.split("@")[0]}</span>
 															</div>
 														</div>
 													</div>
@@ -240,6 +240,7 @@
 											</div>
 										</div>
 									</li>
+									</c:forEach>
 									<!-- 후기 하나 끝 -->
 								</ul>
 							</li>
@@ -313,39 +314,32 @@
 							<li class="ui-slide ui_grid" data-index="0"
 								style="width: 1056px;">
 								<ul class="ui_grid__cols--3 ui_grid__cols--m1">
+								<c:forEach var="seller" items="${sellerList }">
 									<li class="ui_grid__item">
 										<div class="card-style-profile medal-award">
 											<div class="bordering">
 												<!-- 상단부분 -->
 												<div class="split">
 													<div class="img-bg"
-														style="background-image: url(https://image.idus.com/image/files/46fdc1bf39244427bfe66704d990b2b0_720.jpg);">
+														style="background-image: url(resources/images/seller_profile/${seller.seller_profile_img[0]});">
 													</div>
 													<a class="img-profile"
-														style="background-image: url(https://image.idus.com/image/files/60f2791e05e748feba3496c930f80409_320.jpg);"
+														style="background-image: url(resources/images/seller_profile/${seller.seller_profile_img[1]});"
 														target=""
-														href="/w/artist/52b07e12-4222-4091-8e40-f024f8fdbe2f/product">
+														href="seller_main.do?seller_code=${seller.seller_code }">
 													</a>
 												</div>
 												<!-- 하단부분  -->
 												<div class="split">
 													<div class="area-txt">
 														<a
-															href="/w/artist/52b07e12-4222-4091-8e40-f024f8fdbe2f/product"
-															class="title" target="">규린이네 수제과일청</a>
-														<div class="ui_rating" data-ui="rating" data-value="5">
-															<i class="idus-icon-star-fill" style="font-size: 14px;"
-																data-state="active"></i> <i class="idus-icon-star-fill"
-																style="font-size: 14px;" data-state="active"></i> <i
-																class="idus-icon-star-fill" style="font-size: 14px;"
-																data-state="active"></i> <i class="idus-icon-star-fill"
-																style="font-size: 14px;" data-state="active"></i> <i
-																class="idus-icon-star-fill" style="font-size: 14px;"
-																data-state="active"></i>
+															href="seller_goods.do?seller_code=${seller.seller_code }"
+															class="title" target="">${seller.store_name }</a>
+														<div class="ui_rating seller-rating" data-ui="rating" data-value="${seller.follow_count}">
+															<i class="fa fa-user-plus" aria-hidden="true" style="font-size: 14px; color:#1f88fa;"></i>
+															<span class="follow-count" style="font-size: 14px;">${seller.follow_count}</span>
 														</div>
-														<p class="desc">🎀채널A 서민갑부 317회 출연🎀 🎖아이디어스 핸드메이드 어워드
-															3년연속수상🎖 🔰2018년 우수신인작가 🔰2019년 대상작가 🔰2020년 고객후원상 두아이를
-															키우는 엄마의 정직한 마음으로 믿고 먹을수 있는 건강한 먹거리를 만들어요♡</p>
+														<p class="desc">${seller.seller_profile }</p>
 													</div>
 													<div class="area-btns">
 														<div class="col">
@@ -353,15 +347,19 @@
 																data-name="starred-toolbar" data-starred-type="artist"
 																data-init="1" data-starred="" target=""
 																data-target-id="52b07e12-4222-4091-8e40-f024f8fdbe2f">
-																<em class="txt"><i class="idus-icon-plus"
-																	style="font-size: 12px;"></i> 팔로우</em> <em
-																class="txt active"><i class="idus-icon-check"
-																	style="font-size: 12px;"></i> 팔로잉</em>
+																<em class="txt">
+																	<i class="fa fa-plus" aria-hidden="true" style="font-size:12px;"></i> 
+																	팔로우
+																</em>
+																<em class="txt active">
+																	<i class="fa fa-check" aria-hidden="true"></i>
+																	팔로잉
+																</em>
 															</a>
 														</div>
 														<div class="col popular-artist-col">
 															<a class="btn btn-s btn-white" target=""
-																href="/w/artist/52b07e12-4222-4091-8e40-f024f8fdbe2f/product">
+																href="seller_goods.do?seller_code=${seller.seller_code }">
 																작품 더보기 </a>
 														</div>
 													</div>
@@ -369,6 +367,7 @@
 											</div>
 										</div>
 									</li>
+									</c:forEach>
 								</ul>
 							</li>
 						</ul>

@@ -50,4 +50,12 @@
  	<delete id="deleteReview" parameterType="_int">
  		DELETE FROM goods_review WHERE goods_review_seq=#{goods_review_seq}
  	</delete>
+ 	<select id="getReviewList" resultMap="goodsReviewResult">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods_review.*, goods.goods_name FROM goods_review AS goods_review
+				LEFT OUTER JOIN goods AS goods 
+				ON goods_review.goods_review_code = goods.goods_code ORDER BY goods_review_seq DESC)A)AS foo 
+				WHERE rownum BETWEEN 1 AND 6;
+ 	</select>
 </mapper>

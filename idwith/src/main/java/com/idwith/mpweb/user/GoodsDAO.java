@@ -16,8 +16,11 @@ public class GoodsDAO {
 	}
 	
 	public List<GoodsVO> getGoodsList(GoodsVO goodsVO){
-		System.out.println("goodsCategory: "+goodsVO.goods_category);
 		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsVO);
+	}
+
+	public List<GoodsReviewVO> getReviewList() {
+		return sqlSessionTemplate.selectList("MyPageDAO.getReviewList");
 	}
 
 }
