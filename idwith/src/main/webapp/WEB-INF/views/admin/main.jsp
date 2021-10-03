@@ -127,7 +127,7 @@
 
 				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
 						<h3>${admin_name} 님</h3>
-						<a class="nav-link d-none d-sm-inline-block" href="#"> 
+						<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> 
 							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
 								<span class="text-dark">로그아웃</span>
 						</a>
@@ -198,7 +198,11 @@
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title">관리자 게시판</h5>
+									<h5 class="card-title">
+										<a href="adminNotice.mdo" style="color: black;">
+											관리자 게시판
+										</a>
+									</h5>
 									<h6 class="card-subtitle text-muted"></h6>
 								</div>
 								<div class="table-responsive">
@@ -212,11 +216,14 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="adminNotice" items="${NoticeViewAll}" begin="1" end="3">
+											<c:forEach var="adminNotice" items="${MainViewAll}">
 												<tr>
 													<td>${adminNotice.rownum}</td>
 													<td>${adminNotice.adminBoardTitle}</td>
 													<td>${adminNotice.adminBoardId}</td>
+													<td>
+														<fmt:formatDate value="${adminNotice.adminBoardRegDate}" pattern="yyyy.MM.dd"/>
+													</td>
 												</tr>
 											</c:forEach>
 										</tbody>

@@ -125,7 +125,7 @@
 				</a>
 
 				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
-						<a class="nav-link d-none d-sm-inline-block" href="#"> 
+						<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> 
 							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
 								<span class="text-dark">로그아웃</span>
 						</a>

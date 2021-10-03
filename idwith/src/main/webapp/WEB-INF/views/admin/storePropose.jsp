@@ -131,7 +131,8 @@
 
 				<div class="navbar-collapse collapse"
 					style="display: flex; justify-content: flex-end;">
-					<a class="nav-link d-none d-sm-inline-block" href="#"> <i
+					<h3>${admin_name} 님</h3>
+					<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> <i
 						class="align-middle" data-feather="log-out" style="color: black;"></i>
 						<span class="text-dark">로그아웃</span>
 					</a>
@@ -172,7 +173,7 @@
 												varStatus="status">
 												<tr>
 													<th scope="row">${status.count}</th>
-													<td><a href="classPropose.mdo">${watingList.user_id }</a></td>
+													<td><a href="productPropose.mdo">${watingList.user_id }</a></td>
 													<td>${watingList.seller_phone}</td>
 													<td id="${watingList.seller_name}">${watingList.seller_name}</td>
 													<td id="${watingList.product_category}">${watingList.product_category}</td>

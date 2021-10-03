@@ -80,7 +80,9 @@ public class noticeController {
 	public String adminNoticeContent(AdminNoticeBoardVO adminNotice, Model model) {
 		System.out.println("글 상세내용 조회");
 		System.out.println("내용 조회 seq : " + adminNotice.getAdminBoardSeq());
-		model.addAttribute("adminNoticeCont", adminNoticeService.getAdminNotice(adminNotice));
+		AdminNoticeBoardVO result = adminNoticeService.getAdminNotice(adminNotice);
+		model.addAttribute("adminNotice", result);
+		System.out.println(result);
 		return "adminNoticeContent";
 	}
 	
