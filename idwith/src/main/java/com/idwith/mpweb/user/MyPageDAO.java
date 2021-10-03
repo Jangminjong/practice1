@@ -38,4 +38,22 @@ public class MyPageDAO {
 	public List<GoodsOrderDetailVO> getReviewBeforeList(String order_id){
 		return sqlSessionTemplate.selectList("MyPageDAO.getReviewBeforeList", order_id);
 	}
+
+	public GoodsOrderDetailVO getReviewBefore(String order_detail_code) {
+		return sqlSessionTemplate.selectOne("MyPageDAO.getReviewBefore", order_detail_code); 
+	}
+
+	public void insertReview(GoodsReviewVO reviewVO, GoodsOrderDetailVO orderVO) {
+		System.out.println("order_detail_code: "+orderVO.getOrder_detail_code());
+		sqlSessionTemplate.insert("MyPageDAO.insertReview", reviewVO);
+		sqlSessionTemplate.update("MyPageDAO.reviewStateUpdate", orderVO);
+	}
+
+	public List<GoodsReviewVO> getReviewAfterList(String goods_review_id) {
+		return sqlSessionTemplate.selectList("MyPageDAO.getReviewAfterList", goods_review_id);
+	}
+
+	public void deleteReview(String goods_review_seq) {
+		sqlSessionTemplate.delete("MyPageDAO.deleteReview", Integer.parseInt(goods_review_seq));
+	}
 }

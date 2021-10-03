@@ -12,12 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.EmailDTO;
 import com.idwith.mpweb.user.GoodsOrderDetailVO;
+import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.service.EmailUpdateService;
 import com.idwith.mpweb.user.service.MypageService;
@@ -120,7 +123,10 @@ public class MyPageController {
 	}
 
 	@GetMapping("/mypage_review_after.do")
-	public String mypageReviewAfter() {
+	public String mypageReviewAfter(HttpSession session, Model model) {
+		String goods_review_id = (String) session.getAttribute("email");
+		List<GoodsReviewVO> reviewAfterList = myPageService.getReviewAfterList(goods_review_id);
+		model.addAttribute("reviewAfterList", reviewAfterList);
 		return "mypage/mypage_review_after";
 	}
 
@@ -133,8 +139,23 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/write_review.do")
-	public String writeReview() {
+	public String writeReview(Model model, @RequestParam(value="order_detail_code", required=false) String order_detail_code) {
+		GoodsOrderDetailVO orderVO = myPageService.getReviewBefore(order_detail_code);
+		model.addAttribute("orderVO", orderVO);
 		return "mypage/write_review";
+	}
+	
+	@PostMapping("/write_review.do")
+	public String insertReview(GoodsReviewVO reviewVO, 	GoodsOrderDetailVO orderVO) {
+		myPageService.insertReview(reviewVO, orderVO);
+		return "redirect:/mypage_review_after.do";
+	}
+	
+	@RequestMapping("/delete_review.do")
+	public String deleteReview(HttpServletRequest request) {
+		String goods_review_seq = request.getParameter("goods_review_seq");
+		myPageService.deleteReview(goods_review_seq);
+		return "redirect:/mypage_review_after.do";
 	}
 
 

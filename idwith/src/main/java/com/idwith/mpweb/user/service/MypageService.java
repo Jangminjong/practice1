@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.UserVO;
+import com.idwith.mpweb.user.GoodsReviewVO;
 
 public interface MypageService {
 	List<Map<String, String>> getUser(String user_id);
@@ -18,4 +19,12 @@ public interface MypageService {
 	void updateAddress(UserVO vo);
 	
 	List<GoodsOrderDetailVO> getReviewBeforeList(String order_id);
+	
+	GoodsOrderDetailVO getReviewBefore(String order_detail_code);
+	
+	void insertReview(GoodsReviewVO reviewVO, GoodsOrderDetailVO orderVO);
+	
+	List<GoodsReviewVO> getReviewAfterList(String goods_review_id);
+
+	void deleteReview(String goods_review_seq);
 }

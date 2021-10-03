@@ -47,8 +47,10 @@
 <link rel="stylesheet" href="resources/css/mypage.css" />
 <link rel="stylesheet" href="resources/css/idus.web.min.css" />
 <link rel="stylesheet" href="resources/css/vendor.client.min.css" />
-<script src="/resources/dist/js/vendor.client.min.js?__v=1631078629"></script>
-<script src="/resources/dist/js/vuepack.js?__v=1631078629"></script>
+<script src="/resources/js/vendor.client.min.js?__v=1631078629"></script>
+<script src="/resources/js/vuepack.js?__v=1631078629"></script>
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/review_write.js"></script>
 
 </head>
 <body>
@@ -123,7 +125,7 @@
 					</div>
 					<p class="list-style-bg  mobile-hide">
 						여러분들이 작성해주시는 솔직한 구매후기는 핸드메이드 작품 선택을 고민하는 분들에게 선택의 도움을 줄 수 있답니다.<br>
-						구매하신 작품마다 1회의 구매후기 작성과 1회의 수정이 가능합니다.<br> 단, 작성하신 구매후기를 삭제하면
+						구매하신 작품마다 1회의 구매후기 작성이 가능합니다.<br> 단, 작성하신 구매후기를 삭제하면
 						다시 작성할 수 없으니 신중히 평가해 주세요.<br> <br> 해당 작품과 무관한 내용이나 비방,
 						욕설 등 부적합한 내용의 구매후기는 서비스 이용 약관이나 관련 법률에 의해 제재를 받을 수 있습니다.
 					</p>
@@ -134,16 +136,16 @@
 					<ul class="card-container" data-ui="scroll-paging"
 						data-query="next" data-param="">
 						<c:forEach var="reviewBefore" items="${reviewBeforeList}">
-						<li><input type="hidden" value="reviewBefore.order_detail_code">
+						<li><input type="hidden" value="reviewBefore.order_detail_code" style="display:block;">
 							<div class="ui_card--review">
 								<div class="ui_card__head">
 									<a class="ui_card__img"
-										href="detail_content.do?goods_code=${reviewBefore.goods_code }"
+										href="detail_content.do?goods_code=${reviewBefore.order_detail_code }"
 										target="_blank"
 										style="background-image: url(${reviewBefore.goods_photo[0]})">
 									</a>
 									<div class="ui_card__textarea">
-										<a href="detail_content.do?goods_code=${reviewBefore.goods_code }"
+										<a href="detail_content.do?goods_code=${reviewBefore.order_detail_code }"
 											target="_blank">${reviewBefore.goods_name}</a> <span>${reviewBefore.goods_name}</span>
 									</div>
 								</div>
@@ -158,28 +160,19 @@
 									</li>
 									<li>• 수량: ${reviewBefore.order_detail_quantity}개</li>
 								</ul>
-								<ul class="liststyle--bullet ">
-									<li>• <span>색상선택:</span> <span>연보라</span>
-									</li>
-									<li>• <span>숫자선택:</span> <span>7</span>
-									</li>
-									<li>• <span>숫자디자인선택(필수:</span> <span>왕관이있는숫자초</span>
-									</li>
-									<li>• <span>악세사리(선택):</span> <span>선택사항없음</span>
-									</li>
-									<li>• 수량: 1개</li>
-								</ul>
-								<a class="ui_btn--large"
-									href="write_review.do?order_detail_code=${reviewBefore.order_detail_code}"
+								<a onclick="formVisible()" id="form-open" class="ui_btn--large" href="write_review.do?order_detail_code=${reviewBefore.order_detail_code}"
 									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
 									작성하기</a>
-							</div></li>
+							</div>
+						</li>
 						</c:forEach>
+						<c:if test="${empty reviewBeforeList}">
+							<div class="banner-empty review-list-empty">
+								<img src="resources/images/index/idwith_logo_back.png">
+								<p>작성할 수 있는 구매후기가 없습니다.</p>
+							</div>
+						</c:if>
 					</ul>
-					<div class="banner-empty">
-						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
-						<p>작성할 수 있는 구매후기가 없습니다.</p>
-					</div>
 				</section>
 			</div>
 		</div>

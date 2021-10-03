@@ -13,6 +13,9 @@ public class GoodsReviewVO {
 	String goods_review_option2;
 	String goods_review_option3;
 	String goods_review_context;
+	String goods_name;
+	String[] goods_photo;
+	int rownum;
 
 	public int getGoods_review_seq() {
 		return goods_review_seq;
@@ -93,5 +96,31 @@ public class GoodsReviewVO {
 	public void setGoods_review_context(String goods_review_context) {
 		this.goods_review_context = goods_review_context;
 	}
+
+	public String getGoods_name() {
+		return goods_name;
+	}
+
+	public void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
+	}
+	
+
+	public String[] getGoods_photo() {
+		return goods_photo;
+	}
+
+	public void setGoods_photo(String[] goods_photo) {
+		this.goods_photo = goods_photo;
+	}
+
+	public int getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+	
 
 }

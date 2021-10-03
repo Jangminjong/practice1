@@ -17,7 +17,6 @@ public class GoodsOrderDetailVO {
 	String order_id;
 	String goods_name;
 	String[] goods_photo;
-	String goods_code;
 	int rownum;
 
 	public String getOrder_detail_code() {
@@ -165,14 +164,6 @@ public class GoodsOrderDetailVO {
 		this.goods_photo = goods_photo;
 	}
 	
-
-	public String getGoods_code() {
-		return goods_code;
-	}
-
-	public void setGoods_code(String goods_code) {
-		this.goods_code = goods_code;
-	}
 
 	public int getRownum() {
 		return rownum;
