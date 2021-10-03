@@ -70,4 +70,8 @@ public class User_SellerDAO {
 		
 		return reviewList;
 	}
+
+	public List<UserSellerVO> getSellerListForIndex() {
+		return sqlSessionTemplate.selectList("SellerCheckDAO.getSellerListForIndex");
+	}
 }

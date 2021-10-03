@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.user.GoodsCategoryVO;
+import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.GoodsVO;
+import com.idwith.mpweb.user.UserSellerVO;
 import com.idwith.mpweb.user.UserVO;
 
 import com.idwith.mpweb.user.service.GoodsService;
@@ -42,6 +44,15 @@ public class UserIndexController {
 			List<GoodsVO> goodsList = goodsService.getGoodsList(goodsVO);
 			model.addAttribute("goodsList"+i, goodsList);
 		}
+		
+		// 후기 가져오기 
+		List<GoodsReviewVO> reviewList = goodsService.getReviewList(); 
+		model.addAttribute("reviewList", reviewList);
+		
+		// 인기작가 가져오기
+		List<UserSellerVO> sellerList = sellerCheckService.getSellerListForIndex();
+		model.addAttribute("sellerList", sellerList);
+		
 		return "index";
 	}
 	 

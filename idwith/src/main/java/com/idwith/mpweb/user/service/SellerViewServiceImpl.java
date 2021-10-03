@@ -58,4 +58,9 @@ public class SellerViewServiceImpl implements SellerViewService {
 	public List<SellerProductReviewVO> getSellerProductReviewList(String seller_code) {
 		return dao.getSellerProductReviewList(seller_code);
 	}
+
+	@Override
+	public List<UserSellerVO> getSellerListForIndex() {
+		return dao.getSellerListForIndex();
+	}
 }

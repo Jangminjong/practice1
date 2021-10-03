@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.seller-rating{
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.follow-count{
+	margin-left: 5px;
+}
