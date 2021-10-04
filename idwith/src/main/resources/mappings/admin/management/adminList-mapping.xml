@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminDAO">
+	<resultMap type="adminVO" id="adminResult">
+		<result property="admin_id" column="admin_id" />
+		<result property="admin_name" column="admin_name" />
+		<result property="admin_pwd" column="admin_pwd" />
+		<result property="admin_phone" column="admin_phone" />
+		<result property="admin_role" column="admin_role" />
+	</resultMap>
+	
+	<!-- 관리자 계정 등록 -->
+	<insert id="insertAdmin" parameterType="adminVO" >
+		INSERT INTO manager (admin_id, admin_name, admin_pwd, admin_phone, admin_role)
+		VALUES(#{admin_id}, #{admin_name}, #{admin_pwd}, #{admin_phone}, #{admin_role})
+	</insert>
+	
+	<!-- 페이징 처리 후 관리자 계정 조회 -->
+	<select id="countAdmin" resultType="int">
+		select count(*) from manager
+	</select>
+	
+	<select id="getAdminList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="adminResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM manager ORDER BY admin_role DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<!-- 관리자 계정 수정 -->
+	<update id="updateSuperAdmin" parameterType="adminVO">
+		UPDATE manager SET admin_pwd=#{admin_pwd} , admin_phone=#{admin_phone} , admin_role=#{admin_role} 
+	 		WHERE admin_id = #{admin_id}
+	</update>
+	
+	<update id="updateAdminService" parameterType="adminVO">
+		UPDATE manager SET admin_pwd=#{admin_pwd} WHERE admin_name=#{admin_name}
+	</update>
+	
+	<!-- 관리자 계정 상세보기 -->
+	<select id="getAdminContent" resultMap="adminResult">
+	 	SELECT * FROM manager WHERE admin_id = #{admin_id}
+	</select>
+	
+	<!-- 관리자 계정 삭제 -->
+	<delete id="deleteAdmin" parameterType="adminVO">
+		DELETE FROM manager WHERE admin_id = #{admin_id}
+	</delete>
+	
+</mapper>

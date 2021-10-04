@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.idwith.mpweb.admin.AdminVO;
 import com.idwith.mpweb.admin.EmailDTO;
 import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.admin.UserListVO;
+import com.idwith.mpweb.admin.service.AdminService;
 import com.idwith.mpweb.admin.service.EmailService;
 import com.idwith.mpweb.admin.service.ProposeService;
 import com.idwith.mpweb.admin.service.SellerService;
@@ -38,6 +41,9 @@ public class managementController {
 	
 	@Autowired
 	UserListService userListService;
+	
+	@Autowired
+	AdminService adminService;
 	
 	
 	// 회원 
@@ -243,9 +249,82 @@ public class managementController {
 		return "classPropose";
 	}
 	
+	// 관리자 계정 리스트
 	@GetMapping("/adminList.mdo")
-	public String adminList() {
+	public String adminList(PagingVO pagination, Model model, 
+			@RequestParam(value = "nowPage", required = false)String nowPage,
+			@RequestParam(value = "cntPerPage", required = false)String cntPerPage) {
+		
+		System.out.println("관리자 계정 리스트 controller");
+		
+		int adminListTotal = adminService.countAdmin();
+		
+		System.out.println("관리자 total : " + adminListTotal);
+		
+		if(nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if(nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		pagination = new PagingVO(adminListTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		model.addAttribute("paging", pagination);
+		model.addAttribute("AdminViewAll", adminService.getAdminList(pagination));
+		
 		return "adminList";
+	}
+	
+	// 관리자 계정 등록 뷰
+	@GetMapping("/insertAdmin.mdo")
+	public String insertAdmin() {
+		return "insertAdmin";
+	}
+	
+	// 관리자 계정 등록 처리
+	@RequestMapping("/adminInsertList.mdo")
+	public String adminInsertList(AdminVO admin) {
+		System.out.println("관리자 계정 등록 controller");
+		adminService.insertAdmin(admin);
+		return "redirect:/adminList.mdo";
+	}
+	
+	// 관리자 계정 상세보기
+	@RequestMapping("/adminContent.mdo") 
+	public String adminContent(AdminVO admin, Model model, 
+			@RequestParam(value = "admin_id")String adminId) {
+		System.out.println("관리자 상세보기 controller");
+		model.addAttribute("adminList", adminService.getAdminContent(adminId));
+		return "adminContent";
+	}
+	
+	// 관리자 계정 수정
+	@RequestMapping("/adminUpdateList.mdo")
+	public String adminUpdateList(AdminVO admin, HttpSession session) {
+		System.out.println("관리자 계정 수정 controller");
+		String adminName = (String)session.getAttribute("admin_name");
+		String adminRole = (String)session.getAttribute("admin_role");
+		System.out.println("admin pwd : " + admin.getAdmin_pwd());
+		System.out.println("받아온 아이디 값 : " + admin.getAdmin_id());
+		admin.setAdmin_name(adminName);
+		if(adminRole.equals("all")) {
+			adminService.updateSuperAdmin(admin);
+		} else {
+			adminService.updateAdmin(admin);
+		}
+		
+		return "redirect:/adminList.mdo";
+	}
+	
+	// 관리자 계정 삭제
+	@RequestMapping("/adminDeleteList.mdo")
+	public String adminDeleteList(AdminVO admin) {
+		System.out.println("관리자 계정 삭제 controller");
+		adminService.deleteAdmin(admin);
+		return "redirect:/adminList.mdo";
 	}
 	
 	@GetMapping("/writerList.mdo")

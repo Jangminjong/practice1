@@ -47,6 +47,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/admin/board/sellerEnrollment-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminNoticeBoard-mapping.xml"/>
  		<mapper resource="mappings/admin/management/adminUserList-mapping.xml"/>
+ 		<mapper resource="mappings/admin/management/adminList-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminLogin-mapping.xml"/>
  		<mapper resource="mappings/writer/reg/classReg-mapping.xml"/>
  		<mapper resource="mappings/writer/story/storyBoard-mapping.xml"/>
