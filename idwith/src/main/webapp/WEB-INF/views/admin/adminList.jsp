@@ -22,8 +22,10 @@
 
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
 </head>
 
 <body>
@@ -192,7 +194,7 @@
                                             		<td>
                                             			<button type="button" class="btn btn-warning" onclick="location.href='adminContent.mdo?admin_id=${adminList.admin_id}&admin_role=${adminList.admin_role}'">수정</button>
                                             			<a href="adminDeleteList.mdo?admin_id=${adminList.admin_id}">
-														<button type="button" class="btn btn-primary">삭제</button>
+														<button type="button" class="btn btn-primary" id="adminDelete" name="adminDelete">삭제</button>
 														</a>
                                             		</td>
                                             	</tr>
@@ -303,7 +305,7 @@
 		});
 	</script>
 	<script>
-		$().ready(function (){ 
+		$(window).ready(function (){ 
 			$("#adminDelete").click(function (){ 
 				Swal.fire({ 
 					title: '계정 삭제', 

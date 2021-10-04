@@ -137,7 +137,50 @@
 			</nav>
 
 			<main>
-				
+				<div class="content">
+					<div class="row">
+						<div class="container-fluid p-0">
+
+							<div class="row mb-2 mb-xl-3">
+								<div class="col-auto d-none d-sm-block">
+									<h3>Category Insert</h3>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-body" style="width: auto;">
+									<form>
+										<div class="mb-3">
+											<label class="form-label">카테고리 코드</label>
+											<input type="text" class="form-control" placeholder="code" style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">카테고리 이름</label>
+											<input type="text" class="form-control" placeholder="name"
+												style="width: auto;">
+										</div>                                    
+										<div class="mb-3">
+											<label class="form-label" for="authority">작품/클래스</label>
+											<select class="form-control mb-3" style="width: 220px;">
+                                                <option value="goods">작품</option>
+                                                <option value="class">클래스</option>
+                                            </select>
+										</div>
+										<div class="row">
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center">
+												<input class="btn btn-primary" type="submit" id="admin-listInsert-submit" value="등록" /> 
+												<input class="btn btn-primary" type="reset" value="초기화" />
+												<input class="btn btn-primary" type="button" onclick="location.href='category.mdo'" value="목록" />
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>
