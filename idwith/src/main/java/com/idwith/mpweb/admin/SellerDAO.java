@@ -11,7 +11,15 @@ public class SellerDAO {
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	public void insertSeller(SellerVO vo) {
-		System.out.println("DAO insertSeller ½ÇÇà");
+		System.out.println("DAO insertSeller ï¿½ï¿½ï¿½ï¿½");
 		sqlSessionTemplate.insert("SellerDAO.insertSeller", vo);
+	}
+
+	public SellerVO sellerEnCheck(String user_id) {
+		return sqlSessionTemplate.selectOne("SellerDAO.sellerEnCheck", user_id);
+	}
+
+	public void updateSellerStatus(String user_id) {
+		sqlSessionTemplate.update("SellerCheckDAO.updateSellerStatus" ,user_id);
 	}
 }

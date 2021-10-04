@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class ClassRegVO {
 	private int class_reg_seq;
 	private int class_seller;
+	private String user_id;
 	private String class_category;
 	private String class_name;
 	private String class_code;
@@ -22,7 +23,14 @@ public class ClassRegVO {
 	private String[] class_photo;
 	private int class_status;
 	private String store_name;
+	private String seller_sellno; //사업자 등록번호
 	
+	public String getSeller_sellno() {
+		return seller_sellno;
+	}
+	public void setSeller_sellno(String seller_sellno) {
+		this.seller_sellno = seller_sellno;
+	}
 	public int getClass_status() {
 		return class_status;
 	}
@@ -131,15 +139,21 @@ public class ClassRegVO {
 	public void setClass_photo(String[] class_photo) {
 		this.class_photo = class_photo;
 	}
-	
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 	@Override
 	public String toString() {
-		return "ClassRegVO [class_reg_seq=" + class_reg_seq + ", class_seller=" + class_seller + ", class_category="
-				+ class_category + ", class_name=" + class_name + ", class_code=" + class_code + ", class_price="
-				+ class_price + ", class_post_address=" + class_post_address + ", class_address=" + class_address
-				+ ", class_detail_address=" + class_detail_address + ", class_reference=" + class_reference
-				+ ", class_difficult=" + class_difficult + ", class_person=" + class_person + ", class_info="
-				+ class_info + ", class_reg_date=" + class_reg_date + ", class_phone=" + class_phone + ", class_photo="
-				+ Arrays.toString(class_photo) + ", class_status=" + class_status + ", store_name=" + store_name + "]";
+		return "ClassRegVO [class_reg_seq=" + class_reg_seq + ", class_seller=" + class_seller + ", user_Id=" + user_id
+				+ ", class_category=" + class_category + ", class_name=" + class_name + ", class_code=" + class_code
+				+ ", class_price=" + class_price + ", class_post_address=" + class_post_address + ", class_address="
+				+ class_address + ", class_detail_address=" + class_detail_address + ", class_reference="
+				+ class_reference + ", class_difficult=" + class_difficult + ", class_person=" + class_person
+				+ ", class_info=" + class_info + ", class_reg_date=" + class_reg_date + ", class_phone=" + class_phone
+				+ ", class_photo=" + Arrays.toString(class_photo) + ", class_status=" + class_status + ", store_name="
+				+ store_name + ", seller_sellno=" + seller_sellno + "]";
 	}
 }

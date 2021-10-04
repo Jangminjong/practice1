@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.admin.ProposeDAO;
 import com.idwith.mpweb.admin.ProposeVO;
+import com.idwith.mpweb.user.ClassRegVO;
+import com.idwith.mpweb.user.GoodsApplyVO;
 
 @Service
 public class ProposeServiceImpl implements ProposeService {
@@ -15,25 +17,43 @@ public class ProposeServiceImpl implements ProposeService {
 	private ProposeDAO proposeDAO;
 	
 	@Override
-	public List<Map<String, String>> getWatingClient() {
-		System.out.println("Servie getWatingClient ½ÇÇà");
+	public List<GoodsApplyVO> getWatingClient() {
+		System.out.println("Servie getWatingClient ï¿½ï¿½ï¿½ï¿½");
 		return proposeDAO.getWatingClient();
 	}
 
 	@Override
 	public int updateAgree(String user_id) {
-		System.out.println("Service updateAgree ½ÇÇà");
+		System.out.println("Service updateAgree ì‹¤í–‰");
 		int result = proposeDAO.updateAgree(user_id);
-		System.out.println("Service result : " + result);
 		
 		return result;
 	}
 
 	@Override
 	public int updateDisagree(String user_id) {
-		System.out.println("Service updateDisagree ½ÇÇà");
+		System.out.println("Service updateDisagree ì‹¤í–‰");
 		int result = proposeDAO.updateDisagree(user_id);
-		System.out.println("Service result : " + result);
 		return result;
+	}
+
+	@Override
+	public List<ClassRegVO> getClassRegList() {
+		return proposeDAO.getClassRegList();
+	}
+
+	@Override
+	public int updateAgreeStatus(String class_reg_seq) {
+		return proposeDAO.updateAgreeStatus(class_reg_seq);
+	}
+
+	@Override
+	public int updateDisagreeStatus(String class_reg_seq) {
+		return proposeDAO.updateDisagreeStatus(class_reg_seq);
+	}
+
+	@Override
+	public void updateStatus(ClassRegVO classRegVO) {
+		proposeDAO.updateStatus(classRegVO);
 	}
 }

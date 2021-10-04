@@ -1,15 +1,15 @@
 package com.idwith.mpweb.admin;
 
 public class SellerVO {
-	private long seller_code; //ÀÛ°¡ ¹øÈ£
-	private String seller_name;//ÀÛ°¡ ÀÌ¸§
-	private String seller_sellno;//ÀÛ°¡_ÀÛÇ°¹øÈ£
-	private String user_id;//È¸¿ø ¾ÆÀÌµğ
+	private int seller_code; //ì‘ê°€ì½”ë“œ
+	private String seller_name;//ìƒì ì´ë¦„
+	private String seller_sellno;//ì‚¬ì—…ì ë“±ë¡ ë²ˆí˜¸
+	private String user_id;//ì´ë©”ì¼
 	
-	public long getSeller_code() {
+	public int getSeller_code() {
 		return seller_code;
 	}
-	public void setSeller_code(long seller_code) {
+	public void setSeller_code(int seller_code) {
 		this.seller_code = seller_code;
 	}
 	public String getSeller_name() {

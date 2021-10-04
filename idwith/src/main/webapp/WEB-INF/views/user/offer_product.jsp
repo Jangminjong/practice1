@@ -16,7 +16,9 @@
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 </head>
 <body class="offerBody">
-	<div class="headerImage"></div>
+	<div style="display: flex; justify-content: space-around;">
+		<img src="resources/admin/img/logo.png" style="width: 300px; align: center;"/>
+	</div>
 	
 	<div class="freebirdFormviewerViewCenteredContent">
 	<form action="offer_success.do" target="_self" method="POST" id="mG61Hd" jsmodel="TOfxwf Q91hve" data-shuffle-seed="-935874016093584519" data-response="%.@.[]]" data-first-entry="0" data-last-entry="8" data-is-first-page="true">
@@ -72,7 +74,7 @@
 									<div class="quantumWizTextinputPaperinputMainContent exportContent">
 										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
 											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="email" class="quantumWizTextinputPaperinputInput" jsname="YPqjbf" autocomplete="email" tabindex="0" aria-label="이메일 주소" required="" dir="auto" data-initial-dir="auto" data-initial-value="" value="${email }" id="email"  name="user_id" onblur="onblurEvent(this);">
+												<input type="email" class="quantumWizTextinputPaperinputInput" jsname="YPqjbf" autocomplete="email" tabindex="0" aria-label="이메일 주소" required="" dir="auto" data-initial-dir="auto" data-initial-value="" value="${email }" id="email"  name="goods_apply_id" onblur="onblurEvent(this);">
 											</div>
 											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="emailUnderline"></div>
 											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
@@ -103,7 +105,347 @@
 							</div>
 						</div>
 					</div>
-					<div class="freebirdFormviewerViewNumberedItemContainer" role="listitem">
+					
+					<!-- 사업자 등록 번호 -->
+					<div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="sellerPhoneBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작가 전화번호
+										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" aria-label="이메일 주소" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="사업자 등록 번호" id="sellerPhone"  name="goods_apply_bsn" onblur="onblurEvent(this);">
+											</div>
+											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="sellerPhoneUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError sellerPhone-error" id="errorText" role="alert">
+								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
+									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
+									</div>
+								</div>
+								<div class="sellerPhone-error">필수 질문입니다.</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<!-- 상점 이름 -->
+					<div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="sellerNameBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">상점 이름
+										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="상점 이름" id="sellerName" name="store_name" onblur="onblurEvent(this);">
+											</div>
+											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="sellerNameUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError sellerName-error" id="errorText" role="alert">
+								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
+									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
+									</div>
+								</div>
+								<div class="sellerName-error">필수 질문입니다.</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 작가 전화번호 -->
+					<div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="sellerPhoneBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작가 전화번호
+										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" aria-label="이메일 주소" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작가 전화번호" id="sellerPhone"  name="goods_apply_phone" onblur="onblurEvent(this);">
+											</div>
+											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="sellerPhoneUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError sellerPhone-error" id="errorText" role="alert">
+								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
+									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
+									</div>
+								</div>
+								<div class="sellerPhone-error">필수 질문입니다.</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 작품 카테고리 -->
+					<div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productCategoryBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 카테고리
+										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<select name='goods_apply_category' id="productCategory" onblur="onblurEvent(this);">
+												  <option value='' selected>-- 선택 --</option>
+												  <option value='ceramic'>도자기</option>
+												  <option value='doll'>인형</option>
+												  <option value='phone_case'>휴대폰 케이스</option>
+												</select>
+											</div>
+											<!-- <div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productNameUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div> -->
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError productCategory-error" id="errorText" role="alert">
+								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
+									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
+									</div>
+								</div>
+								<div class="productCategory-error">필수 질문입니다.</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<!-- 작품 이름 -->
+					<!-- <div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productNameBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 이름
+										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 이름" id="productName" name="product_name" onblur="onblurEvent(this);">
+											</div>
+											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productNameUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError productName-error" id="errorText" role="alert">
+								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
+									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
+									</div>
+								</div>
+								<div class="productName-error">필수 질문입니다.</div>
+							</div>
+						</div>
+					</div> -->
+					
+					<!-- 작품 기능 -->
+					<!-- <div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productFunctionBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 기능
+										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 기능" id="productFunction" name="product_function" onblur="onblurEvent(this);">
+											</div>
+											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productFunctionUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError productfunction-error" id="errorText" role="alert">
+								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
+									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
+									</div>
+								</div>
+								<div class="productFunction-error">필수 질문입니다.</div>
+							</div>
+						</div>
+					</div> -->
+					
+					<!-- 작품 부가설명 -->
+					<div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productInfoBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 부가설명
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 부가설명" id="productInfo" name="product_info" onblur="onblurEvent(this);">
+											</div>
+											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productInfoUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 작품 사진 -->
+					<div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="sellerImgBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 이미지
+										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 이미지" id="productSellnoImg" name="goods_apply_photo" onblur="onblurEvent(this);">
+											</div>
+											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productSellnoImgUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError seller_sellno_img-error" id="errorText" role="alert">
+								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
+									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
+									</div>
+								</div>
+								<div class="productSellnoImg-error">필수 질문입니다.</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 작품 가격 -->
+					<!-- <div role="listitem">
+						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productPriceBorder">
+							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
+								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
+									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 가격
+										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
+									</div>
+								</div>
+								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
+									<div class="quantumWizTextinputPaperinputMainContent exportContent">
+										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+											<div class="quantumWizTextinputPaperinputInputArea">
+												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 가격" id="productPrice" name="product_price" onblur="onblurEvent(this);">
+											</div>
+											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productPriceUnderline"></div>
+											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
+										</div>
+									</div>
+									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
+										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+									</div>
+								</div>
+							</div>
+							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError productPrice-error" id="errorText" role="alert">
+								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
+									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
+										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
+									</div>
+								</div>
+								<div class="productPrice-error">필수 질문입니다.</div>
+							</div>
+						</div>
+					</div> -->
+					
+				</div>
+				
+				<div class="freebirdFormviewerViewNumberedItemContainer" role="listitem">
 						<div jsmodel="CP1oW" data-params="%.@.[1135647658,&quot;[개인정보 수집·이용 동의에 관한 안내사항]&quot;,&quot;○ 수집·이용 기관명: 주식회사 백패커  ○ 수집항목: (필수항목) 작가명, 전화번호, 이메일 주소, SNS 계정정보  ○ 수집·이용 목적: idus 온라인 클래스 입점 안내  ○ 보유 및 이용기간: 수집 이용목적 달성 시 또는 입점 문의일로부터 1년  *개인정보 제공자는 개인정보의 수집 및 이용에 관한 동의를 거부할 권리가 있으며, 그러한 경우 심사 및 입점 안내가 불가능 합니다.&quot;,2,[[1983585038,[[&quot;개인 정보 수집 및 이용에 관하여 동의합니다.&quot;,null,null,null,false],[&quot;아니오, 동의하지 않습니다.&quot;,null,null,null,false]],true,[],[],null,null,null,false,null,[null,[]]]],null,null,null,[]],&quot;i5&quot;,&quot;i6&quot;,&quot;i7&quot;,false]" class="m2">
 							<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot">
 								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
@@ -151,312 +493,6 @@
 							</div>
 						</div>
 					</div>
-					
-					<!-- 작가 이름 -->
-					<div role="listitem">
-						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="sellerNameBorder">
-							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
-								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
-									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작가 이름
-										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
-									</div>
-								</div>
-								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
-									<div class="quantumWizTextinputPaperinputMainContent exportContent">
-										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
-											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작가 이름" id="sellerName" name="seller_name" onblur="onblurEvent(this);">
-											</div>
-											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="sellerNameUnderline"></div>
-											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
-										</div>
-									</div>
-									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
-										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
-									</div>
-								</div>
-							</div>
-							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError sellerName-error" id="errorText" role="alert">
-								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
-									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
-									</div>
-								</div>
-								<div class="sellerName-error">필수 질문입니다.</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- 작가 전화번호 -->
-					<div role="listitem">
-						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="sellerPhoneBorder">
-							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
-								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
-									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작가 전화번호
-										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
-									</div>
-								</div>
-								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
-									<div class="quantumWizTextinputPaperinputMainContent exportContent">
-										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
-											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" aria-label="이메일 주소" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작가 전화번호" id="sellerPhone"  name="seller_phone" onblur="onblurEvent(this);">
-											</div>
-											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="sellerPhoneUnderline"></div>
-											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
-										</div>
-									</div>
-									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
-										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
-									</div>
-								</div>
-							</div>
-							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError sellerPhone-error" id="errorText" role="alert">
-								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
-									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
-									</div>
-								</div>
-								<div class="sellerPhone-error">필수 질문입니다.</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- 작품 카테고리 -->
-					<div role="listitem">
-						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productCategoryBorder">
-							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
-								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
-									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 카테고리
-										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
-									</div>
-								</div>
-								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
-									<div class="quantumWizTextinputPaperinputMainContent exportContent">
-										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
-											<div class="quantumWizTextinputPaperinputInputArea">
-												<select name='product_category' id="productCategory" onblur="onblurEvent(this);">
-												  <option value='' selected>-- 선택 --</option>
-												  <option value='ceramic'>도자기</option>
-												  <option value='doll'>인형</option>
-												  <option value='phone_case'>휴대폰 케이스</option>
-												</select>
-											</div>
-											<!-- <div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productNameUnderline"></div>
-											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div> -->
-										</div>
-									</div>
-									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
-										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
-									</div>
-								</div>
-							</div>
-							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError productCategory-error" id="errorText" role="alert">
-								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
-									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
-									</div>
-								</div>
-								<div class="productCategory-error">필수 질문입니다.</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					<!-- 작품 이름 -->
-					<div role="listitem">
-						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productNameBorder">
-							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
-								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
-									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 이름
-										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
-									</div>
-								</div>
-								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
-									<div class="quantumWizTextinputPaperinputMainContent exportContent">
-										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
-											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 이름" id="productName" name="product_name" onblur="onblurEvent(this);">
-											</div>
-											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productNameUnderline"></div>
-											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
-										</div>
-									</div>
-									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
-										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
-									</div>
-								</div>
-							</div>
-							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError productName-error" id="errorText" role="alert">
-								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
-									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
-									</div>
-								</div>
-								<div class="productName-error">필수 질문입니다.</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- 작품 기능 -->
-					<div role="listitem">
-						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productFunctionBorder">
-							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
-								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
-									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 기능
-										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
-									</div>
-								</div>
-								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
-									<div class="quantumWizTextinputPaperinputMainContent exportContent">
-										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
-											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 기능" id="productFunction" name="product_function" onblur="onblurEvent(this);">
-											</div>
-											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productFunctionUnderline"></div>
-											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
-										</div>
-									</div>
-									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
-										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
-									</div>
-								</div>
-							</div>
-							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError productfunction-error" id="errorText" role="alert">
-								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
-									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
-									</div>
-								</div>
-								<div class="productFunction-error">필수 질문입니다.</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- 작품 부가설명 -->
-					<div role="listitem">
-						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productInfoBorder">
-							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
-								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
-									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 부가설명
-									</div>
-								</div>
-								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
-									<div class="quantumWizTextinputPaperinputMainContent exportContent">
-										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
-											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 부가설명" id="productInfo" name="product_info" onblur="onblurEvent(this);">
-											</div>
-											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productInfoUnderline"></div>
-											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
-										</div>
-									</div>
-									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
-										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- 작품 사진 -->
-					<div role="listitem">
-						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="sellerImgBorder">
-							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
-								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
-									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 이미지
-										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
-									</div>
-								</div>
-								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
-									<div class="quantumWizTextinputPaperinputMainContent exportContent">
-										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
-											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 이미지" id="productSellnoImg" name="seller_sellno_img" onblur="onblurEvent(this);">
-											</div>
-											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productSellnoImgUnderline"></div>
-											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
-										</div>
-									</div>
-									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
-										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
-									</div>
-								</div>
-							</div>
-							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError seller_sellno_img-error" id="errorText" role="alert">
-								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
-									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
-									</div>
-								</div>
-								<div class="productSellnoImg-error">필수 질문입니다.</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					
-					
-					
-					
-					<!-- 작품 가격 -->
-					<div role="listitem">
-						<div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" class="freebirdFormviewerComponentsQuestionBaseRoot freebirdFormviewerComponentsQuestionTextRoot freebirdFormviewerViewEmailCollectionField hasError" id="productPriceBorder">
-							<div jscontroller="v4y9Mc" jsaction="rcuQ6b:vZc4S;sPvj8e:d3sQLd;O22p3e:zjh6rb;AHmuwe:h06R8;b2trFe:eVidQc;">
-								<div class="freebirdFormviewerComponentsQuestionBaseHeader">
-									<div class="freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont" dir="auto" role="heading" aria-level="3">작품 가격
-										<span class="freebirdFormviewerComponentsQuestionBaseRequiredAsterisk" id="i4" aria-label="필수 질문"> *</span>
-									</div>
-								</div>
-								<div class="quantumWizTextinputPaperinputEl freebirdFormviewerComponentsQuestionTextShort freebirdFormviewerComponentsQuestionTextTextInput freebirdThemedInput modeLight" jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf">
-									<div class="quantumWizTextinputPaperinputMainContent exportContent">
-										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
-											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 가격" id="productPrice" name="product_price" onblur="onblurEvent(this);">
-											</div>
-											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productPriceUnderline"></div>
-											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
-										</div>
-									</div>
-									<div class="quantumWizTextinputPaperinputCounterErrorHolder">
-										<div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
-									</div>
-								</div>
-							</div>
-							<div jsname="Rfh2Tc" class="freebirdFormviewerComponentsQuestionBaseValidationError productPrice-error" id="errorText" role="alert">
-								<div class="freebirdFormviewerComponentsQuestionBaseErrorIcon">
-									<div class="freebirdMaterialIconIconEl freebirdMaterialIconIconUpdatedM2">
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconDarkIcon freebird-qp-icon-error-outline-b">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconLightIcon freebird-qp-icon-error-outline-w">&nbsp;</div>
-										<div aria-hidden="true" class="freebirdMaterialIconIconImage freebirdMaterialIconIconM2Icon freebird-qp-icon-error-outline-red">&nbsp;</div>
-									</div>
-								</div>
-								<div class="productPrice-error">필수 질문입니다.</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
 				
 				<div class="freebirdFormviewerViewNavigationNavControls" jscontroller="lSvzH" jsaction="rcuQ6b:npT2md;JIbuQc:qV61Ff(X5DuWc),Gl574d(QR6bsb),V3upec(GeGHKb),HiUbje(M2UYVd),NPBnCf(OCpkoe);" data-shuffle-seed="-935874016093584519" data-should-execute-invisible-captcha-challenge="true" data-is-receipt-checked="true">
 					<div class="freebirdFormviewerViewNavigationButtonsAndProgress hasClearButton">
@@ -470,12 +506,6 @@
 							</div>
 						</div> -->
 						
-						<div class="freebirdFormviewerViewNavigationProgress">
-							<div class="freebirdFormviewerViewNavigationProgressIndicator freebirdAccessibleGreyBackground" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" aria-labelledby="lpd4pf" role="progressbar">
-								<div class="freebirdFormviewerViewNavigationProgressIndicatorFill fifty" style="width:33%"></div>
-							</div>
-							<div id="lpd4pf" class="freebirdFormviewerViewNavigationPercentComplete" aria-hidden="true">1/3페이지</div>
-						</div>
 						<div class="freebirdFormviewerViewNavigationClearButton">
 							<div role="button" class="appsMaterialWizButtonEl appsMaterialWizButtonPaperbuttonEl appsMaterialWizButtonPaperbuttonText appsMaterialWizButtonPaperbuttonTextColored freebirdThemedFlatButton" jscontroller="VXdfxd" jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue;touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc(preventMouseEvents=true|preventDefault=true); touchcancel:JMtRjd;focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;" jsshadow="" jsname="X5DuWc" tabindex="0" onclick="textDelete()">
 								<div class="appsMaterialWizButtonPaperbuttonRipple exportInk" jsname="ksKsZd"></div>
@@ -493,8 +523,7 @@
 				
 				<div class="freebirdFormviewerViewFooterImageContainer freebirdFormviewerViewFooterPageBreak">
 					<a dir="auto" href="index.do">
-						<img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_dark_clr_74x24px.svg" alt="Google" height="24px" width="74px">&nbsp;
-						<span class="freebirdCommonViewProductnameLockupText">설문지</span>
+						<img src="resources/admin/img/logo.png" alt="IdWith" height="24px" width="74px">&nbsp;
 					</a>
 				</div>
 			</div>

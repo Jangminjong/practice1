@@ -4,19 +4,50 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="WatingDAO">
- 	<resultMap type="watingVO" id="watingResult">
- 		<result property="user_id" column="user_id"/>
-		<result property="seller_name" column="seller_name"/>
-		<result property="seller_phone" column="seller_phone"/>
-		<result property="product_name" column="product_name"/>
-		<result property="product_price" column="product_price"/>
-		<result property="product_category" column="product_category"/>
-		<result property="product_function" column="product_function"/>
-		<result property="product_info" column="product_info"/>
-		<result property="seller_sellno_img" column="seller_sellno_img"/>
+ 	<resultMap type="goodsApplyVO" id="goodsApplyResult">
+ 		<result property="goods_apply_seq" column="goods_apply_seq"/>
+		<result property="goods_apply_id" column="goods_apply_id"/>
+		<result property="goods_apply_photo" column="goods_apply_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+		<result property="goods_apply_bsn" column="goods_apply_bsn"/>
+		<result property="goods_apply_info" column="goods_apply_info"/>
+		<result property="goods_apply_date" column="goods_apply_date"/>
+		<result property="godds_apply_check" column="godds_apply_check"/>
+		<result property="store_name" column="store_name"/>
+		<result property="goods_apply_phone" column="goods_apply_phone"/>
+		<result property="goods_apply_category" column="goods_apply_category"/>
  	</resultMap>
- 	<insert id="insertWating" parameterType="watingVO">
- 		INSERT INTO wating (user_id, seller_name, seller_phone, product_name, product_price, product_category, product_function, product_info)
- 		VALUES(#{user_id}, #{seller_name}, #{seller_phone}, #{product_name}, #{product_price}, #{product_category}, #{product_function}, #{product_info})
+ 	
+ 	<resultMap type="classRegVO" id="classRegResult">
+		<result property="class_reg_seq" column="class_reg_seq"/>
+		<result property="class_seller" column="class_seller"/>
+		<result property="user_id" column="user_id"/>
+		<result property="class_category" column="class_category"/>
+		<result property="class_name" column="class_name"/>
+		<result property="class_code" column="class_code"/>
+		<result property="class_price" column="class_price"/>
+		<result property="class_post_address" column="class_post_address"/>
+		<result property="class_address" column="class_address"/>
+		<result property="class_detail_address" column="class_detail_address"/>
+		<result property="class_reference" column="class_reference"/>
+		<result property="class_difficult" column="class_difficult"/>
+		<result property="class_person" column="class_person"/>
+		<result property="class_info" column="class_info"/>
+		<result property="class_reg_date" column="class_reg_date"/>
+		<result property="class_phone" column="class_phone"/>
+		<result property="class_photo" column="class_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+		<result property="class_status" column="class_status"/>
+		<result property="store_name" column="store_name"/>
+		<result property="seller_sellno" column="seller_sellno"/>
+ 	</resultMap>
+ 	
+ 	<insert id="insertWating" parameterType="goodsApplyVO">
+ 		INSERT INTO goods_apply (goods_apply_id, goods_apply_bsn, store_name, goods_apply_phone, goods_apply_category, goods_apply_info, goods_apply_photo)
+ 		VALUES(#{goods_apply_id}, #{goods_apply_bsn}, #{store_name}, #{goods_apply_phone}, #{goods_apply_category}, #{goods_apply_info}, #{goods_apply_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler})
+ 	</insert>
+ 	
+ 	<!-- 클래스 입점신청 대기 테이블 -->
+ 	<insert id="insertClassReg" parameterType="classRegVO">
+ 		insert into class_reg (class_seller, user_id, seller_sellno, store_name, class_phone, class_category, class_name, class_post_address, class_address, class_detail_address, class_difficult, class_person, class_info, class_photo, class_price, class_status)
+ 		values(#{class_seller}, #{user_id}, #{seller_sellno}, #{store_name}, #{class_phone}, #{class_category}, #{class_name}, #{class_post_address}, #{class_address}, #{class_detail_address}, #{class_difficult}, #{class_person}, #{class_info}, #{class_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, #{class_price}, 0)
  	</insert>
 </mapper>

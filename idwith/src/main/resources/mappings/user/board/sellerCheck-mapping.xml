@@ -109,4 +109,8 @@
  			SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (select * from story where seller_id=#{countNotice})A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
  	</select>
  	
+ 	<!-- 작품 또는 클래스 작가 승인 시 상태값 변경 -->
+ 	<update id="updateSellerStatus">
+ 		update seller set seller_class_yn=true where user_id=#{user_id}
+ 	</update>
 </mapper>

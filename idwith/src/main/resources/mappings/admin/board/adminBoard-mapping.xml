@@ -4,20 +4,75 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="ProposeDAO">
- 	<resultMap type="HashMap" id="proposeResult">
- 		<result property="seller_name" column="seller_name"/>
- 		<result property="product_category" column="product_category"/>
- 		<result property="user_id" column="user_id"/>
- 		<result property="seller_phone" column="seller_phone"/>
- 		<result property="offer_date" column="offer_date"/>
+ 	<resultMap type="goodsApplyVO" id="goodsApplyResult">
+ 		<result property="goods_apply_seq" column="goods_apply_seq"/>
+		<result property="goods_apply_id" column="goods_apply_id"/>
+		<result property="goods_apply_photo" column="goods_apply_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+		<result property="goods_apply_bsn" column="goods_apply_bsn"/>
+		<result property="goods_apply_info" column="goods_apply_info"/>
+		<result property="goods_apply_date" column="goods_apply_date"/>
+		<result property="godds_apply_check" column="godds_apply_check"/>
+		<result property="store_name" column="store_name"/>
+		<result property="goods_apply_phone" column="goods_apply_phone"/>
+		<result property="goods_apply_category" column="goods_apply_category"/>
  	</resultMap>
- 	<select id="getWatingList" resultType="map">
- 		select seller_name, product_category, user_id, seller_phone, offer_date from wating where state=null
+ 	
+ 	<resultMap type="classRegVO" id="regResult">
+		<result property="class_reg_seq" column="class_reg_seq"/>
+		<result property="class_seller" column="class_seller"/>
+		<result property="user_id" column="user_id"/>
+		<result property="class_category" column="class_category"/>
+		<result property="class_name" column="class_name"/>
+		<result property="class_code" column="class_code"/>
+		<result property="class_price" column="class_price"/>
+		<result property="class_post_address" column="class_post_address"/>
+		<result property="class_address" column="class_address"/>
+		<result property="class_detail_address" column="class_detail_address"/>
+		<result property="class_reference" column="class_reference"/>
+		<result property="class_difficult" column="class_difficult"/>
+		<result property="class_person" column="class_person"/>
+		<result property="class_info" column="class_info"/>
+		<result property="class_reg_date" column="class_reg_date"/>
+		<result property="class_phone" column="class_phone"/>
+		<result property="class_photo" column="class_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+		<result property="class_status" column="class_status"/>
+		<result property="store_name" column="store_name"/>
+		<result property="seller_sellno" column="seller_sellno"/>
+ 	</resultMap>
+ 	
+ 	<!-- 작품신청 대기 중인 리스트 가져오기 -->
+ 	<select id="getGoodsApplyList" resultType="goodsApplyVO">
+ 		select * from goods_apply where goods_apply_check is null
  	</select>
+ 	
+ 	<!-- 작품신청 대기 테이블 상태값 변경(승인) -->
  	<update id="updateAgree">
- 		update wating set state=true where user_id=#{user_id}
+ 		update goods_apply set goods_apply_check=true where goods_apply_seq=#{goods_apply_seq}
  	</update>
+ 	
+ 	<!-- 작품신청 대기 테이블 상태값 변경(거부) -->
  	<update id="updateDisagree">
- 		update wating set state=false where user_id=#{user_id}
+ 		update goods_apply set goods_apply_check=false where goods_apply_seq=#{goods_apply_seq}
+ 	</update>
+ 	
+ 	
+ 	<!-- 클래스 신청 대기 중인 리스트 가져오기 -->
+ 	<select id="getClassRegList" resultType="classRegVO">
+ 		select * from class_reg where class_status=0
+ 	</select>
+ 	
+ 	<!-- 클래스 테이블 상태값 변경(승인) -->
+ 	<update id="updateAgreeStatus">
+ 		update class_reg set class_status=1 where class_reg_seq=#{class_reg_seq}
+ 	</update>
+ 	
+ 	<!-- 클래스 테이블 상태값 변경(거부) -->
+ 	<update id="updateDisagreeStatus">
+ 		update class_reg set class_status=2 where class_reg_seq=#{class_reg_seq}
+ 	</update>
+ 	
+ 	<!-- 클래스 작가 승인 시 코드 부여 -->
+ 	<update id="updateStatus" parameterType="classRegVO">
+ 		update class_reg set class_seller=#{class_seller} where user_id=#{user_id}
  	</update>
 </mapper>

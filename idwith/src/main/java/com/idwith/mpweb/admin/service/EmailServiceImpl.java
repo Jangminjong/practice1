@@ -30,11 +30,11 @@ public class EmailServiceImpl implements EmailService {
 			MimeMessageHelper helper = new MimeMessageHelper(mail, "utf-8");
 			
 			if(result == 1) {
-				content = "<h1>ȯ���մϴ�.<br>" + to + "�۰���" + "</h1>" + 
-						"<br>�ȳ��ϼ���!<br>Idwith �۰��� ����� �ּż� �����մϴ�.<br></p>";
+				content = "<h1>안녕하세요.<br>" + to + "작가님" + "</h1>" + 
+						"<br>입점 신청이 승인되셨습니다. 감사합니다.<br></p>";
 			}else if(result == 0) {
-				content = "<h1>�ȳ��ϼ���.<br>" + to + "ȸ����" + "</h1>" + 
-						"<br>�˼��մϴ�.<br>Idwith ������û�� �����ϼ̽��ϴ�. �����Ϸ� �Ǽ���.<br></p>";
+				content = "<h1>안녕하세요.<br>" + to + "작가님" + "</h1>" + 
+						"<br>입점 신청이 거부되셨습니다. 좋은하루 되세요.<br></p>";
 			}
 			
 			helper.setSubject(subject); //����

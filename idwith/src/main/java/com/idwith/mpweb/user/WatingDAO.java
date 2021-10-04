@@ -10,8 +10,8 @@ public class WatingDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	public void insertWating(WatingVO vo) {
-		System.out.println("DAO insertWating ½ÇÇà");
-		sqlSessionTemplate.insert("WatingDAO.insertWating", vo);
+	public void insertWating(GoodsApplyVO goodsApplyVO) {
+		System.out.println("ìž‘í’ˆ ì‹ ì²­ DAO ì‹¤í–‰");
+		sqlSessionTemplate.insert("WatingDAO.insertWating", goodsApplyVO);
 	}
 }

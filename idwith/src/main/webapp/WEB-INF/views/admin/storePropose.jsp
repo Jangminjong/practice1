@@ -161,29 +161,29 @@
 												<th scope="col">#</th>
 												<th scope="col">작가아이디</th>
 												<th scope="col">사업자등록번호</th>
-												<th scope="col">작가명</th>
+												<th scope="col">상점명</th>
 												<th scope="col">작품 카테고리</th>
 												<th scope="col">신청날짜</th>
 												<th scope="col">입점승인/거절</th>
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="watingList" items="${watingList}"
+											<c:forEach var="watingList" items="${goodsApplyList}"
 												varStatus="status">
 												<tr>
 													<th scope="row">${status.count}</th>
-													<td><a href="classPropose.mdo">${watingList.user_id }</a></td>
-													<td>${watingList.seller_phone}</td>
-													<td id="${watingList.seller_name}">${watingList.seller_name}</td>
-													<td id="${watingList.product_category}">${watingList.product_category}</td>
-													<td>${watingList.offer_date}</td>
+													<td><a href="classPropose.mdo">${watingList.goods_apply_id}</a></td>
+													<td>${watingList.goods_apply_bsn}</td>
+													<td id="${watingList.store_name}">${watingList.store_name}</td>
+													<td id="${watingList.goods_apply_category}">${watingList.goods_apply_category}</td>
+													<td>${watingList.goods_apply_date}</td>
 													<td>
 														<button type="button" class="btn btn-warning"
-															id="storeProposeAgree" name="${watingList.user_id}"
-															onclick="storeProposeAgree(this.name, this.id, ${watingList.product_category}, ${watingList.seller_name})">승인</button>
+															id="storeProposeAgree" name="${watingList.goods_apply_id}"
+															onclick="storeProposeAgree(this.name, ${watingList.goods_apply_seq}, this.id, 'goods', ${watingList.goods_apply_bsn})">승인</button>
 														<button type="button" class="btn btn-primary"
-															id="storeProposeDisagree" name="${watingList.user_id }"
-															onclick="storeProposeDisagree(this.name, this.id)">거절</button>
+															id="storeProposeDisagree" name="${watingList.goods_apply_id}"
+															onclick="storeProposeDisagree(this.name, ${watingList.goods_apply_seq}, this.id, 'goods')">거절</button>
 													</td>
 												</tr>
 											</c:forEach>
@@ -204,18 +204,23 @@
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach var="classRegList" items="${classRegList}" varStatus="status">
+											<input type="hidden" value="${classRegList.class_reg_seq}" />
 											<tr>
-												<th scope="row">1</th>
-												<td><a href="classPropose.mdo">Seller</a></td>
-												<td>123-45-67890</td>
-												<td>2021-08-31</td>
+												<th scope="row">${status.count}</th>
+												<td><a href="classPropose.mdo">${classRegList.store_name}</a></td>
+												<td>${classRegList.seller_sellno}</td>
+												<td>${classRegList.class_reg_date}</td>
 												<td>
 													<button type="button" class="btn btn-warning"
-														id="classProposeAgree">승인</button>
+															id="storeProposeAgree" name="${classRegList.user_id}"
+															onclick="storeProposeAgree(this.name, ${classRegList.class_reg_seq}, this.id, 'class', ${classRegList.seller_sellno})">승인</button>
 													<button type="button" class="btn btn-primary"
-														id="classProposeDisagree">거절</button>
+														id="storeProposeDisagree" name="${classRegList.user_id}"
+														onclick="storeProposeDisagree(this.name, ${classRegList.class_reg_seq}, this.id, 'class')">거절</button>
 												</td>
 											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -225,7 +230,7 @@
 				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
-			<script>
+			<!-- <script>
 		$().ready(function (){ 
 			$("#storeProposeAgree").click(function (){ 
 				Swal.fire({ 
@@ -270,8 +275,8 @@
 			}); 
 			
 		});
-			</script>
-			<script>
+			</script> -->
+			<!-- <script>
 		$().ready(function (){ 
 			$("#classProposeAgree").click(function (){ 
 				Swal.fire({ 
@@ -316,9 +321,16 @@
 			}); 
 			
 		});
+		</script> -->
 			<script>
-				function storeProposeDisagree(user_id, disagree){ 
+				function storeProposeDisagree(user_id, seq, state, store){ 
 					var result_data;	
+					
+					console.log(user_id);
+					console.log(seq);
+					console.log(state);
+					console.log(store);
+					
 					Swal.fire({ 
 							title: '입점거절', 
 							text: "이 작가의 입점을 거절하시겠습니까?", 
@@ -338,21 +350,12 @@
 									async: false,
 									data: {
 											"user_id": user_id,
-											"disagree": disagree
+											"seq": seq,
+											"disagree": state,
+											"store": store
 										},
 									success: function(data){
-										if(data == 1){
-											Swal.fire(
-													'입점 거절', 
-													'해당 작가의 입점이 거절되었습니다', 
-												)
-											result_data = data;
-										}else if(data == 0){
-											Swal.fire(
-													'거절 오류', 
-													'오류가 발생했습니다.',
-											)
-										}
+										result_data = data;
 									},
 									error: function(request, status, error){
 										alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -370,9 +373,22 @@
 											async: false,
 											data: {
 													"user_id": user_id,
-													"disagree": disagree
+													"disagree": state
 												},
 											success: function(data){
+												if(data == 1){
+													Swal.fire(
+															'입점 거절', 
+															'해당 작가의 입점이 거절되었습니다', 
+														)
+													result_data = data;
+												}else if(data == 0){
+													Swal.fire(
+															'거절 오류', 
+															'오류가 발생했습니다.',
+													)
+												}
+												
 												console.log('이메일 전송 완료');
 											},
 											error: function(request, status, error){
@@ -390,13 +406,14 @@
 			</script>
 
 			<script>
-				function storeProposeAgree(user_id, state, category, seller_name){
+				function storeProposeAgree(user_id, seq, state, store, seller_sellno){
 					var result_data;
-					const productCategory = category[0].innerText;
-					const name = seller_name.innerText;
 					
-					console.log(productCategory);
-					console.log(name);
+					console.log(user_id);
+					console.log(seq);
+					console.log(state);
+					console.log(store);
+					console.log(seller_sellno);
 					
 					Swal.fire({ 
 						title: '입점 신청', 
@@ -416,7 +433,9 @@
 								async: false,
 								data: {
 										"user_id": user_id,
-										"agree": state
+										"seq": seq,
+										"agree": state,
+										"store": store
 									},
 								success: function(data){
 									result_data = data;
@@ -427,6 +446,7 @@
 								}
 							}); //end ajax
 							
+							
 							if(result_data == 1){//승인 성공 시 작가 등록
 								promise.done(function() {
 									console.log('작가 등록 중...');
@@ -435,11 +455,12 @@
 										type: "POST",
 										async: false,
 										data: {
-												"seller_name": name,
-												"product_category": productCategory,
-												"user_id": user_id
+												"user_id": user_id,
+												"store": store,
+												"seller_sellno": seller_sellno
 											},
 										success: function(data){
+											result_data = data;
 											console.log('작가 등록 완료');
 										},
 										error: function(request, status, error){
@@ -462,6 +483,7 @@
 										async: false,
 										data: {
 												"user_id": user_id,
+												"store" : store,
 												"agree": state
 											},
 										success: function(data){

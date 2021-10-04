@@ -14,7 +14,17 @@ public class SellerServiceImpl implements SellerService {
 	
 	@Override
 	public void insertSeller(SellerVO vo) {
-		System.out.println("Service insertSeller ½ÇÇà");
+		System.out.println("Service insertSeller ï¿½ï¿½ï¿½ï¿½");
 		sellerDAO.insertSeller(vo);
+	}
+
+	@Override
+	public SellerVO sellerEnCheck(String user_id) {
+		return sellerDAO.sellerEnCheck(user_id);
+	}
+
+	@Override
+	public void updateSellerStatus(String user_id) {
+		sellerDAO.updateSellerStatus(user_id);
 	}
 }
