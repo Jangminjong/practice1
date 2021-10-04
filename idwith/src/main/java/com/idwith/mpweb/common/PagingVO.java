@@ -2,7 +2,8 @@ package com.idwith.mpweb.common;
 
 public class PagingVO {
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
-	private int nowPage, startPage, endPage, total, countNotice, lastPage, start, end;
+	private int nowPage, startPage, endPage, total, lastPage, start, end;
+	private int countNotice;  //countNotice가 포함된 생성자를 사용 시 mapper.xml 에서 알아서 잘 #{countNotice}로 사용하세요.
 	private int cntPage = 5;
 	private int cntPerPage = 20;
 	private String set;
@@ -42,6 +43,9 @@ public class PagingVO {
 		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
 	}
 	
+	/*
+	 * set : seller_code 사용
+	 */
 	public PagingVO(int total, int nowPage, int cntPerPage, int countNotice) {
 		setNowPage(nowPage);
 		setCntPerPage(cntPerPage);
@@ -49,7 +53,12 @@ public class PagingVO {
 		setCountNotice(countNotice);
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);
-		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(), getCountNotice());
+		
+		if(countNotice > 99999) {
+			calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
+		}else {
+			calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(), getCountNotice());
+		}
 	}
 	
 	// 제일 마지막 페이지 계산

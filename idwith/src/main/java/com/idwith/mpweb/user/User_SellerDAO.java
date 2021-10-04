@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.idwith.mpweb.common.PagingVO;
+
 @Repository
 public class User_SellerDAO {
 
@@ -20,39 +22,29 @@ public class User_SellerDAO {
 		return result;
 	}
 
-	public List<UserSellerVO> getSellerList() {
-		List<UserSellerVO> sellerList = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerList");
-		
-		System.out.println("결과 값 : " + sellerList);
-		
-		return sellerList;
+	public int getSellerList() {
+		return sqlSessionTemplate.selectOne("SellerCheckDAO.countSeller");
 	}
 
-	public int getSellerInfo(String seller_code) {
-		int countInfo = sqlSessionTemplate.selectOne("SellerCheckDAO.countSellerGoods", seller_code);
+	public int getCountGoods(String seller_code) {
+		int countInfo = sqlSessionTemplate.selectOne("SellerCheckDAO.countSellerGoods", Integer.parseInt(seller_code));
 		
 		return countInfo;
 	}
 
 	public UserSellerVO getSellerProfile(String seller_code) {
+		System.out.println("작가 정보 가져오기 실행");
 		UserSellerVO profile = sqlSessionTemplate.selectOne("SellerCheckDAO.getSellerInfo", seller_code);
+		
+		System.out.println("정보1 : " + profile.getSeller_name());
+		System.out.println("정보2 : " + profile.getSeller_profile());
+		System.out.println("정보3 : " + profile.getSeller_profile_img());
 		
 		return profile;
 	}
 
-	public int getClassCheck(String seller_code) {
-		boolean result = sqlSessionTemplate.selectOne("SellerCheckDAO.getClassCheck", seller_code);
-		int classCheck = 0;
-		
-		if(result == true) {
-			classCheck = 1;
-		}
-		
-		return classCheck;
-	}
-
 	public List<SellerClassVO> getClassList(String seller_code) {
-		List<SellerClassVO> classList = sqlSessionTemplate.selectList("SellerCheckDAO.getClassList", seller_code);
+		List<SellerClassVO> classList = sqlSessionTemplate.selectList("SellerCheckDAO.getClassList", Integer.parseInt(seller_code));
 		return classList;
 	}
 
@@ -69,5 +61,20 @@ public class User_SellerDAO {
 		System.out.println("리뷰 리스트 : " + reviewList);
 		
 		return reviewList;
+	}
+
+	public List<GoodsVO> getGoodsList(PagingVO pageVO) {
+		List<GoodsVO> goodsList = sqlSessionTemplate.selectList("GoodsDAO.getSellerGoodsList", pageVO);
+		return goodsList;
+	}
+
+	public List<SellerStoryVO> getStoryList(PagingVO pageVO) {
+		List<SellerStoryVO> storyList = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerStoryList", pageVO);
+		return storyList;
+	}
+
+	public List<UserSellerVO> pagingSellerList(PagingVO pageVO) {
+		List<UserSellerVO> sellerList = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerList", pageVO);
+		return sellerList;
 	}
 }

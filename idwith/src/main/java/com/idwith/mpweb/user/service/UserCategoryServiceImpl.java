@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.SellerStoryVO;
 import com.idwith.mpweb.user.UserCategoryDAO;
 
 @Service
@@ -14,7 +16,12 @@ public class UserCategoryServiceImpl implements UserCategoryService {
 	private UserCategoryDAO dao;
 	
 	@Override
-	public List<Map<String, String>> getStoryList() {
-		return dao.getStoryList();
+	public int countStory() {
+		return dao.countStory();
+	}
+	
+	@Override
+	public List<SellerStoryVO> getStoryList(PagingVO pageVO) {
+		return dao.getStoryList(pageVO);
 	}
 }

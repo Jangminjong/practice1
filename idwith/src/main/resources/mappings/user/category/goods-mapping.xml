@@ -27,6 +27,11 @@
  	</resultMap>
  	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-	FROM goods where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10;
+	FROM goods where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10
+ 	</select>
+ 	
+ 	<!-- 작가가 등록한 상품리스트 가져오기 -->
+ 	<select id="getSellerGoodsList" resultMap="goodsResult" parameterType="goodsVO">
+	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (select * from goods where seller_code=#{countNotice})A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
  	</select>
 </mapper>

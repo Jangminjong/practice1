@@ -29,7 +29,7 @@
 						<div class=""
 							style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
 
-							<c:forEach var="list" items="${storyList}" end="${listLength}">
+							<c:forEach var="list" items="${storyList}" end="${listLength-1}">
 								<li data-v-52776193="" data-v-5ea8b349=""
 									class="story-card card-style"><input data-v-52776193=""
 									name="page" type="hidden" value="2">
@@ -68,7 +68,7 @@
 							style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
 
 							<c:forEach var="rightList" items="${storyList}"
-								begin="${listLength+1}">
+								begin="${listLength}">
 								<li data-v-52776193="" data-v-5ea8b349=""
 									class="story-card card-style"><input data-v-52776193=""
 									name="page" type="hidden" value="2">
@@ -113,6 +113,7 @@
 		</div>
 
 
+		<!-- 페이징 -->
 		<div class="paging" data-ui="paging" data-sync="false">
 			<nav>
 				<c:choose>
@@ -121,7 +122,7 @@
 					</c:when>
 					<c:when test="${paging.nowPage ne 1 }">
 						<a
-							href="/mpweb/board.do?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+							href="story.do?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
 							style="width: auto;">◀ 이전 |</a>
 					</c:when>
 				</c:choose>
@@ -130,12 +131,12 @@
 					<c:choose>
 						<c:when test="${p eq paging.nowPage }">
 							<a
-								href="/mpweb/board.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}"
+								href="story.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}"
 								class="active" onclick="return false">${p }</a>
 						</c:when>
 						<c:when test="${p ne paging.nowPage }">
 							<a
-								href="/mpweb/board.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+								href="story.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
 						</c:when>
 					</c:choose>
 				</c:forEach>
@@ -145,10 +146,15 @@
 					</c:when>
 					<c:when test="${paging.endPage ne paging.lastPage}">
 						<a
-							href="/mpweb/board.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+							href="story.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
 							style="width: auto;">| 다음 ▶</a>
 					</c:when>
 				</c:choose>
+				<!-- <a href="/w/board/notice?&amp;page=1" class="active">1</a> <a
+							href="/w/board/notice?&amp;page=2" class="">2</a> <a
+							href="/w/board/notice?&amp;page=2" class="next" aria-label="다음">
+							<span>다음</span> <i class="fa fa-chevron-right" disabled=""></i>
+						</a> -->
 			</nav>
 		</div>
 		

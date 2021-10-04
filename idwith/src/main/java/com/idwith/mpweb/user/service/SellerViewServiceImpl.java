@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.GoodsVO;
 import com.idwith.mpweb.user.SellerClassVO;
 import com.idwith.mpweb.user.SellerProductReviewVO;
 import com.idwith.mpweb.user.SellerStoryVO;
@@ -24,24 +26,19 @@ public class SellerViewServiceImpl implements SellerViewService {
 	}
 
 	@Override
-	public List<UserSellerVO> getSellerList() {
+	public int getSellerList() {
 		return dao.getSellerList();
 	}
 
 	@Override
-	public int getSellerInfo(String seller_code) {
-		return dao.getSellerInfo(seller_code);
+	public int getCountGoods(String seller_code) {
+		return dao.getCountGoods(seller_code);
 	}
-
 
 	@Override
 	public UserSellerVO getSellerProfile(String seller_code) {
+		System.out.println("작가정보 가져오기 서비스 실행");
 		return dao.getSellerProfile(seller_code);
-	}
-	
-	@Override
-	public int getClassCheck(String seller_code) {
-		return dao.getClassCheck(seller_code);
 	}
 
 	@Override
@@ -57,5 +54,20 @@ public class SellerViewServiceImpl implements SellerViewService {
 	@Override
 	public List<SellerProductReviewVO> getSellerProductReviewList(String seller_code) {
 		return dao.getSellerProductReviewList(seller_code);
+	}
+
+	@Override
+	public List<GoodsVO> getGoodsList(PagingVO pageVO) {
+		return dao.getGoodsList(pageVO);
+	}
+
+	@Override
+	public List<SellerStoryVO> getStoryList(PagingVO pageVO) {
+		return dao.getStoryList(pageVO);
+	}
+
+	@Override
+	public List<UserSellerVO> getpagingSellerList(PagingVO pageVO) {
+		return dao.pagingSellerList(pageVO);
 	}
 }

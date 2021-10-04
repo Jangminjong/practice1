@@ -18,7 +18,14 @@ public class UserSellerVO {
 	private String seller_idea;
 	private String seller_identity;
 	private String seller_ideal;
+	private String store_name;
 	
+	public String getStore_name() {
+		return store_name;
+	}
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
+	}
 	public String getSeller_history() {
 		return seller_history;
 	}
@@ -109,14 +116,15 @@ public class UserSellerVO {
 	public void setSeller_status(int seller_status) {
 		this.seller_status = seller_status;
 	}
+	
 	@Override
 	public String toString() {
 		return "UserSellerVO [seller_code=" + seller_code + ", seller_name=" + seller_name + ", seller_sellno="
 				+ seller_sellno + ", seller_sellno_img=" + Arrays.toString(seller_sellno_img) + ", user_id=" + user_id
 				+ ", seller_profile=" + seller_profile + ", seller_profile_img=" + Arrays.toString(seller_profile_img)
 				+ ", seller_done=" + seller_done + ", seller_goods_yn=" + seller_goods_yn + ", seller_class_yn="
-				+ seller_class_yn + ", seller_status=" + seller_status + "]";
+				+ seller_class_yn + ", seller_status=" + seller_status + ", seller_history=" + seller_history
+				+ ", seller_idea=" + seller_idea + ", seller_identity=" + seller_identity + ", seller_ideal="
+				+ seller_ideal + ", store_name=" + store_name + "]";
 	}
-	
-	
 }

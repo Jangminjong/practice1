@@ -16,7 +16,24 @@
  		<result property="user_event_board_end" column="user_event_board_end"/>
  	</resultMap>
  	
-	<select id="getStoryList" resultType="map">
-		select * from story
+ 	<resultMap type="sellerStoryVO" id="sellerStoryResult">
+ 		<result property="story_tseq" column="story_tseq"/>
+ 		<result property="seller_id" column="seller_id"/>
+ 		<result property="story_date" column="story_date"/>
+ 		<result property="story_title" column="story_title"/>
+ 		<result property="story_context" column="story_context"/>
+ 		<result property="story_image" column="story_image" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="seller_name" column="seller_name"/>
+ 		<result property="story_cnt" column="story_cnt"/>
+ 	</resultMap>
+ 	
+ 	<!-- 스토리 카운트 -->
+ 	<select id="countStory" resultType="_int">
+ 		select count(*) from story
+ 	</select>
+ 	
+ 	<!-- 스토리 카테고리 페이징 -->
+	<select id="getStoryList" resultMap="sellerStoryResult" parameterType="sellerStoryVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (select * from story)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
 </mapper>

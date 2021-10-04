@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title></title>
 <link rel="stylesheet" href="resources/css/seller_profile.css">
+<link rel="stylesheet" href="resources/css/seller_main.css">
 <link rel="stylesheet" href="resources/css/common.css">
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
@@ -15,7 +16,79 @@
 <body>
 	<jsp:include page="header_goods.jsp" />
 	<section class="artist-contents">
-	<jsp:include page="seller_main.jsp" />
+		<!-- 상단 프로필 -->
+		<section data-v-2618eab2="" class="quick-profile"
+		style="width: 526px; padding: 30px 0px 36px;">
+		<div data-v-2618eab2="" class="profile-area">
+			<a data-v-2618eab2=""
+				href="seller_goods.do"
+				target="_blank:"
+				style="width: 108px; height: 108px; margin-right: 33px; position: relative;">
+				<img data-v-2618eab2=""
+				src="${sellerInfo.seller_profile_img[0]}"
+				alt="artist thumbnail" class="artist-thumbnail"> <!---->
+			</a>
+			<div data-v-2618eab2="" class="artist-info">
+				<div data-v-2618eab2="" class="artist-info__head">
+					<div data-v-2618eab2="">
+						<a data-v-2618eab2=""
+							href="seller_goods.do"
+							target="_blank">
+							<p data-v-2618eab2="" class="artist-info__name">
+								${sellerInfo.seller_name}
+							</p>
+						</a>
+						<div data-v-2618eab2="" class="artist-info__rate">
+							<span data-v-ef94db98="" data-v-2618eab2="" data-value="4.85"
+								class="ui_rating fr"> <i data-v-ef94db98=""
+								data-state="active" class="ui_icon--star idus-icon-star-fill"
+								style="font-size: 14px;"></i>
+							</span> <span data-v-2618eab2=""> 4.85<!-- 작가 평균 별점 --> </span> <span data-v-2618eab2="">
+								(3,768)<!-- 별점 작성한 회원의 수 --> </span>
+						</div>
+					</div>
+					<a data-v-2618eab2=""
+						href="##"
+						data-ui="inquire-float-btn" target="_blank"
+						class="artist-inquire-float-btn" style="bottom: 30px;"> <img
+						data-v-2618eab2=""
+						src="/resources/dist/images/artist-inquire-icon.svg" alt="작가 문의"></a>
+				</div>
+				<div data-v-2618eab2="" class="artist-info__statistics">
+					<div data-v-2618eab2="" class="data-area">
+						<p data-v-2618eab2="" class="title">작품 찜</p>
+						<span data-v-2618eab2="" class="data"> 2.8만<!-- 찜 한 회원의 수 --> </span>
+					</div>
+					<div data-v-2618eab2="" class="data-area">
+						<p data-v-2618eab2="" class="title">팔로워</p>
+						<span data-v-2618eab2="" class="data"> 8.3천<!-- 팔로워 한 회원의 수 --> </span>
+					</div>
+					<div data-v-2618eab2="" class="data-area">
+						<p data-v-2618eab2="" class="title">후원해주신 분들</p>
+						<span data-v-2618eab2="" class="data"> 975<!-- 후원 한 회원의 수 --> </span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-v-2618eab2="" class="profile-contents"
+			style="margin-left: 143px;">
+			<div data-v-2618eab2="" class="introduce-area">
+				<p data-v-2618eab2="" class="introduce-txt">${sellerInfo.seller_profile}</p>
+				<i data-v-2618eab2="" class="idus-icon-arrow toggle-btn down"></i>
+			</div>
+			<div data-v-2618eab2="" class="btn-group">
+				<button data-v-b534333e="" data-v-2618eab2="" type="button"
+					class="follow"
+					style="background-color: rgb(255, 123, 48); witdh: 100%; height: 36px; font-size: 14px; color: rgb(255, 255, 255); border: 1px solid rgb(255, 123, 48); border-radius: 4px;">
+					<i data-v-b534333e="" class="idus-icon-plus"
+						style="font-size: 16px;"></i> 팔로우
+				</button>
+			</div>
+		</div>
+	</section>
+		
+		
+		<!-- Tab Menu -->
 		<div data-v-825a8b32="">
 			<div data-v-825a8b32="" data-trigger-detail="true"></div>
 			<div data-v-825a8b32="" data-trigger="fixposition"

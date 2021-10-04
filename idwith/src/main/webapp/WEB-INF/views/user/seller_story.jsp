@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title></title>
 <link rel="stylesheet" href="resources/css/seller_story.css">
+<link rel="stylesheet" href="resources/css/seller_main.css">
 <link rel="stylesheet" href="resources/css/common.css">
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
@@ -15,134 +16,260 @@
 <body>
 	<jsp:include page="header_goods.jsp" />
 	<section class="artist-contents">
-		<jsp:include page="seller_main.jsp" />
+
+		<!-- 상단 프로필 -->
+		<section data-v-2618eab2="" class="quick-profile"
+			style="width: 526px; padding: 30px 0px 36px;">
+			<div data-v-2618eab2="" class="profile-area">
+				<a data-v-2618eab2="" href="seller_goods.do" target="_blank:"
+					style="width: 108px; height: 108px; margin-right: 33px; position: relative;">
+					<img data-v-2618eab2="" src="${sellerInfo.seller_profile_img[0]}"
+					alt="artist thumbnail" class="artist-thumbnail"> <!---->
+				</a>
+				<div data-v-2618eab2="" class="artist-info">
+					<div data-v-2618eab2="" class="artist-info__head">
+						<div data-v-2618eab2="">
+							<a data-v-2618eab2="" href="seller_goods.do" target="_blank">
+								<p data-v-2618eab2="" class="artist-info__name">
+									${sellerInfo.seller_name}</p>
+							</a>
+							<div data-v-2618eab2="" class="artist-info__rate">
+								<span data-v-ef94db98="" data-v-2618eab2="" data-value="4.85"
+									class="ui_rating fr"> <i data-v-ef94db98=""
+									data-state="active" class="ui_icon--star idus-icon-star-fill"
+									style="font-size: 14px;"></i>
+								</span> <span data-v-2618eab2=""> 4.85<!-- 작가 평균 별점 -->
+								</span> <span data-v-2618eab2=""> (3,768)<!-- 별점 작성한 회원의 수 -->
+								</span>
+							</div>
+						</div>
+						<a data-v-2618eab2="" href="##" data-ui="inquire-float-btn"
+							target="_blank" class="artist-inquire-float-btn"
+							style="bottom: 30px;"> <img data-v-2618eab2=""
+							src="/resources/dist/images/artist-inquire-icon.svg" alt="작가 문의"></a>
+					</div>
+					<div data-v-2618eab2="" class="artist-info__statistics">
+						<div data-v-2618eab2="" class="data-area">
+							<p data-v-2618eab2="" class="title">작품 찜</p>
+							<span data-v-2618eab2="" class="data"> 2.8만<!-- 찜 한 회원의 수 -->
+							</span>
+						</div>
+						<div data-v-2618eab2="" class="data-area">
+							<p data-v-2618eab2="" class="title">팔로워</p>
+							<span data-v-2618eab2="" class="data"> 8.3천<!-- 팔로워 한 회원의 수 -->
+							</span>
+						</div>
+						<div data-v-2618eab2="" class="data-area">
+							<p data-v-2618eab2="" class="title">후원해주신 분들</p>
+							<span data-v-2618eab2="" class="data"> 975<!-- 후원 한 회원의 수 -->
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-v-2618eab2="" class="profile-contents"
+				style="margin-left: 143px;">
+				<div data-v-2618eab2="" class="introduce-area">
+					<p data-v-2618eab2="" class="introduce-txt">${sellerInfo.seller_profile}</p>
+					<i data-v-2618eab2="" class="idus-icon-arrow toggle-btn down"></i>
+				</div>
+				<div data-v-2618eab2="" class="btn-group">
+					<button data-v-b534333e="" data-v-2618eab2="" type="button"
+						class="follow"
+						style="background-color: rgb(255, 123, 48); witdh: 100%; height: 36px; font-size: 14px; color: rgb(255, 255, 255); border: 1px solid rgb(255, 123, 48); border-radius: 4px;">
+						<i data-v-b534333e="" class="idus-icon-plus"
+							style="font-size: 16px;"></i> 팔로우
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Tab Menu -->
 		<div data-v-825a8b32="">
 			<div data-v-825a8b32="" data-trigger-detail="true"></div>
 			<div data-v-825a8b32="" data-trigger="fixposition"></div>
 			<nav data-v-825a8b32="" data-ui="artist-home-tab-control"
 				class="tab-group">
-				
+
 				<a data-v-825a8b32=""
-					href="seller_profile.do?seller_code=${seller_code}"
-					class="tab">프로필</a> <a data-v-825a8b32=""
+					href="seller_profile.do?seller_code=${seller_code}" class="tab">프로필</a>
+				<a data-v-825a8b32=""
 					href="seller_story.do?seller_code=${seller_code}"
 					class="tab active">스토리</a> <a data-v-825a8b32=""
-					href="seller_goods.do?seller_code=${seller_code}"
-					class="tab">판매작품</a> <a data-v-825a8b32=""
-					href="seller_class.do?seller_code=${seller_code}"
-					class="tab">클래스</a> <a data-v-825a8b32=""
-					href="seller_review.do?seller_code=${seller_code}"
-					class="tab">구매후기</a>
+					href="seller_goods.do?seller_code=${seller_code}" class="tab">판매작품</a>
+				<a data-v-825a8b32=""
+					href="seller_class.do?seller_code=${seller_code}" class="tab">클래스</a>
+				<a data-v-825a8b32=""
+					href="seller_review.do?seller_code=${seller_code}" class="tab">구매후기</a>
 
 			</nav>
 		</div>
 		<div class="contents-container">
-			<div data-v-5ea8b349="" class="story-list">
-				<div data-v-5ea8b349="" style="display: flex; margin-left: -16px;">
-					<div class=""
-						style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
+
+			<c:choose>
+				<c:when test="${ storyCheck eq true }">
+					<div data-v-5ea8b349="" class="story-list">
+						<div data-v-5ea8b349="" style="display: flex; margin-left: -16px;">
+							<div class=""
+								style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
 
 
-						<c:forEach var="info" items="${info}" end="${listLength}">
-							<li data-v-52776193="" data-v-5ea8b349=""
-								class="story-card card-style"><input data-v-52776193=""
-								name="page" type="hidden" value="2">
-								<div data-v-52776193="" class="story-card__header">
-									<div data-v-52776193="" class="story-card-info">
-										<a data-v-52776193="" href="seller_goods.do" target="_blank"
-											class="artist-thumbnail"><img data-v-52776193=""
-											alt="artist profile"
-											src="https://image.idus.com/image/files/c6803110f70247c088b3530380b6ff40_320.jpg"></a>
-										<div data-v-52776193="" class="artist-info">
-											<span data-v-52776193="" class="artist-name"><a
-												data-v-52776193="" href="seller_goods.do" target="_blank">
-													${info.seller_name} </a></span> <span data-v-52776193=""
-												class="story-date">
-												${info.story_date}
-											</span>
-										</div>
-									</div>
-									<!---->
-								</div> <a data-v-52776193="" href="##" target="_blank"><div
-										data-v-52776193="" class="story-card__body">
-										${info.story_context}
-									</div>
-									<div data-v-2ce2581b="" data-v-52776193="" class="image-group">
-										<div data-v-2ce2581b="" class="image-container">
-											<div data-v-2ce2581b="" class="image"
-												style="background-image: url(&quot;https://image.idus.com/image/files/011da082a78c46a08ab9cf6e5ca26da8_512.jpg&quot;); max-height: 205px;"></div>
+								<c:forEach var="info" items="${info}" end="${listLength}">
+									<li data-v-52776193="" data-v-5ea8b349=""
+										class="story-card card-style"><input data-v-52776193=""
+										name="page" type="hidden" value="2">
+										<div data-v-52776193="" class="story-card__header">
+											<div data-v-52776193="" class="story-card-info">
+												<a data-v-52776193="" href="seller_goods.do" target="_blank"
+													class="artist-thumbnail"><img data-v-52776193=""
+													alt="artist profile"
+													src="${sellerInfo.seller_profile_img[0]}"></a>
+												<div data-v-52776193="" class="artist-info">
+													<span data-v-52776193="" class="artist-name"><a
+														data-v-52776193="" href="seller_goods.do" target="_blank">
+															${sellerInfo.seller_name} </a></span> <span data-v-52776193=""
+														class="story-date"> ${info.story_date} </span>
+												</div>
+											</div>
 											<!---->
+										</div> <a data-v-52776193="" href="##" target="_blank"><div
+												data-v-52776193="" class="story-card__body">
+												${info.story_context}</div>
+											<div data-v-2ce2581b="" data-v-52776193=""
+												class="image-group">
+												<c:forEach var="i" begin="0" end="${listSize}">
+													<c:choose>
+														<c:when test="${listSize <= 3}">
+															<div data-v-2ce2581b="" class="image-container">
+																<div data-v-2ce2581b="" class="image"
+																	style="background-image: url(${info.story_image[i]}); max-height: 205px;"></div>
+																<!---->
+																<!---->
+															</div>
+														</c:when>
+
+														<c:when test="${listSize > 3}">
+															<div data-v-2ce2581b="" class="image-container last">
+																<div data-v-2ce2581b="" class="image"
+																	style="background-image: url(${info.story_image[i]}); max-height: 205px;"></div>
+																<div data-v-2ce2581b="" class="image-curtain"></div>
+																<div data-v-2ce2581b="" class="rest-image-txt">+3</div>
+															</div>
+														</c:when>
+													</c:choose>
+												</c:forEach>
+											</div></a></li>
+								</c:forEach>
+							</div>
+							<div class=""
+								style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
+
+
+								<c:forEach var="info" items="${info}" begin="${listLength+1}">
+									<li data-v-52776193="" data-v-5ea8b349=""
+										class="story-card card-style"><input data-v-52776193=""
+										name="page" type="hidden" value="2">
+										<div data-v-52776193="" class="story-card__header">
+											<div data-v-52776193="" class="story-card-info">
+												<a data-v-52776193="" href="seller_goods.do" target="_blank"
+													class="artist-thumbnail"><img data-v-52776193=""
+													alt="artist profile"
+													src="${sellerInfo.seller_profile_img[0]}"></a>
+												<div data-v-52776193="" class="artist-info">
+													<span data-v-52776193="" class="artist-name"><a
+														data-v-52776193="" href="seller_goods.do" target="_blank">
+															${sellerInfo.seller_name } </a></span> <span data-v-52776193=""
+														class="story-date"> ${info.story_date}<!-- 작가 스토리 작성시간 -->
+													</span>
+												</div>
+											</div>
 											<!---->
-										</div>
-										<div data-v-2ce2581b="" class="image-container">
-											<div data-v-2ce2581b="" class="image"
-												style="background-image: url(&quot;https://image.idus.com/image/files/8c110f3632be491ababc66e62dc9fdcb_512.jpg&quot;); max-height: 205px;"></div>
-											<!---->
-											<!---->
-										</div>
-										<div data-v-2ce2581b="" class="image-container last">
-											<div data-v-2ce2581b="" class="image"
-												style="background-image: url(&quot;https://image.idus.com/image/files/6d969cf107e64dbb98f902828af33652_512.jpg&quot;); max-height: 205px;"></div>
-											<div data-v-2ce2581b="" class="image-curtain"></div>
-											<div data-v-2ce2581b="" class="rest-image-txt">+3</div>
-										</div>
-									</div></a></li>
-						</c:forEach>
+										</div> <a data-v-52776193="" href="##" target="_blank"><div
+												data-v-52776193="" class="story-card__body">
+												${info.story_context}</div>
+											<div data-v-2ce2581b="" data-v-52776193=""
+												class="image-group">
+												<c:forEach var="i" begin="0" end="${listSize}">
+													<c:choose>
+														<c:when test="${listSize <= 3}">
+															<div data-v-2ce2581b="" class="image-container">
+																<div data-v-2ce2581b="" class="image"
+																	style="background-image: url(${info.story_image[i]}); max-height: 205px;"></div>
+																<!---->
+																<!---->
+															</div>
+														</c:when>
+
+														<c:when test="${listSize > 3}">
+															<div data-v-2ce2581b="" class="image-container last">
+																<div data-v-2ce2581b="" class="image"
+																	style="background-image: url(${info.story_image[i]}); max-height: 205px;"></div>
+																<div data-v-2ce2581b="" class="image-curtain"></div>
+																<div data-v-2ce2581b="" class="rest-image-txt">+3</div>
+															</div>
+														</c:when>
+													</c:choose>
+												</c:forEach>
+											</div></a></li>
+								</c:forEach>
+
+							</div>
+
+						</div>
 					</div>
-					<div class=""
-						style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
-
-
-						<c:forEach var="info" items="${info}" begin="${listLength+1}">
-							<li data-v-52776193="" data-v-5ea8b349=""
-								class="story-card card-style"><input data-v-52776193=""
-								name="page" type="hidden" value="2">
-								<div data-v-52776193="" class="story-card__header">
-									<div data-v-52776193="" class="story-card-info">
-										<a data-v-52776193="" href="seller_goods.do" target="_blank"
-											class="artist-thumbnail"><img data-v-52776193=""
-											alt="artist profile"
-											src="https://image.idus.com/image/files/c6803110f70247c088b3530380b6ff40_320.jpg"></a>
-										<div data-v-52776193="" class="artist-info">
-											<span data-v-52776193="" class="artist-name"><a
-												data-v-52776193="" href="seller_goods.do" target="_blank">
-													${info.seller_name } </a></span> <span data-v-52776193=""
-												class="story-date">
-												${info.story_date}<!-- 작가 스토리 작성시간 -->
-											</span>
-										</div>
-									</div>
-									<!---->
-								</div> <a data-v-52776193="" href="##" target="_blank"><div
-										data-v-52776193="" class="story-card__body">
-										${info.story_context}
-									</div>
-									<div data-v-2ce2581b="" data-v-52776193="" class="image-group">
-										<div data-v-2ce2581b="" class="image-container">
-											<div data-v-2ce2581b="" class="image"
-												style="background-image: url(&quot;https://image.idus.com/image/files/011da082a78c46a08ab9cf6e5ca26da8_512.jpg&quot;); max-height: 205px;"></div>
-											<!---->
-											<!---->
-										</div>
-										<div data-v-2ce2581b="" class="image-container">
-											<div data-v-2ce2581b="" class="image"
-												style="background-image: url(&quot;https://image.idus.com/image/files/8c110f3632be491ababc66e62dc9fdcb_512.jpg&quot;); max-height: 205px;"></div>
-											<!---->
-											<!---->
-										</div>
-										<div data-v-2ce2581b="" class="image-container last">
-											<div data-v-2ce2581b="" class="image"
-												style="background-image: url(&quot;https://image.idus.com/image/files/6d969cf107e64dbb98f902828af33652_512.jpg&quot;); max-height: 205px;"></div>
-											<div data-v-2ce2581b="" class="image-curtain"></div>
-											<div data-v-2ce2581b="" class="rest-image-txt">+3</div>
-										</div>
-									</div></a></li>
-						</c:forEach>
-
+				</c:when>
+				<c:when test="${ storyCheck eq false }">
+					<div class="empty-data">
+						<i class="idus-icon-logo-empty"></i> 작가님의 스토리가 없습니다.
 					</div>
+				</c:when>
+			</c:choose>
 
-				</div>
-			</div>
+		</div>
+
+		<!-- 페이징 -->
+		<div class="paging" data-ui="paging" data-sync="false">
+			<nav>
+				<c:choose>
+					<c:when test="${paging.nowPage eq 1 }">
+						<span style="width: auto;">◀ 이전 |</span>
+					</c:when>
+					<c:when test="${paging.nowPage ne 1 }">
+						<a
+							href="seller_story.do?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}&seller_code=${seller_code}"
+							style="width: auto;">◀ 이전 |</a>
+					</c:when>
+				</c:choose>
+				<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
+					var="p">
+					<c:choose>
+						<c:when test="${p eq paging.nowPage }">
+							<a
+								href="seller_story.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}&seller_code=${seller_code}"
+								class="active" onclick="return false">${p }</a>
+						</c:when>
+						<c:when test="${p ne paging.nowPage }">
+							<a
+								href="seller_story.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}&seller_code=${seller_code}">${p }</a>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<c:choose>
+					<c:when test="${paging.endPage eq paging.lastPage}">
+						<span style="width: auto;">| 다음 ▶</span>
+					</c:when>
+					<c:when test="${paging.endPage ne paging.lastPage}">
+						<a
+							href="seller_story.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&seller_code=${seller_code}"
+							style="width: auto;">| 다음 ▶</a>
+					</c:when>
+				</c:choose>
+				<!-- <a href="/w/board/notice?&amp;page=1" class="active">1</a> <a
+							href="/w/board/notice?&amp;page=2" class="">2</a> <a
+							href="/w/board/notice?&amp;page=2" class="next" aria-label="다음">
+							<span>다음</span> <i class="fa fa-chevron-right" disabled=""></i>
+						</a> -->
+			</nav>
 		</div>
 	</section>
 	<jsp:include page="footer.jsp" />

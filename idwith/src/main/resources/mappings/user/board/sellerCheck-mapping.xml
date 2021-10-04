@@ -19,7 +19,21 @@
  	</resultMap>
  	
  	<resultMap type="sellerClassVO" id="sellerClassResult">
- 		<result property="seller_code" column="seller_code"/>
+ 		<result property="class_reg_seq" column="class_reg_seq" />
+ 		<result property="class_code" column="class_code" />
+ 		<result property="class_name" column="class_name" />
+ 		<result property="class_seller" column="class_seller" />
+ 		<result property="class_category_code" column="class_category_code" />
+ 		<result property="class_price" column="class_price" />
+ 		<result property="class_post_address" column="class_post_address" />
+ 		<result property="class_detail_address" column="class_detail_address" />
+ 		<result property="class_reference" column="class_reference" />
+ 		<result property="class_difficult" column="class_difficult" />
+ 		<result property="class_person" column="class_person" />
+ 		<result property="class_date" column="class_date" />
+ 		<result property="class_info" column="class_info" />
+ 		<result property="class_photo" column="class_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="class_check" column="class_check" />
  	</resultMap>
  	
  	<resultMap type="sellerStoryVO" id="sellerStoryResult">
@@ -51,24 +65,28 @@
  		select seller_code from seller where user_id=#{user_id}
  	</select>
  	
- 	<!-- 인기작가 리스트 -->
- 	<select id="getSellerList" resultType="userSellerVO" resultMap="sellerCheckResult">
- 		select * from seller <!-- 팔로워 순으로 가져오기 추가 -->
+ 	<!-- 인기작가 리스트 수 -->
+ 	<select id="countSeller" resultType="_int">
+ 		select count(*) from seller <!-- 팔로워 순으로 가져오기 추가 -->
+ 	</select>
+ 	
+ 	<!-- 인기작가 페이징 -->
+ 	<select id="getSellerList" resultMap="sellerCheckResult" parameterType="userSellerVO">
+ 			SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (select * from seller)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
  	</select>
  	
  	<!-- 작가 정보 가져오기 -->
- 	<select id="getSellerInfo" resultType="userSellerVO">
+ 	<select id="getSellerInfo" resultType="userSellerVO" resultMap="sellerCheckResult">
  		select * from seller where seller_code=${seller_code}
- 	</select>
- 	
- 	<!-- 클래스 작가 여부 체크 -->
- 	<select id="getClassCheck" resultType="_boolean">
- 		select seller_class_yn from seller where seller_code=${seller_code}
  	</select>
  	
  	<!-- 작가가 등록한 클래스리스트 가져오기 -->
  	<select id="getClassList" resultType="sellerClassVO" resultMap="sellerClassResult">
- 		select * from class_reg where seller_code=#{seller_code}
+ 		<!--  select * from class_reg where class_seller=#{class_seller} -->
+ 		select s.seller_name from class_reg as cr
+			join seller as s
+			on cr.class_seller = s.seller_code
+		where s.seller_code=#{seller_code}
  	</select>
  	
  	<!-- 작가가 작성한 스토리 가져오기 -->
@@ -85,4 +103,10 @@
  	<select id="countSellerGoods" resultType="_int">
  		select count(*) from goods where seller_code=#{seller_code}
  	</select>
+ 	
+ 	<!-- 작가의 등록한 상품에 대한 리뷰 -->
+ 	<select id="getSellerStoryList" resultMap="sellerStoryResult" parameterType="sellerStoryVO">
+ 			SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (select * from story where seller_id=#{countNotice})A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+ 	</select>
+ 	
 </mapper>

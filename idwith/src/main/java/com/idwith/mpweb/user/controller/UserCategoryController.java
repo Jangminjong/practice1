@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.SellerStoryVO;
 import com.idwith.mpweb.user.service.UserCategoryService;
 
 @Controller
@@ -17,10 +19,24 @@ public class UserCategoryController {
 	private UserCategoryService service;
 	
 	@GetMapping("/story.do")
-	public String story(PagingVO pageVO, Model model) {
-		List<Map<String, String>> storyList = service.getStoryList();
+	public String story(Model model, PagingVO pageVO, @RequestParam(value="nowPage", required=false) String nowPage
+			,@RequestParam(value="cntPerPage", required=false) String cntPerPage) {
+		int total = service.countStory();
+		
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "20";
+		} else {
+			cntPerPage = "20";
+		}
+		
+		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		List<SellerStoryVO> storyList = service.getStoryList(pageVO);
 		int listLength = storyList.size() / 2;
 		
+		model.addAttribute("paging", pageVO);
 		model.addAttribute("storyList", storyList);
 		model.addAttribute("listLength", listLength);
 		
@@ -39,7 +55,6 @@ public class UserCategoryController {
 		 * countNotice); model.addAttribute("paging", pageVO);
 		 * model.addAttribute("qnaList", boardService.selectQnA(pageVO));
 		 */
-		
 		return "story";
 	}
 	
