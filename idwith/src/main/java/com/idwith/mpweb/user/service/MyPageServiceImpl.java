@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.user.MyPageDAO;
+import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.UserVO;
 
 @Service
@@ -35,7 +36,7 @@ public class MyPageServiceImpl implements MypageService {
 	}
 
 	@Override
-	public void updateAddress(UserVO vo) {
+	public void updateAddress(UserAddressVO vo) {
 		dao.updateAddress(vo);
 	}
 }

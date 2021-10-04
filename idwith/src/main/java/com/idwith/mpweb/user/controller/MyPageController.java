@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.EmailDTO;
+import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.service.EmailUpdateService;
 import com.idwith.mpweb.user.service.MypageService;
@@ -37,8 +38,8 @@ public class MyPageController {
 	public String mypageMain(Model model,HttpSession session) {
 		String user_id = (String) session.getAttribute("email");
 
-		System.out.println("mypage ÄÁÆ®·Ñ·¯ ½ÇÇà");
-		System.out.println("¼¼¼Ç °ª : " +user_id);
+		System.out.println("mypage ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : " +user_id);
 
 		List<Map<String, String>> user = myPageService.getUser(user_id);
 
@@ -129,36 +130,36 @@ public class MyPageController {
 	}
 
 
-	//ÀÌ¸ÞÀÏ Àü¼ÛÀ» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/sendEmailUpdate.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String sendUpdateEmail(HttpServletRequest request) {
-		System.out.println("ÀÌ¸ÞÀÏ Àü¼Û ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		EmailDTO dto = new EmailDTO();
 
 
 		dto.setSenderMail("wnguds1101@gmail.com");
 		dto.setReceiveMail(request.getParameter("user_id"));
-		dto.setSubject("Idwith ÀÌ¸ÞÀÏ º¯°æ");
+		dto.setSubject("Idwith ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
 		emailUpdateService.sendMail(dto);
 
 
-		System.out.println("ÀÌ¸ÞÀÏ Àü¼Û ¿Ï·á");
+		System.out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 		return Integer.toString(1);
 	}
 
-	//ÀÌ¸ÞÀÏ ¼öÁ¤ º»ÀÎÈ®ÀÎ ¿Ï·áÃ¢
+	//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½ ï¿½Ï·ï¿½Ã¢
 	@GetMapping("/emailUpdateSuccess.do")
 	public String emailUpdateSuccess() {
 		return "emailUpdateSuccess";
 	}
 	
-	//ÀÌ¸ÞÀÏ ¼öÁ¤ ÄÁÆ®·Ñ·¯
+	//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/updateEmail.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String updateEmail(HttpServletRequest request, HttpSession session) {
-		System.out.println("ÀÌ¸ÞÀÏ ¼öÁ¤ ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		String user_id = (String) session.getAttribute("user_id");
 		String update_email = request.getParameter("update_email");
 		
@@ -166,7 +167,7 @@ public class MyPageController {
 		vo.setUser_id(user_id);
 		vo.setUser_update_email(update_email);
 		
-		System.out.println("ÄÁÆ®·Ñ·¯ ¹øÈ£ : " + update_email);
+		System.out.println("ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½È£ : " + update_email);
 		
 		myPageService.updateEmail(vo);
 		
@@ -174,11 +175,11 @@ public class MyPageController {
 		return null;
 	}
 
-	//ÀüÈ­¹øÈ£ ¼öÁ¤À» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ï¿½ï¿½È­ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/updatePhone.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String updatePhone(HttpServletRequest request, HttpSession session) {
-		System.out.println("ÀüÈ­¹øÈ£ ¼öÁ¤ Àü¼Û ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½ï¿½È­ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		String user_id = (String) session.getAttribute("user_id");
 		String user_phone = request.getParameter("user_phone");
 		
@@ -186,7 +187,7 @@ public class MyPageController {
 		vo.setUser_id(user_id);
 		vo.setUser_phone(user_phone);
 		
-		System.out.println("ÄÁÆ®·Ñ·¯ ¹øÈ£ : " + user_phone);
+		System.out.println("ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½È£ : " + user_phone);
 		
 		myPageService.updatePhone(vo);
 		
@@ -194,11 +195,11 @@ public class MyPageController {
 		return null;
 	}
 	
-	//À¯Àú ÀüÃ¼ ¼öÁ¤À» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/update_user_info.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String updateBirth(HttpServletRequest request, HttpSession session) {
-		System.out.println("À¯ÀúÁ¤º¸ ¼öÁ¤ ÄÁÆ®·Ñ·¯ ½ÇÇà");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		String user_id = (String) session.getAttribute("user_id");
 		String user_birth = request.getParameter("user_birth");
 		
@@ -206,7 +207,7 @@ public class MyPageController {
 		vo.setUser_id(user_id);
 		vo.setUser_birth(user_birth);
 		
-		System.out.println("ÄÁÆ®·Ñ·¯ ¹øÈ£ : " + user_birth);
+		System.out.println("ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½È£ : " + user_birth);
 		
 		myPageService.updateUserInfo(vo);
 		
@@ -214,11 +215,11 @@ public class MyPageController {
 		return null;
 	}
 	
-	//À¯Àú ¹è¼ÛÁö(ÁÖ¼Ò) ¼öÁ¤À» À§ÇÑ ÄÁÆ®·Ñ·¯
+	//íšŒì› ë§ˆì´íŽ˜ì´ì§€ -> ë°°ì†¡ì§€ ì •ë³´ ìˆ˜ì •
 		@RequestMapping(value="/updateAddress.do", method=RequestMethod.POST)
 		@ResponseBody
 		public String updateAddress(HttpServletRequest request, HttpSession session) {
-			System.out.println("ÁÖ¼Ò ¼öÁ¤ ÄÁÆ®·Ñ·¯ ½ÇÇà");
+			System.out.println("ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			String user_id = (String) session.getAttribute("user_id");
 			String user_address_order = request.getParameter("user_address_order");
 			String user_name = request.getParameter("user_name");
@@ -228,29 +229,18 @@ public class MyPageController {
 			String user_address2 = request.getParameter("user_address2");
 			int order = Integer.parseInt(user_address_order);
 			
-			UserVO vo = new UserVO();
+			UserAddressVO vo = new UserAddressVO();
 			vo.setUser_id(user_id);
 			vo.setUser_name(user_name);
 			vo.setUser_phone(user_phone);
+			vo.setUser_order(order);
 			vo.setUser_zipcode(user_zipcode);
 			vo.setUser_address1(user_address1);
 			vo.setUser_address2(user_address2);
-			vo.setUser_order(order);
-			
-			System.out.println("ÁÖ¼ÒÁö ¼ø¼­ : " + order);
-			System.out.println("ÀÌ¸§ : " + user_name);
-			System.out.println("ÀüÈ­ : " + user_phone);
-			System.out.println("¿ìÆí : " + user_zipcode);
-			System.out.println("ÁÖ¼Ò1 : " + user_address1);
-			System.out.println("ÁÖ¼Ò2 : " + user_address2);
-			
 			
 			myPageService.updateAddress(vo);
 			
 			session.setAttribute("user_phone", user_phone);
-			session.setAttribute("user_zipcode", user_zipcode);
-			session.setAttribute("user_address1", user_address1);
-			session.setAttribute("user_address2", user_address2);
 			return Integer.toString(1);
 		}
 }

@@ -13,43 +13,50 @@ public class UserDAO {
 	SqlSessionTemplate sqlSessionTemplate;
 
 	public void insertUser(UserVO vo) {
-		System.out.println("DAO insertUser() ½ÇÇà");
+		System.out.println("DAO insertUser() ï¿½ï¿½ï¿½ï¿½");
 		sqlSessionTemplate.insert("UserDAO.insertUser", vo);
 	}
 	
-	public void insertAddress(UserVO vo) {
-		sqlSessionTemplate.insert("UserDAO.insertAddress", vo);
+	public void insertAddress(UserAddressVO vo) {
+		sqlSessionTemplate.insert("UserDAO.insertAddressOne", vo);//ë°°ì†¡ì§€ 1ì— ì €ì¥
+		
+		for(int i=2; i<=3; i++) {//ë°°ì†¡ì§€ 2, 3ì— ì €ì¥
+			UserAddressVO addressVO = new UserAddressVO();
+			addressVO.setUser_id(vo.getUser_id());
+			addressVO.setUser_order(i);
+			sqlSessionTemplate.insert("UserDAO.insertAddress", addressVO);
+		}
 	}
 	
 	public int emailCheck(String email) {
-		System.out.println("DAO emailCheck() ½ÇÇà");
+		System.out.println("DAO emailCheck() ï¿½ï¿½ï¿½ï¿½");
 		int result = sqlSessionTemplate.selectOne("UserDAO.selectEmail", email);
 		return result;
 	}
 	
 	public int cellPhoneCheck(String cell_phone) {
-		System.out.println("DAO cell_phone() ½ÇÇà");
+		System.out.println("DAO cell_phone() ï¿½ï¿½ï¿½ï¿½");
 		int result = sqlSessionTemplate.selectOne("UserDAO.selectCellPhone", cell_phone);
 		return result;
 	}
 
 	public UserVO getUser(String user_id) {
-		System.out.println("DAO getUser() ½ÇÇà");
+		System.out.println("DAO getUser() ï¿½ï¿½ï¿½ï¿½");
 		UserVO result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
 		return result;
 	}
 	
 	public void insertKakao(UserVO vo) {
-		System.out.println("DAO kakaoLogin() ½ÇÇà");
+		System.out.println("DAO kakaoLogin() ï¿½ï¿½ï¿½ï¿½");
 		sqlSessionTemplate.insert("UserDAO.insertKakao", vo);
 	}
 
 	public void updateUser(UserVO vo) {
-		System.out.println("DAO updateUser() ½ÇÇà");
+		System.out.println("DAO updateUser() ï¿½ï¿½ï¿½ï¿½");
 	}
 
 	public void deleteUser(UserVO vo) {
-		System.out.println("DAO deleteUser() ½ÇÇà");
+		System.out.println("DAO deleteUser() ï¿½ï¿½ï¿½ï¿½");
 	}
 	
 	public int userCheck(String user_phone) {
@@ -69,13 +76,13 @@ public class UserDAO {
 	
 	public List<Map<String, String>> getUserNameList(String user_id){
 		List<Map<String, String>> userList = sqlSessionTemplate.selectList("UserDAO.getUserNameList", user_id);
-		System.out.println("°á°ú °ª : " + userList);
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ : " + userList);
 		return userList;
 	}
 	
 	public List<Map<String, String>> getUserInfo(String user_name){
 		List<Map<String, String>> userInfo = sqlSessionTemplate.selectList("UserDAO.getUserInfo", user_name);
-		System.out.println("°á°ú °ª : " +userInfo);
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ : " +userInfo);
 		return userInfo;
 	}
 }

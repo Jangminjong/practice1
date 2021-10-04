@@ -31,7 +31,7 @@ public class MyPageDAO {
 		sqlSessionTemplate.update("MyPageDAO.updateUserInfo", vo);
 	}
 
-	public void updateAddress(UserVO vo) {
+	public void updateAddress(UserAddressVO vo) {
 		sqlSessionTemplate.update("MyPageDAO.updateAddress", vo);
 	}
 }

@@ -188,29 +188,44 @@ function updateBtn(order){
 		$('#update_btn_first').css({'display' : 'none'});
 		$('#add-btn-first').css({'display' : ''});
 		
-		var inputAll = myInputF.getElementsByTagName('input');
-      	for(var i=0; i<=inputAll.length; i++){
-        	inputAll[i].classList.remove('readonly');
-			inputAll[i].readOnly = false;
-      	}
+		$('#first_name').removeClass('readonly');
+		$('#first_name').removeAttr('readonly');
+		$('#first_phone').removeClass('readonly');
+		$('#first_phone').removeAttr('readonly'); 
+		$('#first_zipcode').removeClass('readonly');
+		$('#first_zipcode').removeAttr('readonly'); 
+		$('#first_address1').removeClass('readonly');
+		$('#first_address1').removeAttr('readonly'); 
+		$('#first_address2').removeClass('readonly');
+		$('#first_address2').removeAttr('readonly');      	
 	}else if(order == 'update_btn_second'){//두번째 주소지 수정
 		$('#update_btn_second').css({'display' : 'none'});
 		$('#add-btn-second').css({'display' : ''});
 		
-		var inputAll = myInputS.getElementsByTagName('input');
-      	for(var i=0; i<=inputAll.length; i++){
-        	inputAll[i].classList.remove('readonly');
-			inputAll[i].readOnly = false;
-      	}
+		$('#second_name').removeClass('readonly');
+		$('#second_name').removeAttr('readonly');
+		$('#second_phone').removeClass('readonly');
+		$('#second_phone').removeAttr('readonly'); 
+		$('#second_zipcode').removeClass('readonly');
+		$('#second_zipcode').removeAttr('readonly'); 
+		$('#second_address1').removeClass('readonly');
+		$('#second_address1').removeAttr('readonly'); 
+		$('#second_address2').removeClass('readonly');
+		$('#second_address2').removeAttr('readonly');		
 	}else if(order == 'update_btn_third'){//세번째 주소지 수정
 		$('#update_btn_third').css({'display' : 'none'});
 		$('#add-btn-third').css({'display' : ''});
 		
-		var inputAll = myInputT.getElementsByTagName('input');
-      	for(var i=0; i<=inputAll.length; i++){
-        	inputAll[i].classList.remove('readonly');
-			inputAll[i].readOnly = false;
-      	}
+		$('#third_name').removeClass('readonly');
+		$('#third_name').removeAttr('readonly');
+		$('#third_phone').removeClass('readonly');
+		$('#third_phone').removeAttr('readonly'); 
+		$('#third_zipcode').removeClass('readonly');
+		$('#third_zipcode').removeAttr('readonly'); 
+		$('#third_address1').removeClass('readonly');
+		$('#third_address1').removeAttr('readonly'); 
+		$('#third_address2').removeClass('readonly');
+		$('#third_address2').removeAttr('readonly');
 	}
 }
 
@@ -224,29 +239,44 @@ function updateCancle(order){
 		$('#add-btn-first').css({'display' : 'none'});
 		$('#update_btn_first').css({'display' : ''});
 		
-		var inputAll = myInputF.getElementsByTagName('input');
-      	for(var i=0; i<=inputAll.length; i++){
-        	inputAll[i].classList.add('readonly');
-			inputAll[i].readOnly = true;
-      	}
+		$('#first_name').addClass('readonly');
+		$('#first_name').addAttr('readonly');
+		$('#first_phone').addClass('readonly');
+		$('#first_phone').addAttr('readonly'); 
+		$('#first_zipcode').addClass('readonly');
+		$('#first_zipcode').addAttr('readonly'); 
+		$('#first_address1').addClass('readonly');
+		$('#first_address1').addAttr('readonly'); 
+		$('#first_address2').addClass('readonly');
+		$('#first_address2').addAttr('readonly'); 
 	}else if(order == 'cancle_btn_second'){//두번째 주소지 수정
 		$('#add-btn-second').css({'display' : 'none'});
 		$('#update_btn_second').css({'display' : ''});
 		
-		var inputAll = myInputS.getElementsByTagName('input');
-      	for(var i=0; i<=inputAll.length; i++){
-        	inputAll[i].classList.add('readonly');
-			inputAll[i].readOnly = true;
-      	}
+		$('#second_name').addClass('readonly');
+		$('#second_name').attr('readonly', true);
+		$('#second_phone').addClass('readonly');
+		$('#second_phone').attr('readonly', true);
+		$('#second_zipcode').addClass('readonly');
+		$('#second_zipcode').attr('readonly', true); 
+		$('#second_address1').addClass('readonly');
+		$('#second_address1').attr('readonly', true); 
+		$('#second_address2').addClass('readonly');
+		$('#second_address2').attr('readonly', true);
 	}else if(order == 'cancle_btn_third'){//세번째 주소지 수정
 		$('#add-btn-third').css({'display' : 'none'});
 		$('#update_btn_third').css({'display' : ''});
 		
-		var inputAll = myInputT.getElementsByTagName('input');
-      	for(var i=0; i<=inputAll.length; i++){
-        	inputAll[i].classList.add('readonly');
-			inputAll[i].readOnly = true;
-      	}
+		$('#third_name').addClass('readonly');
+		$('#third_name').attr('readonly', true);
+		$('#third_phone').addClass('readonly');
+		$('#third_phone').attr('readonly', true); 
+		$('#third_zipcode').addClass('readonly');
+		$('#third_zipcode').attr('readonly', true);
+		$('#third_address1').addClass('readonly');
+		$('#third_address1').attr('readonly', true); 
+		$('#third_address2').addClass('readonly');
+		$('#third_address2').attr('readonly', true);
 	}
 }
 
@@ -272,6 +302,16 @@ function updateAddress(order){
 		address1 = $('#first_address1').val();
 		address2 = $('#first_address2').val();
 		
+		$('#first_name').addClass('readonly');
+		$('#first_name').addAttr('readonly');
+		$('#first_phone').addClass('readonly');
+		$('#first_phone').addAttr('readonly'); 
+		$('#first_zipcode').addClass('readonly');
+		$('#first_zipcode').addAttr('readonly'); 
+		$('#first_address1').addClass('readonly');
+		$('#first_address1').addAttr('readonly'); 
+		$('#first_address2').addClass('readonly');
+		$('#first_address2').addAttr('readonly'); 
 	}else if(order === 'save_btn_second'){
 		$('#add-btn-second').css({'display' : 'none'});
 		$('#update_btn_second').css({'display' : ''});
@@ -285,10 +325,16 @@ function updateAddress(order){
 		address1 = $('#second_address1').val();
 		address2 = $('#second_address2').val();
 		
-	  	for(var i=0; i<=inputAll.length; i++){
-	    	inputAll[i].classList.add('readonly');
-			inputAll[i].readOnly = true;
-	  	}
+	  	$('#second_name').addClass('readonly');
+		$('#second_name').attr('readonly', true);
+		$('#second_phone').addClass('readonly');
+		$('#second_phone').attr('readonly', true);
+		$('#second_zipcode').addClass('readonly');
+		$('#second_zipcode').attr('readonly', true); 
+		$('#second_address1').addClass('readonly');
+		$('#second_address1').attr('readonly', true); 
+		$('#second_address2').addClass('readonly');
+		$('#second_address2').attr('readonly', true);
 	}else if(order === 'save_btn_third'){
 		$('#add-btn-third').css({'display' : 'none'});
 		$('#update_btn_third').css({'display' : ''});
@@ -302,12 +348,19 @@ function updateAddress(order){
 		address1 = $('#third_address1').val();
 		address2 = $('#third_address2').val();
 		
-	  	for(var i=0; i<=inputAll.length; i++){
-	    	inputAll[i].classList.add('readonly');
-			inputAll[i].readOnly = true;
-	  	}
+	  	$('#third_name').addClass('readonly');
+		$('#third_name').attr('readonly', true);
+		$('#third_phone').addClass('readonly');
+		$('#third_phone').attr('readonly', true); 
+		$('#third_zipcode').addClass('readonly');
+		$('#third_zipcode').attr('readonly', true);
+		$('#third_address1').addClass('readonly');
+		$('#third_address1').attr('readonly', true); 
+		$('#third_address2').addClass('readonly');
+		$('#third_address2').attr('readonly', true);
 	}
 	
+	console.log('배송지 수정중');
 	
 	$.ajax({
 		url: "updateAddress.do",

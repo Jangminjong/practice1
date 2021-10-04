@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.service.UserService;
 
@@ -124,12 +125,16 @@ public class SignController {
 	
 	@RequestMapping(value = "/signupSuccess.do", method = RequestMethod.POST)
 	public String signupSuccess(UserVO vo) {
-		System.out.println("Controller : ȸ������ �Ϸ� ó��");
-		
-		//ȸ�������ϴ� ȸ���� �̸�, ��ȭ��ȣ�� ������ ù��° �ּ����� ����
-		vo.setUser_order(1);
-		
+		System.out.println("회원가입 시 성공 컨트롤러 실행");
 		userService.insertUser(vo);
+
+		UserAddressVO userAddressVO = new UserAddressVO();
+		userAddressVO.setUser_order(1);
+		userAddressVO.setUser_id(vo.getUser_id());
+		userAddressVO.setUser_name(vo.getUser_name());
+		userAddressVO.setUser_phone(vo.getUser_phone());
+		
+		userService.insertAddress(userAddressVO);
 		return "signupSuccess";
 	}
 	

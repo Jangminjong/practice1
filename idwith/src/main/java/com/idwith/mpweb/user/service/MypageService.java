@@ -3,6 +3,7 @@ package com.idwith.mpweb.user.service;
 import java.util.List;
 import java.util.Map;
 
+import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.UserVO;
 
 public interface MypageService {
@@ -14,5 +15,5 @@ public interface MypageService {
 	
 	void updateUserInfo(UserVO vo);
 
-	void updateAddress(UserVO vo);
+	void updateAddress(UserAddressVO vo);
 }

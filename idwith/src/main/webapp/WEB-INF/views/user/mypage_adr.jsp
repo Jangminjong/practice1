@@ -94,8 +94,8 @@
                                 <th>배송지 1</th>
                             </tr>
                         </thead>
-                        <tbody id="adress_one">
-                            <tr>
+                        <tbody>
+                            <tr id="adress_one">
                                 <td>
                                     <div class="address-info root">
                                         <div class="address-info item">
@@ -110,7 +110,7 @@
                                                         data-address="delivery_name"
                                                         name="delivery_name"
                                                         id="first_name"
-                                                        value="${user_name }"
+                                                        value="${user_name}"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -133,7 +133,7 @@
                                                         data-address="delivery_phone"
                                                         name="delivery_phone"
                                                         id="first_phone"
-                                                        value="${user_phone }"
+                                                        value="${user_phone}"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -159,7 +159,7 @@
                             type="text"
                             name="delivery_zipcode"
                             id="first_zipcode"
-                            value="${user_zipcode }"
+                            value="${user_zipcode}"
                             placeholder="우편번호"
                             required
                             autocomplete="off"
@@ -195,7 +195,7 @@
                             type="text"
                             name="delivery_address1"
                             id="first_address1"
-                            value="${user_address1 }"
+                            value="${user_address1}"
                             placeholder="기본 주소"
                             required
                             autocomplete="off"
@@ -210,8 +210,8 @@
                             data-address="delivery_address2"
                             type="text"
                             name="delivery_address2"
-                            id="first_address1"
-                            value="${user_address2 }"
+                            id="first_address2"
+                            value="${user_address2}"
                             autocomplete="off"
                             placeholder="나머지 주소"
                                                         class="readonly delivery_address2"
@@ -248,8 +248,8 @@
                                 <th>배송지 2</th>
                             </tr>
                         </thead>
-                        <tbody id="adress_second">
-                            <tr>
+                        <tbody>
+                            <tr id="adress_second">
                                 <td>
                                     <div class="address-info root">
                                         <div class="address-info item">
@@ -420,8 +420,8 @@
                                 <th>배송지 3</th>
                             </tr>
                         </thead>
-                        <tbody id="adress_third">
-                            <tr>
+                        <tbody>
+                            <tr  id="adress_third">
                                 <td>
                                     <div class="address-info root">
                                         <div class="address-info item">

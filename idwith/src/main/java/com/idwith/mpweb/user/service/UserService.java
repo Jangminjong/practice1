@@ -3,10 +3,11 @@ package com.idwith.mpweb.user.service;
 import java.util.List;
 import java.util.Map;
 
+import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.UserVO;
 
 public interface UserService {
-	//х╦©Ь╟║ют
+	//х╦О©╫О©╫О©╫О©╫О©╫О©╫
 	void insertUser(UserVO vo);
 
 	int getUser(UserVO vo);
@@ -30,4 +31,6 @@ public interface UserService {
 	List<Map<String, String>> getUserNameList(String user_id);
 
 	List<Map<String, String>> getUserInfo(String user_name);
+
+	void insertAddress(UserAddressVO userAddressVO);
 }
