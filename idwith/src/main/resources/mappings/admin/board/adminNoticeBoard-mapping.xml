@@ -42,6 +42,11 @@
 	<select id="getAdminNotice" parameterType="adminNotice" resultMap="adminNoticeResult">
 		SELECT * FROM admin_board WHERE ADMIN_BOARD_SEQ=#{adminBoardSeq}
 	</select>
+	
+	<!-- 메인 뷰 공지사항 출력 -->
+	<select id="getAdminViewNotice" resultType="adminNotice" resultMap="adminNoticeResult">
+		SELECT ROW_NUMBER() OVER () AS rownum, * FROM admin_board order by rownum desc LIMIT 3
+	</select>
 
 	<!-- 페이징 처리 후 게시글 조회 -->
 	<select id="selectAdminNotice" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="adminNoticeResult">

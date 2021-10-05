@@ -132,7 +132,8 @@
 
 				<div class="navbar-collapse collapse"
 					style="display: flex; justify-content: flex-end;">
-					<a class="nav-link d-none d-sm-inline-block" href="#"> <i
+					<h3>${admin_name} 님</h3>
+					<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> <i
 						class="align-middle" data-feather="log-out" style="color: black;"></i>
 						<span class="text-dark">로그아웃</span>
 					</a>
@@ -264,6 +265,30 @@
 				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
+			<script>
+				$().ready(function (){ 
+					$("#couponRelease").click(function (){ 
+						Swal.fire({ 
+							title: '계정 삭제', 
+							text: "이 계정을 삭제하시겠습니까?", 
+							icon: 'danger', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '삭제', 
+							cancelButtonText: '취소' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'계정 삭제', 
+									'해당 계정이 삭제되었습니다.', 
+								) 
+							} 
+						}) 
+					}); 
+				});
+			</script>
 		</div>
 	</div>
 </body>

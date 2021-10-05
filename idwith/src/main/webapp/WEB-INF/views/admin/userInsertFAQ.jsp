@@ -21,8 +21,8 @@
 <link href="resources/admin/css/app.css" rel="stylesheet">
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/admin/js/aboutUser.js"></script>
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
@@ -131,9 +131,10 @@
 
 				<div class="navbar-collapse collapse"
 					style="display: flex; justify-content: flex-end;">
-					<a class="nav-link d-none d-sm-inline-block" href="#"> <i
-						class="align-middle" data-feather="log-out" style="color: black;"></i>
-						<span class="text-dark">로그아웃</span>
+					<h3>${admin_name}님</h3>
+					<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo">
+						<i class="align-middle" data-feather="log-out"
+						style="color: black;"></i> <span class="text-dark">로그아웃</span>
 					</a>
 				</div>
 			</nav>
@@ -154,34 +155,36 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form id="form-notice-user" name="noticeUserForm" action="insertFAQ.mdo" method="post" onsubmit="return false">
+						<form id="form-notice-user" name="noticeUserForm"
+							action="insertFAQ.mdo" method="post" onsubmit="return false">
 							<div class="mb-3">
-								<label class="form-label">FAQ Title</label> <input
-									type="text" class="form-control" name="board_title" placeholder="제목"
+								<label class="form-label">FAQ Title</label> <input type="text"
+									class="form-control" name="board_title" placeholder="제목"
 									style="width: auto;">
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
-								<textarea class="form-control" name="board_content" placeholder="내용" rows="10"></textarea>
+								<textarea class="form-control" name="board_content"
+									placeholder="내용" rows="10"></textarea>
 							</div>
-							<div class="col-md-2 text-center">
-								<input type="submit" id="notice-user-submit" class="btn btn-primary" value="등록"/>
+							<div class="row">
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-right">
+									<input type="submit" id="notice-user-submit"
+										class="btn btn-primary" value="등록" /> <a
+										href="userInsertFAQ.mdo"> <!--초기화 진행-->
+										<input class="btn btn-primary" type="reset" value="초기화" />
+									</a>
+								</div>
 							</div>
 						</form>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center">
-						<a href="userInsertFAQ.mdo"> <!--초기화 진행-->
-							<button class="btn btn-primary">초기화</button>
-						</a>
-					</div>
-				</div>
+
 			</main>
 			<script src="../js/app.js"></script>
 		</div>

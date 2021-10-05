@@ -24,6 +24,45 @@
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+<style type="text/css">
+.insert .file-hidden-list {
+  height: 0;
+  overflow: hidden;
+}
+.insert .file-list {
+  height: 130px;
+  overflow: auto;
+  border: 1px solid #989898;
+  text-align: center;
+}
+.insert .file-list .thumbnail {
+  width: 20%;
+  float: left;
+  position: relative;
+  margin-top: 20px;
+  color: #555;
+  text-align: center;
+  padding: 20px 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.insert .file-list .thumbnail i {
+  font-size: 50px;
+}
+.insert .file-list .thumbnail p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+.insert .file-list .thumbnail .delete i{
+  position: absolute;
+  font-size: 14px;
+  top: 0;
+  right: 0;
+  color: #ff5353;
+}
+</style>
+
 </head>
 
 <body>
@@ -130,7 +169,8 @@
 				</a>
 
 				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
-						<a class="nav-link d-none d-sm-inline-block" href="#"> 
+					<h3>${admin_name} 님</h3>
+						<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> 
 							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
 								<span class="text-dark">로그아웃</span>
 						</a>
@@ -165,9 +205,9 @@
 									placeholder="내용" rows="10"></textarea>
 							</div>
 							<div class="mb-3">
-								<label class="form-label w-100">File input</label> <input
-									type="file" name="adminBoardFilePath" id="adminBoardFilePath">
+								  <div class="file-hidden-list"></div>
 							</div>
+							<div class="file-list"></div>
 							<div class="row">
 								<div class="col-md-3 text-center"></div>
 								<div class="col-md-3 text-center"></div>
@@ -179,12 +219,78 @@
 								</div>
 							</div>
 						</form>
+						<button id="addFile" class="add-button" >파일 추가</button>
 					</div>
 				</div>
 			</main>
 		</div>
 	</div>
 	<script src="resources/admin/js/app.js"></script>
+	<script type="text/javascript">
+	function hiddenFile(o){
+		  let file = '';
+		  file += '<input type="file" name="file" style="display: none"  id="'+o.id+'" />';
+		  return file;
+		}
+
+		function file(o){
+		  let type = '';
+		  if(o.ext === 'pptx' || o.ext === 'ppt'){
+		    type = 'powerpoint';
+		  }else if(o.ext === 'png' || o.ext === 'jpg'){
+		    type = 'image';
+		  }else if(o.ext === 'xlsx'){
+		    type = 'excel';
+		  }else if(o.ext === 'pdf'){
+		    type = 'pdf';
+		  }else {
+		    type = 'alt';
+		  }
+
+		  let fileThumbnail = '';
+		  fileThumbnail += '<div class="thumbnail">';
+		  fileThumbnail += '  <i class="far fa-file-'+type+'"></i>';
+		  fileThumbnail += '  <p class="name">'+o.name+'</p>';
+		  fileThumbnail += '  <a href="#'+o.id+'" class="delete"><i class="far fa-minus-square"></i></a>';
+		  fileThumbnail += '</div>';
+		  return fileThumbnail;
+		}
+
+		function addFile(o){
+		  $('.file-hidden-list').append(hiddenFile(o));
+		  $('#' + o.id).click();
+		  $('#' + o.id).on('change', function(e){
+		    const arr1 = e.target.value.split('\\');
+		    const name = arr1[arr1.length-1];
+		    o.name = name;
+
+		    const arr2 = e.target.value.split('.');
+		    const ext = arr2[arr2.length-1];
+		    o.ext = ext;
+
+		    $('.file-list').append(file(o));
+		  });
+		}
+
+		function makeid(length) {
+		  var result           = '';
+		  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		  var charactersLength = characters.length;
+		  for ( var i = 0; i < length; i++ ) {
+		     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+		  }
+		  return result;
+		}
+
+		$(document).on('click', '#addFile', function(){
+		  addFile({id:makeid(10)});
+		});
+		$(document).on('click', '.delete', function(){
+		  const id = $(this).attr('href');
+		  $(id).remove();
+		  $(this).parent().remove();
+		});
+	</script>
 
 </body>
 

@@ -20,4 +20,9 @@ public class GoodsDAO {
 		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsVO);
 	}
 
+	public GoodsVO getGoodsContent(String goods_code) {
+		GoodsVO goods = sqlSessionTemplate.selectOne("GoodsDAO.getGoodsContent", goods_code);
+		return goods;
+	}
+
 }

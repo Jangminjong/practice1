@@ -14,17 +14,18 @@
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
-<title>Idwith[admin]</title>
+<title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+
 </head>
 
 <body>
+	<input type="hidden" id="admin_role" value="${admin_role }">
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -137,71 +138,60 @@
 			</nav>
 
 			<main>
-				<div class="content">
-                    <div class="row">
-                        <div class="container-fluid p-0">
+				 <div class="content">
+					<div class="row">
+						<div class="container-fluid p-0">
+							<div class="row mb-2 mb-xl-3">
+								<div class="col-auto d-none d-sm-block">
+									<h3>Insert Admin</h3>
+								</div>
+							</div>
 
-                            <div class="row mb-2 mb-xl-3">
-                                <div class="col-auto d-none d-sm-block">
-                                    <h3>Coupon Request List</h3>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card flex-fill">
-                                        <table class="table table-hover my-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>작가 이름</th>
-                                                    <th class="d-none d-xl-table-cell">쿠폰 이름</th>
-                                                    <th class="d-none d-xl-table-cell">배포 대상</th>
-                                                    <th class="d-none d-md-table-cell">쿠폰 금액</th>
-                                                    <th>쿠폰 발행일</th>
-                                                    <th>쿠폰 종료일</th>
-                                                    <th>발행 상태</th>
-                                                    <th>쿠폰 발행</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="d-none d-xl-table-cell">seller1</td>
-                                                    <td class="d-none d-xl-table-cell">팔로워 쿠폰</td>
-                                                    <td class="d-none d-xl-table-cell">follower</td>
-                                                    <td class="d-none d-md-table-cell">3000</td>
-                                                    <td>2021-09-11</td>
-                                                    <td>2021-10-11</td>
-                                                    <td><span class="badge bg-success">발행완료</span></td>
-                                                    <td>
-                                                        <button class="btn btn-pill btn-primary" disabled>
-                                                            발행하기
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="d-none d-xl-table-cell">seller2</td>
-                                                    <td class="d-none d-xl-table-cell">감사 쿠폰</td>
-                                                    <td class="d-none d-xl-table-cell">follower</td>
-                                                    <td class="d-none d-md-table-cell">2000</td>
-                                                    <td>2021-09-11</td>
-                                                    <td>2021-10-11</td>
-                                                    <td><span class="badge bg-warning">발행 요청중</span></td>
-                                                    <td>
-                                                        <a href="insertCoupon.mdo">
-                                                            <button class="btn btn-pill btn-primary">
-                                                                발행하기
-                                                            </button>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+							<div class="card">
+								<div class="card-body" style="width: auto;">
+									<form id="form-admin-listInsert" name="adminInsertForm" action="adminInsertList.mdo" method="post" onsubmit="false">
+										<div class="mb-3">
+											<label class="form-label">아이디</label>
+											<input type="text" class="form-control" placeholder="admin_id" name="admin_id" id="admin_id" style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">이름</label>
+											<input type="text" class="form-control" placeholder="name" name="admin_name" id="admin_name"
+												style="width: auto;">
+										</div>
+                                        <div class="mb-3">
+											<label class="form-label">비밀번호</label>
+											<input type="text" class="form-control" placeholder="password" name="admin_pwd" id="admin_pwd"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">전화번호</label>
+											<input type="text" class="form-control" placeholder="phone" name="admin_phone" id="admin_phone"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="authority">관리권한</label>
+											<select class="form-control mb-3" style="width: 220px;" name="admin_role" id="admin_role">
+                                                <option value="all">All</option>
+                                                <option value="service">Service</option>
+                                            </select>
+										</div>
+                                        <div class="row">
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center">
+												<input class="btn btn-primary" type="submit" id="admin-listInsert-submit" value="등록" />
+												<input class="btn btn-primary" type="reset" value="초기화" />
+												<input class="btn btn-primary" type="button" onclick="location.href='adminList.mdo'" value="목록" />
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>

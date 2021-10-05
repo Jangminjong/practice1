@@ -10,4 +10,6 @@ public interface GoodsService {
 	List<GoodsCategoryVO> selectGoodsCategory();
 	
 	List<GoodsVO> getGoodsList(GoodsVO goodsVO);
+
+	GoodsVO getGoodsContent(String goods_code);
 }

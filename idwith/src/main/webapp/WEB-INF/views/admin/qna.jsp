@@ -132,7 +132,8 @@
 				</a>
 
 				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
-						<a class="nav-link d-none d-sm-inline-block" href="#"> 
+						<h3>${admin_name} 님</h3>
+						<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> 
 							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
 								<span class="text-dark">로그아웃</span>
 						</a>
@@ -165,7 +166,7 @@
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center" style="margin-bottom: 10px;">
+								<div class="col-md-2 text-right" style="margin-bottom: 10px;">
 									<a href="userInsertFAQ.mdo">
 										<button class="btn btn-warning">글쓰기</button>
 									</a>

@@ -15,13 +15,31 @@ public class GoodsVO {
 	int goods_income;
 	int goods_grade;
 	String goods_info;
-	int goode_select;
+	int goods_select;
 	int goods_view;
 	String goods_op1_code, goods_op2_code, goods_op3_code;
 	int goods_seq;
 	Timestamp goods_apply_date;
 	int goods_status;
 	int rownum;
+	int goods_delivery_fee;
+	UserSellerVO userSellerVO;
+
+	public int getGoods_delivery_fee() {
+		return goods_delivery_fee;
+	}
+
+	public void setGoods_delivery_fee(int goods_delivery_fee) {
+		this.goods_delivery_fee = goods_delivery_fee;
+	}
+
+	public UserSellerVO getUserSellerVO() {
+		return userSellerVO;
+	}
+
+	public void setUserSellerVO(UserSellerVO userSellerVO) {
+		this.userSellerVO = userSellerVO;
+	}
 
 	public String getGoods_code() {
 		return goods_code;
@@ -111,12 +129,12 @@ public class GoodsVO {
 		this.goods_info = goods_info;
 	}
 
-	public int getGoode_select() {
-		return goode_select;
+	public int getGoods_select() {
+		return goods_select;
 	}
 
-	public void setGoode_select(int goode_select) {
-		this.goode_select = goode_select;
+	public void setGoods_select(int goods_select) {
+		this.goods_select = goods_select;
 	}
 
 	public int getGoods_view() {
@@ -190,11 +208,9 @@ public class GoodsVO {
 				+ ", seller_code=" + seller_code + ", goods_category=" + goods_category + ", goods_photo="
 				+ Arrays.toString(goods_photo) + ", goods_stock=" + goods_stock + ", goods_volume=" + goods_volume
 				+ ", goods_income=" + goods_income + ", goods_grade=" + goods_grade + ", goods_info=" + goods_info
-				+ ", goode_select=" + goode_select + ", goods_view=" + goods_view + ", goods_op1_code=" + goods_op1_code
+				+ ", goods_select=" + goods_select + ", goods_view=" + goods_view + ", goods_op1_code=" + goods_op1_code
 				+ ", goods_op2_code=" + goods_op2_code + ", goods_op3_code=" + goods_op3_code + ", goods_seq="
 				+ goods_seq + ", goods_apply_date=" + goods_apply_date + ", goods_status=" + goods_status + ", rownum="
-				+ rownum + "]";
+				+ rownum + ", userSellerVO=" + userSellerVO + "]";
 	}
-	
-
 }

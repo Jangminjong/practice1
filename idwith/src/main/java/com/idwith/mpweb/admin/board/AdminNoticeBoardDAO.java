@@ -35,8 +35,8 @@ public class AdminNoticeBoardDAO {
 	/** 관리자 공지사항 상세페이지 */
 	public AdminNoticeBoardVO getAdminNotice(AdminNoticeBoardVO adminNotice) {
 		System.out.println("getAdminNotice() 기능 처리");
-		System.out.println("title : " + adminNotice.getAdminBoardTitle());
 		AdminNoticeBoardVO notice = sqlSessionTemplate.selectOne("AdminNoticeBoardDAO.getAdminNotice", adminNotice);
+		System.out.println("title : " + notice.getAdminBoardTitle());
 		return notice;
 	}
 	

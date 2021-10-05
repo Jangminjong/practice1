@@ -35,10 +35,16 @@ public class EmailServiceImpl implements EmailService {
 			}else if(result == 0) {
 				content = "<h1>안녕하세요.<br>" + to + "작가님" + "</h1>" + 
 						"<br>입점 신청이 거부되셨습니다. 좋은하루 되세요.<br></p>";
+			}else if(result == 2) {
+				content = "<h3>안내드립니다<br>" + to + "님 </h3>" + 
+						  "<br><h6>귀하의 계정은 Idwith의 운영사항에 위반되어 Block 처리 되었음을 알려드립니다.<br>계정 문의가 있으시면 관리자 메일로 문의주시기 바랍니다.</h6>";
+			}else if(result == 3) {
+				content = "<h3>안내드립니다<br>" + to + "님 </h3>" + 
+						  "<br><h6>귀하의 계정은 복원처리 되었습니다.<br>계정 문의가 있으시면 관리자 메일로 문의주시기 바랍니다.</h6>";
 			}
 			
 			helper.setSubject(subject); //����
-			helper.setFrom(from); //������ ���
+			helper.setFrom(from); //������ ���ㅁ
 			helper.setTo(to); //�޴� ���
 			helper.setText(content, true); //���� ����
 

@@ -16,7 +16,7 @@
  		<result property="goods_income" column="goods_income"/>
  		<result property="goods_grade" column="goods_grade"/>
  		<result property="goods_info" column="goods_info"/>
- 		<result property="goode_select" column="goode_select"/>
+ 		<result property="goods_select" column="goods_select"/>
  		<result property="goods_view" column="goods_view"/>
  		<result property="goods_op1_code" column="goods_op1_code"/>
  		<result property="goods_op2_code" column="goods_op2_code"/>
@@ -24,7 +24,18 @@
  		<result property="goods_seq" column="goods_seq"/>
  		<result property="goods_apply_date" column="goods_apply_date"/>
  		<result property="goods_status" column="goods_status"/>
+ 		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
+ 		<collection property="userSellerVO" resultMap="userSellerResult" />
+ 		<collection property="goodsReviewVO" resultMap="goodsReviewResult"/>
  	</resultMap>
+ 	
+ 	<resultMap type="UserSellerVO" id="userSellerResult">
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="store_name" column="store_name"/>
+ 		<result property="seller_profile" column="seller_profile"/>
+ 		<result property="seller_profile_img" column="seller_profile_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 	</resultMap>
+ 	
  	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
 	FROM goods where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10
@@ -33,5 +44,17 @@
  	<!-- 작가가 등록한 상품리스트 가져오기 -->
  	<select id="getSellerGoodsList" resultMap="goodsResult" parameterType="goodsVO">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (select * from goods where seller_code=#{countNotice})A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+ 	</select>
+ 	
+ 	<!-- 작품 상세보기 -->
+ 	<select id="getGoodsContent" resultMap="goodsResult">
+ 		select
+ 			g.goods_name, g.goods_price, g.goods_select, g.goods_stock, g.goods_op1_code, g.goods_op2_code, g.goods_op3_code, g.goods_photo, g.goods_info, g.goods_delivery_fee
+ 			, s.user_id, s.store_name, s.seller_name, s.seller_profile, s.seller_profile_img
+ 			, gr.*
+ 		from goods as g
+ 		join seller as s on s.seller_code = g.seller_code
+ 		join goods_review as gr on g.goods_code = gr.goods_review_code 
+ 		where g.goods_code=#{goods_code}
  	</select>
 </mapper>

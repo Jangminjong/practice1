@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,17 +14,18 @@
 <meta name="keywords"
 	content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
-<title>Idwith[admin]</title>
+<title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+
 </head>
 
 <body>
+	<input type="hidden" id="admin_role" value="${admin_role }">
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -137,43 +138,112 @@
 			</nav>
 
 			<main>
-				<div class="content">
+				 <div class="content">
 					<div class="row">
 						<div class="container-fluid p-0">
-
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>Category Insert</h3>
+									<h3>Admin : ${adminList.admin_id}</h3>
 								</div>
 							</div>
+
 							<div class="card">
 								<div class="card-body" style="width: auto;">
-									<form id="form-category-insert" name="categoryInsert" action="CategoryInsert.mdo" method="post" onsubmit="false">
+									<form id="form-admin-listContent" name="adminContentForm" action="adminUpdateList.mdo" method="post" onsubmit="false">
+									<c:choose>
+									<c:when test="${admin_role eq 'all'}">
 										<div class="mb-3">
-											<label class="form-label">카테고리 코드</label>
-											<input type="text" class="form-control" placeholder="code" id="goodsCategoryCode" name="goodsCategoryCode" style="width: auto;">
+											<label class="form-label">아이디</label>
+											<input type="text" class="form-control" value="${adminList.admin_id}" name="admin_id" id="admin_id" readonly="readonly" style="width: auto;">
 										</div>
 										<div class="mb-3">
-											<label class="form-label">카테고리 이름</label>
-											<input type="text" class="form-control" placeholder="name" id="goodsCategoryName" name="goodsCategoryName" style="width: auto;">
-										</div>                                    
+											<label class="form-label">이름</label>
+											<input type="text" class="form-control" value="${adminList.admin_name}" name="admin_name" id="admin_name" disabled="disabled"
+												style="width: auto;">
+										</div>
+                                        <div class="mb-3">
+											<label class="form-label">비밀번호</label>
+											<input type="text" class="form-control" value="${adminList.admin_pwd}" name="admin_pwd" id="admin_pwd"
+												style="width: auto;">
+										</div>
 										<div class="mb-3">
-											<label class="form-label" for="authority">작품/클래스</label>
-											<select class="form-control mb-3" style="width: 220px;" name="categoryLabel" id="categoryLabel">
-                                                <option value="goods">작품</option>
-                                                <option value="class">클래스</option>
+											<label class="form-label">전화번호</label>
+											<input type="text" class="form-control" value="${adminList.admin_phone}" name="admin_phone" id="admin_phone"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="authority">관리권한</label>
+											<select class="form-control mb-3" style="width: 220px;" name="admin_role" id="admin_role">
+												<c:choose>
+													<c:when test="${adminList.admin_role eq 'all' }">
+		                                                <option value="all" selected="selected">All</option>
+		                                                <option value="service">Service</option>
+	                                                </c:when>
+	                                                <c:when test="${adminList.admin_role eq 'service' }">
+		                                                <option value="all">All</option>
+		                                                <option value="service" selected="selected">Service</option>
+	                                                </c:when>
+                                                </c:choose>
                                             </select>
 										</div>
-										<div class="row">
+                                        <div class="row">
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center">
-												<input class="btn btn-primary" type="submit" id="admin-category-Insert" value="등록" /> 
+												<input class="btn btn-primary" type="submit" id="admin-listInsert-submit" value="수정" />
 												<input class="btn btn-primary" type="reset" value="초기화" />
-												<input class="btn btn-primary" type="button" onclick="location.href='category.mdo'" value="목록" />
+												<input class="btn btn-primary" type="button" onclick="location.href='adminList.mdo'" value="목록" />
 											</div>
 										</div>
+										</c:when>
+										<c:when test="${admin_role eq 'service'}">
+										<div class="mb-3">
+											<label class="form-label">아이디</label>
+											<input type="text" class="form-control" value="${adminList.admin_id}" name="admin_id" id="admin_id" disabled="disabled" style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">이름</label>
+											<input type="text" class="form-control" value="${adminList.admin_name}" name="admin_name" id="admin_name" disabled="disabled"
+												style="width: auto;">
+										</div>
+                                        <div class="mb-3">
+											<label class="form-label">비밀번호</label>
+											<input type="text" class="form-control" value="${adminList.admin_pwd}" name="admin_pwd" id="admin_pwd"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">전화번호</label>
+											<input type="text" class="form-control" value="${adminList.admin_phone}" name="admin_phone" id="admin_phone" disabled="disabled"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="authority">관리권한</label>
+											<select class="form-control mb-3" style="width: 220px;" name="admin_role" id="admin_role" disabled="disabled">
+                                                <c:choose>
+													<c:when test="${adminList.admin_role eq 'all' }">
+		                                                <option value="all" selected="selected">All</option>
+		                                                <option value="service">Service</option>
+	                                                </c:when>
+	                                                <c:when test="${adminList.admin_role eq 'service' }">
+		                                                <option value="all">All</option>
+		                                                <option value="service" selected="selected">Service</option>
+	                                                </c:when>
+                                                </c:choose>
+                                            </select>
+										</div>
+                                        <div class="row">
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center">
+												<input class="btn btn-primary" type="submit" id="admin-listContent-submit" value="수정" />
+												<input class="btn btn-primary" type="reset" value="초기화" />
+												<input class="btn btn-primary" type="button" onclick="location.href='adminList.mdo'" value="목록" />
+											</div>
+										</div>
+										</c:when>
+										</c:choose>
 									</form>
 								</div>
 							</div>
@@ -181,7 +251,7 @@
 					</div>
 				</div>
 			</main>
-			<script src="resources/admin/js/app.js"></script>
+		
 		</div>
 	</div>
 </body>

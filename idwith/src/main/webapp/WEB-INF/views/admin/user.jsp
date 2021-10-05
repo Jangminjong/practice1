@@ -127,7 +127,8 @@
 
 				<div class="navbar-collapse collapse"
 					style="display: flex; justify-content: flex-end;">
-					<a class="nav-link d-none d-sm-inline-block" href="#"> <i
+					<h3>${admin_name} 님</h3>
+					<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> <i
 						class="align-middle" data-feather="log-out" style="color: black;"></i>
 						<span class="text-dark">로그아웃</span>
 					</a>
@@ -138,7 +139,6 @@
 				<div class="content">
 					<div class="row">
 						<div class="container-fluid p-0">
-
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
 									<h3>회원 : ${userList.userId}</h3>
