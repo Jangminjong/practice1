@@ -70,4 +70,8 @@ public class SellerViewServiceImpl implements SellerViewService {
 	public List<UserSellerVO> getpagingSellerList(PagingVO pageVO) {
 		return dao.pagingSellerList(pageVO);
 	}
+		
+	public List<UserSellerVO> getSellerListForIndex() {
+		return dao.getSellerListForIndex();
+	}
 }

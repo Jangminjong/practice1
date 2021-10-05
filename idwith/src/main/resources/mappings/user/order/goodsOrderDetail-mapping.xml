@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="MyPageDAO">
+ 	<resultMap type="goodsOrderDetailVO" id="goodsOrderDetailResult">
+ 		<result property="order_detail_seller" column="order_detail_seller"/>
+ 		<result property="order_detail_goods" column="order_detail_goods"/>
+ 		<result property="order_detail_category" column="order_detail_category"/>
+ 		<result property="order_detail_quantity" column="order_detail_quantity"/>
+ 		<result property="order_detail_option1" column="order_detail_option1"/>
+ 		<result property="order_detail_option2" column="order_detail_option2"/>
+ 		<result property="order_detail_option3" column="order_detail_option3"/>
+ 		<result property="order_detail_donation" column="order_detail_donation"/>
+ 		<result property="order_detail_demand" column="order_detail_demand"/>
+ 		<result property="order_detail_price" column="order_detail_price"/>
+ 		<result property="coupon_use" column="coupon_use"/>
+ 		<result property="coupon_code" column="coupon_code"/>
+ 		<result property="order_detail_cost" column="order_detail_cost"/>
+ 		<result property="order_review" column="order_review"/>
+ 		<result property="order_id" column="order_id"/>
+ 		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/> 		
+ 	</resultMap>
+ 	<select id="getReviewBeforeList" parameterType="string" resultMap="goodsOrderDetailResult">
+	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT
+	goods_order_detail.*, goods.goods_name, goods.goods_photo FROM goods_order_detail AS
+	goods_order_detail
+	LEFT OUTER JOIN goods AS goods ON goods_order_detail.order_detail_goods =
+	goods.goods_code)A)AS foo WHERE order_id=#{order_id} AND order_review=false
+ 	</select>
+ 	<select id="getReviewBefore" parameterType="string" resultType="goodsOrderDetailVO">
+		SELECT * FROM goods_order_detail WHERE order_detail_code=#{order_detail_code}
+ 	</select>
+ 	<update id="reviewStateUpdate" parameterType="goodsOrderDetailVO">
+ 		UPDATE goods_order_detail
+ 		SET order_review=true WHERE order_detail_code=#{order_detail_code}
+ 	</update>
+ 	
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="MyPageDAO">
+ 	<resultMap type="goodsReviewVO" id="goodsReviewResult">
+ 		<result property="goods_review_seq" column="goods_review_seq"/>
+ 		<result property="goods_review_id" column="goods_review_id"/>
+ 		<result property="goods_review_code" column="goods_review_code"/>
+ 		<result property="goods_review_date" column="goods_review_date"/>
+ 		<result property="goods_review_point" column="goods_review_point"/>
+ 		<result property="goods_review_image" column="goods_review_image" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_review_option1" column="goods_review_option1"/>
+ 		<result property="goods_review_option2" column="goods_review_option2"/>
+ 		<result property="goods_review_option3" column="goods_review_option3"/>
+ 		<result property="goods_review_context" column="goods_review_context"/>
+ 		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/> 
+ 	</resultMap>
+ 	<insert id="insertReview" parameterType="goodsReviewVO" >
+ 		INSERT INTO goods_review (
+ 			goods_review_id, 
+ 			goods_review_code,
+ 			goods_review_date, 
+ 			goods_review_point, 
+ 			goods_review_image, 
+ 			goods_review_option1, 
+ 			goods_review_option2, 
+ 			goods_review_option3,
+ 			goods_review_context)
+ 		VALUES(
+ 			#{goods_review_id}, 
+ 			#{goods_review_code},
+ 			now(), 
+ 			#{goods_review_point}, 
+ 			#{goods_review_image, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, 
+ 			#{goods_review_option1}, 
+ 			#{goods_review_option2}, 
+ 			#{goods_review_option3}, 
+ 			#{goods_review_context})
+ 	</insert>
+ 	<select id="getReviewAfterList" parameterType="string" resultMap="goodsReviewResult">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods_review.*, goods.goods_name, goods.goods_photo FROM goods_review AS goods_review
+				LEFT OUTER JOIN goods AS goods 
+				ON goods_review.goods_review_code = goods.goods_code)A)AS foo 
+				WHERE goods_review_id=#{goods_review_id}
+ 	</select>
+ 	<delete id="deleteReview" parameterType="_int">
+ 		DELETE FROM goods_review WHERE goods_review_seq=#{goods_review_seq}
+ 	</delete>
+ 	<select id="getReviewList" resultMap="goodsReviewResult">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods_review.*, goods.goods_name FROM goods_review AS goods_review
+				LEFT OUTER JOIN goods AS goods 
+				ON goods_review.goods_review_code = goods.goods_code ORDER BY goods_review_seq DESC)A)AS foo 
+				WHERE rownum BETWEEN 1 AND 6;
+ 	</select>
+</mapper>

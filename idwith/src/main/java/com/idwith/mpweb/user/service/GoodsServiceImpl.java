@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.user.GoodsCategoryVO;
 import com.idwith.mpweb.user.GoodsDAO;
+import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.GoodsVO;
 
 @Service
@@ -21,8 +22,13 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 	
 	@Override public List<GoodsVO> getGoodsList(GoodsVO goodsVO) { 
-		System.out.println("goodsCategory: "+goodsVO.getGoods_category());
-		 return goodsDAO.getGoodsList(goodsVO); 
+		return goodsDAO.getGoodsList(goodsVO); 
+	}
+
+
+	@Override
+	public List<GoodsReviewVO> getReviewList() {
+		return goodsDAO.getReviewList();
 	}
 
 	@Override

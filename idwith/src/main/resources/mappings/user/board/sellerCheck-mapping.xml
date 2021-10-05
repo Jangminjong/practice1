@@ -16,6 +16,7 @@
  		<result property="seller_goods_yn" column="seller_goods_yn"/>
  		<result property="seller_class_yn" column="seller_class_yn"/>
  		<result property="seller_status" column="seller_status"/>
+ 		<result property="store_name" column="store_name"/>
  	</resultMap>
  	
  	<resultMap type="sellerClassVO" id="sellerClassResult">
@@ -113,4 +114,14 @@
  	<update id="updateSellerStatus">
  		update seller set seller_class_yn=true where user_id=#{user_id}
  	</update>
+
+ 	<!-- 메인페이지에 띄울 작가 리스트(팔로워 순 정렬) -->
+ 	<select id="getSellerListForIndex" resultMap="sellerCheckResult">
+ 		SELECT * FROM (
+		SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+		SELECT seller.*, follow_count FROM seller AS seller
+				LEFT OUTER JOIN (SELECT followed_id, COUNT(*) AS follow_count fROM follow GROUP BY followed_id HAVING COUNT(*)>0) AS follow_count 
+				ON seller.seller_code = follow_count.followed_id ORDER BY follow_count DESC)A)AS foo 
+				WHERE rownum BETWEEN 1 AND 3
+ 	</select>
 </mapper>

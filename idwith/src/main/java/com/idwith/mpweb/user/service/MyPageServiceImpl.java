@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.user.GoodsOrderDetailVO;
+import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.MyPageDAO;
 import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.UserVO;
@@ -38,5 +40,30 @@ public class MyPageServiceImpl implements MypageService {
 	@Override
 	public void updateAddress(UserAddressVO vo) {
 		dao.updateAddress(vo);
+	}
+
+	@Override
+	public List<GoodsOrderDetailVO> getReviewBeforeList(String order_id) {
+		return dao.getReviewBeforeList(order_id);
+	}
+
+	@Override
+	public GoodsOrderDetailVO getReviewBefore(String order_detail_code) {
+		return dao.getReviewBefore(order_detail_code);
+	}
+
+	@Override
+	public void insertReview(GoodsReviewVO reviewVO, GoodsOrderDetailVO orderVO) {
+		dao.insertReview(reviewVO, orderVO);
+	}
+
+	@Override
+	public List<GoodsReviewVO> getReviewAfterList(String goods_review_id) {
+		return dao.getReviewAfterList(goods_review_id);
+	}
+
+	@Override
+	public void deleteReview(String goods_review_seq) {
+		dao.deleteReview(goods_review_seq);
 	}
 }

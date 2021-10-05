@@ -10,6 +10,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.CartVO" alias="cartVO"/>
  		<typeAlias type="com.idwith.mpweb.user.UserAddressVO" alias="userAddressVO"/>
  		<typeAlias type="com.idwith.mpweb.user.ClassRegVO" alias="classRegVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.GoodsOrderDetailVO" alias="goodsOrderDetailVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.GoodsReviewVO" alias="goodsReviewVO"/>
  		<typeAlias type="com.idwith.mpweb.user.SellerClassVO" alias="sellerClassVO"/>
  		<typeAlias type="com.idwith.mpweb.user.SellerStoryVO" alias="sellerStoryVO"/>
  		<typeAlias type="com.idwith.mpweb.user.SellerProductReviewVO" alias="sellerProductReviewVO"/>
@@ -37,6 +39,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/user/board/userBoard-mapping.xml" />
  		<mapper resource="mappings/user/category/goodsCategory-mapping.xml" />
  		<mapper resource="mappings/user/category/goods-mapping.xml" />
+ 		<mapper resource="mappings/user/mypage/goodsReview-mapping.xml" />
+ 		<mapper resource="mappings/user/order/goodsOrderDetail-mapping.xml" />
  		<mapper resource="mappings/user/board/qnaBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/eventBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/userMessage-mapping.xml" />

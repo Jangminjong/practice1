@@ -29,4 +29,6 @@ public interface SellerViewService {
 	List<SellerStoryVO> getStoryList(PagingVO pageVO);
 
 	List<UserSellerVO> getpagingSellerList(PagingVO pageVO);
+	
+	List<UserSellerVO> getSellerListForIndex();
 }

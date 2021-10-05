@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><html class="ie9"><![endif]-->
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,7 +13,12 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 팔로우하는 작가</title>
+<title>아이디어스 | 회원 등급</title>
+
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
@@ -55,11 +58,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:description"
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:url"
-	content="http://www.idus.com/w/me/followingartist" />
+<meta property="og:url" content="http://www.idus.com/w/me/membership" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-<link rel="canonical" href="http://www.idus.com/w/me/followingartist" />
+<link rel="canonical" href="http://www.idus.com/w/me/membership" />
 <script>
             window.__client_env__ = 'production';
             window.CNN_DOMAIN = 'https://cnn.idus.com';
@@ -217,9 +219,10 @@
         </script>
 
 	<div class="wrap">
-		<jsp:include page="header_goods.jsp"/>
+		<jsp:include page="../header_goods.jsp" />
 		<div class="dimmed-background"></div>
-		<div id="content" class="content">
+		<!-- 회원정보관리 -->
+		<div id="content" class="content" data-page="m-no-padding">
 			<div class="inner-w layout-split" data-layout-split="orderlist">
 				<aside class="my-info">
 					<!--메뉴바-->
@@ -282,121 +285,110 @@ vuepack.create([{
         frequencyEvent: {"frequency_event_detail":{"id":12,"name":"9\uc6d4\ucfe0\ud3f0\uc90d\uc90d","description":"\uc791\ud488 \ucc1c\ud558\uae30 10\ud68c, \ub204\uc801 \uad6c\ub9e4 \uae08\uc561 100\ub9cc\uc6d0","start_date_time":"2021-09-01T12:00:00","end_date_time":"2021-09-30T23:59:59","reward_payment_dt":"2021-09-30","status":"IN_PROGRESS","plp_url":{"mobile_url":"https:\/\/www.idus.com\/w\/event\/main\/summer","pc_url":"https:\/\/www.idus.com\/w\/event\/main\/summer"}},"application_detail":{"applied_at":null,"title":"\uc774\ubca4\ud2b8 \uc2e0\uccad\ud558\uace0 \ub9cc\uc6d0 \uc6a9\ub3c8\ud329 \uc90d\uc90d","linked_text_label":"\uc790\uc138\ud788\ubcf4\uae30","frequency_event_url":"https:\/\/www.idus.com\/w\/event\/main\/frequency\/12","status_image_url":"https:\/\/image.idus.com\/static\/frequency\/202109\/my_01.gif"}}    }
 }]);
 </script>
-
-				<section>
-					<div class="title-style">
-						<h1 class="txt">팔로우하는 작가</h1>
+				<section class="membership-page">
+					<div class="title-style mobile-hide">
+						<h1 class="txt">회원 등급</h1>
 					</div>
-					<p style="color: #666; margin-bottom: 24px;">
-						<strong style="font-weight: bold;">2명</strong>의 작가를 팔로우 중입니다.
-					</p>
-					<ul class="artist-list">
-						<li data-v-1ae32da5="" class="following-artist-container"><div
-								data-v-1ae32da5="" class="artist-profile-area">
-								<div data-v-1ae32da5="" class="artist-thumbnail"
-									style="background-image: url(&quot;https://image.idus.com/image/files/e8534c6cbfb7488fbb5771f48db36e6d_324.jpg&quot;);">
-									<!---->
+					<div class="membership-board">
+						<div class="user-card">
+							<i class="sp-icon grade-01" data-grade="1"></i>
+							<div class="txt-group">
+								<strong>아기손</strong> <em>작품 구매시 적립률 0.5%</em>
+							</div>
+						</div>
+						<div class="user-progress">
+							<strong>10월 예상 등급</strong>
+							<div class="progress-bar" data-ui="progressbar" data-value="0">
+								<div class="split" data-value="100000">
+									<div class="inner"></div>
 								</div>
-								<div data-v-1ae32da5="" class="artist-profile">
-									<div data-v-1ae32da5="" class="text-area">
-										<h2 data-v-1ae32da5="" class="artist-name">늘해랑 떡공방</h2>
-										<p data-v-1ae32da5="" class="artist-introduce">안녕하세요 건강하고
-											예쁜떡을 만드는 늘해랑입니다.</p>
-									</div>
-									<button data-v-b534333e="" data-v-1ae32da5="" type="button"
-										class="following"
-										style="background-color: rgb(255, 255, 255); min-width: 96px; width: 96px; height: 32px; font-size: 12px; color: rgb(51, 51, 51); border: 1px solid rgb(217, 217, 217); border-radius: 4px;">
-										<i data-v-b534333e="" class="idus-icon-check"
-											style="font-size: 12px;"></i> 팔로잉
-									</button>
+								<div class="split" data-value="300000">
+									<div class="inner"></div>
+								</div>
+								<div class="split" data-value="600000">
+									<div class="inner"></div>
 								</div>
 							</div>
-							<div data-v-1ae32da5="" class="product-thumbnails">
-								<a data-v-1ae32da5=""
-									href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product"
-									target="_blank" class="thumbnail-wrapper"><div
-										data-v-1ae32da5="" class="product-thumbnail"
-										style="background-image: url(&quot;https://image.idus.com/image/files/7fbae09755274fc3a4ab80f30f8f86f3_512.jpg&quot;);"></div></a><a
-									data-v-1ae32da5=""
-									href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product"
-									target="_blank" class="thumbnail-wrapper"><div
-										data-v-1ae32da5="" class="product-thumbnail"
-										style="background-image: url(&quot;https://image.idus.com/image/files/1ef90b19bca24bfdbe150b17348e85db_512.jpg&quot;);"></div></a><a
-									data-v-1ae32da5=""
-									href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product"
-									target="_blank" class="thumbnail-wrapper"><div
-										data-v-1ae32da5="" class="product-thumbnail"
-										style="background-image: url(&quot;https://image.idus.com/image/files/8a53329ed3894cd4830ff22cde836d9f_512.jpg&quot;);"></div></a>
-							</div></li>
-						<li data-v-1ae32da5="" class="following-artist-container"><div
-								data-v-1ae32da5="" class="artist-profile-area">
-								<div data-v-1ae32da5="" class="artist-thumbnail"
-									style="background-image: url(&quot;https://image.idus.com/image/files/7036aa7ce7c043f7835e6ef121c5134c_324.jpg&quot;);">
-									<img data-v-1ae32da5=""
-										src="/resources/dist/images/medal-award2020.png"
-										alt="award 2020">
-								</div>
-								<div data-v-1ae32da5="" class="artist-profile">
-									<div data-v-1ae32da5="" class="text-area">
-										<h2 data-v-1ae32da5="" class="artist-name">다앤하(danha)</h2>
-										<p data-v-1ae32da5="" class="artist-introduce">작가❤️버튼을
-											눌러주신후 매달 할인쿠폰과 이벤트알림을 받아보세요🌝👍🏻 [NO정제밀, NO정제설탕] 속이 편안한
-											빵&amp;디저트를 만들어요</p>
-									</div>
-									<button data-v-b534333e="" data-v-1ae32da5="" type="button"
-										class="following"
-										style="background-color: rgb(255, 255, 255); min-width: 96px; width: 96px; height: 32px; font-size: 12px; color: rgb(51, 51, 51); border: 1px solid rgb(217, 217, 217); border-radius: 4px;">
-										<i data-v-b534333e="" class="idus-icon-check"
-											style="font-size: 12px;"></i> 팔로잉
-									</button>
-								</div>
+							<ul class="label-list" data-grade="1">
+								<li>아기손</li>
+								<li>곰손</li>
+								<li>은손</li>
+								<li>금손</li>
+							</ul>
+							<p class="pointy-box" data-grade="1">
+								9월 30일까지 100,000원 이상 더 사면,<br>
+								<b>곰손 등급!</b>
+							</p>
+						</div>
+					</div>
+
+					<div class="ui_title--sub no-border">
+						<h2 class="ui_title__txt">등급별 혜택 알아보기</h2>
+					</div>
+					<ul class="list-style">
+						<li class="member-card">
+							<div class="img-area">
+								<i class="sp-icon grade-03-m"></i> <span>금손</span>
 							</div>
-							<div data-v-1ae32da5="" class="product-thumbnails">
-								<a data-v-1ae32da5=""
-									href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product"
-									target="_blank" class="thumbnail-wrapper"><div
-										data-v-1ae32da5="" class="product-thumbnail"
-										style="background-image: url(&quot;https://image.idus.com/image/files/819010ea6ed745aa9327d909c33dfab3_512.jpg&quot;);"></div></a><a
-									data-v-1ae32da5=""
-									href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product"
-									target="_blank" class="thumbnail-wrapper"><div
-										data-v-1ae32da5="" class="product-thumbnail"
-										style="background-image: url(&quot;https://image.idus.com/image/files/280eb388cdf44f93a46837334f9853de_512.jpg&quot;);"></div></a><a
-									data-v-1ae32da5=""
-									href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product"
-									target="_blank" class="thumbnail-wrapper"><div
-										data-v-1ae32da5="" class="product-thumbnail"
-										style="background-image: url(&quot;https://image.idus.com/image/files/880ac53a941440e4a19fb768bd6017be_512.jpg&quot;);"></div></a>
-							</div></li>
-						<nav data-v-450a0b42="">
-							<!---->
-							<button data-v-450a0b42="" type="button" class="active">
-								1</button>
-							<!---->
-						</nav>
+							<dl>
+								<dt>작품 구매시 적립률</dt>
+								<dd class="hilight red">2.0%</dd>
+								<dt>등급조건</dt>
+								<dd>60만원 이상 구매시</dd>
+							</dl>
+						</li>
+						<li class="member-card">
+							<div class="img-area">
+								<i class="sp-icon grade-03-m"></i> <span>은손</span>
+							</div>
+							<dl>
+								<dt>작품 구매시 적립률</dt>
+								<dd class="hilight red">1.5%</dd>
+								<dt>등급조건</dt>
+								<dd>30만원 이상, 60만원 미만 구매시</dd>
+							</dl>
+						</li>
+						<li class="member-card">
+							<div class="img-area">
+								<i class="sp-icon grade-02-m"></i> <span>곰손</span>
+							</div>
+							<dl>
+								<dt>작품 구매시 적립률</dt>
+								<dd class="hilight red">1.0%</dd>
+								<dt>등급조건</dt>
+								<dd>10만원 이상, 30만원 미만 구매시</dd>
+							</dl>
+						</li>
+						<li class="member-card">
+							<div class="img-area">
+								<i class="sp-icon grade-01-m"></i> <span>아기손</span>
+							</div>
+							<dl>
+								<dt>작품 구매시 적립률</dt>
+								<dd class="hilight red">0.5%</dd>
+								<dt>등급조건</dt>
+								<dd>10만원 미만 구매시</dd>
+							</dl>
+						</li>
 					</ul>
-					<div data-vue="FollowingArtistList"></div>
+
+					<div class="ui_title--sub no-border">
+						<h2 class="ui_title__txt">안내사항</h2>
+						<span class="ui_title__txtright"> <a
+							href="/w/board/notice/detail?id=149" target="_blank"
+							class="ui_btn--small">자세히 보기<i class="idus-icon-arrow-right"
+								style="font-size: 10px;"></i></a>
+						</span>
+					</div>
+					<p class="list-style-bg">
+						‣ 회원 등급은 최근 3개월간 결제 금액을 산정하여 다음 달 15일에 변경됩니다.<br>‣ 등급에 반영되는
+						결제 금액은 배송비, 제주/도서산간 추가 비용, 후원하기, 쿠폰할인, 적립금 사용이 제외된 작품 금액입니다.<br>‣
+						매월 등급이 변경되기 전 취소/환불시, 등급조건의 구매 금액에서 제외됩니다.<br>‣ 회원 등급 산정 및
+						혜택은 당사 사정에 의해 변경될 수 있습니다.<br>
+					</p>
 				</section>
 			</div>
 		</div>
-
-		<script>
-    vuepack.create([
-        {
-            selector: '[data-vue="FollowingArtistList"]',
-            component: 'FollowingArtistList',
-            props: {
-                artists: [{"uuid":"6159ba47-76f5-40d0-98b2-7cbabde46625","artist_id":"5189261","artist_uuid":"2e754b3a-8c6e-4904-a8ab-9cac555cef5c","name":"\ub298\ud574\ub791 \ub5a1\uacf5\ubc29","image_url":"https:\/\/image.idus.com\/image\/files\/5c542b18dc614d3cad084378a4b5d3fc.jpg","userpicture_url":"https:\/\/image.idus.com\/image\/files\/e8534c6cbfb7488fbb5771f48db36e6d_324.jpg","introduce":"\uc548\ub155\ud558\uc138\uc694 \uac74\uac15\ud558\uace0 \uc608\uc05c\ub5a1\uc744 \ub9cc\ub4dc\ub294 \ub298\ud574\ub791\uc785\ub2c8\ub2e4.","is_vacation":false,"vacation_msg":"","is_award":false,"award_image_url":"","products":[{"uuid":"7eaf4f6c-f4ce-41e0-9c67-1f1e86e31542","name":"\ucd94\uc11d\uc8fc\ubb38\ub9c8\uac10\ud83c\udf39\ucd94\uc11d\uc120\ubb3c\ud83c\udf39\uc815\uc131\uac00\ub4dd \uc218\uc81c \ud654\uacfc\uc790 ","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/7fbae09755274fc3a4ab80f30f8f86f3.jpg"},{"uuid":"735cf9ca-580c-4dfd-93eb-60af27381615","name":"\ucd94\uc11d\uc8fc\ubb38\ub9c8\uac10[\ucd94\uc11d\uc120\ubb3c] \ucac4\uae43\ud55c \uc544\uc774\uc2a4\uc6d4\ubcd1 7\uad6c\uc138","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/1ef90b19bca24bfdbe150b17348e85db.jpg"},{"uuid":"720a2eed-1735-4c10-bd67-e84114e2d144","name":"[\uc2e0\ub9bc] \ucd94\uc11d\uc120\ubb3c\/\ubd80\ubaa8\ub2d8\uc0dd\uc2e0\ud83c\udf37\uace0\uae09\ubcf4\uc790\uae30\ub5a1\ucf00\uc774\ud06c\ud83c\udf37","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/8a53329ed3894cd4830ff22cde836d9f.jpg"}],"created":"1630757267999"},{"uuid":"0970be26-d09b-4ece-a49f-3e96ad6dea24","artist_id":"1879201","artist_uuid":"598fb7c4-6674-47de-ad02-95673d738a99","name":"\ub2e4\uc564\ud558(danha)","image_url":"http:\/\/image.idus.com\/image\/files\/d4477808756643d0897e01943fc00a13.jpg","userpicture_url":"https:\/\/image.idus.com\/image\/files\/7036aa7ce7c043f7835e6ef121c5134c_324.jpg","introduce":"\uc791\uac00\u2764\ufe0f\ubc84\ud2bc\uc744 \ub20c\ub7ec\uc8fc\uc2e0\ud6c4\n\ub9e4\ub2ec \ud560\uc778\ucfe0\ud3f0\uacfc \uc774\ubca4\ud2b8\uc54c\ub9bc\uc744 \ubc1b\uc544\ubcf4\uc138\uc694\ud83c\udf1d\ud83d\udc4d\ud83c\udffb\n[NO\uc815\uc81c\ubc00, NO\uc815\uc81c\uc124\ud0d5]\n\uc18d\uc774 \ud3b8\uc548\ud55c \ube75&\ub514\uc800\ud2b8\ub97c \ub9cc\ub4e4\uc5b4\uc694","is_vacation":false,"vacation_msg":"\u2764\ufe0f\uac8c\ub9b4\ub77c \ub77c\uc778\uc5c5 \uc900\ube44\uc911\uc785\ub2c8\ub2e4.\u2764\ufe0f","is_award":true,"award_image_url":"https:\/\/image.idus.com\/static\/award\/ios\/badge_2020.png","products":[{"uuid":"a867920d-c518-419f-bd8d-d7e43d973ed7","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uc2e0\uba54\ub274\u203c\ufe0f\ud83c\udf3a\uc8e0\ub9ac\ud401,\ub85c\ud22c\uc2a4,\ub2f9\ucf00,\ub179\ucc28\uc138\ud2b8","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/819010ea6ed745aa9327d909c33dfab3.jpg"},{"uuid":"557ced87-2a6c-4036-ab62-fb7b684f95c1","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uc2e0\uba54\ub274\uac8c\ub9b4\ub77c\u203c\ufe0f\ud83c\udf3a \ubf40\ub610\ud06c\uce58\ubc45,\ud398\ub808\ub85c\ubc45","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/280eb388cdf44f93a46837334f9853de.jpg"},{"uuid":"2dda9470-6e8f-457e-8abb-321942f61b36","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uac8c\ub9b4\ub77c\ud83c\udf3a\ub0b1\uac1c: \uc8e0\ub9ac\ud401,\ub85c\ud22c\uc2a4,\ub2f9\ucf00,\ub179\ucc28","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/880ac53a941440e4a19fb768bd6017be.jpg"}],"created":"1630185266542"}],
-                pagination: {"page_size":2,"total_size":1,"items_size":2,"current_page":1}            }
-        }
-    ]);
-
-    (function () {
-        var Logger = vuepack.externals.IdusLog.Logger;
-        var PageName = vuepack.externals.IdusLog.PageName;
-        Logger.sendPageView(PageName.FavoriteArtists);
-    })();
-</script>
 		<div data-vue="ToastPopup"></div>
 		<div data-vue="BottomSheet"></div>
 		<div data-vue="WideBottomSheet"></div>
@@ -405,7 +397,7 @@ vuepack.create([{
 		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
 			<img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
 		</a>
-		<jsp:include page="footer.jsp"/>
+		<!-- 푸터 -->
 		<script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
@@ -438,6 +430,7 @@ vuepack.create([
     }
 ]);
 </script>
+	<jsp:include page="../footer.jsp" />
 	</div>
 	<!-- div WRAP -->
 	<script type="text/javascript"

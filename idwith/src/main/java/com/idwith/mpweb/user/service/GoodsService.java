@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.idwith.mpweb.user.GoodsCategoryVO;
+import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.GoodsVO;
 
 public interface GoodsService {
@@ -12,4 +13,6 @@ public interface GoodsService {
 	List<GoodsVO> getGoodsList(GoodsVO goodsVO);
 
 	GoodsVO getGoodsContent(String goods_code);
+	
+	List<GoodsReviewVO> getReviewList();
 }

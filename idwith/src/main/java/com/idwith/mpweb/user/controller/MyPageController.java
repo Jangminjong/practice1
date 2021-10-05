@@ -12,12 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.EmailDTO;
 import com.idwith.mpweb.user.UserAddressVO;
+import com.idwith.mpweb.user.GoodsOrderDetailVO;
+import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.service.EmailUpdateService;
 import com.idwith.mpweb.user.service.MypageService;
@@ -55,78 +59,104 @@ public class MyPageController {
 		session.setAttribute("user_grade", user_grade);
 		session.setAttribute("user_birth", user_birth);
 
-		return "mypage";
+		return "mypage/mypage";
 	}
 	
 	@RequestMapping(value = "/mypage_address.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String mypageAddress() {
-		return "mypage_adr";
+		return "mypage/mypage_adr";
 	}
 
 	@GetMapping("/mypage_coupon.do")
 	public String mypageCoupon() {
-		return "mypage_coupon";
+		return "mypage/mypage_coupon";
 	}
 
 	@GetMapping("/mypage_point.do")
 	public String mypagePoint() {
-		return "mypage_point";
+		return "mypage/mypage_point";
 	}
 
 	@GetMapping("/mypage_follow.do")
 	public String mypageFollow() {
-		return "mypage_follow";
+		return "mypage/mypage_follow";
 	}
 
 	@GetMapping("/mypage_info.do")
 	public String mypageInfo() {
-		return "mypage_info";
+		return "mypage/mypage_info";
 	}
 
 	@GetMapping("/mypage_interest_class.do")
 	public String mypageInterestClass() {
-		return "mypage_interest_class";
+		return "mypage/mypage_interest_class";
 	}
 
 	@GetMapping("/mypage_interest_goods.do")
 	public String mypageInterestGoods() {
-		return "mypage_interest_goods";
+		return "mypage/mypage_interest_goods";
 	}
 
 	@GetMapping("/mypage_level.do")
 	public String mypageLevel() {
-		return "mypage_level";
+		return "mypage/mypage_level";
 	}
 
 	@GetMapping("/mypage_order_return.do")
 	public String mypageOrderReturn() {
-		return "mypage_order_return";
+		return "mypage/mypage_order_return";
 	}
 
 	@GetMapping("/mypage_order_goods.do")
 	public String mypageOrderGoods() {
-		return "mypage_order_goods";
+		return "mypage/mypage_order_goods";
 	}
 
 	@GetMapping("/mypage_order_class.do")
 	public String mypageOrderClass() {
-		return "mypage_order_class";
+		return "mypage/mypage_order_class";
 	}
 
 
 	@GetMapping("/mypage_recent.do")
 	public String mypageRecent() {
-		return "mypage_recent";
+		return "mypage/mypage_recent";
 	}
 
 	@GetMapping("/mypage_review_after.do")
-	public String mypageReviewAfter() {
-		return "mypage_review_after";
+	public String mypageReviewAfter(HttpSession session, Model model) {
+		String goods_review_id = (String) session.getAttribute("email");
+		List<GoodsReviewVO> reviewAfterList = myPageService.getReviewAfterList(goods_review_id);
+		model.addAttribute("reviewAfterList", reviewAfterList);
+		return "mypage/mypage_review_after";
 	}
 
-	@GetMapping("/mypage_review_before.do")
-	public String mypageReviewBefore() {
-		return "mypage_review_before";
+	@RequestMapping("/mypage_review_before.do")
+	public String mypageReviewBefore(HttpSession session, Model model) {
+		String order_id = (String) session.getAttribute("email");
+		List<GoodsOrderDetailVO> reviewBeforeList = myPageService.getReviewBeforeList(order_id);
+		model.addAttribute("reviewBeforeList", reviewBeforeList);
+		return "mypage/mypage_review_before";
+	}
+	
+	@GetMapping("/write_review.do")
+	public String writeReview(Model model, @RequestParam(value="order_detail_code", required=false) String order_detail_code) {
+		GoodsOrderDetailVO orderVO = myPageService.getReviewBefore(order_detail_code);
+		model.addAttribute("orderVO", orderVO);
+		return "mypage/write_review";
+	}
+	
+	@PostMapping("/write_review.do")
+	public String insertReview(GoodsReviewVO reviewVO, 	GoodsOrderDetailVO orderVO) {
+		myPageService.insertReview(reviewVO, orderVO);
+		return "redirect:/mypage_review_after.do";
+	}
+	
+	@RequestMapping("/delete_review.do")
+	public String deleteReview(HttpServletRequest request) {
+		String goods_review_seq = request.getParameter("goods_review_seq");
+		myPageService.deleteReview(goods_review_seq);
+		return "redirect:/mypage_review_after.do";
 	}
 
 

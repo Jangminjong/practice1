@@ -77,4 +77,8 @@ public class User_SellerDAO {
 		List<UserSellerVO> sellerList = sqlSessionTemplate.selectList("SellerCheckDAO.getSellerList", pageVO);
 		return sellerList;
 	}
+		
+	public List<UserSellerVO> getSellerListForIndex() {
+		return sqlSessionTemplate.selectList("SellerCheckDAO.getSellerListForIndex");
+	}
 }

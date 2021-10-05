@@ -21,6 +21,7 @@ public class GoodsVO {
 	int goods_seq;
 	Timestamp goods_apply_date;
 	int goods_status;
+	String goods_review_context;
 	int rownum;
 	int goods_delivery_fee;
 	UserSellerVO userSellerVO;
@@ -200,6 +201,14 @@ public class GoodsVO {
 
 	public void setRownum(int rownum) {
 		this.rownum = rownum;
+	}
+
+	public String getGoods_review_context() {
+		return goods_review_context;
+	}
+
+	public void setGoods_review_context(String goods_review_context) {
+		this.goods_review_context = goods_review_context;
 	}
 
 	@Override

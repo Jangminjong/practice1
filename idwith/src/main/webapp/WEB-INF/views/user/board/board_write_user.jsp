@@ -37,7 +37,7 @@
 							<option>교환/반품/취소</option>
 							<option>이용</option>
 						</select>
-						<div class="qna-title_input"><input type="text" id="qna_title_input_" name="board_title" class="title_input" placeholder="문의내용을 선택하시면 자동으로 설정됩니다.">
+						<div class="qna-title_input"><input type="text" id="qna_title_input_" name="board_title" class="title_input" placeholder="제목을 입력해주세요.">
 						</div>
 					</div>
 					<div class="qna-content" style="margin-bottom:24px;">

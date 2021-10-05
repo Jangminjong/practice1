@@ -9116,7 +9116,7 @@ table>* {
 .ui_card__overlay--left>.icon-num[data-ranking], .card-add-icon>.icon-num[data-ranking],
 	.card-style-profile>.icon-num[data-ranking] {
 	background:
-		url("/resources/dist/images/bg/ranking/icon-medal-normal.png")
+		url("../images/category_goods/icon-medal-normal.png")
 		no-repeat;
 	-webkit-background-size: 28px 36px;
 	-moz-background-size: 28px 36px;
@@ -9126,7 +9126,7 @@ table>* {
 
 .ui_card__overlay--left>.icon-num[data-ranking="1"], .card-add-icon>.icon-num[data-ranking="1"],
 	.card-style-profile>.icon-num[data-ranking="1"] {
-	background: url("/resources/dist/images/bg/ranking/icon-medal-gold.png")
+	background: url("../images/category_goods/icon-medal-gold.png")
 		no-repeat;
 	-webkit-background-size: 28px 36px;
 	-moz-background-size: 28px 36px;
@@ -9137,7 +9137,7 @@ table>* {
 .ui_card__overlay--left>.icon-num[data-ranking="2"], .card-add-icon>.icon-num[data-ranking="2"],
 	.card-style-profile>.icon-num[data-ranking="2"] {
 	background:
-		url("/resources/dist/images/bg/ranking/icon-medal-silver.png")
+		url("../images/category_goods/icon-medal-silver.png")
 		no-repeat;
 	-webkit-background-size: 28px 36px;
 	-moz-background-size: 28px 36px;
@@ -9148,7 +9148,7 @@ table>* {
 .ui_card__overlay--left>.icon-num[data-ranking="3"], .card-add-icon>.icon-num[data-ranking="3"],
 	.card-style-profile>.icon-num[data-ranking="3"] {
 	background:
-		url("/resources/dist/images/bg/ranking/icon-medal-bronze.png")
+		url("../images/category_goods/icon-medal-bronze.png")
 		no-repeat;
 	-webkit-background-size: 28px 36px;
 	-moz-background-size: 28px 36px;

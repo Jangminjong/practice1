@@ -37,8 +37,8 @@
  	</resultMap>
  	
  	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
-	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-	FROM goods where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10
+	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT goods.*, goods_review.goods_review_context
+	FROM goods AS goods LEFT OUTER JOIN goods_review AS goods_review ON goods.goods_code = goods_review.goods_review_code where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10;
  	</select>
  	
  	<!-- 작가가 등록한 상품리스트 가져오기 -->

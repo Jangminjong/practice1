@@ -15,7 +15,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 구매후기 쓰기</title>
+<title>아이디어스 | 팔로우하는 작가</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
@@ -55,10 +55,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:description"
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:url" content="http://www.idus.com/w/me/review/add" />
+<meta property="og:url"
+	content="http://www.idus.com/w/me/followingartist" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-<link rel="canonical" href="http://www.idus.com/w/me/review/add" />
+<link rel="canonical" href="http://www.idus.com/w/me/followingartist" />
 <script>
             window.__client_env__ = 'production';
             window.CNN_DOMAIN = 'https://cnn.idus.com';
@@ -216,13 +217,10 @@
         </script>
 
 	<div class="wrap">
-
-		<!-- 헤더자리 -->
+		<jsp:include page="../header_goods.jsp"/>
 		<div class="dimmed-background"></div>
-		<jsp:include page="header_goods.jsp" />
 		<div id="content" class="content">
-			<div class="inner-w layout-split mobile-full"
-				data-layout-split="orderlist">
+			<div class="inner-w layout-split" data-layout-split="orderlist">
 				<aside class="my-info">
 					<!--메뉴바-->
 					<div class="profile-area">
@@ -284,276 +282,119 @@ vuepack.create([{
         frequencyEvent: {"frequency_event_detail":{"id":12,"name":"9\uc6d4\ucfe0\ud3f0\uc90d\uc90d","description":"\uc791\ud488 \ucc1c\ud558\uae30 10\ud68c, \ub204\uc801 \uad6c\ub9e4 \uae08\uc561 100\ub9cc\uc6d0","start_date_time":"2021-09-01T12:00:00","end_date_time":"2021-09-30T23:59:59","reward_payment_dt":"2021-09-30","status":"IN_PROGRESS","plp_url":{"mobile_url":"https:\/\/www.idus.com\/w\/event\/main\/summer","pc_url":"https:\/\/www.idus.com\/w\/event\/main\/summer"}},"application_detail":{"applied_at":null,"title":"\uc774\ubca4\ud2b8 \uc2e0\uccad\ud558\uace0 \ub9cc\uc6d0 \uc6a9\ub3c8\ud329 \uc90d\uc90d","linked_text_label":"\uc790\uc138\ud788\ubcf4\uae30","frequency_event_url":"https:\/\/www.idus.com\/w\/event\/main\/frequency\/12","status_image_url":"https:\/\/image.idus.com\/static\/frequency\/202109\/my_01.gif"}}    }
 }]);
 </script>
+
 				<section>
-					<div class="title-style no-mt clf mobile-hide">
-						<h2 class="txt fl">나의 구매후기</h2>
+					<div class="title-style">
+						<h1 class="txt">팔로우하는 작가</h1>
 					</div>
-					<p class="list-style-bg  mobile-hide">
-						여러분들이 작성해주시는 솔직한 구매후기는 핸드메이드 작품 선택을 고민하는 분들에게 선택의 도움을 줄 수 있답니다.<br>
-						구매하신 작품마다 1회의 구매후기 작성과 1회의 수정이 가능합니다.<br> 단, 작성하신 구매후기를 삭제하면
-						다시 작성할 수 없으니 신중히 평가해 주세요.<br> <br> 해당 작품과 무관한 내용이나 비방,
-						욕설 등 부적합한 내용의 구매후기는 서비스 이용 약관이나 관련 법률에 의해 제재를 받을 수 있습니다.
+					<p style="color: #666; margin-bottom: 24px;">
+						<strong style="font-weight: bold;">2명</strong>의 작가를 팔로우 중입니다.
 					</p>
-					<nav class="navstyle">
-						<a class="active" href="/w/me/review/add">구매후기 쓰기</a> <a
-							href="/w/me/review/all">내가 쓴 구매후기</a>
-					</nav>
-					<ul class="card-container" data-ui="scroll-paging"
-						data-query="next" data-param="">
-						<li><input type="hidden" value="15762905">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/de18c067-2bfe-4ef0-b309-6e4c39d8d94f"
-										target="_blank"
-										style="background-image: url(https://image.idus.com/image/files/e214038eec044065ae1f17e78df75009_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/de18c067-2bfe-4ef0-b309-6e4c39d8d94f"
-											target="_blank"> 윤다현님 개인 결제 </a> <span>몽제리</span>
-									</div>
+					<ul class="artist-list">
+						<li data-v-1ae32da5="" class="following-artist-container"><div
+								data-v-1ae32da5="" class="artist-profile-area">
+								<div data-v-1ae32da5="" class="artist-thumbnail"
+									style="background-image: url(&quot;https://image.idus.com/image/files/e8534c6cbfb7488fbb5771f48db36e6d_324.jpg&quot;);">
+									<!---->
 								</div>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/3249a1c4-7365-45ec-b268-e887dcc1cbe5"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
-							</div></li>
-						<li><input type="hidden" value="15762759">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/745b1cff-c830-49f5-a665-2523b7fa8dd7"
-										target="_blank"
-										style="background-image: url(https://image.idus.com/image/files/83ae333f77774d9a8aa6e826349043ff_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/745b1cff-c830-49f5-a665-2523b7fa8dd7"
-											target="_blank"> 닮은 동물 쪼꼬미일러스트 </a> <span>몽제리</span>
+								<div data-v-1ae32da5="" class="artist-profile">
+									<div data-v-1ae32da5="" class="text-area">
+										<h2 data-v-1ae32da5="" class="artist-name">늘해랑 떡공방</h2>
+										<p data-v-1ae32da5="" class="artist-introduce">안녕하세요 건강하고
+											예쁜떡을 만드는 늘해랑입니다.</p>
 									</div>
+									<button data-v-b534333e="" data-v-1ae32da5="" type="button"
+										class="following"
+										style="background-color: rgb(255, 255, 255); min-width: 96px; width: 96px; height: 32px; font-size: 12px; color: rgb(51, 51, 51); border: 1px solid rgb(217, 217, 217); border-radius: 4px;">
+										<i data-v-b534333e="" class="idus-icon-check"
+											style="font-size: 12px;"></i> 팔로잉
+									</button>
 								</div>
-								<ul class="liststyle--bullet noborder">
-									<li>• <span>인원:</span> <span>4명(최대인원)</span> <span>(
-											+ 12,000원)</span>
-									</li>
-									<li>• <span>소품:</span> <span>X</span>
-									</li>
-									<li>• <span>문구:</span> <span>X</span>
-									</li>
-									<li>• <span>네임택:</span> <span>X</span>
-									</li>
-									<li>• <span>배경:</span> <span>원하는 색 (2개)</span> <span>(
-											+ 1,000원)</span>
-									</li>
-									<li>• <span>반려동물 추가:</span> <span>X</span>
-									</li>
-									<li>• <span>액자&amp;배송(택포):</span> <span>X</span>
-									</li>
-									<li>• <span>(배송시)사진 추가:</span> <span>X</span>
-									</li>
-									<li>• 수량: 1개</li>
-								</ul>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/df0effec-8c6b-4913-bcd5-33dda4365309"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
+							</div>
+							<div data-v-1ae32da5="" class="product-thumbnails">
+								<a data-v-1ae32da5=""
+									href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product"
+									target="_blank" class="thumbnail-wrapper"><div
+										data-v-1ae32da5="" class="product-thumbnail"
+										style="background-image: url(&quot;https://image.idus.com/image/files/7fbae09755274fc3a4ab80f30f8f86f3_512.jpg&quot;);"></div></a><a
+									data-v-1ae32da5=""
+									href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product"
+									target="_blank" class="thumbnail-wrapper"><div
+										data-v-1ae32da5="" class="product-thumbnail"
+										style="background-image: url(&quot;https://image.idus.com/image/files/1ef90b19bca24bfdbe150b17348e85db_512.jpg&quot;);"></div></a><a
+									data-v-1ae32da5=""
+									href="/w/artist/2e754b3a-8c6e-4904-a8ab-9cac555cef5c/product"
+									target="_blank" class="thumbnail-wrapper"><div
+										data-v-1ae32da5="" class="product-thumbnail"
+										style="background-image: url(&quot;https://image.idus.com/image/files/8a53329ed3894cd4830ff22cde836d9f_512.jpg&quot;);"></div></a>
 							</div></li>
-						<li><input type="hidden" value="15757968">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/0e5daccc-d39c-4892-8a30-c65e7751a267"
-										target="_blank"
-										style="background-image: url(https://image.idus.com/image/files/e214038eec044065ae1f17e78df75009_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/0e5daccc-d39c-4892-8a30-c65e7751a267"
-											target="_blank"> 윤다현님 개인 결제 </a> <span>몽제리</span>
+						<li data-v-1ae32da5="" class="following-artist-container"><div
+								data-v-1ae32da5="" class="artist-profile-area">
+								<div data-v-1ae32da5="" class="artist-thumbnail"
+									style="background-image: url(&quot;https://image.idus.com/image/files/7036aa7ce7c043f7835e6ef121c5134c_324.jpg&quot;);">
+									<img data-v-1ae32da5=""
+										src="/resources/dist/images/medal-award2020.png"
+										alt="award 2020">
+								</div>
+								<div data-v-1ae32da5="" class="artist-profile">
+									<div data-v-1ae32da5="" class="text-area">
+										<h2 data-v-1ae32da5="" class="artist-name">다앤하(danha)</h2>
+										<p data-v-1ae32da5="" class="artist-introduce">작가❤️버튼을
+											눌러주신후 매달 할인쿠폰과 이벤트알림을 받아보세요🌝👍🏻 [NO정제밀, NO정제설탕] 속이 편안한
+											빵&amp;디저트를 만들어요</p>
 									</div>
+									<button data-v-b534333e="" data-v-1ae32da5="" type="button"
+										class="following"
+										style="background-color: rgb(255, 255, 255); min-width: 96px; width: 96px; height: 32px; font-size: 12px; color: rgb(51, 51, 51); border: 1px solid rgb(217, 217, 217); border-radius: 4px;">
+										<i data-v-b534333e="" class="idus-icon-check"
+											style="font-size: 12px;"></i> 팔로잉
+									</button>
 								</div>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/6d9f9839-918d-498c-83e7-fa90423e93eb"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
+							</div>
+							<div data-v-1ae32da5="" class="product-thumbnails">
+								<a data-v-1ae32da5=""
+									href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product"
+									target="_blank" class="thumbnail-wrapper"><div
+										data-v-1ae32da5="" class="product-thumbnail"
+										style="background-image: url(&quot;https://image.idus.com/image/files/819010ea6ed745aa9327d909c33dfab3_512.jpg&quot;);"></div></a><a
+									data-v-1ae32da5=""
+									href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product"
+									target="_blank" class="thumbnail-wrapper"><div
+										data-v-1ae32da5="" class="product-thumbnail"
+										style="background-image: url(&quot;https://image.idus.com/image/files/280eb388cdf44f93a46837334f9853de_512.jpg&quot;);"></div></a><a
+									data-v-1ae32da5=""
+									href="/w/artist/598fb7c4-6674-47de-ad02-95673d738a99/product"
+									target="_blank" class="thumbnail-wrapper"><div
+										data-v-1ae32da5="" class="product-thumbnail"
+										style="background-image: url(&quot;https://image.idus.com/image/files/880ac53a941440e4a19fb768bd6017be_512.jpg&quot;);"></div></a>
 							</div></li>
-						<li><input type="hidden" value="14645608">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/2c859103-36d0-401d-baff-976b250722b5"
-										target="_blank"
-										style="background-image: url(http://image.idus.com/image/files/b97532f1291649cb879ebabd1b36de1e_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/2c859103-36d0-401d-baff-976b250722b5"
-											target="_blank"> 윤다현님 개인 결제 </a> <span>엠제이 폰케이스💘</span>
-									</div>
-								</div>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/7d33f709-cd40-4f04-8686-24337930cf74"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
-							</div></li>
-						<li><input type="hidden" value="14177596">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/e5db5bd3-8d4a-4155-b71a-d7546686726f"
-										target="_blank"
-										style="background-image: url(https://image.idus.com/image/files/f889b56f11b94d0b8e0db0f55ca7b3dc_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/e5db5bd3-8d4a-4155-b71a-d7546686726f"
-											target="_blank"> 파스텔 색감 큰사이즈 숫자초 </a> <span>후후케이크</span>
-									</div>
-								</div>
-								<ul class="liststyle--bullet noborder">
-									<li>• <span>색상선택:</span> <span>레몬노랑</span>
-									</li>
-									<li>• <span>숫자선택:</span> <span>2</span>
-									</li>
-									<li>• <span>숫자디자인선택(필수:</span> <span>왕관이있는숫자초</span>
-									</li>
-									<li>• <span>악세사리(선택):</span> <span>선택사항없음</span>
-									</li>
-									<li>• 수량: 1개</li>
-								</ul>
-								<ul class="liststyle--bullet ">
-									<li>• <span>색상선택:</span> <span>연보라</span>
-									</li>
-									<li>• <span>숫자선택:</span> <span>7</span>
-									</li>
-									<li>• <span>숫자디자인선택(필수:</span> <span>왕관이있는숫자초</span>
-									</li>
-									<li>• <span>악세사리(선택):</span> <span>선택사항없음</span>
-									</li>
-									<li>• 수량: 1개</li>
-								</ul>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/838d234b-d5fc-4d51-9764-f3459c9c0942"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
-							</div></li>
-						<li><input type="hidden" value="11694760">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/4fbaef81-1017-46b7-8433-6bcbd135ede7"
-										target="_blank"
-										style="background-image: url(https://image.idus.com/image/files/769bed6ddec44aaba24ba704972f3b62_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/4fbaef81-1017-46b7-8433-6bcbd135ede7"
-											target="_blank"> 몽글몽글 귀여운 나만의 드로잉!(디지털 파일) </a> <span>유부드로잉
-											u.boo.drawing</span>
-									</div>
-								</div>
-								<ul class="liststyle--bullet noborder">
-									<li>• <span>종류:</span> <span>상반신(1인)</span>
-									</li>
-									<li>• <span>상업적이용금지:</span> <span>프사,블로그 대문등은 자유</span>
-									</li>
-									<li>• 수량: 1개</li>
-								</ul>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/c89cb821-36a3-4d10-98fe-e4e59017de27"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
-							</div></li>
-						<li><input type="hidden" value="10720603">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/dc75f6f6-2a9a-4e24-a2ef-a6f93e173964"
-										target="_blank"
-										style="background-image: url(http://image.idus.com/image/files/a8833f96227e4188903178d2f1e058d7_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/dc75f6f6-2a9a-4e24-a2ef-a6f93e173964"
-											target="_blank"> 윤다현님 개인 결제 </a> <span>헬로아이👋</span>
-									</div>
-								</div>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/400fb082-739e-48bb-9d46-f890edd226c4"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
-							</div></li>
-						<li><input type="hidden" value="10179582">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/640a3778-ba05-4dc6-a782-7bf5db70da8d"
-										target="_blank"
-										style="background-image: url(http://image.idus.com/image/files/24ce5cd953df45de87e7c152677ff0a4_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/640a3778-ba05-4dc6-a782-7bf5db70da8d"
-											target="_blank"> [인기]자유문구생일토퍼 </a> <span>앙쥬토퍼</span>
-									</div>
-								</div>
-								<ul class="liststyle--bullet noborder">
-									<li>• <span>케이크 위 숫자:</span> <span>생일 / 4자</span>
-									</li>
-									<li>• <span>자유문구:</span> <span>3줄 / 24자 이내</span> <span>(
-											+ 2,000원)</span>
-									</li>
-									<li>• <span>영문문구(골드):</span> <span>기본 -
-											HappyBirthday</span>
-									</li>
-									<li>• <span>❣️배송예정일❣️:</span> <span>2/7(금) 출고예정</span>
-									</li>
-									<li>• 수량: 1개</li>
-								</ul>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/c650b095-2025-4d09-8aeb-c227176bd32b"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
-							</div></li>
-						<li><input type="hidden" value="7265468">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="/w/product/f34e1eb3-12b7-4e18-bccb-f1bcc296ed05"
-										target="_blank"
-										style="background-image: url(http://image.idus.com/image/files/8229795248a347d4bac293c8b7ba98dd_320.jpg)">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="/w/product/f34e1eb3-12b7-4e18-bccb-f1bcc296ed05"
-											target="_blank"> 푸른바다 투핀 피어싱 귀걸이 </a> <span>행복한선인장</span>
-									</div>
-								</div>
-								<ul class="liststyle--bullet noborder">
-									<li>• <span>Color:</span> <span>골드(사진에 있는 색상)</span>
-									</li>
-									<li>• <span>귓볼 침 선택:</span> <span>무니켈 침(기본)</span>
-									</li>
-									<li>• <span>귓바퀴(귀 윗부분):</span> <span>귀찌(나사형 귀찌)</span>
-									</li>
-									<li>• <span>세트 선택:</span> <span>양쪽 모두 구매</span> <span>(
-											+ 4,000원)</span>
-									</li>
-									<li>• <span>선물포장:</span> <span>선물포장X</span>
-									</li>
-									<li>• 수량: 1개</li>
-								</ul>
-								<a class="ui_btn--large"
-									href="/w/me/order/review/1d67f92e-e650-4800-b9d0-b2cea7952c7f"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
-							</div></li>
+						<nav data-v-450a0b42="">
+							<!---->
+							<button data-v-450a0b42="" type="button" class="active">
+								1</button>
+							<!---->
+						</nav>
 					</ul>
-					<div class="banner-empty">
-						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
-						<p>작성할 수 있는 구매후기가 없습니다.</p>
-					</div>
+					<div data-vue="FollowingArtistList"></div>
 				</section>
 			</div>
 		</div>
 
 		<script>
+    vuepack.create([
+        {
+            selector: '[data-vue="FollowingArtistList"]',
+            component: 'FollowingArtistList',
+            props: {
+                artists: [{"uuid":"6159ba47-76f5-40d0-98b2-7cbabde46625","artist_id":"5189261","artist_uuid":"2e754b3a-8c6e-4904-a8ab-9cac555cef5c","name":"\ub298\ud574\ub791 \ub5a1\uacf5\ubc29","image_url":"https:\/\/image.idus.com\/image\/files\/5c542b18dc614d3cad084378a4b5d3fc.jpg","userpicture_url":"https:\/\/image.idus.com\/image\/files\/e8534c6cbfb7488fbb5771f48db36e6d_324.jpg","introduce":"\uc548\ub155\ud558\uc138\uc694 \uac74\uac15\ud558\uace0 \uc608\uc05c\ub5a1\uc744 \ub9cc\ub4dc\ub294 \ub298\ud574\ub791\uc785\ub2c8\ub2e4.","is_vacation":false,"vacation_msg":"","is_award":false,"award_image_url":"","products":[{"uuid":"7eaf4f6c-f4ce-41e0-9c67-1f1e86e31542","name":"\ucd94\uc11d\uc8fc\ubb38\ub9c8\uac10\ud83c\udf39\ucd94\uc11d\uc120\ubb3c\ud83c\udf39\uc815\uc131\uac00\ub4dd \uc218\uc81c \ud654\uacfc\uc790 ","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/7fbae09755274fc3a4ab80f30f8f86f3.jpg"},{"uuid":"735cf9ca-580c-4dfd-93eb-60af27381615","name":"\ucd94\uc11d\uc8fc\ubb38\ub9c8\uac10[\ucd94\uc11d\uc120\ubb3c] \ucac4\uae43\ud55c \uc544\uc774\uc2a4\uc6d4\ubcd1 7\uad6c\uc138","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/1ef90b19bca24bfdbe150b17348e85db.jpg"},{"uuid":"720a2eed-1735-4c10-bd67-e84114e2d144","name":"[\uc2e0\ub9bc] \ucd94\uc11d\uc120\ubb3c\/\ubd80\ubaa8\ub2d8\uc0dd\uc2e0\ud83c\udf37\uace0\uae09\ubcf4\uc790\uae30\ub5a1\ucf00\uc774\ud06c\ud83c\udf37","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/8a53329ed3894cd4830ff22cde836d9f.jpg"}],"created":"1630757267999"},{"uuid":"0970be26-d09b-4ece-a49f-3e96ad6dea24","artist_id":"1879201","artist_uuid":"598fb7c4-6674-47de-ad02-95673d738a99","name":"\ub2e4\uc564\ud558(danha)","image_url":"http:\/\/image.idus.com\/image\/files\/d4477808756643d0897e01943fc00a13.jpg","userpicture_url":"https:\/\/image.idus.com\/image\/files\/7036aa7ce7c043f7835e6ef121c5134c_324.jpg","introduce":"\uc791\uac00\u2764\ufe0f\ubc84\ud2bc\uc744 \ub20c\ub7ec\uc8fc\uc2e0\ud6c4\n\ub9e4\ub2ec \ud560\uc778\ucfe0\ud3f0\uacfc \uc774\ubca4\ud2b8\uc54c\ub9bc\uc744 \ubc1b\uc544\ubcf4\uc138\uc694\ud83c\udf1d\ud83d\udc4d\ud83c\udffb\n[NO\uc815\uc81c\ubc00, NO\uc815\uc81c\uc124\ud0d5]\n\uc18d\uc774 \ud3b8\uc548\ud55c \ube75&\ub514\uc800\ud2b8\ub97c \ub9cc\ub4e4\uc5b4\uc694","is_vacation":false,"vacation_msg":"\u2764\ufe0f\uac8c\ub9b4\ub77c \ub77c\uc778\uc5c5 \uc900\ube44\uc911\uc785\ub2c8\ub2e4.\u2764\ufe0f","is_award":true,"award_image_url":"https:\/\/image.idus.com\/static\/award\/ios\/badge_2020.png","products":[{"uuid":"a867920d-c518-419f-bd8d-d7e43d973ed7","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uc2e0\uba54\ub274\u203c\ufe0f\ud83c\udf3a\uc8e0\ub9ac\ud401,\ub85c\ud22c\uc2a4,\ub2f9\ucf00,\ub179\ucc28\uc138\ud2b8","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/819010ea6ed745aa9327d909c33dfab3.jpg"},{"uuid":"557ced87-2a6c-4036-ab62-fb7b684f95c1","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uc2e0\uba54\ub274\uac8c\ub9b4\ub77c\u203c\ufe0f\ud83c\udf3a \ubf40\ub610\ud06c\uce58\ubc45,\ud398\ub808\ub85c\ubc45","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/280eb388cdf44f93a46837334f9853de.jpg"},{"uuid":"2dda9470-6e8f-457e-8abb-321942f61b36","name":"\ud83c\udf3a\ucd94\uc11d\uc804\ubc30\uc1a1 \uac8c\ub9b4\ub77c\ud83c\udf3a\ub0b1\uac1c: \uc8e0\ub9ac\ud401,\ub85c\ud22c\uc2a4,\ub2f9\ucf00,\ub179\ucc28","category_uuid":"5c6bc7d4-7760-4702-b63f-7f29eca479e3","thumb_image_url":"https:\/\/image.idus.com\/image\/files\/880ac53a941440e4a19fb768bd6017be.jpg"}],"created":"1630185266542"}],
+                pagination: {"page_size":2,"total_size":1,"items_size":2,"current_page":1}            }
+        }
+    ]);
+
     (function () {
         var Logger = vuepack.externals.IdusLog.Logger;
         var PageName = vuepack.externals.IdusLog.PageName;
-        Logger.sendPageView(PageName.ReviewReviewable);
+        Logger.sendPageView(PageName.FavoriteArtists);
     })();
 </script>
 		<div data-vue="ToastPopup"></div>
@@ -564,7 +405,7 @@ vuepack.create([{
 		<a href="#header" class="to-top" data-ui="scroll-to-top" data-page="">
 			<img src="/resources/dist/images/go-to-top-image.png" alt="go to top">
 		</a>
-		<!-- 푸터자리 -->
+		<jsp:include page="../footer.jsp"/>
 		<script>
 function escrowPopup() {
     var url = 'https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=iduscom01m&CoNo=1078783297';
@@ -597,7 +438,6 @@ vuepack.create([
     }
 ]);
 </script>
-	<jsp:include page="footer.jsp" />
 	</div>
 	<!-- div WRAP -->
 	<script type="text/javascript"
