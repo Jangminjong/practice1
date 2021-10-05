@@ -151,11 +151,11 @@
 									<form id="form-category-insert" name="categoryInsert" action="CategoryInsert.mdo" method="post" onsubmit="false">
 										<div class="mb-3">
 											<label class="form-label">카테고리 코드</label>
-											<input type="text" class="form-control" placeholder="code" id="goodsCategoryCode" name="goodsCategoryCode" style="width: auto;">
+											<input type="text" class="form-control" placeholder="code" id="CategoryCode" name="CategoryCode" style="width: auto;">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">카테고리 이름</label>
-											<input type="text" class="form-control" placeholder="name" id="goodsCategoryName" name="goodsCategoryName" style="width: auto;">
+											<input type="text" class="form-control" placeholder="name" id="CategoryName" name="CategoryName" style="width: auto;">
 										</div>                                    
 										<div class="mb-3">
 											<label class="form-label" for="authority">작품/클래스</label>

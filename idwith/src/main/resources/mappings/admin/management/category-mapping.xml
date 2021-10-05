@@ -18,4 +18,39 @@
 		INSERT INTO class_category (class_category_code, class_category_name) VALUES(#{classCategoryCode}, #{classCategoryName})
 	</insert>
 	
+	<!-- 작품 카테고리 리스트 출력 -->
+	<select id="countGoodsCate" resultType="int">
+		select count(*) from goods_category
+	</select>
+	
+	<select id="getGoodsCate" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="categoryResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as goodsRownum, A.* FROM (SELECT *
+			FROM goods_category ORDER BY goods_category_code ASC)A)AS foo WHERE goodsRownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<!-- 클래스 카테고리 리스트 출력 -->
+	<select id="countClassCate" resultType="int">
+		select count(*) from class_category
+	</select>
+	
+	<select id="getClassCate" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="categoryResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM class_category ORDER BY class_category_code ASC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<!-- 카테고리 삭제 -->
+	<delete id="deleteGoodsCate">
+		DELETE FROM goods_category WHERE goods_category_code = #{goodsCategoryCode}
+	</delete>
+	
+	<delete id="deleteClassCate">
+		DELETE FROM class_category WHERE class_category_code = #{classCategoryCode}
+	</delete>
+	
 </mapper>
