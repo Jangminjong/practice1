@@ -29,7 +29,8 @@
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="main.mdo"> <span
-					class="align-middle"> <img src="resources/admin/img/white_logo.png"
+					class="align-middle"> <img
+						src="resources/admin/img/white_logo.png"
 						style="margin-bottom: 0px; margin-top: 15px; margin-left: 30px; max-width: 150px; height: auto;">
 				</span>
 				</a>
@@ -83,8 +84,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="qna.mdo"> <i class="align-middle"
-							data-feather="bell"></i> <span class="align-middle">QnA</span>
+						href="qna.mdo"> <i class="align-middle" data-feather="bell"></i>
+							<span class="align-middle">QnA</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#coupon"
@@ -101,8 +102,8 @@
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
-						href="category.mdo"> <i class="align-middle" data-feather="edit-2"></i>
-							<span class="align-middle">카테고리</span>
+						href="category.mdo"> <i class="align-middle"
+							data-feather="edit-2"></i> <span class="align-middle">카테고리</span>
 					</a></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
@@ -127,12 +128,13 @@
 					class="hamburger align-self-center"></i>
 				</a>
 
-				<div class="navbar-collapse collapse" style="display: flex; justify-content: flex-end;">
-						<h3>${admin_name} 님</h3>
-						<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> 
-							<i class="align-middle" data-feather="log-out" style="color: black;"></i>
-								<span class="text-dark">로그아웃</span>
-						</a>
+				<div class="navbar-collapse collapse"
+					style="display: flex; justify-content: flex-end;">
+					<h3>${admin_name}님</h3>
+					<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo">
+						<i class="align-middle" data-feather="log-out"
+						style="color: black;"></i> <span class="text-dark">로그아웃</span>
+					</a>
 				</div>
 			</nav>
 
@@ -141,80 +143,85 @@
 					<div class="container-fluid p-0">
 						<h1 class="h3 mb-3">Category</h1>
 
-                        <div class="row">
-                            <div class="col-md-3 text-center"></div>
-                            <div class="col-md-3 text-center"></div>
-                            <div class="col-md-3 text-center"></div>
-                            <div class="col-md-3 text-center">
-                                <a href="insertCategory.mdo">
-                                    <button class="btn btn-warning">카테고리 추가</button>
-                                </a>
-                            </div>
-                        </div>
-
-						<ul class="nav nav-tabs">
-							<li class="nav-item"><a class="nav-link active"
-								data-toggle="tab" href="#tab1" id="#tab1">작품 카테고리</a></li>
-							<li class="nav-item"><a class="nav-link" data-toggle="tab"
-								href="#tab2" id="#tab2">클래스 카테고리</a></li>
-						</ul>
-					</div>
-					<div class="card-body">
-						<div class="tab-content">
-							<div class="tab-pane fade show active" id="tab1" role="tabpanel">
-								<div class="table-responsive">
-									<table class="table mb-0">
-										<thead>
-											<tr>
-												<th scope="col">카테고리 코드</th>
-												<th scope="col">카테고리 이름</th>
-												<th scope="col">카테고리 변경</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>BD</td>
-												<td>디저트,베이커리,떡</td>
-												<td>
-                                                    <a href="insertCategory.mdo">
-                                                        <button type="button" class="btn btn-warning" id="updateCategory">수정</button>
-                                                    </a>
-                                                 <button type="button" class="btn btn-primary" id="deleteCategory">삭제</button>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="tab-pane fade active" id="tab2" role="tabpanel">
-								<div class="table-responsive">
-									<table class="table mb-0">
-										<thead>
-											<tr>
-												<th scope="col">카테고리 코드</th>
-												<th scope="col">카테고리 이름</th>
-												<th scope="col">카테고리 변경</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>BD</td>
-												<td>디저트,베이커리,떡</td>
-												<td>
-                                                    <a href="insertCategory.mdo">
-                                                        <button type="button" class="btn btn-warning" id="updateCategory">수정</button>
-                                                    </a>
-                                                 <button type="button" class="btn btn-primary" id="deleteCategory">삭제</button>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+						<div class="row">
+							<div class="col-md-3 text-center"></div>
+							<div class="col-md-3 text-center"></div>
+							<div class="col-md-3 text-center"></div>
+							<div class="col-md-3 text-right">
+								<a href="insertCategory.mdo">
+									<button class="btn btn-warning">카테고리 추가</button>
+								</a>
 							</div>
 						</div>
+
+						<ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item"><a class="nav-link active"
+                                    data-toggle="tab" href="#tab1" id="#tab1">작품 카테고리</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                    href="#tab2" id="#tab2">클래스 카테고리</a></li>
+                            </ul>
 					</div>
+					
+						<div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade text-center active show" id="tab1" role="tabpanel">
+                                    <div class="col-12">                                                                                   
+                                            <div class="table-responsive">
+                                                <table class="table mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">카테고리 코드</th>
+                                                            <th scope="col">카테고리 이름</th>
+                                                            <th scope="col">카테고리 변경</th>                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>BR</td>
+                                                            <td>test</td>
+                                                            <td>
+                                                       		 	<button type="button" class="btn btn-warning" id="updateGoodsCategory" onclick="location.href='updateGoodsCategory.mdo'">수정</button>
+                                                				<button type="button" class="btn btn-primary" id="deleteGoodsCategory">삭제</button>
+                                                            </td>                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>                                        
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade text-center" id="tab2" role="tabpanel">
+                                    <div class="col-12">                                                                               
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">카테고리 코드</th>
+                                                        <th scope="col">카테고리 이름</th>
+                                                        <th scope="col">카테고리 변경</th>                                                            
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>CLBR</td>
+                                                        <td>CLass</td>
+                                                        <td>
+                                                        	<button type="button" class="btn btn-warning" id="updateClassCategory" onclick="location.href='updateClassCategory.mdo'">수정</button>
+                                                			<button type="button" class="btn btn-primary" id="deleteClassCategory">삭제</button>
+                                                        </td>                                                            
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 					</div>
-				</main>
+			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>

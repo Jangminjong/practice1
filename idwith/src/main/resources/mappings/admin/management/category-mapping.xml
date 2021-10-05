@@ -10,6 +10,12 @@
 		<result property="classCategoryName" column="class_category_name" />
 	</resultMap>
 	
-		
+	<insert id="insertGoodsCategory" parameterType="category">
+		INSERT INTO goods_category(goods_category_code, goods_category_name) VALUES(#{goodsCategoryCode}, #{goodsCategoryName})
+	</insert>
+	
+	<insert id="insertClassCategory" parameterType="category">
+		INSERT INTO class_category (class_category_code, class_category_name) VALUES(#{classCategoryCode}, #{classCategoryName})
+	</insert>
 	
 </mapper>

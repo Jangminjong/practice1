@@ -148,19 +148,18 @@
 							</div>
 							<div class="card">
 								<div class="card-body" style="width: auto;">
-									<form>
+									<form id="form-category-insert" name="categoryInsert" action="CategoryInsert.mdo" method="post" onsubmit="false">
 										<div class="mb-3">
 											<label class="form-label">카테고리 코드</label>
-											<input type="text" class="form-control" placeholder="code" style="width: auto;">
+											<input type="text" class="form-control" placeholder="code" id="goodsCategoryCode" name="goodsCategoryCode" style="width: auto;">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">카테고리 이름</label>
-											<input type="text" class="form-control" placeholder="name"
-												style="width: auto;">
+											<input type="text" class="form-control" placeholder="name" id="goodsCategoryName" name="goodsCategoryName" style="width: auto;">
 										</div>                                    
 										<div class="mb-3">
 											<label class="form-label" for="authority">작품/클래스</label>
-											<select class="form-control mb-3" style="width: 220px;">
+											<select class="form-control mb-3" style="width: 220px;" name="categoryLabel" id="categoryLabel">
                                                 <option value="goods">작품</option>
                                                 <option value="class">클래스</option>
                                             </select>
@@ -170,7 +169,7 @@
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center">
-												<input class="btn btn-primary" type="submit" id="admin-listInsert-submit" value="등록" /> 
+												<input class="btn btn-primary" type="submit" id="admin-category-Insert" value="등록" /> 
 												<input class="btn btn-primary" type="reset" value="초기화" />
 												<input class="btn btn-primary" type="button" onclick="location.href='category.mdo'" value="목록" />
 											</div>

@@ -40,10 +40,10 @@ public class managementController {
 	private EmailService emailService;
 	
 	@Autowired
-	UserListService userListService;
+	private UserListService userListService;
 	
 	@Autowired
-	AdminService adminService;
+	private AdminService adminService;
 	
 	
 	// 회원 

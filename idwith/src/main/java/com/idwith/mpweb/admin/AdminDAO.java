@@ -35,10 +35,6 @@ public class AdminDAO {
 	/**관리자 수정 */
 	public void updateSuperAdmin(AdminVO admin) {
 		System.out.println("adminDAO updateSuperAdmin() 처리");
-		System.out.println("정보1 : " + admin.getAdmin_id());
-		System.out.println("정보1 : " + admin.getAdmin_phone());
-		System.out.println("정보1 : " + admin.getAdmin_pwd());
-		System.out.println("정보1 : " + admin.getAdmin_role());
 		int result = sqlSessionTemplate.update("AdminDAO.updateSuperAdmin", admin);
 		System.out.println("결과 비교 : " + result);
 	}

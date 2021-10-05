@@ -166,7 +166,7 @@
 										</div>
 										<div class="mb-3">
 											<label class="form-label">전화번호</label>
-											<input type="text" class="form-control" placeholder="Phoen" name="admin_phone" id="admin_phone"
+											<input type="text" class="form-control" placeholder="phone" name="admin_phone" id="admin_phone"
 												style="width: auto;">
 										</div>
 										<div class="mb-3">
@@ -177,15 +177,15 @@
                                             </select>
 										</div>
                                         <div class="row">
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center">
-									<input class="btn btn-primary" type="submit" id="admin-listInsert-submit" value="등록" />
-									<input class="btn btn-primary" type="reset" value="초기화" />
-									<input class="btn btn-primary" type="button" onclick="location.href='adminList.mdo'" value="목록" />
-								</div>
-							</div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center">
+												<input class="btn btn-primary" type="submit" id="admin-listInsert-submit" value="등록" />
+												<input class="btn btn-primary" type="reset" value="초기화" />
+												<input class="btn btn-primary" type="button" onclick="location.href='adminList.mdo'" value="목록" />
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -193,7 +193,7 @@
 					</div>
 				</div>
 			</main>
-		
+			<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>
 </body>
