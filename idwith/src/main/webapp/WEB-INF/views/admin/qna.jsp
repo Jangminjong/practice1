@@ -204,7 +204,7 @@
 													<c:choose>
 														<c:when test="${ adminQnA.board_answer eq null }">
 															<c:if test="${ adminQnA.board_fix eq true }">
-																<td><span class="badge bg-info">***</span></td>
+																<td><span class="badge bg-info">공지</span></td>
 															</c:if>
 															<c:if test="${ adminQnA.board_fix eq false }">
 																<td><span class="badge bg-warning">답변전</span></td>
@@ -212,7 +212,7 @@
 														</c:when>
 														<c:when test="${ adminQnA.board_answer ne null }">
 															<c:if test="${ adminQnA.board_fix eq true }">
-																<td><span class="badge bg-info">***</span></td>
+																<td><span class="badge bg-info">공지</span></td>
 															</c:if>
 															<c:if test="${ adminQnA.board_fix eq false }">
 																<td><span class="badge bg-success">답변완료</span></td>

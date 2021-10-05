@@ -136,7 +136,9 @@
 				</div>
 			</nav>
 
-			<main><div class="content">
+			<main>
+			<div class="content">
+			<h1 class="h3 mb-3">Sales</h1>
                     <table class="table table-hover">
                         <thead>
                           <tr>

@@ -174,11 +174,9 @@
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-right">
-									<input type="submit" id="notice-user-submit"
-										class="btn btn-primary" value="등록" /> <a
-										href="userInsertFAQ.mdo"> <!--초기화 진행-->
-										<input class="btn btn-primary" type="reset" value="초기화" />
-									</a>
+									<input type="submit" id="notice-user-submit" class="btn btn-primary" value="등록" /> 
+									<input class="btn btn-primary" type="reset" value="초기화" />
+									<button class="btn btn-primary" onclick="location.href='qna.mdo'">목록</button>
 								</div>
 							</div>
 						</form>

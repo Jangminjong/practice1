@@ -168,7 +168,7 @@
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
-											<div class="col-md-3 text-center">
+											<div class="col-md-3 text-right">
 												<input class="btn btn-primary" type="submit" id="admin-category-Insert" value="등록" /> 
 												<input class="btn btn-primary" type="reset" value="초기화" />
 												<input class="btn btn-primary" type="button" onclick="location.href='category.mdo'" value="목록" />
