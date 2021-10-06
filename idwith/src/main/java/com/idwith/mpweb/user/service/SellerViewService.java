@@ -25,4 +25,6 @@ public interface SellerViewService {
 	List<SellerProductReviewVO> getSellerProductReviewList(String seller_code);
 
 	List<UserSellerVO> getSellerListForIndex();
+
+	List<SellerStoryVO> getStoryList();
 }

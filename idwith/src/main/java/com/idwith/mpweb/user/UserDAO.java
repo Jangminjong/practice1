@@ -13,7 +13,7 @@ public class UserDAO {
 	SqlSessionTemplate sqlSessionTemplate;
 
 	public void insertUser(UserVO vo) {
-		System.out.println("DAO insertUser() ½ÇÇà");
+		System.out.println("DAO insertUser() ï¿½ï¿½ï¿½ï¿½");
 		sqlSessionTemplate.insert("UserDAO.insertUser", vo);
 	}
 	
@@ -22,34 +22,34 @@ public class UserDAO {
 	}
 	
 	public int emailCheck(String email) {
-		System.out.println("DAO emailCheck() ½ÇÇà");
+		System.out.println("DAO emailCheck() ï¿½ï¿½ï¿½ï¿½");
 		int result = sqlSessionTemplate.selectOne("UserDAO.selectEmail", email);
 		return result;
 	}
 	
 	public int cellPhoneCheck(String cell_phone) {
-		System.out.println("DAO cell_phone() ½ÇÇà");
+		System.out.println("DAO cell_phone() ï¿½ï¿½ï¿½ï¿½");
 		int result = sqlSessionTemplate.selectOne("UserDAO.selectCellPhone", cell_phone);
 		return result;
 	}
 
 	public UserVO getUser(String user_id) {
-		System.out.println("DAO getUser() ½ÇÇà");
+		System.out.println("DAO getUser() ï¿½ï¿½ï¿½ï¿½");
 		UserVO result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
 		return result;
 	}
 	
 	public void insertKakao(UserVO vo) {
-		System.out.println("DAO kakaoLogin() ½ÇÇà");
+		System.out.println("DAO kakaoLogin() ï¿½ï¿½ï¿½ï¿½");
 		sqlSessionTemplate.insert("UserDAO.insertKakao", vo);
 	}
 
 	public void updateUser(UserVO vo) {
-		System.out.println("DAO updateUser() ½ÇÇà");
+		System.out.println("DAO updateUser() ï¿½ï¿½ï¿½ï¿½");
 	}
 
 	public void deleteUser(UserVO vo) {
-		System.out.println("DAO deleteUser() ½ÇÇà");
+		System.out.println("DAO deleteUser() ï¿½ï¿½ï¿½ï¿½");
 	}
 	
 	public int userCheck(String user_phone) {
@@ -69,13 +69,52 @@ public class UserDAO {
 	
 	public List<Map<String, String>> getUserNameList(String user_id){
 		List<Map<String, String>> userList = sqlSessionTemplate.selectList("UserDAO.getUserNameList", user_id);
-		System.out.println("°á°ú °ª : " + userList);
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ : " + userList);
 		return userList;
 	}
 	
 	public List<Map<String, String>> getUserInfo(String user_name){
 		List<Map<String, String>> userInfo = sqlSessionTemplate.selectList("UserDAO.getUserInfo", user_name);
-		System.out.println("°á°ú °ª : " +userInfo);
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ : " +userInfo);
 		return userInfo;
+	}
+
+	public int changeChoice(ChoiceVO choice) {
+		int count = 0;
+		if(!choice.isChoice_true()) {
+			count=sqlSessionTemplate.selectOne("ChoiceDAO.selectChoice", choice);
+			if(count == 0) {
+				sqlSessionTemplate.insert("ChoiceDAO.addChoice", choice);
+			}else {
+				sqlSessionTemplate.update("ChoiceDAO.updateChoice",choice);
+			}
+			return 1;
+		}else {
+			sqlSessionTemplate.update("ChoiceDAO.cancelChoice", choice);
+			return 0;
+		}
+	}
+
+	public List<ChoiceVO> setChoice(String email) {
+		return sqlSessionTemplate.selectList("ChoiceDAO.setChoice",email);
+	}
+
+	public List<FollowVO> setFollow(String email) {
+		return sqlSessionTemplate.selectList("ChoiceDAO.setFollow",email);
+	}
+
+	public int changeFollow(FollowVO follow) {
+		int count = 0;
+		if(!follow.isFollow_true()) {
+			count=sqlSessionTemplate.selectOne("ChoiceDAO.selectFollow", follow);
+			if(count == 0) {
+				sqlSessionTemplate.insert("ChoiceDAO.addFollow", follow);
+			}
+			return 1;
+		}else {
+			sqlSessionTemplate.delete("ChoiceDAO.deleteFollow", follow);
+			return 0;
+		}
+
 	}
 }

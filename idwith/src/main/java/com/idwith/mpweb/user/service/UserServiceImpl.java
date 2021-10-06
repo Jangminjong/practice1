@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.user.ChoiceVO;
+import com.idwith.mpweb.user.FollowVO;
 import com.idwith.mpweb.user.UserDAO;
 import com.idwith.mpweb.user.UserVO;
 
@@ -18,12 +20,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void insertUser(UserVO vo) {
-		System.out.println("Service : È¸¿ø°¡ÀÔ Ã³¸®");
+		System.out.println("Service : È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
 
 		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-		// ¾ÏÈ£È­ ÇÏ±âÀü
+		// ï¿½ï¿½È£È­ ï¿½Ï±ï¿½ï¿½ï¿½
 		String password = scpwd.encode(vo.getUser_pwd());
-		// ¾ÏÈ£È­ ÇÏ¿© password¿¡ ÀúÀå
+		// ï¿½ï¿½È£È­ ï¿½Ï¿ï¿½ passwordï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		vo.setUser_pwd(password);
 
 		dao.insertUser(vo);
@@ -54,7 +56,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String kakaoLogin(UserVO vo) {
 		String result = "";
-		int emailCheck = dao.emailCheck(vo.getUser_id()); // Ä«Ä«¿À ÀÌ¸ÞÀÏ°ú µ¿ÀÏÇÑ °ÍÀÌ DB¿¡ ÀÖ´ÂÁö È®ÀÎ
+		int emailCheck = dao.emailCheck(vo.getUser_id()); // Ä«Ä«ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 		if (emailCheck == 0) {
 			dao.insertKakao(vo);
 			result = "success";
@@ -123,6 +125,26 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Map<String, String>> getUserInfo(String user_name) {
 		return dao.getUserInfo(user_name);
+	}
+
+	@Override
+	public int changeChoice(ChoiceVO choice) {
+		return dao.changeChoice(choice);
+	}
+
+	@Override
+	public List<ChoiceVO> setChoice(String email) {
+		return dao.setChoice(email);
+	}
+
+	@Override
+	public List<FollowVO> setFollow(String email) {
+		return dao.setFollow(email);
+	}
+
+	@Override
+	public int changeFollow(FollowVO follow) {
+		return dao.changeFollow(follow);
 	}
 
 }

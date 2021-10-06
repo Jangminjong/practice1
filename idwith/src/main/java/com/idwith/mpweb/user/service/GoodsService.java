@@ -13,4 +13,6 @@ public interface GoodsService {
 	List<GoodsVO> getGoodsList(GoodsVO goodsVO);
 
 	List<GoodsReviewVO> getReviewList();
+
+	List<GoodsCategoryVO> getAllGoodsCategory();
 }

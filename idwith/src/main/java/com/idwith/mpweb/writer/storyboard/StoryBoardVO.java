@@ -1,6 +1,7 @@
 package com.idwith.mpweb.writer.storyboard;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class StoryBoardVO {
 	
@@ -13,6 +14,9 @@ public class StoryBoardVO {
 	private String storySellerName;
 	private Integer storyCnt;
 	private Integer rownum;
+	// seller 테이블에 있는 컬럼
+	private String[] sellerProfileImg;
+	private String store_name;
 	
 	public Integer getStorySellerId() {
 		return storySellerId;
@@ -62,11 +66,11 @@ public class StoryBoardVO {
 	public void setStoryCnt(Integer storyCnt) {
 		this.storyCnt = storyCnt;
 	}
-	
-	
+
 	public Integer getRownum() {
 		return rownum;
 	}
+
 	public void setRownum(Integer rownum) {
 		this.rownum = rownum;
 	}
@@ -75,12 +79,10 @@ public class StoryBoardVO {
 		return "StoryBoardVO [storySellerId=" + storySellerId + ", storyBoardRegDate=" + storyBoardRegDate
 				+ ", storyBoardFilePath=" + storyBoardFilePath + ", storyBoardContext=" + storyBoardContext
 				+ ", storyBoardTitle=" + storyBoardTitle + ", story_tseq=" + story_tseq + ", storySellerName="
-				+ storySellerName + ", storyCnt=" + storyCnt + ", rownum=" + rownum + "]";
+				+ storySellerName + ", storyCnt=" + storyCnt + ", rownum=" + rownum + ", sellerProfileImg="
+				+ Arrays.toString(sellerProfileImg) + ", store_name=" + store_name + "]";
 	}
-	
-	
-	
 
-	
+
 	
 }

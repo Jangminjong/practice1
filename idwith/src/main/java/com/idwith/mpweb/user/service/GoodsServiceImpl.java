@@ -32,4 +32,10 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsDAO.getReviewList();
 	}
 
+
+	@Override
+	public List<GoodsCategoryVO> getAllGoodsCategory() {
+		return goodsDAO.getAllGoodsCategory();
+	}
+
 }
