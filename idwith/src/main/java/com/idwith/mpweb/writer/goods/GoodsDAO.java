@@ -18,19 +18,19 @@ public class GoodsDAO {
 	// 작품 등록
 	public void productCreate(GoodsVO goodsVO) {
 		System.out.println("productCreate() 기능처리");
-		sqlSessionTemplate.insert("GoodsDAO.productCreate", goodsVO);
+		sqlSessionTemplate.insert("WriterGoodsDAO.productCreate", goodsVO);
 	}
 	
 	// 작품 목록페이지
 	public List<GoodsVO> getGoodsList(PagingVO pageVO){
 		System.out.println("getGoodList() 기능처리");
-		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList", pageVO);
+		return sqlSessionTemplate.selectList("WriterGoodsDAO.getGoodsList", pageVO);
 	}
 	
 	// 페이징 처리
 	public int countGoods() {
 		System.out.println("countGoods() 기능처리");
-		return sqlSessionTemplate.selectOne("GoodsDAO.countGoods");
+		return sqlSessionTemplate.selectOne("WriterGoodsDAO.countGoods");
 		
 	}
 	
