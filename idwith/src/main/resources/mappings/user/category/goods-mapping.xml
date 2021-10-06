@@ -26,7 +26,9 @@
  		<result property="goods_status" column="goods_status"/>
  		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
  		<collection property="userSellerVO" resultMap="userSellerResult" />
- 		<collection property="goodsReviewVO" resultMap="goodsReviewResult"/>
+ 		<collection property="goodsOption1VO" resultMap="goodsOption1Result" />
+ 		<collection property="goodsOption2VO" resultMap="goodsOption2Result" />
+ 		<collection property="goodsOption3VO" resultMap="goodsOption3Result" />
  	</resultMap>
  	
  	<resultMap type="UserSellerVO" id="userSellerResult">
@@ -34,6 +36,50 @@
  		<result property="store_name" column="store_name"/>
  		<result property="seller_profile" column="seller_profile"/>
  		<result property="seller_profile_img" column="seller_profile_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 	</resultMap>
+ 	
+ 	<resultMap type="goodsReviewVO" id="goodsReviewResult">
+ 		<result property="goods_review_seq" column="goods_review_seq"/>
+ 		<result property="goods_review_id" column="goods_review_id"/>
+ 		<result property="goods_review_code" column="goods_review_code"/>
+ 		<result property="goods_review_date" column="goods_review_date"/>
+ 		<result property="goods_review_point" column="goods_review_point"/>
+ 		<result property="goods_review_image" column="goods_review_image" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_review_option1" column="goods_review_option1"/>
+ 		<result property="goods_review_option2" column="goods_review_option2"/>
+ 		<result property="goods_review_option3" column="goods_review_option3"/>
+ 		<result property="goods_review_context" column="goods_review_context"/>
+ 		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/> 
+ 	</resultMap>
+ 	
+ 	<resultMap type="goodsOption1VO" id="goodsOption1Result">
+ 		<result property="goods_op1_code" column="goods_op1_code"/>
+ 		<result property="goods_code" column="goods_code"/>
+ 		<result property="goods_op1_name" column="goods_op1_name"/>
+ 		<result property="goods_op1_value" column="goods_op1_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_op1_price" column="goods_op1_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="Integer[]"/>
+ 	</resultMap>
+ 	
+ 	<resultMap type="goodsOption2VO" id="goodsOption2Result">
+ 		<result property="goods_op2_code" column="goods_op2_code"/>
+ 		<result property="goods_code" column="goods_code"/>
+ 		<result property="goods_op2_name" column="goods_op2_name"/>
+ 		<result property="goods_op2_value" column="goods_op2_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_op2_price" column="goods_op2_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 	</resultMap>
+ 	
+ 	<resultMap type="goodsOption3VO" id="goodsOption3Result">
+ 		<result property="goods_op3_code" column="goods_op3_code"/>
+ 		<result property="goods_code" column="goods_code"/>
+ 		<result property="goods_op3_name" column="goods_op3_name"/>
+ 		<result property="goods_op3_value" column="goods_op3_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_op3_price" column="goods_op3_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 	</resultMap>
+ 	
+ 	<resultMap type="goodsOptionListVO" id="goodsOptinoListResult">
+ 		<collection property="goodsOption1VO" resultMap="goodsOption1Result" />
+ 		<collection property="goodsOption2VO" resultMap="goodsOption2Result" />
+ 		<collection property="goodsOption3VO" resultMap="goodsOption3Result" />
  	</resultMap>
  	
  	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
@@ -51,10 +97,24 @@
  		select
  			g.goods_name, g.goods_price, g.goods_select, g.goods_stock, g.goods_op1_code, g.goods_op2_code, g.goods_op3_code, g.goods_photo, g.goods_info, g.goods_delivery_fee
  			, s.user_id, s.store_name, s.seller_name, s.seller_profile, s.seller_profile_img
- 			, gr.*
  		from goods as g
  		join seller as s on s.seller_code = g.seller_code
- 		join goods_review as gr on g.goods_code = gr.goods_review_code 
  		where g.goods_code=#{goods_code}
+ 	</select>
+ 	
+ 	<!-- 상품에 대한 리뷰 리스트 -->
+ 	<select id="getGoodsReviewList" resultMap="goodsReviewResult">
+ 		select * from goods_review where goods_review_code = #{goods_review_code}
+ 	</select>
+ 	
+ 	<!-- 상품 옵션리스트 가져오기 -->
+ 	<select id="getGoodsOptionList" resultMap="goodsResult">
+	select
+		*
+		from goods as g
+		join goods_option1 as go1 on go1.goods_op1_code = g.goods_op1_code
+		left join goods_option2 as go2 on go2.goods_op2_code = g.goods_op2_code
+		left join goods_option3 as go3 on go3.goods_op3_code = g.goods_op3_code
+	where g.goods_code=#{good_code}
  	</select>
 </mapper>

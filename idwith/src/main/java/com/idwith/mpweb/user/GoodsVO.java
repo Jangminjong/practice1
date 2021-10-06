@@ -25,6 +25,33 @@ public class GoodsVO {
 	int rownum;
 	int goods_delivery_fee;
 	UserSellerVO userSellerVO;
+	GoodsOption1VO goodsOption1VO;
+	GoodsOption2VO goodsOption2VO;
+	GoodsOption3VO goodsOption3VO;
+
+	public GoodsOption1VO getGoodsOption1VO() {
+		return goodsOption1VO;
+	}
+
+	public void setGoodsOption1VO(GoodsOption1VO goodsOption1VO) {
+		this.goodsOption1VO = goodsOption1VO;
+	}
+
+	public GoodsOption2VO getGoodsOption2VO() {
+		return goodsOption2VO;
+	}
+
+	public void setGoodsOption2VO(GoodsOption2VO goodsOption2VO) {
+		this.goodsOption2VO = goodsOption2VO;
+	}
+
+	public GoodsOption3VO getGoodsOption3VO() {
+		return goodsOption3VO;
+	}
+
+	public void setGoodsOption3VO(GoodsOption3VO goodsOption3VO) {
+		this.goodsOption3VO = goodsOption3VO;
+	}
 
 	public int getGoods_delivery_fee() {
 		return goods_delivery_fee;

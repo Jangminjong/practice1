@@ -149,7 +149,7 @@
 									</button>
 								</mark>
 								<span data-v-07201bc4=""> <span data-v-07201bc4=""
-									class="price_tag__crossout">${goods.goods_price}</span>
+									class="price_tag__crossout">${goods.goods_price}원</span>
 								</span>
 								<div data-v-07201bc4="" id="marker"></div>
 							</div>
@@ -275,7 +275,7 @@
 										<tr data-v-9e98616a="">
 											<td data-v-9e98616a="" class="data-row__title">배송비</td>
 											<td data-v-9e98616a="" class="data-row__content"><span
-												data-v-7b67a23d="" data-v-9e98616a=""> 2,900원 <span
+												data-v-7b67a23d="" data-v-9e98616a=""> ${goods.goods_delivery_fee}원 <span
 													data-v-7b67a23d="" data-v-9e98616a="" class="subcontent">
 														(50,000원 이상 무료배송) </span>
 											</span>
@@ -374,13 +374,13 @@
 						<!-- 작품 옵션 선택 -->
 						<div data-v-1c074f7f="">
 							<div data-v-1c074f7f="" class="vue-curtain"></div>
-							<form data-v-1c074f7f="" id="buyScrollable"
-								class="checkout_product Scrollable">
+							<form data-v-1c074f7f="" id="buyScrollable" class="checkout_product Scrollable" onsubmit="return false">
 								<div data-v-1c074f7f="" class="mobile-layer">
 									<button data-v-1c074f7f="" type="button"
 										class="mobile-show mobile-ui-close">
 										<i data-v-1c074f7f="" class="idus-icon-arrow-down"></i>
 									</button>
+									
 									<button data-v-1c074f7f="" type="button"
 										class="ui_btn select_group_trigger">
 										옵션 선택 <i data-v-1c074f7f="" class="idus-icon-arrow-down"></i>
@@ -394,41 +394,43 @@
 												<i data-v-1c074f7f="" class="idus-icon-close"></i>
 											</button>
 										</div>
-										<div data-v-1c074f7f="" class="select_group__body">
 											<!---->
-											<ol data-v-1c074f7f=""
-												class="select_group__parent_list active">
-												<li data-v-1c074f7f=""><span data-v-1c074f7f="">1.
-														수제청 용량선택</span> <span data-v-1c074f7f="" class="align_right">
+												<div>
+												<!-- 작품의 옵션 대분류 -->
+													<select name='product_category' id="${option1.goods_op1_name}">
+														<option value='' selected>-- ${option1.goods_op1_name} 선택 --</option>
+														<c:forEach var="subOption" items="${option1}">
+															<c:forEach var="i" begin="0" end="${subOption.goods_op1_value.length}"></c:forEach>
+															<option value="">${subOption.goods_op1_value[i]} (+${subOption.goods_op1_price[i]})</option>
+														</c:forEach>
+													</select>
+												</div>	
 
-												</span> <i data-v-1c074f7f="" class="icon idus-icon-arrow up"></i></li>
-												<div data-v-1c074f7f="" class="bottom-border full"></div>
-												
-												<!-- 작품의 옵션 리스트 -->
-												<ul data-v-1c074f7f=""
-													class="select_group__child_list active">
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">레몬청
-															500g 1개</span> <!----></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">레몬청
-															1000g 1개</span> <span data-v-1c074f7f="">(+12,000원)</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">레몬청
-															500g 1개(선물포장)</span> <span data-v-1c074f7f="">(+1,500원)</span></li>
-													<li data-v-1c074f7f=""><span data-v-1c074f7f="">레몬청
-															1000g 1개(선물포장)</span> <span data-v-1c074f7f="">(+13,500원)</span></li>
-												</ul>
-											</ol>
-											<ol data-v-1c074f7f="" class="select_group__parent_list">
+													<!-- <li data-v-1c074f7f="">
+														<span data-v-1c074f7f="">1. 수제청 용량선택</span>
+														<span data-v-1c074f7f="" class="align_right"></span>
+														<i data-v-1c074f7f="" class="icon idus-icon-arrow up"></i>
+													</li>
+													<div data-v-1c074f7f="" class="bottom-border full"></div> -->
+													
+													<!-- 작품의 옵션 소분류 -->
+													<!-- <ul data-v-1c074f7f="" class="select_group__child_list active">
+														<li data-v-1c074f7f="">
+															<span data-v-1c074f7f="">레몬청 500g 1개</span>
+														</li>
+													</ul> -->
+											<!-- <ol data-v-1c074f7f="" class="select_group__parent_list">
 												<li data-v-1c074f7f=""><span data-v-1c074f7f="">2.
 														⛔배송날짜동의필수⛔</span> <span data-v-1c074f7f="" class="align_right">
 
 												</span> <i data-v-1c074f7f="" class="icon idus-icon-arrow down"></i></li>
 												<div data-v-1c074f7f="" class="bottom-border"></div>
-												<!---->
-											</ol>
-										</div>
+												
+											</ol> -->
 										<button data-v-1c074f7f="" type="button"
 											class="ui_btn--large select_group__close">옵션 선택 닫기</button>
 									</div>
+									
 									<div data-v-1c074f7f="" class="selected_options">
 										<!---->
 									</div>
@@ -586,40 +588,17 @@
 							안전식품입니다.</p>
 					</div>
 
-					<p style="word-break: break-all" class="para">
-						${goods.goods_info}</p>
-
-					<div class="hashtag-box">
-						<div class="center-txt">
-							<span class="txt">Category &amp; Keyword</span> <a
-								class="txt-strong" href="cate_goods.do"> 농축수산물 </a>
-						</div>
-						<div class="listwrap">
-							<ul>
-								<li><a href="product_search.do">#밤조림</a></li>
-								<li><a
-									href="/search?word=부모님선물&keyword_channel=pdp_keyword">#부모님선물</a></li>
-								<li><a
-									href="/search?word=임산부아이간식&keyword_channel=pdp_keyword">#임산부아이간식</a></li>
-								<li><a href="/search?word=부여밤&keyword_channel=pdp_keyword">#부여밤</a></li>
-								<li><a href="/search?word=알밤&keyword_channel=pdp_keyword">#알밤</a></li>
-								<li><a href="/search?word=깐밤&keyword_channel=pdp_keyword">#깐밤</a></li>
-								<li><a href="/search?word=군밤&keyword_channel=pdp_keyword">#군밤</a></li>
-								<li><a href="/search?word=맛있는밤&keyword_channel=pdp_keyword">#맛있는밤</a></li>
-								<li><a
-									href="/search?word=선물용깐밤&keyword_channel=pdp_keyword">#선물용깐밤</a></li>
-								<li><a href="/search?word=깐은행&keyword_channel=pdp_keyword">#깐은행</a></li>
-							</ul>
-						</div>
-					</div>
+					<p style="word-break: break-all" class="para">${goods.goods_info}</p>
 
 					<div class="tab-style" data-ui="toggle-tab">
 						<div class="split">
-							<div class="tab" data-ui-id="info-prd">
-								<span>작품 정보제공 고시</span> <i class="icon idus-icon-arrow down"></i>
+							<div class="tab" data-ui-id="info-prd" id="info-prd">
+								<span>작품 정보제공 고시</span>
+								<button class="idwith-icon-arrow" id="info-prd-btn">
+									<i class="icon idus-icon-arrow down"></i>
+								</button>
 							</div>
-							<table class="table-style column" data-ui="tab-panel"
-								data-panel-id="info-prd">
+							<table class="table-style column" data-ui="tab-panel" data-panel-id="info-prd" id="info-prd-tab" style="display: none">
 								<colgroup>
 									<col width="30%">
 									<col width="*">
@@ -657,11 +636,14 @@
 							</table>
 						</div>
 						<div class="split">
-							<div class="tab" data-ui-id="info-artist">
-								<span>판매 작가 정보</span> <i class="icon idus-icon-arrow down"></i>
+							<div class="tab" data-ui-id="info-artist" id="info-artist">
+								<span>판매 작가 정보</span>
+								<button class="idwith-icon-arrow" id="info-artist-btn">
+									<i class="icon idus-icon-arrow down"></i>
+								</button>
 							</div>
 							<table class="table-style column" data-ui="tab-panel"
-								data-panel-id="info-artist">
+								data-panel-id="info-artist" id="info-artist-tab" style="display: none">
 								<colgroup>
 									<col width="30%">
 									<col width="*">
@@ -690,7 +672,10 @@
 						<div id="prd-enquiries" class="split" data-scroll="hashChecker">
 							<div class="title-style-dropdown tab active prd-detail-section"
 								data-ui-id="info-delivery">
-								<span>배송 / 교환 / 환불</span> <i class="icon idus-icon-arrow down"></i>
+								<span>배송 / 교환 / 환불</span>
+								<button class="idwith-icon-arrow">
+									<i class="icon idus-icon-arrow down"></i>
+								</button>
 							</div>
 							<table class="table-style column active" data-ui="tab-panel"
 								data-panel-id="info-delivery">
@@ -703,7 +688,7 @@
 										<th>배송비</th>
 										<td>
 											<ul class="inner">
-												<li>기본료 : <em class="hilight blue">2,900원</em>
+												<li>기본료 : <em class="hilight blue">${goods.goods_delivery_fee}</em>
 												</li>
 												<li>배송비 무료 조건 : <em class="hilight blue">50,000원</em> <em
 													class="txt-dim">제주, 도서산간일 경우 기본료만 무료가 됩니다.</em>
@@ -742,46 +727,48 @@
 					data-scroll="hashChecker">
 					<div class="title-style-sub" style="margin-bottom: 0;">
 						<h3 class="txt">구매후기(37)</h3>
-						<a class="to-right btn btn-xs btn-white" href="review_detail.do"
+						<a class="to-right btn btn-xs btn-white" href="review_detail.do?goods_code=${goods.goods_code}"
 							data-modal-trigger="modal-link" data-modal-id="modal-review"
 							data-modal-type="post">구매후기 작성하기</a>
 					</div>
 					<ul data-v-2e5d0212>
-						<li data-v-a301bac8="" data-v-2e5d0212="" class="review"><a
-							data-v-a301bac8="" href="review_detail.do">
-								<div data-v-a301bac8="" class="review-header">
-									<div data-v-a301bac8="" class="reviewer-info">
-										<div data-v-a301bac8="" class="reviewer-thumbnail"
-											style="background-image: url(resources/images/detail/artist01.PNG);"></div>
-										<div data-v-a301bac8="" class="reviewer-detail-info">
-											<span data-v-a301bac8="" class="reviewer-name">이보라</span> <span
-												data-v-a301bac8="" class="review-date">2021년 06월 10일</span>
+						<c:forEach var="review" items="${goodsReviewList}">
+							<li data-v-a301bac8="" data-v-2e5d0212="" class="review">
+								<a data-v-a301bac8="" href="review_detail.do">
+									<div data-v-a301bac8="" class="review-header">
+										<div data-v-a301bac8="" class="reviewer-info">
+											<div data-v-a301bac8="" class="reviewer-thumbnail"
+												style="background-image: url(resources/images/detail/artist01.PNG);"></div>
+											<div data-v-a301bac8="" class="reviewer-detail-info">
+												<span data-v-a301bac8="" class="reviewer-name">${review.goods_review_id}</span> <span
+													data-v-a301bac8="" class="review-date">${review.goods_review_date}</span>
+											</div>
+										</div>
+										<div data-v-a301bac8="" class="review-rate">
+											<span data-v-ef94db98="" data-v-a301bac8="" data-value="5"
+												class="ui_rating fr"> <i data-v-ef94db98=""
+												data-state="active" class="ui_icon--star idus-icon-star-fill"
+												style="font-size: 12px;"></i> <i data-v-ef94db98=""
+												data-state="active" class="ui_icon--star idus-icon-star-fill"
+												style="font-size: 12px;"></i> <i data-v-ef94db98=""
+												data-state="active" class="ui_icon--star idus-icon-star-fill"
+												style="font-size: 12px;"></i> <i data-v-ef94db98=""
+												data-state="active" class="ui_icon--star idus-icon-star-fill"
+												style="font-size: 12px;"></i> <i data-v-ef94db98=""
+												data-state="active" class="ui_icon--star idus-icon-star-fill"
+												style="font-size: 12px;"></i>
+											</span>
 										</div>
 									</div>
-									<div data-v-a301bac8="" class="review-rate">
-										<span data-v-ef94db98="" data-v-a301bac8="" data-value="5"
-											class="ui_rating fr"> <i data-v-ef94db98=""
-											data-state="active" class="ui_icon--star idus-icon-star-fill"
-											style="font-size: 12px;"></i> <i data-v-ef94db98=""
-											data-state="active" class="ui_icon--star idus-icon-star-fill"
-											style="font-size: 12px;"></i> <i data-v-ef94db98=""
-											data-state="active" class="ui_icon--star idus-icon-star-fill"
-											style="font-size: 12px;"></i> <i data-v-ef94db98=""
-											data-state="active" class="ui_icon--star idus-icon-star-fill"
-											style="font-size: 12px;"></i> <i data-v-ef94db98=""
-											data-state="active" class="ui_icon--star idus-icon-star-fill"
-											style="font-size: 12px;"></i>
-										</span>
+									<div data-v-a301bac8="" class="review-body">
+										<div data-v-a301bac8="" class="review-contents">${review.goods_review_context}</div>
 									</div>
-								</div>
-								<div data-v-a301bac8="" class="review-body">
-									<div data-v-a301bac8="" class="review-contents">애들이 생밤을
-										좋아해서 사봤는데 달고맛있어요</div>
-								</div>
-								<p data-v-a301bac8="" class="review-option">
-									<strong data-v-a301bac8="">구매 작품</strong> : 깐밤,은행: 깐밤 500g
-								</p>
-						</a></li>
+									<p data-v-a301bac8="" class="review-option">
+										<strong data-v-a301bac8="">구매 작품</strong> : <!-- 작품선택 -->
+									</p>
+								</a>
+							</li>
+						</c:forEach>
 						<nav data-v-450a0b42="" data-v-2e5d0212="">
 							<!---->
 							<button data-v-450a0b42="" type="button" class="active">1</button>
@@ -796,63 +783,7 @@
 					<div data-vue="ReviewList"></div>
 				</section>
 
-				<!-- 댓글 -->
-				<section id="prd-comments" class="prd-detail-section comment-ui"
-					data-scroll="hashChecker">
-					<div class="title-style-sub">
-						<h3 class="txt">댓글</h3>
-						<a
-							href="/w/product/d1e300b8-c0c7-48bd-803f-dfed5543954a/comment?before="
-							class="to-right hilight blue" data-ui="comment-load">댓글 더보기</a>
-					</div>
-
-
-					<div class="banner-empty smaller hide">
-						<div class="banner-icon">
-							<i class="idus-icon-message"></i>
-						</div>
-						<p class="txt">행운의 첫 댓글을 남겨보세요.</p>
-					</div>
-					<ul class="comment-list" data-ui="comment-list">
-						<li class="comment-item"><input name="uuid" type="hidden"
-							value="7fc0b890-3366-4b19-9367-e2696f7418bf"> <input
-							name="time_stamp" type="hidden" value="1592960344000">
-							<div class="img-bg"
-								style="background-image: url(resources/images/detail/artist01.PNG);"></div>
-							<div class="area-txt">
-								<span>조상미</span>
-								<p class="txt">나중 도착한 500g도 도착하자마자 순삭 수고하셨습니다 1kg 또 주문합니다</p>
-							</div></li>
-						<li class="comment-item"><input name="uuid" type="hidden"
-							value="8a2bccb8-5bcd-49ef-a2b7-6d96c4f659cf"> <input
-							name="time_stamp" type="hidden" value="1594726057000">
-							<div class="img-bg"
-								style="background-image: url(resources/images/detail/artist01.PNG);"></div>
-							<div class="area-txt">
-								<span>람람</span>
-								<p class="txt">혹시 냉동해두고 실온에 녹여서 생으로 먹어도 되나용?</p>
-							</div></li>
-					</ul>
-
-					<form
-						action="/w/product/d1e300b8-c0c7-48bd-803f-dfed5543954a/comment"
-						class="area-form with-profile" data-ui="comment-form"
-						aria-label="댓글남기기">
-						<div class="inner">
-							<div class="img-bg" style="background-image: url()"></div>
-							<i class="idus-icon-mypage comment-icon" style="font-size: 32px;"></i>
-							<label class="input-text" for="add_comment"
-								aria-label="add_comment"> <input type="text"
-								id="add_comment" name="comment" class="input-text"
-								placeholder="댓글을 남겨주세요" autocomplete="off"
-								aria-labelledby="add_comment">
-							</label>
-							<button type="submit" class="btn btn-s btn-point">등록</button>
-						</div>
-					</form>
-					<!-- 기획전 배너 -->
-					<div data-vue="detail_showroom_banner"></div>
-				</section>
+				
 			</div>
 
 			<!-- 작가 정보 -->

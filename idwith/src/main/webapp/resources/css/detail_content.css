@@ -1,6 +1,6 @@
 @import url(common.css);
 
-/* °øÅë */
+/* ï¿½ï¿½ï¿½ï¿½ */
 .inner-w, .inner-w400, .inner-w800 {
     width: 1056px;
     margin: 0 auto;
@@ -168,7 +168,7 @@ label {
 }
 /* ==============================================================================================*/
 
-/* ¸Ç À­ºÎºÐ css*/
+/* ï¿½ï¿½ ï¿½ï¿½ï¿½Îºï¿½ css*/
 .prd-detail-section#img-section {
     padding: 36px 0;
 }
@@ -197,7 +197,7 @@ label {
 }
 
 
-/* ÀÌ¹ÌÁö ºÎºÐ ÀüÃ¼ css*/
+/* ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½Ã¼ css*/
 .image-preview.ui-slider, .image-preview.ui-slider-fullbtn {
     position: relative;
 }
@@ -206,7 +206,7 @@ label {
     position: relative;
 }
 
-/* Å« ÀÌ¹ÌÁö css */
+/* Å« ï¿½Ì¹ï¿½ï¿½ï¿½ css */
 .ui-slider .outer-frame, .ui-slider-fullbtn .outer-frame {
     overflow: hidden;
 }
@@ -250,7 +250,7 @@ label {
     padding-bottom: 100%;
 }
 
-/* ÀÛÀº ÀÌ¹ÌÁö css */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ css */
 .image-preview.ui-slider .ui-control, .image-preview.ui-slider-fullbtn .ui-control {
     margin-top: 0;
     display: block;
@@ -311,7 +311,7 @@ label {
 
 
 
-/* ÀÌ¹ÌÁö ÀÌÀü, ´ÙÀ½ ¹öÆ° css */
+/* ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° css */
 .image-preview.ui-slider .ui-control .ui-btn.prev, .image-preview.ui-slider-fullbtn .ui-control .ui-btn.prev {
     left: 0;
 }
@@ -390,7 +390,7 @@ label {
     content: "\f105";
 }
 
-/* ¿À¸¥ÂÊ content css*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ content css*/
 .sticky_aside.product_detail {
     padding: 0 !important;
     -webkit-box-shadow: none !important;
@@ -678,7 +678,7 @@ label {
     margin-left: 5px;
 }
 
-/* ¸¶¿ì½º ¿Ã¸®¸é ¾Ë¸²Ã¢ ¶ß´Â css ============================ */
+/* ï¿½ï¿½ï¿½ì½º ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½Ã¢ ï¿½ß´ï¿½ css ============================ */
 .data-row:hover .balloon__content[data-v-9e98616a]{
 	display: block;
 	width: 220px;
@@ -818,11 +818,11 @@ label {
     margin-right: 4px;
 }
 
-/* ÀÛÇ° Ãß°¡ Á¤º¸ */
+/* ï¿½ï¿½Ç° ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 
 /* ================================================================================*/
 
-/* ·ÎµùÈ­¸é ÇöÀç ¾Èº¸ÀÓ */
+/* ï¿½Îµï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½ï¿½ */
 .vue-curtain[data-v-1c074f7f] {
     left: 0;
     top: 0;
@@ -840,7 +840,7 @@ label {
     z-index: 1000;
 }
 
-/* ¿É¼Ç */
+/* ï¿½É¼ï¿½ */
 .checkout_product[data-v-1c074f7f] {
     margin-top: 16px;
     position: relative;
@@ -1420,7 +1420,7 @@ dl {
     line-height: 1.4;
 }
 
-/* ÀÛ°¡¹®ÀÇ ÀÌ¹ÌÁö css */
+/* ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ css */
 .artist-inquire-float-btn {
     position: fixed;
     bottom: 30px;
@@ -1469,7 +1469,7 @@ dl {
     transition: all 0.3s ease;
 }
 
-/* »ó¼¼ ³»¿ë css */
+/* ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ css */
 .delivery-graph-box[data-v-98dfbe4e] {
     padding: 24px;
     margin-bottom: 24px;
@@ -1549,7 +1549,7 @@ dl {
     flex-shrink: 0;
 }
 
-/* ±×·¡ÇÁ È°¼ºÈ­ */
+/* ï¿½×·ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ */
 .graph-line-box .content-text.red[data-v-491c69d6] {
     color: #ff7b30;
     font-weight: bold;
@@ -2175,7 +2175,7 @@ nav button i[data-v-450a0b42] {
     font-size: 12px;
 }
 
-/* ÀÛ°¡ÀÇ ´Ù¸¥ ÀÛÇ° */
+/* ï¿½Û°ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½Ç° */
 .banner-artist {
     vertical-align: middle;
     padding: 64px 0;
@@ -2367,7 +2367,7 @@ nav button i[data-v-450a0b42] {
     clear: both;
 }
 
-/* ÀÛ°¡ */
+/* ï¿½Û°ï¿½ */
 .quick-profile[data-v-2618eab2] {
     background-color: #ffffff;
     margin: 0 auto;
@@ -2951,4 +2951,8 @@ button i[data-v-b534333e] {
     vertical-align: middle;
     padding: 64px 0;
     margin-top: 48px;
+}
+
+.idwith-icon-arrow {
+	display: flex;
 }

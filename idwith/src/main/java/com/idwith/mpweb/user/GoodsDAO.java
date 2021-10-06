@@ -28,4 +28,17 @@ public class GoodsDAO {
 		return sqlSessionTemplate.selectList("MyPageDAO.getReviewList");
 	}
 
+	public List<GoodsReviewVO> getGoodsReviewList(String goods_review_code) {
+		System.out.println("리뷰가져오기 DAO실행");
+		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsReviewList", goods_review_code);
+	}
+
+	public GoodsReviewVO getReviewListDetail(String goods_code) {
+		return (GoodsReviewVO) sqlSessionTemplate.selectList("GoodsDAO.getDetailReviewList", goods_code);
+	}
+	
+	public List<GoodsVO> getGoodsOptionList(String goods_code) {
+		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsOptionList", goods_code);
+	}
+
 }

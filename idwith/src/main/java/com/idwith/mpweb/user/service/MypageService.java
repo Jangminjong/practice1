@@ -17,10 +17,7 @@ public interface MypageService {
 	
 	void updateUserInfo(UserVO vo);
 
-
 	void updateAddress(UserAddressVO vo);
-
-	void updateAddress(UserVO vo);
 	
 	List<GoodsOrderDetailVO> getReviewBeforeList(String order_id);
 	
