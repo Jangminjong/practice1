@@ -17,6 +17,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.board.EventBoardVO" alias="eventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.board.UserMessageVO" alias="msgVO"/>
  		<typeAlias type="com.idwith.mpweb.user.UserSellerVO" alias="userSellerVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.ChoiceVO" alias="choiceVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.FollowVO" alias="followVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.classUser.ClassVO" alias="classVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.classUser.ClassCategoryVO" alias="classCategoryVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminQnABoardVO" alias="adminQnA"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminEventBoardVO" alias="adminEventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.WatingVO" alias="watingVO"/>
@@ -36,6 +40,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/user/category/goodsCategory-mapping.xml" />
  		<mapper resource="mappings/user/category/goods-mapping.xml" />
  		<mapper resource="mappings/user/mypage/goodsReview-mapping.xml" />
+ 		<mapper resource="mappings/user/choice/choice-mapping.xml" />
  		<mapper resource="mappings/user/order/goodsOrderDetail-mapping.xml" />
  		<mapper resource="mappings/user/board/qnaBoard-mapping.xml" />
  		<mapper resource="mappings/user/board/eventBoard-mapping.xml" />
@@ -47,6 +52,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/user/board/sellerCheck-mapping.xml" />
  		<mapper resource="mappings/user/board/myPage-mapping.xml"/>
  		<mapper resource="mappings/user/board/userCategory-mapping.xml"/>
+ 		<mapper resource="mappings/user/class/classOpen-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminBoard-mapping.xml"/>
  		<mapper resource="mappings/admin/board/sellerEnrollment-mapping.xml"/>
  		<mapper resource="mappings/admin/board/adminNoticeBoard-mapping.xml"/>
