@@ -485,8 +485,3 @@ b {
     list-style:none;
 }
 
-.side_nav__submenu a{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
