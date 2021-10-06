@@ -2367,11 +2367,14 @@ var TextInt = 1;
 var TextInput = "Textinput";
 function inputTextAdd(){
     TextInt += 1;
-    var inputClone = $(".opt1 input:first-child").clone().prop('id',TextInput+TextInt);
-    var buttonClone = $(".opt1 button:last-child").clone();
-    $(".option-group").append(inputClone);
-    $(".option-group").append(buttonclone);
-  }
+    var inputClone = $(".col-4 div:first-child").clone(true); //.prop('id',TextInput+TextInt)
+    var labelClone = $(".col-4 div:last-child").clone(true);
+	$(".opt-group").append('<div id='+TextInput+TextInt+'></div>');
+	$("#"+TextInput+TextInt).append(inputClone);
+    $("#"+TextInput+TextInt).append(labelClone);
+	$("#"+TextInput+TextInt).css({'display':'flex'});
+
+}
 
 function uploadText(){
 

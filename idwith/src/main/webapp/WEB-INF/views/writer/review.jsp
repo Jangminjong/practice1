@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -195,67 +197,81 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>제목</th>
+                                        <th>리뷰코드</th>
                                         <th>아이디</th>
-                                        <th>구매 물품</th>
+                                        <th>주문 작품</th>
                                         <th>작성날짜</th>
                                         <th>평점</th>
-                                        <th>Commments</th>
+                                        <th>답변유무</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                
+                                <c:forEach var="writerReview" items="${writerReviewViewAll}">
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <th>
-                                            <a href="reviewContent.wdo">Content</a>
-                                        </th>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td><span class="badge bg-teal">Commments</span></td>
+                                        <th scope="row">${writerReview.goods_review_rownum}</th> 
+                                        <td>
+                                          <a href="reviewContent.wdo?goods_review_seq=${writerReview.goods_review_seq}" > ${writerReview.goods_review_code}</a>
+                                        </td>
+                                        <td>${writerReview.goods_review_id}</td>
+                                        <td>${writerReview.goods_review_product}</td>
+                                        <td><fmt:formatDate value="${writerReview.goods_review_date}" pattern="yyyy.MM.dd"/></td>
+                                        <td>${writerReview.goods_review_point}</td>
+                                        <td><span class="badge bg-teal">답변 전</span></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td><span class="badge bg-light-green">No Commments</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td><span class="badge bg-teal">Commments</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td><span class="badge bg-teal">Commments</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td><span class="badge bg-teal">Commments</span></td>
-                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+                
+                	<!-- 페이징 처리 -->
+					  	<div class="paging container-fluid" data-ui="paging" data-sync="false">
+							<nav style="float:center; " aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+									<c:choose>
+										<c:when test="${paging.nowPage eq 1 }">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Previous</span></li>
+										</c:when>
+										<c:when test="${paging.nowPage ne 1 }">
+											<li class="page-item"><a
+												href="/mpweb/review.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Previous</a></li>
+										</c:when>
+									</c:choose>
+									<c:forEach begin="${paging.startPage }"
+										end="${paging.endPage }" var="p">
+										<c:choose>
+											<c:when test="${p eq paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/review.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													onclick="return false" class="page-link">${p }</a></li>
+											</c:when>
+											<c:when test="${p ne paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/review.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													class="page-link">${p }</a></li>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${paging.endPage eq paging.lastPage}">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Next</span></li>
+										</c:when>
+										<c:when test="${paging.endPage ne paging.lastPage}">
+											<li class="page-item"><a
+												href="/mpweb/review.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+												style="width: auto;" class="page-link">Next</a></li>
+										</c:when>
+									</c:choose>
+								</ul>
+							</nav>
+						</div> 
+						
+						<!-- 페이징 처리 끝 -->
             </div>
 
         

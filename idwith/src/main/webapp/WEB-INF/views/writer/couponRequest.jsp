@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -188,7 +190,6 @@
                 <button class="btn btn-warning">요청하기</button>
             </a>
         </div>
-
         <div class="container-fluid">
 
             <div class="row clearfix">
@@ -201,47 +202,92 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>제목</th>
-                                        <th>작성자</th>
+                                        <th>발급대상</th>
                                         <th>요청날짜</th>
                                         <th>진행 상황</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  <c:forEach var="writerCoupon" items="${writerCouponViewAll}">
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <th scope="row">${writerCoupon.rownum}</th>  
                                         <td>
-                                            <a href="coupon.wdo">추석 할인 쿠폰발행</a>
+                                            <a href="coupon.wdo?request_cp_seq=${writerCoupon.request_cp_seq}">${writerCoupon.request_cp_name}</a>
                                         </td>
-                                        <td>Seller01</td>
-                                        <td>2021-09-16</td>
-                                        <td><span class="badge bg-blue">발행 요청중</span></td>
+                                        <td>${writerCoupon.request_cp_target}</td>
+                                        <td><fmt:formatDate value="${writerCoupon.request_cp_date}" pattern="yyyy.MM.dd"/></td>
+                                        <c:choose>
+													<c:when test="${ writerCoupon.request_cp_state eq 0 }">
+															<c:if test="${ writerCoupon.request_cp_state eq 0 }">
+																<td><span class="badge bg-blue">발행 요청</span></td>
+															</c:if>
+															<c:if test="${ writerCoupon.request_cp_state eq 1 }">
+																<td><span class="badge bg-green">발행 처리중</span></td>
+															</c:if>
+															<c:if test="${ writerCoupon.request_cp_state eq 2 }">
+																<td><span class="badge bg-green">배포 거절</span></td>
+															</c:if>
+															<c:if test="${ writerCoupon.request_cp_state eq 3 }">
+																<td><span class="badge bg-red">배포 완료</span></td>
+															</c:if>
+													</c:when>																									
+									   </c:choose>
+                                      <!--   <td><span class="badge bg-blue">발행 요청중</span></td> -->
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>쿠폰발행</td>
-                                        <td>Seller01</td>
-                                        <td>2021-09-15</td>
-                                        <td><span class="badge bg-pink">발행 완료</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>1주년 쿠폰발행</td>
-                                        <td>Seller01</td>
-                                        <td>2021-08-31</td>
-                                        <td><span class="badge bg-blue">발행 요청중</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>쿠폰발행 요청</td>
-                                        <td>Seller01</td>
-                                        <td>2021-08-01</td>
-                                        <td><span class="badge bg-blue">발행 요청중</span></td>
-                                    </tr>                                
+                                    </c:forEach>
+                                             
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+                
+                	<!-- 페이징 처리 -->
+					  	<div class="paging container-fluid" data-ui="paging" data-sync="false" >
+							<nav style="float:center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+									<c:choose>
+										<c:when test="${paging.nowPage eq 1 }">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Previous</span></li>
+										</c:when>
+										<c:when test="${paging.nowPage ne 1 }">
+											<li class="page-item"><a
+												href="/mpweb/couponRequest.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Previous</a></li>
+										</c:when>
+									</c:choose>
+									<c:forEach begin="${paging.startPage }"
+										end="${paging.endPage }" var="p">
+										<c:choose>
+											<c:when test="${p eq paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/couponRequest.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													onclick="return false" class="page-link">${p }</a></li>
+											</c:when>
+											<c:when test="${p ne paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/couponRequest.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													class="page-link">${p }</a></li>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${paging.endPage eq paging.lastPage}">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Next</span></li>
+										</c:when>
+										<c:when test="${paging.endPage ne paging.lastPage}">
+											<li class="page-item"><a
+												href="/mpweb/couponRequest.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+												style="width: auto;" class="page-link">Next</a></li>
+										</c:when>
+									</c:choose>
+								</ul>
+							</nav>
+						</div> 
+						
+						<!-- 페이징 처리 끝 -->
             </div>
         </div>
         

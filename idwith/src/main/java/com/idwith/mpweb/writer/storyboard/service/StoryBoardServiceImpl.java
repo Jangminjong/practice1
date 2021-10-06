@@ -30,11 +30,7 @@ public class StoryBoardServiceImpl implements StoryBoardService {
 		return storyBoardDAO.getStoryList(pageVO);
 	}
 
-	@Override
-	public int countStoryBoard() {
-		return storyBoardDAO.countStoryBoard();
-	}
-
+	
 	// 글 상세보기
 	@Override
 	public StoryBoardVO storyModify(String storyboard) {
@@ -58,6 +54,12 @@ public class StoryBoardServiceImpl implements StoryBoardService {
 		storyBoardDAO.deleteStoryBoard(storyBoard);
 		
 	}
+	
+	@Override
+	public int countStoryBoard() {
+		return storyBoardDAO.countStoryBoard();
+	}
+
 
 	
 }

@@ -162,7 +162,7 @@
 				</div>
 			</div>
 		</div>
-								<div class="card" style="height: 400px;">
+								<div class="card" style="height: 500px;">
 						<div class="card-body container-fluid p-0">
 							<form id="form-storyModify-writer" name="storyModifyForm" action="updateStoryBoard.wdo" method="post">
 								<input type="hidden" name="story_tseq" value="${storyBoard.story_tseq}" />
@@ -178,7 +178,7 @@
 									<input
 										type="text" class="form-control" 
 										name="storyBoardRegDate" value="${storyBoard.storyBoardRegDate}"
-										style="width: auto;">
+										style="width: auto;" >
 								</div>
 								
 								<div class="mb-3">

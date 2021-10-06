@@ -241,57 +241,51 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form>
-                                    <div class="mb-3">
-                                        <label class="form-label">제목</label>
-                                        <input type="text" class="form-control" placeholder="Title" style="width: auto;"
-                                            disabled>
-                                    </div>
+                                <form id="form-reviewContent-writer" name="reviewContentForm" action="updateReview.wdo" method="post">
+                                  <div class="content" style=display:inline-flex>                             
                                     <div class="mb-3">
                                         <label class="form-label">아이디</label>
-                                        <input type="text" class="form-control" placeholder="ID" style="width: auto;"
+                                        <input type="text" class="form-control" name="goods_review_id" placeholder="${writerReview.goods_review_id}" style="width: auto;"
                                             disabled>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-3" style=margin-left:50px>
+                                        <label class="form-label">평점</label>
+                                        <input type="text" class="form-control" name="goods_review_point" placeholder="${writerReview.goods_review_point}"
+                                            style="width: auto;" disabled>
+                                    </div>
+                                    
+                                    <div class="mb-3" style=margin-left:50px>
                                         <label class="form-label">작성일</label>
-                                        <input type="text" class="form-control" placeholder="Date" style="width: auto;"
+                                        <input type="text" class="form-control" name="goods_review_date" placeholder="${writerReview.goods_review_date}" style="width: auto;"
                                             disabled>
                                     </div>
+                                 </div>
                                     <div class="mb-3">
                                         <label class="form-label">구매 내역</label>
-                                        <input type="text" class="form-control" placeholder="Purchase details."
+                                        <input type="text" class="form-control" name="goodS_review_product" placeholder="${writerReview.goods_review_product}"
+                                            style="width: 350px;" disabled>
+                                    </div>
+                                    
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">옵션1</label>
+                                        <input type="text" class="form-control" name="goods_review_option1" placeholder="${writerReview.goods_review_option1}"
+                                            style="width: 350px;" disabled>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">옵션2</label>
+                                        <input type="text" class="form-control" name="goods-review_option2" placeholder="${writerReview.goods_review_option2}"
+                                            style="width: 350px;" disabled>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">옵션3</label>
+                                        <input type="text" class="form-control" name="goods_review_option3" placeholder="${writerReview.goods_review_option3}"
                                             style="width: 350px;" disabled>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">평점</label>
-                                        <input type="text" class="form-control" placeholder="Purchase details."
-                                            style="width: auto;" disabled>
-                                    </div>
-
-                                    <div class="mb-3" disabled>
-                                        <label class="form-label">평점</label>
-                                        <div class="star-rating space-x-4 mx-auto">
-                                            <input type="radio" id="5-stars" name="rating" value="5"
-                                                v-model="ratings" />
-                                            <label for="5-stars" class="star pr-4">★</label>
-                                            <input type="radio" id="4-stars" name="rating" value="4"
-                                                v-model="ratings" />
-                                            <label for="4-stars" class="star">★</label>
-                                            <input type="radio" id="3-stars" name="rating" value="3"
-                                                v-model="ratings" />
-                                            <label for="3-stars" class="star">★</label>
-                                            <input type="radio" id="2-stars" name="rating" value="2"
-                                                v-model="ratings" />
-                                            <label for="2-stars" class="star">★</label>
-                                            <input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-                                            <label for="1-star" class="star">★</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3">
                                         <label class="form-label">후기</label>
-                                        <input type="text" class="form-control" placeholder="review"
+                                        <input type="text" class="form-control" name="goods_review_context" placeholder="${writerReview.goods_review_context}"
                                             style="width: 600px; height: 150px; margin-bottom: 10px;" disabled>
                                     </div>
                                 </form>
@@ -308,13 +302,13 @@
                     </div>
                 </div>
 
-                <div class="card" style="width: 625px;">
+                  <div class="card" style="width: 625px;">
                     <div class="container-fluid p-0">
 					<div class="card-body" style="width: 500px;">
 						<form>
 							
 							<div class="mb-3">
-								<label class="form-label">Content</label>
+								<label class="form-label">Comment</label>
 								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
 							</div>
 						</form>
@@ -323,15 +317,15 @@
                     
 
                     <div class="col-md-2 text-center pull-right">
-                        <a href="../pages/Review.html">
-                            <button class="btn btn-primary" style="margin-bottom: 10px;">등록</button>
+                        <a href="review.wdo">
+                            <button class="btn btn-primary" style=margin-bottom:10px>등록</button>
                         </a>
                         </div>
 				</div>	                
             </div>
             <div class="col-md-2 text-center pull-right">
-                <a href="../pages/Review.html">
-                    <button class="btn btn-primary" style="margin-bottom: 10px;">목록보기</button>
+                <a href="review.wdo">
+                    <button class="btn btn-primary" style=margin-bottom:10px>목록보기</button>
                 </a>
             </div>
        </div>

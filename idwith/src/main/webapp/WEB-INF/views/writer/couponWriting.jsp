@@ -177,92 +177,111 @@
     </section>
 
 
-    
-    <section class="content">
-        <div class="container">
 
-        <div class="row">
-            
-
-                <div class="row mb-2 mb-xl-3">
-                    <div class="col-auto d-none d-sm-block">
-                        <h3>쿠폰 발행</h3>
-                    </div>
-                </div>
+	<section class="content">
+		<div class="row">
+			<div class="container-fluid p-0">
+				<div class="row mb-2 mb-xl-3">
+					<div class="col-auto d-none d-sm-block">
+						<h3>쿠폰 발행</h3>
+					</div>
+				</div>
 
 
-                    <div class="card-body" style="width: auto; height: 500px;">
+				<div class="card" style="height: 500px;">
+					<div class="card-body container-fluid p-0">
+						<form  id="form-writerCoupon" name="writerCoupon" action="insertCoupon.wdo">
+							<div>	
+								<label class="form-label">쿠폰 이름</label>
+  								<input type="text"
+									class="form-control" name="request_cp_name"
+									placeholder="${writerCoupon.request_cp_name}"
+									style="width: auto;">
+			   	            </div>
+					 	<div class="mb-3">
+								<label class="form-label" for="release">배포 대상</label> <input
+									type="text" class="form-control" list="list" id="release"
+									style="width: auto;" name="request_cp_target" placeholder="${writerCoupon.request_cp_target}" />
+								<datalist id="list">
+									<option>User All</option>
+									<option>팔로우한 사람</option>
+								</datalist>
+							</div> 
+							
+							<div class="mb-3" >
+								<label class="form-label">적용 조건</label> <input type="text"
+									class="form-control" name="request_cp_min_price"
+									placeholder="${writerCoupon.request_cp_min_price}"
+									style="width: auto;">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">쿠폰 할인금액</label> <input type="text"
+									class="form-control" name="request_cp_price"
+									placeholder="${writerCoupon.request_cp_price}"
+									style="width: auto;">
+							</div>
+							
 
-                        <form>
-                            
-                            <div class="mb-3">
-                                <label class="form-label">쿠폰 이름</label>
-                                <input type="text" class="form-control" placeholder="Coupon Name" style="width: auto;">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="release">배포 대상</label>
-                                <input type="text" class="form-control" list="list" id="release" style="width: auto;"
-                                    placeholder="user / seller" />
-                                <datalist id="list">
-                                    <option>User All</option>
-                                    <option>팔로우한 사람</option>
+							<div class="mb-3">
+								<label class="form-label">추가 요청사항</label> <input type="text"
+									class="form-control" name="request_cp_context"
+									placeholder="${writerCoupon.request_cp_context}"
+									style="width: 450px; height: 75px;">
+							</div>
+							
+						
+                     		 <div class="row">
+								<div class="col-md-3">
+									<label class="form-label">쿠폰사용 시작일</label> 
+									<input type="date"
+										class="form-control" placeholder="${writerCoupon.request_cp_start}" pattern="yyyy.MM.dd"
+										style="width: auto;"  name="request_cp_start">
+								</div>
+								<div class="col-md-3">
+									<label class="form-label">쿠폰사용 마감일</label> 
+									<input type="date"
+										class="form-control" placeholder="${writerCoupon.request_cp_end}" pattern="yyyy.MM.dd"
+										style="width: auto;"  name="request_cp_end">
+							   </div>
+							
+							</div>
+							<div class="col-md-2 text-center pull-right">
+						<a href="couponRequest.wdo">
+							<button class="btn btn-primary">등록</button>
+						</a>						
+					</div>
+					</form>
+					</div>
+					
+				</div>
+				</div>
+				
+			
 
-                                    
-                                </datalist>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">적용 조건</label>
-                                <input type="text" class="form-control" placeholder="최소 주문 금액" style="width: auto;">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">쿠폰 할인금액</label>
-                                <input type="text" class="form-control" placeholder="Coupon Price" style="width: auto;">
-                            </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">추가 요청사항</label>
-                                <input type="textarea" class="form-control" placeholder="Requested term" style="width: 450px; height: 75px;">
-                            </div>
 
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">쿠폰사용 시작일</label>
-                                    <input type="date" class="form-control" placeholder="Start Date"
-                                        style="width: auto;" id="cpStartDate">
-                                </div>
-                                <div class="col-md-3">
-                                    <label class="form-label">쿠폰사용 마감일</label>
-                                    <input type="date" class="form-control" placeholder="End Date" style="width: auto;"
-                                        id="cpEndDate">
-                                </div>
-                               
-                            </div>
-                        </form>
+			<div class="row">
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+				<div class="col-md-1 text-center"></div>
+           </div>
+			</div>
+       
+		
+	</section>
+	
 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center">
-                        <a href="couponRequest.wdo">
-                            <button class="btn btn-primary">등록</button>
-                        </a>
-                    </div>                    
-                </div>
-            </div>         
+	
+	
 
-    </section>
-
-    <!-- Jquery Core Js -->
+	<!-- Jquery Core Js -->
     <script src="resources/writer/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->

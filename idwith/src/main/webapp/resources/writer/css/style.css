@@ -8175,16 +8175,13 @@ html.ie11 .bs-searchbox .form-control {
   	margin-bottom : 20px;
   }
   
-  .option-group{
-   border : none;
-   margin-top : 5px;
-   margin-left : 10px;
-   
+  .opt-group{
+   border : 30px;
+   width : 300px; 
+   margin-bottom : 30px;
+
+
   }
-  
-  
-  
-  
-  
-  
+         
+ 
   
