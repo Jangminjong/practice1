@@ -17,13 +17,7 @@ import com.idwith.mpweb.user.service.GoodsService;
 public class ItemController {
 	@Autowired
 	private GoodsService goodsService;
-	
-	//클래스 상세보기
-	@GetMapping("/class_detail_content.do")
-	public String classDetailContent() {
-		return "class_detail_content";
-	}
-	
+
 	@GetMapping("/class_search.do")
 	public String classSearch() {
 		return "class_search";

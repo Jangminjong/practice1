@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.UserSellerVO;
 
 @Repository("classDAO")
 public class ClassDAO {
@@ -49,4 +50,12 @@ public class ClassDAO {
 		return sqlSessionTemplate.selectList("classDAO.getClassListForRegion",pageVO);
 	}
 
+	public ClassVO getClassContentAtUser(String class_open_class_code) {
+		return sqlSessionTemplate.selectOne("classDAO.getClassContentAtUser", class_open_class_code);
+	}
+
+	public List<ClassVO> getClassListForClassDetail(int seller_code) {
+		List<ClassVO> classList = sqlSessionTemplate.selectList("classDAO.getClassListForClassDetail",seller_code);
+		return classList;
+	}
 }

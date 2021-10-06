@@ -93,6 +93,24 @@
 		WHERE rownum BETWEEN #{start} AND #{end}
 	 ]]>
  	</select>
+ 	<!-- 클래스 상세페이지 정보 조회 -->
+ 	<select id="getClassContentAtUser" parameterType="string" resultMap="classResult">
+		SELECT class_open.*, class_category.class_category_name, class_times.time FROM class_open 
+			LEFT OUTER JOIN class_category ON class_open.class_open_category= class_category.class_category_code
+			LEFT OUTER JOIN(
+				SELECT (class_close_time - class_open_time) as time , class_open_class_code FROM class_open
+				)AS class_times 
+			ON class_open.class_open_class_code = class_times.class_open_class_code
+		WHERE class_open.class_open_class_code=#{class_open_class_code}
+ 	</select>
+ 	<select id="getClassListForClassDetail" parameterType="_int" resultMap="classResult">
+ 		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT class_open.*, class_category.class_category_name FROM class_open 
+				LEFT OUTER JOIN class_category 
+				ON class_open.class_open_category= class_category.class_category_code WHERE class_open.class_open_seller=#{seller_code})A)AS foo 
+		WHERE rownum BETWEEN 1 AND 4
+ 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

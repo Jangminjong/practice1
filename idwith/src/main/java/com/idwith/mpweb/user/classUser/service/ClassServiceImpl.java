@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.UserSellerVO;
+import com.idwith.mpweb.user.User_SellerDAO;
 import com.idwith.mpweb.user.classUser.ClassCategoryVO;
 import com.idwith.mpweb.user.classUser.ClassDAO;
 import com.idwith.mpweb.user.classUser.ClassVO;
@@ -16,6 +18,9 @@ public class ClassServiceImpl implements ClassService{
 
 	@Autowired
 	private ClassDAO dao;
+	
+	@Autowired
+	private User_SellerDAO sellerDao;
 	
 	@Override
 	public List<ClassVO> getPopularClassList() {
@@ -60,6 +65,21 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public List<ClassVO> getClassListForRegion(PagingVO pageVO) {
 		return dao.getClassListForRegion(pageVO);
+	}
+
+	@Override
+	public ClassVO getClassContentAtUser(String class_open_class_code) {
+		return dao.getClassContentAtUser(class_open_class_code);
+	}
+
+	@Override
+	public UserSellerVO getSellerInfoForClassDetail(int seller_code) {
+		return sellerDao.getSellerInfoForClassDetail(seller_code);
+	}
+
+	@Override
+	public List<ClassVO> getClassListForClassDetail(int seller_code) {
+		return dao.getClassListForClassDetail(seller_code);
 	}
 
 }

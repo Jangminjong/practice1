@@ -3,6 +3,7 @@ package com.idwith.mpweb.user.classUser.service;
 import java.util.List;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.UserSellerVO;
 import com.idwith.mpweb.user.classUser.ClassCategoryVO;
 import com.idwith.mpweb.user.classUser.ClassVO;
 
@@ -26,6 +27,12 @@ public interface ClassService {
 	int getClassCountForRegion(String region);
 
 	List<ClassVO> getClassListForRegion(PagingVO pageVO);
+
+	ClassVO getClassContentAtUser(String class_open_class_code);
+
+	UserSellerVO getSellerInfoForClassDetail(int seller_code);
+
+	List<ClassVO> getClassListForClassDetail(int seller_code);
 
 
 }

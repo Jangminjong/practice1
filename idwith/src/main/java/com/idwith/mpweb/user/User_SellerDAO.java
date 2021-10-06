@@ -85,4 +85,10 @@ public class User_SellerDAO {
 	public List<SellerStoryVO> getStoryList() {
 		return sqlSessionTemplate.selectList("SellerCheckDAO.getStoryListForIndex");
 	}
+
+	
+	// 클래스 상세페이지에서 사용하기 위해 작가 정보 조회
+	public UserSellerVO getSellerInfoForClassDetail(int seller_code) {
+		return sqlSessionTemplate.selectOne("SellerCheckDAO.getSellerInfo", seller_code);
+	}
 }
