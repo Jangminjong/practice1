@@ -16,7 +16,8 @@ public class GoodsDAO {
 	}
 	
 	public List<GoodsVO> getGoodsList(GoodsVO goodsVO){
-		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsVO);
+		List<GoodsVO> lists = sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsVO);
+		return lists;
 	}
 
 	public GoodsVO getGoodsContent(String goods_code) {

@@ -22,6 +22,7 @@
  		<result property="goods_op2_code" column="goods_op2_code"/>
  		<result property="goods_op3_code" column="goods_op3_code"/>
  		<result property="goods_seq" column="goods_seq"/>
+ 		<result property="rownum" column="rownum"/>
  		<result property="goods_apply_date" column="goods_apply_date"/>
  		<result property="goods_status" column="goods_status"/>
  		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
