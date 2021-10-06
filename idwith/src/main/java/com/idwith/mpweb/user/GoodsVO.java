@@ -21,7 +21,9 @@ public class GoodsVO {
 	int goods_seq;
 	Timestamp goods_apply_date;
 	int goods_status;
-	String goods_review_context;
+
+	String goods_review_context; // 작품 리뷰테이블 컬럼
+	String store_name; // 작가 테이블의 컬럼
 	int rownum;
 
 	public String getGoods_code() {
@@ -192,6 +194,13 @@ public class GoodsVO {
 	public void setGoods_review_context(String goods_review_context) {
 		this.goods_review_context = goods_review_context;
 	}
-	
 
+	public String getStore_name() {
+		return store_name;
+	}
+
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
+	}
+	
 }

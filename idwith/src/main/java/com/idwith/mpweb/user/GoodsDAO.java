@@ -23,4 +23,8 @@ public class GoodsDAO {
 		return sqlSessionTemplate.selectList("MyPageDAO.getReviewList");
 	}
 
+	public List<GoodsCategoryVO> getAllGoodsCategory() {
+		return sqlSessionTemplate.selectList("GoodsDAO.getAllGoodsCategory");
+	}
+
 }

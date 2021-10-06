@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.idwith.mpweb.user.GoodsCategoryVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.GoodsVO;
+import com.idwith.mpweb.user.SellerStoryVO;
 import com.idwith.mpweb.user.UserSellerVO;
 import com.idwith.mpweb.user.UserVO;
-
+import com.idwith.mpweb.user.classUser.ClassVO;
+import com.idwith.mpweb.user.classUser.service.ClassService;
 import com.idwith.mpweb.user.service.GoodsService;
 import com.idwith.mpweb.user.service.SellerViewService;
 
@@ -29,6 +31,9 @@ public class UserIndexController {
 	
 	@Autowired
 	private GoodsService goodsService;
+	
+	@Autowired
+	private ClassService classService;
 	
 	@RequestMapping("/index.do")
 	public String userIndex(HttpSession session, Model model) {
@@ -53,11 +58,23 @@ public class UserIndexController {
 		List<UserSellerVO> sellerList = sellerCheckService.getSellerListForIndex();
 		model.addAttribute("sellerList", sellerList);
 		
+		// 전체 카테고리 가져오기
+		List<GoodsCategoryVO> categoryList = goodsService.getAllGoodsCategory();
+		session.setAttribute("getAllGoodsCategory", categoryList);
+		
+		// 스토리 가져오기
+		List<SellerStoryVO> storyList =  sellerCheckService.getStoryList();
+		model.addAttribute("storyList", storyList);
+		
 		return "index";
 	}
 	 
 	@GetMapping("/class_index.do")
-	public String classIndex() {
-		return "class_index";
+	public String classIndex(Model model) {
+		// 인기클래스 
+		List<ClassVO> popularClassList = classService.getPopularClassList();
+		model.addAttribute("popularClassList", popularClassList);
+		
+		return "class/class_index";
 	}
 }
