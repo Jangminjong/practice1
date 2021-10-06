@@ -52,8 +52,7 @@ public class PagingVO {
 		setTotal(total);
 		setCountNotice(countNotice);
 		calcLastPage(getTotal(), getCntPerPage());
-		calcStartEndPage(getNowPage(), cntPage);
-		
+		calcStartEndPage(getNowPage(), cntPage);		
 		if(countNotice > 99999) {
 			calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
 		}else {

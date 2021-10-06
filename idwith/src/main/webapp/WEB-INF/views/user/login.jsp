@@ -51,17 +51,9 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
 <meta name="application-name" content="아이디어스" />
 <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리" />
-<meta property="fb:app_id" content="1410666675867984" />
+
 <meta name="description"
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
-<meta property="og:type" content="website" />
-<meta property="og:description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:url"
-	content="http://www.idus.com/w/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%25EB%25A7%259B%25EC%259E%2588%25EB%258A%2594%2520%25EA%25B9%2590%25EB%25B0%25A4" />
-<meta property="og:image"
-	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
 <link rel="canonical"
 	href="http://www.idus.com/w/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%25EB%25A7%259B%25EC%259E%2588%25EB%258A%2594%2520%25EA%25B9%2590%25EB%25B0%25A4" />
 <script>
@@ -80,115 +72,11 @@
 <script type="text/javascript"
 	src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
 
-<!-- tracker vendors -->
-<!-- <script async
-	src="https://www.googletagmanager.com/gtag/js?id=AW-775263643"></script>
-<script type="text/javascript" charset="UTF-8"
-	src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js"
-	async="true"></script>
-<script src="//wcs.naver.net/wcslog.js"></script> -->
-
-<!-- trackers -->
-<script>
-	vuepack.externals.VendorLogger.sendLog([ {
-		vendorName : 'google_analytics',
-		eventName : 'pageview'
-	}, {
-		vendorName : 'google_ads',
-		eventName : 'page_view'
-	}, {
-		vendorName : 'facebook',
-		eventName : 'PageView'
-	}, {
-		vendorName : 'kakao',
-		eventName : 'pageView'
-	}, ]);
-</script>
-<!-- sitelink - search box -->
-<script type="application/ld+json">
-        {
-          "@context": "http://schema.org",
-          "@type": "WebSite",
-          "url": "https://www.idus.com/",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.idus.com/search?word={ring}",
-            "query-input": "required name=ring"
-          }
-        }
-        </script>
-<script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "name": "아이디어스",
-                "url": "https://www.idus.com",
-                "sameAs": [
-                    "https://www.instagram.com/idus.me",
-                    "https://post.naver.com/idus_me",
-                    "https://www.facebook.com/idus.me",
-                    "https://blog.naver.com/idus_me",
-                    "https://play.google.com/store/apps/details?id=kr.backpackr.me.idus",
-                    "https://apps.apple.com/kr/app/id872469884",
-                    "https://twitter.com/idus_kr"
-                ]
-            }
-        </script>
 </head>
 <body>
 	<div data-vue="token"></div>
 	<div data-vue="globalUser"></div>
 	<div data-vue="resizeHandler"></div>
-	<script>
-		// image-only-button 위해
-		if (!window.localStorage.getItem('idus-product-card-img-only-path')
-				|| window.localStorage
-						.getItem('idus-product-card-img-only-path') !== window.location.pathname) {
-			window.localStorage.setItem('idus-product-card-img-only', 'false');
-		}
-		vuepack.createResizeHandler('[data-vue="resizeHandler"]');
-		vuepack.createUser('[data-vue="globalUser"]', {
-			id : 0,
-			thumb : '',
-			age : 0,
-			gender : 'none',
-			grade : 0,
-			uuid : '',
-			isVip : false
-		});
-		vuepack.createToken('[data-vue="token"]', {
-			token : {},
-			userId : 0
-		});
-
-		/* Idus Log V2 */
-		vuepack.externals.IdusLog.Logger
-				.setIdentityId('ap-northeast-2:2dc1cfd9-6d87-4b2e-86e9-527ab8d8b91b');
-		vuepack.externals.IdusLog.Logger
-				.initialize({
-					isApp : false,
-					region : 'ap-northeast-2',
-					identityPoolId : 'ap-northeast-2:f4c028af-cb84-43cc-a8e5-b047d272b323',
-					accountId : '773161815152',
-					userData : {
-						userId : '',
-						userAge : '',
-						userGrade : '',
-						userGender : 'none'
-					},
-					appData : {
-						env : 'prod',
-						appVersion : '1630657354'
-					}
-				});
-	</script>
-	
-	<script>
-		Kakao.init('487ca5895feb7a04e42984525f8de371');
-		console.log(Kakao.isInitialized());
-	</script>
-
 	<div class="wrap-login">
 
 
