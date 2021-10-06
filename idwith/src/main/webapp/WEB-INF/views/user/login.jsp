@@ -32,16 +32,6 @@
 </head>
 
 
-<link rel="apple-touch-icon" sizes="384x384"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="256x256"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="192x192"
-	href="/resources/dist/images/app-icon/icon_192.png">
-<link rel="apple-touch-icon" sizes="128x128"
-	href="/resources/dist/images/app-icon/icon_120.png">
-<link rel="apple-touch-icon" sizes="96x96"
-	href="/resources/dist/images/app-icon/icon_96.png">
 <link rel="manifest" href="/manifest.json">
 
 <!-- Intersection Observer polyfill -->
@@ -56,22 +46,14 @@
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
 <link rel="canonical"
 	href="http://www.idus.com/w/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%25EB%25A7%259B%25EC%259E%2588%25EB%258A%2594%2520%25EA%25B9%2590%25EB%25B0%25A4" />
-<script>
-	window.__client_env__ = 'production';
-	window.CNN_DOMAIN = 'https://cnn.idus.com';
-</script>
+
 <!-- project src -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-<!-- Kakao web SDK -->
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-<!-- Signin With Apple -->
-<script type="text/javascript"
-	src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
-
+<script>
+		Kakao.init('487ca5895feb7a04e42984525f8de371');
+		console.log(Kakao.isInitialized());
+</script>
 </head>
 <body>
 	<div data-vue="token"></div>
