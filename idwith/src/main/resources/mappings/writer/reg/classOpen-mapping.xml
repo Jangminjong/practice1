@@ -3,24 +3,32 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<mapper namespace="WriterClassRegDAO">
- 	<resultMap type="writerClassReg" id="writerClassRegResult">
- 		<result property="classRegSeq" column="class_reg_seq"/>
- 		<result property="classSeller" column="class_seller"/>
- 		<result property="classCategory" column="class_category"/>
- 		<result property="classCode" column="class_code"/>
- 		<result property="classPostAddress" column="class_post_address"/>
- 		<result property="classAddress" column="class_address"/>
- 		<result property="classDetailAddress" column="class_detail_address"/>
- 		<result property="classReference" column="class_reference"/>
- 		<result property="classPerson" column="class_person"/>
- 		<result property="classInfo" column="class_info"/>
- 		<result property="classRegDate" column="class_reg_date"/>
- 		<result property="classPhone" column="class_phone" />
- 		<result property="classPhoto" column="class_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" />
- 		<result property="classStatus" column="class_status"/>
+<mapper namespace="WriterClassOpenDAO">
+ 	<resultMap type="writerClassOpen" id="writerClassOpenResult">
+ 		<result property="classOpenSeq" column="class_open_seq"/>
+ 		<result property="classOpenName" column="class_open_name"/>
+ 		<result property="classOpenClassCode" column="class_open_class_code"/>
+ 		<result property="classOpenCategory" column="class_open_category"/>
+ 		<result property="classOpenPrice" column="class_open_price"/>
+ 		<result property="classOpenPostAddress" column="class_open_post_address"/>
+ 		<result property="classOpenAddress" column="class_open_address"/>
+ 		<result property="classOpenDetailAddress" column="class_open_detail_address"/>
+ 		<result property="classOpenReference" column="class_open_reference"/>
+ 		<result property="classOpenDate" column="class_open_date"/>
+ 		<result property="classOpenTime" column="class_open_time"/>
+ 		<result property="classCloseTime" column="class_close_time"/>
+ 		<result property="classOpenPhoto" column="class_open_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" />
+ 		<result property="classOpenDifficult" column="class_open_difficult"/>
+ 		<result property="classOpenInfo" column="class_open_info"/>
+ 		<result property="classOpenPhone" column="class_open_phone"/>
+ 		<result property="classOpenMaxPerson" column="class_Open_Max_person"/>
  	</resultMap>
- 	<!-- 클래스신청 테이블에 등록  -->
+ 	<!-- 클래스오픈 등록 전 시간 확인 -->
+ <!-- 	<select id="timeCheck" parameterType="writerClassOpen" resultMap="writerClassOpenResult">
+ 		SELECT count(class_open_time) from class_open where class_open_date = #{classOpenDate} and ( class_open_time < #{class_close_time} or class_close_time 
+ 	</select>	 -->
+	
+ 	<!-- 클래스오픈 테이블에 등록  -->
  	<insert id="insertClassReg" parameterType="writerClassReg">
  		INSERT INTO class_reg (
  								 class_seller,
@@ -49,17 +57,7 @@
  			   )
  	</insert>
 
- 	<!-- 클래스 신청 목록 -->
- 	<!-- <select id="getClassApplyList" resultType="writerClassApply" resultMap="writerClassApplyResult">
- 		SELECT class_apply_name,
- 			   class_apply_price,
- 			   class_apply_post_address,
- 			   class_apply_address,
- 			   class_apply_detail_address,
- 			   class_apply_reference,
- 			   
- 	</select> -->
- 	<!-- 클래스등록 리스트 개수 조회 -->
+ 	<!-- 클래스오픈 리스트 개수 조회 -->
  	<select id="classRegCount" resultType="_int">
  		select count(*) from class_reg where class_seller=#{classSeller}
  	</select>
@@ -70,7 +68,7 @@
 	FROM class_reg WHERE class_seller=#{countNotice} and class_status!=3 ORDER BY class_reg_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
 	
-	<!-- 클래스등록 상세 -->
+	<!-- 클래스오픈 상세 -->
 	<select id="classReg" resultMap="writerClassRegResult">
 	select  class_reg_seq,
 			class_seller,
@@ -88,7 +86,7 @@
 	where class_reg_seq = #{classRegSeq}
 	</select>
 	
-	<!-- 클래스등록 수정 -->
+	<!-- 클래스오픈 수정 -->
 	<update id="classRegUpdate" parameterType="writerClassReg">
 	UPDATE class_reg SET class_category = #{classCategory},
 						 class_post_address = #{classPostAddress},
@@ -99,7 +97,7 @@
 						 class_phone = #{classPhone},
 						 class_photo = #{classPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler} WHERE class_reg_seq = ${classRegSeq} 
 	</update>
-	<!-- 클래스등록 삭제 -->
+	<!-- 클래스오픈 삭제 -->
 	<update id="classRegDelete" parameterType="writerClassReg">
 	UPDATE class_reg SET class_status=3 WHERE class_reg_seq = ${classRegSeq}
 	</update>

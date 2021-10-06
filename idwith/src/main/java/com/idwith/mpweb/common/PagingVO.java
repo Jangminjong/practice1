@@ -49,7 +49,11 @@ public class PagingVO {
 		setCountNotice(countNotice);
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);
-		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(), getCountNotice());
+		if(countNotice <= 1000) {
+			calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(), getCountNotice());
+		} else {
+			calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(), 0);
+		}
 	}
 	
 	// 제일 마지막 페이지 계산

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -175,132 +177,122 @@
         </aside>
         
     </section>
-   
-
-    <section class="content">
 
 
-        <div class="container-fluid">
+	<section class="content">
+		<div class="container-fluid">
+			<!-- Basic Table -->
+			<div class="row clearfix">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="card">
+						<div class="header">
+							<h2>클래스 관리</h2>
+						</div>
+
+						<div class="body table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>순번</th>
+										<th>클래스코드</th>
+										<th>신청 지역</th>
+										<th>신청일</th>
+										<th>승인</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="classRegList" items="${classRegList}" varStatus="status">
+										<tr>
+											<th scope="row"><a href="classRegDetail.wdo?classRegSeq=${classRegList.classRegSeq}">${status.count}</a></th>
+											<td>${classRegList.classCode}</td>
+											<td>${classRegList.classAddress}</td>
+											<td>${classRegList.classRegDate}</td>
+											<td><c:choose>
+													<c:when test="${classRegList.classStatus eq 0}">
+														<label>승인대기</label>
+													</c:when>
+													<c:when test="${classRegList.classStatus eq 1}">
+														<label>승인허가</label>
+													</c:when>
+													<c:when test="${classRegList.classStatus eq 2}">
+														<label>승인거절</label>
+													</c:when>
+												</c:choose></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 
 
-            <!-- Basic Table -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                클래스 관리
-
-                            </h2>
-
-                        </div>
-
-                        <div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>순번</th>
-                                        <th>클래스코드</th>
-                                        <th>클래스명</th>
-                                        <th>가격</th>
-                                        <th>진행 지역</th>
-                                        <th>신청일</th>
-                                        <th>승인</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="classModify.wdo">CW02021</a></td>
-                                        <td>내 감성을 담은 베지터블가죽 카드지갑 만들기</td>
-                                        <td>50000</td>
-                                        <td>종로구</td>
-                                        <td>50,000</td>
-                                        <td>
-                                            <!-- BEGIN primary modal -->
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#defaultModalPrimary">
-                                                삭제
-                                            </button>
-                                            <div class="modal fade" id="defaultModalPrimary" tabindex="-1"
-                                                role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">삭제</h5>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body m-3">
-                                                            <p class="mb-0">해당 클래스를 삭제하시겠습니다???</p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">닫기</button>
-                                                            <button type="button"
-                                                                class="btn btn-primary">삭제</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Larry</td>
-                                        <td>Jellybean</td>
-                                        <td>@lajelly</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Larry</td>
-                                        <td>Kikat</td>
-                                        <td>@lakitkat</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="body pull-right">
-                <div class="button">
-                    <a href="classCreate.wdo">
-                        <button type="button" class="btn bg-deep-purple waves-effect">클래스 등록</button>
-                    </a>
-                </div>
-            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 페이징 -->
+		<div class="paging">
+		<div class="col-sm-10"></div>
+		<div class="col-sm-2" id="paging">
+			<div class="dataTables_paginate paging_simple_numbers"
+				data-ui="paging" data-sync="false">
+				<nav>
+					<c:choose>
+						<c:when test="${paging.nowPage eq 1 }">
+							<span style="width: auto;">◀ 이전 |</span>
+						</c:when>
+						<c:when test="${paging.nowPage ne 1 }">
+							<a
+								href="classManagement.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+								style="width: auto;">◀ 이전 |</a>
+						</c:when>
+					</c:choose>
+					<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
+						var="p">
+						<c:choose>
+							<c:when test="${p eq paging.nowPage }">
+								<a
+									href="classManagement.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}"
+									class="active" onclick="return false">${p }</a>
+							</c:when>
+							<c:when test="${p ne paging.nowPage }">
+								<a
+									href="classManagement.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<c:choose>
+						<c:when test="${paging.endPage eq paging.lastPage}">
+							<span style="width: auto;">| 다음 ▶</span>
+						</c:when>
+						<c:when test="${paging.endPage ne paging.lastPage}">
+							<a
+								href="classManagement.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+								style="width: auto;">| 다음 ▶</a>
+						</c:when>
+					</c:choose>
+					<!-- <a href="/w/board/notice?&amp;page=1" class="active">1</a> <a
+							href="/w/board/notice?&amp;page=2" class="">2</a> <a
+							href="/w/board/notice?&amp;page=2" class="next" aria-label="다음">
+							<span>다음</span> <i class="fa fa-chevron-right" disabled=""></i>
+						</a> -->
+				</nav>
+			</div>
+			</div>
+		</div>
+			<div class="body pull-right" id="classAdd">
+				<div class="button">
+					<a href="classCreate.wdo">
+						<button type="button" class="btn bg-deep-purple waves-effect">클래스
+							등록</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</section>
 
 
 
-
-
-
-
-        </div>
-
-    </section>
-
-    <!-- Jquery Core Js -->
+	<!-- Jquery Core Js -->
     <script src="resources/writerplugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->

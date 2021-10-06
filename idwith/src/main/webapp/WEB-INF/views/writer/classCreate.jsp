@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -192,7 +194,7 @@
                             <h3>클래스 신청 </h3>          
                         </div>
                         <div class="body">
-                            <form id="form_validation" action="classInsertReg.wdo" method="POST" enctype="multipart/form-data" >
+                            <form id="form_validation" action="classRegInsert.wdo" method="POST" enctype="multipart/form-data" >
 								<div class="form-group form-float"> 카테고리 &nbsp;&nbsp;
 								<select name='classCategory' id="productCategory">
 									<option value='ceramic'>도자기</option>
@@ -200,18 +202,6 @@
 									<option value='phone_case'>휴대폰 케이스</option>
 								</select>
 								</div>
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="className" required>
-                                        <label class="form-label">클래스명</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="classPrice" required>
-                                        <label class="form-label">가격</label>
-                                    </div>
-                                </div>
                                 <div class="row">
                                 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-bottom: -5px;">
 	                                	<div class="form-group form-float">
@@ -243,24 +233,17 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="classDifficult" required>
-                                        <label class="form-label">난이도</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="classPerson" required>
-                                        <label class="form-label">최대인원</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group form-float">
-                                    <div class="form-line">
                                         <textarea name="classInfo" cols="30" rows="5" class="form-control no-resize"
                                             required></textarea>
                                         <label class="form-label">수업 상세설명</label>
                                     </div>
                                 </div>
+                                <div class="form-group form-float">
+									<div class="form-line">
+										<input type="tel" class="form-control" name="classPhone" id="tel" maxlength="13" required>
+										<label class="form-label">연락처</label>
+									</div>
+								</div>
                                 <div class="upload-group">
                                 	<label class="input-group-text" for="inputGroupFile01">Upload</label>
                                 	<button type="button" class="addimagegroup" onclick="inputGroupAdd()">업로드 파일 추가</button>
@@ -268,17 +251,11 @@
                                 <div class="image-group">
 	                                <div class="input-group mb-3">
 	                                   	<input type="file" class="form-control" name="file" id="imageinput1">
-	                                	<button onclick="uploadDiscard()" style="display : none;">업로드 파일 취소</button>
+	                                	<button style="display : none;" >업로드 파일 취소</button>
 	                                </div>                              	
                                 </div>
                                 <div class="addImage-group">
                                 </div>
-								<div class="form-group form-float">
-									<div class="form-line">
-										<input type="tel" class="form-control" name="classPhone" id="tel" maxlength="13" required>
-										<label class="form-label">연락처</label>
-									</div>
-								</div>
 								<button class="btn btn-primary waves-effect" type="submit">신청하기</button>
                                 <a href="classManagement.wdo">
                   	              <button class="btn btn-primary waves-effect" type="button">목록으로</button>

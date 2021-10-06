@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -12,8 +13,7 @@
     <link rel="icon" href="resources/writer/images\tabIcon.png">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
-        type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
@@ -30,27 +30,18 @@
 
     <!-- Custom Css -->
     <link href="resources/writer/css/style.css" rel="stylesheet">
-    <link href="resources/writer/css/css/main.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="resources/writer/css/themes/all-themes.css" rel="stylesheet" />
-
-
-    <link href="resources/writer/vendor\css\bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link href="resources/writer/vendor/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resources/writer/vendor/css/fullcalendar.min.css" rel="stylesheet">
-    <link href="resources/writer/vendor/css/material-icon.css" rel="stylesheet">
-    <link href="resources/writer/vendor/css/roboto.css" rel="stylesheet">
-    <link href="resources/writer/vendor/css/select2.min.css" rel="stylesheet">
 </head>
 
 <body class="theme-red">
-
-
-
+    
+   
+    
     <div class="overlay"></div>
-
-    <nav class="navbar bg-orange navbar-fixed-top">
+    
+    <nav class="navbar bg-orange">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -59,7 +50,7 @@
 
                 <a class="navbar-brand" href="main.wdo">
                 <span class="align-middle">
-                    <img src="resources/writer/images\logo.png"
+                    <img src="resources/writer/images/logo.png"
                         style="margin-bottom: 0px; margin-top: -10px; margin-left: 10px; max-width: 100px; height: auto;">
                 </span>
             </a>
@@ -68,7 +59,7 @@
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-
+                  
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
@@ -77,7 +68,7 @@
                         <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
                             <li class="body">
-                                <ul class="menu">
+                                <ul class="menu">                                   
                                 </ul>
                             </li>
                             <li class="footer">
@@ -85,7 +76,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    
                     <!-- #END# Tasks -->
                     <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
                 </ul>
@@ -96,7 +87,7 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-          
+            
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
@@ -171,6 +162,7 @@
                         </a>
                     </li>
 
+                    
                     <li>
                         <a href="sellerCalculate.wdo">
                             <i class="material-icons">star_rate</i>
@@ -178,237 +170,130 @@
                         </a>
                     </li>
 
-                </ul>
-            </div>
 
+                </ul>
+            </div> 
+          
         </aside>
-
+        
     </section>
 
-    <section class="content">
+
+	<section class="content">
+		<div class="container-fluid">
+			<!-- Basic Table -->
+			<div class="row clearfix">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="card">
+						<div class="header">
+							<h2>클래스 오픈</h2>
+						</div>
+
+						<div class="body table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>순번</th>
+										<th>클래스명</th>
+										<th>진행 지역</th>
+										<th>가격</th>
+										<th>난이도</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="classRegList" items="${classRegList}" varStatus="status">
+										<tr>
+											<th scope="row"><a href="classOpenDetail.wdo?classOpenSeq=${classRegList.classRegSeq}">${status.count}</a></th>
+											<td>${classRegList.classCode}</td>
+											<td>${classRegList.classAddress}</td>
+											<td>${classRegList.classRegDate}</td>
+											<td><c:choose>
+													<c:when test="${classRegList.classStatus eq 0}">
+														<label>승인대기</label>
+													</c:when>
+													<c:when test="${classRegList.classStatus eq 1}">
+														<label>승인허가</label>
+													</c:when>
+													<c:when test="${classRegList.classStatus eq 2}">
+														<label>승인거절</label>
+													</c:when>
+												</c:choose></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 
 
-        <div class="container">
-
-            <!-- 일자 클릭시 메뉴오픈 -->
-            <div id="contextMenu" class="dropdown clearfix">
-                <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
-                    style="display:block;position:static;margin-bottom:5px;">
-                    <li><a tabindex="-1" href="#">카테고리1</a></li>
-                    <li><a tabindex="-1" href="#">카테고리2</a></li>
-                    <li><a tabindex="-1" href="#">카테고리3</a></li>
-                    <li><a tabindex="-1" href="#">카테고리4</a></li>
-                    <li class="divider"></li>
-                    <li><a tabindex="-1" href="#" data-role="close">Close</a></li>
-                </ul>
-            </div>
-    
-            <div id="wrapper">
-                <div id="loading"></div>
-                <div id="calendar"></div>
-            </div>
-    
-    
-            <!-- 일정 추가 MODAL -->
-            <div class="modal fade" tabindex="-1" role="dialog" id="eventModal">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title"></h4>
-                        </div>
-                        <div class="modal-body">
-    
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="col-xs-4" for="edit-allDay">하루종일</label>
-                                    <input class='allDayNewEvent' id="edit-allDay" type="checkbox"></label>
-                                </div>
-                            </div>
-    
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="col-xs-4" for="edit-title">일정명</label>
-                                    <input class="inputModal" type="text" name="edit-title" id="edit-title"
-                                        required="required" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="col-xs-4" for="edit-start">시작</label>
-                                    <input class="inputModal" type="text" name="edit-start" id="edit-start" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="col-xs-4" for="edit-end">끝</label>
-                                    <input class="inputModal" type="text" name="edit-end" id="edit-end" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="col-xs-4" for="edit-type">구분</label>
-                                    <select class="inputModal" type="text" name="edit-type" id="edit-type">
-                                        <option value="카테고리1">카테고리1</option>
-                                        <option value="카테고리2">카테고리2</option>
-                                        <option value="카테고리3">카테고리3</option>
-                                        <option value="카테고리4">카테고리4</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="col-xs-4" for="edit-color">색상</label>
-                                    <select class="inputModal" name="color" id="edit-color">
-                                        <option value="#D25565" style="color:#D25565;">빨간색</option>
-                                        <option value="#9775fa" style="color:#9775fa;">보라색</option>
-                                        <option value="#ffa94d" style="color:#ffa94d;">주황색</option>
-                                        <option value="#74c0fc" style="color:#74c0fc;">파란색</option>
-                                        <option value="#f06595" style="color:#f06595;">핑크색</option>
-                                        <option value="#63e6be" style="color:#63e6be;">연두색</option>
-                                        <option value="#a9e34b" style="color:#a9e34b;">초록색</option>
-                                        <option value="#4d638c" style="color:#4d638c;">남색</option>
-                                        <option value="#495057" style="color:#495057;">검정색</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="col-xs-4" for="edit-desc">설명</label>
-                                    <textarea rows="4" cols="50" class="inputModal" name="edit-desc"
-                                        id="edit-desc"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer modalBtnContainer-addEvent">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-                            <button type="button" class="btn btn-primary" id="save-event">저장</button>
-                        </div>
-                        <div class="modal-footer modalBtnContainer-modifyEvent">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                            <button type="button" class="btn btn-danger" id="deleteEvent">삭제</button>
-                            <button type="button" class="btn btn-primary" id="updateEvent">저장</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-    
-            <div class="panel panel-default">
-    
-                <div class="panel-heading">
-                    <h3 class="panel-title">필터</h3>
-                </div>
-    
-                <div class="panel-body">
-    
-                    <div class="col-lg-6">
-                        <label for="calendar_view">구분별</label>
-                        <div class="input-group">
-                            <select class="filter" id="type_filter" multiple="multiple">
-                                <option value="카테고리1">카테고리1</option>
-                                <option value="카테고리2">카테고리2</option>
-                                <option value="카테고리3">카테고리3</option>
-                                <option value="카테고리4">카테고리4</option>
-                            </select>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-            <!-- /.filter panel -->
-        </div>
-        <!-- /.container -->
-
-        <!-- <div calss="card">
-            <header>
-                <h1>
-                    <i class="far fa-calendar-check"></i>
-                    <span>캘린더</span>
-                </h1>
-                <div class="calendar_title">
-                    <button class="prev">&#60;</button>
-                    <span class="current-year-month"></span>
-                    <button class="next">&#62;</button>
-                </div>
-            </header>
-            <section class="content-left">
-                <div class="left-main">
-                    <div class="main-wrap">
-                        <div class="main-day"></div>
-                        <div class="main-date"></div>
-                    </div>
-                    <div class="todo-wrap">
-                        <div class="todo-title">Todo List</div>
-                        <form class="input-form">
-                            <input type="text" placeholder="write here!!" class="input-box" />
-                            <button type="submit" class="input-btn clickBtn">INPUT</button>
-                        </form>
-                        <ul class="todoList"></ul>
-                        <div class="showList">
-                            <span class="listText"></span>
-                            <span class="createDate"></span>
-                            <button class="closed">close</button>
-                        </div>
-                        <div class="bgblack"></div>
-                    </div>
-                </div>
-            </section>
-            <section class="content-right">
-                <div class="day-of-week">
-                    <div class="dayHeader sun">Sun</div>
-                    <div class="dayHeader">Mon</div>
-                    <div class="dayHeader">Tue</div>
-                    <div class="dayHeader">Wed</div>
-                    <div class="dayHeader">Thu</div>
-                    <div class="dayHeader">Fri</div>
-                    <div class="dayHeader sat">Sat</div>
-                </div>
-                <div class="calendar-body"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 페이징 -->
+		<div class="paging">
+		<div class="col-sm-10"></div>
+		<div class="col-sm-2" id="paging">
+			<div class="dataTables_paginate paging_simple_numbers"
+				data-ui="paging" data-sync="false">
+				<nav>
+					<c:choose>
+						<c:when test="${paging.nowPage eq 1 }">
+							<span style="width: auto;">◀ 이전 |</span>
+						</c:when>
+						<c:when test="${paging.nowPage ne 1 }">
+							<a
+								href="classManagement.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+								style="width: auto;">◀ 이전 |</a>
+						</c:when>
+					</c:choose>
+					<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
+						var="p">
+						<c:choose>
+							<c:when test="${p eq paging.nowPage }">
+								<a
+									href="classManagement.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}"
+									class="active" onclick="return false">${p }</a>
+							</c:when>
+							<c:when test="${p ne paging.nowPage }">
+								<a
+									href="classManagement.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<c:choose>
+						<c:when test="${paging.endPage eq paging.lastPage}">
+							<span style="width: auto;">| 다음 ▶</span>
+						</c:when>
+						<c:when test="${paging.endPage ne paging.lastPage}">
+							<a
+								href="classManagement.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+								style="width: auto;">| 다음 ▶</a>
+						</c:when>
+					</c:choose>
+					<!-- <a href="/w/board/notice?&amp;page=1" class="active">1</a> <a
+							href="/w/board/notice?&amp;page=2" class="">2</a> <a
+							href="/w/board/notice?&amp;page=2" class="next" aria-label="다음">
+							<span>다음</span> <i class="fa fa-chevron-right" disabled=""></i>
+						</a> -->
+				</nav>
+			</div>
+			</div>
+		</div>
+			<div class="body pull-right" id="classAdd">
+				<div class="button">
+					<a href="classOpenReg.wdo">
+						<button type="button" class="btn bg-deep-purple waves-effect">클래스
+							오픈</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</section>
 
 
-            </section>
 
-            <div id='calendar'>
-            <div id='datepicker'>
-                <div class="modal fade" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                        aria-hidden="true">&times;</span></button>
-                                <h4><input class="modal-title" type="text" name="title" id="title"
-                                        placeholder="Event Title/Description" /></h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label class="col-xs-4" for="starts-at">Starts at</label>
-                                        <input type="text" name="starts_at" id="starts-at" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label class="col-xs-4" for="ends-at">Ends at</label>
-                                        <input type="text" name="ends_at" id="ends-at" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="save-event">Save</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div> -->
-    </section>
-
-    <!-- Jquery Core Js -->
-    <script src="resources/writer/plugins/jquery/jquery.min.js"></script>
+	<!-- Jquery Core Js -->
+    <script src="resources/writerplugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
     <script src="resources/writer/plugins/bootstrap/js/bootstrap.js"></script>
@@ -444,28 +329,10 @@
 
     <!-- Custom Js -->
     <script src="resources/writer/js/admin.js"></script>
-    <script src="resources/writer/js/pages/index.js"></script>
+    <script src="resource/writer/js/pages/index.js"></script>
 
     <!-- Demo Js -->
     <script src="resources/writer/js/demo.js"></script>
-
-    <!-- Calender Js -->
-    <script src="resources/writer/js/main.js"></script>
-    <script src="resources/writer/js/data.js"></script>
-
-
-
-    <script src="resources/writer/vendor/js/jquery.min.js"></script>
-    <script src="resources/writer/vendor/js/bootstrap.min.js"></script>
-    <script src="resources/writer/vendor/js/moment.min.js"></script>
-    <script src="resources/writer/vendor/js/fullcalendar.min.js"></script>
-    <script src="resources/writer/vendor/js/ko.js"></script>
-    <script src="resources/writer/vendor/js/select2.min.js"></script>
-    <script src="resources/writer/vendor/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="resources/writer/js/js/main.js"></script>
-    <script src="resources/writer/js/js/addEvent.js"></script>
-    <script src="resources/writer/js/js/editEvent.js"></script>
-    <script src="resources/writer/js/js/etcSetting.js"></script>
 </body>
 
 </html>

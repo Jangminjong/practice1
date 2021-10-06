@@ -1,38 +1,36 @@
 package com.idwith.mpweb.writer;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 
 public class WriterClassRegVO {
 
 	private int classRegSeq;
-	private String classSeller;
+	private int classSeller;
 	private String classCategory;
-	private String className;
 	private String classCode;
-	private int classPrice;
 	private String classPostAddress;
 	private String classAddress;
 	private String classDetailAddress;
 	private String classReference;
-	private String classDifficult;
-	private int classPerson;
 	private String classInfo;
 	private Date classRegDate;
 	private String classPhone;
 	private String[] classPhoto;
 	private int classStatus;
-	
+	private String[] uploadedFileList;
+	private String[] uploadFileList;
 	public int getClassRegSeq() {
 		return classRegSeq;
 	}
 	public void setClassRegSeq(int classRegSeq) {
 		this.classRegSeq = classRegSeq;
 	}
-	public String getClassSeller() {
+	public int getClassSeller() {
 		return classSeller;
 	}
-	public void setClassSeller(String classSeller) {
+	public void setClassSeller(int classSeller) {
 		this.classSeller = classSeller;
 	}
 	public String getClassCategory() {
@@ -41,24 +39,14 @@ public class WriterClassRegVO {
 	public void setClassCategory(String classCategory) {
 		this.classCategory = classCategory;
 	}
-	public String getClassName() {
-		return className;
-	}
-	public void setClassName(String className) {
-		this.className = className;
-	}
+
 	public String getClassCode() {
 		return classCode;
 	}
 	public void setClassCode(String classCode) {
 		this.classCode = classCode;
 	}
-	public int getClassPrice() {
-		return classPrice;
-	}
-	public void setClassPrice(int classPrice) {
-		this.classPrice = classPrice;
-	}
+
 	public String getClassPostAddress() {
 		return classPostAddress;
 	}
@@ -82,18 +70,6 @@ public class WriterClassRegVO {
 	}
 	public void setClassReference(String classReference) {
 		this.classReference = classReference;
-	}
-	public String getClassDifficult() {
-		return classDifficult;
-	}
-	public void setClassDifficult(String classDifficult) {
-		this.classDifficult = classDifficult;
-	}
-	public int getClassPerson() {
-		return classPerson;
-	}
-	public void setClassPerson(int classPerson) {
-		this.classPerson = classPerson;
 	}
 	public String getClassInfo() {
 		return classInfo;
@@ -124,6 +100,28 @@ public class WriterClassRegVO {
 	}
 	public void setClassStatus(int classStatus) {
 		this.classStatus = classStatus;
+	}
+	public String[] getUploadedFileList() {
+		return uploadedFileList;
+	}
+	public void setUploadedFileList(String[] uploadedFileList) {
+		this.uploadedFileList = uploadedFileList;
+	}
+	public String[] getUploadFileList() {
+		return uploadFileList;
+	}
+	public void setUploadFileList(String[] uploadFileList) {
+		this.uploadFileList = uploadFileList;
+	}
+	@Override
+	public String toString() {
+		return "WriterClassRegVO [classRegSeq=" + classRegSeq + ", classSeller=" + classSeller + ", classCategory="
+				+ classCategory + ", classCode=" + classCode + ", classPostAddress=" + classPostAddress
+				+ ", classAddress=" + classAddress + ", classDetailAddress=" + classDetailAddress + ", classReference="
+				+ classReference + ", classInfo=" + classInfo + ", classRegDate=" + classRegDate + ", classPhone="
+				+ classPhone + ", classPhoto=" + Arrays.toString(classPhoto) + ", classStatus=" + classStatus
+				+ ", uploadedFileList=" + Arrays.toString(uploadedFileList) + ", uploadFileList="
+				+ Arrays.toString(uploadFileList) + "]";
 	}
 	
 	

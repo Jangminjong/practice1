@@ -216,11 +216,11 @@
 
                             <div class="mb-3">
                                 <label class="form-label">쿠폰 적용시작일</label>
-                                <input type="text" class="form-control" placeholder="시작일" style="width: auto;">
+                                <input type="date" class="form-control" placeholder="시작일" style="width: auto;">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">쿠폰 적용종료일</label>
-                                <input type="text" class="form-control" placeholder="종료일" style="width: auto;">
+                                <input type="date" class="form-control" placeholder="종료일" style="width: auto;">
                             </div>
 
                           
