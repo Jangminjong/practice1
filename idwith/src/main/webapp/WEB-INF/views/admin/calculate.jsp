@@ -143,17 +143,24 @@
 			<main>
 				<div class="content">
 					<div class="container-fluid p-0">
-						<form class="d-none d-sm-inline-block float-right">
-							<ul class="nav nav-pills card-header-pills pull-right">
-								<div class="input-group">
-									<input type="text" class="form-control"
-										placeholder="검색 키워드를 입력하세요!"> <span
-										class="input-group-btn">
-										<button class="btn btn-warning" type="button">찾기</button>
-									</span>
+						<h1 class="h3 mb-3">Calculate</h1>
+						<div class="col-12 col-md-12 col-lg-12">
+							<div class="row">
+								<div class="col-md-6 text-center"></div>
+								<div class="col-md-6 text-center" style="margin-bottom: 10px;">
+									<form class="d-none d-sm-inline-block float-right">
+										<ul class="nav nav-pills card-header-pills pull-right">
+											<div class="input-group">
+												<input type="text" class="form-control"
+													placeholder="검색 키워드를 입력하세요!">&nbsp; <span
+													class="input-group-btn">
+													<button class="btn btn-warning" type="button">찾기</button>
+												</span>
+											</div>
+										</ul>
+									</form>
 								</div>
-							</ul>
-						</form>
+							</div>
 
 						<ul class="nav nav-tabs">
 							<li class="nav-item"><a class="nav-link active"

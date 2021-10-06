@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -197,22 +198,24 @@
 													<td>${adminQnA.board_category }</td>
 													<td>${adminQnA.board_title }</td>
 													<td>${adminQnA.user_id }</td>
-													<td>${adminQnA.board_date }</td>
+													<td>
+														<fmt:formatDate value="${adminQnA.board_date }" pattern="yyyy.MM.dd"/>
+													</td>
 													<c:choose>
 														<c:when test="${ adminQnA.board_answer eq null }">
 															<c:if test="${ adminQnA.board_fix eq true }">
-																<td>***</td>
+																<td><span class="badge bg-info">공지</span></td>
 															</c:if>
 															<c:if test="${ adminQnA.board_fix eq false }">
-																<td>답변전</td>
+																<td><span class="badge bg-warning">답변전</span></td>
 															</c:if>
 														</c:when>
 														<c:when test="${ adminQnA.board_answer ne null }">
 															<c:if test="${ adminQnA.board_fix eq true }">
-																<td>***</td>
+																<td><span class="badge bg-info">공지</span></td>
 															</c:if>
 															<c:if test="${ adminQnA.board_fix eq false }">
-																<td>답변완료</td>
+																<td><span class="badge bg-success">답변완료</span></td>
 															</c:if>
 														</c:when>
 													</c:choose>

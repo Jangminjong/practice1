@@ -52,6 +52,7 @@ function blockAgree(userId) {
 									'계정상태가 변경되었습니다.',
 									'해당 사용자는 블랙리스트 처리되었습니다.'
 								)
+								
 							} else if (data == 0) {
 								Swal.fire(
 									'블랙 오류',
@@ -73,6 +74,7 @@ function blockAgree(userId) {
 			}
 
 			console.log('블락 이벤트 완료');
+			location.reload();
 		}
 	})
 }
@@ -129,8 +131,6 @@ function blockCancle(userId) {
 									'계정상태가 변경되었습니다.',
 									'해당 계정을 복원하였습니다.'
 								)
-								location.href = "userList.mdo";
-
 							} else if (data == 0) {
 								Swal.fire(
 									'복원 오류',

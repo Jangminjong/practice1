@@ -159,11 +159,11 @@
 							<input type="hidden" name="user_event_board_seq" value="${adminEventVO.user_event_board_seq}"/>
 							<div class="mb-3">
 								<label class="form-label">Notice Title1</label>
-								<input type="text" class="form-control" name="user_event_board_title1" placeholder="${adminEventVO.user_event_board_title1}" style="width: auto;"> 
+								<input type="text" class="form-control" name="user_event_board_title1" value="${adminEventVO.user_event_board_title1}" style="width: auto;"> 
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Notice Title2</label>
-								<input type="text" class="form-control" name="user_event_board_title2" placeholder="${adminEventVO.user_event_board_title2}" style="width: auto;">
+								<input type="text" class="form-control" name="user_event_board_title2" value="${adminEventVO.user_event_board_title2}" style="width: auto;">
 							</div> 
 							<div class="mb-3">
 								<label class="form-label">카테고리</label>
@@ -192,32 +192,31 @@
 							</c:if>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
-								<textarea class="form-control" name="user_event_board_content" placeholder="${adminEventVO.user_event_board_content}" rows="10"></textarea>
+								<textarea class="form-control" name="user_event_board_content" rows="10">${adminEventVO.user_event_board_content}</textarea>
 							</div>
 							<div class="mb-3">
 								<label class="form-label w-100">File input</label>
 								<input type="file">
 							</div>
-							<input type="submit" id="event-user-submit" class="btn btn-primary" value="수정"/>
+							<div class="row">
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-center"></div>
+								<div class="col-md-3 text-right">
+									<input type="submit" id="event-user-submit" class="btn btn-primary" value="수정" />
+									 <a href="deleteEventNotice.mdo?user_event_board_seq=${adminEventVO.user_event_board_seq}">
+										<button class="btn btn-primary">삭제</button>
+									</a> 
+									<input class="btn btn-primary" type="button" onclick="location.href='userNotice.mdo'" value="목록" />
+								</div>
+							</div>
 						</form>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-3 text-center"></div>					
-					<div class="col-md-3 text-center"></div>
-					<div class="col-md-3 text-center">
-						<a href="deleteEventNotice.mdo?user_event_board_seq=${adminEventVO.user_event_board_seq}">
-							<button class="btn btn-primary">삭제</button>
-						</a> <a href="userNotice.mdo">
-							<button class="btn btn-primary">목록</button>
-						</a>
-					</div>
-				</div>
 			</main>
-			<script src="../js/app.js"></script>
+			<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>
-	</main>
-	<script src="resources/admin/js/app.js"></script>
+	
 </body>
 </html>

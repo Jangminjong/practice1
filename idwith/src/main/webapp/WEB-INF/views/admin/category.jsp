@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -155,9 +155,11 @@
 						</div>
 
 						<ul class="nav nav-tabs" role="tablist">
-                                <li class="nav-item"><a class="nav-link active"
+                                <li class="nav-item">
+                                <a class="nav-link active"
                                     data-toggle="tab" href="#tab1" id="#tab1">작품 카테고리</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab"
                                     href="#tab2" id="#tab2">클래스 카테고리</a></li>
                             </ul>
 					</div>
@@ -177,20 +179,68 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                    	<c:forEach var="goodsCateList" items="${GoodsCateAll}" varStatus="goodsStatus">
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>BR</td>
-                                                            <td>test</td>
+                                                            <th scope="row">${goodsStatus.count}</th>
+                                                            <td>${goodsCateList.goodsCategoryCode}</td>
+                                                            <td>${goodsCateList.goodsCategoryName}</td>
                                                             <td>
-                                                       		 	<button type="button" class="btn btn-warning" id="updateGoodsCategory" onclick="location.href='updateGoodsCategory.mdo'">수정</button>
-                                                				<button type="button" class="btn btn-primary" id="deleteGoodsCategory">삭제</button>
+                                                				<a href="deletGoodsCate.mdo?goodsCategoryCode=${goodsCateList.goodsCategoryCode}">
+	                                                				<button type="button" class="btn btn-primary" id="deleteGoodsCategory">삭제</button>
+	                                                			</a>
                                                             </td>                                                            
                                                         </tr>
+                                                        </c:forEach>
                                                     </tbody>
                                                 </table>
-                                            </div>                                        
+                                            </div>
                                     </div>
+                                     <!-- 페이징 처리 -->
+									<div class="goodsPaging" data-ui="goodsPaging" data-sync="false">
+										<nav style="float: center;" aria-label="Page navigation example">
+											<ul class="pagination justify-content-end">
+												<c:choose>
+													<c:when test="${goodsPaging.nowPage eq 1 }">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Previous</span></li>
+													</c:when>
+													<c:when test="${goodsPaging.nowPage ne 1 }">
+														<li class="page-item"><a
+															href="/mpweb/category.mdo?nowPage=${goodsPaging.nowPage - 1 }&cntPerPage=${goodsPaging.cntPerPage}"
+															style="width: auto;" class="page-link">Previous</a></li>
+													</c:when>
+												</c:choose>
+												<c:forEach begin="${goodsPaging.startPage }"
+													end="${goodsPaging.endPage }" var="p">
+													<c:choose>
+														<c:when test="${p eq goodsPaging.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/category.mdo?nowPage=${p }&cntPerPage=${goodsPaging.cntPerPage}"
+																onclick="return false" class="page-link">${p }</a></li>
+														</c:when>
+														<c:when test="${p ne paging.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/category.mdo?nowPage=${p }&cntPerPage=${goodsPaging.cntPerPage}"
+																class="page-link">${p }</a></li>
+														</c:when>
+													</c:choose>
+												</c:forEach>
+												<c:choose>
+													<c:when test="${goodsPaging.endPage eq goodsPaging.lastPage}">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Next</span></li>
+													</c:when>
+													<c:when test="${goodsPaging.endPage ne goodsPaging.lastPage}">
+														<li class="page-item"><a
+															href="/mpweb/category.mdo?nowPage=${goodsPaging.endPage+1 }&cntPerPage=${goodsPaging.cntPerPage}"
+															style="width: auto;" class="page-link">Next</a></li>
+													</c:when>
+												</c:choose>
+											</ul>
+										</nav>
+									</div>
                                 </div>
+                                
                                 <div class="tab-pane fade text-center" id="tab2" role="tabpanel">
                                     <div class="col-12">                                                                               
                                         <div class="table-responsive">
@@ -204,19 +254,66 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>CLBR</td>
-                                                        <td>CLass</td>
-                                                        <td>
-                                                        	<button type="button" class="btn btn-warning" id="updateClassCategory" onclick="location.href='updateClassCategory.mdo'">수정</button>
-                                                			<button type="button" class="btn btn-primary" id="deleteClassCategory">삭제</button>
-                                                        </td>                                                            
-                                                    </tr>
-                                                </tbody>
+	                                                <c:forEach var="classCateList" items="${ClassCateAll}" varStatus="classStatus">
+	                                                    <tr>
+	                                                        <th scope="row">${classStatus.count}</th>
+	                                                        <td>${classCateList.classCategoryCode}</td>
+	                                                        <td>${classCateList.classCategoryName}</td>
+	                                                        <td>
+	                                                        	<a href="deleteClassCate.mdo?classCategoryCode=${classCateList.classCategoryCode}">
+	                                                				<button type="button" class="btn btn-primary" id="deleteCategory">삭제</button>
+	                                                			</a>
+	                                                        </td>                                                            
+	                                                    </tr>
+	                                                    </c:forEach>
+	                                                </tbody>
                                             </table>
                                         </div>                                        
                                     </div>
+                                     <!-- 페이징 처리 -->
+									<div class="classPaging" data-ui="classPaging" data-sync="false">
+										<nav style="float: center;" aria-label="Page navigation example">
+											<ul class="pagination justify-content-end">
+												<c:choose>
+													<c:when test="${classPaging.nowPage eq 1 }">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Previous</span></li>
+													</c:when>
+													<c:when test="${classPaging.nowPage ne 1 }">
+														<li class="page-item"><a
+															href="/mpweb/category.mdo?nowPage=${classPaging.nowPage - 1 }&cntPerPage=${classPaging.cntPerPage}"
+															style="width: auto;" class="page-link">Previous</a></li>
+													</c:when>
+												</c:choose>
+												<c:forEach begin="${classPaging.startPage }"
+													end="${classPaging.endPage }" var="p">
+													<c:choose>
+														<c:when test="${p eq classPaging.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/category.mdo?nowPage=${p }&cntPerPage=${classPaging.cntPerPage}"
+																onclick="return false" class="page-link">${p }</a></li>
+														</c:when>
+														<c:when test="${p ne classPaging.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/category.mdo?nowPage=${p }&cntPerPage=${classPaging.cntPerPage}"
+																class="page-link">${p }</a></li>
+														</c:when>
+													</c:choose>
+												</c:forEach>
+												<c:choose>
+													<c:when test="${classPaging.endPage eq classPaging.lastPage}">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Next</span></li>
+													</c:when>
+													<c:when test="${classPaging.endPage ne classPaging.lastPage}">
+														<li class="page-item"><a
+															href="/mpweb/category.mdo?nowPage=${classPaging.endPage+1 }&cntPerPage=${classPaging.cntPerPage}"
+															style="width: auto;" class="page-link">Next</a></li>
+													</c:when>
+												</c:choose>
+											</ul>
+										</nav>
+									</div>
                                 </div>
                             </div>
                         </div>

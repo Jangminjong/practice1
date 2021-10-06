@@ -155,8 +155,8 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-2 text-center">
-									<select id="qna_type" name="board_category"
+								<div class="col-md-2 text-left">
+									<select id="qna_type" name="board_category" class="form-control mb-3" style="width: 120px;"
 										onchange="setEventCategory()">
 										<option value="구분">구분</option>
 										<option value="공지">공지</option>
@@ -167,7 +167,7 @@
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center" style="margin-bottom: 10px;">
+								<div class="col-md-2 text-right" style="margin-bottom: 10px;">
 									<a href="userInsertNotice.mdo">
 										<button class="btn btn-warning">글쓰기</button>
 									</a>

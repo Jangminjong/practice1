@@ -207,23 +207,20 @@
 											<!-- 쿠폰 발행일보다 쿠폰 마감일이 앞설때 alert
 												쿠폰 마감일이 발행일의 3개월 이후일때 alert-->
 										</div>
+										<div class="row">
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-right">
+												<input type="submit" class="btn btn-primary" value="등록"/>
+												<input type="reset" class="btn btn-primary" value="초기화">
+												<button type="button" class="btn btn-primary" onclick="location.href='couponList.mdo'">목록</button>
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center">
-									<a href="couponList.mdo">
-										<button class="btn btn-primary">등록</button>
-									</a>
-									<a href="insertCoupon.mdo">
-										<!--초기화 진행-->
-										<button class="btn btn-primary">초기화</button>
-									</a>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>

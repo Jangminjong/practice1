@@ -153,7 +153,7 @@
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
 								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center" style="margin-bottom: 10px;">
+								<div class="col-md-2 text-right" style="margin-bottom: 10px;">
 									<button class="btn btn-warning" onclick="location.href='adminInsertNotice.mdo'">글쓰기</button>
 								</div>
 							</div>

@@ -38,30 +38,4 @@
  	<delete id="deleteEventNotice" parameterType="adminEventVO">
  		DELETE FROM user_event_board WHERE user_event_board_seq=#{user_event_board_seq}
  	</delete>
- 	<!--  <update id="updateBoard" parameterType="myboard">
- 		UPDATE myboard
- 		SET title=#{title}, content=#{content} WHERE seq = #{seq}
- 	</update>
- 	<delete id="deleteBoard" parameterType="myboard">
- 		DELETE FROM myboard WHERE seq=#{seq}
- 	</delete>
- 	<select id="getBoard" resultType="myboard">
- 		SELECT * FROM myboard WHERE seq=#{seq}
- 	</select>
- 	<select id="getBoardList" resultMap="boardResult">
- 		SELECT * FROM myboard
- 		WHERE 1=1 
- 		<if test="searchCondition=='TITLE'">
- 			AND title LIKE '%'||#{searchKeyword}||'%'
- 		</if>
- 		<if test="searchCondition=='CONTENT'">
- 			AND content LIKE '%'||#{searchKeyword}||'%'
- 		</if>
- 		ORDER BY seq DESC
- 	</select>
- 	<select id="getBoardList_C" resultMap="boardResult">
- 		SELECT * FROM myboard
- 		WHERE content LIKE '%'||#{searchKeyword}||'%'
- 		ORDER BY seq DESC
- 	</select>--> 
 </mapper>

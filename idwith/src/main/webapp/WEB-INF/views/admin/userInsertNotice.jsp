@@ -181,26 +181,22 @@
 								<label class="form-label w-100">File input</label>
 								<input type="file">
 							</div>
-							<input type="submit" id="event-user-submit" class="btn btn-primary" value="등록"/>
+							<div class="row">
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-right">
+									<input type="submit" id="event-user-submit"
+										class="btn btn-primary" value="등록" /> 
+										<input type="reset" class="btn btn-primary" value="초기화" />
+								</div>
+							</div>
 						</form>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center">
-						<a href="adminNotice.mdo">
-							<button class="btn btn-primary">등록</button>
-						</a>
-						<a href="adminInsertNotice.mdo">
-							<!--초기화 진행-->
-							<button class="btn btn-primary">초기화</button>
-						</a>
-					</div>
-				</div>
+				
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>
