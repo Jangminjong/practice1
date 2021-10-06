@@ -51,4 +51,10 @@ public class GoodsServiceImpl implements GoodsService {
 	public List<GoodsVO> getGoodsOptionList(String goods_code) {
 		return goodsDAO.getGoodsOptionList(goods_code);
 	}
+
+	@Override
+	public List<GoodsCategoryVO> getAllGoodsCategory() {
+		return goodsDAO.getAllGoodsCategory();
+	}
+
 }

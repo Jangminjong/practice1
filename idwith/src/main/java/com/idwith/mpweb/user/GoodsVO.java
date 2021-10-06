@@ -21,7 +21,9 @@ public class GoodsVO {
 	int goods_seq;
 	Timestamp goods_apply_date;
 	int goods_status;
-	String goods_review_context;
+
+	String goods_review_context; // 작품 리뷰테이블 컬럼
+	String store_name; // 작가 테이블의 컬럼
 	int rownum;
 	int goods_delivery_fee;
 	UserSellerVO userSellerVO;
@@ -248,5 +250,11 @@ public class GoodsVO {
 				+ ", goods_op2_code=" + goods_op2_code + ", goods_op3_code=" + goods_op3_code + ", goods_seq="
 				+ goods_seq + ", goods_apply_date=" + goods_apply_date + ", goods_status=" + goods_status + ", rownum="
 				+ rownum + ", userSellerVO=" + userSellerVO + "]";
+	}
+	public String getStore_name() {
+		return store_name;
+	}
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
 	}
 }

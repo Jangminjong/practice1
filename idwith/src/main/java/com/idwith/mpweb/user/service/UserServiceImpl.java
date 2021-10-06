@@ -7,7 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 import com.idwith.mpweb.user.UserAddressVO;
+
+import com.idwith.mpweb.user.ChoiceVO;
+import com.idwith.mpweb.user.FollowVO;
+
 import com.idwith.mpweb.user.UserDAO;
 import com.idwith.mpweb.user.UserVO;
 
@@ -125,8 +130,27 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+
 	public void insertAddress(UserAddressVO userAddressVO) {
 		dao.insertAddress(userAddressVO);
+	}
+	public int changeChoice(ChoiceVO choice) {
+		return dao.changeChoice(choice);
+	}
+
+	@Override
+	public List<ChoiceVO> setChoice(String email) {
+		return dao.setChoice(email);
+	}
+
+	@Override
+	public List<FollowVO> setFollow(String email) {
+		return dao.setFollow(email);
+	}
+
+	@Override
+	public int changeFollow(FollowVO follow) {
+		return dao.changeFollow(follow);
 	}
 
 }

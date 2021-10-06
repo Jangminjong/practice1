@@ -74,4 +74,11 @@ public class SellerViewServiceImpl implements SellerViewService {
 	public List<UserSellerVO> getSellerListForIndex() {
 		return dao.getSellerListForIndex();
 	}
+
+	@Override
+	public List<SellerStoryVO> getStoryList() {
+		return dao.getStoryList();
+	}
+
+	
 }

@@ -46,6 +46,8 @@
  		<result property="story_image" column="story_image" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
  		<result property="seller_name" column="seller_name" />
  		<result property="story_cnt" column="story_cnt" />
+ 		<!-- seller 테이블에 있는 컬럼 -->
+		<result property="seller_profile_img" column="seller_profile_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
  	</resultMap>
  	
  	<resultMap type="sellerProductReviewVO" id="sellerProductReviewListResult">
@@ -124,4 +126,14 @@
 				ON seller.seller_code = follow_count.followed_id ORDER BY follow_count DESC)A)AS foo 
 				WHERE rownum BETWEEN 1 AND 3
  	</select>
+ 	
+ 	<!-- 메인페이지로 표시할 개시글 조회 -->
+	<select id="getStoryListForIndex" resultMap="sellerStoryResult">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT story.*, seller.store_name, seller.seller_profile_img FROM story 
+			LEFT OUTER JOIN seller ON story.seller_id = seller.seller_code 
+			ORDER BY story_date DESC)A)AS foo 
+			WHERE rownum BETWEEN 1 AND 6
+	</select>
 </mapper>

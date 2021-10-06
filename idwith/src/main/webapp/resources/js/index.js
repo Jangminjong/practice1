@@ -77,8 +77,122 @@ $(document).ready(function(){
             $('#slider ul').css('left', '');
         });
     };
-	
+
+	const email =  $('#email').val();
+	if(!email ==""){
+		// 찜 목록 세팅
+		$.ajax({
+			url:'setChoice.do',
+			type:"GET",
+			contentType:'application/json; charset=UTF-8',
+			dataType:'json',
+			data:{ 
+				email:email
+			},
+			success:function(data){
+				var i =0;
+				while(i<data.length){
+					document.getElementById('btn-'+data[i]).classList.add('active');
+					i++;
+				}
+			},
+			error: function(request,status,error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+		
+		// 작가 팔로우 세팅
+		$.ajax({
+			url:'setFollow.do',
+			type:"GET",
+			contentType:'application/json; charset=UTF-8',
+			dataType:'json',
+			data:{ 
+				email:email
+			},
+			success:function(data){
+				var i =0;
+				while(i<data.length){
+					document.getElementById('btn-'+data[i]).classList.add('active');
+					i++;
+				}
+			},
+			error: function(request,status,error, event){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+		
+	}
+
 });
+
+
+// 하트 눌렀을 때 찜 상태 변경 하기 
+function changeChoice(goodsCode, event){
+	alert('싫행');
+	const email = $('#email').val();
+	var choiceBtn = document.getElementById('btn-'+goodsCode);
+	var state = choiceBtn.classList.contains('active');
+	if(email == ""){
+		location.replace('/mpweb/login.do');
+	}else{
+		$.ajax({
+			url:'changeChoice.do',
+			type:'GET',
+			contentType: 'application/json; charset=UTF-8',
+			data :{
+				email:email,
+				goodsCode:goodsCode,
+				state:state
+			},
+			success:function(data){
+				if(data == 1){
+					choiceBtn.classList.add('active');					
+				}else{
+					choiceBtn.classList.remove('active');
+				}
+			},
+			error: function(request,status,error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+	}
+	event.stopPropagation();
+}
+
+
+// 하트 또는 팔로우 버튼 눌렀을 때 눌렀을 때 팔로우 상태 변경 하기 
+function changeFollow(sellerId, event){
+	const email = $('#email').val();
+	var followBtn = document.getElementById('btn-'+sellerId);
+	var state = followBtn.classList.contains('active');
+	if(email == ""){
+		location.replace('/mpweb/login.do');
+	}else{
+		$.ajax({
+			url:'changeFollow.do',
+			type:'GET',
+			contentType: 'application/json; charset=UTF-8',
+			data :{
+				email:email,
+				sellerId:sellerId,
+				state:state
+			},
+			success:function(data){
+				if(data == 1){
+					followBtn.classList.add('active');					
+				}else{
+					followBtn.classList.remove('active');
+				}
+			},
+			error: function(request,status,error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+	}
+	event.stopPropagation();
+	
+}
 
 function messageView(){
 	var email = document.getElementById('email').value;
@@ -126,3 +240,6 @@ function alarmView(){
 function bannerHide(){
 	$('#header-banner').hide();
 }
+
+
+

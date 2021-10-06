@@ -40,5 +40,8 @@ public class GoodsDAO {
 	public List<GoodsVO> getGoodsOptionList(String goods_code) {
 		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsOptionList", goods_code);
 	}
+	public List<GoodsCategoryVO> getAllGoodsCategory() {
+		return sqlSessionTemplate.selectList("GoodsDAO.getAllGoodsCategory");
+	}
 
 }

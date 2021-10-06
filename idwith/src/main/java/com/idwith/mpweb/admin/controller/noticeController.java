@@ -176,12 +176,6 @@ public class noticeController {
 	@GetMapping(value="/qna.mdo")
 	public String qnaList(PagingVO pageVO, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
-
-//			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, @RequestParam(value="set", required=false) String set) {
-//		int total = adminBoardService.countQnA(); 
-//		System.out.println("占쏙옙체 qna 占쏙옙: " + total);
-//		System.out.println("카占쌓곤옙: "+set);
-
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, 
 			@RequestParam(value="set", required=false) String set) {
 		int total = adminBoardService.countQnA(); // ��ü �� �� ��ȸ 

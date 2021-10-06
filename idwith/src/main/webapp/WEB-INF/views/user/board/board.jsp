@@ -46,7 +46,7 @@
 				</c:if>
 					<c:forEach var="qnaVO" items="${qnaList}">
 						<c:if test="${qnaVO.board_fix eq false}">
-							<a href="javascript:boardRightCheck(${qnaVO.seq})" class=".qna-one">
+							<a href="javascript:boardRightCheck(${qnaVO.seq})" class="qna-one">
 								<input name="user_id" type="hidden" value="${qnaVO.user_id}"/>
 								<input class="qna-seq" name="seq" type="hidden" value="${qnaVO.seq}"/>
 								<input name="board_answer" type="hidden" value="${qnaVO.board_answer }"/>

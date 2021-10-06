@@ -85,4 +85,43 @@ public class UserDAO {
 		System.out.println("��� �� : " +userInfo);
 		return userInfo;
 	}
+
+	public int changeChoice(ChoiceVO choice) {
+		int count = 0;
+		if(!choice.isChoice_true()) {
+			count=sqlSessionTemplate.selectOne("ChoiceDAO.selectChoice", choice);
+			if(count == 0) {
+				sqlSessionTemplate.insert("ChoiceDAO.addChoice", choice);
+			}else {
+				sqlSessionTemplate.update("ChoiceDAO.updateChoice",choice);
+			}
+			return 1;
+		}else {
+			sqlSessionTemplate.update("ChoiceDAO.cancelChoice", choice);
+			return 0;
+		}
+	}
+
+	public List<ChoiceVO> setChoice(String email) {
+		return sqlSessionTemplate.selectList("ChoiceDAO.setChoice",email);
+	}
+
+	public List<FollowVO> setFollow(String email) {
+		return sqlSessionTemplate.selectList("ChoiceDAO.setFollow",email);
+	}
+
+	public int changeFollow(FollowVO follow) {
+		int count = 0;
+		if(!follow.isFollow_true()) {
+			count=sqlSessionTemplate.selectOne("ChoiceDAO.selectFollow", follow);
+			if(count == 0) {
+				sqlSessionTemplate.insert("ChoiceDAO.addFollow", follow);
+			}
+			return 1;
+		}else {
+			sqlSessionTemplate.delete("ChoiceDAO.deleteFollow", follow);
+			return 0;
+		}
+
+	}
 }

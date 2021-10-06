@@ -5,8 +5,8 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.idwith.mpweb.common.PagingVO;
+
 
 @Repository
 public class User_SellerDAO {
@@ -80,5 +80,9 @@ public class User_SellerDAO {
 		
 	public List<UserSellerVO> getSellerListForIndex() {
 		return sqlSessionTemplate.selectList("SellerCheckDAO.getSellerListForIndex");
+	}
+
+	public List<SellerStoryVO> getStoryList() {
+		return sqlSessionTemplate.selectList("SellerCheckDAO.getStoryListForIndex");
 	}
 }

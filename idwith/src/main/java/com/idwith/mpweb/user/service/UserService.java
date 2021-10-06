@@ -3,7 +3,12 @@ package com.idwith.mpweb.user.service;
 import java.util.List;
 import java.util.Map;
 
+
 import com.idwith.mpweb.user.UserAddressVO;
+
+import com.idwith.mpweb.user.ChoiceVO;
+import com.idwith.mpweb.user.FollowVO;
+
 import com.idwith.mpweb.user.UserVO;
 
 public interface UserService {
@@ -33,4 +38,13 @@ public interface UserService {
 	List<Map<String, String>> getUserInfo(String user_name);
 
 	void insertAddress(UserAddressVO userAddressVO);
+
+	int changeChoice(ChoiceVO choice);
+
+	List<ChoiceVO> setChoice(String email);
+
+	List<FollowVO> setFollow(String email);
+
+	int changeFollow(FollowVO follow);
+
 }

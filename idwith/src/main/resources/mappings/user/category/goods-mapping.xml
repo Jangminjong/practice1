@@ -82,9 +82,10 @@
  		<collection property="goodsOption3VO" resultMap="goodsOption3Result" />
  	</resultMap>
  	
+
  	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT goods.*, goods_review.goods_review_context
-	FROM goods AS goods LEFT OUTER JOIN goods_review AS goods_review ON goods.goods_code = goods_review.goods_review_code where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10;
+	FROM goods AS goods LEFT OUTER JOIN goods_review AS goods_review ON goods.goods_code = goods_review.goods_review_code where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10
  	</select>
  	
  	<!-- 작가가 등록한 상품리스트 가져오기 -->
@@ -117,4 +118,60 @@
 		left join goods_option3 as go3 on go3.goods_op3_code = g.goods_op3_code
 	where g.goods_code=#{good_code}
  	</select>
+
+ 	<select id="goodsCount" resultType="_int" parameterType="string">
+		SELECT COUNT(*) FROM goods WHERE goods_category=#{goods_category}
+ 	</select>
+ 	<select id="getGoodsListWithCategory" resultMap="goodsResult">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_category=#{searchCondition})A)AS foo 
+			WHERE rownum BETWEEN #{start} AND #{end}
+ 	</select>
+ 	<select id="getGoodsListSortVolume" resultMap="goodsResult">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_category=#{searchCondition} ORDER BY goods_volume DESC )A)AS foo 
+			WHERE rownum BETWEEN #{start} AND #{end}
+ 	</select>
+ 	<select id="getGoodsListSortRowPrice" resultMap="goodsResult" parameterType="com.idwith.mpweb.common.PagingVO">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_category=#{searchCondition} ORDER BY goods_price ASC )A)AS foo 
+			WHERE rownum BETWEEN #{start} AND #{end}
+ 	</select>
+ 	<select id="getGoodsListSortHighPrice" resultMap="goodsResult">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_category=#{searchCondition} ORDER BY goods_price DESC )A)AS foo 
+			WHERE rownum BETWEEN #{start} AND #{end}
+ 	</select>
+ 	<select id="getGoodsListWithPrice" resultMap="goodsResult">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_category=#{searchCondition} AND goods_price BETWEEN #{min} AND #{max})A)AS foo 
+			WHERE rownum BETWEEN #{start} AND #{end}
+ 	</select>
+ 	<!-- 인기페이지에서 사용 -->
+ 	<select id="getGoodsListForPopular" resultMap="goodsResult" parameterType="goodsVO">
+	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT goods.*, goods_review.goods_review_context
+	FROM goods AS goods LEFT OUTER JOIN goods_review AS goods_review ON goods.goods_code = goods_review.goods_review_code where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10
+ 	</select>
+ 	
+
 </mapper>

@@ -12,6 +12,9 @@ public class SellerStoryVO {
 	private String[] story_image;
 	private String seller_name;
 	private int story_cnt;
+	// seller 테이블에 있는 요소
+	private String store_name;
+	private String[] seller_profile_img;
 	
 	public int getStory_tseq() {
 		return story_tseq;
@@ -61,10 +64,24 @@ public class SellerStoryVO {
 	public void setStory_cnt(int story_cnt) {
 		this.story_cnt = story_cnt;
 	}
+	public String getStore_name() {
+		return store_name;
+	}
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
+	}
+	public String[] getSeller_profile_img() {
+		return seller_profile_img;
+	}
+	public void setSeller_profile_img(String[] seller_profile_img) {
+		this.seller_profile_img = seller_profile_img;
+	}
 	@Override
 	public String toString() {
 		return "SellerStoryVO [story_tseq=" + story_tseq + ", seller_id=" + seller_id + ", story_date=" + story_date
 				+ ", story_title=" + story_title + ", story_context=" + story_context + ", story_image="
-				+ Arrays.toString(story_image) + ", seller_name=" + seller_name + ", story_cnt=" + story_cnt + "]";
+				+ Arrays.toString(story_image) + ", seller_name=" + seller_name + ", story_cnt=" + story_cnt
+				+ ", store_name=" + store_name + ", seller_profile_img=" + Arrays.toString(seller_profile_img) + "]";
 	}
+	
 }

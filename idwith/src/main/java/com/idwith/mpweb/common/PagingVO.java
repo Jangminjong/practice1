@@ -1,5 +1,7 @@
 package com.idwith.mpweb.common;
 
+import java.util.List;
+
 public class PagingVO {
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 	private int nowPage, startPage, endPage, total, lastPage, start, end;
@@ -9,6 +11,9 @@ public class PagingVO {
 	private String set;
 	private String searchCondition;
 	private String searchKeyword;
+	
+	private int max; // 작품 카테고리 페이지에서 가격 범위 설정하여 세팅할 때 사용
+	private int min;
 
 	public PagingVO() {
 	}
@@ -60,6 +65,20 @@ public class PagingVO {
 		}
 	}
 	
+	// 작품 카테고리 페이지에서 가격 범위 설정할 때 사용
+	public PagingVO(int total, int nowPage, int cntPerPage, String goods_category, String set, int min, int max) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		setSearchCondition(goods_category);
+		setSearchKeyword(set);
+		setMax(max);
+		setMin(min);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage(), getEndPage(),0);
+	}
+
 	// 제일 마지막 페이지 계산
 	public void calcLastPage(int total, int cntPerPage) {
 		setLastPage((int) Math.ceil((double) total / (double) cntPerPage));
@@ -188,6 +207,24 @@ public class PagingVO {
 
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
+	}
+
+
+	public int getMax() {
+		return max;
+	}
+
+	public void setMax(int max) {
+		this.max = max;
+	}
+	
+
+	public int getMin() {
+		return min;
+	}
+
+	public void setMin(int min) {
+		this.min = min;
 	}
 
 	@Override

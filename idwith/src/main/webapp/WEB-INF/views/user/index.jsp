@@ -39,6 +39,7 @@
 		</div>
 
 		<div class="dimmed-background"></div>
+		<input type="hidden" id="email" value="${email}"/>
 		<div id="content" class="content" data-page="main">
 			<!-- 메인 -->
 			<section id="main_visual">
@@ -144,11 +145,15 @@
 												<em class="icon-num" data-ranking="${goodsVO.rownum }" style="z-index:1;">${goodsVO.rownum }</em>
 												<div class="ui_card">
 													<!-- 찜 버튼 -->
-													<button type="button"
-														class="ui_card__overlay btn-ico sp-icon icon-favorite"
-														data-name="starred-toolbar" data-starred-type="product"
-														data-init="" data-starred="" style="background-image:url(resources/images/index/sp-icon.png); z-index:80;">
-													</button>
+													<div class="favCheck">
+														<input type="hidden" class="goods_code" name="goods_code" value="${goodsVO.goods_code }"/>
+														<button type="button" id="btn-${goodsVO.goods_code }"
+															class="ui_card__overlay btn-ico sp-icon icon-favorite"
+															data-name="starred-toolbar" data-starred-type="product"
+															data-init="" data-starred="" data-goods="${goodsVO.goods_code }"
+															style="background-image: url(resources/images/index/sp-icon.png); z-index: 80;" onclick="changeChoice('${goodsVO.goods_code }')">
+														</button>
+													</div>
 
 													<!-- 썸네일 -->
 													<div class="ui_card__imgcover">
@@ -162,7 +167,7 @@
 													<div class="ui_card__info">
 														<a href="seller_goods.do" class="ui_card__label"
 															target="_blank">${goodsVO.goods_name }</a> <a
-															href="detail_content.do" class="ui_card__title"
+															href="detail_content.do?goods_code=${goodsVO.goods_code }" class="ui_card__title"
 															target="_blank">${goodsVO.goods_name }</a>
 													</div>
 
@@ -260,39 +265,36 @@
 					<div class="ui_grid" data-on-scroll="load-content"
 						data-endpoint="/mainAsync/api_story?item=6">
 						<ul class="ui_grid__cols--3 ui_grid__cols--m1">
+						<c:forEach var="story" items="${storyList}">
 							<li class="ui_grid__item">
 								<div class="card-style story">
 									<div class="bordering">
-										<a href="/w/story/0113e77e-009d-4aae-a784-9a8fcf6095d2"
-											data-story-uuid="0113e77e-009d-4aae-a784-9a8fcf6095d2"
+										<a href="seller_main.do?storySellerId=${story.seller_id }"
+											data-story-uuid="${story.story_tseq }"
 											target="blank">
 											<div class="area-txt">
 												<div class="split-hard">
 													<span class="split crop-circ"
-														style="background-image: url(https://image.idus.com/image/files/a73d543b92a14a7a895bf64f058fba99_320.jpg)">
+														style="background-image: url(resources/images/seller_profile/${story.seller_profile_img[0]})">
 													</span>
 													<div class="split">
-														<span class="txt-strong">늘해랑 떡공방</span> <span class="txt">2021년
-															09월 28일</span>
+														<span class="txt-strong">${story.store_name }</span> <span class="txt">${story.story_date }</span>
 													</div>
-													<button type="button" class="split btn-ico active"
-														aria-label="하트" data-name="starred-toolbar"
-														data-starred-type="artist" data-init="1" data-starred="1"
-														data-target-id="2e754b3a-8c6e-4904-a8ab-9cac555cef5c"
-														data-state="active">
-
-														<i class="idus-icon-heart"></i>
+													<button type="button" id="btn-${story.seller_id }"
+														class="ui_card__overlay btn-ico sp-icon icon-favorite btn-${story.seller_id }"
+														data-name="starred-toolbar" data-starred-type="product"
+														data-init="" data-starred="" style="background-image:url(resources/images/index/sp-icon.png); z-index:80;" onclick="changeFollow('${story.seller_id }')">
 													</button>
 												</div>
-												<p class="desc">포장하기전 한컷💓 가을이 성큼다가왔네요 여름화과자 디자인은 이번달이
-													마지막이고 은은한 가을톤에 화과자와 양갱을 개발중입니다! 예쁜 디자인으로 연구중이니 기대해주세요💗</p>
+												<p class="desc">${story.story_context }</p>
 											</div>
 											<div class="area-img"
-												style="background-image: url(https://image.idus.com/image/files/781a96bd71fb42ea87fa15a3f8f31041_720.jpg)"></div>
+												style="background-image: url(resources/images/seller_profile/${story.seller_profile_img[1]})"></div>
 										</a>
 									</div>
 								</div>
 							</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
@@ -343,10 +345,9 @@
 													</div>
 													<div class="area-btns">
 														<div class="col">
-															<a href="#" class="btn btn-s btn-white toggle-heart"
+															<a href="index.do" class="btn btn-s btn-white toggle-heart btn-${story.seller_id }" id="btn-${seller.seller_code }"
 																data-name="starred-toolbar" data-starred-type="artist"
-																data-init="1" data-starred="" target=""
-																data-target-id="52b07e12-4222-4091-8e40-f024f8fdbe2f">
+																data-init="1" data-starred="" target="" onclick="changeFollow('${seller.seller_code }')">
 																<em class="txt">
 																	<i class="fa fa-plus" aria-hidden="true" style="font-size:12px;"></i> 
 																	팔로우
@@ -381,28 +382,28 @@
 				data-ui="load-all-on-scroll">
 				<div class="stickyparent">
 					<div class="ui_title">
-						<a href="/w/main/category" class="ui_title__txt"> <span>전체
+						<a href="goods_category.do" class="ui_title__txt"> <span>전체
 								카테고리</span> <i class="bubble"></i></a>
 					</div>
-
+					
 					<div class="ui_grid" data-on-scroll="load-content"
 						data-endpoint="/mainAsync/api_category">
 						<div class="ui_grid__cols--6">
+							<c:forEach var="category" items="${getAllGoodsCategory }">
 							<div class="ui_grid__item">
 								<div class="card-style boxed">
 									<div class="img-wrap">
 										<a
-											href="/w/main/category/5c6bc7d4-7760-4702-b63f-7f29eca479e3"
-											data-category-uuid="5c6bc7d4-7760-4702-b63f-7f29eca479e3"
+											href="goods_category.do?goods_category_code=${category.goods_category_code }"
 											class="area-img"
-											style="background-image: url(https://image.idus.com/image/files/3be4ff61715349509911d14dc2d1921b_720.jpg);">
+											style="background-image: url(${category.goods_photo[0]});">
 										</a>
 									</div>
-									<a href="/w/main/category/5c6bc7d4-7760-4702-b63f-7f29eca479e3"
-										class="area-txt">디저트, 베이커리, 떡</a>
+									<a href="goods_category.do?goods_category_code=${category.goods_category_code }"
+										class="area-txt" style="font-size:14px;">${category.goods_category_name }</a>
 								</div>
 							</div>
-
+							</c:forEach>
 						</div>
 					</div>
 				</div>

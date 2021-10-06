@@ -7,9 +7,25 @@
  	<resultMap type="goodsCateVO" id="goodsCateResult">
  		<result property="goods_category_code" column="goods_category_code"/>
  		<result property="goods_category_name" column="goods_category_name"/>
+ 		<!-- goods 테이블 컬럼 -->
+ 		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
  	</resultMap>
  	<select id="selectGoodsCategory" resultMap="goodsCateResult">
 		SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-	FROM goods_category)A)AS foo WHERE rownum BETWEEN 1 AND 5;
+	FROM goods_category)A)AS foo WHERE rownum BETWEEN 1 AND 5
+ 	</select>
+ 	<select id="getAllGoodsCategory" resultMap="goodsCateResult">
+		SELECT * FROM (
+			SELECT A.* FROM (
+				SELECT DISTINCT goods_category.*, goods.goods_photo
+				FROM goods_category LEFT OUTER JOIN goods 
+				ON goods_category.goods_category_code = goods.goods_category )A)AS foo
+ 	</select>
+ 	<select id="getCategoryName" resultType="string" parameterType="string">
+		SELECT goods_category_name FROM goods_category WHERE goods_category_code=#{goods_category}
+ 	</select>
+ 	<!-- 인기작품 페이지에서 사용 -->
+ 	<select id="getGoodsCategory" resultMap="goodsCateResult">
+		SELECT * FROM goods_category
  	</select>
 </mapper>

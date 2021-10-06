@@ -22,4 +22,7 @@ public interface GoodsService {
 	GoodsReviewVO getReviewListDetail(String goods_code);
 
 	List<GoodsVO> getGoodsOptionList(String goods_code);
+
+	List<GoodsCategoryVO> getAllGoodsCategory();
+
 }
