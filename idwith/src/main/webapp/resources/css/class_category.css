@@ -45,12 +45,12 @@
     height: 36px;
 }
 
-/* °øÅë Àû¿ë css */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ css */
 b {
     font-weight: bold;
 }
 
-/* °³º° Àû¿ë css */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ css */
 [data-page="edu-search"] .ui_title {
     padding-top: 48px;
     border-bottom: none;
@@ -485,3 +485,8 @@ b {
     list-style:none;
 }
 
+.side_nav__submenu a{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

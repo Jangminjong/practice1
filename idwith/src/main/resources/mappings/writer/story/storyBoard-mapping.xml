@@ -52,6 +52,5 @@
 	<select id="countStoryBoard" resultType="int">
 		select count(*) from story
 	</select>
-	
 
 </mapper>
