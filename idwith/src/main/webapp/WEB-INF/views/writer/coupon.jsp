@@ -176,56 +176,56 @@
     </section>
 
     <section class="content">
-        <div class="container">
-
-        <div class="row">
-            
-
+      <div class="row">
+        <div class="container-fluid p-0">                  
                 <div class="row mb-2 mb-xl-3">
                     <div class="col-auto d-none d-sm-block">
                         <h3>쿠폰 발행내역</h3>
                     </div>
                 </div>
-
-
-                    <div class="card-body" style="width: auto; height: 500px;">
-
-                        <form>
-                            
+                    <div class="card" style="width: 800px; height: 500px;">
+                       <div class="card-body container-fluid p-0">
+                        <form id="form-coupon-writer" name="couponForm" action="couponRequest.wdo" >
+                               <input type="hidden" name="request_cp_seq" value="${writerCoupon.request_cp_seq}" />
                             <div class="mb-3">
                                 <label class="form-label">쿠폰 이름</label>
-                                <input type="text" class="form-control" placeholder="Coupon Name" style="width: auto;">
+                                <input type="text" class="form-control" name="request_cp_name" value="${writerCoupon.request_cp_name}" style="width: auto;" disabled>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="release">배포 대상</label>
-                                <input type="text" class="form-control" list="list" id="release" style="width: auto;">                               
+                                <input type="text" class="form-control" name="request_cp_target" value="${writerCoupon.request_cp_target}"  list="list"style="width: auto;" disabled>                               
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">적용 조건</label>
-                                <input type="text" class="form-control" placeholder="최소 주문 금액" style="width: auto;">
+                                <input type="text" class="form-control" name="request_cp_min_price" value="${writerCoupon.request_cp_min_price}" style="width: auto;" disabled>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">쿠폰 할인금액</label>
-                                <input type="text" class="form-control" placeholder="Coupon Price" style="width: auto;">
+                                <input type="text" class="form-control" name="request_cp_price" value="${writerCoupon.request_cp_price}" style="width: auto;" disabled>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">추가 요청사항</label>
-                                <input type="text" class="form-control" placeholder="Requested term" style="width: 450px; height: 75px;">
+                                <input type="text" class="form-control" name="request_cp_context" value="${writerCoupon.request_cp_context}" style="width: 450px; height: 75px;" disabled>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">쿠폰 적용시작일</label>
-                                <input type="date" class="form-control" placeholder="시작일" style="width: auto;">
+                                <input type="text" class="form-control" name="request_cp_start" value="${writerCoupon.request_cp_start}" style="width: auto;" disabled>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">쿠폰 적용종료일</label>
-                                <input type="date" class="form-control" placeholder="종료일" style="width: auto;">
+                                <input type="text" class="form-control" name="request_cp_end" value="${writerCoupon.request_cp_end}" style="width: auto;" disabled>
                             </div>
+                            
+                            <div class="col-md-1 text-center pull-right">
+                        <a href="couponRequest.wdo">
+                            <button class="btn btn-primary">목록</button>
+                        </a>
+                    </div>
 
-                          
                         </form>
-
+                      </div>
                     </div>
                 </div>
                 <div class="row">
@@ -239,11 +239,7 @@
                     <div class="col-md-1 text-center"></div>
                     <div class="col-md-1 text-center"></div>
                     <div class="col-md-1 text-center"></div>
-                    <div class="col-md-1 text-center">
-                        <a href="couponRequest.wdo">
-                            <button class="btn btn-primary">목록</button>
-                        </a>
-                    </div>
+                    
                 </div>
             </div>
         

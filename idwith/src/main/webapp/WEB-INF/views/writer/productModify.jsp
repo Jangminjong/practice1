@@ -189,29 +189,29 @@
                             
                         </div>
                         <div class="body">
-                            <form id="form_validation" method="POST">
+                            <form id="form_validation" name="goodsModifyForm" action="updateGoods.wdo" method="POST">
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="작품명" required>
-                                        <label class="form-label">Name</label>
+                                        <input type="text" class="form-control" name="goods_name"  placeholder="${goods.goods_name}" >
+                                        <label class="form-label"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="goods_price"  placeholder="${goods.goods_price}" >
+                                        <label class="form-label"></label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="가격" required>
-                                        <label class="form-label">Price</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">Option</label>
+                                        <input type="text" class="form-control" name="text" >
+                                        <label class="form-label"></label>
                                     </div>
                                 </div>
                                         <div class="form-group form-float">
                                     <div class="form-line">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
-                                        <label class="form-label">작품 상세설명</label>
+                                        <textarea name="goods_info"  placeholder="${goods.goods_info}" cols="30" rows="5" class="form-control no-resize" ></textarea>
+                                        <label class="form-label"></label>
                                     </div>
                                 </div>
 
@@ -219,14 +219,27 @@
                                     <label class="input-group-text" for="inputGroupFile01">Upload</label>
                                     <input type="file" class="form-control" id="inputGroupFile01">
                                   </div>
+                                  
+                                 
+								<div class="row">									
+                                  <a href="productManagement.wdo">
+                                      <button class="btn btn-primary waves-effect pull-right" type="submit">목록</button>
+                                  </a>
+                                  <a href="updateGoods.wdo?seq_goods=${goods.goods_seq}">
+                                      <button class="btn btn-success waves-effect  pull-right" style=margin-right:5px; type="submit">수정</button>
+                                  </a>
+            
+                       
+                       
+                        </div>
                             </form>
                         </div>
                         
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary waves-effect pull-right" type="submit">변경하기</button>
-
+            
+							
 
             
                

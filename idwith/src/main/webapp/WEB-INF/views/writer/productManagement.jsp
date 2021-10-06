@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -176,13 +178,9 @@
     </section>
     
 
-    <section class="content">
-
-        
-        <div class="container-fluid">
+    <section class="content">      
+        <div class="container-fluid">         
           
-        </div>
-        <!-- Basic Table -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
@@ -198,30 +196,36 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>작품코드</th>
-                                    <th>카테고리</th>
+                                    <th>No.</th>
                                     <th>작품명</th>
+                                    <th>카테고리</th>
                                     <th>가격</th>
                                     <th>등록일</th>
+                                    <th>평점</th>
+                                    <th>조회수</th>                                    
                                     <th>삭제</th>
                                 </tr>
                             </thead>
                             <tbody>
+                              <c:forEach var="goods" items="${ProductViewAll}">
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td><a href="productModify.wdo">AB0102</a></td>
-                                    <td>디저트, 베이커리</td>
-                                    <td>마카롱</td>
-                                    <td>3,500</td>
-                                    <td>21-09-01</td>
+                                    <th scope="row">${goods.rownum}</th>
+                                    <td><a href="productModify.wdo?goods_seq=${goods.goods_seq}"> ${goods.goods_name}</a></td>
+                                    <td>${goods.goods_category}</td>
+                                    <td>${goods.goods_price}</td>
+                                    <td><fmt:formatDate value="${goods.goods_apply_date}"  pattern="yyyy.MM.dd"/></td>
+                                    <td>${goods.goods_grade}</td>
+                                    <td>${goods.goods_view}</td>                                    
                                     <td>
                                         <!-- BEGIN primary modal -->
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#defaultModalPrimary">
+                                        <a href="deleteGoods.wdo?goods_seq${goods.goods_seq}">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">삭제</button>
+                                        </a>
+                                     <!--    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#defaultModalPrimary" id=>
                                             삭제
                                         </button>
-                                        <div class="modal fade" id="defaultModalPrimary" tabindex="-1"
+                                          <div class="modal fade" id="defaultModalPrimary" tabindex="-1"
                                             role="dialog" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -235,61 +239,111 @@
                                                     <div class="modal-body m-3">
                                                         <p class="mb-0">해당 작품을 삭제하시겠습니까??</p>
                                                     </div>
-                                                    <div class="modal-footer">
+                                                    <div class="modal-footer">                                                
                                                         <button type="button"
-                                                            class="btn btn-warning">닫기</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">삭제</button>
+                                                            class="btn btn-warning"  data-dismiss="modal">닫기</button>
+                                                         <a href="deleteGoods.wdo?goods_seq${goods.goods_seq}">
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">삭제</button>
+                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>                                               
+                                        </div>    -->                                           
                                     </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Larry</td>
-                                    <td>Jellybean</td>
-                                    <td>@lajelly</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Larry</td>
-                                    <td>Kikat</td>
-                                    <td>@lakitkat</td>
-                                </tr>
+                                </tr>  
+                                </c:forEach>                              
+                                                                                           
                             </tbody>
                         </table>
-
-                        
-                    </div>
+							<div class="body pull-right">
+								<div class="button">
+									<a href="productCreate.wdo">
+										<button type="button" class="btn bg-deep-purple waves-effect">작품등록</button>
+									</a>
+								</div>
+							</div>
+						</div>
                 </div>
             </div>
+            
+            	<!-- 페이징 처리 -->
+					  	<div class="paging container-fluid" data-ui="paging" data-sync="false">
+							<nav style="float:center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+									<c:choose>
+										<c:when test="${paging.nowPage eq 1 }">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Previous</span></li>
+										</c:when>
+										<c:when test="${paging.nowPage ne 1 }">
+											<li class="page-item"><a
+												href="/mpweb/productManagement.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Previous</a></li>
+										</c:when>
+									</c:choose>
+									<c:forEach begin="${paging.startPage }"
+										end="${paging.endPage }" var="p">
+										<c:choose>
+											<c:when test="${p eq paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/productManagement.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													onclick="return false" class="page-link">${p }</a></li>
+											</c:when>
+											<c:when test="${p ne paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/productManagement.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													class="page-link">${p }</a></li>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${paging.endPage eq paging.lastPage}">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Next</span></li>
+										</c:when>
+										<c:when test="${paging.endPage ne paging.lastPage}">
+											<li class="page-item"><a
+												href="/mpweb/productManagement.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+												style="width: auto;" class="page-link">Next</a></li>
+										</c:when>
+									</c:choose>
+								</ul>
+							</nav>
+						</div> 
+						
+						<!-- 페이징 처리 끝 -->
         </div>    
-        <div class="body pull-right">
-            <div class="button">
-                <a href="productCreate.wdo">
-                <button type="button" class="btn bg-deep-purple waves-effect">작품 등록</button>
-                </a>
-            </div>
-        </div>
+     </div>
         
     </section>
 
     <!-- Jquery Core Js -->
     <script src="resources/writer/plugins/jquery/jquery.min.js"></script>
+    
+     <script>
+				$().ready(function (){ 
+					$("#deleteGoods").click(function (){ 
+						Swal.fire({ 
+							title: '해당 작품을 삭제하시겠습니까?', 
+							text: "", 
+							icon: 'warning', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '삭제', 
+							cancelButtonText: '취소' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'해당 작품이 삭제되었습니다.', 
+									 
+								) 
+							} 
+						}) 
+					}); 
+				});
+			</script>
 
     <!-- Bootstrap Core Js -->
     <script src="resources/writer/plugins/bootstrap/js/bootstrap.js"></script>

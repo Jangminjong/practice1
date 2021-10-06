@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="WriterCouponDAO">
+	<resultMap type="writerCoupon" id="writerCouponResult">
+	    <result property="request_cp_seq" column="request_cp_seq"/>
+	 	<result property="request_cp_seller" column="request_cp_seller" />
+		<result property="request_cp_price" column="request_cp_price"/>
+		<result property="request_cp_min_price" column="request_cp_min_price" />
+		<result property="request_cp_name" column="request_cp_name" />
+		<result property="request_cp_target" column="request_cp_target" />
+		<result property="request_cp_date" column="request_cp_date"/>
+		<result property="request_cp_context" column="request_cp_context"/>
+		<result property="request_cp_start" column="request_cp_start"/>
+		<result property="request_cp_end" column="request_cp_end"/>
+		<result property="request_cp_state" column="request_cp_state"/>
+ 	</resultMap>
+
+	<!-- 쿠폰 요청(등록) -->
+	<insert id="insertCoupon" parameterType="writerCoupon">
+		INSERT INTO request_cp (
+		request_cp_seller, 
+		request_cp_price, 
+		request_cp_min_price, 
+		request_cp_name, 
+		request_cp_target, 
+		request_cp_date, 
+		request_cp_context,
+		request_cp_start,
+		request_cp_end,
+		request_cp_state)
+		VALUES(
+		#{request_cp_seller}, 
+		#{request_cp_price}, 
+		#{request_cp_min_price}, 
+		#{request_cp_name}, 
+		#{request_cp_target}, 
+		now(), 
+		#{request_cp_context},
+		#{request_cp_start},
+		#{request_cp_end},
+		#{request_cp_state})
+	</insert>
+
+	<!-- 쿠폰  수정 -->
+	  <update id="updateWriterCoupon" parameterType="com.idwith.mpweb.writer.coupon.WriterCouponVO">
+	 	<![CDATA[	
+	 		UPDATE request_cp
+	 		SET request_cp_name=#{request_cp_name}, request_cp_price=#{request_cp_price}, request_cp_min_price=#{request_cp_min_price}
+	 		WHERE STORY_TSEQ = #{request_cp}
+	    ]]> 	
+ 	</update>
+ 	
+	<!-- 작가이야기  삭제 -->
+	<!--  <delete id="deleteStoryBoard" parameterType="writerCoupon">
+		DELETE FROM request_cp WHERE request_cp=#{request_cp}
+	</delete> -->
+	 
+	<!-- 작가이야기  상세조회 -->
+	<select id="coupon" resultType="WriterCoupon" resultMap="writerCouponResult">
+		SELECT * FROM request_cp WHERE request_cp_seq=#{request_cp_seq}
+	</select>
+
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="getCouponList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="writerCouponResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM request_cp ORDER BY request_cp_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>	
+
+     <!-- 게시글 개수 출력 -->
+	<select id="countWriterCoupon" resultType="int">
+		select count(*) from request_cp
+	</select>
+	
+
+</mapper>
