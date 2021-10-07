@@ -1,9 +1,11 @@
 package com.idwith.mpweb.admin;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class ClassProposeInfoVO {
 	
+	private Integer classRegSeq;
 	private String classSeller;
 	private String storeName;
 	private String className;
@@ -12,6 +14,20 @@ public class ClassProposeInfoVO {
 	private String classCategory;
 	private Timestamp classRegdate;
 	private String classInfo;
+	private String[] classPhoto;
+	
+	public String[] getClassPhoto() {
+		return classPhoto;
+	}
+	public void setClassPhoto(String[] classPhoto) {
+		this.classPhoto = classPhoto;
+	}
+	public Integer getClassRegSeq() {
+		return classRegSeq;
+	}
+	public void setClassRegSeq(Integer classRegSeq) {
+		this.classRegSeq = classRegSeq;
+	}
 	
 	public String getClassSeller() {
 		return classSeller;
@@ -64,9 +80,11 @@ public class ClassProposeInfoVO {
 	
 	@Override
 	public String toString() {
-		return "ClassProposeInfoVO [classSeller=" + classSeller + ", storeName=" + storeName + ", className="
-				+ className + ", classPhone=" + classPhone + ", sellerSellno=" + sellerSellno + ", classCategory="
-				+ classCategory + ", classRegdate=" + classRegdate + ", classInfo=" + classInfo + "]";
+		return "ClassProposeInfoVO [classRegSeq=" + classRegSeq + ", classSeller=" + classSeller + ", storeName="
+				+ storeName + ", className=" + className + ", classPhone=" + classPhone + ", sellerSellno="
+				+ sellerSellno + ", classCategory=" + classCategory + ", classRegdate=" + classRegdate + ", classInfo="
+				+ classInfo + ", classPhoto=" + Arrays.toString(classPhoto) + "]";
 	}
-
+	
+	
 }

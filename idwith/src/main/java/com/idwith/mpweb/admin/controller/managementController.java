@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.AdminVO;
+import com.idwith.mpweb.admin.ClassProposeInfoVO;
 import com.idwith.mpweb.admin.EmailDTO;
 import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.admin.UserListVO;
@@ -268,9 +269,14 @@ public class managementController {
 	public String productPropose() {
 		return "productPropose";
 	}
-
-	@GetMapping("/classPropose.mdo")
-	public String classPropose() {
+	
+	/**클래스 입점신청 상세보기*/
+	@RequestMapping("/classPropose.mdo")
+	public String classPropose(ClassProposeInfoVO classProposeInfo, Model model,
+			@RequestParam(value = "class_reg_seq")int classRegseq) {
+		System.out.println("클래스 입점신청 상세보기 controller");
+		System.out.println("ID : " + classProposeInfo.getClassSeller());
+		model.addAttribute("classProposeInfo", proposeService.getClassProposeInfo(classRegseq));
 		return "classPropose";
 	}
 	

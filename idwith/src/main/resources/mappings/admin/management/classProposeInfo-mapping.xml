@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ClassProposeInfoDAO">
+	<resultMap type="classProposeInfo" id="classProposeInfoResult">
+		<result property="classRegSeq" column="CLASS_REG_SEQ"/>
+		<result property="classSeller" column="CLASS_SELLER" />
+		<result property="storeName" column="STORE_NAME" />
+		<result property="className" column="CLASS_NAME" />
+		<result property="classPhone" column="CLASS_PHONE" />
+		<result property="sellerSellno" column="SELLER_SELLNO" />
+		<result property="classCategory" column="CLASS_CATEGORY"/>
+		<result property="classRegdate" column="CLASS_REG_DATE"/>
+		<result property="classInfo" column="CLASS_INFO"/>
+		<result property="classPhoto" column="CLASS_PHOTO" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="String" jdbcType="ARRAY"/>
+	</resultMap>
+	
+	<select id="getClassProposeInfo" parameterType="com.idwith.mpweb.admin.ClassProposeInfoVO" resultMap="classProposeInfoResult">
+		select * from class_reg where CLASS_REG_SEQ=#{classRegSeq}
+	</select>
+	
+	
+	
+</mapper>

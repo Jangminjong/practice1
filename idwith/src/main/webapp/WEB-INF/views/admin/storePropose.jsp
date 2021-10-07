@@ -201,7 +201,7 @@
 										<thead>
 											<tr>
 												<th scope="col">#</th>
-												<th scope="col">작가이름</th>
+												<th scope="col">상점이름</th>
 												<th scope="col">사업자등록번호</th>
 												<th scope="col">신청날짜</th>
 												<th scope="col">입점승인/거절</th>
@@ -212,7 +212,7 @@
 											<input type="hidden" value="${classRegList.class_reg_seq}" />
 											<tr>
 												<th scope="row">${status.count}</th>
-												<td><a href="classPropose.mdo">${classRegList.store_name}</a></td>
+												<td><a href="classPropose.mdo?class_reg_seq=${classRegList.class_reg_seq}">${classRegList.store_name}</a></td>
 												<td>${classRegList.seller_sellno}</td>
 												<td>
 													<fmt:formatDate value="${classRegList.class_reg_date}" pattern="yyyy.MM.dd"/>

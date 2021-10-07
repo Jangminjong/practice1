@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.admin.ClassProposeInfoVO;
 import com.idwith.mpweb.admin.ProposeDAO;
 import com.idwith.mpweb.admin.ProposeVO;
 import com.idwith.mpweb.user.ClassRegVO;
@@ -55,5 +56,10 @@ public class ProposeServiceImpl implements ProposeService {
 	@Override
 	public void updateStatus(ClassRegVO classRegVO) {
 		proposeDAO.updateStatus(classRegVO);
+	}
+
+	@Override
+	public ClassProposeInfoVO getClassProposeInfo(int classRegseq) {
+		return proposeDAO.getClassProposeInfo(classRegseq);
 	}
 }

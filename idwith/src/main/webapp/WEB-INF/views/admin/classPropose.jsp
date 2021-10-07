@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,7 +141,7 @@
 							<div class="container-fluid p-0">
 								<div class="row mb-2 mb-xl-3">
 									<div class="col-auto d-none d-sm-block">
-										<h3>작가 : </h3>
+										<h3>작가 : ${classProposeInfo.storeName}</h3>
 									</div>
 								</div>
 
@@ -148,28 +150,28 @@
 										<form>
 											<div class="mb-3">
 												<label class="form-label">작가코드</label> 
-												<input type="text" class="form-control" placeholder="seller code" style="width: auto;" readonly="readonly">
+												<input type="text" class="form-control" name="classSeller" id="classSeller" value="${classProposeInfo.classSeller}" style="width: auto;" readonly="readonly">
 											</div>
 
 											<div class="row">
 												<div class="col-md-3">
 													<label class="form-label">상점 이름</label>
-													 <input type="text" class="form-control" placeholder="seller name" style="width: auto;" readonly="readonly">
+													 <input type="text" class="form-control" name="storeName" id="storeName" value="${classProposeInfo.storeName}" style="width: auto;" readonly="readonly">
 												</div>
 												<div class="col-md-3">
 													<label class="form-label">클래스 이름</label> 
-													<input type="text" class="form-control" placeholder="seller name" style="width: auto;" readonly="readonly">
+													<input type="text" class="form-control" name="className" id="className" value="${classProposeInfo.className}" style="width: auto;" readonly="readonly">
 												</div>
 												<div class="col-md-3">
 													<label class="form-label">전화 번호</label> 
-													<input type="text" class="form-control" placeholder="seller phone" style="width: auto;" readonly="readonly">
+													<input type="text" class="form-control" name="classPhone" id="classPhone" value="${classProposeInfo.classPhone}" style="width: auto;" readonly="readonly">
 												</div>
 											</div>
 											<div class="mb-3"></div>
 											<div class="row">
 												<div class="col-md-3">
 													<label class="form-label">사업자 등록번호</label>
-													 <input type="text" class="form-control" placeholder="sell number" style="width: auto;" readonly="readonly">
+													 <input type="text" class="form-control" name="sellerSellno" id="sellerSellno" value="${classProposeInfo.sellerSellno}" style="width: auto;" readonly="readonly">
 												</div>
 												<div class="col-md-3">
 													<label class="form-label">작품 / 클래스</label> 
@@ -177,30 +179,32 @@
 												</div>
 												<div class="col-md-3">
 													<label class="form-label">카테고리</label> 
-													<input type="text" class="form-control" placeholder="category" readonly="readonly"
+													<input type="text" class="form-control" name="classCategory" id="classCategory" value="${classProposeInfo.classCategory}" readonly="readonly"
 														style="width: auto;">
 												</div>
 											</div>
 											<div class="mb-3"></div>
 											<div class="mb-3">
 												<label class="form-label">입점 신청일</label> 
-												<input type="text" class="form-control" placeholder="Application date" readonly="readonly"
-													style="width: auto;">
+												<fmt:formatDate var="classInfoDate" value="${classProposeInfo.classRegdate}" pattern="yyyy.MM.dd"/>
+												<input type="text" class="form-control" name="classRegdate" id="classRegdate" value="${classInfoDate}" readonly="readonly" style="width: auto;">
 											</div>
 											<div class="mb-3">
 												<label class="form-label">상품 설명</label> 
-												<textarea class="form-control" placeholder="내용" rows="5" readonly="readonly"></textarea>
+												<textarea class="form-control" name="classInfo" id="classInfo" rows="5" readonly="readonly">${classProposeInfo.classInfo}</textarea>
 											</div>
-											<div class="row">
-												<div class="col-12 col-md-6 col-lg-4">
-													<div class="card">
-														<div class="card-header">
-															<h4 class="card-title mb-0">작품 사진</h4>
+											<c:forEach var="i" items="${classProposeInfo.classPhoto}">
+												<div class="row">
+													<div class="col-12 col-md-6 col-lg-4">
+														<div class="card">
+															<div class="card-header">
+																<h4 class="card-title mb-0">작품 사진</h4>
+															</div>
+															<img class="card-img-top" src="${i}" alt="Unsplash">
 														</div>
-														<img class="card-img-top" src="resources/admin/img/testImg.jpg" alt="Unsplash">
 													</div>
 												</div>
-											</div>
+											</c:forEach>
 											<div class="row">
 												<div class="col-md-2 text-center"></div>
 												<div class="col-md-2 text-center"></div>

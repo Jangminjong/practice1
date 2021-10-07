@@ -25,7 +25,7 @@
 </head>
 
 <body>
-	<input type="hidden" id="admin_role" value="${admin_role }">
+	<input type="hidden" id="admin_role" value="${admin_role}">
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">

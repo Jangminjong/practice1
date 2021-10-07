@@ -49,4 +49,8 @@ public class ProposeDAO {
 	public void updateStatus(ClassRegVO classRegVO) {
 		sqlSessionTemplate.update("ProposeDAO.updateStatus", classRegVO);
 	}
+
+	public ClassProposeInfoVO getClassProposeInfo(int classRegseq) {
+		return sqlSessionTemplate.selectOne("ClassProposeInfoDAO.getClassProposeInfo", classRegseq);
+	}
 }
