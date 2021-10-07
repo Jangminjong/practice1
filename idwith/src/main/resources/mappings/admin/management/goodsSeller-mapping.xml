@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GoodsSellerDAO">
+	<resultMap type="goodsSeller" id="goodsSellerResult">
+		<result property="sellerCode" column="SELLER_CODE" />
+		<result property="storeName" column="STORE_NAME" />
+		<result property="userId" column="USER_ID" />
+		<result property="sellerName" column="SELLER_NAME" />
+		<result property="sellerSellno" column="SELLER_SELLNO" />
+		<result property="sellerIndate" column="SELLER_INDATE" />
+	</resultMap>
+	
+	<select id="countGoodsSeller" resultType="int">
+		select count(*) from seller;
+	</select>
+	
+	<select id="getGoodsSellerList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="goodsSellerResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM seller ORDER BY STORE_NAME ASC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+</mapper>

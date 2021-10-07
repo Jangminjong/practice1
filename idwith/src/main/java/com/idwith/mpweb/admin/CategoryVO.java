@@ -16,8 +16,14 @@ public class CategoryVO {
 	private String goodsCategoryName;
 	private String classCategoryCode;
 	private String classCategoryName;
+	private int rownum;
 	
-	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	public String getGoodsCategoryCode() {
 		return goodsCategoryCode;
 	}

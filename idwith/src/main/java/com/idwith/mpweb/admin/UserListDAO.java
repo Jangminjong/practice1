@@ -5,8 +5,12 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.ClassRegVO;
+import com.idwith.mpweb.user.GoodsApplyVO;
 
 @Repository("userListDAO")
 public class UserListDAO {
@@ -68,6 +72,4 @@ public class UserListDAO {
 		return result;
 	}
 
-
-	
 }

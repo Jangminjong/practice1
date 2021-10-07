@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -175,27 +177,77 @@
 												<tr>
 													<th scope="col">#</th>
 													<th scope="col">작가코드</th>
-													<th scope="col">작가이름</th>
+													<th scope="col">상점이름</th>
 													<th scope="col">입점날짜</th>
 													<th scope="col">입점상태</th>
 													<th scope="col">입점취소</th>
 												</tr>
 											</thead>
 											<tbody>
+												<c:forEach var="goodsSellerList" items="${goodsSellerList}">
 												<tr>
-													<th scope="row">1</th>
-													<td><a href="productWriter.mdo">Seller1</a></td>
-													<td>시루아네</td>
-													<td>2021-06-02</td>
+													<td>${goodsSellerList.rownum}</td>
+													<td><a href="productWriter.mdo?sellerCode=${goodsSellerList.sellerCode}">${goodsSellerList.sellerCode}</a></td>
+													<td>${goodsSellerList.storeName}</td>
+													<td>
+														<fmt:formatDate value="${goodsSellerList.sellerIndate}" pattern="yyyy.MM.dd"/>
+													</td>
 													<td><label class="badge bg-info">입점중</label></td>
 													<td>
 														<button type="button" class="btn btn-warning" id="storeDelete">입점취소</button>
 													</td>
 												</tr>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
 								</div>
+								<!-- 페이징 처리 -->
+									<div class="goodsPagination" data-ui="goodsPagination" data-sync="false">
+										<nav style="float: center;" aria-label="Page navigation example">
+											<ul class="pagination justify-content-end">
+												<c:choose>
+													<c:when test="${goodsPagination.nowPage eq 1 }">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Previous</span></li>
+													</c:when>
+													<c:when test="${goodsPagination.nowPage ne 1 }">
+														<li class="page-item"><a
+															href="/mpweb/writerList.mdo?nowPage=${goodsPagination.nowPage - 1 }&cntPerPage=${goodsPagination.cntPerPage}"
+															style="width: auto;" class="page-link">Previous</a></li>
+													</c:when>
+												</c:choose>
+												<c:forEach begin="${goodsPagination.startPage }"
+													end="${goodsPagination.endPage }" var="p">
+													<c:choose>
+														<c:when test="${p eq goodsPagination.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/writerList.mdo?nowPage=${p }&cntPerPage=${goodsPagination.cntPerPage}"
+																onclick="return false" class="page-link">${p }</a></li>
+														</c:when>
+														<c:when test="${p ne goodsPagination.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/writerList.mdo?nowPage=${p }&cntPerPage=${goodsPagination.cntPerPage}"
+																class="page-link">${p }</a></li>
+														</c:when>
+													</c:choose>
+												</c:forEach>
+												<c:choose>
+													<c:when test="${goodsPagination.endPage eq goodsPagination.lastPage}">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Next</span></li>
+													</c:when>
+													<c:when test="${goodsPagination.endPage ne goodsPagination.lastPage}">
+														<li class="page-item"><a
+															href="/mpweb/writerList.mdo?nowPage=${goodsPagination.endPage+1 }&cntPerPage=${goodsPagination.cntPerPage}"
+															style="width: auto;" class="page-link">Next</a></li>
+													</c:when>
+												</c:choose>
+											</ul>
+										</nav>
+									</div>
+                                </div>
+								
 								<div class="tab-pane fade active" id="tab2" role="tabpanel">
 									<div class="table-responsive">
 										<table class="table mb-0">
@@ -227,10 +279,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-		</div>
-	</div>
-	</main>
+				</main>
+			</div>
 	<script src="resources/admin/js/app.js"></script>
 	<script>
 				$().ready(function (){ 
