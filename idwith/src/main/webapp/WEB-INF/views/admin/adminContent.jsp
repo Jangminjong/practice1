@@ -214,7 +214,7 @@
 										</div>
 										<div class="mb-3">
 											<label class="form-label">전화번호</label>
-											<input type="text" class="form-control" value="${adminList.admin_phone}" name="admin_phone" id="admin_phone" disabled="disabled"
+											<input type="text" class="form-control" value="${adminList.admin_phone}" name="admin_phone" id="admin_phone"
 												style="width: auto;">
 										</div>
 										<div class="mb-3">

@@ -188,87 +188,110 @@
 				</div>
 			</nav>
 
-			<main>
-				 <div class="content">
-                    <div class="row">
-                        <div class="container-fluid p-0">
-                            <div class="row mb-2 mb-xl-3">
-                                <div class="col-auto d-none d-sm-block">
-                                    <h3>작가 : client</h3>
-                                </div>
-                            </div>
+				<main>
+					<div class="content">
+						<div class="row">
+							<div class="container-fluid p-0">
+								<div class="row mb-2 mb-xl-3">
+									<div class="col-auto d-none d-sm-block">
+										<h3>작가 : client</h3>
+									</div>
+								</div>
 
-                            <div class="card">
-                                <div class="card-body" style="width: auto;">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label class="form-label">작가코드</label>
-                                            <input type="text" class="form-control" placeholder="seller code"
-                                                style="width: auto;" disabled>
-                                        </div>
-                                        
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label">이름</label>
-                                                <input type="text" class="form-control" placeholder="seller name"
-                                                    style="width: auto;">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="form-label">전화 번호</label>
-                                                <input type="text" class="form-control" placeholder="seller phone"
-                                                    style="width: auto;">
-                                            </div>
-                                        </div>
-                                        <div class="mb-3"></div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label">사업자 등록번호</label>
-                                                <input type="text" class="form-control" placeholder="sell number"
-                                                    style="width: auto;">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="form-label">작품 / 클래스</label>
-                                                <input type="text" class="form-control" placeholder="Product / Class"
-                                                    style="width: auto;">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="form-label">카테고리</label>
-                                                <input type="text" class="form-control" placeholder="category"
-                                                    style="width: auto;">
-                                            </div>
-                                        </div>
-                                        <div class="mb-3"></div>
-                                        <div class="mb-3">
-                                            <label class="form-label">입점 신청일</label>
-                                            <input type="text" class="form-control" placeholder="Application date"
-                                                style="width: auto;">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">상품 설명</label>
-                                            <input type="textarea" class="form-control" placeholder="Product Content" />
-                                        </div>
-                                    </form>
+								<div class="card">
+									<div class="card-body" style="width: auto;">
+										<form>
+											<div class="mb-3">
+												<label class="form-label">작가코드</label> <input type="text"
+													class="form-control" placeholder="seller code"
+													style="width: auto;" disabled>
+											</div>
 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center">
-                                    <a href="storePropose.mdo">
-                                        <button class="btn btn-primary">목록보기</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-			</main>
-			
-			<script src="resources/admin/js/app.js"></script>
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">이름</label> <input type="text"
+														class="form-control" placeholder="seller name"
+														style="width: auto;">
+												</div>
+												<div class="col-md-3">
+													<label class="form-label">전화 번호</label> <input type="text"
+														class="form-control" placeholder="seller phone"
+														style="width: auto;">
+												</div>
+											</div>
+											<div class="mb-3"></div>
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">사업자 등록번호</label> <input
+														type="text" class="form-control" placeholder="sell number"
+														style="width: auto;">
+												</div>
+												<div class="col-md-3">
+													<label class="form-label">작품 / 클래스</label> <input
+														type="text" class="form-control"
+														placeholder="Product / Class" style="width: auto;">
+												</div>
+												<div class="col-md-3">
+													<label class="form-label">카테고리</label> <input type="text"
+														class="form-control" placeholder="category"
+														style="width: auto;">
+												</div>
+											</div>
+											<div class="mb-3"></div>
+											<div class="mb-3">
+												<label class="form-label">입점 신청일</label> <input type="text"
+													class="form-control" placeholder="Application date"
+													style="width: auto;">
+											</div>
+											<div class="mb-3">
+												<label class="form-label">상품 설명</label> <input
+													type="textarea" class="form-control"
+													placeholder="Product Content" />
+											</div>
+											<div class="row">
+												<div class="col-12 col-md-6 col-lg-4">
+													<div class="card">
+														<div class="card-header">
+															<h4 class="card-title mb-0">작품 사진</h4>
+														</div>
+														<img class="card-img-top" src="resources/admin/img/testImg.jpg" alt="Unsplash">
+													</div>
+												</div>
+												<div class="col-12 col-md-6 col-lg-4">
+													<div class="card">
+														<div class="card-header">
+															<h4 class="card-title mb-0">작품 사진</h4>
+														</div>
+														<img class="card-img-top" src="resources/admin/img/testImg.jpg" alt="Unsplash">
+													</div>
+												</div>
+												<div class="col-12 col-md-6 col-lg-4">
+													<div class="card">
+														<div class="card-header">
+															<h4 class="card-title mb-0">작품 사진</h4>
+														</div>
+														<img class="card-img-top" src="resources/admin/img/testImg2.jpg" alt="Unsplash">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-2 text-center"></div>
+												<div class="col-md-2 text-center"></div>
+												<div class="col-md-2 text-center"></div>
+												<div class="col-md-2 text-center"></div>
+												<div class="col-md-2 text-center"></div>
+												<div class="col-md-2 text-right">
+													<button class="btn btn-primary" type="button" onclick="location.href='storePropose.mdo'">목록보기</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</main>
+				<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>
 </body>

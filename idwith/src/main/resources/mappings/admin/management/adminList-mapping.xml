@@ -26,7 +26,7 @@
 		<![CDATA[
 			SELECT * FROM (
 				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-			FROM manager ORDER BY admin_role DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+			FROM manager ORDER BY admin_role ASC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 		]]>
 	</select>
 	

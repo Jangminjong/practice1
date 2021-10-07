@@ -29,7 +29,7 @@
  	</select>	 -->
 	
  	<!-- 클래스오픈 테이블에 등록  -->
- 	<insert id="insertClassReg" parameterType="writerClassReg">
+ 	<!-- <insert id="insertClassReg" parameterType="writerClassReg">
  		INSERT INTO class_reg (
  								 class_seller,
  								 class_category,
@@ -57,18 +57,18 @@
  			   )
  	</insert>
 
- 	<!-- 클래스오픈 리스트 개수 조회 -->
+ 	클래스오픈 리스트 개수 조회
  	<select id="classRegCount" resultType="_int">
  		select count(*) from class_reg where class_seller=#{classSeller}
  	</select>
  	
- 	<!-- 페이징 처리 후 게시글 조회 -->
+ 	페이징 처리 후 게시글 조회
 	<select id="classRegList" parameterType="writerClassReg" resultMap="writerClassRegResult">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
 	FROM class_reg WHERE class_seller=#{countNotice} and class_status!=3 ORDER BY class_reg_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
 	
-	<!-- 클래스오픈 상세 -->
+	클래스오픈 상세
 	<select id="classReg" resultMap="writerClassRegResult">
 	select  class_reg_seq,
 			class_seller,
@@ -86,7 +86,7 @@
 	where class_reg_seq = #{classRegSeq}
 	</select>
 	
-	<!-- 클래스오픈 수정 -->
+	클래스오픈 수정
 	<update id="classRegUpdate" parameterType="writerClassReg">
 	UPDATE class_reg SET class_category = #{classCategory},
 						 class_post_address = #{classPostAddress},
@@ -97,8 +97,8 @@
 						 class_phone = #{classPhone},
 						 class_photo = #{classPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler} WHERE class_reg_seq = ${classRegSeq} 
 	</update>
-	<!-- 클래스오픈 삭제 -->
+	클래스오픈 삭제
 	<update id="classRegDelete" parameterType="writerClassReg">
 	UPDATE class_reg SET class_status=3 WHERE class_reg_seq = ${classRegSeq}
-	</update>
+	</update> -->
 </mapper>
