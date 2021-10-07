@@ -133,68 +133,13 @@
 				</div>
 			</nav>
 
-		<div class="main">
-			<nav class="navbar navbar-expand navbar-light navbar-bg">
-				<a class="sidebar-toggle d-flex"> <i
-					class="hamburger align-self-center"></i>
-				</a>
-
-				<div class="navbar-collapse collapse">
-					<ul class="navbar-nav navbar-align">
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle" href="#" id="alertsDropdown"
-							data-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="bell"></i>
-								</div>
-						</a>
-							<div
-								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
-								aria-labelledby="alertsDropdown">
-								<div class="dropdown-menu-header">알림</div>
-
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">모든 알림 보기</a>
-								</div>
-							</div></li>
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
-							data-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="message-square"></i>
-								</div>
-						</a> <!-- 메세지 -->
-							<div
-								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
-								aria-labelledby="messagesDropdown">
-								<div class="dropdown-menu-header">
-									<div class="position-relative"></div>
-								</div>
-
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">모든 메세지 보기</a>
-								</div>
-							</div></li>
-						<li class="nav-item dropdown"><a
-							class="nav-icon dropdown-toggle d-inline-block d-sm-none"
-							href="#" data-toggle="dropdown"> <i class="align-middle"
-								data-feather="settings"></i>
-						</a> <!-- 관리자 프로필--> <a
-							class="nav-link dropdown-toggle d-none d-sm-inline-block"
-							href="#"> <i class="align-middle" data-feather="log-out"></i>
-								<span class="text-dark">로그아웃</span>
-						</a></li>
-					</ul>
-				</div>
-			</nav>
-
 				<main>
 					<div class="content">
 						<div class="row">
 							<div class="container-fluid p-0">
 								<div class="row mb-2 mb-xl-3">
 									<div class="col-auto d-none d-sm-block">
-										<h3>작가 : client</h3>
+										<h3>작가 : </h3>
 									</div>
 								</div>
 
@@ -202,51 +147,49 @@
 									<div class="card-body" style="width: auto;">
 										<form>
 											<div class="mb-3">
-												<label class="form-label">작가코드</label> <input type="text"
-													class="form-control" placeholder="seller code"
-													style="width: auto;" disabled>
+												<label class="form-label">작가코드</label> 
+												<input type="text" class="form-control" placeholder="seller code" style="width: auto;" readonly="readonly">
 											</div>
 
 											<div class="row">
 												<div class="col-md-3">
-													<label class="form-label">이름</label> <input type="text"
-														class="form-control" placeholder="seller name"
-														style="width: auto;">
+													<label class="form-label">상점 이름</label>
+													 <input type="text" class="form-control" placeholder="seller name" style="width: auto;" readonly="readonly">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">전화 번호</label> <input type="text"
-														class="form-control" placeholder="seller phone"
-														style="width: auto;">
+													<label class="form-label">클래스 이름</label> 
+													<input type="text" class="form-control" placeholder="seller name" style="width: auto;" readonly="readonly">
+												</div>
+												<div class="col-md-3">
+													<label class="form-label">전화 번호</label> 
+													<input type="text" class="form-control" placeholder="seller phone" style="width: auto;" readonly="readonly">
 												</div>
 											</div>
 											<div class="mb-3"></div>
 											<div class="row">
 												<div class="col-md-3">
-													<label class="form-label">사업자 등록번호</label> <input
-														type="text" class="form-control" placeholder="sell number"
-														style="width: auto;">
+													<label class="form-label">사업자 등록번호</label>
+													 <input type="text" class="form-control" placeholder="sell number" style="width: auto;" readonly="readonly">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">작품 / 클래스</label> <input
-														type="text" class="form-control"
-														placeholder="Product / Class" style="width: auto;">
+													<label class="form-label">작품 / 클래스</label> 
+													<input type="text" class="form-control" value="클래스" style="width: auto;" readonly="readonly">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">카테고리</label> <input type="text"
-														class="form-control" placeholder="category"
+													<label class="form-label">카테고리</label> 
+													<input type="text" class="form-control" placeholder="category" readonly="readonly"
 														style="width: auto;">
 												</div>
 											</div>
 											<div class="mb-3"></div>
 											<div class="mb-3">
-												<label class="form-label">입점 신청일</label> <input type="text"
-													class="form-control" placeholder="Application date"
+												<label class="form-label">입점 신청일</label> 
+												<input type="text" class="form-control" placeholder="Application date" readonly="readonly"
 													style="width: auto;">
 											</div>
 											<div class="mb-3">
-												<label class="form-label">상품 설명</label> <input
-													type="textarea" class="form-control"
-													placeholder="Product Content" />
+												<label class="form-label">상품 설명</label> 
+												<textarea class="form-control" placeholder="내용" rows="5" readonly="readonly"></textarea>
 											</div>
 											<div class="row">
 												<div class="col-12 col-md-6 col-lg-4">
@@ -255,22 +198,6 @@
 															<h4 class="card-title mb-0">작품 사진</h4>
 														</div>
 														<img class="card-img-top" src="resources/admin/img/testImg.jpg" alt="Unsplash">
-													</div>
-												</div>
-												<div class="col-12 col-md-6 col-lg-4">
-													<div class="card">
-														<div class="card-header">
-															<h4 class="card-title mb-0">작품 사진</h4>
-														</div>
-														<img class="card-img-top" src="resources/admin/img/testImg.jpg" alt="Unsplash">
-													</div>
-												</div>
-												<div class="col-12 col-md-6 col-lg-4">
-													<div class="card">
-														<div class="card-header">
-															<h4 class="card-title mb-0">작품 사진</h4>
-														</div>
-														<img class="card-img-top" src="resources/admin/img/testImg2.jpg" alt="Unsplash">
 													</div>
 												</div>
 											</div>

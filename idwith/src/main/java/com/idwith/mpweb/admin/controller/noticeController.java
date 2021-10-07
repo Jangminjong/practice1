@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -72,10 +73,9 @@ public class noticeController {
 	/**관리자 공지사항 입력 기능
 	 * @throws IOException */
 	@RequestMapping("/insertNotice.mdo")
-	public String insertNotice(AdminNoticeBoardVO adminNotice, MultipartFile[] file) throws IOException {
+	public String insertNotice(AdminNoticeBoardVO adminNotice, MultipartFile[] file, HttpSession session) throws IOException {
 		System.out.println("공지사항 입력창");
 		System.out.println("content : " + adminNotice.getAmdinBoardContent());
-		
 		System.out.println("file.length=========>" + file.length);
 	    String[] photo = new String[file.length];
 	      
@@ -100,6 +100,7 @@ public class noticeController {
 	               photo[i] = filePath;
 	            }
 	         }
+	      adminNotice.setAdminBoardId((String) session.getAttribute("admin_name"));
 	      adminNotice.setAdminBoardFilePath(photo);
 	      adminNoticeService.insertAdminNotice(adminNotice);
 	      
