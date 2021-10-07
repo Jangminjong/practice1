@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +20,10 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+
+
 </head>
 
 <body>
@@ -149,7 +154,7 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form class="row g-3" id="form-detailNotice-admin" name="detailAdminNoticeForm" action="updateAdminNotice.mdo" method="post">
+						<form class="row g-3" id="form-detailNotice-admin" name="detailAdminNoticeForm" action="updateAdminNotice.mdo" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="adminBoardSeq" value="${adminNotice.adminBoardSeq}"/>
 							<div class="col-md-4">
 								<label class="form-label">제목</label> 
@@ -173,13 +178,43 @@
 								<textarea class="form-control" rows="10" name="amdinBoardContent">${adminNotice.amdinBoardContent}</textarea>
 							</div>
 							<div class="mb-3">
-								<label class="form-label w-100">파일</label> <input type="file">
+								<div class="form-group form-float">
+                                  <label class="form-label">업로드한 파일들</label>
+		                           <div class="uploadedGroup">
+		                              <c:forEach var="i" begin="0" end="${fileLength-1}" step="1">                  
+		                                 <c:choose>
+		                                    <c:when test="${adminNotice.adminBoardFilePath[i] ne null}">
+		                                       <input type="text" name="uploadedFileList" style="display:none;" value="${adminNotice.adminBoardFilePath[i]}">
+		                                       <div>
+		                                          <input type="text" name="uploadFileList" style="display:none;" value="${adminNotice.adminBoardFilePath[i]}">
+		                                          <img alt="" src="${adminNotice.adminBoardFilePath[i]}" width="30px" height="30px">&nbsp;&nbsp;&nbsp;
+		                                          <a href="${adminNotice.adminBoardFilePath[i]}" target="_blank">${fileName[i]}</a>&nbsp;&nbsp;&nbsp;
+		                                          <button type="button" onclick="uploadedFileDelete('uploadedFileBtn${i}')" id="uploadedFileBtn${i}">삭제</button>
+		                                          <br>
+		                                       </div>
+		                                    </c:when>
+		                                 </c:choose>
+		                              </c:forEach>
+		                           </div>
+                       		 </div>
+								<div class="upload-group">
+                                   <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                                   <button type="button" class="addimagegroup" style="align-content: " onclick="inputGroupAdd()">업로드 파일 추가</button>
+                                </div>
+                                <div class="image-group">
+                                   <div class="input-group mb-3">
+                                      <input type="file" class="form-control" name="file" id="imageinput1">
+                                      <button style="display : none;" id="canclebt">업로드 파일 취소</button>
+                                   </div>                                 
+                                </div>
+                                <div class="addImage-group">
+                                </div>
 							</div>
 							<div class="row">
 								<div class="col-md-3 text-center"></div>
 								<div class="col-md-3 text-center"></div>
 								<div class="col-md-3 text-center"></div>
-								<div class="col-md-3 text-center">
+								<div class="col-md-3 text-right">
 									<input class="btn btn-primary" type="button" onclick="location.href='adminNotice.mdo'" value="목록" /> 
 									<input type="submit" class="btn btn-primary" id="updateNotice-admin-submit" value="등록" />
 									<a href="deleteAdminNotice.mdo?adminBoardSeq=${adminNotice.adminBoardSeq}">
@@ -193,6 +228,37 @@
 
 			</main>
 			<script src="resources/admin/js/app.js"></script>
+			<script type="text/javascript">
+		
+				var imgInt = 1;
+				var imgInput = "imageinput";
+				function inputGroupAdd() {
+					imgInt += 1;
+					// input 내용 복사 및 id설정
+					var inputClone = $("#imageinput1").clone().prop('id',
+							imgInput + imgInt);
+					// button 내용 복사 및 display 설정, id값 설정
+					var buttonClone = $("#canclebt").clone().css({
+						'display' : ''
+					}).prop('id', imgInput + imgInt);
+					buttonClone.on('click', {
+						inputid : imgInput + imgInt
+					}, function(event) {
+						$("input").remove("#" + event.data.inputid);
+						$("button").remove("#" + event.data.inputid);
+					});
+					$(".addImage-group").append(inputClone);
+					console.log(buttonClone.val());
+					$(".addImage-group").append(buttonClone);
+					console.log(imgInput + imgInt);
+				}
+			</script>
+			<script type="text/javascript">
+				function uploadedFileDelete(divid){
+					   console.log("btn값"+divid);
+					   $("#"+divid).parent().remove();
+					}
+			</script>
 		</div>
 	</div>
 </body>

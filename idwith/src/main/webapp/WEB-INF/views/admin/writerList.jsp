@@ -177,6 +177,7 @@
 													<th scope="col">작가코드</th>
 													<th scope="col">작가이름</th>
 													<th scope="col">입점날짜</th>
+													<th scope="col">입점상태</th>
 													<th scope="col">입점취소</th>
 												</tr>
 											</thead>
@@ -186,6 +187,7 @@
 													<td><a href="productWriter.mdo">Seller1</a></td>
 													<td>시루아네</td>
 													<td>2021-06-02</td>
+													<td><label class="badge bg-info">입점중</label></td>
 													<td>
 														<button type="button" class="btn btn-warning" id="storeDelete">입점취소</button>
 													</td>
@@ -203,6 +205,7 @@
 													<th scope="col">작가코드</th>
 													<th scope="col">작가이름</th>
 													<th scope="col">입점날짜</th>
+													<th scope="col">입점상태</th>
 													<th scope="col">입점취소</th>
 												</tr>
 											</thead>
@@ -212,6 +215,7 @@
 													<td><a href="classWriter.mdo">Seller2</a></td>
 													<td>일일일</td>
 													<td>2020-12-31</td>
+													<td><label class="badge bg-info">입점중</label></td>
 													<td>
 														<button type="button" class="btn btn-warning" id="storeDelete">입점취소</button>
 													</td>
