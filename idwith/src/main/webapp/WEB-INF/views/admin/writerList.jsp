@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
@@ -132,10 +131,10 @@
 
 				<div class="navbar-collapse collapse"
 					style="display: flex; justify-content: flex-end;">
-					<h3>${admin_name} 님</h3>
-					<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> <i
-						class="align-middle" data-feather="log-out" style="color: black;"></i>
-						<span class="text-dark">로그아웃</span>
+					<h3>${admin_name}님</h3>
+					<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo">
+						<i class="align-middle" data-feather="log-out"
+						style="color: black;"></i> <span class="text-dark">로그아웃</span>
 					</a>
 				</div>
 			</nav>
@@ -144,8 +143,8 @@
 				<div class="content">
 					<div class="container-fluid p-0">
 						<h1 class="h3 mb-3">Writer List</h1>
-						<div class="col-12 col-md-12 col-lg-12">
-							<div class="row">
+
+						<div class="row">
 								<div class="col-md-6 text-center"></div>
 								<div class="col-md-6 text-center" style="margin-bottom: 10px;">
 									<form class="d-none d-sm-inline-block float-right">
@@ -161,19 +160,24 @@
 									</form>
 								</div>
 							</div>
-							<ul class="nav nav-tabs">
-								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#tab1">상품작가</a></li>
-								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#tab2">클래스작가</a></li>
-							</ul>
-						</div>
+
+						<ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                <a class="nav-link active"
+                                    data-toggle="tab" href="#tab1" id="#tab1">상품작가</a></li>
+                                <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab"
+                                    href="#tab2" id="#tab2">클래스작가</a></li>
+                            </ul>
+					</div>
+					
 						<div class="card-body">
-							<div class="tab-content">
-								<div class="tab-pane fade show active" id="tab1" role="tabpanel">
-									<div class="table-responsive">
-										<table class="table mb-0">
-											<thead>
+                            <div class="tab-content">
+                                <div class="tab-pane fade text-center active show" id="tab1" role="tabpanel">
+                                    <div class="col-12">                                                                                   
+                                            <div class="table-responsive">
+                                                <table class="table mb-0">
+                                                    <thead>
 												<tr>
 													<th scope="col">#</th>
 													<th scope="col">작가코드</th>
@@ -202,7 +206,7 @@
 										</table>
 									</div>
 								</div>
-								<!-- 페이징 처리 -->
+                                     <!-- 페이징 처리 -->
 									<div class="goodsPagination" data-ui="goodsPagination" data-sync="false">
 										<nav style="float: center;" aria-label="Page navigation example">
 											<ul class="pagination justify-content-end">
@@ -247,11 +251,12 @@
 										</nav>
 									</div>
                                 </div>
-								
-								<div class="tab-pane fade active" id="tab2" role="tabpanel">
-									<div class="table-responsive">
-										<table class="table mb-0">
-											<thead>
+                                
+                                <div class="tab-pane fade text-center" id="tab2" role="tabpanel">
+                                    <div class="col-12">                                                                               
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                               <thead>
 												<tr>
 													<th scope="col">#</th>
 													<th scope="col">작가코드</th>
@@ -276,35 +281,56 @@
 										</table>
 									</div>
 								</div>
+                                    <!-- 페이징 처리 -->
+									<div class="goodsPagination" data-ui="goodsPagination" data-sync="false">
+										<nav style="float: center;" aria-label="Page navigation example">
+											<ul class="pagination justify-content-end">
+												<c:choose>
+													<c:when test="${goodsPagination.nowPage eq 1 }">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Previous</span></li>
+													</c:when>
+													<c:when test="${goodsPagination.nowPage ne 1 }">
+														<li class="page-item"><a
+															href="/mpweb/writerList.mdo?nowPage=${goodsPagination.nowPage - 1 }&cntPerPage=${goodsPagination.cntPerPage}"
+															style="width: auto;" class="page-link">Previous</a></li>
+													</c:when>
+												</c:choose>
+												<c:forEach begin="${goodsPagination.startPage }"
+													end="${goodsPagination.endPage }" var="p">
+													<c:choose>
+														<c:when test="${p eq goodsPagination.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/writerList.mdo?nowPage=${p }&cntPerPage=${goodsPagination.cntPerPage}"
+																onclick="return false" class="page-link">${p }</a></li>
+														</c:when>
+														<c:when test="${p ne goodsPagination.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/writerList.mdo?nowPage=${p }&cntPerPage=${goodsPagination.cntPerPage}"
+																class="page-link">${p }</a></li>
+														</c:when>
+													</c:choose>
+												</c:forEach>
+												<c:choose>
+													<c:when test="${goodsPagination.endPage eq goodsPagination.lastPage}">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Next</span></li>
+													</c:when>
+													<c:when test="${goodsPagination.endPage ne goodsPagination.lastPage}">
+														<li class="page-item"><a
+															href="/mpweb/writerList.mdo?nowPage=${goodsPagination.endPage+1 }&cntPerPage=${goodsPagination.cntPerPage}"
+															style="width: auto;" class="page-link">Next</a></li>
+													</c:when>
+												</c:choose>
+											</ul>
+										</nav>
+									</div>
+                                </div>
 							</div>
 						</div>
+						</main>
 					</div>
-				</main>
 			</div>
-	<script src="resources/admin/js/app.js"></script>
-	<script>
-				$().ready(function (){ 
-					$("#storeDelete").click(function (){ 
-						Swal.fire({ 
-							title: '입점취소', 
-							text: "해장 작가의 입점을 취소하겠습니까?", 
-							icon: 'warning', 
-							showCancelButton: true, 
-							confirmButtonColor: '#FF7B30', 
-							confirmButtonBorderColor : "#FF7B30",
-							cancelButtonColor: '#15283D', 
-							confirmButtonText: '취소', 
-							cancelButtonText: '닫기' 
-						}).then((result) => { 
-							if (result.isConfirmed) { 
-								Swal.fire(
-									'입점 취소', 
-									'해당 작가의 입점이 취소되었습니다', 
-								) 
-							} 
-						}) 
-					}); 
-				});
-	</script>
+			<script src="resources/admin/js/app.js"></script>
 </body>
 </html>
