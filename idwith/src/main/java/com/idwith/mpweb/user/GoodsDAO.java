@@ -37,11 +37,15 @@ public class GoodsDAO {
 		return (GoodsReviewVO) sqlSessionTemplate.selectList("GoodsDAO.getDetailReviewList", goods_code);
 	}
 	
-	public List<GoodsVO> getGoodsOptionList(String goods_code) {
+	public List<GoodsOptionVO> getGoodsOptionList(String goods_code) {
 		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsOptionList", goods_code);
 	}
 	public List<GoodsCategoryVO> getAllGoodsCategory() {
 		return sqlSessionTemplate.selectList("GoodsDAO.getAllGoodsCategory");
+	}
+
+	public List<GoodsVO> sellerOtherGoodsList(int seller_code) {
+		return sqlSessionTemplate.selectList("GoodsDAO.sellerOtherGoodsList", seller_code);
 	}
 
 }

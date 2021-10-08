@@ -1,5 +1,6 @@
 package com.idwith.mpweb.user.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.idwith.mpweb.user.GoodsOption1VO;
+import com.idwith.mpweb.user.GoodsOptionVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.GoodsVO;
 import com.idwith.mpweb.user.service.GoodsService;
@@ -36,9 +37,19 @@ public class ItemController {
 		
 		GoodsVO goods = goodsService.getGoodsContent(goods_code);
 		List<GoodsReviewVO> goodsReviewList = goodsService.getGoodsReviewList(goods_code);
-		List<GoodsVO> goodsOptionList = goodsService.getGoodsOptionList(goods_code);
+		List<GoodsOptionVO> goodsOptionList = goodsService.getGoodsOptionList(goods_code);
+	
+		System.out.println("가져온 작가 코드 : " + goods.getUserSellerVO().getSeller_code());
+		
+		List<GoodsVO> sellerOtherGoodsList = goodsService.sellerOtherGoodsList(goods.getUserSellerVO().getSeller_code());
+		
+		for(GoodsOptionVO list : goodsOptionList) {
+			System.out.println("옵션 : " + list.getGoods_op1_name());
+		}
 		
 		model.addAttribute("goods", goods);
+		model.addAttribute("goodsImageLength", goods.getGoods_photo().length);
+		model.addAttribute("sellerOtherGoodsList", sellerOtherGoodsList);
 		model.addAttribute("goodsReviewList", goodsReviewList);
 		model.addAttribute("goodsOptionList", goodsOptionList);
 		return "detail_content";

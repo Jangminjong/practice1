@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,7 +41,19 @@ public class CartController {
 			e.printStackTrace();
 		}
 		
-		
 		return "cart";
+	}
+	
+	@RequestMapping(value = "/insertCart.do", method=RequestMethod.POST)
+	public String insertCart(@ModelAttribute CartVO cart) {
+		System.out.println("장바구니 담기 컨트롤러 실행");
+		System.out.println("장바구니 작가 코드 : " + cart.getSeller_code());
+		System.out.println("장바구니 작품 옵션 : " + cart.getGoods_option_value());
+		System.out.println("장바구니 옵션 가격 : " + cart.getGoods_option_price());
+		System.out.println("장바구니 상품 수량 : " + cart.getCart_quantity());
+		System.out.println("장바구니 구매자 : " + cart.getUser_id());
+		System.out.println("장바구니 상점 이름 : " + cart.getStore_name());
+		
+		return null;
 	}
 }

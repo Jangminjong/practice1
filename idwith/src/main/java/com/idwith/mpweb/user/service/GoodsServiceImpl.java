@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.user.GoodsCategoryVO;
 import com.idwith.mpweb.user.GoodsDAO;
-import com.idwith.mpweb.user.GoodsOption1VO;
+import com.idwith.mpweb.user.GoodsOptionVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.GoodsVO;
 
@@ -48,13 +48,18 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
-	public List<GoodsVO> getGoodsOptionList(String goods_code) {
+	public List<GoodsOptionVO> getGoodsOptionList(String goods_code) {
 		return goodsDAO.getGoodsOptionList(goods_code);
 	}
 
 	@Override
 	public List<GoodsCategoryVO> getAllGoodsCategory() {
 		return goodsDAO.getAllGoodsCategory();
+	}
+
+	@Override
+	public List<GoodsVO> sellerOtherGoodsList(int seller_code) { //작가 코드로 작가가 등록한 다른 작품리스트 가져오기
+		return goodsDAO.sellerOtherGoodsList(seller_code);
 	}
 
 }

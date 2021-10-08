@@ -22,8 +22,8 @@
 
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="resources/js/socialLogin.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 
 <!-- 파비콘 이미지 설정 -->
