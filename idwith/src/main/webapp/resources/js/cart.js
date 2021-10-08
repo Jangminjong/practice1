@@ -197,6 +197,18 @@ function optionUpdate(goods_code, index){
 }
 
 //옵션 삭제 이벤트
-function optionDelete(){
+function optionDelete(index){
+	var str = 'optionListItem' + index;
+	var listId = document.getElementById(str);
+	listId.remove();
 	
+	if(1 == 1){//해당 태그에 옵션이 하나도 없으면 폼을 삭제
+		var str1 = 'cartListItem' + index;
+		var cartList = document.getElementById(str1);
+		var result = document.getElementById("resultForm");
+		
+		cartList.remove();
+		result.remove();
+		location.href = "cart.do";
+	}
 }

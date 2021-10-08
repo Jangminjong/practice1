@@ -74,6 +74,6 @@
 	
 	<!-- 옵션 수정하기 -->
 	<update id="updateOption" parameterType="cartVO">
-		update cart set cart (goods_option_value, goods_option_price) values(#{goods_option_value}, #{goods_option_price}) where user_id=#{user_id}
+		update cart set cart (goods_option_value, goods_option_price) values(#{goods_option_value, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, #{goods_option_price, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}) where user_id=#{user_id}
 	</update>
 </mapper>

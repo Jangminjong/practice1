@@ -77,7 +77,7 @@
 		
 							<c:forEach var="cartInfoList" items="${cartList}" varStatus="status">
 								<input type="hidden" id="goods_code${status.count}" value="${cartInfoList.goods_code}">
-								<div data-v-415ede24="" data-v-6d930ad9="" class="CartArtistList"
+								<div data-v-415ede24="" data-v-6d930ad9="" class="CartArtistList" id="cartListItem${status.count}"
 									data-v-56dfc770="">
 									<div data-v-a6596a66="" data-v-415ede24="" class="CartArtistItem">
 										<div data-v-a6596a66="" class="CartArtistItem__header">
@@ -140,7 +140,7 @@
 																<!-- forEach, when : 같은 상품코드가 추가되면 선택한 옵션들 리스트를 출력-->
 																<c:forEach var="cartOption" items="${cartList}" varStatus="stau">
 																	<div data-v-7705597e="" data-v-84a4f0f8=""
-																		class="CartOptionListItem">
+																		class="CartOptionListItem" id="optionListItem${stau.count}">
 																		<div data-v-7705597e=""
 																			class="CartOptionListItem__splitLeft">
 																			
@@ -182,7 +182,7 @@
 																					</button>
 																					<button data-v-29633eb4="" type="button"
 																						class="CartOptionEditingButtonGroup__button CartOptionEditingButtonGroup__button--right"
-																						id="option_delete_btn" onclick="optionDelete()">
+																						id="option_delete_btn" onclick="optionDelete(${stau.count})">
 																						<i data-v-29633eb4=""
 																							class="CartOptionEditingButtonGroup__buttonIcon idwith-icon-close"></i>
 																					</button>
@@ -249,7 +249,7 @@
 							<div class="vue-sticky-placeholder" style=""></div>
 							<div data-v-56dfc770="" sticky-side="bottom"
 								on-stick="handleChangeStickBottom"
-								class="CartList__sticky vue-sticky-el bottom-sticky"
+								class="CartList__sticky vue-sticky-el bottom-sticky" id="resultForm"
 								style="position: static; top: auto; bottom: auto; left: auto; width: auto; z-index: 10;">
 								<div data-v-20c2da48="" data-v-6d930ad9=""
 									class="CartCheckboxControl" data-v-56dfc770="">
