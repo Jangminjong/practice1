@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.user.CartVO;
+import com.idwith.mpweb.user.GoodsOptionVO;
+import com.idwith.mpweb.user.GoodsVO;
 import com.idwith.mpweb.user.service.CartService;
 
 @Controller
@@ -35,6 +38,7 @@ public class CartController {
 		
 		System.out.println("상점이름 : " + cartList.get(0).getStore_name());
 		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartListLength", cartList.size());
 		return "cart";
 	}
 	
@@ -100,5 +104,44 @@ public class CartController {
 		int result = cartService.updateOrderMessage(vo);
 		
 		return Integer.toString(result);
+	}
+	
+	//옵션 수정 클릭 시 모달 띄워주는 메서드
+	@RequestMapping(value = "/cartGetOptionList.do", method=RequestMethod.GET)
+	@ResponseBody
+	public List<GoodsOptionVO> cartGetOptionList(@RequestParam("goods_code")String goods_code, HttpSession session) {
+		List<GoodsOptionVO> vo = cartService.getGoodsOption(goods_code);
+	
+		return vo;
+	}
+	
+	@RequestMapping(value = "/optionUpdate.do", method=RequestMethod.GET)
+	@ResponseBody
+	public String optionUpdate(@RequestParam("goods_code")String goods_code,
+			@RequestParam("curOption") String updateOption, HttpSession session) {
+		System.out.println("옵션 수정 컨트롤러 실행");
+		CartVO vo = new CartVO();
+		vo.setUser_id((String) session.getAttribute("email"));
+		vo.setGoods_code(goods_code);
+		
+		String[] option = updateOption.split("/");
+		
+		String[] cartOptionValue = new String[option.length];
+		String[] cartOptionPrice = new String[option.length];
+		for(int i=0; i<option.length; i++) {
+			String j =  option[i];
+			String[] str = j.split(",");
+			
+			cartOptionValue[i] = str[0];
+			cartOptionPrice[i] = str[1];
+		}
+		
+		vo.setGoods_option_value(cartOptionValue);
+		vo.setGoods_option_price(cartOptionPrice);
+		
+		
+		//split으로 나눠서 데이터 나누기
+		cartService.updateOption(vo);
+		return null;
 	}
 }

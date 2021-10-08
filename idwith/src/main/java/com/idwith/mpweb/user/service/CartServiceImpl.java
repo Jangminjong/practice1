@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.user.CartDAO;
 import com.idwith.mpweb.user.CartVO;
+import com.idwith.mpweb.user.GoodsOptionVO;
+import com.idwith.mpweb.user.GoodsVO;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -32,5 +34,15 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public int updateOrderMessage(CartVO vo) {
 		return dao.updateOrderMessage(vo);
+	}
+
+	@Override
+	public List<GoodsOptionVO> getGoodsOption(String goods_code) {
+		return dao.getGoodsOption(goods_code);
+	}
+
+	@Override
+	public void updateOption(CartVO vo) {
+		dao.updateOption(vo);
 	}
 }

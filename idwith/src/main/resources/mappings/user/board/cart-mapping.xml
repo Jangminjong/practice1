@@ -19,12 +19,26 @@
  		<result property="cart_pay_check" column="cart_pay_check"/>
  		<result property="cart_order_content" column="cart_order_content"/>
  		<result property="store_name" column="store_name"/>
- 		<collection property="goodsVO" resultMap="goodsResult" />
+ 		<collection property="goodsVO" resultMap="cartGoodsResult" />
  	</resultMap>
  	
- 	<resultMap type="goodsVO" id="goodsResult">
+ 	<resultMap type="goodsVO" id="cartGoodsResult">
+ 		<result property="goods_code" column="goods_code"/>
  		<result property="goods_name" column="goods_name"/>
+ 		<result property="goods_price" column="goods_price"/>
  		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_op1_code" column="goods_op1_code"/>
+ 		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
+ 		<collection property="goodsOptionVO" resultMap="cartGoodsOptionResult" />
+ 		<collection property="cartVO" resultMap="cartResult" />
+ 	</resultMap>
+ 	
+ 	<resultMap type="goodsOptionVO" id="cartGoodsOptionResult">
+ 		<result property="goods_op1_code" column="goods_op1_code"/>
+ 		<result property="goods_code" column="goods_code"/>
+ 		<result property="goods_op1_name" column="goods_op1_name"/>
+ 		<result property="goods_op1_value" column="goods_op1_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_op1_price" column="goods_op1_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="Integer[]"/>
  	</resultMap>
  	<!-- <select id="getCart" resultType="cartVO" resultMap="cartResult">
 		select * from cart where user_id=#{user_id}
@@ -53,4 +67,13 @@
 		update cart set cart_order_content=#{cart_order_content} where user_id=#{user_id} and goods_code=#{goods_code}
 	</update>
 	
+	<!-- 옵션 수정 창 띄우기 -->
+	<select id="getGoodsOption" resultMap="cartGoodsOptionResult">
+		select * from goods_option1 where goods_code = #{goods_code}
+	</select>
+	
+	<!-- 옵션 수정하기 -->
+	<update id="updateOption" parameterType="cartVO">
+		update cart set cart (goods_option_value, goods_option_price) values(#{goods_option_value}, #{goods_option_price}) where user_id=#{user_id}
+	</update>
 </mapper>

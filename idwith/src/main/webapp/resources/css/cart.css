@@ -863,3 +863,7 @@ textarea {
 .CartOrderMessageEditor__orderMessageSaveBtn {
 	display: none;
 }
+
+#optionList {
+	width: 100%;
+}

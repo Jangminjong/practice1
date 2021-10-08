@@ -20,7 +20,7 @@
 
 </head>
 <body>
-
+<input type="hidden" id="user_id" value="${email}">
 	<div class="wrap">
 		<div class="head_banner_group"></div>
 
@@ -75,9 +75,8 @@
 								<!---->
 							</div>
 		
-							<c:forEach var="cartInfoList" items="${cartList}">
-								<input type="hidden" id="user_id" value="${cartInfoList.user_id}">
-								<input type="hidden" id="goods_code" value="${cartInfoList.goods_code}">
+							<c:forEach var="cartInfoList" items="${cartList}" varStatus="status">
+								<input type="hidden" id="goods_code${status.count}" value="${cartInfoList.goods_code}">
 								<div data-v-415ede24="" data-v-6d930ad9="" class="CartArtistList"
 									data-v-56dfc770="">
 									<div data-v-a6596a66="" data-v-415ede24="" class="CartArtistItem">
@@ -88,7 +87,7 @@
 													<div data-v-5e27c696="" class="input-checkbox">
 														<input data-v-5e27c696="" id="" type="checkbox"
 															autocomplete="off" class="bp"
-															value="402a05af-6c1c-4ce2-9858-35839922e287">
+															value="402a05af-6c1c-4ce2-9858-35839922e287" name="checkAll">
 														<!-- <input type="checkbox"> -->
 													</div>
 													<!---->
@@ -112,21 +111,21 @@
 																		class="checkbox">
 																		<div data-v-5e27c696="" class="input-checkbox">
 																			<input data-v-5e27c696="" id="" type="checkbox"
-																				autocomplete="off" class="bp"
+																				autocomplete="off" class="bp" name="checkAll"
 																				value="${cartInfoList.goods_code}">
 																		</div>
 																		<!---->
 																	</div>
 																</div>
 																<img data-v-2389adcc="" alt=""
-																	class="CartProductListItem__productImage"
+																	class="CartProductListItem__productImage" id="img${status.count}"
 																	src="${cartInfoList.goodsVO.goods_photo[0]}">
 															</div>
 															<div data-v-2389adcc=""
 																class="CartProductListItem__productInfoTextGroup">
 																<a data-v-2389adcc=""
 																	href="/w/product/a640a8e0-7cbd-4160-9a02-9eacf4537750"
-																	class="CartProductListItem__productName">${cartInfoList.goodsVO.goods_name}</a><!-- 작품 이름 -->
+																	class="CartProductListItem__productName" id="goods_name${status.count}">${cartInfoList.goodsVO.goods_name}</a><!-- 작품 이름 -->
 																<em data-v-2389adcc=""
 																	class="CartProductListItem__productItemCount"> 주문시
 																	제작 </em>
@@ -139,16 +138,19 @@
 																class="CartOptionList">
 		
 																<!-- forEach, when : 같은 상품코드가 추가되면 선택한 옵션들 리스트를 출력-->
-																<c:forEach var="cartOption" items="${cartList}" varStatus="status">
+																<c:forEach var="cartOption" items="${cartList}" varStatus="stau">
 																	<div data-v-7705597e="" data-v-84a4f0f8=""
 																		class="CartOptionListItem">
 																		<div data-v-7705597e=""
 																			class="CartOptionListItem__splitLeft">
-																			<c:forEach var="subOptionValueList" items="${cartOption.goods_option_value}" varStatus="status">
-																				<em data-v-7705597e="" class="CartOptionListItem__optionText">
-																					${subOptionValueList}(+ ${cartOption.goods_option_price[status.index]}원)
-																				</em>
-																			</c:forEach>
+																			
+																			<span id="optionList${stau.count}">
+																				<c:forEach var="subOptionValueList" items="${cartOption.goods_option_value}" varStatus="status">
+																					<em data-v-7705597e="" class="CartOptionListItem__optionText">
+																						${subOptionValueList}(+ ${cartOption.goods_option_price[status.index]}원)
+																					</em>
+																				</c:forEach>
+																			</span>
 																			<div data-v-7705597e=""
 																				class="CartOptionListItem__counter">
 																				<label data-v-9b324a5a="" data-v-7705597e=""
@@ -167,22 +169,22 @@
 																			<em data-v-7705597e=""
 																				class="CartOptionListItem__totalPrice">
 																				
-																				<span id="optionQuantity">${cartInfoList.goods_price}</span>원</em>
+																				<span class="goods_option_price${stau.count}" id="optionQuantity">${cartInfoList.goods_price}</span>원</em>
 																			<div data-v-7705597e=""
 																				class="CartOptionListItem__btnGroup">
 																				<div data-v-29633eb4="" data-v-7705597e=""
 																					class="CartOptionEditingButtonGroup">
 																					<button data-v-29633eb4="" type="button"
 																						class="CartOptionEditingButtonGroup__button CartOptionEditingButtonGroup__button--left"
-																						id="option_update_btn">
-																						<i data-v-29633eb4=""
-																							class="CartOptionEditingButtonGroup__buttonIcon idus-icon-cogwheel"></i>
+																						id="${cartInfoList.goods_code}" onclick="optionUpdate(this.id, ${stau.count})">
+																						<i data-v-29633eb4="" 
+																							class="CartOptionEditingButtonGroup__buttonIcon idwith-icon-cogwheel"></i>
 																					</button>
 																					<button data-v-29633eb4="" type="button"
 																						class="CartOptionEditingButtonGroup__button CartOptionEditingButtonGroup__button--right"
-																						id="option_delete_btn">
+																						id="option_delete_btn" onclick="optionDelete()">
 																						<i data-v-29633eb4=""
-																							class="CartOptionEditingButtonGroup__buttonIcon idus-icon-close"></i>
+																							class="CartOptionEditingButtonGroup__buttonIcon idwith-icon-close"></i>
 																					</button>
 																				</div>
 																			</div>
@@ -254,13 +256,15 @@
 									<div data-v-5e27c696="" data-v-20c2da48="" class="checkbox">
 										<div data-v-5e27c696="" class="input-checkbox">
 											<input data-v-5e27c696="" id="cart-product-all-check"
-												type="checkbox" autocomplete="off" class="bp" value="">
+												type="checkbox" autocomplete="off" class="bp" value="" onclick="selectAll(this)" name="checkAll">
 										</div>
 										<label data-v-5e27c696="" for="cart-product-all-check"><span
 											data-v-20c2da48="" data-v-5e27c696=""
-											class="CartCheckboxControl__label"> 전체 선택 (<span
-												data-v-20c2da48="" data-v-5e27c696=""
-												class="CartCheckboxControl__label--bold"><!-- checkbox에 따라 바뀜 --></span>/1)
+											class="CartCheckboxControl__label"> 전체 선택 (
+											<span data-v-20c2da48="" data-v-5e27c696=""
+												class="CartCheckboxControl__label--bold">
+												<!-- 선택한 상품 수 --></span>/${cartListLength})<!-- 장바구니에 들어있는 상품 수 -->
+												<input type="hidden" id="cartLength" value="${cartListLength}">
 										</span></label>
 									</div>
 									<button data-v-32d88566="" data-v-20c2da48=""
@@ -338,15 +342,17 @@
 										</div>
 									</div>
 								</div>
+								
 								<div data-v-a29fc536="" id="dialogDesc"
 									class="CartModal__content">
 									<div data-v-c2543b4e="" data-v-a29fc536=""
 										class="CartOptionUpdateModal__content">
 										<div data-v-c2543b4e="" data-v-a29fc536=""
 											class="CartOptionUpdateModal__productInfoSection">
+											<input type="hidden" name="cur_goods_code" value="">
 											<img data-v-c2543b4e="" data-v-a29fc536=""
-												src=""<!-- 여기에 상품 이미지 -->
-												alt="" class="CartOptionUpdateModal__productImage">
+												src=""
+												alt="" class="CartOptionUpdateModal__productImage"><!-- 여기에 상품 이미지 -->
 											<div data-v-c2543b4e="" data-v-a29fc536=""
 												class="CartOptionUpdateModal__productDetail">
 												<div data-v-c2543b4e="" data-v-a29fc536=""
@@ -362,7 +368,7 @@
 										<div data-v-c2543b4e="" data-v-a29fc536=""
 											class="CartOptionUpdateModal__optionInfoSection">
 											<div data-v-c2543b4e="" data-v-a29fc536=""
-												class="CartOptionUpdateModal__attachmentLabel">현재 선택한
+												class="CartOptionUpdateModal__attachmentLabel" id="resultOption">현재 선택한
 												옵션</div>
 											<div data-v-c2543b4e="" data-v-a29fc536=""
 												class="CartOptionUpdateModal__optionBox"><!-- 여기에 현재 선택한 옵션 --></div>
@@ -379,37 +385,9 @@
 												<!-- 여기에 상품 옵션 반복 -->
 												<div data-v-4b6162e7="" data-v-4f0ad632=""
 													class="BaseSelector">
-													<select data-v-4b6162e7="" class="BaseSelector__selector"></select>
-													<button data-v-4b6162e7="" type="button"
-														class="BaseSelector__triggerButton">
-														<span data-v-4b6162e7=""
-															class="BaseSelector__selectedItem BaseSelector__selectedItem--placeholder">케이스
-															타입</span> <i data-v-4b6162e7=""
-															class="ui-icon fa fa-chevron-down"></i>
-													</button>
-													<ul data-v-4b6162e7="" class="BaseSelector__optionItemList">
-														<li data-v-4b6162e7=""
-															value="897251b2-9453-4410-a3e3-3ac4eaf57b66"
-															class="BaseSelector__optionItem">젤리케이스</li>
-														<li data-v-4b6162e7=""
-															value="9f654401-eaea-4fa0-a603-34fa7a7dd8ef"
-															class="BaseSelector__optionItem">하드케이스(무광)(+3000원)</li>
-														<li data-v-4b6162e7=""
-															value="9d8f4904-8f3c-49e8-8217-42b8f32f9e6b"
-															class="BaseSelector__optionItem">하드케이스(유광)(+3000원)</li>
-														<li data-v-4b6162e7=""
-															value="696f71b5-0a85-448c-95a3-a9098aab8fc7"
-															class="BaseSelector__optionItem">[1+1할인]
-															젤리1개+젤리1개(+9500원)</li>
-														<li data-v-4b6162e7=""
-															value="902e879f-7c61-4194-9126-eaa3ce718478"
-															class="BaseSelector__optionItem">[1+1할인]
-															젤리1개+하드1개(+11900원)</li>
-														<li data-v-4b6162e7=""
-															value="56898aad-13ac-45c6-ae0a-7d0d885876bd"
-															class="BaseSelector__optionItem">[1+1할인]
-															하드1개+하드1개(+14300원)</li>
-													</ul>
+													<select name="goods_option_value" id="optionList" class="form-control">
+														<option selected>선택</option>
+													</select>
 												</div>
 												
 												
@@ -425,7 +403,7 @@
 											data-v-a29fc536="">취소</button>
 										<button data-v-32d88566="" data-v-c2543b4e=""
 											class="CommonButton CommonButton--middle CommonButton--red "
-											data-v-a29fc536="">확인</button>
+											data-v-a29fc536="" id="update-option-btn">확인</button>
 									</div>
 								</div>
 							</div>

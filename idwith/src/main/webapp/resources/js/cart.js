@@ -1,9 +1,4 @@
 $(document).ready(function() {
-	$('#option_update_btn').click(function() {
-		$('.footer_modal_container').css({'display': ''});
-		document.body.classList.add("stop-scrolling");
-	});
-	
 	$('.CloseButton').click(function() {
 		$('.footer_modal_container').css({'display': 'none'});
 		document.body.classList.remove("stop-scrolling");
@@ -18,6 +13,25 @@ $(document).ready(function() {
 	$(document).on("keyup", ".CommonTextEditor__textarea", function() { 
 		$('.CartOrderMessageEditor__orderMessageSaveBtn').css({'display' : 'block'});
 		$('.orderMessage').css({'display' : 'flex'});
+	});
+	
+	//실제로 DB에 수정하는 이벤트
+	$('#update-option-btn').click(function() {
+		$.ajax({
+			url: "optionUpdate.do",
+			type: "GET",
+			async: false,
+			data: { 
+					"goods_code": $('input[name=cur_goods_code]').val(),
+					"curOption": $('.CartOptionUpdateModal__optionBox').text()
+				},
+			success: function(data){
+				$('.footer_modal_container').css({'display': 'none'});
+			},
+			error: function(request, status, error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}		
+		});
 	});
 });
 
@@ -105,10 +119,84 @@ function orderMessageUpdate(){
 			"cart_order_content": msg
 			},
 		success: function(data){
+			$('.CartOrderMessageEditor__orderMessageSaveBtn').css({'display': 'none'});
 			alert('성공');
 		},
 		error: function(request, status, error){
 			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 		}		
 	});
+}
+
+//체크박스 이벤트
+function selectAll(selectAll) {
+	const checkboxs = document.getElementsByName('checkAll');
+	
+	checkboxs.forEach((checkbox) => {
+		checkbox.checked = selectAll.checked;
+	})
+	
+	var cartLength = $('#cartLength').val();
+	$('.CartCheckboxControl__label--bold').text(cartLength);
+}
+
+//옵션 수정 버튼 이벤트
+function optionUpdate(goods_code, index){
+	console.log('인덱스 값 : ' + index);
+	
+	//이미지
+	var str1 = 'img' + index;
+	var img = $('#'+str1).attr("src");
+	$('.CartOptionUpdateModal__productImage').attr('src', img);
+
+	//상품명
+	var str2 = 'goods_name' + index;
+	var goodsName = $('#'+str2).text();
+	$('.CartOptionUpdateModal__productName').text(goodsName);
+	
+	//가격
+	var str3 = 'goods_option_price' + index;
+	var goodsPrice = $('.'+str3).text();
+	console.log('가격 : ' + goodsPrice);
+	$('.CartOptionUpdateModal__productPrice').text(goodsPrice+'원');
+	
+	//현재 선택옵션
+	var str4 = 'optionList' + index;
+	var curOption = $('#'+str4).text();
+	$('.CartOptionUpdateModal__optionBox').text(curOption);
+	
+	//상품 코드 hidden값 설정
+	var str5 = 'goods_code' + index;
+	var hiddenCode = $('#'+str5).val();
+	$('input[name=cur_goods_code]').attr('value', hiddenCode);
+	
+	//옵션리스트
+	
+	
+	$('.footer_modal_container').css({'display': ''});
+	document.body.classList.add("stop-scrolling");
+	$.ajax({
+		url: "cartGetOptionList.do",
+		type: "GET",
+		dataType: 'json',
+		async: false, 
+		data: { 
+			"goods_code": goods_code
+			},
+		success: function(data){
+			console.log('변환 전 : ' + data);
+			for(let i=0; i<2; i++){
+				console.log(data.goods_op1_value);
+			}
+			
+		},
+		error: function(request, status, error){
+			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
+}
+
+//옵션 삭제 이벤트
+function optionDelete(){
+	
 }

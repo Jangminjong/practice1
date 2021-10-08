@@ -38,4 +38,13 @@ public class CartDAO {
 		int result = sqlSessionTemplate.update("CartDAO.updateOrderMessage", vo);
 		return result;
 	}
+
+	public List<GoodsOptionVO> getGoodsOption(String goods_code) {
+		List<GoodsOptionVO> vo = sqlSessionTemplate.selectList("CartDAO.getGoodsOption", goods_code);
+		return vo;
+	}
+
+	public void updateOption(CartVO vo) {
+		sqlSessionTemplate.update("CartDAO.updateOption", vo);
+	}
 }

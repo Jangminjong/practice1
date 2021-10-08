@@ -28,6 +28,15 @@ public class GoodsVO {
 	int goods_delivery_fee;
 	UserSellerVO userSellerVO;
 	GoodsOptionVO goodsOptionVO;
+	CartVO cartVO;
+
+	public CartVO getCartVO() {
+		return cartVO;
+	}
+
+	public void setCartVO(CartVO cartVO) {
+		this.cartVO = cartVO;
+	}
 
 	public GoodsOptionVO getGoodsOptionVO() {
 		return goodsOptionVO;
