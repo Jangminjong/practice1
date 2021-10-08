@@ -19,15 +19,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.AdminVO;
 import com.idwith.mpweb.admin.ClassProposeInfoVO;
-import com.idwith.mpweb.admin.ClassSellerVO;
 import com.idwith.mpweb.admin.EmailDTO;
-import com.idwith.mpweb.admin.GoodsSellerVO;
+import com.idwith.mpweb.admin.SellerListVO;
 import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.admin.UserListVO;
 import com.idwith.mpweb.admin.service.AdminService;
-import com.idwith.mpweb.admin.service.ClassSellerService;
 import com.idwith.mpweb.admin.service.EmailService;
-import com.idwith.mpweb.admin.service.GoodsSellerService;
 import com.idwith.mpweb.admin.service.ProposeService;
 import com.idwith.mpweb.admin.service.SellerService;
 import com.idwith.mpweb.admin.service.UserListService;
@@ -51,13 +48,6 @@ public class managementController {
 	
 	@Autowired
 	private AdminService adminService;
-	
-	@Autowired
-	private GoodsSellerService goodsSellerService;
-	
-	@Autowired
-	private ClassSellerService classSellerService;
-	
 	
 	// 회원 
 	@RequestMapping("/user.mdo")
@@ -373,41 +363,12 @@ public class managementController {
 			@RequestParam(value =  "nowPage", required = false)String nowPage,
 			@RequestParam(value = "cntPerPage", required = false)String cntPerPage) {
 		
-		int goodsSellerTotal = goodsSellerService.countGoodsSeller();
-		int classSellerTotal = classSellerService.countClassSeller();
-		
-		if (nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "10";
-		} else if (nowPage == null) {
-			nowPage = "1";
-		} else if (cntPerPage == null) {
-			cntPerPage = "10";
-		}
-		
-		PagingVO goodsPagination = new PagingVO(goodsSellerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		PagingVO classPagination = new PagingVO(classSellerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		
-		List<GoodsSellerVO> goodsSellerList = goodsSellerService.getGoodsSellerList(goodsPagination);
-		List<ClassSellerVO> classSellerList = classSellerService.getClassSellerList(classPagination);
-		
-		model.addAttribute("goodsPagination", goodsPagination);
-		model.addAttribute("goodsSellerList", goodsSellerList);
-		
-		model.addAttribute("classPagination", classPagination);
-		model.addAttribute("classSellerList", classSellerList);
-		
 		return "writerList";
 	}
 
-	@GetMapping("/productWriter.mdo")
-	public String productWriter() {
-		return "productWriter";
-	}
-
-	@GetMapping("/classWriter.mdo")
-	public String classWriter() {
-		return "classWriter";
+	@GetMapping("/writerContent.mdo")
+	public String writerContent() {
+		return "writerContent";
 	}
 
 }

@@ -142,195 +142,124 @@
 			<main>
 				<div class="content">
 					<div class="container-fluid p-0">
-						<h1 class="h3 mb-3">Writer List</h1>
-
-						<div class="row">
-								<div class="col-md-6 text-center"></div>
-								<div class="col-md-6 text-center" style="margin-bottom: 10px;">
-									<form class="d-none d-sm-inline-block float-right">
-										<ul class="nav nav-pills card-header-pills pull-right">
-											<div class="input-group">
-												<input type="text" class="form-control"
-													placeholder="검색 키워드를 입력하세요!">&nbsp; <span
-													class="input-group-btn">
-													<button class="btn btn-warning" type="button">찾기</button>
-												</span>
-											</div>
-										</ul>
-									</form>
-								</div>
-							</div>
-
-						<ul class="nav nav-tabs" role="tablist">
-                                <li class="nav-item">
-                                <a class="nav-link active"
-                                    data-toggle="tab" href="#tab1" id="#tab1">상품작가</a></li>
-                                <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab"
-                                    href="#tab2" id="#tab2">클래스작가</a></li>
-                            </ul>
-					</div>
-					
-						<div class="card-body">
-                            <div class="tab-content">
-                                <div class="tab-pane fade text-center active show" id="tab1" role="tabpanel">
-                                    <div class="col-12">                                                                                   
-                                            <div class="table-responsive">
-                                                <table class="table mb-0">
-                                                    <thead>
-												<tr>
-													<th scope="col">#</th>
-													<th scope="col">작가코드</th>
-													<th scope="col">상점이름</th>
-													<th scope="col">입점날짜</th>
-													<th scope="col">입점상태</th>
-													<th scope="col">입점취소</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="goodsSellerList" items="${goodsSellerList}">
-												<tr>
-													<td>${goodsSellerList.rownum}</td>
-													<td><a href="productWriter.mdo?sellerCode=${goodsSellerList.sellerCode}">${goodsSellerList.sellerCode}</a></td>
-													<td>${goodsSellerList.storeName}</td>
-													<td>
-														<fmt:formatDate value="${goodsSellerList.sellerIndate}" pattern="yyyy.MM.dd"/>
-													</td>
-													<td><label class="badge bg-info">입점중</label></td>
-													<td>
-														<button type="button" class="btn btn-warning" id="storeDelete">입점취소</button>
-													</td>
-												</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-                                     <!-- 페이징 처리 -->
-									<div class="goodsPagination" data-ui="goodsPagination" data-sync="false">
-										<nav style="float: center;" aria-label="Page navigation example">
-											<ul class="pagination justify-content-end">
-												<c:choose>
-													<c:when test="${goodsPagination.nowPage eq 1 }">
-														<li class="page-item"><span style="width: auto;"
-															class="page-link">Previous</span></li>
-													</c:when>
-													<c:when test="${goodsPagination.nowPage ne 1 }">
-														<li class="page-item"><a
-															href="/mpweb/writerList.mdo?nowPage=${goodsPagination.nowPage - 1 }&cntPerPage=${goodsPagination.cntPerPage}"
-															style="width: auto;" class="page-link">Previous</a></li>
-													</c:when>
-												</c:choose>
-												<c:forEach begin="${goodsPagination.startPage }"
-													end="${goodsPagination.endPage }" var="p">
-													<c:choose>
-														<c:when test="${p eq goodsPagination.nowPage }">
-															<li class="page-item"><a
-																href="/mpweb/writerList.mdo?nowPage=${p }&cntPerPage=${goodsPagination.cntPerPage}"
-																onclick="return false" class="page-link">${p }</a></li>
-														</c:when>
-														<c:when test="${p ne goodsPagination.nowPage }">
-															<li class="page-item"><a
-																href="/mpweb/writerList.mdo?nowPage=${p }&cntPerPage=${goodsPagination.cntPerPage}"
-																class="page-link">${p }</a></li>
-														</c:when>
-													</c:choose>
-												</c:forEach>
-												<c:choose>
-													<c:when test="${goodsPagination.endPage eq goodsPagination.lastPage}">
-														<li class="page-item"><span style="width: auto;"
-															class="page-link">Next</span></li>
-													</c:when>
-													<c:when test="${goodsPagination.endPage ne goodsPagination.lastPage}">
-														<li class="page-item"><a
-															href="/mpweb/writerList.mdo?nowPage=${goodsPagination.endPage+1 }&cntPerPage=${goodsPagination.cntPerPage}"
-															style="width: auto;" class="page-link">Next</a></li>
-													</c:when>
-												</c:choose>
-											</ul>
-										</nav>
-									</div>
-                                </div>
-                                
-                                <div class="tab-pane fade text-center" id="tab2" role="tabpanel">
-                                    <div class="col-12">                                                                               
-                                        <div class="table-responsive">
-                                            <table class="table mb-0">
-                                               <thead>
-												<tr>
-													<th scope="col">#</th>
-													<th scope="col">작가코드</th>
-													<th scope="col">작가이름</th>
-													<th scope="col">입점날짜</th>
-													<th scope="col">입점상태</th>
-													<th scope="col">입점취소</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<th scope="row">1</th>
-													<td><a href="classWriter.mdo">Seller2</a></td>
-													<td>일일일</td>
-													<td>2020-12-31</td>
-													<td><label class="badge bg-info">입점중</label></td>
-													<td>
-														<button type="button" class="btn btn-warning" id="storeDelete">입점취소</button>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-                                    <!-- 페이징 처리 -->
-									<div class="goodsPagination" data-ui="goodsPagination" data-sync="false">
-										<nav style="float: center;" aria-label="Page navigation example">
-											<ul class="pagination justify-content-end">
-												<c:choose>
-													<c:when test="${goodsPagination.nowPage eq 1 }">
-														<li class="page-item"><span style="width: auto;"
-															class="page-link">Previous</span></li>
-													</c:when>
-													<c:when test="${goodsPagination.nowPage ne 1 }">
-														<li class="page-item"><a
-															href="/mpweb/writerList.mdo?nowPage=${goodsPagination.nowPage - 1 }&cntPerPage=${goodsPagination.cntPerPage}"
-															style="width: auto;" class="page-link">Previous</a></li>
-													</c:when>
-												</c:choose>
-												<c:forEach begin="${goodsPagination.startPage }"
-													end="${goodsPagination.endPage }" var="p">
-													<c:choose>
-														<c:when test="${p eq goodsPagination.nowPage }">
-															<li class="page-item"><a
-																href="/mpweb/writerList.mdo?nowPage=${p }&cntPerPage=${goodsPagination.cntPerPage}"
-																onclick="return false" class="page-link">${p }</a></li>
-														</c:when>
-														<c:when test="${p ne goodsPagination.nowPage }">
-															<li class="page-item"><a
-																href="/mpweb/writerList.mdo?nowPage=${p }&cntPerPage=${goodsPagination.cntPerPage}"
-																class="page-link">${p }</a></li>
-														</c:when>
-													</c:choose>
-												</c:forEach>
-												<c:choose>
-													<c:when test="${goodsPagination.endPage eq goodsPagination.lastPage}">
-														<li class="page-item"><span style="width: auto;"
-															class="page-link">Next</span></li>
-													</c:when>
-													<c:when test="${goodsPagination.endPage ne goodsPagination.lastPage}">
-														<li class="page-item"><a
-															href="/mpweb/writerList.mdo?nowPage=${goodsPagination.endPage+1 }&cntPerPage=${goodsPagination.cntPerPage}"
-															style="width: auto;" class="page-link">Next</a></li>
-													</c:when>
-												</c:choose>
-											</ul>
-										</nav>
-									</div>
-                                </div>
+						<div class="row mb-2 mb-xl-3">
+							<div class="col-auto d-none d-sm-block">
+								<h3>User List</h3>
 							</div>
 						</div>
-						</main>
+						<div class="row">
+							<div class="col-md-6 text-center"></div>
+							<div class="col-md-6 text-center" style="margin-bottom: 10px;">
+								<form class="d-none d-sm-inline-block float-right" action="searchUser.mdo" method="get">
+									<ul class="nav nav-pills card-header-pills pull-right">
+										<div class="input-group">
+											<input type="text" class="form-control"
+												placeholder="검색 키워드를 입력하세요!" style="width: 200px; height: 10px;" name="searchKeyword">&nbsp; <span
+												class="input-group-btn">
+												<input class="btn btn-warning" type="submit" value="찾기">
+											</span>
+										</div>
+									</ul>
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<div class="card col-12">
+								<div class="card flex-fill">
+									<table class="table table-hover my-0">
+										<thead>
+											<tr>
+												<th scope="col" width="25%">아이디</th>
+												<th scope="col" width="15%">이름</th>
+												<th scope="col" width="15%">등급</th>
+												<th scope="col" width="15%">가입일자</th>
+												<th scope="col" width="15%">블랙여부</th>
+												<th scope="col" width="15%">블랙</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="userList" items="${UserListAll}">
+											<tr>
+												<td><a href="user.mdo?userId=${userList.userId}">${userList.userId}</a></td>
+												<td>${userList.userName }</td>
+												<td>${userList.userGrade}</td>
+												<td>
+													<fmt:formatDate value="${userList.userJoinDate}" pattern="yyyy.MM.dd"/>
+												</td>
+												<c:set var="block" value="${userList.userBlackCheck}" />
+												<c:choose>
+													<c:when test="${block eq false}">
+														<td><span class="badge bg-success">정상계정</span></td>
+														<td>
+															<button class="btn btn-primary" id="${userList.userId}" onclick="blockAgree(this.id)">&nbsp;&nbsp;Block&nbsp;&nbsp;</button>
+														</td>
+													</c:when>
+													<c:otherwise>
+														<td><span class="badge bg-danger">정지계정</span></td>
+														<td>
+															<button class="btn btn-primary" id="${userList.userId}" onclick="blockCancle(this.id)">Restore</button>
+														</td>
+													</c:otherwise>
+												</c:choose>
+											</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- 페이징 처리 -->
+						<div class="paging" data-ui="paging" data-sync="false">
+							<nav style="float: center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+									<c:choose>
+										<c:when test="${paging.nowPage eq 1 }">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Previous</span></li>
+										</c:when>
+										<c:when test="${paging.nowPage ne 1 }">
+											<li class="page-item"><a
+												href="/mpweb/userList.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+												style="width: auto;" class="page-link">Previous</a></li>
+										</c:when>
+									</c:choose>
+									<c:forEach begin="${paging.startPage }"
+										end="${paging.endPage }" var="p">
+										<c:choose>
+											<c:when test="${p eq paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/userList.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													onclick="return false" class="page-link">${p }</a></li>
+											</c:when>
+											<c:when test="${p ne paging.nowPage }">
+												<li class="page-item"><a
+													href="/mpweb/userList.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+													class="page-link">${p }</a></li>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${paging.endPage eq paging.lastPage}">
+											<li class="page-item"><span style="width: auto;"
+												class="page-link">Next</span></li>
+										</c:when>
+										<c:when test="${paging.endPage ne paging.lastPage}">
+											<li class="page-item"><a
+												href="/mpweb/userList.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
+												style="width: auto;" class="page-link">Next</a></li>
+										</c:when>
+									</c:choose>
+								</ul>
+							</nav>
+						</div>
+						<!-- 페이징 처리 끝 -->
 					</div>
-			</div>
+				</div>
+			</main>
 			<script src="resources/admin/js/app.js"></script>
+		</div>
+	</div>
 </body>
+
 </html>

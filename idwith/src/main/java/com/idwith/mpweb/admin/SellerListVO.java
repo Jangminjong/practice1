@@ -2,7 +2,7 @@ package com.idwith.mpweb.admin;
 
 import java.sql.Timestamp;
 
-public class GoodsSellerVO {
+public class SellerListVO {
 	
 	private String sellerCode;
 	private String storeName;
