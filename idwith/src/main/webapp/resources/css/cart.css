@@ -867,3 +867,61 @@ textarea {
 #optionList {
 	width: 100%;
 }
+
+#loadingForm {
+	display: none;
+}
+
+.modal_spinner_container[data-v-6d9e4c37] {
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.loader-spinner {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 50px auto 0;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ff7b30;
+    border-left-color: #eee;
+    border-right-color: #eee;
+    border-bottom-color: #eee;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-animation: spin 0.5s linear infinite;
+    -moz-animation: spin 0.5s linear infinite;
+    -o-animation: spin 0.5s linear infinite;
+    animation: spin 0.5s linear infinite;
+}
+
+.loader-spinner[data-v-6d9e4c37] {
+    margin-bottom: 30px;
+    width: 100px;
+    height: 100px;
+    border: 10px solid #ff7b30;
+    border-left-color: #eeeeee;
+    border-right-color: #eeeeee;
+    border-bottom-color: #eeeeee;
+}
+
+.modal_spinner_content[data-v-6d9e4c37] {
+    width: 100%;
+}
+
+.modal_spinner_content_text[data-v-6d930ad9] {
+    font-size: 30px;
+    color: #ff7b30;
+    text-align: center;
+    font-weight: bold;
+}

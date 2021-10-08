@@ -212,3 +212,17 @@ function optionDelete(index){
 		location.href = "cart.do";
 	}
 }
+
+//주문하기 버튼 이벤트
+function paymentBtn(){
+	/*$('body').width('100%');
+	$('body').height('100%');
+
+	$('.loadingForm').width('100%');
+	$('.loadingForm').height('100%');*/
+	
+	$('#loadingForm').css({'display': 'block'});
+	setTimeout(function() { 
+		//ajax로 넘어가는 코드 추가		
+	}, 3000);
+}

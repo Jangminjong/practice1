@@ -244,8 +244,19 @@
 								</div>
 		
 							</c:forEach>
-		
-		
+
+							<!-- 주문하기 버튼 클릭 시 나오는 로딩 화면 -->
+							<div data-v-6d9e4c37="" data-v-6d930ad9="" class="vue-curtain" id="loadingForm">
+								<div data-v-6d9e4c37="" class="modal_spinner_container">
+									<span data-v-6d9e4c37="" class="loader-spinner"></span>
+									<div data-v-6d9e4c37="" class="modal_spinner_content">
+										<p data-v-6d930ad9="" data-v-6d9e4c37=""
+											class="modal_spinner_content_text">결제를 준비중입니다.</p>
+									</div>
+								</div>
+							</div>
+
+
 							<div class="vue-sticky-placeholder" style=""></div>
 							<div data-v-56dfc770="" sticky-side="bottom"
 								on-stick="handleChangeStickBottom"
@@ -308,16 +319,12 @@
 									class="CartPage__bottom">
 									<button data-v-32d88566="" data-v-6d930ad9=""
 										class="CommonButton CartPage__paymentButton CommonButton--large CommonButton--red "
-										data-v-56dfc770="">주문하기</button>
+										data-v-56dfc770="" id="payment_btn" onclick="paymentBtn()">주문하기</button>
 								</div>
 							</div>
 						</div>
 					</c:when>
 				</c:choose>
-				
-				
-				
-				
 
 				<!-- 수정 버튼 클릭 시 나오는 화면 -->
 				<div data-v-13abb1d2="" class="footer_modal_container" style="display: none">
