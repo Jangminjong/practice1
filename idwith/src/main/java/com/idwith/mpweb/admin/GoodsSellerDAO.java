@@ -16,11 +16,11 @@ public class GoodsSellerDAO {
 	
 	/**작가 목록 페이지*/
 	public int countGoodsSeller() {
-		return sqlSessionTemplate.selectOne("GoodsSellerDAO.countGoodsSeller");
+		return sqlSessionTemplate.selectOne("WriterDAO.countGoodsSeller");
 	}
 
-	public List<GoodsSellerVO> getGoodsSellerList(PagingVO goodsPagination) {
-		return sqlSessionTemplate.selectList("GoodsSellerDAO.getGoodsSellerList", goodsPagination);
+	public List<WriterVO> getGoodsSellerList(PagingVO goodsPagination) {
+		return sqlSessionTemplate.selectList("WriterDAO.getGoodsSellerList", goodsPagination);
 	}
 
 }

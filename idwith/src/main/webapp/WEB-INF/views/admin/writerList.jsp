@@ -143,24 +143,26 @@
 				<div class="content">
 					<div class="container-fluid p-0">
 						<h1 class="h3 mb-3">Writer List</h1>
-
 						<div class="row">
-								<div class="col-md-6 text-center"></div>
-								<div class="col-md-6 text-center" style="margin-bottom: 10px;">
-									<form class="d-none d-sm-inline-block float-right">
-										<ul class="nav nav-pills card-header-pills pull-right">
-											<div class="input-group">
-												<input type="text" class="form-control"
-													placeholder="검색 키워드를 입력하세요!">&nbsp; <span
-													class="input-group-btn">
-													<button class="btn btn-warning" type="button">찾기</button>
-												</span>
-											</div>
-										</ul>
-									</form>
-								</div>
+							<div class="col-md-6 text-center"></div>
+							<div class="col-md-6 text-center" style="margin-bottom: 10px;">
+								<form class="d-none d-sm-inline-block float-right" action="searchWriter.mdo" method="get">
+									<ul class="nav nav-pills card-header-pills pull-right">
+										<div class="input-group">
+											<select class="form-control mb-3" style="margin-right: 10px; width: 85px;" name="searchWriterCondition">
+												<option selected="selected" value="userId">작품</option>
+												<option value="userGrade">클래스</option>
+											</select>
+											<input type="text" class="form-control"
+												placeholder="검색 키워드를 입력하세요!" style="width: 200px; height: 10px;" name="searchWriterKeyword">&nbsp; <span
+												class="input-group-btn">
+												<input class="btn btn-warning" type="submit" value="찾기">
+											</span>
+										</div>
+									</ul>
+								</form>
 							</div>
-
+						</div>
 						<ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
                                 <a class="nav-link active"
@@ -260,23 +262,27 @@
 												<tr>
 													<th scope="col">#</th>
 													<th scope="col">작가코드</th>
-													<th scope="col">작가이름</th>
+													<th scope="col">상점이름</th>
 													<th scope="col">입점날짜</th>
 													<th scope="col">입점상태</th>
 													<th scope="col">입점취소</th>
 												</tr>
 											</thead>
 											<tbody>
+												<c:forEach var="classSellerList" items="${classSellerList}">
 												<tr>
-													<th scope="row">1</th>
-													<td><a href="classWriter.mdo">Seller2</a></td>
-													<td>일일일</td>
-													<td>2020-12-31</td>
+													<th scope="row">${classSellerList.rownum}</th>
+													<td><a href="classWriter.mdo?sellerCode=${classSellerList.sellerCode}">${classSellerList.sellerCode}</a></td>
+													<td>${classSellerList.storeName}</td>
+													<td>
+														<fmt:formatDate value="${classSellerList.sellerIndate}" pattern="yyyy.MM.dd"/>
+													</td>
 													<td><label class="badge bg-info">입점중</label></td>
 													<td>
 														<button type="button" class="btn btn-warning" id="storeDelete">입점취소</button>
 													</td>
 												</tr>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>

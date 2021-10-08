@@ -19,11 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.AdminVO;
 import com.idwith.mpweb.admin.ClassProposeInfoVO;
-import com.idwith.mpweb.admin.ClassSellerVO;
 import com.idwith.mpweb.admin.EmailDTO;
-import com.idwith.mpweb.admin.GoodsSellerVO;
 import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.admin.UserListVO;
+import com.idwith.mpweb.admin.WriterVO;
 import com.idwith.mpweb.admin.service.AdminService;
 import com.idwith.mpweb.admin.service.ClassSellerService;
 import com.idwith.mpweb.admin.service.EmailService;
@@ -388,8 +387,8 @@ public class managementController {
 		PagingVO goodsPagination = new PagingVO(goodsSellerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		PagingVO classPagination = new PagingVO(classSellerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		
-		List<GoodsSellerVO> goodsSellerList = goodsSellerService.getGoodsSellerList(goodsPagination);
-		List<ClassSellerVO> classSellerList = classSellerService.getClassSellerList(classPagination);
+		List<WriterVO> goodsSellerList = goodsSellerService.getGoodsSellerList(goodsPagination);
+		List<WriterVO> classSellerList = classSellerService.getClassSellerList(classPagination);
 		
 		model.addAttribute("goodsPagination", goodsPagination);
 		model.addAttribute("goodsSellerList", goodsSellerList);
