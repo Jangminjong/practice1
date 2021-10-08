@@ -16,20 +16,13 @@ public class CategoryVO {
 	private String goodsCategoryName;
 	private String classCategoryCode;
 	private String classCategoryName;
-	private int goodsRownum;
-	private int classRownum;
+	private int rownum;
 	
-	public int getGoodsRownum() {
-		return goodsRownum;
+	public int getRownum() {
+		return rownum;
 	}
-	public void setGoodsRownum(int goodsRownum) {
-		this.goodsRownum = goodsRownum;
-	}
-	public int getClassRownum() {
-		return classRownum;
-	}
-	public void setClassRownum(int classRownum) {
-		this.classRownum = classRownum;
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
 	}
 	public String getGoodsCategoryCode() {
 		return goodsCategoryCode;
@@ -56,11 +49,13 @@ public class CategoryVO {
 		this.classCategoryName = classCategoryName;
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "CategoryVO [goodsCategoryCode=" + goodsCategoryCode + ", goodsCategoryName=" + goodsCategoryName
-				+ ", classCategoryCode=" + classCategoryCode + ", classCategoryName=" + classCategoryName
-				+ ", goodsRownum=" + goodsRownum + ", classRownum=" + classRownum + "]";
+				+ ", classCategoryCode=" + classCategoryCode + ", classCategoryName=" + classCategoryName + "]";
 	}
 	
+	
+
 }

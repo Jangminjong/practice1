@@ -181,7 +181,7 @@
                                                     <tbody>
                                                     	<c:forEach var="goodsCateList" items="${GoodsCateAll}" varStatus="goodsStatus">
                                                         <tr>
-                                                            <th scope="row">${goodsCateList.goodsRownum}</th>
+                                                            <th scope="row">${goodsStatus.count}</th>
                                                             <td>${goodsCateList.goodsCategoryCode}</td>
                                                             <td>${goodsCateList.goodsCategoryName}</td>
                                                             <td>
@@ -256,7 +256,7 @@
                                                 <tbody>
 	                                                <c:forEach var="classCateList" items="${ClassCateAll}" varStatus="classStatus">
 	                                                    <tr>
-	                                                        <th scope="row">${classCateList.classRownum}</th>
+	                                                        <th scope="row">${classStatus.count}</th>
 	                                                        <td>${classCateList.classCategoryCode}</td>
 	                                                        <td>${classCateList.classCategoryName}</td>
 	                                                        <td>
