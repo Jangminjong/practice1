@@ -16,20 +16,16 @@ $(document).ready(function (){
 		var valueArray = new Array(); // 값을 담을 배열
 
 		//셀렉트박스에 있는 값을 하나씩 꺼내 배열에 담는 로직
-		$('select[name=goods_option] option:selected').each(function(index){
+		$('select[name=goods_option_value] option:selected').each(function(index){
 			var num=$(this).attr('value');
 			valueArray.push(num);
 		});
 		
 		for(let i=0; i<valueArray.length; i++){
-			console.log('선택 값 : ' + valueArray);
-			
 			if(valueArray[i] == undefined){
-				console.log(i+'번째 : ' + valueArray[i]);
 				cartInfo = 1;
 				break;
 			}else if(valueArray[i] != undefined){
-				console.log(i+'번째 : ' + valueArray[i]);
 				if(cartInfo != 1){
 					cartInfo = 2;
 				}
@@ -46,6 +42,8 @@ $(document).ready(function (){
 				data: $('#buyScrollable').serialize(),
 				datatype: 'json',
 				success: function(data){
+					$('.selected_options').css({'display': 'none'});
+					$('#total').attr('value', 0);
 					alert('장바구니에 추가되었습니다');
 				},
 				error: function(request, status, error){
@@ -138,6 +136,10 @@ $(document).ready(function (){
 	});
 });
 
+//선택 상품 삭제
+function optionCartClose(){
+	
+}
 
 /*function optionPrice(args){
 	var subOption;

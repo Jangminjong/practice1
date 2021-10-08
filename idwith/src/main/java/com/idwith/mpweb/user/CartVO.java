@@ -4,7 +4,7 @@ public class CartVO {
 	private int cart_num; //장바구니 번호
 	private String goods_code; //상품 번호
 	private int seller_code; //작가 코드
-	private int goods_price; //상품 가격
+	private int goods_price; //상품 총 가격
 	private int cart_quantity; //수량
 	private String[] goods_option_value; //상품 옵션
 	private String[] goods_option_price; //가격 옵션
@@ -15,7 +15,14 @@ public class CartVO {
 	private boolean cart_pay_check; //결제여부
 	private String cart_order_content; //주문 요청 사항
 	private String store_name; //상점 이름
+	private GoodsVO goodsVO;
 	
+	public GoodsVO getGoodsVO() {
+		return goodsVO;
+	}
+	public void setGoodsVO(GoodsVO goodsVO) {
+		this.goodsVO = goodsVO;
+	}
 	public int getCart_num() {
 		return cart_num;
 	}

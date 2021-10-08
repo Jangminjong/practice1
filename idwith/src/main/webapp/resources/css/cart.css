@@ -858,3 +858,8 @@ textarea {
   height: 100%; 
   overflow: hidden; 
 } 
+
+
+.CartOrderMessageEditor__orderMessageSaveBtn {
+	display: none;
+}

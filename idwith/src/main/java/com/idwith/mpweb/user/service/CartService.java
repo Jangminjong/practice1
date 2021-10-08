@@ -6,5 +6,11 @@ import java.util.Map;
 import com.idwith.mpweb.user.CartVO;
 
 public interface CartService {
-	List<CartVO> getCart(String user_id);
+	void insertGoods(CartVO cart);
+
+	List<CartVO> getCartList(String user_id);
+
+	int updateQuantity(CartVO vo);
+
+	int updateOrderMessage(CartVO vo);
 }

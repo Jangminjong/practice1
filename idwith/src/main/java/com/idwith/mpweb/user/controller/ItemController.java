@@ -47,6 +47,8 @@ public class ItemController {
 			System.out.println("옵션 : " + list.getGoods_op1_name());
 		}
 		
+		System.out.println("확인 중입니다 : " + goods.getGoods_code());
+		
 		model.addAttribute("goods", goods);
 		model.addAttribute("goodsImageLength", goods.getGoods_photo().length);
 		model.addAttribute("sellerOtherGoodsList", sellerOtherGoodsList);

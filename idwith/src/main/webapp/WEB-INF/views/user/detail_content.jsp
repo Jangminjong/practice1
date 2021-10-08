@@ -395,11 +395,11 @@
 											<ol data-v-1c074f7f="" class="select_group__parent_list closed">
 												<c:forEach var="mainOption" items="${goodsOptionList}">
 													<div>
-													<select name="goods_option" class="form-control"
+													<select name="goods_option_value" class="form-control"
 														id="${mainOption.goods_op1_name}" onchange="optionChange()">
 														<option selected>${mainOption.goods_op1_name} 선택</option>
 														<c:forEach var="subOptionValueList" items="${mainOption.goods_op1_value}" varStatus="status">
-															<option value='${subOptionValueList}' id="${mainOption.goods_op1_price[status.index]}">
+															<option value='${subOptionValueList},${mainOption.goods_op1_price[status.index]}' id="${mainOption.goods_op1_price[status.index]}">
 															${subOptionValueList}
 																(+${mainOption.goods_op1_price[status.index]}원)</option>
 														</c:forEach>
@@ -974,13 +974,13 @@
 		var priceArray = new Array(); // 소분류 가격을 담을 배열
 
 		//셀렉트박스에 있는 값을 하나씩 꺼내 배열에 담는 로직
-		$('select[name=goods_option] option:selected').each(function(index){
+		$('select[name=goods_option_value] option:selected').each(function(index){
 			var num=$(this).attr('value');
 			valueArray.push(num);
 		});
 		
 		//셀렉트박스에 있는 값을 하나씩 꺼내 배열에 담는 로직
-		$('select[name=goods_option] option:selected').each(function(index){
+		$('select[name=goods_option_value] option:selected').each(function(index){
 			var num=$(this).attr('id');
 			priceArray.push(num);
 		});
@@ -1033,9 +1033,9 @@
 			$('.selected_options').css({'display': ''});
 			
 			//옵션창 초기화(대분류 값으로 선택됨)
-			$('select[name=goods_option] option:selected').each(function(index){
+			/* $('select[name=goods_option] option:selected').each(function(index){
 				$("select[name=goods_option] option:eq(0)").prop("selected", true);
-			});
+			}); */
 			
 		}//end if
 	}

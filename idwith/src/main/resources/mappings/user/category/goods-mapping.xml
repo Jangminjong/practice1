@@ -71,7 +71,7 @@
  	<!-- 작품 상세보기 -->
  	<select id="getGoodsContent" resultMap="goodsResult">
  		select
- 			g.goods_name, g.goods_price, g.goods_select, g.goods_stock, g.goods_op1_code, g.goods_photo, g.goods_info, g.goods_delivery_fee
+ 			g.goods_code, g.goods_name, g.goods_price, g.goods_select, g.goods_stock, g.goods_op1_code, g.goods_photo, g.goods_info, g.goods_delivery_fee
  			, s.seller_code, s.user_id, s.store_name, s.seller_name, s.seller_profile, s.seller_profile_img
  		from goods as g
  		join seller as s on s.seller_code = g.seller_code
