@@ -41,4 +41,14 @@ public class CouponServiceImpl implements CouponService {
 		return couponDAO.getDetailCoupon(coupon);
 	}
 
+	@Override
+	public void couponContentUpdate(CouponVO coupon) {
+		couponDAO.couponContentUpdate(coupon);
+	}
+
+	@Override
+	public void deleteCoupon(CouponVO coupon) {
+		couponDAO.deleteCoupon(coupon);
+	}
+
 }

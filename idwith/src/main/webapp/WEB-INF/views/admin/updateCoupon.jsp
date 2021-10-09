@@ -163,21 +163,21 @@
 
 							<div class="card">
 								<div class="card-body" style="width: auto;">
-									<form class="row g-3" id="form-admin-couponContent" name="detailCoupon" action="updateCoupon.mdo" method="post">
-									<input type="hidden" name="couponCode" value="${detailCoupon.couponCode}" />
+									<form class="row g-3" id="form-admin-couponContent" name="detailCoupon" action="couponContentUpdate.mdo" method="post">
+										<input type="hidden" name="couponCode" value="${detailCoupon.couponCode}" />
 										<div class="mb-3">
 											<label class="form-label">쿠폰 이름</label>
-											<input type="text" class="form-control" value="${detailCoupon.couponName}" name="couponName" id="couponName" readonly="readonly"
+											<input type="text" class="form-control" value="${detailCoupon.couponName}" name="couponName" id="couponName"
 												style="width: auto;">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">쿠폰 내용</label>
-											<input type="text" class="form-control" value="${detailCoupon.couponContext}" name="couponContext" id="couponContext" readonly="readonly"
+											<input type="text" class="form-control" value="${detailCoupon.couponContext}" name="couponContext" id="couponContext"
 												style="width: 50%;">
 										</div>
 										<div class="mb-3">
 											<label class="form-label" for="release">배포 대상</label>
-											<input type="text" class="form-control" list="list" id="release" style="width: auto;" value="${detailCoupon.couponTarget}" name="couponTarget" readonly="readonly"/>
+											<input type="text" class="form-control" list="list" id="release" style="width: auto;" value="${detailCoupon.couponTarget}" name="couponTarget"/>
 											<datalist id="list">
 												<option>All</option>
 												<c:forEach var="writerList" items="${writerList}">
@@ -187,22 +187,22 @@
 										</div>
 										<div class="mb-3">
 											<label class="form-label">적용 조건</label>
-											<input type="text" class="form-control" value="${detailCoupon.couponCondition}" name="couponCondition" id="couponCondition" readonly="readonly"
+											<input type="text" class="form-control" value="${detailCoupon.couponCondition}" name="couponCondition" id="couponCondition"
 												style="width: auto;">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">쿠폰 금액</label>
-											<input type="text" class="form-control" value="${detailCoupon.couponDiscount}" name="couponDiscount" id="couponDiscount" readonly="readonly"
+											<input type="text" class="form-control" value="${detailCoupon.couponDiscount}" name="couponDiscount" id="couponDiscount""
 												style="width: auto;">
 										</div>
 										<div class="row">
 											<div class="col-md-3">
 												<label class="form-label">쿠폰 발행일</label>
-												<input type="date" class="form-control" style="width: auto;" value="${detailCoupon.couponStartdate}" id="couponEnddate" name="couponStartdate" readonly="readonly">
+												<input type="date" class="form-control" style="width: auto;" value="${detailCoupon.couponStartdate}" id="couponEnddate" name="couponStartdate" disabled="disabled">
 											</div>
 											<div class="col-md-3">
 												<label class="form-label">쿠폰 마감일</label>
-												<input type="date" class="form-control" style="width: auto;" value="${detailCoupon.couponEnddate}" id="couponEnddate" name="couponEnddate" readonly="readonly">
+												<input type="date" class="form-control" style="width: auto;" value="${detailCoupon.couponEnddate}" id="couponEnddate" name="couponEnddate">
 											</div>
 										</div>
 										<div class="row">

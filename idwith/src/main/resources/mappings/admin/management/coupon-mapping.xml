@@ -36,4 +36,17 @@
 		select * from coupon where COUPON_CODE=#{couponCode}
 	</select>
 	
+	<update id="updateCoupon" parameterType="coupon">
+		<![CDATA[
+	 		UPDATE coupon
+	 		SET COUPON_NAME=#{couponName}, COUPON_CONTEXT=#{couponContext}, COUPON_TARGET = #{couponTarget}, 
+	 			COUPON_CONDITION=#{couponCondition}, COUPON_DISCOUNT=#{couponDiscount}, COUPON_ENDDATE=#{couponEnddate}
+	 		WHERE COUPON_CODE = #{couponCode}
+ 		]]>
+	</update>
+	
+	<delete id="deleteCoupon" parameterType="coupon">
+		DELETE FROM coupon WHERE COUPON_CODE=#{couponCode}
+	</delete>
+	
 </mapper>

@@ -18,4 +18,8 @@ public interface CouponService {
 
 	CouponVO getDetailCoupon(CouponVO coupon);
 
+	void couponContentUpdate(CouponVO coupon);
+
+	void deleteCoupon(CouponVO coupon);
+
 }

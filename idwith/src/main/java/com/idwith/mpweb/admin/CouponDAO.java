@@ -35,4 +35,12 @@ public class CouponDAO {
 		return detailCoupon;
 	}
 
+	public void couponContentUpdate(CouponVO coupon) {
+		sqlSessionTemplate.update("CouponDAO.updateCoupon", coupon);
+	}
+
+	public void deleteCoupon(CouponVO coupon) {
+		sqlSessionTemplate.delete("CouponDAO.deleteCoupon", coupon);
+	}
+
 }

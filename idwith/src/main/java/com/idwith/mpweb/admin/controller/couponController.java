@@ -75,10 +75,31 @@ public class couponController {
 	public String detailCoupon(CouponVO coupon, Model model) {
 		
 		CouponVO detailCoupon = couponService.getDetailCoupon(coupon);
-		
 		model.addAttribute("detailCoupon", detailCoupon);
 		
 		return "detailCoupon";
+	}
+	
+	/**쿠폰 수정*/
+	@RequestMapping("/updateCoupon.mdo")
+	public String updateCoupon(CouponVO coupon, Model model) {
+		List<WriterVO> writerList = couponService.getWriterList();
+		model.addAttribute("writerList", writerList);
+		CouponVO detailCoupon = couponService.getDetailCoupon(coupon);
+		model.addAttribute("detailCoupon", detailCoupon);
+		return "updateCoupon";
+	}
+	
+	@RequestMapping("/couponContentUpdate.mdo")
+	public String couponContentUpdate(CouponVO coupon) {
+		couponService.couponContentUpdate(coupon);
+		return "redirect:couponList.mdo";
+	}
+	
+	@RequestMapping("/deleteCoupon.mdo")
+	public String deleteCoupon(CouponVO coupon) {
+		couponService.deleteCoupon(coupon);
+		return "redirect:couponList.mdo";
 	}
 	
 	@GetMapping("/sellerCoupon.mdo")
