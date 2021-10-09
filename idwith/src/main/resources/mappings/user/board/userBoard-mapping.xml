@@ -92,6 +92,13 @@
  		select user_name from client where user_name=#{user_name}
  	</select>
  	
+ 	<!-- 클래스 결제에 사용할 정보 가져오기 -->
+ 	<select id="getUserInfoForClassReg" parameterType="string" resultType="userVO">
+ 		SELECT client.*, order_save.save_seq, order_save.save_point, order_save.order_save_true FROM client
+				LEFT OUTER JOIN order_save ON client.user_id = order_save.save_id 
+							AND order_save.order_save_true = true
+		WHERE user_id=#{email}
+ 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}
