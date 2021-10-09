@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,12 +58,12 @@ public class CheckController {
 	@RequestMapping(value="/setChoice.do", method=RequestMethod.GET, produces="application/json; charset=UTF-8")
 	@ResponseBody
 	public ArrayList<String> setChoice(HttpServletRequest req, ChoiceVO choice) throws Exception{
-		System.out.println("찜 목록 조회 컨트롤러 실행");
 		String email = req.getParameter("email");
 		List<ChoiceVO> result = userService.setChoice(email);
 		ArrayList<String> data =new ArrayList<>();
 		for(ChoiceVO list : result) {
 			data.add(list.getChoiced_code());
+			System.out.println(list.getChoiced_code());
 		}
 		return data;
 	}
@@ -90,5 +91,16 @@ public class CheckController {
 			data.add(Integer.toString(list.getFollowed_id()));
 		}
 		return data;
+	}
+	
+	
+	@RequestMapping(value="/setCart.do", method=RequestMethod.GET, produces="application/json; charset=UTF-8")
+	@ResponseBody
+	public String setCart(HttpServletRequest req, HttpSession session) throws Exception{
+		String email = req.getParameter("email");
+		int result = userService.setCart(email);
+		session.setAttribute("setCart", result);
+		
+		return Integer.toString(result);
 	}
 }

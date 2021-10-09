@@ -153,4 +153,9 @@ public class UserServiceImpl implements UserService {
 		return dao.changeFollow(follow);
 	}
 
+	@Override
+	public int setCart(String email) {
+		return dao.setCart(email);
+	}
+
 }

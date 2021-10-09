@@ -47,4 +47,6 @@ public interface UserService {
 
 	int changeFollow(FollowVO follow);
 
+	int setCart(String email);
+
 }
