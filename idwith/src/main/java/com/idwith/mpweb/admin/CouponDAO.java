@@ -30,4 +30,9 @@ public class CouponDAO {
 		return sqlSessionTemplate.selectList("CouponDAO.getCouponList", pagination);
 	}
 
+	public CouponVO getDetailCoupon(CouponVO coupon) {
+		CouponVO detailCoupon = sqlSessionTemplate.selectOne("CouponDAO.getgetDetailCoupon", coupon);
+		return detailCoupon;
+	}
+
 }

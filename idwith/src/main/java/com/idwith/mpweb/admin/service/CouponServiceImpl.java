@@ -36,4 +36,9 @@ public class CouponServiceImpl implements CouponService {
 		return couponDAO.getCouponList(pagination);
 	}
 
+	@Override
+	public CouponVO getDetailCoupon(CouponVO coupon) {
+		return couponDAO.getDetailCoupon(coupon);
+	}
+
 }

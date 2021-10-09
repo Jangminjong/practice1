@@ -32,4 +32,8 @@
 		]]>
 	</select>
 	
+	<select id="getgetDetailCoupon" parameterType="coupon" resultMap="couponResult">
+		select * from coupon where COUPON_CODE=#{couponCode}
+	</select>
+	
 </mapper>

@@ -70,9 +70,14 @@ public class couponController {
 		return "redirect:/couponList.mdo";
 	}
 	
-	
+	/**쿠폰 상세보기 뷰*/
 	@GetMapping("/detailCoupon.mdo")
-	public String detailCoupon() {
+	public String detailCoupon(CouponVO coupon, Model model) {
+		
+		CouponVO detailCoupon = couponService.getDetailCoupon(coupon);
+		
+		model.addAttribute("detailCoupon", detailCoupon);
+		
 		return "detailCoupon";
 	}
 	

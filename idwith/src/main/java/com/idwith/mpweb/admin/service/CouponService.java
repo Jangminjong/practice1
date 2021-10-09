@@ -16,4 +16,6 @@ public interface CouponService {
 
 	List<CouponVO> getCouponList(PagingVO pagination);
 
+	CouponVO getDetailCoupon(CouponVO coupon);
+
 }
