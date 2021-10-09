@@ -124,4 +124,9 @@ public class UserDAO {
 		}
 
 	}
+
+	public int setCart(String email) {
+		// TODO Auto-generated method stub
+		return 2;
+	}
 }
