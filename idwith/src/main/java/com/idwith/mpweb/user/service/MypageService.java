@@ -28,4 +28,6 @@ public interface MypageService {
 	List<GoodsReviewVO> getReviewAfterList(String goods_review_id);
 
 	void deleteReview(String goods_review_seq);
+
+	List<UserAddressVO> getAddressList(String user_id);
 }

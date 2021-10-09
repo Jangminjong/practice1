@@ -56,4 +56,8 @@ public class MyPageDAO {
 	public void deleteReview(String goods_review_seq) {
 		sqlSessionTemplate.delete("MyPageDAO.deleteReview", Integer.parseInt(goods_review_seq));
 	}
+
+	public List<UserAddressVO> getAddressList(String user_id) {
+		return sqlSessionTemplate.selectList("MyPageDAO.getAddressList", user_id);
+	}
 }

@@ -66,4 +66,10 @@ public class MyPageServiceImpl implements MypageService {
 	public void deleteReview(String goods_review_seq) {
 		dao.deleteReview(goods_review_seq);
 	}
+
+	/* 배송지 주소 가져오기 */
+	@Override
+	public List<UserAddressVO> getAddressList(String user_id) {
+		return dao.getAddressList(user_id);
+	}
 }

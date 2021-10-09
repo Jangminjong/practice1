@@ -63,7 +63,18 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value = "/mypage_address.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String mypageAddress() {
+	public String mypageAddress(HttpSession session, Model model) {
+		String user_id = (String) session.getAttribute("email");
+		List<UserAddressVO> adrList = myPageService.getAddressList(user_id);
+		
+		UserAddressVO adr1 = adrList.get(0);
+		UserAddressVO adr2 = adrList.get(1);
+		UserAddressVO adr3 = adrList.get(2);
+		
+		model.addAttribute("adr1", adr1);
+		model.addAttribute("adr2", adr2);
+		model.addAttribute("adr3", adr3);
+		
 		return "mypage/mypage_adr";
 	}
 
@@ -249,8 +260,8 @@ public class MyPageController {
 		@RequestMapping(value="/updateAddress.do", method=RequestMethod.POST)
 		@ResponseBody
 		public String updateAddress(HttpServletRequest request, HttpSession session) {
-			System.out.println("�ּ� ���� ��Ʈ�ѷ� ����");
-			String user_id = (String) session.getAttribute("user_id");
+			System.out.println("배송지 주소 수정 컨트롤러 실행");
+			String user_id = (String) session.getAttribute("email");
 			String user_address_order = request.getParameter("user_address_order");
 			String user_name = request.getParameter("user_name");
 			String user_phone = request.getParameter("user_phone");

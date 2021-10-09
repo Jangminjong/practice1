@@ -43,7 +43,7 @@
 						<div class="area-txt">
 							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
 								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">${user_name }</strong>
+							</a> <strong data-profile="name">${user_name}</strong>
 						</div>
 					</div>
 
@@ -110,7 +110,7 @@
                                                         data-address="delivery_name"
                                                         name="delivery_name"
                                                         id="first_name"
-                                                        value="${user_name}"
+                                                        value="${adr1.user_name}"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -133,7 +133,7 @@
                                                         data-address="delivery_phone"
                                                         name="delivery_phone"
                                                         id="first_phone"
-                                                        value="${user_phone}"
+                                                        value="${adr1.user_phone}"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -159,7 +159,7 @@
                             type="text"
                             name="delivery_zipcode"
                             id="first_zipcode"
-                            value="${user_zipcode}"
+                            value="${adr1.user_zipcode}"
                             placeholder="우편번호"
                             required
                             autocomplete="off"
@@ -195,7 +195,7 @@
                             type="text"
                             name="delivery_address1"
                             id="first_address1"
-                            value="${user_address1}"
+                            value="${adr1.user_address1}"
                             placeholder="기본 주소"
                             required
                             autocomplete="off"
@@ -211,7 +211,7 @@
                             type="text"
                             name="delivery_address2"
                             id="first_address2"
-                            value="${user_address2}"
+                            value="${adr1.user_address2}"
                             autocomplete="off"
                             placeholder="나머지 주소"
                                                         class="readonly delivery_address2"
@@ -264,7 +264,7 @@
                                                         data-address="delivery_name"
                                                         name="delivery_name"
                                                         id="second_name"
-                                                        value=""
+                                                        value="${adr2.user_name}"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -287,7 +287,7 @@
                                                         data-address="delivery_phone"
                                                         name="delivery_phone"
                                                         id="second_phone"
-                                                        value=""
+                                                        value="${adr2.user_phone}"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -313,7 +313,7 @@
                             type="text"
                             name="delivery_zipcode"
                             id="second_zipcode"
-                            value=""
+                            value="${adr2.user_zipcode}"
                             placeholder="우편번호"
                             required
                             autocomplete="off"
@@ -349,7 +349,7 @@
                             type="text"
                             name="delivery_address1"
                             id="second_address1"
-                            value=""
+                            value="${adr2.user_address1}"
                             placeholder="기본 주소"
                             required
                             autocomplete="off"
@@ -365,7 +365,7 @@
                             type="text"
                             name="delivery_address2"
                             id="second_address2"
-                            value=""
+                            value="${adr2.user_address2}"
                             autocomplete="off"
                             placeholder="나머지 주소"
                                                         class="readonly"
@@ -436,7 +436,7 @@
                                                         data-address="delivery_name"
                                                         name="delivery_name"
                                                         id="third_name"
-                                                        value=""
+                                                        value="${adr3.user_name}"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -459,7 +459,7 @@
                                                         data-address="delivery_phone"
                                                         name="delivery_phone"
                                                         id="third_phone"
-                                                        value=""
+                                                        value="${adr3.user_phone}"
                                                         type="text"
                                                         required
                                                         autocomplete="off"
@@ -485,7 +485,7 @@
                             type="text"
                             name="delivery_zipcode"
                             id="third_zipcode"
-                            value=""
+                            value="${adr3.user_zipcode}"
                             placeholder="우편번호"
                             required
                             autocomplete="off"
@@ -521,7 +521,7 @@
                             type="text"
                             name="delivery_address1"
                             id="third_address1"
-                            value=""
+                            value="${adr3.user_address1}"
                             placeholder="기본 주소"
                             required
                             autocomplete="off"
@@ -537,7 +537,7 @@
                             type="text"
                             name="delivery_address2"
                             id="third_address2"
-                            value=""
+                            value="${adr3.user_address2}"
                             autocomplete="off"
                             placeholder="나머지 주소"
                                                         class="readonly"

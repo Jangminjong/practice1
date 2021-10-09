@@ -240,15 +240,15 @@ function updateCancle(order){
 		$('#update_btn_first').css({'display' : ''});
 		
 		$('#first_name').addClass('readonly');
-		$('#first_name').addAttr('readonly');
+		$('#first_name').attr('readonly');
 		$('#first_phone').addClass('readonly');
-		$('#first_phone').addAttr('readonly'); 
+		$('#first_phone').attr('readonly'); 
 		$('#first_zipcode').addClass('readonly');
-		$('#first_zipcode').addAttr('readonly'); 
+		$('#first_zipcode').attr('readonly'); 
 		$('#first_address1').addClass('readonly');
-		$('#first_address1').addAttr('readonly'); 
+		$('#first_address1').attr('readonly'); 
 		$('#first_address2').addClass('readonly');
-		$('#first_address2').addAttr('readonly'); 
+		$('#first_address2').attr('readonly'); 
 	}else if(order == 'cancle_btn_second'){//두번째 주소지 수정
 		$('#add-btn-second').css({'display' : 'none'});
 		$('#update_btn_second').css({'display' : ''});
@@ -303,15 +303,15 @@ function updateAddress(order){
 		address2 = $('#first_address2').val();
 		
 		$('#first_name').addClass('readonly');
-		$('#first_name').addAttr('readonly');
+		$('#first_name').attr('readonly');
 		$('#first_phone').addClass('readonly');
-		$('#first_phone').addAttr('readonly'); 
+		$('#first_phone').attr('readonly'); 
 		$('#first_zipcode').addClass('readonly');
-		$('#first_zipcode').addAttr('readonly'); 
+		$('#first_zipcode').attr('readonly'); 
 		$('#first_address1').addClass('readonly');
-		$('#first_address1').addAttr('readonly'); 
+		$('#first_address1').attr('readonly'); 
 		$('#first_address2').addClass('readonly');
-		$('#first_address2').addAttr('readonly'); 
+		$('#first_address2').attr('readonly'); 
 	}else if(order === 'save_btn_second'){
 		$('#add-btn-second').css({'display' : 'none'});
 		$('#update_btn_second').css({'display' : ''});
@@ -361,6 +361,13 @@ function updateAddress(order){
 	}
 	
 	console.log('배송지 수정중');
+	
+	console.log('순서 : ' + adr_order);
+	console.log('이름 : ' + name);
+	console.log('폰 : ' + phone);
+	console.log('우편 : ' + zipcode);
+	console.log('주소1 : ' + address1);
+	console.log('주소2 : ' + address2);
 	
 	$.ajax({
 		url: "updateAddress.do",
