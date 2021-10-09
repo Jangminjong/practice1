@@ -6,7 +6,7 @@ public class CodeGeneration {
 	
 	private int certNumLength = 6;
 	
-	public String excuteGenerate() {
+	public int excuteGenerate() {
 		Random random = new Random(System.currentTimeMillis());
 		
 		int range = (int)Math.pow(10, certNumLength);
@@ -17,7 +17,9 @@ public class CodeGeneration {
 			result = result - trim;
 		}
 		
-		return String.valueOf(result);
+		int resultNumber = Integer.parseInt(String.valueOf(result));
+		
+		return resultNumber;
 	}
 
 	public int getCertNumLength() {

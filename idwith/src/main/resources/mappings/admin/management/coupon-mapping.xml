@@ -10,6 +10,8 @@
 		<result property="couponTarget" column="COUPON_TARGET" />
 		<result property="couponCondition" column="COUPON_CONDITION" />
 		<result property="couponDiscount" column="COUPON_DISCOUNT" />
+		<result property="couponStatus" column="COUPON_STATUS" />
+		<result property="couponStartdate" column="COUPON_STARTDATE" />
 		<result property="couponEnddate" column="COUPON_ENDDATE" />
 	</resultMap>
 	
@@ -17,5 +19,17 @@
 		INSERT INTO COUPON (COUPON_CODE, COUPON_NAME, COUPON_CONTEXT, COUPON_TARGET, COUPON_CONDITION, COUPON_DISCOUNT, COUPON_ENDDATE, COUPON_STATUS)
 		VALUES(#{couponCode}, #{couponName}, #{couponContext}, #{couponTarget}, #{couponCondition}, #{couponDiscount}, #{couponEnddate}, 0)
 	</insert>
+	
+	<select id="countCouponList" resultType="int">
+		select count(*) from coupon;
+	</select>
+	
+	<select id="getCouponList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="couponResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM coupon ORDER BY COUPON_NAME DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
 	
 </mapper>

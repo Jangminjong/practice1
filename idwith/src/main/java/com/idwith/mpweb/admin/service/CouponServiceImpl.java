@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.idwith.mpweb.admin.CouponDAO;
 import com.idwith.mpweb.admin.CouponVO;
 import com.idwith.mpweb.admin.WriterVO;
+import com.idwith.mpweb.common.PagingVO;
 
 @Service("couponService")
 public class CouponServiceImpl implements CouponService {
@@ -23,6 +24,16 @@ public class CouponServiceImpl implements CouponService {
 	@Override
 	public List<WriterVO> getWriterList() {
 		return couponDAO.getWriterList();
+	}
+
+	@Override
+	public int countCouponList() {
+		return couponDAO.countCouponList();
+	}
+
+	@Override
+	public List<CouponVO> getCouponList(PagingVO pagination) {
+		return couponDAO.getCouponList(pagination);
 	}
 
 }

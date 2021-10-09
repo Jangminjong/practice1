@@ -164,11 +164,11 @@
 							</div>
 						</div>
 						<ul class="nav nav-tabs" role="tablist">
-	                                <li class="nav-item">
-	                                <a class="nav-link active" data-toggle="tab" href="#tab1" id="#tab1">상품작가</a></li>
-	                                <li class="nav-item">
-	                                <a class="nav-link" data-toggle="tab" href="#tab2" id="#tab2">클래스작가</a></li>
-                            </ul>
+                                <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tab1" id="#tab1">상품작가</a></li>
+                                <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tab2" id="#tab2">클래스작가</a></li>
+                        </ul>
 					</div>
 					
 						<div class="card-body">

@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.idwith.mpweb.common.PagingVO;
+
 @Repository("couponDAO")
 public class CouponDAO {
 	
@@ -18,6 +20,14 @@ public class CouponDAO {
 
 	public List<WriterVO> getWriterList() {
 		return sqlSessionTemplate.selectList("WriterDAO.getWriterList");
+	}
+
+	public int countCouponList() {
+		return sqlSessionTemplate.selectOne("CouponDAO.countCouponList");
+	}
+
+	public List<CouponVO> getCouponList(PagingVO pagination) {
+		return sqlSessionTemplate.selectList("CouponDAO.getCouponList", pagination);
 	}
 
 }
