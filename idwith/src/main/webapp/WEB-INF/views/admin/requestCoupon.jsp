@@ -97,7 +97,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="couponList.mdo">쿠폰리스트</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="requestCoupon.mdo">쿠폰 요청 리스트</a></li>
+								href="c">쿠폰 요청 리스트</a></li>
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"

@@ -66,4 +66,8 @@
 		]]>
 	</select>
 	
+	<select id="getWriterList" resultMap="writerResult">
+		select SELLER_CODE, STORE_NAME from seller 
+	</select>
+	
 </mapper>

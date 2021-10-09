@@ -45,6 +45,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.writer.review.ReviewVO" alias="writerReview"/>
  		<typeAlias type="com.idwith.mpweb.admin.ClassProposeInfoVO" alias="classProposeInfo"/>
  		<typeAlias type="com.idwith.mpweb.admin.WriterVO" alias="WriterVO"/>
+ 		<typeAlias type="com.idwith.mpweb.admin.CouponVO" alias="coupon"/>
  		
  	</typeAliases>
  	<typeHandlers>
@@ -84,6 +85,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/writer/review/writerReview-mapping.xml"/>
  		<mapper resource="mappings/admin/management/classProposeInfo-mapping.xml"/>
  		<mapper resource="mappings/admin/management/writer-mapping.xml"/>
+ 		<mapper resource="mappings/admin/management/coupon-mapping.xml"/>
  		
  		<!--  <mapper resource="mappings/admin/board/adminBoard-mapping.xml"/> -->
  		<!-- <mapper resource="mappings/writer/board/userBoard-mapping.xml"/> -->

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CouponDAO">
+	<resultMap type="coupon" id="couponResult">
+		<result property="couponCode" column="COUPON_CODE" />
+		<result property="couponName" column="COUPON_NAME" />
+		<result property="couponContext" column="COUPON_CONTEXT" />
+		<result property="couponTarget" column="COUPON_TARGET" />
+		<result property="couponCondition" column="COUPON_CONDITION" />
+		<result property="couponDiscount" column="COUPON_DISCOUNT" />
+		<result property="couponEnddate" column="COUPON_ENDDATE" />
+	</resultMap>
+	
+	<insert id="insertCoupon" parameterType="coupon">
+		INSERT INTO COUPON (COUPON_CODE, COUPON_NAME, COUPON_CONTEXT, COUPON_TARGET, COUPON_CONDITION, COUPON_DISCOUNT, COUPON_ENDDATE, COUPON_STATUS)
+		VALUES(#{couponCode}, #{couponName}, #{couponContext}, #{couponTarget}, #{couponCondition}, #{couponDiscount}, #{couponEnddate}, 0)
+	</insert>
+	
+</mapper>

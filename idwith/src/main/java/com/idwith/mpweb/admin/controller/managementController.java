@@ -452,23 +452,4 @@ public class managementController {
 		
 	}
 	
-	/*
-	 * @GetMapping("/searchUser.mdo") public String getSearchUser() {
-	 * 
-	 * System.out.println(pagination.getSearchCondition());
-	 * 
-	 * int cnt = userListService.getSearchUserCnt(userList.getSearchKeyword());
-	 * 
-	 * pagination = new PagingVO(cnt, Integer.parseInt(nowPage),
-	 * Integer.parseInt(cntPerPage), pagination.getSearchCondition(),
-	 * pagination.getSearchKeyword());
-	 * 
-	 * List<UserListVO> pagingList = userListService.getSearchUser(pagination);
-	 * 
-	 * model.addAttribute("paging", pagination); model.addAttribute("UserListAll",
-	 * pagingList); model.addAttribute("cnt", cnt);
-	 * 
-	 * return "userList"; }
-	 */
-
 }
