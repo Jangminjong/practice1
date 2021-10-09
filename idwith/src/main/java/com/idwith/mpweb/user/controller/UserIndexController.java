@@ -77,6 +77,10 @@ public class UserIndexController {
 		List<ClassVO> popularClassList = classService.getPopularClassList();
 		model.addAttribute("popularClassList", popularClassList);
 		
+		// 신규클래스 
+		List<ClassVO> newClassList = classService.getNewClassList();
+		model.addAttribute("newClassList", newClassList);
+		
 		return "class/class_index";
 	}
 

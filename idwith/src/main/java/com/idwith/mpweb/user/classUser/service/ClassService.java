@@ -39,5 +39,7 @@ public interface ClassService {
 
 	List<ClassVO> getNearbyList(String district, String area);
 
+	List<ClassVO> getNewClassList();
+
 
 }

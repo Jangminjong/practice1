@@ -93,4 +93,9 @@ public class ClassServiceImpl implements ClassService{
 		return dao.getNearbyList(district, area);
 	}
 
+	@Override
+	public List<ClassVO> getNewClassList() {
+		return dao.getNewClassList();
+	}
+
 }

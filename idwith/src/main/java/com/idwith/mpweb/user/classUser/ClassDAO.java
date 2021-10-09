@@ -79,4 +79,8 @@ public class ClassDAO {
 		
 		return classList;
 	}
+
+	public List<ClassVO> getNewClassList() {
+		return sqlSessionTemplate.selectList("classDAO.getNewClassList");
+	}
 }

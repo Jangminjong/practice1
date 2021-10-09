@@ -143,7 +143,6 @@
 				</div>
 				<div class="ui_grid">
 					<ul class="ui_grid__cols--4 ui_grid__cols--m2">
-						<c:if test="${nearbyClassList ne null }">
 						<c:forEach var="classVO" items="${nearbyClassList}">
 						<li class="ui_grid__item">
 							<div class="ui_card--white" data-ui="eduCard"
@@ -160,7 +159,7 @@
 									data-stats-artist="4496741" data-stats-category-depth1="2"
 									data-stats-category-depth2="11" data-state=""></button>
 								<div class="ui_card__imgcover">
-									<a href="class_detail_content.do" target="_blank" class="ui_card__img"
+									<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code }" target="_blank" class="ui_card__img"
 										data-lazy-img="resources/images/category_class/${classVO.class_open_photo[0] }"
 										style="background-image: url(resources/images/category_class/${classVO.class_open_photo[0] });">
 									</a>
@@ -187,7 +186,6 @@
 							</div>
 						</li>
 						</c:forEach>
-						</c:if>
 					</ul>
 				</div>
 			</div>
@@ -217,7 +215,7 @@
 									data-stats-category-depth2="26" data-state=""></button>
 								<div class="ui_card__imgcover">
 									<a href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }" target="_blank" class="ui_card__img"
-										data-lazy-img="https://image.idus.com/image/files/e3ab1d4b4fb7490ba0c92763441ccc78_320.jpg"
+										data-lazy-img="resources/images/category_class/${class.class_open_photo[0] }"
 										style="background-image: url(resources/images/index/${class.class_open_photo[0]});">
 									</a>
 								</div>
@@ -257,13 +255,14 @@
 				</div>
 				<div class="ui_grid">
 					<ul class="ui_grid__cols--4 ui_grid__cols--m2">
+						<c:forEach var="classVO" items="${newClassList}">
 						<li class="ui_grid__item">
 							<div class="ui_card--white" data-ui="eduCard"
 								data-target-id="6103" data-stats-artist="1047348"
 								data-stats-category-depth1="2" data-stats-category-depth2="10"
 								data-lazy-loaded="false" data-logging="edu_list_item"
 								data-was-processed="true">
-								<span class="ui_card__overlay--label">경기 안산시</span>
+								<span class="ui_card__overlay--label">${classVO.class_open_address }</span>
 
 								<button type="button"
 									class="ui_card__overlay btn-ico sp-icon icon-favorite "
@@ -272,16 +271,15 @@
 									data-stats-artist="1047348" data-stats-category-depth1="2"
 									data-stats-category-depth2="10" data-state=""></button>
 								<div class="ui_card__imgcover">
-									<a href="/c/class/6103" target="_blank" class="ui_card__img"
-										data-lazy-img="https://image.idus.com/image/files/0dab998dd4fa440cbb22dbaa0feb3350_320.jpg"
-										style="background-image: url('https://image.idus.com/image/files/0dab998dd4fa440cbb22dbaa0feb3350_320.jpg');">
+									<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code }" target="_blank" class="ui_card__img"
+										data-lazy-img="resources/images/category_class/${classVO.class_open_photo[0] }"
+										style="background-image: url(resources/images/category_class/${classVO.class_open_photo[0] });">
 									</a>
 								</div>
 								<div class="ui_card__txtarea">
 									<div class="ui_card__info">
-										<a href="/c/class/6103" target="_blank" class="ui_card__label">요리</a>
-										<a href="/c/class/6103" target="_blank" class="ui_card__title"><b>마카롱
-												체험 ㅣ 부담없이 만들 수 있는 원데이 클래스 </b></a>
+										<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code }" target="_blank" class="ui_card__label">${classVO.class_category_name }</a>
+										<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code }" target="_blank" class="ui_card__title"><b>${classVO.class_open_name }</b></a>
 									</div>
 									<div class="ui_card__rating">
 										<dl class="ui_card__vcenter">
@@ -291,6 +289,7 @@
 								</div>
 							</div>
 						</li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
