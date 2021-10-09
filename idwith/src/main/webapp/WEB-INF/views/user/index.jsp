@@ -166,7 +166,7 @@
 													<!-- 상품정보 -->
 													<div class="ui_card__info">
 														<a href="seller_goods.do" class="ui_card__label"
-															target="_blank">${goodsVO.goods_name }</a> <a
+															target="_blank">${goodsVO.store_name }</a> <a
 															href="detail_content.do?goods_code=${goodsVO.goods_code }" class="ui_card__title"
 															target="_blank">${goodsVO.goods_name }</a>
 													</div>

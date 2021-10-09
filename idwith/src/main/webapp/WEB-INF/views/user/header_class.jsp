@@ -213,7 +213,7 @@
 					<div class="main-search">
 						<form class="gnb-search-form">
 							<input id="header-search" type="text" autocomplete="off"
-								placeholder="추석할인을 검색해보세요"> <label class="searchLabel">
+								placeholder="검색어를 입력해주세요!"> <label class="searchLabel">
 								<button type="submit" name="search">
 									<i class="fa fa-search" aria-hidden="true"></i>
 								</button>
@@ -224,9 +224,11 @@
 					<nav class="profile-links">
 						<a href="mypage_main.do" class="btn"> <i class="fa fa-user-o"
 							aria-hidden="true"></i> 내 정보
-						</a> <a id="my-cart-button" href="cart.do" class="btn"> <span
-							class="cart-counter">0</span> <i class="fa fa-shopping-cart"
-							aria-hidden="true"></i> 장바구니
+						</a> <a id="my-cart-button" href="cart.do" class="btn"><c:if test="${setCart > 0 }">
+							<span class="cart-counter">${setCart}</span>
+							</c:if>
+							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+								장바구니
 						</a>
 					</nav>
 

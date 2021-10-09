@@ -92,6 +92,7 @@ $(document).ready(function(){
 			success:function(data){
 				var i =0;
 				while(i<data.length){
+					console.log(data[i]);
 					document.getElementById('btn-'+data[i]).classList.add('active');
 					i++;
 				}
@@ -123,13 +124,32 @@ $(document).ready(function(){
 		});
 		
 	}
+	
+	
+	// 장바구니 개수 헤더에 세팅
+	if(!email ==""){
+		$.ajax({
+			url:'setCart.do',
+			type:"GET",
+			contentType:'application/json; charset=UTF-8',
+			dataType:'json',
+			data:{ 
+				email:email
+			},
+			success:function(data){
+				
+			},
+			error: function(request,status,error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+	}
 
 });
 
 
 // 하트 눌렀을 때 찜 상태 변경 하기 
 function changeChoice(goodsCode, event){
-	alert('싫행');
 	const email = $('#email').val();
 	var choiceBtn = document.getElementById('btn-'+goodsCode);
 	var state = choiceBtn.classList.contains('active');
