@@ -400,13 +400,75 @@ public class managementController {
 	}
 
 	@GetMapping("/productWriter.mdo")
-	public String productWriter() {
+	public String productWriter(Model model, WriterVO writer,
+			@RequestParam(value = "sellerCode")Integer sellerCode) {
+		
+		model.addAttribute("goodsSeller", goodsSellerService.getSellerContent(sellerCode));
+		
 		return "productWriter";
 	}
 
 	@GetMapping("/classWriter.mdo")
-	public String classWriter() {
+	public String classWriter(Model model, WriterVO writer,
+			@RequestParam(value = "sellerCode")Integer sellerCode) {
+		
+		model.addAttribute("classSeller", classSellerService.getClassSellerContent(sellerCode));
+		
 		return "classWriter";
 	}
+	
+	@GetMapping("/searchWriter.mdo")
+	public String getSearchWriter(Model model, WriterVO writer, PagingVO pagination,
+			@RequestParam(required = false, value = "nowPage") String nowPage,
+			@RequestParam(required = false, value = "cntPerPage") String cntPerPage) {
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		int countGoodsSearchCnt = goodsSellerService.getGoodsSearchCnt(writer.getSearchKeyword());
+		int countClassSearchCnt = classSellerService.getClassSearchCnt(writer.getSearchKeyword());
+		
+		PagingVO goodsSearchPagination = new PagingVO(countGoodsSearchCnt, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), pagination.getSearchCondition(), pagination.getSearchKeyword());
+		PagingVO classSearchPagination = new PagingVO(countClassSearchCnt, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), pagination.getSearchCondition(), pagination.getSearchKeyword());
+		
+		List<WriterVO> goodsPagingList = goodsSellerService.getSearchGoodsWriter(goodsSearchPagination);
+		List<WriterVO> classPagingList = classSellerService.getSearchClassWriter(classSearchPagination);
+		
+		model.addAttribute("goodsSearchPagination", goodsSearchPagination);
+		model.addAttribute("goodsPagingList", goodsPagingList);
+		model.addAttribute("countGoodsSearchCnt", countGoodsSearchCnt);
+		
+		model.addAttribute("classSearchPagination", classSearchPagination);
+		model.addAttribute("classPagingList", classPagingList);
+		model.addAttribute("countClassSearchCnt", countClassSearchCnt);
+				
+		return "writerList";
+		
+	}
+	
+	/*
+	 * @GetMapping("/searchUser.mdo") public String getSearchUser() {
+	 * 
+	 * System.out.println(pagination.getSearchCondition());
+	 * 
+	 * int cnt = userListService.getSearchUserCnt(userList.getSearchKeyword());
+	 * 
+	 * pagination = new PagingVO(cnt, Integer.parseInt(nowPage),
+	 * Integer.parseInt(cntPerPage), pagination.getSearchCondition(),
+	 * pagination.getSearchKeyword());
+	 * 
+	 * List<UserListVO> pagingList = userListService.getSearchUser(pagination);
+	 * 
+	 * model.addAttribute("paging", pagination); model.addAttribute("UserListAll",
+	 * pagingList); model.addAttribute("cnt", cnt);
+	 * 
+	 * return "userList"; }
+	 */
 
 }

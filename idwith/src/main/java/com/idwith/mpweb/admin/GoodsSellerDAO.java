@@ -23,4 +23,21 @@ public class GoodsSellerDAO {
 		return sqlSessionTemplate.selectList("WriterDAO.getGoodsSellerList", goodsPagination);
 	}
 
+	public WriterVO getSellerContent(Integer sellerCode) {
+		return sqlSessionTemplate.selectOne("WriterDAO.getSellerContent", sellerCode);
+	}
+
+	public int getGoodsSearchCnt(String searchKeyword) {
+		return sqlSessionTemplate.selectOne("WriterDAO.getGoodsSearchCnt", searchKeyword);
+	}
+
+	public List<WriterVO> getSearchGoodsWriter(PagingVO goodsSearchPagination) {
+		
+		List<WriterVO> result = null;
+		
+		result = sqlSessionTemplate.selectList("WriterDAO.getSearchGoodsWriter", goodsSearchPagination);
+		
+		return result;
+	}
+
 }

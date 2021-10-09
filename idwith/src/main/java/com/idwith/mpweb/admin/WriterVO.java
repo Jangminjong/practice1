@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class WriterVO {
 	
-	private String sellerCode;
+	private Integer sellerCode;
 	private String storeName;
 	private String userId;
 	private String sellerName;
@@ -15,14 +15,25 @@ public class WriterVO {
 	private int rownum;
 	private boolean sellerGoodsYN;
 	private boolean sellerClassYN;
-	private String searchWriterCondition;
-	private String searchWriterKeyword;
+	private String searchCondition;
+	private String searchKeyword;
 	
-	
-	public String getSellerCode() {
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+	public Integer getSellerCode() {
 		return sellerCode;
 	}
-	public void setSellerCode(String sellerCode) {
+	public void setSellerCode(Integer sellerCode) {
 		this.sellerCode = sellerCode;
 	}
 	public String getStoreName() {
@@ -85,26 +96,14 @@ public class WriterVO {
 	public void setSellerClassYN(boolean sellerClassYN) {
 		this.sellerClassYN = sellerClassYN;
 	}
-	public String getSearchWriterCondition() {
-		return searchWriterCondition;
-	}
-	public void setSearchWriterCondition(String searchWriterCondition) {
-		this.searchWriterCondition = searchWriterCondition;
-	}
-	public String getSearchWriterKeyword() {
-		return searchWriterKeyword;
-	}
-	public void setSearchWriterKeyword(String searchWriterKeyword) {
-		this.searchWriterKeyword = searchWriterKeyword;
-	}
 	
 	@Override
 	public String toString() {
 		return "WriterVO [sellerCode=" + sellerCode + ", storeName=" + storeName + ", userId=" + userId
 				+ ", sellerName=" + sellerName + ", sellerSellno=" + sellerSellno + ", sellerIndate=" + sellerIndate
 				+ ", followerCount=" + followerCount + ", goodsCount=" + goodsCount + ", rownum=" + rownum
-				+ ", sellerGoodsYN=" + sellerGoodsYN + ", sellerClassYN=" + sellerClassYN + ", searchWriterCondition="
-				+ searchWriterCondition + ", searchWriterKeyword=" + searchWriterKeyword + "]";
+				+ ", sellerGoodsYN=" + sellerGoodsYN + ", sellerClassYN=" + sellerClassYN + ", searchCondition="
+				+ searchCondition + ", searchKeyword=" + searchKeyword + "]";
 	}
 	
 }

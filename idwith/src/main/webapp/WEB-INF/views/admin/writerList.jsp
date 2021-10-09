@@ -149,12 +149,12 @@
 								<form class="d-none d-sm-inline-block float-right" action="searchWriter.mdo" method="get">
 									<ul class="nav nav-pills card-header-pills pull-right">
 										<div class="input-group">
-											<select class="form-control mb-3" style="margin-right: 10px; width: 85px;" name="searchWriterCondition">
-												<option selected="selected" value="userId">작품</option>
-												<option value="userGrade">클래스</option>
+											<select class="form-control mb-3" style="margin-right: 10px; width: 85px;" name="searchCondition">
+												<option selected="selected" value="goodsWriter">작품</option>
+												<option value="classWriter">클래스</option>
 											</select>
 											<input type="text" class="form-control"
-												placeholder="검색 키워드를 입력하세요!" style="width: 200px; height: 10px;" name="searchWriterKeyword">&nbsp; <span
+												placeholder="검색 키워드를 입력하세요!" style="width: 200px; height: 10px;" name="searchKeyword">&nbsp; <span
 												class="input-group-btn">
 												<input class="btn btn-warning" type="submit" value="찾기">
 											</span>
@@ -164,12 +164,10 @@
 							</div>
 						</div>
 						<ul class="nav nav-tabs" role="tablist">
-                                <li class="nav-item">
-                                <a class="nav-link active"
-                                    data-toggle="tab" href="#tab1" id="#tab1">상품작가</a></li>
-                                <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab"
-                                    href="#tab2" id="#tab2">클래스작가</a></li>
+	                                <li class="nav-item">
+	                                <a class="nav-link active" data-toggle="tab" href="#tab1" id="#tab1">상품작가</a></li>
+	                                <li class="nav-item">
+	                                <a class="nav-link" data-toggle="tab" href="#tab2" id="#tab2">클래스작가</a></li>
                             </ul>
 					</div>
 					
@@ -333,6 +331,7 @@
 									</div>
                                 </div>
 							</div>
+						</div>
 						</div>
 						</main>
 					</div>

@@ -11,4 +11,10 @@ public interface ClassSellerService {
 
 	List<WriterVO> getClassSellerList(PagingVO classPagination);
 
+	WriterVO getClassSellerContent(Integer sellerCode);
+
+	int getClassSearchCnt(String searchKeyword);
+
+	List<WriterVO> getSearchClassWriter(PagingVO classSearchPagination);
+
 }

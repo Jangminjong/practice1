@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,7 +140,7 @@
 						<div class="container-fluid p-0">
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>작가 : </h3>
+									<h3>작가 : ${classSeller.storeName} </h3>
 								</div>
 							</div>
 						</div>
@@ -149,43 +150,34 @@
 						<form class="row g-3">
 							<div class="row">
 								<div class="col-md-3">
-									<label for="inputEmail4" class="form-label">클래스 작가코드</label> <input
-										type="text" class="form-control" value="seller_code" style="width: auto;"
-										aria-label="readonly input example" readonly>
-								</div>
-								<div class="col-md-3">
-									<label for="inputEmail4" class="form-label">상점 이름</label> <input
-										type="text" class="form-control" value="seller_code" style="width: auto;"
-										aria-label="readonly input example" readonly>
-								</div>
-							</div>
-							<div class="row"  style="margin-top: 10px">
-								<div class="col-md-3">
 									<label for="inputEmail4" class="form-label">아이디</label> <input
-										type="text" class="form-control" value="client"  style="width: auto;"
-										aria-label="readonly input example" readonly>
+										type="text" class="form-control" value="${classSeller.userId}"  style="width: auto;" readonly>
 								</div>
 								<div class="col-md-3">
 									<label for="inputPassword4" class="form-label">이름</label> 
-									<input type="text" class="form-control" value="이예지"  style="width: auto;"
-										aria-label="readonly input example" readonly>
+									<input type="text" class="form-control" value="${classSeller.sellerName}"  style="width: auto;" readonly>
+								</div>
+							</div>
+							<div class="row" style="margin-top: 10px;">
+								<div class="col-md-3">
+									<label for="inputEmail4" class="form-label">작가코드</label> <input
+										type="text" class="form-control" value="${classSeller.sellerCode}" style="width: auto;" readonly>
 								</div>
 								<div class="col-md-3">
-									<label for="inputPassword4" class="form-label">전화번호</label> <input
-										type="text" class="form-control" value="010-2580-0786"  style="width: auto;"
-										aria-label="readonly input example" readonly>
+									<label for="inputEmail4" class="form-label">상점 이름</label> <input
+										type="text" class="form-control" value="${classSeller.storeName}" style="width: auto;" readonly>
 								</div>
-								</div>
-							<div class="col-md-3">
+								<div class="col-md-3">
 								<label for="inputCity" class="form-label">사업자 등록번호</label> <input
-									type="text" class="form-control" value="321-55-05842"  style="width: auto;"
-									aria-label="readonly input example" readonly>
+									type="text" class="form-control" value="${classSeller.sellerSellno}"  style="width: auto;" readonly> 
 							</div>
 							<div class="col-md-2">
-								<label for="inputZip" class="form-label">입점일</label> <input
-									type="text" class="form-control" value="2021-09-11"  style="width: auto;"
-									aria-label="readonly input example" readonly>
+								<label for="inputZip" class="form-label">입점일</label>
+								<fmt:formatDate value="${classSeller.sellerIndate}" var="sellerIndate" pattern="yyyy.MM.dd"/>
+								<input type="text" class="form-control" value="${sellerIndate}" style="width: auto;" readonly>
 							</div>
+							</div>
+							
 
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
@@ -208,17 +200,9 @@
 									</div>
 									<div class="col-3">
 										<div class="card text-black">
-											<div class="card-header bg-light">등록 상품 갯수</div>
+											<div class="card-header bg-light">등록 클래스 갯수</div>
 											<div class="card-body">
 												<p class="card-text">25</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-3">
-										<div class="card text-black">
-											<div class="card-header bg-light">총 누적 판매횟수</div>
-											<div class="card-body">
-												<p class="card-text">1,025</p>
 											</div>
 										</div>
 									</div>

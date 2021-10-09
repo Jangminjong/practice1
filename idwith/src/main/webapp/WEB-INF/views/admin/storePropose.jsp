@@ -170,11 +170,10 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="watingList" items="${goodsApplyList}"
-												varStatus="status">
+											<c:forEach var="watingList" items="${goodsApplyList}" varStatus="status">
 												<tr>
-													<th scope="row">${status.count}</th>
-													<td><a href="classPropose.mdo">${watingList.goods_apply_id}</a></td>
+													<td scope="row">${status.count}</td>
+													<td><a href="productPropose.mdo?">${watingList.goods_apply_id}</a></td>
 													<td>${watingList.goods_apply_bsn}</td>
 													<td id="${watingList.store_name}">${watingList.store_name}</td>
 													<td id="${watingList.goods_apply_category}">${watingList.goods_apply_category}</td>
@@ -211,7 +210,7 @@
 											<c:forEach var="classRegList" items="${classRegList}" varStatus="status">
 											<input type="hidden" value="${classRegList.class_reg_seq}" />
 											<tr>
-												<th scope="row">${status.count}</th>
+												<td scope="row">${status.count}</td>
 												<td><a href="classPropose.mdo?class_reg_seq=${classRegList.class_reg_seq}">${classRegList.store_name}</a></td>
 												<td>${classRegList.seller_sellno}</td>
 												<td>

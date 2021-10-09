@@ -11,4 +11,11 @@ public interface GoodsSellerService {
 
 	int countGoodsSeller();
 
+	WriterVO getSellerContent(Integer sellerCode);
+
+	int getGoodsSearchCnt(String searchKeyword);
+
+	List<WriterVO> getSearchGoodsWriter(PagingVO goodsSearchPagination);
+
+
 }

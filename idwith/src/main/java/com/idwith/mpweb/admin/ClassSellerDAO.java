@@ -22,4 +22,17 @@ public class ClassSellerDAO {
 		return sqlSessionTemplate.selectList("WriterDAO.getClassSellerList", classPagination);
 	}
 
+	public WriterVO getClassSellerContent(Integer sellerCode) {
+		return sqlSessionTemplate.selectOne("WriterDAO.getSellerContent", sellerCode);
+	}
+
+	public int getClassSearchCnt(String searchKeyword) {
+		return sqlSessionTemplate.selectOne("WriterDAO.getClassSearchCnt", searchKeyword);
+	}
+
+	public List<WriterVO> getSearchClassWriter(PagingVO classSearchPagination) {
+		return sqlSessionTemplate.selectList("WriterDAO.getSearchClassWriter", classSearchPagination);
+	}
+
+
 }
