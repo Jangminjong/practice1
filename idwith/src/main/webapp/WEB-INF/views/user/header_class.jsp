@@ -41,6 +41,7 @@
                 href="#content">컨텐츠로 바로가기</a> </div> -->
 
 		<header id="header" class="header ">
+		<input type="hidden" value="${email }" id="email"/>
 			<input type="hidden" name="isLoggedIn" value="">
 			<div class="top-navigation full-w">
 				<div class="inner-w clf">
@@ -222,7 +223,7 @@
 					</div>
 
 					<nav class="profile-links">
-						<a href="mypage_main.do" class="btn"> <i class="fa fa-user-o"
+						<a href="javascript:myPageCheck()" class="btn" id="btn-my-page"> <i class="fa fa-user-o"
 							aria-hidden="true"></i> 내 정보
 						</a> <a id="my-cart-button" href="cart.do" class="btn"><c:if test="${setCart > 0 }">
 							<span class="cart-counter">${setCart}</span>

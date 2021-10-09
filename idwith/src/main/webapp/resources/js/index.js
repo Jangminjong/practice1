@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+	
 	$('.mymenu').hover(function() {
   		$('.menu-dropdown.menu-first').stop(true, true).delay(0).fadeIn(0);
 	}, function() {
@@ -261,5 +262,16 @@ function bannerHide(){
 	$('#header-banner').hide();
 }
 
+
+// 마이페이지 로그인 여부 확인
+function myPageCheck(){
+	const email =  $('#email').val();
+	if(email == ""){
+		location.replace('/mpweb/login.do');
+	}else{
+		location.replace('/mpweb/mypage.do');
+	}
+
+}
 
 

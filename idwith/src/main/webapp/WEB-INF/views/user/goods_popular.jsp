@@ -66,10 +66,10 @@
 			  <c:set var="i" value="${i + 1}"/>
 			 	<c:choose>
 			 		<c:when test="${i eq 0 }">
-				<div class="ui_title--bg">
+				<div class="ui_title--bg" style="width:115%;">
 					</c:when>
 					<c:when test="${i ne 0 }">
-					<div class="ui_title--bg" style="width:70%; margin-left:15%;">
+					<div class="ui_title--bg" style="width:70%; margin-left:20%;">
 					</c:when>
 				</c:choose>
 					<a
@@ -80,10 +80,10 @@
 				</div>
 				<c:choose>
 			 		<c:when test="${i eq 0 }">
-				<div class="ui_grid">
+				<div class="ui_grid" style="width:115%;">
 					</c:when>
 					<c:when test="${i ne 0 }">
-				<div class="ui_grid" style="width:70%; margin-left:15%;">
+				<div class="ui_grid" style="width:70%; margin-left:20%;">
 					</c:when>
 				</c:choose>	
 					<ul class="ui_grid__cols--5 ui_grid__cols--m2">
