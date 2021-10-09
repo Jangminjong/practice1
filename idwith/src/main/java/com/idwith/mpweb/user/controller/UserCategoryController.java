@@ -100,7 +100,6 @@ public class UserCategoryController {
 			set="all";
 		}
 		
-		System.out.println("set: "+set);
 		
 		List<GoodsVO> goodsList;
 		
@@ -168,7 +167,7 @@ public class UserCategoryController {
 	
 	@GetMapping("/class_region.do")
 	public String classRegion(PagingVO pageVO, Model model, 
-			@RequestParam(value="region", required=false) String region, 
+			@RequestParam(value="region", required=true, defaultValue = "서울") String region, 
 			@RequestParam(value="nowPage", required=false) String nowPage, 
 			@RequestParam(value="cntPerPage", required=false) String cntPerPage ) {
 		
