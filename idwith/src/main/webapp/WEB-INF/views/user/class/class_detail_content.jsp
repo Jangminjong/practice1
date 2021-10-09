@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
@@ -27,6 +28,7 @@
 <script type="text/javascript" src="resources/js/idus.web.min.js"></script>
 <script type="text/javascript" src="resources/js/vendor.client.min.js"></script>
 <script type="text/javascript" src="resources/js/vuepack.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=487ca5895feb7a04e42984525f8de371&libraries=services"></script>
 <script type="text/javascript" src="resources/js/detail_content.js"></script>
 
 <!-- 파비콘 이미지 설정 -->
@@ -59,7 +61,7 @@
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<div class="wrap">
-		<jsp:include page="../header_goods.jsp"/>
+		<jsp:include page="../header_class.jsp"/>
 		
 		<div class="dimmed-background"></div>
 
@@ -83,6 +85,7 @@
 		</section>
 
 		<div id="content" class="content relative" data-page="prd-detail">
+		<input type="hidden" id="email" value="${email }"/>
 			<div class="inner-w mobile-full" id="edu_artist">
 				<section id="img-section" class="prd-detail-section">
 					<!-- ui image preview -->
@@ -200,55 +203,39 @@
 									<h2 data-v-29616b27="" class="ui_modal__title">언제 참여하고
 										싶나요?</h2>
 									<div data-v-29616b27="" class="fluid" style="display:flex; justify-content:space-between;">
-										<div class="container">
-            
-            <div id="div_calendar" style="width:300px;">
-              <div>
-                <button type="button" onclick="changeMonth(-1);"><i class="fa fa-chevron-left"></i></button>
-                <input type="number" id="year" value="2020" style="width:80px;display:initial;" class="form-control" />
-                <select id="month" class="form-control" style="width:80px;display:initial;" onchange="changeMonth();">
-                  <option value="1">1월</option>
-                  <option value="2">2월</option>
-                  <option value="3">3월</option>
-                  <option value="4">4월</option>
-                  <option value="5">5월</option>
-                  <option value="6">6월</option>
-                  <option value="7">7월</option>
-                  <option value="8">8월</option>
-                  <option value="9">9월</option>
-                  <option value="10">10월</option>
-                  <option value="11">11월</option>
-                  <option value="12">12월</option>
-                </select>
-                <button type="button" onclick="changeMonth(1);"><i class="fa fa-chevron-right"></i></button>
-              </div>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>일</th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                    <th>토</th>
-                  </tr>
-                </thead>
-                <tbody id="tb_body"></tbody>
-              </table>
-            </div>
-          </div>
-          <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-										
-										
-										
-										<div data-v-29616b27="" class="form_container" style="width:100%;">
-											<form data-v-29616b27="">
+									<div class="container light">
+
+										<div class="calendar">
+											<div class="calendar-header">
+												<span class="month-picker" id="month-picker">February</span>
+												<div class="year-picker">
+													<span class="year-change" id="prev-year"> <pre><</pre>
+													</span> <span id="year">2021</span> <span class="year-change"
+														id="next-year"> <pre>></pre>
+													</span>
+												</div>
+											</div>
+											<div class="calendar-body">
+												<div class="calendar-week-day">
+													<div>Sun</div>
+													<div>Mon</div>
+													<div>Tue</div>
+													<div>Wed</div>
+													<div>Thu</div>
+													<div>Fri</div>
+													<div>Sat</div>
+												</div>
+												<div class="calendar-days"></div>
+											</div>
+											<div class="month-list"></div>
+										</div>
+									</div>
+	
+										<div data-v-29616b27="" class="form_container" style="width:100%; margin-left:-20px;">
+											<form data-v-29616b27="" action="payment_class.do" onsubmit="return false" id="class-reg-form" name="classRegForm" method="post">
 												<dl data-v-29616b27="" class="border_block">
 													<dt data-v-29616b27="">
-														<strong data-v-29616b27="">2021년 9월 17일 (금)</strong>
-														<input type="text" id="input_date" value="${classVO.class_open_date }" />
+														<strong data-v-29616b27=""><input type="text" id="input_date" value="${classVO.class_open_date }" /></strong>
 													</dt>
 													<dd data-v-29616b27="">
 														<!---->
@@ -262,36 +249,31 @@
 																선택</strong>
 														</dt>
 														<dd data-v-29616b27="" data-v-1e70de7c="">
-															<i data-v-29616b27="" data-v-1e70de7c=""
-																class="idus-icon-arrow-up"></i>
+															<i class="fa fa-angle-up" aria-hidden="true"></i>
+															<i class="fa fa-angle-down" aria-hidden="true"></i>
 														</dd>
 													</dl>
 													<ul data-v-29616b27="" data-v-1e70de7c=""
 														class="options_list">
-														<li data-v-29616b27="" data-v-1e70de7c="" class=""><span
-															data-v-29616b27="" data-v-1e70de7c="">오전 10:00 ~
-																오후 1:00</span>
+														<input type="hidden" id="list-length" value="${fn:length(classDetails) }"/>
+														<c:forEach var="detail" items="${classDetails}" varStatus="status">
+														<input type="text" id="open-date${status.index }" class="open-date" value="${detail.class_open_date}" />
+														<li data-v-29616b27="" data-v-1e70de7c="" class="">
+														 <a href="javascript:choicePeople('${detail.class_open_date}', '${detail.class_open_time}', '${detail.class_open_max_person }')">
+															<span data-v-29616b27="" data-v-1e70de7c="">
+																<fmt:formatDate pattern="HH:mm" value="${detail.class_open_time}"/>
+																~
+																<fmt:formatDate pattern="HH:mm" value="${detail.class_close_time}"/> 
+															</span>
 															<dl data-v-29616b27="" data-v-1e70de7c="">
-																<dt data-v-29616b27="" data-v-1e70de7c="">47,500원</dt>
+																<dt data-v-29616b27="" data-v-1e70de7c="">${detail.class_open_price }원</dt>
 																<dd data-v-29616b27="" data-v-1e70de7c="" class="">
-																	0/2</dd>
-															</dl></li>
-														<li data-v-29616b27="" data-v-1e70de7c="" class=""><span
-															data-v-29616b27="" data-v-1e70de7c="">오후 2:00 ~ 오후
-																5:00</span>
-															<dl data-v-29616b27="" data-v-1e70de7c="">
-																<dt data-v-29616b27="" data-v-1e70de7c="">47,500원</dt>
-																<dd data-v-29616b27="" data-v-1e70de7c="" class="">
-																	0/2</dd>
-															</dl></li>
-														<li data-v-29616b27="" data-v-1e70de7c="" class=""><span
-															data-v-29616b27="" data-v-1e70de7c="">오후 7:00 ~ 오후
-																10:00</span>
-															<dl data-v-29616b27="" data-v-1e70de7c="">
-																<dt data-v-29616b27="" data-v-1e70de7c="">47,500원</dt>
-																<dd data-v-29616b27="" data-v-1e70de7c="" class="">
-																	0/2</dd>
-															</dl></li>
+																	0/${detail.class_open_max_person }</dd>
+															</dl>
+															<input type="text" name="class_open_price" id="price" value="${detail.class_open_price }"/>
+														</a>
+														</li>
+														</c:forEach>
 													</ul>
 												</div>
 												<dl data-v-29616b27="" class="border_block vam">
@@ -300,25 +282,35 @@
 													</dt>
 													<dd data-v-29616b27="">
 														<label data-v-9b324a5a="" data-v-29616b27="" for="counter"
-															class="NumberCounter"><button data-v-9b324a5a=""
-																type="button" disabled="disabled"
-																class="NumberCounter__button">-</button> <input
-															data-v-9b324a5a="" name="counter" type="text"
-															disabled="disabled" class="NumberCounter__input">
-															<button data-v-9b324a5a="" type="button"
-																disabled="disabled" class="NumberCounter__button">
-																+</button></label>
+															class="NumberCounter">
+															<input data-v-9b324a5a="" name="class_order_people" type="number"
+															disabled="disabled" class="NumberCounter__input" default="1" min="1" max="" onclick="setPrice()">
+														</label>
 													</dd>
 												</dl>
-												<!---->
+
+											<dl data-v-29616b27="" class="border_block--darken mt10">
+												<dt data-v-29616b27="">
+													<strong data-v-29616b27="">합계</strong>
+												</dt>
+												<dd data-v-29616b27="">
+													<strong data-v-29616b27="" class="hilight red">
+													<input type="number" name="class_order_price" id="final-price" value="" readonly style="width: 65px;"/>
+														원</strong>
+												</dd>
+											</dl>
+											<!---->
 												<div data-v-29616b27="" class="ui_bottom">
 													<!---->
 													<button data-v-29616b27="" type="submit"
-														disabled="disabled" class="ui_btn--red">
+														disabled="disabled" class="ui_btn--red" id="btn-payment">
 														<!---->
 														<span data-v-29616b27="">결제하기</span>
 													</button>
 												</div>
+												
+												<input type="text" name="class_order_date" id="final-date" value=""/>
+												<input type="text" name="class_order_time" id="final-time" value=""/>
 											</form>
 										</div>
 									</div>
@@ -386,7 +378,9 @@
 				<section id="edu-location" class="article_block prd-detail-section"
 					data-scroll="hashChecker">
 					<h3 class="article_block__subtitle">장소 및 편의시설</h3>
-					<div data-vue="map"></div>
+					<input type="hidden" id="class-address" value="${classVO.class_open_address }"/>
+					<div data-vue="map" id="map" style="width: 560px; height:400px;">
+					</div>
 					<div class="map__labelbox">
 						<strong>${classVO.class_open_address }</strong> <span>정확한 위치는 예약 완료 시 확인할 수 있습니다.</span>
 					</div>
@@ -571,5 +565,6 @@
 		
 	</div>
 	<!-- div WRAP -->
+	<script type="text/javascript" src="resources/js/detail_content.js"></script>
 </body>
 </html>

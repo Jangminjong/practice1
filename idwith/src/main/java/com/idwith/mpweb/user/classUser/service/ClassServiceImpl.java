@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.UserSellerVO;
+import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.User_SellerDAO;
 import com.idwith.mpweb.user.classUser.ClassCategoryVO;
 import com.idwith.mpweb.user.classUser.ClassDAO;
@@ -68,7 +69,7 @@ public class ClassServiceImpl implements ClassService{
 	}
 
 	@Override
-	public ClassVO getClassContentAtUser(String class_open_class_code) {
+	public List<ClassVO> getClassContentAtUser(String class_open_class_code) {
 		return dao.getClassContentAtUser(class_open_class_code);
 	}
 
@@ -80,6 +81,11 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public List<ClassVO> getClassListForClassDetail(int seller_code) {
 		return dao.getClassListForClassDetail(seller_code);
+	}
+
+	@Override
+	public UserVO getUserInfoForClassReg(String email) {
+		return dao.getUserInfoForClassReg(email);
 	}
 
 }

@@ -71,7 +71,7 @@
 				<div class="breadcrumb_container">
 					<nav class="breadcrumb">
 						<a href="class_index.do">클래스<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-						<a href="class_category.do?class_category_code=${categoryName.class_category_code }">${categoryName.class_category_name }<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+						<a href="class_detail_content.do?class_category_code=${categoryName.class_category_code }">${categoryName.class_category_name }<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 						<input type="hidden" id="category-name" value="${categoryName.class_category_name }"/>
 					</nav>
 				</div>
@@ -114,14 +114,14 @@
 										data-stats-category-depth2="16" data-state="">
 									</button>
 									<div class="ui_card__imgcover">
-										<a href="class_detail_content.do?class_category_code=${category.class_category_code }" target="_blank" class="ui_card__img"
+										<a href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }" target="_blank" class="ui_card__img"
 											data-lazy-img="resources/images/index/${class.class_open_photo[0]}"
 											style="background-image: url(resources/images/index/${class.class_open_photo[0]});">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
 										<div class="ui_card__info">
-											<a href="/c/class/5997" target="_blank"
+											<a href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }" target="_blank"
 												class="ui_card__label">${class.class_category_name }</a> <a
 												href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }" target="_blank" class="ui_card__title"><b>${class.class_open_name }</b></a>
 										</div>

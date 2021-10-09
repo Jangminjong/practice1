@@ -26,24 +26,20 @@
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover"/>
-        <meta name="application-name" content="아이디어스"/>
+        <meta name="application-name" content="아이디위드"/>
         <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리"/>
         <meta property="fb:app_id" content="1410666675867984"/>
-        <meta name="description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!"/>
-        <meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스"/>
+        <meta name="description" content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!"/>
+        <meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디위드"/>
         <meta property="og:type" content="website"/>
         <meta
             property="og:description"
-            content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!"/>
+            content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!"/>
         <meta property="og:url" content="http://www.idus.com/c/popular"/>
         <meta
             property="og:image"
             content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0"/>
         <link rel="canonical" href="http://www.idus.com/c/popular"/>
-        <script>
-            window.__client_env__ = 'production';
-            window.CNN_DOMAIN = 'https://cnn.idus.com';
-        </script>
         <!-- project src -->
         <link rel="icon" href="resources/favicon_32.ico"/>
         <link
@@ -53,6 +49,7 @@
         <link href="resources/css/content.css" rel="stylesheet"/>
         <link rel="stylesheet" href="resources/css/idus.web.min.css">
         <link rel="stylesheet" href="resources/css/vendor.client.min.css">
+   
     </head>
     <body>
         <div data-vue="token"></div>
@@ -78,6 +75,7 @@
                 </div>
 
                 <div class="inner-w">
+                <input type="hidden" id="email" value="${email }"/>
                     <div class="ui_grid ">
                      <c:set var="i" value="-1"/>
                         <ul
@@ -98,23 +96,22 @@
                                     data-logging="edu_list_item">
                                     <c:if test="${class.rownum < 11 }">
                                     <span class="ui_card__overlay--left">
-                                        <em class="icon-num" data-ranking="${class.rownum }">${class.rownum }</em>
+                                        <em class="icon-num" data-ranking="${class.rownum }" style="margin-left: 10px;">${class.rownum }</em>
                                     </span>
                                     </c:if>
-
-                                    <button
-                                        type="button"
-                                        class="ui_card__overlay btn-ico sp-icon icon-favorite "
-                                        aria-label="좋아하는 클래스 추가"
-                                        data-ui="stats-star"
-                                        data-starred-type="edu"
-                                        data-target-id="5690"
-                                        data-stats-artist="3776366"
-                                        data-stats-category-depth1="3"
-                                        data-stats-category-depth2="15"
-                                        data-state=""></button>
+                                        
+                                    <!-- 찜 버튼 -->
+											<input type="hidden" class="class_open_class_code" name="class_open_class_code"
+												value="${class.class_open_class_code }" />
+											<button type="button" id="btn-${class.class_open_class_code }"
+												class="ui_card__overlay btn-ico sp-icon icon-favorite"
+												data-name="starred-toolbar" data-starred-type="product"
+												data-init="" data-starred=""
+												data-class="${class.class_open_class_code }"
+												style="background-image: url(resources/images/index/sp-icon.png); z-index: 80;"
+												onclick="changeChoice('${class.class_open_class_code }')"></button>
                                     <div class="ui_card__imgcover">
-                                        <a
+										<a
                                             href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }"
                                             target="_blank"
                                             class="ui_card__img"
@@ -202,6 +199,5 @@
             <jsp:include page="../footer.jsp"/>
         </div>
         <!-- div WRAP -->
-       
     </body>
 </html>
