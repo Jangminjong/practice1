@@ -68,7 +68,12 @@
  		SELECT count(*) FROM client WHERE user_phone=#{user_phone}
  	</select>
  	
+ 	<!-- 아이디가 존재하는지 확인 -->
+ 	<select id="idCheck" resultType="_boolean">
+ 		select exists (select * from client where user_id=#{user_id}) as isChk;
+ 	</select>
  	
+ 	<!-- 아이디가 있을 시 아이디, 비밀번호 가져가기 -->
  	<select id="selectLogin" resultType="userVO">
  		select user_id, user_pwd from client where user_id=#{user_id}
  	</select>

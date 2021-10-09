@@ -42,7 +42,13 @@ public class UserDAO {
 
 	public UserVO getUser(String user_id) {
 		System.out.println("DAO getUser() ����");
-		UserVO result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
+		boolean check = sqlSessionTemplate.selectOne("UserDAO.idCheck", user_id);
+		UserVO result = null;
+		
+		if(check == true) {
+			 result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
+		}
+		
 		return result;
 	}
 	

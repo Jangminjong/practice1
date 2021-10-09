@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
@@ -137,8 +138,16 @@
 						class="email_login_container">
 						<!-- <form action="index.do" method="post" class="form" id="form"> -->
 							<div data-v-22bdcf3e="">
-								<input data-v-22bdcf3e="" id="email_login_input" type="email"
-									placeholder="이메일" required="required" class="login_input" name="user_id">
+								<c:choose>
+									<c:when test="${email eq null}">
+										<input data-v-22bdcf3e="" id="email_login_input" type="email"
+											placeholder="이메일" required="required" class="login_input" name="user_id">
+									</c:when>
+									<c:when test="${email ne null}">
+										<input data-v-22bdcf3e="" id="email_login_input" type="email" value="${email}"
+											placeholder="이메일" required="required" class="login_input" name="user_id">
+									</c:when>
+								</c:choose>
 								<p data-v-22bdcf3e="" class="verify_error_message"
 									id="email_error">필수 항목입니다.</p>
 
@@ -151,7 +160,7 @@
 							<div data-v-22bdcf3e="" class="email_login_option">
 								<div data-v-22bdcf3e="" class="check_label">
 									<div data-v-22bdcf3e="" class="input_checkbox">
-										<input data-v-22bdcf3e="" type="checkbox" class="bp">
+										<input type="checkbox" name="emailSave" onclick="selectEmail(this)">
 									</div>
 									<label data-v-22bdcf3e="" for="emailsave"> 이메일 저장하기 </label>
 								</div>
@@ -218,9 +227,12 @@
 					},
 				success: function(data){
 					if(data == 0){
-						alert('아이디와 비밀번호를 다시 확인해주세요');
+						alert('존재하지 않는 회원입니다.');
 						location.replace("/mpweb/login.do");
 					}else if(data == 1){
+						alert('비밀번호를 확인해주세요.');
+						location.replace("/mpweb/login.do");
+					}else {
 						location.replace("/mpweb/index.do");
 					}
 				},

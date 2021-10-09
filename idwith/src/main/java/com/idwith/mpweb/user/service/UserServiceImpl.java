@@ -43,13 +43,18 @@ public class UserServiceImpl implements UserService {
 		String password = vo.getUser_pwd();
 
 		UserVO dbResult = dao.getUser(email);
-		String dbEmail = dbResult.getUser_id();
-		String dbPassword = dbResult.getUser_pwd();
+		
+		if(dbResult != null) {
+			String dbEmail = dbResult.getUser_id();
+			String dbPassword = dbResult.getUser_pwd();
 
-		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-		boolean match = scpwd.matches(password, dbPassword);
-		if (email.equals(dbEmail) && match) {
-			result = 1;
+			BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+			boolean match = scpwd.matches(password, dbPassword);
+			if(match == false) {
+				result = 1;
+			}else if (email.equals(dbEmail) && match) {
+				result = 2;
+			}
 		}
 
 		return result;
