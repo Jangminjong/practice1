@@ -111,6 +111,20 @@
 				ON class_open.class_open_category= class_category.class_category_code WHERE class_open.class_open_seller=#{seller_code})A)AS foo 
 		WHERE rownum BETWEEN 1 AND 4
  	</select>
+ 	<select id="getNearbyList" resultMap="classResult">
+ 	 <![CDATA[
+ 		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT class_open.*, class_category.class_category_name, class_order_count.class_order_cnt FROM class_open 
+				LEFT OUTER JOIN class_category ON class_open.class_open_class_code= class_category.class_category_code
+				LEFT OUTER JOIN (
+					SELECT COUNT(class_order_code) as class_order_cnt, class_order_code FROM class_order
+							GROUP BY class_order_code
+							HAVING COUNT(class_order_code)>0 ORDER BY class_order_cnt DESC)AS class_order_count	
+				ON class_open.class_open_class_code = class_order_count.class_order_code ORDER BY class_order_count.class_order_code )A WHERE class_open_address LIKE '%'||#{param}||'%')AS foo 
+		WHERE rownum BETWEEN 1 AND 4
+	 ]]>
+ 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

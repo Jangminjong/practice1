@@ -88,4 +88,9 @@ public class ClassServiceImpl implements ClassService{
 		return dao.getUserInfoForClassReg(email);
 	}
 
+	@Override
+	public List<ClassVO> getNearbyList(String district, String area) {
+		return dao.getNearbyList(district, area);
+	}
+
 }

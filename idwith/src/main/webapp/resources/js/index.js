@@ -274,4 +274,43 @@ function myPageCheck(){
 
 }
 
+// 클래스 메인 페이지 - 주변 클래스 :: 위치기반
+function setClassWithLocation() {
+	
+	// Geolocation API에 액세스할 수 있는지를 확인
+	if (navigator.geolocation) {
+		//위치 정보를 얻기
+		navigator.geolocation.getCurrentPosition(function(pos) {
+			// (위도, 경도)
+			geocoder.coord2RegionCode(pos.coords.longitude, pos.coords.latitude, callback);
+			
+		});
+	} else {
+		alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+	}
+	
+	var geocoder = new kakao.maps.services.Geocoder();
+	
+	var callback = function(result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+		var area = result[0].address_name; // ex) 서울특별시 광진구 구의동
+		$.ajax({
+			url: 'nearbyMeClass.do',
+			type: 'POST',
+			data: {
+				area:area
+			},
+			success:{},
+			error: function(request, status, error) {
+				alert("list search fail :: error code: "
+					+ request.status + "\n" + "error message: "
+					+ error + "\n");
+			}
+		})
+    }
+};
+
+}
+
+
 

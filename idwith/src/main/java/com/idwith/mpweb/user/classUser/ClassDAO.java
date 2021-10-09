@@ -63,4 +63,20 @@ public class ClassDAO {
 	public UserVO getUserInfoForClassReg(String email) {
 		return sqlSessionTemplate.selectOne("UserDAO.getUserInfoForClassReg", email);
 	}
+
+	public List<ClassVO> getNearbyList(String district, String area) {
+		String param = area;
+		List<ClassVO> classList = sqlSessionTemplate.selectList("classDAO.getNearbyList", param);
+		if(classList.size()<1) {
+			param = district;
+			classList = sqlSessionTemplate.selectList("classDAO.getNearbyList", param);
+		}
+		
+		if(classList.size()<1) {
+			param="종로";
+			classList = sqlSessionTemplate.selectList("classDAO.getNearbyList", param);
+		}
+		
+		return classList;
+	}
 }

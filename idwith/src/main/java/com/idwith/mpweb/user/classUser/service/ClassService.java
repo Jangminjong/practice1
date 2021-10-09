@@ -37,5 +37,7 @@ public interface ClassService {
 
 	UserVO getUserInfoForClassReg(String email);
 
+	List<ClassVO> getNearbyList(String district, String area);
+
 
 }
