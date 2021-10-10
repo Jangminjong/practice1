@@ -21,3 +21,34 @@ function selectEmail(selectEmail){
 		sessionStorage.clear();
 	}
 }
+
+function enterkey() { 
+	if (window.event.keyCode == 13) {
+		const email = $("#email_login_input").val();
+		const password = $("#password_login_input").val();
+		
+		$.ajax({
+			url: "loginCheck.do",
+			type: "GET",
+			data: {
+					"email": $("#email_login_input").val(),
+					"password": $("#password_login_input").val()
+				},
+			success: function(data){
+				if(data == 0){
+					alert('존재하지 않는 회원입니다.');
+					location.replace("/mpweb/login.do");
+				}else if(data == 1){
+					alert('비밀번호를 확인해주세요.');
+					location.replace("/mpweb/login.do");
+				}else {
+					location.replace("/mpweb/index.do");
+				}
+			},
+			error: function(request, status, error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+	}
+}
+

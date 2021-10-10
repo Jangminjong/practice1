@@ -141,11 +141,11 @@
 								<c:choose>
 									<c:when test="${email eq null}">
 										<input data-v-22bdcf3e="" id="email_login_input" type="email"
-											placeholder="이메일" required="required" class="login_input" name="user_id">
+											placeholder="이메일" required="required" class="login_input" name="user_id" onkeyup="enterkey()">
 									</c:when>
 									<c:when test="${email ne null}">
 										<input data-v-22bdcf3e="" id="email_login_input" type="email" value="${email}"
-											placeholder="이메일" required="required" class="login_input" name="user_id">
+											placeholder="이메일" required="required" class="login_input" name="user_id" onkeyup="enterkey()">
 									</c:when>
 								</c:choose>
 								<p data-v-22bdcf3e="" class="verify_error_message"
@@ -153,7 +153,7 @@
 
 								<input data-v-22bdcf3e="" id="password_login_input"
 									type="password" placeholder="비밀번호" required="required"
-									class="login_input" name="user_pwd">
+									class="login_input" name="user_pwd" onkeyup="enterkey()">
 								<p data-v-22bdcf3e="" class="verify_error_message"
 									id="password_error">필수 항목입니다.</p>
 							</div>
