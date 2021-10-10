@@ -86,7 +86,7 @@
 	</insert>
 	
 	<update id="updateRequestCouponStatus" parameterType="requestCoupon">
-		update request_cp set request_cp_state = 1 where request_cp_seq = #{requestCpSeq}
+		update request_cp set REQUEST_CP_STATE = 1 where request_cp_seq = #{requestCpSeq}
 	</update>
 	
 </mapper>

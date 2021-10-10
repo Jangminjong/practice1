@@ -197,7 +197,7 @@
 														<c:choose>
 															<c:when test="${status eq 0}">
 																<td><span class="badge bg-warning">배포요청중</span></td>
-																<td><button class="btn btn-primary" id="couponRelease">배포</button></td>
+																<td><button class="btn btn-primary" id="couponRelease" name="couponRelease" onclick="couponRelease.mdo">배포</button></td>
 															</c:when>
 															<c:otherwise>
 																<td><span class="badge bg-success">배포완료</span></td>

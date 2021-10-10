@@ -136,6 +136,7 @@ public class couponController {
 		return "requestCoupon";
 	}
 	
+	/**요청 쿠폰 발행 */
 	@RequestMapping("/requestInsertCoupon.mdo")
 	public String requestInsertCoupon(Model model, RequestCouponVO coupon) {
 		
