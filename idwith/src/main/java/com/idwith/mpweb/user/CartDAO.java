@@ -21,7 +21,16 @@ public class CartDAO {
 //	}
 
 	public void insertGoods(CartVO cart) {
+		
 		sqlSessionTemplate.insert("CartDAO.insertGoods", cart);
+		
+//		int result = sqlSessionTemplate.selectOne("CartDAO.goodsCheck", cart);
+//		if(result > 0) {
+//			sqlSessionTemplate.update("CartDAO.updateGoodsOption", cart);
+//		}else {
+//			
+//		}
+		
 	}
 
 	public List<CartVO> getCartList(String user_id) {

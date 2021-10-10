@@ -65,6 +65,22 @@ $(document).ready(function() {
 			});
 		}
 	});
+	
+	
+	//선택삭제 버튼 이벤트
+	$('.selDelete').click(function() {
+		const checkboxs = document.getElementsByName('checkAll').checked;
+		
+		
+		
+		checkboxs.forEach((checkbox) => {
+			var num=$(this).attr('id');
+			
+			var str1 = $('#'+num);
+			console.log('선택삭제 중' + str1);
+			checkbox.str1.unwrap();
+		})
+	});
 });
 
 //상품 수량 +
@@ -303,7 +319,7 @@ function optionDelete(goods_code, index){
 function paymentBtn(){
 	$('#loadingForm').css({'display': 'block'});
 	var checkGoodsList = document.getElementById('');
-
+	
 }
 
 

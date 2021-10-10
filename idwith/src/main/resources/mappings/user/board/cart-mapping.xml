@@ -26,8 +26,20 @@
  		<result property="goods_code" column="goods_code"/>
  		<result property="goods_name" column="goods_name"/>
  		<result property="goods_price" column="goods_price"/>
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="goods_category" column="goods_category"/>
  		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_stock" column="goods_stock"/>
+ 		<result property="goods_volume" column="goods_volume"/>
+ 		<result property="goods_income" column="goods_income"/>
+ 		<result property="goods_grade" column="goods_grade"/>
+ 		<result property="goods_info" column="goods_info"/>
+ 		<result property="goods_select" column="goods_select"/>
+ 		<result property="goods_view" column="goods_view"/>
  		<result property="goods_op1_code" column="goods_op1_code"/>
+ 		<result property="goods_seq" column="goods_seq"/>
+ 		<result property="goods_apply_date" column="goods_apply_date"/>
+ 		<result property="goods_status" column="goods_status"/>
  		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
  		<collection property="goodsOptionVO" resultMap="cartGoodsOptionResult" />
  		<collection property="cartVO" resultMap="cartResult" />
@@ -41,9 +53,15 @@
  		<result property="goods_op1_price" column="goods_op1_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="Integer[]"/>
  		<collection property="goodsVO" resultMap="cartGoodsResult" />
  	</resultMap>
- 	<!-- <select id="getCart" resultType="cartVO" resultMap="cartResult">
-		select * from cart where user_id=#{user_id}
-	</select> -->
+	
+	<!-- 장바구니에서 상품코드 중복확인 -->	
+	<select id="goodsCheck" parameterType="cartVO" resultType="_int">
+		select count(*) from cart where goods_code=#{goods_code} and user_id=#{user_id}
+	</select>
+	
+	<!-- 상품코드 중복일 시 옵션만 추가 -->
+	<update id="updateGoodsOption" parameterType="cartVO">
+	</update>
 	
 	<insert id="insertGoods" parameterType="cartVO">
 		insert into cart (goods_code, seller_code, goods_price, cart_quantity, goods_option_value, goods_option_price, user_id, store_name)
@@ -52,7 +70,7 @@
 	
 	<!-- 회원의 장바구니 리스트 가져오기 -->
 	<select id="getCartList" resultMap="cartResult">
-		select c.*, g.goods_name, g.goods_photo, g.goods_price
+		select c.*, g.*
 			from cart as c
 			join goods as g on c.goods_code = g.goods_code 
 		where c.user_id = #{user_id}
