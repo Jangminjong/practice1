@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.idwith.mpweb.admin.CouponVO;
+import com.idwith.mpweb.admin.RequestCouponVO;
 import com.idwith.mpweb.admin.WriterVO;
 import com.idwith.mpweb.admin.service.CouponService;
 import com.idwith.mpweb.common.CodeGeneration;
 import com.idwith.mpweb.common.PagingVO;
+
+import scala.collection.generic.BitOperations.Int;
 
 @Controller
 public class couponController {
@@ -96,6 +99,7 @@ public class couponController {
 		return "redirect:couponList.mdo";
 	}
 	
+	/**쿠폰 삭제*/
 	@RequestMapping("/deleteCoupon.mdo")
 	public String deleteCoupon(CouponVO coupon) {
 		couponService.deleteCoupon(coupon);
@@ -107,9 +111,49 @@ public class couponController {
 		return "sellerCoupon";
 	}
 	
+	/**쿠폰 요청 리스트*/
 	@GetMapping("/requestCoupon.mdo")
-	public String requestCoupon() {
+	public String requestCoupon(PagingVO pagination, Model model, 
+			@RequestParam(value = "nowPage", required = false)String nowPage,
+			@RequestParam(value = "cntPerPage", required = false)String cntPerPage) {
+		
+		int requestCouponTotal = couponService.countRequestCoupon();
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		pagination = new PagingVO(requestCouponTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		model.addAttribute("paging", pagination);
+		model.addAttribute("requestConponList", couponService.getRequestCoupon(pagination));
+		
 		return "requestCoupon";
 	}
+	
+	@RequestMapping("/requestInsertCoupon.mdo")
+	public String requestInsertCoupon(Model model, RequestCouponVO coupon) {
+		
+		model.addAttribute("requestConponList", couponService.requestInsertCoupon(coupon));
 
+		return "requestInsertCoupon";
+	}
+	
+	@RequestMapping("/requestCouponInsert.mdo")
+	public String requestCouponInsert(RequestCouponVO reCoupon) {
+		CodeGeneration cg = new CodeGeneration();
+		cg.setCertNumLength(6);
+		reCoupon.setRequsetCouponCode(cg.excuteGenerate());
+		
+		couponService.updateRequestCouponStatus(reCoupon);
+		couponService.requestCouponInsert(reCoupon);
+		
+		return "redirect:/requestCoupon.mdo";
+	}
+	
 }

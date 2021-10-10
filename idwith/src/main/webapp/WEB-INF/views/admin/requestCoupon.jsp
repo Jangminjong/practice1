@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +99,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="couponList.mdo">쿠폰리스트</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="c">쿠폰 요청 리스트</a></li>
+								href="requestCoupon.mdo">쿠폰 요청 리스트</a></li>
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
@@ -153,10 +155,12 @@
                                         <table class="table table-hover my-0">
                                             <thead>
                                                 <tr>
-                                                    <th>작가 이름</th>
+                                                	<th>#</th>
+                                                    <th>작가 코드</th>
                                                     <th class="d-none d-xl-table-cell">쿠폰 이름</th>
                                                     <th class="d-none d-xl-table-cell">배포 대상</th>
                                                     <th class="d-none d-md-table-cell">쿠폰 금액</th>
+                                                    <th class="d-none d-md-table-cell">적용최소금액</th>
                                                     <th>쿠폰 발행일</th>
                                                     <th>쿠폰 종료일</th>
                                                     <th>발행 상태</th>
@@ -164,44 +168,85 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            	<c:forEach var="requestCpList" items="${requestConponList}">
                                                 <tr>
-                                                    <td class="d-none d-xl-table-cell">seller1</td>
-                                                    <td class="d-none d-xl-table-cell">팔로워 쿠폰</td>
-                                                    <td class="d-none d-xl-table-cell">follower</td>
-                                                    <td class="d-none d-md-table-cell">3000</td>
-                                                    <td>2021-09-11</td>
-                                                    <td>2021-10-11</td>
-                                                    <td><span class="badge bg-success">발행완료</span></td>
+                                                	<td class="d-none d-xl-table-cell">${requestCpList.rownum}</td>
+                                                    <td class="d-none d-xl-table-cell">${requestCpList.requestCpSeller}</td>
+                                                    <td class="d-none d-xl-table-cell">${requestCpList.requestCpName}</td>
+                                                    <td class="d-none d-xl-table-cell">${requestCpList.requestCpTarget}</td>
+                                                    <td class="d-none d-md-table-cell">${requestCpList.requestCpPrice}원</td>
+                                                    <td class="d-none d-md-table-cell">${requestCpList.requestCpMinPrice}원</td>
                                                     <td>
-                                                        <button class="btn btn-pill btn-primary" disabled>
-                                                            발행하기
-                                                        </button>
+                                                    	<fmt:formatDate value="${requestCpList.requestCpDate}" pattern="yyyy.MM.dd"/>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="d-none d-xl-table-cell">seller2</td>
-                                                    <td class="d-none d-xl-table-cell">감사 쿠폰</td>
-                                                    <td class="d-none d-xl-table-cell">follower</td>
-                                                    <td class="d-none d-md-table-cell">2000</td>
-                                                    <td>2021-09-11</td>
-                                                    <td>2021-10-11</td>
-                                                    <td><span class="badge bg-warning">발행 요청중</span></td>
                                                     <td>
-                                                        <a href="insertCoupon.mdo">
-                                                            <button class="btn btn-pill btn-primary">
-                                                                발행하기
-                                                            </button>
-                                                        </a>
+                                                    	<fmt:formatDate value="${requestCpList.requestCpEnd}" pattern="yyyy.MM.dd"/>
                                                     </td>
+                                                    <c:set var="cpState" value="${requestCpList.requestCpState}" />
+                                                    <c:choose>
+                                                    	<c:when test="${cpState eq 0}">
+                                                    		<td><span class="badge bg-warning">발행요청중</span></td>
+                                                    		<td><button class="btn btn-pill btn-primary" onclick="location.href='requestInsertCoupon.mdo?requestCpSeq=${requestCpList.requestCpSeq}'">발행하기</button></td>
+                                                    	</c:when>
+                                                    	<c:when test="${cpState eq 1}">
+                                                    		<td><span class="badge bg-success">발행완료</span></td>
+                                                    		<td><button class="btn btn-pill btn-primary" disabled>발행완료</button></td>
+                                                    	</c:when>
+                                                    </c:choose>
                                                 </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <!-- 페이징 처리 -->
+									<div class="paging" data-ui="paging" data-sync="false">
+										<nav style="float: center;" aria-label="Page navigation example">
+											<ul class="pagination justify-content-end">
+												<c:choose>
+													<c:when test="${paging.nowPage eq 1 }">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Previous</span></li>
+													</c:when>
+													<c:when test="${paging.nowPage ne 1 }">
+														<li class="page-item"><a
+															href="/mpweb/requestCoupon.mdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+															style="width: auto;" class="page-link">Previous</a></li>
+													</c:when>
+												</c:choose>
+												<c:forEach begin="${paging.startPage }"
+													end="${paging.endPage }" var="p">
+													<c:choose>
+														<c:when test="${p eq paging.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/requestCoupon.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}"
+																onclick="return false" class="page-link">${p }</a></li>
+														</c:when>
+														<c:when test="${p ne paging.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/requestCoupon.mdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}"
+																class="page-link">${p }</a></li>
+														</c:when>
+													</c:choose>
+												</c:forEach>
+												<c:choose>
+													<c:when test="${paging.endPage eq paging.lastPage}">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Next</span></li>
+													</c:when>
+													<c:when test="${paging.endPage ne paging.lastPage}">
+														<li class="page-item"><a
+															href="/mpweb/requestCoupon.mdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+															style="width: auto;" class="page-link">Next</a></li>
+													</c:when>
+												</c:choose>
+											</ul>
+										</nav>
+									</div>
+                                </div>
+							</div>
+						</div>
+						</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>

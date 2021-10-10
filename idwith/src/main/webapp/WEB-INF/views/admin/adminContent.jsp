@@ -236,7 +236,7 @@
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
-											<div class="col-md-3 text-center">
+											<div class="col-md-3 text-right">
 												<input class="btn btn-primary" type="submit" id="admin-listContent-submit" value="수정" />
 												<input class="btn btn-primary" type="reset" value="초기화" />
 												<input class="btn btn-primary" type="button" onclick="location.href='adminList.mdo'" value="목록" />
@@ -251,7 +251,7 @@
 					</div>
 				</div>
 			</main>
-		
+			<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>
 </body>

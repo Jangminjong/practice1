@@ -3,6 +3,7 @@ package com.idwith.mpweb.admin.service;
 import java.util.List;
 
 import com.idwith.mpweb.admin.CouponVO;
+import com.idwith.mpweb.admin.RequestCouponVO;
 import com.idwith.mpweb.admin.WriterVO;
 import com.idwith.mpweb.common.PagingVO;
 
@@ -21,5 +22,16 @@ public interface CouponService {
 	void couponContentUpdate(CouponVO coupon);
 
 	void deleteCoupon(CouponVO coupon);
+
+	int countRequestCoupon();
+
+	List<RequestCouponVO> getRequestCoupon(PagingVO pagination);
+
+	RequestCouponVO requestInsertCoupon(RequestCouponVO coupon);
+
+	void requestCouponInsert(RequestCouponVO reCoupon);
+
+	void updateRequestCouponStatus(RequestCouponVO reCoupon);
+
 
 }

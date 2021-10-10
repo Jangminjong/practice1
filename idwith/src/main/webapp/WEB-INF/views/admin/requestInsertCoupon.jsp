@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +17,17 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!-- datepicker 는 jquery 1.7.1 이상 bootstrap 2.0.4 이상 버전이 필요함 -->
+<!-- jQuery가 먼저 로드 된 후 datepicker가 로드 되어야함.-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+<link rel="stylesheet" href="resources/admin/css/bootstrap-datepicker.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="resources/admin/js/bootstrap-datepicker.js"></script>
+
+
+<!--한국어  달력 쓰려면 추가 로드-->
+<script src="resources/admin/js/bootstrap-datepicker-kor.js"></script>
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
@@ -139,151 +149,78 @@
 			</nav>
 
 			<main>
-				<div class="content">
+								<div class="content">
 					<div class="row">
 						<div class="container-fluid p-0">
+
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>Coupon List</h3>
+									<h3>쿠폰 요청 발행</h3>
 								</div>
 							</div>
 
-							<div class="row">
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-right" style="margin-bottom: 10px;">
-									<a href="insertCoupon.mdo">
-										<button class="btn btn-warning">쿠폰 발행</button>
-									</a>
+							<div class="card">
+								<div class="card-body" style="width: auto;">
+									<form id="form-admin-couponInsert" name="couponInsertForm" action="requestCouponInsert.mdo" method="post" onsubmit="false">
+										<input type="hidden" name="requestCpSeq" value="${requestConponList.requestCpSeq}" />
+										<div class="mb-3">
+											<label class="form-label">쿠폰 이름</label>
+											<input type="text" class="form-control" value="${requestConponList.requestCpName}" name="requestCpName" id="requestCpName" readonly="readonly"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">쿠폰 내용</label>
+											<input type="text" class="form-control" value="${requestConponList.requestCpContext}" name="requestCpContext" id="requestCpContext" readonly="readonly"
+												style="width: 50%;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="release">배포 대상</label>
+											<c:set var="target" value="${requestConponList.requestCpTarget}" />
+											<c:choose>
+												<c:when test="${target eq 'User All' }">
+												<input type="text" class="form-control" list="list" id="release" style="width: auto;" 
+													value="All" name="requestCpTarget" readonly="readonly" />
+												</c:when>
+												<c:when test="${target eq 'Follower' }">
+													<input type="text" class="form-control" list="list" id="release" style="width: auto;" 
+													value="${requestConponList.requestCpSeller}" name="requestCpTarget" readonly="readonly" />
+												</c:when>
+											</c:choose>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">적용 조건</label>
+											<input type="text" class="form-control" value="${requestConponList.requestCpMinPrice}" name="requestCpMinPrice" id="requestCpMinPrice" readonly="readonly"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">쿠폰 금액</label>
+											<input type="text" class="form-control" value="${requestConponList.requestCpPrice}" name="requestCpPrice" id="requestCpPrice" readonly="readonly"
+												style="width: auto;">
+										</div>
+										<div class="row">
+											<div class="col-md-3">
+												<label class="form-label">쿠폰 마감일</label>
+												<input type="date" class="form-control" value="${requestConponList.requestCpEnd}" style="width: auto;" id="requestCpEnd" name="requestCpEnd" readonly="readonly">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-right">
+												<input type="submit" class="btn btn-primary" value="등록"/>
+												<button type="button" class="btn btn-primary" onclick="location.href='requestCoupon.mdo'">목록</button>
+											</div>
+										</div>
+									</form>
 								</div>
 							</div>
-
-							<div class="row">
-								<div class="col-12">
-									<div class="card flex-fill">
-										<table class="table table-hover my-0">
-											<thead>
-												<tr>
-													<th>#</th>
-													<th>쿠폰 코드</th>
-													<th class="d-none d-xl-table-cell">쿠폰 이름</th>
-													<th class="d-none d-xl-table-cell">배포 대상</th>
-													<th class="d-none d-md-table-cell">쿠폰 금액</th>
-													<th>쿠폰 발행일</th>
-													<th>쿠폰 종료일</th>
-													<th>배포 상태</th>
-													<th>배포</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="couponList" items="${couponListAll}" varStatus="couponStatus">
-												<tr>
-													<td scope="row">${couponStatus.count}</td>
-													<td><a href="detailCoupon.mdo?couponCode=${couponList.couponCode}">${couponList.couponCode}</a></td>
-													<td class="d-none d-xl-table-cell">${couponList.couponName}</td>
-													<td class="d-none d-xl-table-cell">${couponList.couponTarget}</td>
-													<td class="d-none d-md-table-cell">${couponList.couponDiscount}원</td>
-													<td>
-														<fmt:formatDate value="${couponList.couponStartdate}" pattern="yyyy.MM.dd"/>
-													</td>
-													
-													<td>
-														<fmt:formatDate value="${couponList.couponEnddate}" pattern="yyyy.MM.dd"/>
-													</td>
-														<c:set var="status" value="${couponList.couponStatus}" />
-														<c:choose>
-															<c:when test="${status eq 0}">
-																<td><span class="badge bg-warning">배포요청중</span></td>
-																<td><button class="btn btn-primary" id="couponRelease">배포</button></td>
-															</c:when>
-															<c:otherwise>
-																<td><span class="badge bg-success">배포완료</span></td>
-																<td><button class="btn btn-primary" disabled="disabled">배포</button></td>
-															</c:otherwise>
-														</c:choose>
-												</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							 <!-- 페이징 처리 -->
-									<div class="couponPaging" data-ui="couponPaging" data-sync="false">
-										<nav style="float: center;" aria-label="Page navigation example">
-											<ul class="pagination justify-content-end">
-												<c:choose>
-													<c:when test="${couponPaging.nowPage eq 1 }">
-														<li class="page-item"><span style="width: auto;"
-															class="page-link">Previous</span></li>
-													</c:when>
-													<c:when test="${couponPaging.nowPage ne 1 }">
-														<li class="page-item"><a
-															href="/mpweb/couponList.mdo?nowPage=${couponPaging.nowPage - 1 }&cntPerPage=${couponPaging.cntPerPage}"
-															style="width: auto;" class="page-link">Previous</a></li>
-													</c:when>
-												</c:choose>
-												<c:forEach begin="${couponPaging.startPage }"
-													end="${couponPaging.endPage }" var="p">
-													<c:choose>
-														<c:when test="${p eq couponPaging.nowPage }">
-															<li class="page-item"><a
-																href="/mpweb/couponList.mdo?nowPage=${p }&cntPerPage=${couponPaging.cntPerPage}"
-																onclick="return false" class="page-link">${p }</a></li>
-														</c:when>
-														<c:when test="${p ne couponPaging.nowPage }">
-															<li class="page-item"><a
-																href="/mpweb/couponList.mdo?nowPage=${p }&cntPerPage=${couponPaging.cntPerPage}"
-																class="page-link">${p }</a></li>
-														</c:when>
-													</c:choose>
-												</c:forEach>
-												<c:choose>
-													<c:when test="${couponPaging.endPage eq couponPaging.lastPage}">
-														<li class="page-item"><span style="width: auto;"
-															class="page-link">Next</span></li>
-													</c:when>
-													<c:when test="${couponPaging.endPage ne couponPaging.lastPage}">
-														<li class="page-item"><a
-															href="/mpweb/couponList.mdo?nowPage=${couponPaging.endPage+1 }&cntPerPage=${couponPaging.cntPerPage}"
-															style="width: auto;" class="page-link">Next</a></li>
-													</c:when>
-												</c:choose>
-											</ul>
-										</nav>
-									</div>
-                                </div>
-							</div>
+							
 						</div>
-						</div>
-						</main>
+					</div>
+				</div>
+			</main>
 			<script src="resources/admin/js/app.js"></script>
-			<script>
-				$().ready(function (){ 
-					$("#couponRelease").click(function (){ 
-						Swal.fire({ 
-							title: '쿠폰 배포', 
-							text: "이 쿠폰을 배포하시겠습니까?", 
-							icon: 'question', 
-							showCancelButton: true, 
-							confirmButtonColor: '#FF7B30', 
-							confirmButtonBorderColor : "#FF7B30",
-							cancelButtonColor: '#15283D', 
-							confirmButtonText: '배포', 
-							cancelButtonText: '취소' 
-						}).then((result) => { 
-							if (result.isConfirmed) { 
-								Swal.fire(
-									'쿠폰 배포', 
-									'해당 쿠폰이 배포되었습니다.', 
-								) 
-							} 
-						}) 
-					}); 
-				});
-			</script>
 		</div>
 	</div>
 </body>

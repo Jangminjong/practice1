@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.admin.CouponDAO;
 import com.idwith.mpweb.admin.CouponVO;
+import com.idwith.mpweb.admin.RequestCouponVO;
 import com.idwith.mpweb.admin.WriterVO;
 import com.idwith.mpweb.common.PagingVO;
 
@@ -50,5 +51,31 @@ public class CouponServiceImpl implements CouponService {
 	public void deleteCoupon(CouponVO coupon) {
 		couponDAO.deleteCoupon(coupon);
 	}
+
+	@Override
+	public int countRequestCoupon() {
+		return couponDAO.countRequestCoupon();
+	}
+
+	@Override
+	public List<RequestCouponVO> getRequestCoupon(PagingVO pagination) {
+		return couponDAO.getRequestCoupon(pagination);
+	}
+
+	@Override
+	public RequestCouponVO requestInsertCoupon(RequestCouponVO coupon) {
+		return couponDAO.requestInsertCoupon(coupon);
+	}
+
+	@Override
+	public void requestCouponInsert(RequestCouponVO reCoupon) {
+		couponDAO.requestCouponInsert(reCoupon);
+	}
+
+	@Override
+	public void updateRequestCouponStatus(RequestCouponVO reCoupon) {
+		couponDAO.updateRequestCouponStatus(reCoupon);
+	}
+
 
 }

@@ -15,6 +15,21 @@
 		<result property="couponEnddate" column="COUPON_ENDDATE" />
 	</resultMap>
 	
+	<resultMap type="requestCoupon" id="requestCpResult">
+		<result property="requestCpSeq" column="REQUEST_CP_SEQ" />
+		<result property="requestCpSeller" column="REQUEST_CP_SELLER" />
+		<result property="requestCpPrice" column="REQUEST_CP_PRICE" />
+		<result property="requestCpMinPrice" column="REQUEST_CP_MIN_PRICE" />
+		<result property="requestCpName" column="REQUEST_CP_NAME" />
+		<result property="requestCpTarget" column="REQUEST_CP_TARGET" />
+		<result property="requestCpDate" column="REQUEST_CP_DATE" />
+		<result property="requestCpContext" column="REQUEST_CP_CONTEXT" />
+		<result property="requestCpStart" column="REQUEST_CP_START" />
+		<result property="requestCpEnd" column="REQUEST_CP_END" />
+		<result property="requestCpState" column="REQUEST_CP_STATE" />
+		<result property="requsetCouponCode" column="COUPON_CODE"/>
+	</resultMap>
+	
 	<insert id="insertCoupon" parameterType="coupon">
 		INSERT INTO COUPON (COUPON_CODE, COUPON_NAME, COUPON_CONTEXT, COUPON_TARGET, COUPON_CONDITION, COUPON_DISCOUNT, COUPON_ENDDATE, COUPON_STATUS)
 		VALUES(#{couponCode}, #{couponName}, #{couponContext}, #{couponTarget}, #{couponCondition}, #{couponDiscount}, #{couponEnddate}, 0)
@@ -48,5 +63,30 @@
 	<delete id="deleteCoupon" parameterType="coupon">
 		DELETE FROM coupon WHERE COUPON_CODE=#{couponCode}
 	</delete>
+	
+	<select id="countRequestCoupon" resultType="int">
+		select count(*) from request_cp;
+	</select>
+	
+	<select id="getRequestCoupon" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="requestCpResult" >
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM request_cp ORDER BY REQUEST_CP_SEQ DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="requestInsertCoupon"  parameterType="requestCoupon" resultMap="requestCpResult">
+		select * from request_cp WHERE REQUEST_CP_SEQ=#{requestCpSeq}
+	</select>
+	
+	<insert id="requestCouponInsert">
+		INSERT INTO COUPON (COUPON_CODE, COUPON_NAME, COUPON_CONTEXT, COUPON_TARGET, COUPON_CONDITION, COUPON_DISCOUNT, COUPON_ENDDATE, COUPON_STATUS)
+		VALUES(#{requsetCouponCode}, #{requestCpName}, #{requestCpContext}, #{requestCpTarget}, #{requestCpMinPrice}, #{requestCpPrice}, #{requestCpEnd}, 0)
+	</insert>
+	
+	<update id="updateRequestCouponStatus" parameterType="requestCoupon">
+		update request_cp set request_cp_state = 1 where request_cp_seq = #{requestCpSeq}
+	</update>
 	
 </mapper>

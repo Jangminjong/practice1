@@ -43,4 +43,25 @@ public class CouponDAO {
 		sqlSessionTemplate.delete("CouponDAO.deleteCoupon", coupon);
 	}
 
+	public int countRequestCoupon() {
+		return sqlSessionTemplate.selectOne("CouponDAO.countRequestCoupon");
+	}
+
+	public List<RequestCouponVO> getRequestCoupon(PagingVO pagination) {
+		return sqlSessionTemplate.selectList("CouponDAO.getRequestCoupon", pagination);
+	}
+
+	public RequestCouponVO requestInsertCoupon(RequestCouponVO coupon) {
+		return sqlSessionTemplate.selectOne("CouponDAO.requestInsertCoupon", coupon);
+	}
+
+	public void requestCouponInsert(RequestCouponVO reCoupon) {
+		sqlSessionTemplate.insert("CouponDAO.requestCouponInsert", reCoupon);
+	}
+
+	public void updateRequestCouponStatus(RequestCouponVO reCoupon) {
+		sqlSessionTemplate.update("CouponDAO.updateRequestCouponStatus", reCoupon);
+	}
+
+
 }
