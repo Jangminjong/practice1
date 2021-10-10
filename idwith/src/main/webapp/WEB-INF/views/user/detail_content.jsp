@@ -111,22 +111,13 @@
 											class="product-detail-star-text-box">
 											<div data-v-336b258e="" data-v-488f5f82=""
 												class="product-detail-star-box">
-												<i data-v-336b258e="" data-v-488f5f82=""
-													class="product-detail-star idus-icon-favorite-border-p-5"></i>
+												<i class="fa fa-heart" aria-hidden="true"></i>
 											</div>
 											<div data-v-336b258e="" data-v-488f5f82=""
 												class="star-count-text-box">
 												<p data-v-336b258e="" data-v-488f5f82=""
 													class="star-count-text">408</p>
 											</div>
-										</div>
-									</button>
-									<button data-v-07201bc4="" data-ui="url-copy"
-										data-ui-option="short" data-icon-event="hover"
-										data-clipboard-message="작품 URL이 복사되었습니다."
-										class="product-detail-share-button">
-										<div data-v-07201bc4="" class="product-detail-share-box">
-											<i data-v-07201bc4="" class="idus-icon-share-p-5"></i>
 										</div>
 									</button>
 								</mark>
@@ -429,7 +420,7 @@
 												</div>
 												<div data-v-5612de30="">
 													<input type="hidden" id="hiddenPrice" value="">
-													<span data-v-5612de30=""><b data-v-5612de30="" id="selOptionPrice">옵션추가 가격</b>원</span>
+													<span data-v-5612de30=""><b data-v-5612de30="" id="selOptionPrice"></b>원</span>
 													<button data-v-5612de30="" type="button"
 														class="ui_btn--mini option_card__close">
 														<i data-v-5612de30="" class="idus-icon-close"></i>
@@ -997,14 +988,17 @@
 			}//end if
 		}//end for
 		
-		if(cartInfo == 2){//모든 옵션 선택 O
+		if(cartInfo == 2){ //모든 옵션 선택 O
 			$('.option-modal').css({'display': 'none'});
 
 			
 			//결과 태그에 값 설정
 			var selOption = new Array();
+			var upOption = new Array();
 			for(let i=0; i<valueArray.length; i++){
-				let str = valueArray[i];
+				let tmp = valueArray[i].split(',');
+				
+				let str = tmp[0]
 				str += '(+';
 				str += priceArray[i];
 				str += '원)';
@@ -1012,30 +1006,52 @@
 				selOption.push(str);
 			}
 			
-			var result = selOption.join('/');
-			$('#selected_options').text(result);//옵션 text 출력
+			upOption.push(valueArray[0], valueArray[1]);
+			var updateOption = upOption.join('/');
 			
+			//var inputClone = $(".mb-3 input:first-child").clone().prop('id',imgInput+imgInt);
 			
-			var total = 0;
-			for(let i=0; i<selOption.length; i++){
-				let resultPrice = Number(priceArray[i]);
-				total += resultPrice;
+			if($('.selected_options').css('display') === ''){
+				var divClone = $('.selected_options div:first-child').clone();
+				console.log('복제한 태그 : ' + divClone);
+				$(".selected_options").append(divClone);
+			}else if($('.selected_options').css('display') === 'none'){
+				var result = selOption.join('/');
+				$('#selected_options').text(result);//옵션 text 출력
 				
-				console.log(resultPrice);
-			}
-			
-			$('#selOptionPrice').text(total);//선택한 옵션 총 가격 text 출력
-			$('#hiddenPrice').attr('value', total);//선택한 옵션 총 가격 원본
-			$('#total').attr('value', total);//선택한 모든 옵션의 합산가격
-			$('input[name=cart_quantity]').attr('value', 1);//상품의 기본 수량
-			
-			//옵션 선택 결과창 보여줌
-			$('.selected_options').css({'display': ''});
-			
-			//옵션창 초기화(대분류 값으로 선택됨)
-			/* $('select[name=goods_option] option:selected').each(function(index){
-				$("select[name=goods_option] option:eq(0)").prop("selected", true);
-			}); */
+				
+				var total = 0;
+				for(let i=0; i<selOption.length; i++){
+					let resultPrice = Number(priceArray[i]);
+					total += resultPrice;
+					
+					console.log(resultPrice);
+				}
+				
+				$('#selOptionPrice').text(total);//선택한 옵션 총 가격 text 출력
+				$('#hiddenPrice').attr('value', total);//선택한 옵션 총 가격 원본
+				
+				
+				$('#total').attr('value', total);//선택한 모든 옵션의 합산가격
+				$('input[name=cart_quantity]').attr('value', 1);//상품의 기본 수량
+				
+				
+				///////////////////////////////////////////////////////////////////////////////////
+				//옵션 선택 결과창 보여줌
+				$('.selected_options').css({'display': ''});
+				
+				//옵션창 초기화(대분류 값으로 선택됨)
+				$('select[name=goods_option_value] option:selected').each(function(index){
+					$("select[name=goods_option_value] option:eq(0)").prop("selected", true);
+				});
+				
+				$('select[name=goods_option_value]').each(function(index){
+					var num=$(this).attr('id');
+					var str1 = "#"+num;
+					console.log('테스트 : ' + str1);
+					$(str1+"option:eq(0)").prop("selected", true);
+				});
+			}//end if
 			
 		}//end if
 	}

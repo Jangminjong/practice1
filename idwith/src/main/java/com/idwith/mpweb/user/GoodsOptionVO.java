@@ -6,7 +6,14 @@ public class GoodsOptionVO {
 	private String goods_op1_name;
 	private String[] goods_op1_value;
 	private Integer[] goods_op1_price;
+	private GoodsVO goodsVO;
 	
+	public GoodsVO getGoodsVO() {
+		return goodsVO;
+	}
+	public void setGoodsVO(GoodsVO goodsVO) {
+		this.goodsVO = goodsVO;
+	}
 	public int getGoods_op1_code() {
 		return goods_op1_code;
 	}

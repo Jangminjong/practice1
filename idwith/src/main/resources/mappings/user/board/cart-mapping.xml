@@ -39,6 +39,7 @@
  		<result property="goods_op1_name" column="goods_op1_name"/>
  		<result property="goods_op1_value" column="goods_op1_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
  		<result property="goods_op1_price" column="goods_op1_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="Integer[]"/>
+ 		<collection property="goodsVO" resultMap="cartGoodsResult" />
  	</resultMap>
  	<!-- <select id="getCart" resultType="cartVO" resultMap="cartResult">
 		select * from cart where user_id=#{user_id}
@@ -51,7 +52,7 @@
 	
 	<!-- 회원의 장바구니 리스트 가져오기 -->
 	<select id="getCartList" resultMap="cartResult">
-		select c.*, g.goods_name, g.goods_photo
+		select c.*, g.goods_name, g.goods_photo, g.goods_price
 			from cart as c
 			join goods as g on c.goods_code = g.goods_code 
 		where c.user_id = #{user_id}
@@ -69,11 +70,23 @@
 	
 	<!-- 옵션 수정 창 띄우기 -->
 	<select id="getGoodsOption" resultMap="cartGoodsOptionResult">
-		select * from goods_option1 where goods_code = #{goods_code}
+		select go.*, g1.goods_price
+			from goods_option1 as go
+			join goods as g1 on go.goods_code = g1.goods_code
+		where go.goods_code = #{goods_code}
 	</select>
 	
 	<!-- 옵션 수정하기 -->
 	<update id="updateOption" parameterType="cartVO">
-		update cart set cart (goods_option_value, goods_option_price) values(#{goods_option_value, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, #{goods_option_price, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}) where user_id=#{user_id}
+		update cart set 
+			goods_option_value=#{goods_option_value, typeHandler=org.apache.ibatis.type.ArrayTypeHandler},
+			goods_option_price=#{goods_option_price, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, 
+			goods_price=#{goods_price}
+		where user_id=#{user_id}
 	</update>
+	
+	<!-- 옵션 삭제하기 -->
+	<delete id="deleteOption" parameterType="cartVO">
+		delete from cart where user_id=#{user_id} and goods_code=#{goods_code}
+	</delete>
 </mapper>

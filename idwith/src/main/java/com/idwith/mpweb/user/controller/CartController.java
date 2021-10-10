@@ -1,6 +1,7 @@
 package com.idwith.mpweb.user.controller;
 
 import java.net.http.HttpRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,8 @@ import com.idwith.mpweb.user.GoodsOptionVO;
 import com.idwith.mpweb.user.GoodsVO;
 import com.idwith.mpweb.user.service.CartService;
 
+import edu.emory.mathcs.backport.java.util.Arrays;
+
 @Controller
 public class CartController {
 	@Autowired
@@ -36,7 +39,17 @@ public class CartController {
 		
 		List<CartVO> cartList = cartService.getCartList(user_id);
 		
-		System.out.println("상점이름 : " + cartList.get(0).getStore_name());
+//		List<String> goods_codeList = new ArrayList<String>();
+//		for(CartVO list : cartList) {
+//			System.out.println("상품 코드 : " + list.getGoods_code());
+//			int codeSize = 0;
+//			boolean listCheck = goods_codeList.contains(list.getGoods_code());
+//			if(listCheck == false) {
+//				goods_codeList.add(list.getGoods_code());
+//				codeSize += 1;
+//			}
+//		}
+		
 		model.addAttribute("cartList", cartList);
 		model.addAttribute("cartListLength", cartList.size());
 		return "cart";
@@ -109,22 +122,28 @@ public class CartController {
 	//옵션 수정 클릭 시 모달 띄워주는 메서드
 	@RequestMapping(value = "/cartGetOptionList.do", method=RequestMethod.GET)
 	@ResponseBody
-	public List<GoodsOptionVO> cartGetOptionList(@RequestParam("goods_code")String goods_code, HttpSession session) {
+	public String cartGetOptionList(@RequestParam("goods_code")String goods_code, HttpSession session
+			,Model model, HttpSession sesion) {
 		List<GoodsOptionVO> vo = cartService.getGoodsOption(goods_code);
 	
-		return vo;
+		session.setAttribute("optionList", vo);
+		return null;
 	}
 	
 	@RequestMapping(value = "/optionUpdate.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String optionUpdate(@RequestParam("goods_code")String goods_code,
-			@RequestParam("curOption") String updateOption, HttpSession session) {
+			@RequestParam("curOption") String updateOption, 
+			@RequestParam("goods_price") String goods_price, HttpSession session) {
 		System.out.println("옵션 수정 컨트롤러 실행");
 		CartVO vo = new CartVO();
 		vo.setUser_id((String) session.getAttribute("email"));
 		vo.setGoods_code(goods_code);
 		
 		String[] option = updateOption.split("/");
+		
+		System.out.println("테스트 코드 : " + goods_code);
+		System.out.println("테스트 옵션 : " + updateOption);
 		
 		String[] cartOptionValue = new String[option.length];
 		String[] cartOptionPrice = new String[option.length];
@@ -138,10 +157,23 @@ public class CartController {
 		
 		vo.setGoods_option_value(cartOptionValue);
 		vo.setGoods_option_price(cartOptionPrice);
-		
+		vo.setGoods_price(Integer.parseInt(goods_price));
 		
 		//split으로 나눠서 데이터 나누기
 		cartService.updateOption(vo);
+		return null;
+	}
+	
+	@RequestMapping(value = "/deleteCartList.do", method=RequestMethod.GET)
+	@ResponseBody
+	public String deleteCartList(@RequestParam("goods_code")String goods_code, HttpSession session) {
+		System.out.println("작품 옵션 삭제 컨트롤러 실행");
+		
+		CartVO vo = new CartVO();
+		vo.setUser_id((String) session.getAttribute("email"));
+		vo.setGoods_code(goods_code);
+		
+		cartService.deleteOption(vo);
 		return null;
 	}
 }

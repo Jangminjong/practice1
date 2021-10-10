@@ -19,4 +19,6 @@ public interface CartService {
 	List<GoodsOptionVO> getGoodsOption(String goods_code);
 
 	void updateOption(CartVO vo);
+
+	void deleteOption(CartVO vo);
 }

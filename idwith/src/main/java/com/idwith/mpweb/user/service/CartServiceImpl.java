@@ -45,4 +45,9 @@ public class CartServiceImpl implements CartService {
 	public void updateOption(CartVO vo) {
 		dao.updateOption(vo);
 	}
+
+	@Override
+	public void deleteOption(CartVO vo) {
+		dao.deleteOption(vo);
+	}
 }

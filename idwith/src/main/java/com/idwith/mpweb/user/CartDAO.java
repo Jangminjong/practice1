@@ -47,4 +47,8 @@ public class CartDAO {
 	public void updateOption(CartVO vo) {
 		sqlSessionTemplate.update("CartDAO.updateOption", vo);
 	}
+
+	public void deleteOption(CartVO vo) {
+		sqlSessionTemplate.delete("CartDAO.deleteOption", vo);
+	}
 }

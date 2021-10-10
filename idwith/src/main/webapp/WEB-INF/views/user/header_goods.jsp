@@ -211,7 +211,7 @@
 					<nav class="profile-links">
 						<c:choose>
 							<c:when test="${ sellerCheck ne null }">
-								<a href="main.wdo" class="btn"> <i class="far fa-user"></i> 작가 페이지</a>
+								<a href="main.wdo" class="btn"> <i class="fa fa-user" aria-hidden="true"></i> 작가 페이지</a>
 							</c:when>
 						</c:choose>
 

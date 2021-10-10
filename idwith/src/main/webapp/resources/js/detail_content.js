@@ -140,28 +140,3 @@ $(document).ready(function (){
 function optionCartClose(){
 	
 }
-
-/*function optionPrice(args){
-	var subOption;
-	var total;
-	var sumPrice = 0;
-
-	console.log('최종함수');
-	subOption = document.form.goods_option;
-	total = document.form.total;
-	const str = document.getElementById('goods_price').innerText.slice(0, -1);
-	
-	if(sumPrice == 0){
-		sumPrice = parseInt(str) + parseInt(price);
-	}else if(sumPrice != 0){
-		sumPrice = sumPrice + parseInt(price);		
-	}
-	total.value = sumPrice;
-	
-	
-	
-	console.log('가격함수');
-	priceChange(price);
-	
-	$("#args option:selected").val();
-}*/
