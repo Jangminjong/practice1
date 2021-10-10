@@ -128,15 +128,24 @@ $(document).ready(function (){
 	});
 	
 	
-	//이미지 이전, 다음 버튼 클릭시 발생되는 이벤트
+	//이미지 이전 버튼 클릭시 발생되는 이벤트
 	$('#image_prev_btn').click(function() {
-		const imgList = $('.img-list');
+		var imgList = document.getElementById('main_image');
+		var imageArray = []; //저장된 이미지 경로 가져와서 배열에 넣아야함.
+		var imageIndex = 0;
 		
-		
+		imgList.setAttribute("src", imageArray[imageIndex]);
+		imageIndex++;
+		if(imageIndex >= imageArray.length){
+			imageIndex = 0;
+		}
 	});
 });
 
-//선택 상품 삭제
-function optionCartClose(){
+function optionClose(index){
+	var str1 = "op_card" + index;
+	var optionCard = document.getElementById(str1);
+	var optionTagExists = !!document.getElementsByClassName('option_card');
 	
+	optionCard.remove();
 }

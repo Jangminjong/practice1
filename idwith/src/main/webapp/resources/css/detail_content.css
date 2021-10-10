@@ -399,14 +399,7 @@ label {
     border: none !important;
 }
 
-.sticky_aside[data-state="fixed"] {
-    /*position: fixed;*/
-    left: 50%;
-    margin-left: 55px;
-    top: 10px;
-}
-
-.sticky_aside[data-state="fixed"][data-stick="true"] {
+.sticky_aside{
     position: absolute;
 }
 

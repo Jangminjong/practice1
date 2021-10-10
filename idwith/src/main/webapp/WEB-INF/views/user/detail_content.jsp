@@ -54,7 +54,7 @@
 							</button>
 							<ul class="img-list indicator">
 								<c:forEach var="i" begin="0" end="${goodsImageLength-1}">
-									<li class="indicator-btn active" style="background-image: url(${goods.goods_photo[i]})"></li>
+									<li class="indicator-btn active" id="main_image" style="background-image: url(${goods.goods_photo[i]})"></li>
 								</c:forEach>
 							</ul>
 							<button type="button" class="ui-btn next" aria-label="다음">
@@ -64,8 +64,7 @@
 					</div>
 				</section>
 
-				<aside class="sticky_aside product_detail" data-ui="sticky_aside"
-					data-state="fixed" data-offset="36" data-stick="false">
+				<aside class="sticky_aside product_detail" style="position: absolute">
 					<div class="sticky_aside_product">
 						<!-- artist_card -->
 						<!-- artist_card -->
@@ -85,20 +84,6 @@
 						<!-- <small class="sticky_aside__small">?= $product->category->c_name ?></small> -->
 						<h2 class="sticky_aside__produc-title">${goods.goods_name}</h2>
 
-						<!-- price_tag -->
-						<!-- <div class="price_tag">
-                                        <span class="price_tag__hilight"><em>13</em>%</span>
-                    <span class="price_tag__strong">
-                        <strong class="sold-price" data-sold-price="13900">13,900</strong>원
-                    </span>
-                    <del class="price_tag__crossout">16,000원</del>
-                                    </div> -->
-
-						<!-- 작품 통계 데이터 -->
-						<!--                 <mark class="sticky_aside__marked">262명의 고객님들이 이 작품을 구매 했어요!</mark>
-                 -->
-
-						<!--  <div data-vue="ProductDetailInfo">작품 정보</div>-->
 						<div data-v-32b45c8e="" class="product-detail-info">
 							<div data-v-07201bc4="" data-v-32b45c8e=""
 								class="price_tag-detail">
@@ -123,7 +108,8 @@
 								</mark>
 								<span data-v-07201bc4=""> 
 									<span data-v-07201bc4="" class="price_tag__crossout">
-										<strong id="goods_price" style="font-size: 24px; color: #333333;">${goods.goods_price}원</strong>
+										<strong id="goods_price" style="font-size: 24px; color: #333333;">${goods.goods_price}</strong>
+										<strong style="font-size: 24px; color: #333333;">원</strong>
 									</span>
 								</span>
 								<div data-v-07201bc4="" id="marker"></div>
@@ -405,7 +391,7 @@
 									<div data-v-1c074f7f="" class="selected_options" style="display: none">
 										
 										<!-- 여기가 반복됨 -->
-										<div data-v-5612de30="" data-v-1c074f7f="" class="option_card">
+										<div data-v-5612de30="" data-v-1c074f7f="" class="option_card" id="op_card0">
 											<p data-v-5612de30="" id="selected_options">
 												
 											</p>
@@ -422,8 +408,8 @@
 													<input type="hidden" id="hiddenPrice" value="">
 													<span data-v-5612de30=""><b data-v-5612de30="" id="selOptionPrice"></b>원</span>
 													<button data-v-5612de30="" type="button"
-														class="ui_btn--mini option_card__close">
-														<i data-v-5612de30="" class="idus-icon-close"></i>
+														class="ui_btn--mini option_card__close" onclick="optionClose(0)">
+														<i class="fa fa-times" aria-hidden="true"></i>
 													</button>
 												</div>
 											</div>
@@ -457,7 +443,7 @@
 									<button data-v-1c074f7f="" type="submit" data-to="present"
 										data-pay-type="present" class="ui_btn--redline present">
 										<div data-v-1c074f7f="" class="inner">
-											<i data-v-1c074f7f="" class="idus-icon-gift"></i>
+											<i class="fa fa-gift" aria-hidden="true"></i>
 											<div data-v-1c074f7f="" class="btn_txt">선물하기</div>
 										</div>
 									</button>
@@ -956,8 +942,6 @@
 
 	</div>
 	<!-- div WRAP -->
-
-	<!-- 옵션 모두 선택 시 결과 보여주는 modal 만들기 -->
 	<script>
 	function optionChange(){
 		var cartInfo = 0;
@@ -1011,22 +995,24 @@
 			
 			//var inputClone = $(".mb-3 input:first-child").clone().prop('id',imgInput+imgInt);
 			
-			if($('.selected_options').css('display') === ''){
+			if($('.selected_options').css('display') === ''){ //이미 선택한 옵션이 있을 때
 				var divClone = $('.selected_options div:first-child').clone();
 				console.log('복제한 태그 : ' + divClone);
 				$(".selected_options").append(divClone);
-			}else if($('.selected_options').css('display') === 'none'){
+			}else if($('.selected_options').css('display') === 'none'){ //이미 선택한 옵션이 없을 때
 				var result = selOption.join('/');
 				$('#selected_options').text(result);//옵션 text 출력
 				
-				
-				var total = 0;
+				var goodsPrice = $('#goods_price').text();//상품의 정가
+				var optionPrice = 0; //선택한 옵션의 가격
+				var total = 0; //선택한 옵션들의 총 가격
 				for(let i=0; i<selOption.length; i++){
 					let resultPrice = Number(priceArray[i]);
 					total += resultPrice;
-					
-					console.log(resultPrice);
 				}
+				total = total + Number(goodsPrice);
+				
+				
 				
 				$('#selOptionPrice').text(total);//선택한 옵션 총 가격 text 출력
 				$('#hiddenPrice').attr('value', total);//선택한 옵션 총 가격 원본
@@ -1042,15 +1028,17 @@
 				
 				//옵션창 초기화(대분류 값으로 선택됨)
 				$('select[name=goods_option_value] option:selected').each(function(index){
-					$("select[name=goods_option_value] option:eq(0)").prop("selected", true);
+					$('select[name=goods_option_value] option:eq(0)').prop("selected", true);
 				});
 				
-				$('select[name=goods_option_value]').each(function(index){
-					var num=$(this).attr('id');
-					var str1 = "#"+num;
-					console.log('테스트 : ' + str1);
-					$(str1+"option:eq(0)").prop("selected", true);
-				});
+				//var inputClone = $(".mb-3 input:first-child").clone().prop('id',imgInput+imgInt);
+				
+				/* var optionInt = 1;
+				var optionTag = "op_card";
+				var cloneTag = $(".selected_options div:first-child").clone().prop('id', optionTag + optionInt);
+				console.log('클론 : ' + cloneTag);
+				$('#op_card0').appendTo(cloneTag);
+				optionInt += 1; */
 			}//end if
 			
 		}//end if
