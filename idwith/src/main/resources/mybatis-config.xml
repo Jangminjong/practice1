@@ -47,6 +47,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.admin.WriterVO" alias="WriterVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.CouponVO" alias="coupon"/>
  		<typeAlias type="com.idwith.mpweb.admin.RequestCouponVO" alias="requestCoupon"/>
+ 		<typeAlias type="com.idwith.mpweb.admin.FollowVO" alias="follow"/>
+ 		<typeAlias type="com.idwith.mpweb.admin.CouponHaveVO" alias="couponHave"/>
  		
  	</typeAliases>
  	<typeHandlers>

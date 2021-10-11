@@ -29,7 +29,6 @@
 		<result property="class_address" column="class_address"/>
 		<result property="class_detail_address" column="class_detail_address"/>
 		<result property="class_reference" column="class_reference"/>
-		<result property="class_difficult" column="class_difficult"/>
 		<result property="class_person" column="class_person"/>
 		<result property="class_info" column="class_info"/>
 		<result property="class_reg_date" column="class_reg_date"/>
@@ -47,7 +46,7 @@
  	
  	<!-- 클래스 입점신청 대기 테이블 -->
  	<insert id="insertClassReg" parameterType="classRegVO">
- 		insert into class_reg (class_seller, user_id, seller_sellno, store_name, class_phone, class_category, class_name, class_post_address, class_address, class_detail_address, class_difficult, class_person, class_info, class_photo, class_price, class_status)
- 		values(#{class_seller}, #{user_id}, #{seller_sellno}, #{store_name}, #{class_phone}, #{class_category}, #{class_name}, #{class_post_address}, #{class_address}, #{class_detail_address}, #{class_difficult}, #{class_person}, #{class_info}, #{class_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, #{class_price}, 0)
+ 		insert into class_reg (class_seller, user_id, seller_sellno, store_name, class_phone, class_category, class_name, class_post_address, class_address, class_detail_address, class_info, class_photo, class_status)
+ 		values(#{class_seller}, #{user_id}, #{seller_sellno}, #{store_name}, #{class_phone}, #{class_category}, #{class_name}, #{class_post_address}, #{class_address}, #{class_detail_address}, #{class_info}, #{class_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, 0)
  	</insert>
 </mapper>

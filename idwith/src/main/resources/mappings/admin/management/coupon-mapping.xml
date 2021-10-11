@@ -30,6 +30,34 @@
 		<result property="requsetCouponCode" column="COUPON_CODE"/>
 	</resultMap>
 	
+	<resultMap type="follow" id="followResult">
+		<result property="followSeq" column="FOLLOW_SEQ"/>
+		<result property="followId" column="FOLLOW_ID"/>
+		<result property="followedId" column="FOLLOWED_ID"/>
+		<result property="followDate" column="FOLLOW_DATE"/>
+	</resultMap>
+	
+	<resultMap type="userList" id="userListResult">
+		<result property="userId" column="USER_ID" />
+		<result property="userPwd" column="USER_PWD" />
+		<result property="userName" column="USER_NAME" />
+		<result property="userPhone" column="USER_PHONE" />
+		<result property="userZipcode" column="USER_ZIPCODE" />
+		<result property="userAddress1" column="USER_ADDRESS1" />
+		<result property="userAddress2" column="USER_ADDRESS2" />
+		<result property="userGrade" column="USER_GRADE" />
+		<result property="userAllmcount" column="USER_ALLMCOUNT" />
+		<result property="userJoinDate" column="USER_JOINDATE" />
+		<result property="userBlackCheck" column="USER_BLACK_CHECK"></result>
+	</resultMap>
+	
+	<resultMap type="couponHave" id="couponHaveResult">
+		<result property="couponHaveSeq" column="COUPON_HAVE_SEQ" />
+		<result property="couponHaveId" column="COUPON_HAVE_ID" />
+		<result property="couponHaveCode" column="COUPON_HAVE_CODE" />
+		<result property="couponHaveDate" column="COUPON_HAVE_DATE" />
+	</resultMap>
+	
 	<insert id="insertCoupon" parameterType="coupon">
 		INSERT INTO COUPON (COUPON_CODE, COUPON_NAME, COUPON_CONTEXT, COUPON_TARGET, COUPON_CONDITION, COUPON_DISCOUNT, COUPON_ENDDATE, COUPON_STATUS)
 		VALUES(#{couponCode}, #{couponName}, #{couponContext}, #{couponTarget}, #{couponCondition}, #{couponDiscount}, #{couponEnddate}, 0)
@@ -87,6 +115,22 @@
 	
 	<update id="updateRequestCouponStatus" parameterType="requestCoupon">
 		update request_cp set REQUEST_CP_STATE = 1 where request_cp_seq = #{requestCpSeq}
+	</update>
+	
+	<select id="getFollowList" resultMap="followResult">
+		select FOLLOW_ID from follow where FOLLOWED_ID = ${target}
+	</select>
+	
+	<insert id="releaseFollowCp" parameterType="follow">
+		insert into coupon_have (COUPON_HAVE_SEQ, COUPON_HAVE_ID, COUPON_HAVE_CODE, COUPON_HAVE_DATE) values (nextval('coupon_have_seq'), #{followId}, #{couponCode}, now())
+	</insert>
+	
+	<insert id="releaseAllCp" parameterType="userList">
+		insert into coupon_have (COUPON_HAVE_SEQ, COUPON_HAVE_ID, COUPON_HAVE_CODE, COUPON_HAVE_DATE) values (nextval('coupon_have_seq'), #{userId}, #{couponCode}, now())
+	</insert>
+	
+	<update id="releaseStatus" parameterType="coupon">
+		update coupon set COUPON_STATUS = 1 WHERE COUPON_CODE = #{couponCode}
 	</update>
 	
 </mapper>

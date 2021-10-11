@@ -2,10 +2,17 @@ package com.idwith.mpweb.admin;
 
 public class SellerVO {
 	private int seller_code; //작가코드
-	private String seller_name;//상점이름
+	private String seller_name;//작가이름
+	private String store_name; //상점이름
 	private String seller_sellno;//사업자 등록 번호
 	private String user_id;//이메일
 	
+	public String getStore_name() {
+		return store_name;
+	}
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
+	}
 	public int getSeller_code() {
 		return seller_code;
 	}

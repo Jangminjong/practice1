@@ -3,7 +3,9 @@ package com.idwith.mpweb.admin.service;
 import java.util.List;
 
 import com.idwith.mpweb.admin.CouponVO;
+import com.idwith.mpweb.admin.FollowVO;
 import com.idwith.mpweb.admin.RequestCouponVO;
+import com.idwith.mpweb.admin.UserListVO;
 import com.idwith.mpweb.admin.WriterVO;
 import com.idwith.mpweb.common.PagingVO;
 
@@ -32,6 +34,16 @@ public interface CouponService {
 	void requestCouponInsert(RequestCouponVO reCoupon);
 
 	void updateRequestCouponStatus(RequestCouponVO reCoupon);
+
+	List<UserListVO> getUserList();
+
+	List<FollowVO> getFollowList(String target);
+
+	void releaseAllCp(UserListVO user);
+
+	void releaseFollowCp(FollowVO follow);
+
+	void releaseStatus(CouponVO coupon);
 
 
 }

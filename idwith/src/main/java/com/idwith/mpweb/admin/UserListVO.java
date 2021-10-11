@@ -17,7 +17,14 @@ public class UserListVO {
 	private boolean userBlackCheck;
 	private String searchContdition;
 	private String searchKeyword;
+	private int couponCode;
 	
+	public int getCouponCode() {
+		return couponCode;
+	}
+	public void setCouponCode(int couponCode) {
+		this.couponCode = couponCode;
+	}
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}

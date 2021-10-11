@@ -239,6 +239,8 @@ public class managementController {
 		System.out.println("이메일 전송 컨트롤러 실행");
 		EmailDTO dto = new EmailDTO();
 
+		System.out.println("이메일 받는 아이디 : " + request.getParameter("user_id"));
+		
 		int result = 0;
 		String agree = request.getParameter("agree");
 		String disagree = request.getParameter("disagree");
@@ -253,16 +255,19 @@ public class managementController {
 			result = 0;
 		}
 		
-		String blockState = request.getParameter("result");
+		Object state = request.getParameter("result");
 		
-		if(Integer.parseInt(blockState) == 2) {
-			dto.setSubject("[IDWITH] 계정 BLOCK 처리 안내");
-			result = 2;
-		}
-		
-		if(Integer.parseInt(blockState) == 3) {
-			dto.setSubject("[IDWITH] 계정 복원 처리 안내");
-			result = 3;
+		if(state != null) {
+			String blockState = state.toString();
+			if(Integer.parseInt(blockState) == 2) {
+				dto.setSubject("[IDWITH] 계정 BLOCK 처리 안내");
+				result = 2;
+			}
+			
+			if(Integer.parseInt(blockState) == 3) {
+				dto.setSubject("[IDWITH] 계정 복원 처리 안내");
+				result = 3;
+			}
 		}
 		
 		emailService.sendMail(dto, result);

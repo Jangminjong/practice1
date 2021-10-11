@@ -12,6 +12,10 @@ public class SellerDAO {
 	
 	public void insertSeller(SellerVO vo) {
 		System.out.println("DAO insertSeller ����");
+		System.out.println("코드 : " + vo.getSeller_code());
+		System.out.println("상점이름 : " + vo.getStore_name());
+		System.out.println("사업자번호 : " + vo.getSeller_sellno());
+		System.out.println("이메일 : " + vo.getUser_id());
 		sqlSessionTemplate.insert("SellerDAO.insertSeller", vo);
 	}
 

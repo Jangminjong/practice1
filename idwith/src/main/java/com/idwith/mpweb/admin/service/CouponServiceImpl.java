@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.admin.CouponDAO;
 import com.idwith.mpweb.admin.CouponVO;
+import com.idwith.mpweb.admin.FollowVO;
 import com.idwith.mpweb.admin.RequestCouponVO;
+import com.idwith.mpweb.admin.UserListVO;
 import com.idwith.mpweb.admin.WriterVO;
 import com.idwith.mpweb.common.PagingVO;
 
@@ -76,6 +78,32 @@ public class CouponServiceImpl implements CouponService {
 	public void updateRequestCouponStatus(RequestCouponVO reCoupon) {
 		couponDAO.updateRequestCouponStatus(reCoupon);
 	}
+
+	@Override
+	public List<UserListVO> getUserList() {
+		return couponDAO.getUserList();
+	}
+
+	@Override
+	public List<FollowVO> getFollowList(String target) {
+		return couponDAO.getFollowList(target);
+	}
+
+	@Override
+	public void releaseAllCp(UserListVO user) {
+		couponDAO.releaseAllCp(user);
+	}
+
+	@Override
+	public void releaseFollowCp(FollowVO follow) {
+		couponDAO.releaseFollowCp(follow);
+	}
+
+	@Override
+	public void releaseStatus(CouponVO coupon) {
+		couponDAO.releaseStatus(coupon);
+	}
+
 
 
 }

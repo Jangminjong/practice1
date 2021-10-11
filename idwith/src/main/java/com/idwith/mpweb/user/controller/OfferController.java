@@ -36,11 +36,18 @@ public class OfferController {
 	@GetMapping("/offer_class.do")
 	public String offerClass(HttpSession session, Model model) {
 		
-		//작가가 등록되어 있는지 확인
-		String seller_code = (String) session.getAttribute("sellerCheck");
-		if(seller_code != null) {
-			UserSellerVO sellerInfo = sellerViewService.getSellerProfile(seller_code);
-			model.addAttribute("sellerInfo", sellerInfo);
+		try {
+			//작가가 등록되어 있는지 확인
+			Object sel_code = session.getAttribute("sellerCheck");
+			String seller_code = sel_code.toString();
+			
+			
+			if(seller_code.equals("")) {
+				UserSellerVO sellerInfo = sellerViewService.getSellerProfile(seller_code);
+				model.addAttribute("sellerInfo", sellerInfo);
+			}
+		}catch(NullPointerException e) {
+			return "offer_class";
 		}
 		return "offer_class";
 	}
@@ -76,10 +83,11 @@ public class OfferController {
 		System.out.println("사업자 등록 번호 : " + regVO.getSeller_sellno());
 		
 		//작가가 등록되어 있는지 확인
-		String seller_code = (String) session.getAttribute("sellerCheck");
+		Object sel_code = session.getAttribute("sellerCheck");
+		String seller_code = sel_code.toString();
 		
 		if(regVO != null) {
-			if(seller_code != null) {
+			if(seller_code.equals("")) {
 				regVO.setClass_seller(Integer.parseInt(seller_code));
 			}
 			classRegService.insertClassReg(regVO);

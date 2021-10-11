@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.idwith.mpweb.admin.CouponVO;
+import com.idwith.mpweb.admin.FollowVO;
 import com.idwith.mpweb.admin.RequestCouponVO;
+import com.idwith.mpweb.admin.UserListVO;
 import com.idwith.mpweb.admin.WriterVO;
 import com.idwith.mpweb.admin.service.CouponService;
 import com.idwith.mpweb.common.CodeGeneration;
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.UserVO;
 
 import scala.collection.generic.BitOperations.Int;
 
@@ -157,4 +160,28 @@ public class couponController {
 		return "redirect:/requestCoupon.mdo";
 	}
 	
+	@RequestMapping("/couponRelease.mdo")
+	public String couponRelease(Model model,
+			@RequestParam(value = "couponTarget")String target,
+			@RequestParam(value = "couponCode")int releaseCouponCode,
+			CouponVO coupon) {
+		
+		if(target.equals("All")) {
+			List<UserListVO> userList = couponService.getUserList();
+			for(UserListVO user : userList) {
+				user.setCouponCode(releaseCouponCode);
+				couponService.releaseAllCp(user);
+			}
+		} else {
+			List<FollowVO> followList = couponService.getFollowList(target);
+			for(FollowVO follow : followList) {
+				follow.setCouponCode(releaseCouponCode);
+				couponService.releaseFollowCp(follow);
+			}
+		}
+		
+		couponService.releaseStatus(coupon);
+		
+		return "redirect:couponList.mdo";
+	}
 }

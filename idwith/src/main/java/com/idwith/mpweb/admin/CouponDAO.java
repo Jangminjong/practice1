@@ -63,5 +63,25 @@ public class CouponDAO {
 		sqlSessionTemplate.update("CouponDAO.updateRequestCouponStatus", reCoupon);
 	}
 
+	public List<UserListVO> getUserList() {
+		return sqlSessionTemplate.selectList("UserListDAO.getUserList");
+	}
+
+	public List<FollowVO> getFollowList(String target) {
+		return sqlSessionTemplate.selectList("CouponDAO.getFollowList", target);
+	}
+
+	public void releaseAllCp(UserListVO user) {
+		sqlSessionTemplate.insert("CouponDAO.releaseAllCp", user);
+	}
+
+	public void releaseFollowCp(FollowVO follow) {
+		sqlSessionTemplate.insert("CouponDAO.releaseFollowCp", follow);
+	}
+
+	public void releaseStatus(CouponVO coupon) {
+		sqlSessionTemplate.update("CouponDAO.releaseStatus", coupon);
+	}
+
 
 }
