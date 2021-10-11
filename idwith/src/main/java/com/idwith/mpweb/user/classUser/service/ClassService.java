@@ -6,6 +6,7 @@ import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.UserSellerVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.classUser.ClassCategoryVO;
+import com.idwith.mpweb.user.classUser.ClassOrderVO;
 import com.idwith.mpweb.user.classUser.ClassVO;
 
 
@@ -37,9 +38,14 @@ public interface ClassService {
 
 	UserVO getUserInfoForClassReg(String email);
 
-	List<ClassVO> getNearbyList(String district, String area);
 
 	List<ClassVO> getNewClassList();
+
+	String getStoreNameforOrder(String class_order_code);
+
+	 List<ClassVO> getNearbyList(String area);
+
+	void insertClassOrder(ClassOrderVO class_order);
 
 
 }

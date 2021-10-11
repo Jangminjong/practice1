@@ -35,6 +35,14 @@
  		<result property="user_address2" column="user_address2" />
  	</resultMap>
  	
+ 	<resultMap type="saveVO" id="saveResult">
+ 		<result property="save_seq" column="save_seq"/>
+ 		<result property="save_id" column="save_id"/>
+ 		<result property="save_point" column="save_point"/>
+ 		<result property="order_save_true" column="order_save_true"/>
+ 		<result property="save_goods_code" column="save_goods_code"/>
+ 	</resultMap>
+ 	
  	<!-- 회원가입 -->
  	<insert id="insertUser" parameterType="userVO">
  		INSERT INTO client (user_id, user_pwd, user_name, user_phone)
@@ -99,6 +107,27 @@
 							AND order_save.order_save_true = true
 		WHERE user_id=#{email}
  	</select>
+ 	
+ 	<!-- 상품/클래스 주문시 입력되는 이름, 전화번호 넣어주기 -->
+ 	<update id="updateUserInfoAtPayment" parameterType="userVO">
+ 		UPDATE client SET user_name=#{user_name}, user_phone=#{user_phone} WHERE user_id=#{user_id}
+ 	</update>
+ 	
+ 	<!-- 기존의 true 상태인 포인트들 false로 변환 -->
+ 	<update id="updateOrderSaveExist" parameterType="saveVO">
+ 		UPDATE order_save SET order_save_true=false WHERE save_id=#{save_id}
+ 	</update>
+ 	
+ 	<!-- 사용하고 남은 포인트 다시 넣어주기 -->
+ 	<insert id="updateOrderSaveBalance" parameterType="saveVO">
+ 		INSERT INTO order_save (save_id, save_point, order_save_true, save_goods_code)
+ 					VALUES(#{save_id}, #{save_point}, true, 'order_save_balance')
+ 	</insert>
+ 	<!-- 신규 구매로 발생한 포인트 저장 -->
+ 	<insert id="insertNewOrderSave" parameterType="saveVO">
+ 		INSERT INTO order_save (save_id, save_point, order_save_true, save_goods_code)
+ 					VALUES(#{save_id}, #{save_point}, true, #{save_goods_code})
+ 	</insert>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

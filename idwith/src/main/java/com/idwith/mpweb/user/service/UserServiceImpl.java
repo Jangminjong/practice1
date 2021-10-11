@@ -12,7 +12,7 @@ import com.idwith.mpweb.user.UserAddressVO;
 
 import com.idwith.mpweb.user.ChoiceVO;
 import com.idwith.mpweb.user.FollowVO;
-
+import com.idwith.mpweb.user.SaveVO;
 import com.idwith.mpweb.user.UserDAO;
 import com.idwith.mpweb.user.UserVO;
 
@@ -156,6 +156,24 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int setCart(String email) {
 		return dao.setCart(email);
+	}
+
+	@Override
+	public void updateUserInfoAtPayment(UserVO user) {
+		dao.updateUserInfoAtPayment(user);
+		
+	}
+
+	@Override
+	public void updateOrderSave(SaveVO point) {
+		dao.updateOrderSave( point);
+		
+	}
+
+	@Override
+	public void insertNewOrderSave(SaveVO point) {
+		dao.insertNewOrderSave(point);
+		
 	}
 
 }

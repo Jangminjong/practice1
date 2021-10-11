@@ -30,6 +30,26 @@
  		<result property="class_category_name" column="class_category_name"/>
  	</resultMap>
  	
+ 	<resultMap type="classOrderVO" id="classOrderResult">
+ 		<result property="class_order_seq" column="class_order_seq"/>
+ 		<result property="class_order_code" column="class_order_code"/>
+ 		<result property="class_order_price" column="class_order_price"/>
+ 		<result property="class_order_date" column="class_order_date"/>
+ 		<result property="class_order_time" column="class_order_time"/>
+ 		<result property="class_order_donation" column="class_order_donation"/>
+ 		<result property="class_order_id" column="class_order_id"/>
+ 		<result property="class_order_people" column="class_order_people"/>
+ 		<result property="class_order_demand" column="class_order_demand"/>
+ 		<result property="class_payment_check" column="class_payment_check"/>
+ 		<result property="class_payment_date" column="class_payment_date"/>
+ 		<result property="class_order_name" column="class_order_name"/>
+ 		<result property="class_order_reserve_phone" column="class_order_reserve_phone"/>
+ 		<result property="class_order_reserve_name" column="class_order_reserve_name"/>
+ 		<result property="class_order_review" column="class_order_review"/>
+ 		<result property="marchant_uid" column="marchant_uid"/>
+ 		<result property="imp_uid" column="imp_uid"/>
+ 	</resultMap>
+ 	
  	<select id="getPopularClassList" resultMap="classResult">
  		SELECT * FROM (
 			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
@@ -133,6 +153,14 @@
 				ON class_open.class_open_category= class_category.class_category_code ORDER BY class_open_seq DESC)A)AS foo 
 		WHERE rownum BETWEEN 1 AND 4
  	</select>
+ 	<insert id="insertClassOrder" parameterType="classOrderVO">
+ 		INSERT INTO class_order (class_order_code, class_order_price, class_order_date, class_order_time, class_order_donation, 
+						class_order_id, class_order_people, class_order_demand, class_payment_check, class_payment_date,
+						 class_order_name, class_order_reserve_name, class_order_reserve_phone, marchant_uid, imp_uid)
+				VALUES(#{class_order_code}, #{class_order_price}, #{class_order_date}, #{class_order_time}, #{class_order_donation},
+					  #{class_order_id}, #{class_order_people}, #{class_order_demand}, true, now(),
+					   #{class_order_name}, #{class_order_reserve_name}, #{class_order_reserve_phone},#{marchant_uid}, #{imp_uid})
+ 	</insert>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

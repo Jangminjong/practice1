@@ -64,13 +64,9 @@ public class ClassDAO {
 		return sqlSessionTemplate.selectOne("UserDAO.getUserInfoForClassReg", email);
 	}
 
-	public List<ClassVO> getNearbyList(String district, String area) {
+	public List<ClassVO> getNearbyList(String area) {
 		String param = area;
 		List<ClassVO> classList = sqlSessionTemplate.selectList("classDAO.getNearbyList", param);
-		if(classList.size()<1) {
-			param = district;
-			classList = sqlSessionTemplate.selectList("classDAO.getNearbyList", param);
-		}
 		
 		if(classList.size()<1) {
 			param="종로";
@@ -82,5 +78,13 @@ public class ClassDAO {
 
 	public List<ClassVO> getNewClassList() {
 		return sqlSessionTemplate.selectList("classDAO.getNewClassList");
+	}
+
+	public String getStoreNameforOrder(String class_order_code) {
+		return sqlSessionTemplate.selectOne("SellerCheckDAO.getStoreNameforOrder", class_order_code);
+	}
+
+	public void insertClassOrder(ClassOrderVO class_order) {
+		sqlSessionTemplate.insert("classDAO.insertClassOrder", class_order);
 	}
 }

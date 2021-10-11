@@ -11,6 +11,7 @@ import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.User_SellerDAO;
 import com.idwith.mpweb.user.classUser.ClassCategoryVO;
 import com.idwith.mpweb.user.classUser.ClassDAO;
+import com.idwith.mpweb.user.classUser.ClassOrderVO;
 import com.idwith.mpweb.user.classUser.ClassVO;
 
 
@@ -89,13 +90,24 @@ public class ClassServiceImpl implements ClassService{
 	}
 
 	@Override
-	public List<ClassVO> getNearbyList(String district, String area) {
-		return dao.getNearbyList(district, area);
+	public List<ClassVO> getNearbyList(String area) {
+		return dao.getNearbyList(area);
 	}
 
 	@Override
 	public List<ClassVO> getNewClassList() {
 		return dao.getNewClassList();
 	}
+
+	@Override
+	public String getStoreNameforOrder(String class_order_code) {
+		return dao.getStoreNameforOrder(class_order_code);
+	}
+
+	@Override
+	public void insertClassOrder(ClassOrderVO class_order) {
+		dao.insertClassOrder(class_order);
+	}
+
 
 }

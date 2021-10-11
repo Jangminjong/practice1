@@ -308,7 +308,7 @@
 														<span data-v-29616b27="">결제하기</span>
 													</button>
 												</div>
-												
+												<input type="text" name="class_order_code" value="${classCode }"/>
 												<input type="text" name="class_order_date" id="final-date" value=""/>
 												<input type="text" name="class_order_time" id="final-time" value=""/>
 											</form>

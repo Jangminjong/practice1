@@ -5,18 +5,27 @@ import java.sql.Time;
 import java.sql.Timestamp;
 
 public class ClassOrderVO {
-	int class_order_seq;
-	String class_order_code;
-	String class_order_price;
-	Date class_order_date;
-	Time class_order_time;
-	int class_order_donation;
-	String class_order_id;
-	int class_order_people;
-	String class_order_demand;
-	boolean class_order_check;
-	Timestamp class_payment_date;
-	int class_order_review;
+	private int class_order_seq;
+	private String class_order_code;
+	private int class_order_price;
+	private Date class_order_date;
+	private Time class_order_time;
+	private int class_order_donation;
+	private String class_order_id;
+	private int class_order_people;
+	private String class_order_demand;
+	private boolean class_payment_check;
+	private Timestamp class_payment_date;
+	private int class_order_review;
+	private String class_order_name;
+	private String class_order_reserve_name;
+	private String class_order_reserve_phone;
+	
+	// 아임포트 결제 정보 조회시 사용할 고유값
+	private String marchant_uid;
+	private String imp_uid;
+	
+	private String user_phone;
 
 	public int getClass_order_seq() {
 		return class_order_seq;
@@ -34,11 +43,11 @@ public class ClassOrderVO {
 		this.class_order_code = class_order_code;
 	}
 
-	public String getClass_order_price() {
+	public int getClass_order_price() {
 		return class_order_price;
 	}
 
-	public void setClass_order_price(String class_order_price) {
+	public void setClass_order_price(int class_order_price) {
 		this.class_order_price = class_order_price;
 	}
 
@@ -90,12 +99,14 @@ public class ClassOrderVO {
 		this.class_order_demand = class_order_demand;
 	}
 
-	public boolean isClass_order_check() {
-		return class_order_check;
+	
+
+	public boolean isClass_payment_check() {
+		return class_payment_check;
 	}
 
-	public void setClass_order_check(boolean class_order_check) {
-		this.class_order_check = class_order_check;
+	public void setClass_payment_check(boolean class_payment_check) {
+		this.class_payment_check = class_payment_check;
 	}
 
 	public Timestamp getClass_payment_date() {
@@ -113,5 +124,56 @@ public class ClassOrderVO {
 	public void setClass_order_review(int class_order_review) {
 		this.class_order_review = class_order_review;
 	}
+
+	public String getMarchant_uid() {
+		return marchant_uid;
+	}
+
+	public void setMarchant_uid(String marchant_uid) {
+		this.marchant_uid = marchant_uid;
+	}
+
+	public String getImp_uid() {
+		return imp_uid;
+	}
+
+	public void setImp_uid(String imp_uid) {
+		this.imp_uid = imp_uid;
+	}
+
+	public String getUser_phone() {
+		return user_phone;
+	}
+
+	public void setUser_phone(String user_phone) {
+		this.user_phone = user_phone;
+	}
+
+	
+	public String getClass_order_name() {
+		return class_order_name;
+	}
+
+	public void setClass_order_name(String class_order_name) {
+		this.class_order_name = class_order_name;
+	}
+
+	public String getClass_order_reserve_name() {
+		return class_order_reserve_name;
+	}
+
+	public void setClass_order_reserve_name(String class_order_reserve_name) {
+		this.class_order_reserve_name = class_order_reserve_name;
+	}
+
+	public String getClass_order_reserve_phone() {
+		return class_order_reserve_phone;
+	}
+
+	public void setClass_order_reserve_phone(String class_order_reserve_phone) {
+		this.class_order_reserve_phone = class_order_reserve_phone;
+	}
+	
+	
 
 }
