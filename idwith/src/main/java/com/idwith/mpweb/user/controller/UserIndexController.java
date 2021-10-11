@@ -87,9 +87,7 @@ public class UserIndexController {
 	@RequestMapping("/nearbyMeClass.do")
 	@ResponseBody
 	public String nearbyClass(@RequestParam(value="area", required=false, defaultValue="종로구") String area, HttpSession session ) {
-		String[] areaStr = area.split("\\s+");
-		System.out.println("areaStr:"+ areaStr[1]);
-		List<ClassVO> nearbyClass = classService.getNearbyList(areaStr[0], areaStr[1]);
+		List<ClassVO> nearbyClass = classService.getNearbyList(area);
 		
 		session.setAttribute("nearbyClassList", nearbyClass);
 		return null;
