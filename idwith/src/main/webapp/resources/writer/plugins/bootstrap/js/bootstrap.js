@@ -2363,22 +2363,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 
-var TextInt = 1;
-var TextInput = "Textinput";
-function inputTextAdd(){
-    TextInt += 1;
-    var inputClone = $(".col-4 div:first-child").clone(true); //.prop('id',TextInput+TextInt)
-    var labelClone = $(".col-4 div:last-child").clone(true);
-	$(".opt-group").append('<div id='+TextInput+TextInt+'></div>');
-	$("#"+TextInput+TextInt).append(inputClone);
-    $("#"+TextInput+TextInt).append(labelClone);
-	$("#"+TextInput+TextInt).css({'display':'flex'});
 
-}
-
-function uploadText(){
-
-}
 
 
 

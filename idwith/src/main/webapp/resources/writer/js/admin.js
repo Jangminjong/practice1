@@ -643,53 +643,54 @@ function execDaumPostcode() {
 
 
 function uploadedFileDelete(divid){
-	console.log("btn값"+divid);
 	$("#"+divid).parent().remove();
 }
 
-function dateCheck(){
-	var openDateString = document.getElementById('openDate').value;
+// 오픈 등록시 날짜 및 시간 처리 -----------------------------------------------------------------------------
+
+function regDateCheck(){
+	var openDateString = document.getElementById('regOpenDate').value;
 	var openDate = new Date(openDateString);
 	var todayDate = new Date();
 	if ( openDate.getDate() < todayDate.getDate() ){
-		alert("현재 날짜보다 이전 날짜로 설정할 수 없습니다.");
-		document.getElementById('openDate').value = new Date().toISOString().substring(0, 10);
+		alert("오늘 날짜보다 이전 날짜로 설정할 수 없습니다.");
+		document.getElementById('regOpenDate').value = new Date().toISOString().substring(0, 10);
 	}
 }
 
-function openTimeCheck(){
-	var openDateString = document.getElementById('openDate').value;
+function regOpenTimeCheck(){
+	var openDateString = document.getElementById('regOpenDate').value;
 	var openDate = new Date(openDateString);
-	var openTimeString = document.getElementById('openTime').value;
+	var openTimeString = document.getElementById('regOpenTime').value;
 	var openTimeArray = openTimeString.split(':');
 	openDate.setHours(openTimeArray[0]);
 	openDate.setMinutes(openTimeArray[1]);
-	var elevenTime = new Date(document.getElementById('openDate').value);	
+	var elevenTime = new Date(document.getElementById('regOpenDate').value);	
 	elevenTime.setHours(23);
 	elevenTime.setMinutes(0);
-	var sixTime = new Date(document.getElementById('openDate').value);
+	var sixTime = new Date(document.getElementById('regOpenDate').value);
 	sixTime.setHours(6);
 	sixTime.setMinutes(0);
 	if (openDate.getTime() > elevenTime.getTime()){
 		alert("open은 23시 이전만 가능합니다.");
-		document.getElementById('openTime').value = "";
+		document.getElementById('regOpenTime').value = "";
 	}
 	if (openDate.getTime() < sixTime.getTime()){
 		alert("open은 6시 이후만 가능합니다.");
-		document.getElementById('openTime').value = "";
+		document.getElementById('regOpenTime').value = "";
 	}
 }
 
-function closeTimeCheck(){
-	var openDateString = document.getElementById('openDate').value;
+function regCloseTimeCheck(){
+	var openDateString = document.getElementById('regOpenDate').value;
 	var openDate = new Date(openDateString);
-	var openTimeString = document.getElementById('openTime').value;
+	var openTimeString = document.getElementById('regOpenTime').value;
 	var openTimeArray = openTimeString.split(':');
 	openDate.setHours(openTimeArray[0]);
-	openDate.setMinutes(openTimeArray[1]); 
-	var closeDateString = document.getElementById('openDate').value;
+	openDate.setMinutes(openTimeArray[1]);
+	var closeDateString = document.getElementById('regOpenDate').value;
 	var closeDate = new Date(closeDateString);
-	var closeTimeString = document.getElementById('closeTime').value;
+	var closeTimeString = document.getElementById('regCloseTime').value;
 	var closeTimeArray = closeTimeString.split(':');
 	closeDate.setHours(closeTimeArray[0]);
 	closeDate.setMinutes(closeTimeArray[1]);
@@ -697,26 +698,33 @@ function closeTimeCheck(){
 	console.log(closeDate);
 	if (openDate.getTime() > closeDate.getTime()){
 		alert("시작 시간보다 이전 시간으로 설정할 수 없습니다.");
-		document.getElementById('closeTime').value = "";
+		document.getElementById('regCloseTime').value = "";
 	}
 	
 }
 
-function classTimeCheck(){
-	var openDate = $('#openDate').val();
-	var openTime = $('#openTime').val() + ":00";
-	var closeTime = $('#closeTime').val() +":00";
+function regClassTimeCheck(){
+	var openDate = $('#regOpenDate').val();
+	var openTime = $('#regOpenTime').val() + ":00";
+	var closeTime = $('#regCloseTime').val() +":00";
 	var className = $('.classOpenName').val();
 	$.ajax({
 			url : "classTimeCheck.wdo" ,
 			type : "POST",
+			async : "false",
 			/*dataType : "json",*/
 			data : { classOpenName : className,
 					 classOpenDate : openDate,
-					 classOpenTime : openTime,
-					 classCloseTime : closeTime },
+					 classOpenInputTime : openTime,
+					 classCloseInputTime : closeTime },
 			success : function(data){
-				$('#form_validation').attr("onsubmit", "return true");
+				if(data == "0"){
+					alert("클래스를 오픈하였습니다.");
+					return true;
+				} else {
+					alert("오픈한 클래스와 겹치는 시간이 있습니다. 시간을 변경해주세요.");
+					return false;
+				}
 			},
 			error : function(request, status, error) {
             alert("classTimeCheck fail :: error code: "
@@ -727,13 +735,250 @@ function classTimeCheck(){
 	);
 }
 
+// 오픈 수정 날짜 및 시간 체크 -----------------------------------------------------------------------------
+
+function modDateCheck(){
+	var openDateString = document.getElementById('modOpenDate').value;
+	var openDate = new Date(openDateString);
+	var todayDate = new Date();
+	if ( openDate.getDate() < todayDate.getDate() ){
+		alert("오늘 날짜보다 이전 날짜로 설정할 수 없습니다.");
+		document.getElementById('modOpenDate').value = new Date().toISOString().substring(0, 10);
+	}
+}
+
+function modOpenTimeCheck(){
+	var openDateString = document.getElementById('modOpenDate').value;
+	var openDate = new Date(openDateString);
+	var openTimeString = document.getElementById('modOpenTime').value;
+	var openTimeArray = openTimeString.split(':');
+	openDate.setHours(openTimeArray[0]);
+	openDate.setMinutes(openTimeArray[1]);
+	var elevenTime = new Date(document.getElementById('modOpenDate').value);	
+	elevenTime.setHours(23);
+	elevenTime.setMinutes(0);
+	var sixTime = new Date(document.getElementById('modOpenDate').value);
+	sixTime.setHours(6);
+	sixTime.setMinutes(0);
+	if (openDate.getTime() > elevenTime.getTime()){
+		alert("open은 23시 이전만 가능합니다.");
+		document.getElementById('modOpenTime').value = "";
+	}
+	if (openDate.getTime() < sixTime.getTime()){
+		alert("open은 6시 이후만 가능합니다.");
+		document.getElementById('modOpenTime').value = "";
+	}
+}
+
+function modCloseTimeCheck(){
+	var openDateString = document.getElementById('modOpenDate').value;
+	var openDate = new Date(openDateString);
+	var openTimeString = document.getElementById('modOpenTime').value;
+	var openTimeArray = openTimeString.split(':');
+	openDate.setHours(openTimeArray[0]);
+	openDate.setMinutes(openTimeArray[1]);
+	var closeDateString = document.getElementById('modOpenDate').value;
+	var closeDate = new Date(closeDateString);
+	var closeTimeString = document.getElementById('modCloseTime').value;
+	var closeTimeArray = closeTimeString.split(':');
+	closeDate.setHours(closeTimeArray[0]);
+	closeDate.setMinutes(closeTimeArray[1]);
+	console.log(openDate);
+	console.log(closeDate);
+	if (openDate.getTime() > closeDate.getTime()){
+		alert("시작 시간보다 이전 시간으로 설정할 수 없습니다.");
+		document.getElementById('modCloseTime').value = "";
+	}
+	
+}
+
+function modClassTimeCheck(){
+	var openDate = $('#modOpenDate').val();
+	var openTime = $('#modOpenTime').val();
+	if (openTime.length == 5){
+		openTime = $('#modOpenTime').val() + ":00"
+	}
+	var closeTime = $('#modCloseTime').val();
+	if (closeTime.length == 5){
+		openTime = $('#modOpenTime').val() + ":00"
+	}
+	var className = $('.classOpenName').val();
+	$.ajax({
+			url : "classTimeCheck.wdo" ,
+			type : "POST",
+			async : "false",
+			/*dataType : "json",*/
+			data : { classOpenName : className,
+					 classOpenDate : openDate,
+					 classOpenInputTime : openTime,
+					 classCloseInputTime : closeTime },
+			success : function(data){
+				if(data == "0"){
+					alert("클래스를 수정하였습니다.");
+					return true;
+				} else {
+					alert("오픈한 클래스와 겹치는 시간이 있습니다. 시간을 변경해주세요.");
+					return false;
+				}
+			},
+			error : function(request, status, error) {
+            alert("classTimeCheck fail :: error code: "
+            + request.status + "\n" + "error message: "
+            + error + "\n");
+        	}
+		}
+	);
+}
+
+function classOpenDelete(){
+	var classOpenSeq = $("input[name=classOpenSeq]").val();
+	var className = $("input[name=className]").val();
+	var uploadedFileList = $("input[name=uploadedFileList]");
+	var uploadedFileListValue = new Array();
+	for (var i=0; i<uploadedFileList.length; i++){
+		uploadedFileListValue[i] = uploadedFileList[i].value;
+	}
+	$.ajax({
+			url : "classOpenDelete.wdo" ,
+			type : "POST",
+			async : "false",
+			/*dataType : "json",*/
+			data : { classOpenSeq : classOpenSeq,
+					 className : className,
+					 uploadedFileList : uploadedFileListValue
+					}, success : function(data){
+						location.replace("classOpen.wdo");	
+					}, error : function(request, status, error) {
+			            alert("classTimeCheck fail :: error code: "
+			            + request.status + "\n" + "error message: "
+			            + error + "\n");
+		        	}
+			}
+	);
+	
+	 
+}
+
+var optionCount1 = 0;
+var optionCount2 = 0;
+var optionCount3 = 0;
+var optionCount4 = 0;
+var optionCount5 = 0;
+
+
+function addOption1(){
+   var option = document.getElementById('option1');
+   var newDiv = document.createElement('div');
+   
+   newDiv.innerHTML =    `<div class="col-4" style="display: inline-flex">
+							<div class="form-line optSmall" style="width: 300px">
+								<input type="text" class="form-control" name="options[0].goodsOp1Value" placeholder="옵션(소분류)" required>
+								<label class="form-label"></label>
+							</div>
+							<div class="form-line optPrice" style="width: 300px; margin-left: 40px">
+								<input type="text" class="form-control" name="options[0].goodsOp1Price" placeholder="옵션(가격)" required>
+								<label class="form-label"></label>
+							</div>
+						  </div>
+						 <button type="button" onclick="removeOption1(this)">삭제</button>`;
+   option.appendChild(newDiv);
+}
+
+function addOption2(){
+   var option = document.getElementById('option2');
+   var newDiv = document.createElement('div');
+  
+   newDiv.innerHTML =    `<div class="col-4" style="display: inline-flex">
+							<div class="form-line optSmall" style="width: 300px">
+								<input type="text" class="form-control" name="options[1].goodsOp1Value" placeholder="옵션(소분류)" required>
+								<label class="form-label"></label>
+							</div>
+							<div class="form-line optPrice" style="width: 300px; margin-left: 40px">
+								<input type="text" class="form-control" name="options[1].goodsOp1Price" placeholder="옵션(가격)" required>
+								<label class="form-label"></label>
+							</div>
+						  </div>
+						  <button type="button" onclick="removeOption2(this)">삭제</button>`;
+   option.appendChild(newDiv);
+}
+
+function addOption3(){
+   var option = document.getElementById('option3');
+   var newDiv = document.createElement('div');
+   newDiv.className = 'form-line'
+   newDiv.innerHTML =    `<div class="col-4" style="display: inline-flex">
+							<div class="form-line optSmall" style="width: 300px">
+								<input type="text" class="form-control" name="options[2].goodsOp1Value" placeholder="옵션(소분류)" required>
+								<label class="form-label"></label>
+							</div>
+							<div class="form-line optPrice" style="width: 300px; margin-left: 40px">
+								<input type="text" class="form-control" name="options[2].goodsOp1Price" placeholder="옵션(가격)" required>
+								<label class="form-label"></label>
+							</div>
+						  </div>
+						  <button type="button" onclick="removeOption3(this)">삭제</button>`;
+   option.appendChild(newDiv);
+}
+
+function addOption4(){
+   var option = document.getElementById('option4');
+   var newDiv = document.createElement('div');
+   newDiv.className = 'form-line'
+   newDiv.innerHTML =    `<div class="col-4" style="display: inline-flex">
+							<div class="form-line optSmall" style="width: 300px">
+								<input type="text" class="form-control" name="options[3].goodsOp1Value" placeholder="옵션(소분류)" required>
+								<label class="form-label"></label>
+							</div>
+							<div class="form-line optPrice" style="width: 300px; margin-left: 40px">
+								<input type="text" class="form-control" name="options[3].goodsOp1Price" placeholder="옵션(가격)" required>
+								<label class="form-label"></label>
+							</div>
+						  </div>
+						  <button type="button" onclick="removeOption4(this)">삭제</button>`;
+   option.appendChild(newDiv);
+}
+
+function addOption5(){
+   var option = document.getElementById("option5");
+   var newDiv = document.createElement('div');
+   newDiv.innerHTML =    `<div class="col-4" style="display: inline-flex">
+							<div class="form-line optSmall" style="width: 300px">
+								<input type="text" class="form-control" name="options[4].goodsOp1Value" placeholder="옵션(소분류)" required>
+								<label class="form-label"></label>
+							</div>
+							<div class="form-line optPrice" style="width: 300px; margin-left: 40px">
+								<input type="text" class="form-control" name="options[4].goodsOp1Price" placeholder="옵션(가격)" required>
+								<label class="form-label"></label>
+							</div>
+						  </div>
+						  <button type="button"onclick="removeOption5(this)">삭제</button>`;
+   option.appendChild(newDiv);
+}
+
+
+const removeOption1 = (obj) => {
+    document.getElementById('option1').removeChild(obj.parentNode);
+}
+const removeOption2 = (obj) => {
+    document.getElementById('option2').removeChild(obj.parentNode);
+}
+const removeOption3 = (obj) => {
+    document.getElementById('option3').removeChild(obj.parentNode);
+}
+const removeOption4 = (obj) => {
+    document.getElementById('option4').removeChild(obj.parentNode);
+}
+const removeOption5 = (obj) => {
+    document.getElementById('option5').removeChild(obj.parentNode);
+}
+
 $(window).ready(function(){
 	$(document).on("keyup", "#tel", function() { 
 		$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
 	});
 	openTime = new Date();
-	document.getElementById('openDate').value = new Date().toISOString().substring(0, 10);
-	document.getElementById('openTime').value = new Date(openTime.setHours(openTime.getHours()+9)).toISOString().slice(11, 16);
-	document.getElementById('closeTime').value = new Date(openTime.setHours(openTime.getHours()+1)).toISOString().slice(11, 16);
+	document.getElementById('regOpenDate').value = new Date().toISOString().substring(0, 10);
+	document.getElementById('regOpenTime').value = new Date(openTime.setHours(openTime.getHours()+9)).toISOString().slice(11, 16);
+	document.getElementById('regCloseTime').value = new Date(openTime.setHours(openTime.getHours()+1)).toISOString().slice(11, 16);
 	
 });

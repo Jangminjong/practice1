@@ -201,23 +201,13 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="classRegList" items="${classRegList}" varStatus="status">
+									<c:forEach var="classOpenList" items="${classOpenList}" varStatus="status">
 										<tr>
-											<th scope="row"><a href="classOpenDetail.wdo?classOpenSeq=${classRegList.classRegSeq}">${status.count}</a></th>
-											<td>${classRegList.classCode}</td>
-											<td>${classRegList.classAddress}</td>
-											<td>${classRegList.classRegDate}</td>
-											<td><c:choose>
-													<c:when test="${classRegList.classStatus eq 0}">
-														<label>승인대기</label>
-													</c:when>
-													<c:when test="${classRegList.classStatus eq 1}">
-														<label>승인허가</label>
-													</c:when>
-													<c:when test="${classRegList.classStatus eq 2}">
-														<label>승인거절</label>
-													</c:when>
-												</c:choose></td>
+											<th scope="row">${total-((paging.nowPage-1)*10)-status.index}</th>
+											<td><a href="classOpenDetail.wdo?classOpenSeq=${classOpenList.classOpenSeq}">${classOpenList.classOpenName}</a></td>
+											<td>${classOpenList.classOpenAddress}</td>
+											<td>${classOpenList.classOpenPrice}</td>
+											<td>${classOpenList.classOpenDifficult}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -241,12 +231,11 @@
 						</c:when>
 						<c:when test="${paging.nowPage ne 1 }">
 							<a
-								href="classManagement.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
+								href="classOpen.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
 								style="width: auto;">◀ 이전 |</a>
 						</c:when>
 					</c:choose>
-					<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
-						var="p">
+					<c:forEach begin="${paging.startPage}" end="${paging.endPage }" var="p">
 						<c:choose>
 							<c:when test="${p eq paging.nowPage }">
 								<a
@@ -255,7 +244,7 @@
 							</c:when>
 							<c:when test="${p ne paging.nowPage }">
 								<a
-									href="classManagement.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+									href="classOpen.wdo?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
@@ -265,7 +254,7 @@
 						</c:when>
 						<c:when test="${paging.endPage ne paging.lastPage}">
 							<a
-								href="classManagement.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
+								href="classOpen.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}"
 								style="width: auto;">| 다음 ▶</a>
 						</c:when>
 					</c:choose>

@@ -197,11 +197,17 @@
                             <form id="form_validation" action="classRegInsert.wdo" method="POST" enctype="multipart/form-data" >
 								<div class="form-group form-float"> 카테고리 &nbsp;&nbsp;
 								<select name='classCategory' id="productCategory">
-									<option value='ceramic'>도자기</option>
-									<option value='doll'>인형</option>
-									<option value='phone_case'>휴대폰 케이스</option>
+									<c:forEach var="classCategory" items="${classCategoryList}">
+										<option value='${classCategory.classCategoryCode}'>${classCategory.classCategoryName}</option>
+									</c:forEach>
 								</select>
 								</div>
+								<div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="className" required>
+                                        <label class="form-label" >클래스 주제</label>
+                                    </div>
+                                </div>
                                 <div class="row">
                                 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-bottom: -5px;">
 	                                	<div class="form-group form-float">

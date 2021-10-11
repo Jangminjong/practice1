@@ -6,6 +6,8 @@
 <mapper namespace="WriterClassOpenDAO">
  	<resultMap type="writerClassOpen" id="writerClassOpenResult">
  		<result property="classOpenSeq" column="class_open_seq"/>
+ 		<result property="classOpenSeller" column="class_open_seller"/>
+ 		<result property="className" column="class_name"/>
  		<result property="classOpenName" column="class_open_name"/>
  		<result property="classOpenClassCode" column="class_open_class_code"/>
  		<result property="classOpenCategory" column="class_open_category"/>
@@ -22,83 +24,127 @@
  		<result property="classOpenInfo" column="class_open_info"/>
  		<result property="classOpenPhone" column="class_open_phone"/>
  		<result property="classOpenMaxPerson" column="class_Open_Max_person"/>
+ 		<collection property="writerClassCategoryVO" resultMap="category"></collection>
+ 	</resultMap>
+ 	<resultMap type="writerClassCategory" id="category">
+ 		<result property="classCategoryCode" column="class_category_code"/>
+ 		<result property="classCategoryName" column="class_category_name"/>
  	</resultMap>
  	<!-- 클래스오픈 등록 전 시간 확인 -->
- <!-- 	<select id="timeCheck" parameterType="writerClassOpen" resultMap="writerClassOpenResult">
- 		SELECT count(class_open_time) from class_open where class_open_date = #{classOpenDate} and ( class_open_time < #{class_close_time} or class_close_time 
- 	</select>	 -->
+	<select id="timeCheck" parameterType="writerClassOpen" resultMap="writerClassOpenResult">
+	 	<![CDATA[	
+	 		SELECT class_open_name, class_open_time, class_close_time from class_open
+	 		where (class_open_date = #{classOpenDate} and class_open_name = #{classOpenName})  and
+		 		  ( (class_open_time > #{classOpenTime} and #{classCloseTime} between class_open_time and class_close_time) or
+		 		    ((#{classOpenTime} between class_open_time and class_close_time) and (#{classCloseTime} between class_open_time and class_close_time)) or
+		 		    ((#{classOpenTime} between class_open_time and class_close_time) and (#{classCloseTime} > class_close_time) ) or
+		 		    ((#{classOpenTime} < class_open_time and #{classCloseTime} > class_close_time)) )
+ 		]]>
+ 	</select>	
 	
  	<!-- 클래스오픈 테이블에 등록  -->
- 	<insert id="insertClassReg" parameterType="writerClassReg">
- 		INSERT INTO class_reg (
- 								 class_seller,
- 								 class_category,
- 								 class_code,
- 								 class_post_address,
- 								 class_address,
- 								 class_detail_address,
- 								 class_reference,
- 								 class_info,
- 								 class_phone,
- 								 class_photo,
- 								 class_status
+	<insert id="insertClassOpen" parameterType="writerClassOpen">
+	INSERT INTO class_Open (
+ 								 class_open_name,
+ 								 class_open_seller,
+ 								 class_open_class_code,
+ 								 class_open_category,
+ 								 class_open_price,
+ 								 class_open_post_address,
+ 								 class_open_address,
+ 								 class_open_detail_address,
+ 								 class_open_reference,
+ 								 class_open_date,
+ 								 class_open_time,
+ 								 class_close_time,
+ 								 class_open_photo,
+ 								 class_open_difficult,
+ 								 class_open_info,
+ 								 class_open_phone,
+ 								 class_open_max_person
  								 )
- 		VALUES(#{classSeller},
- 			   #{classCategory},
- 			   #{classCode},
- 			   #{classPostAddress},
- 			   #{classAddress},
- 			   #{classDetailAddress},
- 			   #{classReference},
- 			   #{classInfo},
- 			   #{classPhone},
- 			   #{classPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler},
- 			   0
- 			   )
- 	</insert>
-
- 	<!-- 클래스오픈 리스트 개수 조회 -->
- 	<select id="classRegCount" resultType="_int">
- 		select count(*) from class_reg where class_seller=#{classSeller}
+ 								
+ 							VALUES(#{classOpenName},
+				 			   #{classOpenSeller},
+				 			   #{classOpenClassCode},
+				 			   #{classOpenCategory},
+				 			   #{classOpenPrice},
+				 			   #{classOpenPostAddress},
+				 			   #{classOpenAddress},
+				 			   #{classOpenDetailAddress},
+				 			   #{classOpenReference},
+				 			   #{classOpenDate},
+				 			   #{classOpenTime},
+				 			   #{classCloseTime},
+				 			   #{classOpenPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler},
+				 			   #{classOpenDifficult},
+				 			   #{classOpenInfo},
+				 			   #{classOpenPhone},
+				 			   #{classOpenMaxPerson})
+	</insert>
+	<!-- 클래스 오픈 등록에 className 추가 등록 -->
+	<insert id="insertClassName" parameterType="writerClassOpen">
+		INSERT INTO class_open(class_name) select class_name from class_reg where class_code = #{classOpenClassCode}
+	</insert>
+	
+	<!-- 클래스오픈 리스트 개수 조회 -->
+ 	<select id="classOpenCount" resultType="_int">
+ 		select count(*) from class_open where class_open_seller=#{classOpenSeller}
  	</select>
  	
  	<!-- 페이징 처리 후 게시글 조회 -->
-	<select id="classRegList" parameterType="writerClassReg" resultMap="writerClassRegResult">
+	<select id="classOpenList" parameterType="writerClassOpen" resultMap="writerClassOpenResult">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-	FROM class_reg WHERE class_seller=#{countNotice} and class_status!=3 ORDER BY class_reg_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+	FROM class_open WHERE class_open_seller=#{countNotice} ORDER BY class_open_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
 	
-	<!-- 클래스오픈 상세 -->
-	<select id="classReg" resultMap="writerClassRegResult">
-	select  class_reg_seq,
-			class_seller,
-			class_category,
-			class_code,
-			class_post_address,
-			class_address,
-			class_detail_address,
-			class_reference,
-			class_info,
-			class_phone,
-			class_photo,
-			class_status
-	from class_reg 
-	where class_reg_seq = #{classRegSeq}
+	<!-- 클래스오픈 상세 확인 -->
+	<select id="classOpen" resultMap="writerClassOpenResult">
+	select  clop.class_open_seq,
+			clop.class_name,
+			clop.class_open_name,
+			clop.class_open_seller,
+			clop.class_open_class_code,
+			clop.class_open_category,
+			clop.class_open_price,
+			clop.class_open_post_address,
+			clop.class_open_address,
+			clop.class_open_detail_address,
+			clop.class_open_reference,
+			clop.class_open_date,
+			clop.class_open_time,
+			clop.class_close_time,
+			clop.class_open_photo,
+			clop.class_open_difficult,
+			clop.class_open_info,
+			clop.class_open_phone,
+			clop.class_open_max_person,
+			clcg.class_category_code,
+			clcg.class_category_name
+	from class_open as clop join class_category as clcg on clcg.class_category_code = clop.class_open_category
+	where class_open_seq = #{classOpenSeq}
 	</select>
 	
-	<!-- 클래스오픈 수정 -->
-	<update id="classRegUpdate" parameterType="writerClassReg">
-	UPDATE class_reg SET class_category = #{classCategory},
-						 class_post_address = #{classPostAddress},
-						 class_address = #{classAddress},
-						 class_detail_address = #{classDetailAddress},
-						 class_reference = #{classReference},
-						 class_info = #{classInfo},
-						 class_phone = #{classPhone},
-						 class_photo = #{classPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler} WHERE class_reg_seq = ${classRegSeq} 
+	<!--  클래스오픈 수정 -->
+	<update id="classOpenUpdate" parameterType="writerClassOpen">
+		UPDATE class_open SET class_open_price = #{classOpenPrice},
+						 class_open_name = #{classOpenName},
+						 class_open_post_address = #{classOpenPostAddress},
+						 class_open_address = #{classOpenAddress},
+						 class_open_detail_address = #{classOpenDetailAddress},
+						 class_open_reference = #{classOpenReference},
+						 class_open_info = #{classOpenInfo},
+						 class_open_difficult = #{classOpenDifficult},
+						 class_open_phone = #{classOpenPhone},
+						 class_open_date = #{classOpenDate},
+						 class_open_time = #{classOpenTime},
+						 class_close_time = #{classCloseTime},
+						 class_open_max_person = #{classOpenMaxPerson},
+						 class_open_photo = #{classOpenPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}
+					  WHERE class_open_seq = ${classOpenSeq}
 	</update>
 	<!-- 클래스오픈 삭제 -->
-	<update id="classRegDelete" parameterType="writerClassReg">
-	UPDATE class_reg SET class_status=3 WHERE class_reg_seq = ${classRegSeq}
-	</update>
+	<delete id="classOpenDelete" parameterType="writerClassOpen">
+		DELETE FROM class_open where class_open_seq = #{classOpenSeq}
+	</delete>
 </mapper>

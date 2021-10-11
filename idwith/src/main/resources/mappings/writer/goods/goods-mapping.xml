@@ -3,14 +3,14 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="WriterGoodsDAO">
-	<resultMap type="goods" id="goodsResult">
+	<resultMap type="writerGoods" id="writerGoodsResult">
 	    <result property="goods_seq" column="goods_seq"/>
 	 	<result property="goods_code" column="goods_code" />
 		<result property="goods_name" column="goods_name"/>
-		<result property="goods_price" column="goods_price" />
+		<result property="goods_price" column="goods_price"/>
+		<result property="seller_code" column="seller_code"/>
 		<result property="goods_category" column="goods_category" />
-		<result property="goods_photo" column="goods_photo" />
-		<result property="goods_stock" column="goods_stock"/>
+		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
 		<result property="goods_volume" column="goods_volume"/>
 		<result property="goods_income" column="goods_income"/>
 		<result property="goods_grade" column="goods_grade"/>
@@ -18,79 +18,116 @@
 		<result property="goods_select" column="goods_select"/>
 		<result property="goods_view" column="goods_view"/>
 		<result property="goods_op1_code" column="goods_op1_code"/>
-		<result property="goods_op2_code" column="goods_op2_code"/>
-		<result property="goods_op3_code" column="goods_op3_code"/>
 		<result property="goods_apply_date" column="goods_apply_date"/>
 		<result property="goods_status" column="goods_status"/>
+		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
+		<result property="goods_delivery_date" column="goods_delivery_date"/>
 	</resultMap>
-
+	<resultMap type="goodsCategory" id="goodsCategoryResult">
+		<result property="goodsCategoryCode" column="goods_category_code"/>
+		<result property="goodsCategoryName" column="goods_category_name"/>
+	</resultMap>
+	<resultMap type="goodsOption" id="goodsOptionResult">
+		<result property="goodsOp1Code" column="goods_op1_code"/>
+		<result property="goodsCode" column="goods_code"/>
+		<result property="goodsOp1Name" column="goods_op1_name"/>
+		<result property="goodsOp1Value" column="goods_op1_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" />
+		<result property="goodsOp1Price" column="goods_op1_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="Integer[]"/>
+	</resultMap>
 	<!-- 작품 등록 -->
-	<insert id="productCreate" parameterType="goods">
+	<insert id="productCreate" parameterType="writerGoods">
 		INSERT INTO goods
-		(goods_seq, 
+		(
 		goods_name, 
-		goods_price, 
-		goods_info, 
-		goods_photo, 
-		goods_code,
-		 
+		goods_price,
+		seller_code,
 		goods_category,
-		goods_op1_code,
-		goods_op2_code, 
-		goods_op3_code)
-		VALUES(nextval
-		('seq_goods'), 		
-		#{goods_name}, 
-		#{goods_price}, 
-		#{goods_info}, 
-		#{goods_photo}, 
-		#{goods_code},
-		
-		#{goods_category},
-		#{goods_op1_code},
-		#{goods_op2_code},
-		#{goods_op3_code})
+		goods_photo,
+		goods_info,
+		goods_code,
+		goods_delivery_fee,
+		goods_delivery_date)
+		VALUES( #{goods_name}, 
+				#{goods_price},
+				#{seller_code}, 
+				#{goods_category},	 
+				#{goods_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, 
+				#{goods_info},
+				#{goods_code},
+				#{goods_delivery_fee},
+				#{goods_delivery_date} )
 	</insert>
-
-	<!-- 작품 수정 -->
-	<update id="updateGoods" parameterType="com.idwith.mpweb.writer.goods.GoodsVO">
-	 	<![CDATA[	
-	 		UPDATE goods
-	 		SET goods_name=#{goods_name}, 
-	 		goods_price=#{goods_price}, 
-	 		goods_info=#{goods_info}, 
-	 		goods_photo=#{goods_photo}
-	 		goods_op1_code=#{goods_op1_code},
-	 		goods_op1_code=#{goods_op2_code},
-	 		goods_op1_code=#{goods_op3_code}
-	 	
-	 		WHERE goods_seq = #{goods_seq}
-	    ]]> 	
- 	</update>
  	
 	<!-- 작품  삭제 -->
-	<delete id="deleteGoods" parameterType="goods">
+	<delete id="deleteGoods" parameterType="writerGoods">
 		DELETE FROM goods WHERE goods_seq=#{goods_seq}
 	</delete>
 	
 	<!-- 작품  상세조회 -->
-	<select id="productModify" resultType="goods" resultMap="goodsResult">
-		SELECT * FROM goods WHERE goods_seq=#{goods_seq}
+	<select id="goods" resultMap="writerGoodsResult">
+		select goods_seq,
+			   goods_code,
+			   goods_name,
+			   goods_price,
+			   seller_code,
+			   goods_category,
+			   goods_photo,
+			   goods_info,
+			   goods_code,
+			   goods_delivery_fee,
+			   goods_delivery_date
+		from goods
+		where goods_seq = #{goods_seq}
 	</select>
 
 	<!-- 페이징 처리 후 작품 조회 -->
-	<select id="getGoodsList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="goodsResult">
+	<select id="getGoodsList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="writerGoodsResult">
 		<![CDATA[
 			SELECT * FROM (
-				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-			FROM goods ORDER BY goods_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT * FROM goods where seller_code = #{countNotice} and goods_status = 0 ORDER BY goods_seq DESC) A) AS foo
+				WHERE rownum BETWEEN #{start} AND #{end}
 		]]>
 	</select>	
 
      <!-- 작품 개수 출력 -->
-	<select id="countGoods" resultType="int">
-		select count(*) from goods
+	<select id="countGoods" resultType="_int">
+		select count(*) from goods where seller_code = #{goodsSeller} and goods_status = 0
 	</select>
 	
-
+	<!-- 작품 카테고리 출력 -->
+	<select id="goodsCategoryList" resultMap="goodsCategoryResult">
+		select * from goods_category
+	</select>
+	
+	<!-- 옵션등록 -->
+	<insert id="optionInsert" parameterType="goodsOption">
+		INSERT INTO goods_option1(goods_code,
+								  goods_op1_name,
+								  goods_op1_value,
+								  goods_op1_price)
+			   VALUES(#{goodsCode},
+			   		  #{goodsOp1Name},
+			   		  #{goodsOp1Value, typeHandler=org.apache.ibatis.type.ArrayTypeHandler},
+			   		  #{goodsOp1Price, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}
+			   		 )	
+	</insert>
+	
+	<!-- 옵션리스트 검색  -->
+	<select id="goodsOptionList" resultMap="goodsOptionResult">
+		SELECT goods_code,
+			   goods_op1_name,
+			   goods_op1_value,
+			   goods_op1_price
+		FROM goods_option1 WHERE goods_code = #{goods_code}
+	</select>
+	
+	<!-- 작품 카테고리 이름 구하기 -->
+	<select id="goodsCategoryName" resultMap="goodsCategoryResult">
+		SELECT * from goods_category where goods_category_code = #{goods_category}
+	</select>
+	
+	<!-- 작품 옵션 삭제 -->
+	<delete id="optionsDelete">
+		DELETE FROM goods_option1 where goods_code = #{goods_code}
+	</delete>
 </mapper>

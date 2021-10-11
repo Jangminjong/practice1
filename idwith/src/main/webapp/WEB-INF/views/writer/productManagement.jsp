@@ -201,9 +201,7 @@
                                     <th>카테고리</th>
                                     <th>가격</th>
                                     <th>등록일</th>
-                                    <th>평점</th>
-                                    <th>조회수</th>                                    
-                                    <th>삭제</th>
+                                    <th>평점</th>                                   
                                 </tr>
                             </thead>
                             <tbody>
@@ -215,12 +213,6 @@
                                     <td>${goods.goods_price}</td>
                                     <td><fmt:formatDate value="${goods.goods_apply_date}"  pattern="yyyy.MM.dd"/></td>
                                     <td>${goods.goods_grade}</td>
-                                    <td>${goods.goods_view}</td>                                    
-                                    <td>
-                                        <!-- BEGIN primary modal -->
-                                        <a href="deleteGoods.wdo?goods_seq${goods.goods_seq}">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">삭제</button>
-                                        </a>
                                      <!--    <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#defaultModalPrimary" id=>
                                             삭제
@@ -249,7 +241,6 @@
                                                 </div>
                                             </div>
                                         </div>    -->                                           
-                                    </td>
                                 </tr>  
                                 </c:forEach>                              
                                                                                            
@@ -273,12 +264,12 @@
 									<c:choose>
 										<c:when test="${paging.nowPage eq 1 }">
 											<li class="page-item"><span style="width: auto;"
-												class="page-link">Previous</span></li>
+												class="page-link">이전</span></li>
 										</c:when>
 										<c:when test="${paging.nowPage ne 1 }">
 											<li class="page-item"><a
 												href="/mpweb/productManagement.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
-												style="width: auto;" class="page-link">Previous</a></li>
+												style="width: auto;" class="page-link">이전</a></li>
 										</c:when>
 									</c:choose>
 									<c:forEach begin="${paging.startPage }"
@@ -299,12 +290,12 @@
 									<c:choose>
 										<c:when test="${paging.endPage eq paging.lastPage}">
 											<li class="page-item"><span style="width: auto;"
-												class="page-link">Next</span></li>
+												class="page-link">다음</span></li>
 										</c:when>
 										<c:when test="${paging.endPage ne paging.lastPage}">
 											<li class="page-item"><a
 												href="/mpweb/productManagement.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
-												style="width: auto;" class="page-link">Next</a></li>
+												style="width: auto;" class="page-link">다음</a></li>
 										</c:when>
 									</c:choose>
 								</ul>

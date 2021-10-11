@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -195,16 +196,18 @@
 									<tr>
 										<th>순번</th>
 										<th>클래스코드</th>
+										<th>클래스주제</th>
 										<th>신청 지역</th>
 										<th>신청일</th>
 										<th>승인</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="classRegList" items="${classRegList}" varStatus="status">
+									<c:forEach var="classRegList" items="${classRegList}" varStatus="i" >
 										<tr>
-											<th scope="row"><a href="classRegDetail.wdo?classRegSeq=${classRegList.classRegSeq}">${status.count}</a></th>
+											<th scope="row">${total-((paging.nowPage-1)*10)-i.index}</th>
 											<td>${classRegList.classCode}</td>
+											<td><a href="classRegDetail.wdo?classRegSeq=${classRegList.classRegSeq}">${classRegList.className}</a></td>
 											<td>${classRegList.classAddress}</td>
 											<td>${classRegList.classRegDate}</td>
 											<td><c:choose>
@@ -287,7 +290,6 @@
 				</div>
 			</div>
 		</div>
-		
 	</section>
 
 

@@ -7,34 +7,41 @@ import java.util.Arrays;
 public class WriterClassOpenVO {
 	
 	private int classOpenSeq;
-	private String classOpenName;
+	private int classOpenSeller;
+	private String className;
 	private String classOpenClassCode;
 	private String classOpenCategory;
+	private String classOpenName;
 	private int classOpenPrice;
 	private String classOpenPostAddress;
 	private String classOpenAddress;
 	private String classOpenDetailAddress;
 	private String classOpenReference;
 	private Date classOpenDate;
+	private String classOpenInputTime; // db에는 제외
 	private Time classOpenTime;
+	private String classCloseInputTime; // db에는 제외
 	private Time classCloseTime;
 	private String[] classOpenPhoto;
 	private String classOpenDifficult;
 	private String classOpenInfo;
 	private String classOpenPhone;
 	private Integer classOpenMaxPerson;
+	private String[] uploadedFileList; //db에는 제외
+	private String[] uploadFileList; // db에는 제외
+	private WriterClassCategoryVO writerClassCategoryVO;
 	
 	public int getClassOpenSeq() {
 		return classOpenSeq;
 	}
 	public void setClassOpenSeq(int classOpenSeq) {
 		this.classOpenSeq = classOpenSeq;
+	}	
+	public int getClassOpenSeller() {
+		return classOpenSeller;
 	}
-	public String getClassOpenName() {
-		return classOpenName;
-	}
-	public void setClassOpenName(String classOpenName) {
-		this.classOpenName = classOpenName;
+	public void setClassOpenSeller(int classOpenSeller) {
+		this.classOpenSeller = classOpenSeller;
 	}
 	public String getClassOpenClassCode() {
 		return classOpenClassCode;
@@ -48,11 +55,23 @@ public class WriterClassOpenVO {
 	public void setClassOpenCategory(String classOpenCategory) {
 		this.classOpenCategory = classOpenCategory;
 	}
+	public String getClassName() {
+		return className;
+	}
+	public void setClassName(String className) {
+		this.className = className;
+	}
 	public int getClassOpenPrice() {
 		return classOpenPrice;
 	}
 	public void setClassOpenPrice(int classOpenPrice) {
 		this.classOpenPrice = classOpenPrice;
+	}
+	public String getClassOpenName() {
+		return classOpenName;
+	}
+	public void setClassOpenName(String classOpenName) {
+		this.classOpenName = classOpenName;
 	}
 	public String getClassOpenPostAddress() {
 		return classOpenPostAddress;
@@ -84,11 +103,23 @@ public class WriterClassOpenVO {
 	public void setClassOpenDate(Date classOpenDate) {
 		this.classOpenDate = classOpenDate;
 	}
+	public String getClassOpenInputTime() {
+		return classOpenInputTime;
+	}
+	public void setClassOpenInputTime(String classOpenInputTime) {
+		this.classOpenInputTime = classOpenInputTime;
+	}
 	public Time getClassOpenTime() {
 		return classOpenTime;
 	}
 	public void setClassOpenTime(Time classOpenTime) {
 		this.classOpenTime = classOpenTime;
+	}
+	public String getClassCloseInputTime() {
+		return classCloseInputTime;
+	}
+	public void setClassCloseInputTime(String classCloseInputTime) {
+		this.classCloseInputTime = classCloseInputTime;
 	}
 	public Time getClassCloseTime() {
 		return classCloseTime;
@@ -126,7 +157,24 @@ public class WriterClassOpenVO {
 	public void setClassOpenMaxPerson(Integer classOpenMaxPerson) {
 		this.classOpenMaxPerson = classOpenMaxPerson;
 	}
-	
+	public String[] getUploadedFileList() {
+		return uploadedFileList;
+	}
+	public void setUploadedFileList(String[] uploadedFileList) {
+		this.uploadedFileList = uploadedFileList;
+	}
+	public String[] getUploadFileList() {
+		return uploadFileList;
+	}
+	public void setUploadFileList(String[] uploadFileList) {
+		this.uploadFileList = uploadFileList;
+	}
+	public WriterClassCategoryVO getWriterClassCategoryVO() {
+		return writerClassCategoryVO;
+	}
+	public void setWriterClassCategoryVO(WriterClassCategoryVO writerClassCategoryVO) {
+		this.writerClassCategoryVO = writerClassCategoryVO;
+	}
 	@Override
 	public String toString() {
 		return "WriterClassOpenVO [classOpenSeq=" + classOpenSeq + ", classOpenName=" + classOpenName
