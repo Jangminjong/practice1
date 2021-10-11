@@ -86,7 +86,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<mapper resource="mappings/writer/goods/goods-mapping.xml"/>
  		<mapper resource="mappings/writer/coupon/requestCoupon-mapping.xml"/>
  		<mapper resource="mappings/writer/review/writerReview-mapping.xml"/>
- 		<mapper resource="mappings/admin/management/classProposeInfo-mapping.xml"/>
+ 		<mapper resource="mappings/admin/management/ProposeInfo-mapping.xml"/>
  		<mapper resource="mappings/admin/management/writer-mapping.xml"/>
  		<mapper resource="mappings/admin/management/coupon-mapping.xml"/>
  		

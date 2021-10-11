@@ -25,4 +25,6 @@ public interface ProposeService {
 	void updateStatus(ClassRegVO classRegVO);
 
 	ClassProposeInfoVO getClassProposeInfo(int classRegseq);
+
+	GoodsApplyVO getproductPropose(int goodsApplySeq);
 }

@@ -1,9 +1,6 @@
 package com.idwith.mpweb.admin.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -279,7 +276,11 @@ public class managementController {
 	}
 
 	@GetMapping("/productPropose.mdo")
-	public String productPropose() {
+	public String productPropose(GoodsApplyVO goodsApply, Model model, 
+			@RequestParam(value = "goods_apply_seq")int goodsApplySeq) {
+		
+		model.addAttribute("goodsApplyInfo", proposeService.getproductPropose(goodsApplySeq));
+		
 		return "productPropose";
 	}
 	

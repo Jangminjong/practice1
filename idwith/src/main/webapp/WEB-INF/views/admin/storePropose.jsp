@@ -171,9 +171,10 @@
 										</thead>
 										<tbody>
 											<c:forEach var="watingList" items="${goodsApplyList}" varStatus="status">
+												<input type="hidden" value="${watingList.goods_apply_seq}" />
 												<tr>
 													<td scope="row">${status.count}</td>
-													<td><a href="productPropose.mdo?">${watingList.goods_apply_id}</a></td>
+													<td><a href="productPropose.mdo?goods_apply_seq=${watingList.goods_apply_seq}">${watingList.goods_apply_id}</a></td>
 													<td>${watingList.goods_apply_bsn}</td>
 													<td id="${watingList.store_name}">${watingList.store_name}</td>
 													<td id="${watingList.goods_apply_category}">${watingList.goods_apply_category}</td>

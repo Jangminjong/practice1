@@ -1,14 +1,12 @@
 package com.idwith.mpweb.admin.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.idwith.mpweb.admin.ClassProposeInfoVO;
 import com.idwith.mpweb.admin.ProposeDAO;
-import com.idwith.mpweb.admin.ProposeVO;
 import com.idwith.mpweb.user.ClassRegVO;
 import com.idwith.mpweb.user.GoodsApplyVO;
 
@@ -62,4 +60,10 @@ public class ProposeServiceImpl implements ProposeService {
 	public ClassProposeInfoVO getClassProposeInfo(int classRegseq) {
 		return proposeDAO.getClassProposeInfo(classRegseq);
 	}
+
+	@Override
+	public GoodsApplyVO getproductPropose(int goodsApplySeq) {
+		return proposeDAO.getproductPropose(goodsApplySeq);
+	}
+
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="ClassProposeInfoDAO">
+<mapper namespace="ProposeInfoDAO">
 	<resultMap type="classProposeInfo" id="classProposeInfoResult">
 		<result property="classRegSeq" column="CLASS_REG_SEQ"/>
 		<result property="classSeller" column="CLASS_SELLER" />
@@ -16,10 +16,26 @@
 		<result property="classPhoto" column="CLASS_PHOTO" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="String" jdbcType="ARRAY"/>
 	</resultMap>
 	
+	<resultMap type="goodsApplyVO" id="goodsApplyResult">
+ 		<result property="goods_apply_seq" column="goods_apply_seq"/>
+		<result property="goods_apply_id" column="goods_apply_id"/>
+		<result property="goods_apply_photo" column="goods_apply_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+		<result property="goods_apply_bsn" column="goods_apply_bsn"/>
+		<result property="goods_apply_info" column="goods_apply_info"/>
+		<result property="goods_apply_date" column="goods_apply_date"/>
+		<result property="godds_apply_check" column="godds_apply_check"/>
+		<result property="store_name" column="store_name"/>
+		<result property="goods_apply_phone" column="goods_apply_phone"/>
+		<result property="goods_apply_category" column="goods_apply_category"/>
+ 	</resultMap>
+	
 	<select id="getClassProposeInfo" parameterType="com.idwith.mpweb.admin.ClassProposeInfoVO" resultMap="classProposeInfoResult">
 		select * from class_reg where CLASS_REG_SEQ=#{classRegSeq}
 	</select>
 	
-	
+
+	<select id="getproductPropose" parameterType="com.idwith.mpweb.user.GoodsApplyVO" resultMap="goodsApplyResult">
+		select * from goods_apply where goods_apply_seq = #{goods_apply_seq}
+	</select>	
 	
 </mapper>

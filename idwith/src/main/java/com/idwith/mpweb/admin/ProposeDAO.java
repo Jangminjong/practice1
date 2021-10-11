@@ -51,6 +51,10 @@ public class ProposeDAO {
 	}
 
 	public ClassProposeInfoVO getClassProposeInfo(int classRegseq) {
-		return sqlSessionTemplate.selectOne("ClassProposeInfoDAO.getClassProposeInfo", classRegseq);
+		return sqlSessionTemplate.selectOne("ProposeInfoDAO.getClassProposeInfo", classRegseq);
+	}
+
+	public GoodsApplyVO getproductPropose(int goodsApplySeq) {
+		return sqlSessionTemplate.selectOne("ProposeInfoDAO.getproductPropose", goodsApplySeq);
 	}
 }

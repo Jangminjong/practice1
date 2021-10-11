@@ -40,8 +40,8 @@
  	</resultMap>
  	
  	<insert id="insertWating" parameterType="goodsApplyVO">
- 		INSERT INTO goods_apply (goods_apply_id, goods_apply_bsn, store_name, goods_apply_phone, goods_apply_category, goods_apply_info, goods_apply_photo)
- 		VALUES(#{goods_apply_id}, #{goods_apply_bsn}, #{store_name}, #{goods_apply_phone}, #{goods_apply_category}, #{goods_apply_info}, #{goods_apply_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler})
+ 		INSERT INTO goods_apply (goods_apply_id, goods_apply_bsn, store_name, goods_apply_phone, goods_apply_category, goods_apply_info, goods_apply_photo, goods_apply_date )
+ 		VALUES(#{goods_apply_id}, #{goods_apply_bsn}, #{store_name}, #{goods_apply_phone}, #{goods_apply_category}, #{goods_apply_info}, #{goods_apply_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, now())
  	</insert>
  	
  	<!-- 클래스 입점신청 대기 테이블 -->
