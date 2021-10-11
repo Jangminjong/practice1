@@ -57,6 +57,7 @@ public class ProductController {
 		}
 		
 		pageVO = new PagingVO(goodsTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), goodsSeller);
+		model.addAttribute("total", goodsTotal);
 		model.addAttribute("paging", pageVO);
 		model.addAttribute("ProductViewAll", goodsService.getGoodsList(pageVO));
 		

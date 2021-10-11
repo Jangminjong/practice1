@@ -205,9 +205,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              <c:forEach var="goods" items="${ProductViewAll}">
+                              <c:forEach var="goods" items="${ProductViewAll}" varStatus="i">
                                 <tr>
-                                    <th scope="row">${goods.rownum}</th>
+                                    <th scope="row">${total-((paging.nowPage-1)*10)-i.index}</th>
                                     <td><a href="productModify.wdo?goods_seq=${goods.goods_seq}"> ${goods.goods_name}</a></td>
                                     <td>${goods.goods_category}</td>
                                     <td>${goods.goods_price}</td>
