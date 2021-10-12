@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +25,26 @@
 <script type="text/javascript" src="resources/admin/js/admiNotice.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$("notice-admin-submit").click(function () {
+				var title = $("adminBoardTitle").val();
+				var content = $("amdinBoardContent").val();
+				
+				if(title == "") {
+					alert("제목을 입력하세요");
+					document.adminNoticeForm.title.focus();
+					return;
+				}
+				if(content == "") {
+					alert("제목을 입력하세요");
+					document.adminNoticeForm.content.focus();
+					return;
+				}
+			});
+		});
+	</script>
 
 </head>
 
