@@ -84,12 +84,19 @@ $(document).ready(function() {
 });
 
 //상품 수량 +
-function changePlus(state){
+function changePlus(state, index){
 	if(state == 'update'){
-		var curQuantity = $('input[name=numberCount]').val();
+		console.log('몇번째 상품인가요 : ' + index);
+		
+		var str1 = "cart_quantity" + index;
+		var quantity = $('#'+str1).val();
+		var curQuantity = $('#'+str1).val();
 		var result = Number(curQuantity) + 1;
 		
-		$('input[name=numberCount]').attr('value', result);
+		var str2 = 'goods_code' + index;
+		var goods_code = $('#'+str2).val();
+		
+		$('#'+str1).attr('value', result);
 		
 		var optionPrice = $('#optionQuantity').text();
 		var curOptionPrice = Number(optionPrice) / Number(curQuantity);
@@ -102,10 +109,10 @@ function changePlus(state){
 			url: "cartQuantityUpdate.do",
 			type: "GET",
 			async: false,
-			data: { "cart_quantity": $('#cart_quantity').val(),
+			data: { "cart_quantity": quantity,
 					"goods_price": $('#goodsPrice').text(),
 					"user_id": $('#user_id').val(),
-					"goods_code": $('#goods_code').val()
+					"goods_code": goods_code
 				},
 			success: function(data){
 			},
@@ -128,14 +135,19 @@ function changePlus(state){
 }
 
 //상품 수량 -
-function changeMinus(state){
+function changeMinus(state, index){
 	if(state == 'update'){
-		var curQuantity = $('input[name=numberCount]').val();
+		var str1 = "cart_quantity" + index;
+		var quantity = $('#'+str1).val();
+		var curQuantity = $('#'+str1).val();
+		
+		var str2 = 'goods_code' + index;
+		var goods_code = $('#'+str2).val();
 		
 		if(curQuantity > 1){
 			var result = Number(curQuantity) - 1;
 			
-			$('input[name=numberCount]').attr('value', result);
+			$('#'+str1).attr('value', result);
 			
 			var optionPrice = $('#optionQuantity').text();
 			var curOptionPrice = Number(optionPrice) / Number(curQuantity);
@@ -144,15 +156,14 @@ function changeMinus(state){
 			$('#optionQuantity').text(Math.abs(resultOptionPrice));
 			$('#goodsPrice').text(Math.abs(resultOptionPrice));
 			
-			
 			$.ajax({
 				url: "cartQuantityUpdate.do",
 				type: "GET",
 				async: false,
-				data: { "cart_quantity": $('#cart_quantity').val(),
+				data: { "cart_quantity": quantity,
 						"goods_price": $('#goodsPrice').text(),
 						"user_id": $('#user_id').val(),
-						"goods_code": $('#goods_code').val()
+						"goods_code": goods_code
 					},
 				success: function(data){
 				},
@@ -177,10 +188,16 @@ function changeMinus(state){
 }
 
 //주문 요청 사항
-function orderMessageUpdate(){
-	var msg = document.getElementById('orderMessage').value;
+function orderMessageUpdate(index){
+	var str1 = 'orderMessage' + index;
+	var msg = $('#'+str1).val();
 	
 	console.log(msg);
+	
+	var str2= 'goodsItem' + index;
+	var goods_code = $('#'+str2).val();
+	
+	console.log('상품코드 확인 : ' + goods_code);
 	
 	$.ajax({
 		url: "orderMessageUpdate.do",
@@ -188,7 +205,7 @@ function orderMessageUpdate(){
 		async: false,
 		data: { 
 			"user_id": $('#user_id').val(),
-			"goods_code": $('#goods_code').val(),
+			"goods_code": goods_code,
 			"cart_order_content": msg
 			},
 		success: function(data){
@@ -201,9 +218,9 @@ function orderMessageUpdate(){
 	});
 }
 
-//체크박스 이벤트
+//전체선택 체크박스 이벤트
 function selectAll(selectAll) {
-	const checkboxs = document.getElementsByName('checkAll');
+	const checkboxs = document.getElementsByName('optionCheck');
 	
 	checkboxs.forEach((checkbox) => {
 		checkbox.checked = selectAll.checked;
@@ -276,53 +293,46 @@ function optionDelete(goods_code, index){
 	var str = 'optionListItem' + index;
 	var listId = document.getElementById(str); //작품 옵션 태그
 	
-	
 	var str1 = 'cartListItem' + index;
 	var cartList = document.getElementById(str1); //작품 전체 태그
 	var result = document.getElementById("resultForm"); //총 결제금액있는 태그
 	var clientCartList = document.getElementById('clientCartList');//장바구니 전체 태그
 	
-	var optionTagExists = !!document.getElementsByName("goodsOptionTag"); //옵션태그가 존재하는지 확인
-	var goodsTagExists = !!document.getElementsByName("goodsTag"); //작품 태그가 존재하는지 확인
+	var optionTagExists = !!document.getElementsByClassName("goodsOptionTag"); //옵션태그가 존재하는지 확인
+	var goodsTagExists = !!document.getElementById("goodsTag"); //작품 태그가 존재하는지 확인
+		
+	var str2 = 'cart_num' + index;	
+	var cart_num = 	document.getElementById(str2).value;
 		
 	$.ajax({
 		url: "deleteCartList.do",
 		type: "GET",
 		async: false, 
 		data: { 
-			"goods_code": goods_code
+			"goods_code": goods_code,
+			"cart_num": cart_num
 		},
 		success: function(data){
 			console.log('옵션 삭제 코드');
-			if(optionTagExists == true){//다른 옵션이 존재하는 경우
+			if(optionTagExists == true){ //다른 옵션이 존재하는 경우
 				listId.remove();
-			}else if(optionTagExists == false){//다른 옵션이 존재하지 않는 경우
+				console.log('옵션만 삭제');
+			}else if(optionTagExists == false){ //다른 옵션이 존재하지 않는 경우
+				console.log('옵션 없어서 전체 삭제');
 				listId.remove();
-				cartList.remove();//작품 태그 삭제
-				if(goodsTagExists == false){//다른 작품이 존재하지 않는 경우
-					result.remove();//장바구니 푸터 삭제
+				cartList.remove(); //작품 태그 삭제
+				if(goodsTagExists == false){ //다른 작품이 존재하지 않는 경우
+					result.remove(); //장바구니 푸터 삭제
 					clientCartList.remove();
 				}
 			}
+			location.href = "cart.do";
 		},
 		error: function(request, status, error){
 			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 		}
 	});
-		
-	
-	
-	location.href = "cart.do";
 }
-
-//주문하기 버튼 이벤트
-function paymentBtn(){
-	$('#loadingForm').css({'display': 'block'});
-	var checkGoodsList = document.getElementById('');
-	
-}
-
-
 
 //select box 변화 감지 이벤트
 function optionChange(){
@@ -420,4 +430,57 @@ function optionChange(){
 		}); */
 		
 	}//end if
+}
+
+//옵션 이벤트
+function checkOption() {
+	
+}
+
+
+//주문하기 버튼 이벤트
+function paymentBtn(){
+	$('#loadingForm').css({'display': 'block'});
+	setTimeout(function() { 
+		var finalPrice = $('#final_price').val();
+		
+		//체크박스가 체크된 것만 가져옴
+		//var selChecked = $('input[name=optionCheck]:checked');
+		//var formTag = selChecked.closest('input');
+	
+		var optionCheck = $('input[name=optionCheck]:checked');
+		var optionStr='cart';
+		
+		var options = new Array();
+		for(let i=0; i<optionCheck.length; i++){
+			console.log(optionCheck[i]);	
+			console.log(i+'번쨰');
+			console.log("선택한 옵션의 카트 넘버 : " + optionCheck[i].value);
+			options.push(optionCheck[i].value);
+			console.log("카트넘버 타입 : " + typeof optionCheck[i].value);
+			optionStr+=('@'+ optionCheck[i].value);
+		}
+		
+		console.log('데이터 타입 : ' + typeof options);
+		console.log('optionStr: '+ optionStr);
+		
+		$.ajaxSettings.traditional = true;
+		$.ajax({
+			url: "product_payment.do?finalPrice="+finalPrice+'&optionStr='+optionStr,
+			type: "POST",
+			async: false, 
+			//contentType: 'application/json',
+			data: optionStr,
+			//dataType: "json",
+			success: function(data){
+				console.log('주문결제 사용 완료');
+				setTimeout(function() { 
+					location.replace("payment.do");
+				}, 1500);
+			},
+			error: function(request, status, error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		}); 
+	}, 1000);
 }

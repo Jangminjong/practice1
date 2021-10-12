@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,8 +75,8 @@
 									<div class="artist_card__img"
 										style="background-image: url(${goods.userSellerVO.seller_profile_img[0]});"></div>
 									<span class="artist_card__label">
-										${goods.userSellerVO.store_name} <i
-										class="idus-icon-arrow-right"></i>
+										${goods.userSellerVO.store_name} 
+										<i class="fa fa-share" aria-hidden="true"></i>
 								</span>
 								</a>
 							</div>
@@ -349,31 +350,21 @@
 									
 									<!-- 작품의 옵션 대분류 -->
 									<button type="button" class="option-select-btn">옵션 선택</button>
-									<%-- <div class="option-modal">
-										<c:forEach var="mainOption" items="${goodsOptionList}">
-											<select name='product_category' id="${mainOption.goods_op1_name}">
-												<option value='' selected>-- ${mainOption.goods_op1_name} 선택 --</option>
-												<c:forEach var="subOptionValueList" items="${mainOption.goods_op1_value}" varStatus="status">												
-														<option value=''>${subOptionValueList} (+${mainOption.goods_op1_price[status.index]}원)</option>
-												</c:forEach>
-											</select>
-										</c:forEach>
-									</div> --%>
-
 									<div data-v-1c074f7f="" id="optionScrollable"
 										class="option-modal">
 										<div data-v-1c074f7f="" class="select_group__header">
 											<span data-v-1c074f7f="" class="select_group__title">옵션 선택</span>
 											<button data-v-1c074f7f="" type="button">
-												<i data-v-1c074f7f="" class="idus-icon-close"></i>
+												<i class="fa fa-times" id="modal_close" aria-hidden="true"></i>
 											</button>
 										</div>
 										<div data-v-1c074f7f="" class="select_group__body">
 											<ol data-v-1c074f7f="" class="select_group__parent_list closed">
+												<input type="hidden" name="optionNum" value="${fn:length(goodsOptionList)}" /> 
 												<c:forEach var="mainOption" items="${goodsOptionList}">
 													<div>
 													<select name="goods_option_value" class="form-control"
-														id="${mainOption.goods_op1_name}" onchange="optionChange()">
+														id="${mainOption.goods_op1_name}" onchange="selOptionChange()">
 														<option selected>${mainOption.goods_op1_name} 선택</option>
 														<c:forEach var="subOptionValueList" items="${mainOption.goods_op1_value}" varStatus="status">
 															<option value='${subOptionValueList},${mainOption.goods_op1_price[status.index]}' id="${mainOption.goods_op1_price[status.index]}">
@@ -387,26 +378,26 @@
 										</div>
 									</div>
 
-									<!-- 선택된 옵션 -->
+									<!-- 선택된 옵션 태그-->
 									<div data-v-1c074f7f="" class="selected_options" style="display: none">
 										
 										<!-- 여기가 반복됨 -->
 										<div data-v-5612de30="" data-v-1c074f7f="" class="option_card" id="op_card0">
-											<p data-v-5612de30="" id="selected_options">
+											<p data-v-5612de30="" id="selected_options0">
 												
 											</p>
 											<div data-v-5612de30="" class="option_card__aligner">
 												<div data-v-5612de30="" class="option_card__counter">
 													<button data-v-5612de30="" type="button"
-														class="ui_btn--mini" id="quantityMinus">-</button>
+														class="ui_btn--mini" id="quantityMinus,0" onclick="minusQuantity(this.id)">-</button>
 													<input data-v-5612de30="" type="text" min="1" max="999"
-														name="cart_quantity" value="수량">
+														id="cart_quantity0" name="cart_quantity0" value="1">
 													<button data-v-5612de30="" type="button"
-														class="ui_btn--mini" id="quantityPlus">+</button>
+														class="ui_btn--mini" id="quantityPlus,0" onclick="plusQuantity(this.id)">+</button>
 												</div>
 												<div data-v-5612de30="">
-													<input type="hidden" id="hiddenPrice" value="">
-													<span data-v-5612de30=""><b data-v-5612de30="" id="selOptionPrice"></b>원</span>
+													<input type="hidden" id="hiddenPrice0" value="">
+													<span data-v-5612de30=""><b data-v-5612de30="" id="selOptionPrice0"></b>원</span>
 													<button data-v-5612de30="" type="button"
 														class="ui_btn--mini option_card__close" onclick="optionClose(0)">
 														<i class="fa fa-times" aria-hidden="true"></i>
@@ -943,106 +934,7 @@
 	</div>
 	<!-- div WRAP -->
 	<script>
-	function optionChange(){
-		var cartInfo = 0;
-		var valueArray = new Array(); // 소분류 값을 담을 배열
-		var priceArray = new Array(); // 소분류 가격을 담을 배열
-
-		//셀렉트박스에 있는 값을 하나씩 꺼내 배열에 담는 로직
-		$('select[name=goods_option_value] option:selected').each(function(index){
-			var num=$(this).attr('value');
-			valueArray.push(num);
-		});
-		
-		//셀렉트박스에 있는 값을 하나씩 꺼내 배열에 담는 로직
-		$('select[name=goods_option_value] option:selected').each(function(index){
-			var num=$(this).attr('id');
-			priceArray.push(num);
-		});
-		
-		//실제로 모든 옵션이 선택되었는지 확인하는 로직
-		for(let i=0; i<valueArray.length; i++){
-			if(valueArray[i] == undefined){
-				cartInfo = 1;
-				break;
-			}else if(valueArray[i] != undefined){
-				if(cartInfo != 1){
-					cartInfo = 2;
-				}
-			}//end if
-		}//end for
-		
-		if(cartInfo == 2){ //모든 옵션 선택 O
-			$('.option-modal').css({'display': 'none'});
-
-			
-			//결과 태그에 값 설정
-			var selOption = new Array();
-			var upOption = new Array();
-			for(let i=0; i<valueArray.length; i++){
-				let tmp = valueArray[i].split(',');
-				
-				let str = tmp[0]
-				str += '(+';
-				str += priceArray[i];
-				str += '원)';
-				
-				selOption.push(str);
-			}
-			
-			upOption.push(valueArray[0], valueArray[1]);
-			var updateOption = upOption.join('/');
-			
-			//var inputClone = $(".mb-3 input:first-child").clone().prop('id',imgInput+imgInt);
-			
-			if($('.selected_options').css('display') === ''){ //이미 선택한 옵션이 있을 때
-				var divClone = $('.selected_options div:first-child').clone();
-				console.log('복제한 태그 : ' + divClone);
-				$(".selected_options").append(divClone);
-			}else if($('.selected_options').css('display') === 'none'){ //이미 선택한 옵션이 없을 때
-				var result = selOption.join('/');
-				$('#selected_options').text(result);//옵션 text 출력
-				
-				var goodsPrice = $('#goods_price').text();//상품의 정가
-				var optionPrice = 0; //선택한 옵션의 가격
-				var total = 0; //선택한 옵션들의 총 가격
-				for(let i=0; i<selOption.length; i++){
-					let resultPrice = Number(priceArray[i]);
-					total += resultPrice;
-				}
-				total = total + Number(goodsPrice);
-				
-				
-				
-				$('#selOptionPrice').text(total);//선택한 옵션 총 가격 text 출력
-				$('#hiddenPrice').attr('value', total);//선택한 옵션 총 가격 원본
-				
-				
-				$('#total').attr('value', total);//선택한 모든 옵션의 합산가격
-				$('input[name=cart_quantity]').attr('value', 1);//상품의 기본 수량
-				
-				
-				///////////////////////////////////////////////////////////////////////////////////
-				//옵션 선택 결과창 보여줌
-				$('.selected_options').css({'display': ''});
-				
-				//옵션창 초기화(대분류 값으로 선택됨)
-				$('select[name=goods_option_value] option:selected').each(function(index){
-					$('select[name=goods_option_value] option:eq(0)').prop("selected", true);
-				});
-				
-				//var inputClone = $(".mb-3 input:first-child").clone().prop('id',imgInput+imgInt);
-				
-				/* var optionInt = 1;
-				var optionTag = "op_card";
-				var cloneTag = $(".selected_options div:first-child").clone().prop('id', optionTag + optionInt);
-				console.log('클론 : ' + cloneTag);
-				$('#op_card0').appendTo(cloneTag);
-				optionInt += 1; */
-			}//end if
-			
-		}//end if
-	}
+	
 	</script>
 </body>
 </html>
