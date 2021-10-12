@@ -1,5 +1,8 @@
 package com.idwith.mpweb.user.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.idwith.mpweb.user.ClassRegVO;
 import com.idwith.mpweb.user.UserSellerVO;
 import com.idwith.mpweb.user.GoodsApplyVO;
+import com.idwith.mpweb.user.S3Service;
 import com.idwith.mpweb.user.service.ClassRegService;
 import com.idwith.mpweb.user.service.SellerViewService;
 import com.idwith.mpweb.user.service.WatingService;
@@ -27,6 +32,9 @@ public class OfferController {
 	
 	@Autowired
 	private SellerViewService sellerViewService;
+	
+	@Autowired
+	private S3Service s3Service;
 	
 	@GetMapping("/offer_product.do")
 	public String offerProduct() {
@@ -55,7 +63,7 @@ public class OfferController {
 		
 	//작품 입점신청 컨트롤러
 	@RequestMapping(value = "offer_success.do", method = RequestMethod.POST)
-	public String offerSuccess(GoodsApplyVO goodsApplyVO, HttpSession session) {
+	public String offerSuccess(GoodsApplyVO goodsApplyVO, HttpSession session, MultipartFile file) throws IOException {
 		System.out.println("작품 입점 신청 컨트롤러 실행");
 		
 		//작가가 등록되어 있는지 확인
@@ -65,8 +73,24 @@ public class OfferController {
 //			goodsApplyVO.setGoods_apply_id(seller_code);
 //		}
 		
-		watingService.insertWating(goodsApplyVO);
 		
+		
+		 InputStream is = file.getInputStream();
+         String uploadKey = file.getOriginalFilename();
+         String contentType = file.getContentType();
+         long contentLength = file.getSize();
+
+         String bucket = "idwith/user/goodsApply";
+         s3Service.upload(is, uploadKey, contentType, contentLength, bucket);
+         String filePath = "https://idwith.s3.ap-northeast-2.amazonaws.com/user/goodsApply/" + uploadKey;
+         
+         String[] photo = new String[1]; 
+         
+         photo[0]  = filePath;
+         
+         goodsApplyVO.setGoods_apply_photo(photo);
+		
+		watingService.insertWating(goodsApplyVO);
 		
 		return "offer_success";
 	}

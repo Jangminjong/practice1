@@ -17,7 +17,14 @@ public class WriterVO {
 	private boolean sellerClassYN;
 	private String searchCondition;
 	private String searchKeyword;
+	private int cancleStatus;
 	
+	public int getCancleStatus() {
+		return cancleStatus;
+	}
+	public void setCancleStatus(int cancleStatus) {
+		this.cancleStatus = cancleStatus;
+	}
 	public String getSearchCondition() {
 		return searchCondition;
 	}

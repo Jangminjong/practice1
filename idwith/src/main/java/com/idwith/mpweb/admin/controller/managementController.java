@@ -203,7 +203,6 @@ public class managementController {
 		
 		if(vo != null) {//작가에 등록이 되어있는 경우
 			sellerService.updateSellerStatus(user_id);
-			
 			classRegVO.setClass_seller(vo.getSeller_code());
 			classRegVO.setStore_name(vo.getSeller_name());
 			classRegVO.setSeller_sellno(vo.getSeller_sellno());
@@ -212,7 +211,6 @@ public class managementController {
 		}else if(vo == null) { //작가에 등록이 되어있지 않은 경우
 			try {
 				int randomCode = (int) (Math.random() * 900000) + 100000;
-				
 				SellerVO sellerVO = new SellerVO();
 				sellerVO.setSeller_code(randomCode);
 				sellerVO.setUser_id(user_id);
