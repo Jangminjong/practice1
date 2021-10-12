@@ -20,7 +20,7 @@ public interface WriterCouponService {
 	void updateWriterCoupon(WriterCouponVO writerCoupon);
 	
 	// 페이징 처리 개수
-	int countWriterCoupon();
+	int countWriterCoupon(int sellerCode);
 
 	
 

@@ -56,28 +56,38 @@
 
             </div>
 
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  
                     <li class="dropdown">
+                          <a href="logout.wdo">
+                            <i class="material-icons">logout</i>
+                          </a>
+                        
+                    </li>
+                    
+                    
+
+                    <!-- #END# Tasks -->
+                  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
+                             <i class="material-icons">delete</i>
                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">                                   
+                            <li class="header">입점취소 신청하기</li>
+                            <li class="body text-center"><a href="">취소신청</a>
+                                <ul class="menu">
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <a href="javascript:void(0);">입점취소신청하기</a>
                             </li>
+                           
                         </ul>
                     </li>
-                    
-                    <!-- #END# Tasks -->
-                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                      <i class="material-icons">delete</i></a>
+                    </li>  -->
                 </ul>
             </div>
         </div>
@@ -86,7 +96,7 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-            
+          
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
@@ -102,6 +112,13 @@
                         <a href="orderList.wdo">
                             <i class="material-icons">shopping_cart</i>
                             <span>주문관리</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="orderClass.wdo">
+                            <i class="material-icons">airplay</i>
+                            <span>클래스 신청관리</span>
                         </a>
                     </li>
 
@@ -134,13 +151,6 @@
                     </li>
 
                     <li>
-                        <a href="Follow.wdo">
-                            <i class="material-icons">favorite</i>
-                            <span>팔로우</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="writerStory.wdo">
                             <i class="material-icons">chat</i>
                             <span>작가 이야기</span>
@@ -161,21 +171,27 @@
                         </a>
                     </li>
 
-                   
                     <li>
                         <a href="sellerCalculate.wdo">
                             <i class="material-icons">star_rate</i>
                             <span>정산</span>
                         </a>
                     </li>
-
+                    
+                    <li>
+                        <a href="index.do">
+                            <i class="material-icons">contact_page</i>
+                            <span>Idwith</span>
+                        </a>
+                    </li>
 
                 </ul>
-            </div> 
-          
+            </div>
+
         </aside>
-        
+
     </section>
+
 
     <section class="content">
 
@@ -189,21 +205,31 @@
             </div>
         </div>
 
-        <div class="card" style="height: 430px;">
+        <div class="card" style="height: auto;">
             <div class="card-body container-fluid p-0">
-                <form  id="form-StoryBoard" name="StoryBoard" action="writerStory.wdo">
-                    <div class="mb-3">
+                <form  id="form-StoryBoard" name="insertStory" action="writerInsertStory.wdo" method="POST" enctype="multipart/form-data">
+                  <input type="hidden" value="${sellerCheck }" name="storySellerId">
+                  <input type="hidden" value="${sellerCheck }" name="storySellerName">
+                    <div class="mb-3" style=margin-top:10px;>
                         <label class="form-label">Story Title</label>
                         <input type="text" class="form-control" placeholder="${storyBoard.storyBoardTitle}" name="storyBoardTitle" style="width: auto;">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" style=margin-top:10px;>
                         <label class="form-label">Context</label>
                         <textarea class="form-control" placeholder="${storyBoard.storyBoardContext}" name="storyBoardContext"rows="10"></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label w-100">File input</label>
-                        <input type="file" name="storyBoardFilePath">
-                    </div>
+                   <div class="upload-group" style=margin-top:10px;>
+                                   <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                                   <button type="button" class="addimagegroup" onclick="inputGroupAdd()">업로드 파일 추가</button>
+                                </div>
+                                <div class="image-group">
+                                   <div class="input-group mb-3">
+                                         <input type="file" class="form-control" name="file" id="imageinput1">
+                                      <button onclick="uploadDiscard()" style="display : none;">업로드 파일 취소</button>
+                                   </div>                                 
+                                </div>
+                                <div class="addImage-group">
+                                </div>
                     <div class="col-md-2 text-center pull-right">
                        <a href="writerStory.wdo"><button class="btn btn-dark">작성하기</button></a>
                     </div>

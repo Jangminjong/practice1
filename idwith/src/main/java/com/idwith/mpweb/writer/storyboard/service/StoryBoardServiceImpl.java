@@ -56,8 +56,8 @@ public class StoryBoardServiceImpl implements StoryBoardService {
 	}
 	
 	@Override
-	public int countStoryBoard() {
-		return storyBoardDAO.countStoryBoard();
+	public int countStoryBoard(int storySeller) {
+		return storyBoardDAO.countStoryBoard(storySeller);
 	}
 
 

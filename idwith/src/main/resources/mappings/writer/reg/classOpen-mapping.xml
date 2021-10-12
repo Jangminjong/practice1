@@ -148,4 +148,8 @@
 	<delete id="classOpenDelete" parameterType="writerClassOpen">
 		DELETE FROM class_open where class_open_seq = #{classOpenSeq}
 	</delete>
+ <!-- 	<select id="timeCheck" parameterType="writerClassOpen" resultMap="writerClassOpenResult">
+ 		SELECT count(class_open_time) from class_open where class_open_date = #{classOpenDate} and ( class_open_time < #{class_close_time} or class_close_time 
+ 	</select>	 -->
+
 </mapper>

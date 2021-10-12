@@ -17,6 +17,7 @@ public class GoodsServiceImpl implements GoodsService{
 	@Autowired
 	private WriterGoodsDAO writerGoodsDAO;
 
+
 	// 작품 등록처리
 	@Override
 	public void productCreate(WriterGoodsVO goods) {
@@ -40,6 +41,7 @@ public class GoodsServiceImpl implements GoodsService{
 	public void deleteGoods(WriterGoodsVO goods) {
 	    System.out.println("작품삭제처리 service");
 		writerGoodsDAO.deleteGoods(goods);
+
 	}
 
 	@Override

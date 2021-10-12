@@ -2365,5 +2365,3 @@ if (typeof jQuery === 'undefined') {
 
 
 
-
-

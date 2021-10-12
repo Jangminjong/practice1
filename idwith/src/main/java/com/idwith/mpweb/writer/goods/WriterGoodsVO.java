@@ -26,7 +26,15 @@ public class WriterGoodsVO {
 	private Integer rownum; //  순번
 	private List<GoodsOptionVO> options; //옵션들
 	private String[] uploadedFileList; // 업로드한 파일리스트(form에서 받아오기 위한 변수)
+
 	
+	
+	public Integer getRownum() {
+		return rownum;
+	}
+	public void setRownum(Integer rownum) {
+		this.rownum = rownum;
+	}
 	public String getGoods_code() {
 		return goods_code;
 	}
@@ -106,7 +114,6 @@ public class WriterGoodsVO {
 	public void setGoods_op1_code(Integer goods_op1_code) {
 		this.goods_op1_code = goods_op1_code;
 	}
-	
 	public Integer getGoods_seq() {
 		return goods_seq;
 	}
@@ -125,11 +132,11 @@ public class WriterGoodsVO {
 	public void setGoods_status(Integer goods_status) {
 		this.goods_status = goods_status;
 	}
-	public Integer getRownum() {
-		return rownum;
+	public Integer getGoods_delivery_fee() {
+		return goods_delivery_fee;
 	}
-	public void setRownum(Integer rownum) {
-		this.rownum = rownum;
+	public void setGoods_delivery_fee(Integer goods_delivery_fee) {
+		this.goods_delivery_fee = goods_delivery_fee;
 	}
 	public List<GoodsOptionVO> getOptions() {
 		return options;
@@ -137,12 +144,7 @@ public class WriterGoodsVO {
 	public void setOptions(List<GoodsOptionVO> options) {
 		this.options = options;
 	}
-	public Integer getGoods_delivery_fee() {
-		return goods_delivery_fee;
-	}
-	public void setGoods_delivery_fee(Integer goods_delivery_fee) {
-		this.goods_delivery_fee = goods_delivery_fee;
-	}
+	
 	public String getGoods_delivery_date() {
 		return goods_delivery_date;
 	}
@@ -154,6 +156,9 @@ public class WriterGoodsVO {
 	}
 	public void setUploadedFileList(String[] uploadedFileList) {
 		this.uploadedFileList = uploadedFileList;
+
 	}
+	
+	
 	
 }

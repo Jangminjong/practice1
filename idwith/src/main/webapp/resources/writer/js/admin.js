@@ -982,3 +982,34 @@ $(window).ready(function(){
 	document.getElementById('regCloseTime').value = new Date(openTime.setHours(openTime.getHours()+1)).toISOString().slice(11, 16);
 	
 });
+
+function enrollmentCancle(){
+	$.ajax({
+			url: "writerEnrollmentCancle.wdo",
+			type:"POST",
+			async:"false",
+			data : { 
+		}, success : function(data){
+			alert("입점취소 신청을 성공하였습니다.");
+		}, error : function(request, status, error){
+			alert(`enrollmentCancle fail :
+				error code: ${request.status}
+				error message: ${error}`);
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

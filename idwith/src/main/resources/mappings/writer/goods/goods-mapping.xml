@@ -22,6 +22,7 @@
 		<result property="goods_status" column="goods_status"/>
 		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
 		<result property="goods_delivery_date" column="goods_delivery_date"/>
+		<result property="seller_code" column="seller_code"/>
 	</resultMap>
 	<resultMap type="goodsCategory" id="goodsCategoryResult">
 		<result property="goodsCategoryCode" column="goods_category_code"/>

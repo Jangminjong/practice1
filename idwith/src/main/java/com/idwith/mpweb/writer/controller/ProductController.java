@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.postgresql.util.PSQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -169,8 +170,6 @@ public class ProductController {
 		}
 		return "redirect:/productManagement.wdo";
 	}
-	
-	// ----------------------------------------------------------------------
 	
 	// 주문 상세
 	@GetMapping("/productDetails.wdo")

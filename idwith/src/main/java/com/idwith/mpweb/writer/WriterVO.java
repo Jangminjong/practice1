@@ -1,7 +1,7 @@
 package com.idwith.mpweb.writer;
 
 
-public class writerVO {
+public class WriterVO {
 	
 
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="writerClassOrderDAO">
+	<resultMap type="classOrder" id="classOrderResult">
+	    <result property="class_order_seq" column="class_order_seq"/>
+	 	<result property="class_order_code" column="class_order_code" />
+		<result property="class_order_price" column="class_order_price"/>
+		<result property="class_order_date" column="class_order_date" />
+		<result property="class_order_time" column="class_order_time" />
+		<result property="class_order_donation" column="class_order_donation" />
+		<result property="class_order_id" column="class_order_id"/>
+		<result property="class_order_people" column="class_order_people"/>
+		<result property="class_order_demand" column="class_order_demand"/>
+		<result property="class_payment_check" column="class_payment_check"/>
+		<result property="class_payment_date" column="class_payment_date"/>
+		<result property="class_order_review" column="class_order_review"/>
+		<result property="class_order_name" column="class_order_name"/>
+		<result property="class_seller_code" column="class_seller_code"/>
+ 	</resultMap>
+
+
+	
+	 
+	<!-- 작가이야기  상세조회 -->
+	<select id="classDetail" resultType="classOrder" resultMap="classOrderResult">
+		SELECT * FROM class_order WHERE class_order_seq=#{class_order_seq}
+	</select>
+
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="getClassOrderList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="classOrderResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM class_order WHERE class_seller_code=#{countNotice} ORDER BY class_order_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>	
+
+     <!-- 게시글 개수 출력 -->
+	<select id="countClassOrder" resultType="_int">
+		select count(*) from class_order WHERE class_seller_code=#{sellerCode}
+	</select>
+	
+	<!-- 5개만 출력 -->
+	<select id="getClassOrderListFive" resultMap="classOrderResult">
+		select * from class_order WHERE class_seller_code=#{sellerCode} limit 5
+	</select>
+
+</mapper>

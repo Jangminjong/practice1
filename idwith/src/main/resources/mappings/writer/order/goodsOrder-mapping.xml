@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GoodsOrderDAO">
+	<resultMap type="goodsOrder" id="goodsOrderResult">
+	    <result property="order_detail_code" column="order_detail_code"/>
+	 	<result property="order_detail_seller" column="order_detail_seller" />
+		<result property="order_detail_goods" column="order_detail_goods"/>
+		<result property="order_detail_category" column="order_detail_category" />
+		<result property="order_detail_quantity" column="order_detail_quantity" />
+		<result property="order_detail_option1" column="order_detail_option1" />
+		<result property="order_detail_option2" column="order_detail_option2"/>
+		<result property="order_detail_option3" column="order_detail_option3"/>
+		<result property="order_detail_donation" column="order_detail_donation"/>
+		<result property="order_detail_demand" column="order_detail_demand"/>
+		<result property="order_detail_price" column="order_detail_price"/>
+		<result property="coupon_use" column="coupon_use"/>
+		<result property="coupon_code" column="coupon_code"/>
+		<result property="order_detail_cost" column="order_detail_cost"/>
+		<result property="order_review" column="order_review"/>
+		<result property="order_id" column="order_id"/>
+		<result property="order_detail_payment" column="order_detail_payment"/>
+		<result property="order_delivery_state" column="order_delivery_state"/>
+		<result property="review_goods_code" column="review_goods_code"/>
+		<result property="order_date" column="order_date"/>
+		<result property="order_goods_name" column="order_goods_name"/>
+		<result property="order_detail_name" column="order_detail_name"/>
+		<result property="order_detail_phone" column="order_detail_phone"/>
+		<result property="order_detail_zip" column="order_detail_zip"/>
+		<result property="order_detail_address" column="order_detail_address"/>
+		<result property="order_detail_address2" column="order_detail_address2"/>
+ 	</resultMap>
+
+	
+	
+	<!-- 주문 상세조회 -->
+	<select id="Order" resultType="goodsOrder" resultMap="goodsOrderResult">
+		SELECT * FROM goods_order_detail WHERE order_detail_code=#{order_detail_code}
+	</select>
+	
+	<!-- 배송 수정 -->
+	 <update id="updateOrder" parameterType="com.idwith.mpweb.writer.order.GoodsOrderVO">
+	 	<![CDATA[	
+	 		UPDATE goods_order_detail
+	 		SET order_delivery_state=#{order_delivery_state}
+	 		WHERE order_detail_code = #{order_detail_code}
+	    ]]> 	 
+ 	</update>
+
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="getOrderList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="goodsOrderResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM goods_order_detail WHERE order_detail_seller=#{countNotice} ORDER BY order_detail_code DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>	
+
+     <!-- 게시글 개수 출력 -->
+	<select id="countGoodsOrder" resultType="int">
+		select count(*) from goods_order_detail WHERE order_detail_seller=#{sellerCode}
+	</select>
+	
+	<!--  당일 주문수 출력 -->
+	<select id="countTodayOrder" resultType="int">
+	   select count(*) from goods_order_detail WHERE order_detail_seller=#{sellerCode} and order_date=current_date
+	</select>
+	
+	<select id="getGoodsOrderListFive" resultMap="goodsOrderResult">
+		select * from goods_order_detail WHERE order_detail_seller=#{sellerCode} limit 5
+	</select>
+	
+
+</mapper>
