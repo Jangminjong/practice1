@@ -1,6 +1,7 @@
 package com.idwith.mpweb.user.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -51,13 +52,19 @@ public class PaymentController {
 		point.setSave_point((int)Math.round((classOrder.getClass_order_price()) * 0.01));
 		
 		// 사용자 정보 세팅 
-		UserVO user = service.getUserInfoForClassReg(email); 
+		List<UserVO> user = service.getUserInfoForClassReg(email); 
+		int totalPoint=0;
+		for(UserVO list: user) {
+			totalPoint+=list.getSave_point();
+		}
+		
+		user.get(0).setSave_point(totalPoint);
 		 
 		classOrder.setClass_order_code(classCode);
 		classOrder.setClass_order_id(email);
 		
 		model.addAttribute("classOrder", classOrder);
-		model.addAttribute("user", user);
+		model.addAttribute("user", user.get(0));
 		model.addAttribute("store_name", service.getStoreNameforOrder(classOrder.getClass_order_code()));
 		model.addAttribute("point", point);
 		
@@ -107,5 +114,12 @@ public class PaymentController {
 	@GetMapping("/payment_complete.do")
 	public String paymentComplete(HttpSession session) {
 		return "class/payment_complete";
+	}
+	
+	@RequestMapping("/payment_class_cancel.do")
+	public String paymentClassCancel(HttpServletRequest req) {
+		String marchant_uid = req.getParameter("marchant_uid");
+		service.paymentClassCancel(marchant_uid);
+		return "redirect:/mypage_order_class.do";
 	}
 }

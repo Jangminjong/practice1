@@ -6,6 +6,7 @@ import java.util.Map;
 import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.UserVO;
+import com.idwith.mpweb.user.classUser.ClassOrderVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 
 public interface MypageService {
@@ -28,4 +29,6 @@ public interface MypageService {
 	List<GoodsReviewVO> getReviewAfterList(String goods_review_id);
 
 	void deleteReview(String goods_review_seq);
+
+	List<ClassOrderVO> getOrderClassList(String email);
 }

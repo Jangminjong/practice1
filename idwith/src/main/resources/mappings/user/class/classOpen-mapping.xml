@@ -48,6 +48,7 @@
  		<result property="class_order_review" column="class_order_review"/>
  		<result property="marchant_uid" column="marchant_uid"/>
  		<result property="imp_uid" column="imp_uid"/>
+ 		<result property="store_name" column="store_name"/>
  	</resultMap>
  	
  	<select id="getPopularClassList" resultMap="classResult">
@@ -161,6 +162,19 @@
 					  #{class_order_id}, #{class_order_people}, #{class_order_demand}, true, now(),
 					   #{class_order_name}, #{class_order_reserve_name}, #{class_order_reserve_phone},#{marchant_uid}, #{imp_uid})
  	</insert>
+ 	<!-- 마이페이지에 주문 내역 가져오기 -->
+ 	<select id="getOrderClassList" parameterType="string" resultMap="classOrderResult">
+ 		SELECT * FROM(
+			SELECT foo.*, seller.store_name FROM (
+			(SELECT class_order.*, class_open.class_open_name, class_open.class_open_photo, class_open.class_open_seller FROM class_order 
+				LEFT OUTER JOIN class_open 
+				ON class_order.class_order_code= class_open.class_open_class_code WHERE class_order.class_order_id=#{email} AND class_order.class_order_code NOTNULL)AS foo
+			LEFT OUTER JOIN seller ON foo.class_open_seller = seller.seller_code))AS boo
+ 	</select>
+ 	<!-- 클래스 주문 취소 -->
+ 	<delete id="paymentClassCancel" parameterType="string">
+ 		DELETE FROM class_order WHERE marchant_uid=#{marchant_uid}
+ 	</delete>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.idwith.mpweb.user.CartVO;
 import com.idwith.mpweb.user.ChoiceVO;
 import com.idwith.mpweb.user.FollowVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
@@ -103,4 +104,7 @@ public class CheckController {
 		
 		return Integer.toString(result);
 	}
+
+	
+	
 }

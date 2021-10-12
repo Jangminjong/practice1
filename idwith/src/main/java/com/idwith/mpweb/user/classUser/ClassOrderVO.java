@@ -25,7 +25,14 @@ public class ClassOrderVO {
 	private String marchant_uid;
 	private String imp_uid;
 	
+	// 사용자 정보 업데이트할 떼 사용
 	private String user_phone;
+	
+	// 결제 내역 조회시 사용
+	private String class_open_name;
+	private String[] class_open_photo;
+	private int class_open_seller;
+	private String store_name;
 
 	public int getClass_order_seq() {
 		return class_order_seq;
@@ -172,6 +179,38 @@ public class ClassOrderVO {
 
 	public void setClass_order_reserve_phone(String class_order_reserve_phone) {
 		this.class_order_reserve_phone = class_order_reserve_phone;
+	}
+
+	public String getClass_open_name() {
+		return class_open_name;
+	}
+
+	public void setClass_open_name(String class_open_name) {
+		this.class_open_name = class_open_name;
+	}
+
+	public String[] getClass_open_photo() {
+		return class_open_photo;
+	}
+
+	public void setClass_open_photo(String[] class_open_photo) {
+		this.class_open_photo = class_open_photo;
+	}
+
+	public int getClass_open_seller() {
+		return class_open_seller;
+	}
+
+	public void setClass_open_seller(int class_open_seller) {
+		this.class_open_seller = class_open_seller;
+	}
+
+	public String getStore_name() {
+		return store_name;
+	}
+
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
 	}
 	
 	
