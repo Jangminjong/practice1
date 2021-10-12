@@ -14,6 +14,7 @@ import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,11 +24,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.idwith.mpweb.writer.common.S3Service;
 import com.idwith.mpweb.writer.service.ClassOpenService;
+import com.idwith.mpweb.writer.service.ClassOrderService;
 import com.idwith.mpweb.writer.service.ClassRegService;
 
 
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.writer.WriterClassOpenVO;
+import com.idwith.mpweb.writer.WriterClassOrderVO;
 import com.idwith.mpweb.writer.WriterClassRegVO;
 
 @Controller
@@ -40,6 +43,9 @@ public class ClassController {
 	
 	@Autowired
 	ClassOpenService classOpenService;
+	
+	@Autowired
+	ClassOrderService classOrderService;
 	
 	@GetMapping("/classManagement.wdo")
 	public String classManagement(HttpServletRequest request, Model model, HttpSession session, PagingVO pageVO, @RequestParam(value="nowPage", required=false) String nowPage, @RequestParam(value="cntPerPage", required=false) String cntPerPage) {
@@ -206,5 +212,45 @@ public class ClassController {
 		writerClassRegVO.setClassPhoto(photo);
 		classRegService.classRegUpdate(writerClassRegVO);
 		return "redirect:/classManagement.wdo";
+	}
+//  주문 상세 ----------------------------------------------------------------------------------------------------------
+	@GetMapping("/orderClass.wdo")
+	public String orderClass(PagingVO pageVO, Model model, HttpSession session,
+			@RequestParam(value="nowPage", required = false)String nowPage,
+			@RequestParam(value="cntPerPage", required = false)String cntPerPage,
+			@RequestParam(value="set", required = false)String set) {
+		System.out.println("클래스 목록 요청처리");
+		
+		int sellerCode = Integer.parseInt(session.getAttribute("sellerCheck").toString());
+		int classOrderTotal = classOrderService.countClassOrder(sellerCode);
+		
+		
+		System.out.println("주문 수 : " + classOrderTotal);
+		
+		if(nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+			
+		}else if(nowPage == null) {
+			nowPage = "1";
+		}else if(cntPerPage == null) {
+			cntPerPage = "5";
+		}
+		
+		pageVO = new PagingVO(classOrderTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), sellerCode);
+		
+		model.addAttribute("total", classOrderTotal);
+		model.addAttribute("paging", pageVO);
+		model.addAttribute("ClassOrderViewAll", classOrderService.getClassOrderList(pageVO) );
+		
+		return "orderClass";	
+	}
+	
+	@RequestMapping(value="/classDetail.wdo", method=RequestMethod.GET)
+	public String classDetail(WriterClassOrderVO writerClassOrder, Model model) {
+		System.out.println("클래스 상세보기 : " + writerClassOrder.getClass_order_code());
+		System.out.println("클래스 : " + writerClassOrder.getClass_order_id());
+		model.addAttribute("writerClassOrder", classOrderService.classDetail(writerClassOrder));
+		return "classDetail";
 	}
 }

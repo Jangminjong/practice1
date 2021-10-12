@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="followerDAO">
+	<resultMap type="followerVO" id="followerResult">
+	    <result property="follow_seq" column="follow_seq"/>
+	 	<result property="follow_id" column="follow_id" />
+		<result property="followed_id" column="followed_id"/>
+		<result property="follow_date" column="follow_date" />		
+	</resultMap>
+
+
+     <!-- 팔로우 몇수 출력 -->
+	<select id="follower" resultType="int">
+		select count(*) from follow WHERE followed_id=#{seller_code}
+	</select>
+	
+
+</mapper>

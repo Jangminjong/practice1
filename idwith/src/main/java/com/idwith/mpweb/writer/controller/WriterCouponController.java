@@ -1,5 +1,7 @@
 package com.idwith.mpweb.writer.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,13 +22,14 @@ public class WriterCouponController {
 	
 	// 쿠폰 목록 요청
 	@GetMapping("/couponRequest.wdo")
-	public String couponRequest(PagingVO pageVO, Model model,
+	public String couponRequest(PagingVO pageVO, Model model, HttpSession session,
 			@RequestParam(value = "nowPage", required = false)String nowPage,
 			@RequestParam(value = "cntPerPage", required = false)String cntPerPage,
 			@RequestParam(value = "set", required=false) String set) {
 		System.out.println("쿠폰 목록 요청 처리");
 		
-		int writerCouponTotal = writerCouponService.countWriterCoupon();
+		int sellerCode = Integer.parseInt(session.getAttribute("sellerCheck").toString());
+		int writerCouponTotal = writerCouponService.countWriterCoupon(sellerCode);
 		
 		System.out.println("쿠폰 수 : " + writerCouponTotal);
 		
@@ -40,8 +43,9 @@ public class WriterCouponController {
 			cntPerPage = "5";
 		}
 		
-		pageVO = new PagingVO(writerCouponTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		pageVO = new PagingVO(writerCouponTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), sellerCode);
 		
+		model.addAttribute("total", writerCouponTotal);
 		model.addAttribute("paging", pageVO);
 		model.addAttribute("writerCouponViewAll", writerCouponService.getCouponList(pageVO));
 		
@@ -61,7 +65,8 @@ public class WriterCouponController {
 	@RequestMapping("/insertCoupon.wdo")
 	public String inserCoupon(WriterCouponVO writerCoupon) {
 		System.out.println("쿠폰발행 요청");
-		System.out.println("CouponName : " + writerCoupon.getRequest_cp_name() );
+		System.out.println("CouponName : " + writerCoupon.getRequest_cp_name());
+		System.out.println("SerllerCode : " + writerCoupon.getRequest_cp_seller());
 		writerCouponService.insertWriterCoupon(writerCoupon);
 		return "redirect:/couponRequest.wdo";
 	}

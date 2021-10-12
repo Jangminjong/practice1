@@ -56,28 +56,38 @@
 
             </div>
 
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  
                     <li class="dropdown">
+                          <a href="logout.wdo">
+                            <i class="material-icons">logout</i>
+                          </a>
+                        
+                    </li>
+                    
+                    
+
+                    <!-- #END# Tasks -->
+                  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
+                             <i class="material-icons">delete</i>
                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">                                   
+                            <li class="header">입점취소 신청하기</li>
+                            <li class="body text-center"><a href="">취소신청</a>
+                                <ul class="menu">
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <a href="javascript:void(0);">입점취소신청하기</a>
                             </li>
+                           
                         </ul>
                     </li>
-                    
-                    <!-- #END# Tasks -->
-                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                      <i class="material-icons">delete</i></a>
+                    </li>  -->
                 </ul>
             </div>
         </div>
@@ -86,7 +96,7 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-            
+          
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
@@ -102,6 +112,13 @@
                         <a href="orderList.wdo">
                             <i class="material-icons">shopping_cart</i>
                             <span>주문관리</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="orderClass.wdo">
+                            <i class="material-icons">airplay</i>
+                            <span>클래스 신청관리</span>
                         </a>
                     </li>
 
@@ -134,13 +151,6 @@
                     </li>
 
                     <li>
-                        <a href="Follow.wdo">
-                            <i class="material-icons">favorite</i>
-                            <span>팔로우</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="writerStory.wdo">
                             <i class="material-icons">chat</i>
                             <span>작가 이야기</span>
@@ -161,88 +171,147 @@
                         </a>
                     </li>
 
-                    
                     <li>
                         <a href="sellerCalculate.wdo">
                             <i class="material-icons">star_rate</i>
                             <span>정산</span>
                         </a>
                     </li>
-
+                    
+                    <li>
+                        <a href="index.do">
+                            <i class="material-icons">contact_page</i>
+                            <span>Idwith</span>
+                        </a>
+                    </li>
 
                 </ul>
-            </div> 
-          
+            </div>
+
         </aside>
-        
+
     </section>
+
 
     <section class="content">
         <div class="content">
             <div class="row">
-                <div class="container-fluid p-0">
-
+                <div class="card container-fluid p-0">
+  
                     <div class="row mb-3">
-                        <div class="col-auto d-none d-sm-block">
+                        <div class="col-auto d-none d-sm-block container-fluid p-0">
                             <h3>주문 상세</h3>
                         </div>
                     </div>
                     
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">아이디</label>
-                            <input type="text" class="form-control" placeholder="client" style="width: auto;" disabled>
+                    <form id="form-goodsOrder-writer" name="OrderForm" action="updateOrder.wdo"  style=margin-top:10px;>
+                               <input type="hidden" name="order_detail_code" value="${goodsOrder.order_detail_code}" />                      
+                       <div class="row" >
+                            <div class="col-md-12 " style=margin-top:5px;>
+                                <label class="form-label">배송상태설정</label>
+                                <input type="text" class="form-control" list="list" 
+									style="width: auto;" name="order_delivery_state" value="${goodsOrder.order_delivery_state}" />
+								<datalist id="list">
+									<option>상품준비중</option>
+									<option>배송중</option>
+									<option>배송완료</option>
+								</datalist>
+							</div> 
+                       
+                            <div class="col-md-3" style=margin-top:10px;>
+                                <label class="form-label">아이디</label>
+                                <input type="text" class="form-control" value="${goodsOrder.order_id}" style="width: auto;"
+                                    id="cpStartDate" disabled>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">이름</label>
+                                <input type="text" class="form-control" value="${goodsOrder.order_detail_name}" style="width: auto;"
+                                    id="cpEndDate" disabled>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">연락처</label>
+                                <input type="text" class="form-control" value="${goodsOrder.order_detail_phone}" style="width: auto;"
+                                    id="cpEndDate" disabled>
+                            </div>
                         </div>
-                        <!-- 쿠폰 리스트에 있는 쿠폰 코드이면 쿠폰 코드 사용 불가 alert-->
-                        <div class="mb-3">
-                            <label class="form-label">회원 이름</label>
-                            <input type="text" class="form-control" placeholder="이예지" style="width: auto;">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">전화번호</label>
-                            <input type="text" class="form-control" placeholder="010-1234-5678" style="width: auto;">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">우편번호</label>
-                            <input type="text" class="form-control" placeholder="zipcode" style="width: auto;">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">주소</label>
-                            <input type="text" class="form-control" placeholder="인천 광역시 부평구 대정로 90번길 7">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">상세 주소</label>
-                            <input type="text" class="form-control" placeholder="address2">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">상세 옵션</label>
-                            <input type="text" class="form-control" placeholder="Option">
-                        </div>
-                        <div class="row">
+                        <div class="row" style=margin-top:10px;>
+                            <div class="col-md-3">
+                                <label class="form-label">작품 코드</label>
+                                <input type="text" class="form-control" value="${goodsOrder.order_detail_goods}" style="width: auto;"
+                                    id="cpStartDate" disabled>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">주문 작품</label>
+                                <input type="text" class="form-control" value="${goodsOrder.order_goods_name}" style="width: auto;"
+                                    id="cpStartDate" disabled>
+                            </div>
                             <div class="col-md-3">
                                 <label class="form-label">주문 수량</label>
-                                <input type="text" class="form-control" placeholder="" style="width: auto;"
-                                    id="cpStartDate">
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">결제 금액</label>
-                                <input type="text" class="form-control" placeholder="Payment" style="width: auto;"
-                                    id="cpEndDate">
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">결제 수단</label>
-                                <input type="text" class="form-control" placeholder="Payment method" style="width: auto;"
-                                    id="cpEndDate">
+                                <input type="text" class="form-control" value="${goodsOrder.order_detail_quantity}" style="width: auto;"
+                                    id="cpEndDate" disabled>
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">배송비</label>
                                 <input type="text" class="form-control" placeholder="delivery" style="width: auto;"
-                                    id="cpEndDate">
+                                    id="cpEndDate" disabled>
+                            </div>                          
+                        </div>                     
+                        <div class="mb-3" style=margin-top:10px;width:270px;>
+                            <label class="form-label">우편번호</label>
+                            <input type="text" class="form-control" value="${goodsOrder.order_detail_zip}"  disabled>
+                        </div>
+                        <div class="mb-3" style=margin-top:10px;width:700px;>
+                            <label class="form-label">주소</label>
+                            <input type="text" class="form-control" value="${goodsOrder.order_detail_address}" disabled>
+                        </div>
+                        <div class="mb-3" style=margin-top:10px;width:700px;>
+                            <label class="form-label">상세 주소</label>
+                            <input type="text" class="form-control" value="${goodsOrder.order_detail_address2}" disabled>
+                        </div>
+                        <div class="mb-3" style=margin-top:10px;width:700px;>
+                            <label class="form-label">옵션명</label>
+                            <input type="text" class="form-control" value="${goodsOrder.order_detail_option1}" disabled>
+                        </div>
+                        <div class="mb-3" style=margin-top:10px;width:700px;>
+                            <label class="form-label">옵션 가격</label>
+                            <input type="text" class="form-control" value="${goodsOrder.order_detail_option2}" disabled>
+                        </div>                        
+                        <div class="mb-3" style=margin-top:10px;>
+                            <label class="form-label">요청 사항</label>
+                            <input type="text" class="form-control" value="${goodsOrder.order_detail_demand}" disabled style=height:65px;>
+                        </div>
+                        <div class="row" style=margin-top:10px;>
+                            <div class="col-md-3">
+                                <label class="form-label">쿠폰</label>
+                                <input type="text" class="form-control" value="${goodsOrder.coupon_code}" style="width: auto;"
+                                    id="cpEndDate" disabled>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">후원금</label>
+                                <input type="text" class="form-control" value="${goodsOrder.order_detail_donation}" style="width: auto;"
+                                    id="cpEndDate" disabled>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">결제금액</label>
+                                <input type="text" class="form-control" value="${goodsOrder.order_detail_cost}" style="width: auto;"
+                                    id="cpEndDate" disabled>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">요청 사항</label>
-                            <input type="text" class="form-control" placeholder="Requested term">
+                           
+                       
+                        
+                        
+                         <div class="col-3 pull-right" style=margin-top:15px;margin-bottom:15px;>   
+                
+                            <div class="col-md-3 text-center">
+                              <a href="orderList.wdo">
+                                <button class="btn btn-primary">주문목록</button>
+                              </a>                             
+                            </div>
+                             <a href="updateOrder.wdo" style=margin-left:50px;>
+                                <button class="btn btn-warning" style=width:70px;>확인</button>
+                              </a>
+                            
                         </div>
                     </form>
 
@@ -256,17 +325,10 @@
                 <div class="col-md-2 text-center"></div>
                 <div class="col-md-2 text-center"></div>
                 <div class="col-md-2 text-center"></div>
-             <div class="col-3">   
-                <div class="col-md-2 text-center">
-                    <a href="../index.html">
-                        <button class="btn btn-primary">목록보기</button>
-                    </a>
-                </div>
-            </div>
+            
             </div>
         </div>
-        </div>
-        </div>
+       
     </section>
 
     <!-- Jquery Core Js -->

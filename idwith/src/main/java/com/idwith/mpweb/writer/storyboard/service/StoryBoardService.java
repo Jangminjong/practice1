@@ -24,7 +24,7 @@ public interface StoryBoardService {
 	void deleteStoryBoard(StoryBoardVO storyBoard);
 
 	//페이징 처리 개수
-	int countStoryBoard();
+	int countStoryBoard(int storySeller);
 
 
 	

@@ -56,28 +56,38 @@
 
             </div>
 
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+   <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  
                     <li class="dropdown">
+                          <a href="logout.wdo">
+                            <i class="material-icons">logout</i>
+                          </a>
+                        
+                    </li>
+                    
+                    
+
+                    <!-- #END# Tasks -->
+                  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
+                             <i class="material-icons">delete</i>
                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">                                   
+                            <li class="header">입점취소 신청하기</li>
+                            <li class="body text-center"><a href="">취소신청</a>
+                                <ul class="menu">
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <a href="javascript:void(0);">입점취소신청하기</a>
                             </li>
+                           
                         </ul>
                     </li>
-                    
-                    <!-- #END# Tasks -->
-                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                      <i class="material-icons">delete</i></a>
+                    </li>  -->
                 </ul>
             </div>
         </div>
@@ -86,7 +96,7 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-            
+          
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
@@ -102,6 +112,13 @@
                         <a href="orderList.wdo">
                             <i class="material-icons">shopping_cart</i>
                             <span>주문관리</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="orderClass.wdo">
+                            <i class="material-icons">airplay</i>
+                            <span>클래스 신청관리</span>
                         </a>
                     </li>
 
@@ -134,13 +151,6 @@
                     </li>
 
                     <li>
-                        <a href="Follow.wdo">
-                            <i class="material-icons">favorite</i>
-                            <span>팔로우</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="writerStory.wdo">
                             <i class="material-icons">chat</i>
                             <span>작가 이야기</span>
@@ -161,21 +171,27 @@
                         </a>
                     </li>
 
-                    
                     <li>
                         <a href="sellerCalculate.wdo">
                             <i class="material-icons">star_rate</i>
                             <span>정산</span>
                         </a>
                     </li>
-
+                    
+                    <li>
+                        <a href="index.do">
+                            <i class="material-icons">contact_page</i>
+                            <span>Idwith</span>
+                        </a>
+                    </li>
 
                 </ul>
-            </div> 
-          
+            </div>
+
         </aside>
-        
+
     </section>
+
     
 
     <section class="content">
@@ -190,48 +206,135 @@
                         </div>
                         <div class="body">
                             <form id="form_validation" name="goodsModifyForm" action="updateGoods.wdo" method="POST">
+                                <div class="form-group form-float" style=width:300px;>                                
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="${goods.goods_stock}" name="goods_name" required>
+                                        <label class="form-label">수량</label>
+                                    </div>
+                                </div>
+                          
+ 
+                                                        
+                                <div class="form-group form-float">                                
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="${goods.goods_name}" name="goods_name" required>
+                                        <label class="form-label">작품명</label>
+                                    </div>
+                                </div>                                                       
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="goods_name"  placeholder="${goods.goods_name}" >
-                                        <label class="form-label"></label>
+                                        <input type="text" class="form-control" value="${goods.goods_price}" name="goods_price" required>
+                                        <label class="form-label">가격</label>
                                     </div>
-                                </div>
-                                <div class="form-group ">
+                                </div>       
+                                
+                                <div class="upload-group pull-right">
+                                   <button type="button" class="GroupOption" onclick="inputOptionAdd()">옵션 추가</button>
+                                </div>                         
+                               
+                               <!-- style.css / bootstrap.js -->
+                               <div class="GroupOption">
+                                 <div class="form-group form-float" style=margin-top:75px;>
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="goods_price"  placeholder="${goods.goods_price}" >
-                                        <label class="form-label"></label>
+                                     <div class="upload-group pull-right">
+                                      <button type="button" class="optiongroup" id="Textinput0" onclick="inputTextAdd()">상세옵션 추가</button>
+                                     </div>
+                                     <div class="Big-opt">
+                                        <input type="text" class="form-control" value="" name="" required>
+                                        <label class="form-label">옵션(대분류)</label>                                                                                
+                                    </div>                          
+                                </div>  
+                                </div>
+                                                                                                            
+                                   <div class="form-group form-float">                                  
+                                    <div class="col-4" id="price" style=display:inline-flex>
+                                      <div class="form-line optSmall" style=width:300px;margin-top:20px;>
+                                        <input type="text" class="form-control" name="text" required>
+                                        <label class="form-label">옵션(소분류)</label>
+                                      </div>
+                                      
+                                      <div class="form-line optPrice" style=width:300px;margin-left:40px;margin-top:20px;>
+                                        <input type="text" class="form-control" name="text" required>
+                                        <label class="form-label">옵션(가격)</label>
+                                      </div> 
+                                   </div>                                                                                                              
+                                </div>
+                                 </div>
+                             
+                                
+                                <div class="form-group form-float" style=padding-top:1px>
+                                	<div class="form-line opt-group">
+                                
+                                	</div>
+                                </div>
+                                
+                                 <!-- <div class="form-group form-float" style=padding-top:1px> -->
+                                	<div class="form-line addOption-group">
+                                	  
+                                
+                                	</div>
+                                <!-- </div> --> 
+                               
+                              
+                              
+                                <!--  <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="" name="goods_op2_code" required>
+                                        <label class="form-label">옵션(대분류)</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="text" >
-                                        <label class="form-label"></label>
+                                        <input type="text" class="form-control" value="" name="goods_op3_code" required>
+                                        <label class="form-label">옵션(대분류)</label>
                                     </div>
-                                </div>
-                                        <div class="form-group form-float">
+                                </div>   -->
+                                
+                                <div class="form-group form-float">
                                     <div class="form-line">
-                                        <textarea name="goods_info"  placeholder="${goods.goods_info}" cols="30" rows="5" class="form-control no-resize" ></textarea>
-                                        <label class="form-label"></label>
+                                        <textarea  name="goods_info" cols="30" rows="5" class="form-control no-resize" required>${goods.goods_info}</textarea>
+                                        <label class="form-label">작품 상세설명</label>
                                     </div>
                                 </div>
-
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
-                                    <input type="file" class="form-control" id="inputGroupFile01">
-                                  </div>
+                                
+                                <div class="form-group form-float" style=display:inline-flex>                                 
+                                  
+                                      <div class="form-line optSmall" style=width:300px;margin-top:20px;>
+                                        <input type="text" class="form-control" name="text" value="${goods.goods_delivery_fee}" required>
+                                        <label class="form-label">배송비</label>
+                                      </div>
+                                      
+                                      <div class="form-line" style=width:300px;margin-left:40px;margin-top:20px;>
+                                        <input type="text" class="form-control" name="text" value="${goods.goods_delivery_date}" required>
+                                        <label class="form-label">배송소요일(평균)</label>
+                                      </div> 
+                                   </div>                                                                                                              
+                               
+                                
+                                <div class="upload-group">
+                                   <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                                   <button type="button" class="addimagegroup" onclick="inputGroupAdd()">업로드 파일 추가</button>
+                                </div>
+                                <div class="image-group">
+                                   <div class="input-group mb-3">
+                                         <input type="file" class="form-control" name="file" id="imageinput1">
+                                      <button onclick="uploadDiscard()" style="display : none;">업로드 파일 취소</button>
+                                   </div>                                 
+                                </div>
+                                <div class="addImage-group">
+                                </div>
                                   
                                  
 								<div class="row">									
-                                  <a href="productManagement.wdo">
-                                      <button class="btn btn-primary waves-effect pull-right" type="submit">목록</button>
-                                  </a>
-                                  <a href="updateGoods.wdo?seq_goods=${goods.goods_seq}">
-                                      <button class="btn btn-success waves-effect  pull-right" style=margin-right:5px; type="submit">수정</button>
-                                  </a>
-            
-                       
-                       
-                        </div>
+                                   <a href="productManagement.wdo">
+                                       <button class="btn btn-primary waves-effect pull-right" type="submit">목록</button>
+                                   </a>
+                                  
+                                  
+                                   <a href="updateGoods.wdo?seq_goods=${goods.goods_seq}">
+                                       <button class="btn btn-success waves-effect  pull-right" style=margin-right:10px; type="submit">수정</button>
+                                   </a>
+                                </div>
                             </form>
                         </div>
                         

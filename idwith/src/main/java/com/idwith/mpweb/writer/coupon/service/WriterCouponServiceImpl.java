@@ -37,7 +37,8 @@ public class WriterCouponServiceImpl implements WriterCouponService{
 
 	// 수정
 	
-	@Override public void updateWriterCoupon(WriterCouponVO writerCoupon) {
+	@Override 
+	public void updateWriterCoupon(WriterCouponVO writerCoupon) {
 	  System.out.println("쿠폰 수정처리 Service");
 	  writerCouponDAO.updateWriterCoupon(writerCoupon);
 	  
@@ -45,8 +46,8 @@ public class WriterCouponServiceImpl implements WriterCouponService{
 	 
 
 	@Override
-	public int countWriterCoupon() {
-		return writerCouponDAO.countWriterCoupon();
+	public int countWriterCoupon(int sellerCode) {
+		return writerCouponDAO.countWriterCoupon(sellerCode);
 	}
 
 	

@@ -7,7 +7,7 @@ public class StoryBoardVO {
 	
 	private Integer storySellerId;
 	private Timestamp storyBoardRegDate;
-	private String storyBoardFilePath;
+	private String[] storyBoardFilePath;
 	private String storyBoardContext;
 	private String storyBoardTitle;
 	private int story_tseq;
@@ -17,6 +17,9 @@ public class StoryBoardVO {
 	// seller 테이블에 있는 컬럼
 	private String[] sellerProfileImg;
 	private String store_name;
+	// form 데이터 가져오기 용
+	private String[] uploadedFileList;
+	private String[] uploadFileList;
 	
 	public Integer getStorySellerId() {
 		return storySellerId;
@@ -30,10 +33,11 @@ public class StoryBoardVO {
 	public void setStoryBoardRegDate(Timestamp storyBoardRegDate) {
 		this.storyBoardRegDate = storyBoardRegDate;
 	}
-	public String getStoryBoardFilePath() {
+	
+	public String[] getStoryBoardFilePath() {
 		return storyBoardFilePath;
 	}
-	public void setStoryBoardFilePath(String storyBoardFilePath) {
+	public void setStoryBoardFilePath(String[] storyBoardFilePath) {
 		this.storyBoardFilePath = storyBoardFilePath;
 	}
 	public String getStoryBoardContext() {
@@ -74,15 +78,41 @@ public class StoryBoardVO {
 	public void setRownum(Integer rownum) {
 		this.rownum = rownum;
 	}
+	
+	public String[] getSellerProfileImg() {
+		return sellerProfileImg;
+	}
+	public void setSellerProfileImg(String[] sellerProfileImg) {
+		this.sellerProfileImg = sellerProfileImg;
+	}
+	public String getStore_name() {
+		return store_name;
+	}
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
+	}
+	public String[] getUploadedFileList() {
+		return uploadedFileList;
+	}
+	public void setUploadedFileList(String[] uploadedFileList) {
+		this.uploadedFileList = uploadedFileList;
+	}
+	public String[] getUploadFileList() {
+		return uploadFileList;
+	}
+	public void setUploadFileList(String[] uploadFileList) {
+		this.uploadFileList = uploadFileList;
+	}
 	@Override
 	public String toString() {
 		return "StoryBoardVO [storySellerId=" + storySellerId + ", storyBoardRegDate=" + storyBoardRegDate
-				+ ", storyBoardFilePath=" + storyBoardFilePath + ", storyBoardContext=" + storyBoardContext
-				+ ", storyBoardTitle=" + storyBoardTitle + ", story_tseq=" + story_tseq + ", storySellerName="
-				+ storySellerName + ", storyCnt=" + storyCnt + ", rownum=" + rownum + ", sellerProfileImg="
-				+ Arrays.toString(sellerProfileImg) + ", store_name=" + store_name + "]";
+				+ ", storyBoardFilePath=" + Arrays.toString(storyBoardFilePath) + ", storyBoardContext="
+				+ storyBoardContext + ", storyBoardTitle=" + storyBoardTitle + ", story_tseq=" + story_tseq
+				+ ", storySellerName=" + storySellerName + ", storyCnt=" + storyCnt + ", rownum=" + rownum
+				+ ", sellerProfileImg=" + Arrays.toString(sellerProfileImg) + ", store_name=" + store_name
+				+ ", uploadedFileList=" + Arrays.toString(uploadedFileList) + ", uploadFileList="
+				+ Arrays.toString(uploadFileList) + "]";
 	}
-
-
+	
 	
 }

@@ -9,22 +9,22 @@
 		<result property="storyBoardTitle" column="story_title"/>
 		<result property="storyBoardRegDate" column="story_date" />
 		<result property="storyBoardContext" column="story_context" />
-		<result property="storyFilePath" column="story_image" />
+		<result property="storyBoardFilePath" column="story_image" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" />
 		<result property="storySellerName" column="seller_name"/>
 		<result property="storyCnt" column="story_cnt"/>
 	</resultMap>
 
 	<!-- 작가이야기 글 등록 -->
 	<insert id="writerInsertStory" parameterType="storyBoard">
-		INSERT INTO story(story_tseq, seller_id, story_title, story_date, story_context, seller_name, story_cnt)
-		VALUES(nextval('story_tseq'), #{storySellerId}, #{storyBoardTitle}, now(), #{storyBoardContext}, #{storySellerName}, 0)
+		INSERT INTO story(story_tseq, seller_id, story_title, story_date, story_context, seller_name,  story_image)
+		VALUES(nextval('story_tseq'), #{storySellerId}, #{storyBoardTitle}, now(), #{storyBoardContext}, #{storySellerName}, #{storyBoardFilePath, typeHandler=org.apache.ibatis.type.ArrayTypeHandler})
 	</insert>
 
 	<!-- 작가이야기  수정 -->
 	<update id="updateStoryBoard" parameterType="com.idwith.mpweb.writer.storyboard.StoryBoardVO">
 	 	<![CDATA[	
 	 		UPDATE story
-	 		SET story_title=#{storyBoardTitle}, story_context=#{storyBoardContext}, story_date=#{storyBoardRegDate}
+	 		SET story_title=#{storyBoardTitle}, story_context=#{storyBoardContext}, story_date=#{storyBoardRegDate}, story_image=#{storyBoardFilePath, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}
 	 		WHERE STORY_TSEQ = #{story_tseq}
 	    ]]> 	
  	</update>
@@ -41,16 +41,17 @@
 
 	<!-- 페이징 처리 후 게시글 조회 -->
 	<select id="getStoryList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="storyBoardResult">
-		<![CDATA[
+		
 			SELECT * FROM (
 				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-			FROM story ORDER BY story_tseq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
-		]]>
+			FROM story WHERE seller_id=#{countNotice} ORDER BY story_tseq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		
 	</select>	
+	
 
      <!-- 게시글 개수 출력 -->
-	<select id="countStoryBoard" resultType="int">
-		select count(*) from story
+	<select id="countStoryBoard" resultType="_int">
+		select count(*) from story where seller_id=#{storySellerId}
 	</select>
 
 </mapper>

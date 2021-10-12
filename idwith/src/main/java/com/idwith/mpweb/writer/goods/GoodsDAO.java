@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.idwith.mpweb.common.PagingVO;
 
 
-@Repository("goodsDAO")
+@Repository("writerGoodsDAO")
 public class GoodsDAO {
 	
 	@Autowired
@@ -18,26 +18,26 @@ public class GoodsDAO {
 	// 작품 등록
 	public void productCreate(GoodsVO goodsVO) {
 		System.out.println("productCreate() 기능처리");
-		sqlSessionTemplate.insert("GoodsDAO.productCreate", goodsVO);
+		sqlSessionTemplate.insert("WriterGoodsDAO.productCreate", goodsVO);
 	}
 	
 	// 작품 목록페이지
 	public List<GoodsVO> getGoodsList(PagingVO pageVO){
 		System.out.println("getGoodList() 기능처리");
-		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList", pageVO);
+		return sqlSessionTemplate.selectList("WriterGoodsDAO.getGoodsList", pageVO);
 	}
 	
 	// 페이징 처리
 	public int countGoods() {
 		System.out.println("countGoods() 기능처리");
-		return sqlSessionTemplate.selectOne("GoodsDAO.countGoods");
+		return sqlSessionTemplate.selectOne("WriterGoodsDAO.countGoods");
 		
 	}
 	
 	// 작품 상세
 	public GoodsVO productModify(GoodsVO goods) {
 		System.out.println("productModify() 기능 처리");
-		GoodsVO product = sqlSessionTemplate.selectOne("GoodsDAO.productModify", goods);	
+		GoodsVO product = sqlSessionTemplate.selectOne("WriterGoodsDAO.productModify", goods);	
 		System.out.println(product.getGoods_name());
 		System.out.println(product.getGoods_price());
 		return product;

@@ -13,7 +13,7 @@ import com.idwith.mpweb.writer.goods.GoodsVO;
 public class GoodsServiceImpl implements GoodsService{
 
 	@Autowired
-	private GoodsDAO goodsDAO;
+	private GoodsDAO writerGoodsDAO;
 
 	// 작품 등록처리
 	@Override
@@ -22,7 +22,7 @@ public class GoodsServiceImpl implements GoodsService{
 		System.out.println("GoodsName : " + goods.getGoods_name());
 		System.out.println("GoodsPrice : " + goods.getGoods_price());
 		System.out.println("GoodsSeq : " + goods.getGoods_seq());
-	    goodsDAO.productCreate(goods);
+	    writerGoodsDAO.productCreate(goods);
 		
 	}
 
@@ -30,14 +30,14 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public List<GoodsVO> getGoodsList(PagingVO pageVO){
 		System.out.println("작폼목록처리 service");
-		return goodsDAO.getGoodsList(pageVO);
+		return writerGoodsDAO.getGoodsList(pageVO);
 	}
 
 	// 작품 상세보기
 	@Override
 	public GoodsVO productModify(GoodsVO goods) {
 		System.out.println("작품 상세보기 service");
-		return goodsDAO.productModify(goods);
+		return writerGoodsDAO.productModify(goods);
 	}
 
 	// 작품 수정
@@ -45,19 +45,19 @@ public class GoodsServiceImpl implements GoodsService{
 	public void updateGoods(GoodsVO goods) {
 		System.out.println("작품수정처리 service");
 		System.out.println("GoodsName " + goods.getGoods_name());
-		goodsDAO.updateGoods(goods);
+		writerGoodsDAO.updateGoods(goods);
 	}
 
 	// 작품 삭제
 	@Override
 	public void deleteGoods(GoodsVO goods) {
 	    System.out.println("작품삭제처리 service");
-		goodsDAO.deleteGoods(goods);
+		writerGoodsDAO.deleteGoods(goods);
 	}
 
 	@Override
 	public int countGoods() {
-		return goodsDAO.countGoods();
+		return writerGoodsDAO.countGoods();
 	}
 
 	

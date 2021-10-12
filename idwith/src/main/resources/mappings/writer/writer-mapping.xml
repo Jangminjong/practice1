@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="writerDAO">	
+	<!-- 리뷰  수정 -->
+	<update id="enrollmentCancle" >
+	 		UPDATE seller
+	 		SET  
+	 		seller_status = 1
+	 		WHERE seller_code = #{sellerCode}
+ 	</update>
+	
+</mapper>

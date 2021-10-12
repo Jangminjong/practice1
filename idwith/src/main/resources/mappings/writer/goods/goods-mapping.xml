@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="GoodsDAO">
+<mapper namespace="WriterGoodsDAO">
 	<resultMap type="goods" id="goodsResult">
 	    <result property="goods_seq" column="goods_seq"/>
 	 	<result property="goods_code" column="goods_code" />
@@ -17,39 +17,56 @@
 		<result property="goods_info" column="goods_info"/>
 		<result property="goods_select" column="goods_select"/>
 		<result property="goods_view" column="goods_view"/>
-		<result property="goods_op1_code" column="goods_op1_code"/>
-		<result property="goods_op2_code" column="goods_op2_code"/>
-		<result property="goods_op3_code" column="goods_op3_code"/>
+		<result property="goods_op1_code" column="goods_op1_code"/>		
 		<result property="goods_apply_date" column="goods_apply_date"/>
 		<result property="goods_status" column="goods_status"/>
+		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
+		<result property="goods_delivery_date" column="goods_delivery_date"/>
+		<result property="seller_code" column="seller_code"/>
 	</resultMap>
 
 	<!-- 작품 등록 -->
 	<insert id="productCreate" parameterType="goods">
 		INSERT INTO goods
-		(goods_seq, 
-		goods_name, 
-		goods_price, 
-		goods_info, 
-		goods_photo, 
+		(goods_seq,
+		seller_code
 		goods_code,
-		 
+		goods_name;
+		goods_price,
 		goods_category,
-		goods_op1_code,
-		goods_op2_code, 
-		goods_op3_code)
+		goods_photo,
+		goods_stock,
+		goods_volume,
+		goods_income,
+		goods_grade,
+		goods_select,
+		goods_view,
+		goods_op1_code
+		goods_apply_date,
+		goods_status,
+		goods_delivery_fee,
+		goods_delivery_date)
 		VALUES(nextval
 		('seq_goods'), 		
+		#{goods_seq},
+		#{seller_code}, 
+		#{goods_code}, 
 		#{goods_name}, 
 		#{goods_price}, 
-		#{goods_info}, 
-		#{goods_photo}, 
-		#{goods_code},
-		
 		#{goods_category},
+		#{goods_photo},
+		#{goods_stock},
+		#{goods_volume},
+		#{goods_income},
+		#{goods_grade},
+		#{goods_select},
+		#{goods_view},
 		#{goods_op1_code},
-		#{goods_op2_code},
-		#{goods_op3_code})
+		#{goods_apply_date},
+		#{goods_status},
+		#{goods_delivery_fee},
+		#{goods_delivery_date}
+		)
 	</insert>
 
 	<!-- 작품 수정 -->
@@ -59,10 +76,11 @@
 	 		SET goods_name=#{goods_name}, 
 	 		goods_price=#{goods_price}, 
 	 		goods_info=#{goods_info}, 
-	 		goods_photo=#{goods_photo}
+	 		goods_photo=#{goods_photo},
 	 		goods_op1_code=#{goods_op1_code},
-	 		goods_op1_code=#{goods_op2_code},
-	 		goods_op1_code=#{goods_op3_code}
+	 		goods_stock=#{goods_stock},
+	 		goods_delivery_fee=#{goods_delivery_fee},
+	 		goods_delivery_date=#{goods_delivery_date}
 	 	
 	 		WHERE goods_seq = #{goods_seq}
 	    ]]> 	
@@ -83,13 +101,13 @@
 		<![CDATA[
 			SELECT * FROM (
 				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-			FROM goods ORDER BY goods_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+			FROM goods ORDER BY seller_code=#{countNotice} DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 		]]>
 	</select>	
 
      <!-- 작품 개수 출력 -->
 	<select id="countGoods" resultType="int">
-		select count(*) from goods
+		select count(*) from goods WHERE seller_code=#{seller_code}
 	</select>
 	
 

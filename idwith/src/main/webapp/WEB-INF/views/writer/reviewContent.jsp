@@ -57,28 +57,38 @@
 
             </div>
 
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+   <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  
                     <li class="dropdown">
+                          <a href="logout.wdo">
+                            <i class="material-icons">logout</i>
+                          </a>
+                        
+                    </li>
+                    
+                    
+
+                    <!-- #END# Tasks -->
+                  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
+                             <i class="material-icons">delete</i>
                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">                                   
+                            <li class="header">입점취소 신청하기</li>
+                            <li class="body text-center"><a href="">취소신청</a>
+                                <ul class="menu">
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <a href="javascript:void(0);">입점취소신청하기</a>
                             </li>
+                           
                         </ul>
                     </li>
-                    
-                    <!-- #END# Tasks -->
-                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                      <i class="material-icons">delete</i></a>
+                    </li>  -->
                 </ul>
             </div>
         </div>
@@ -87,7 +97,7 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-            
+          
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
@@ -103,6 +113,13 @@
                         <a href="orderList.wdo">
                             <i class="material-icons">shopping_cart</i>
                             <span>주문관리</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="orderClass.wdo">
+                            <i class="material-icons">airplay</i>
+                            <span>클래스 신청관리</span>
                         </a>
                     </li>
 
@@ -135,13 +152,6 @@
                     </li>
 
                     <li>
-                        <a href="Follow.wdo">
-                            <i class="material-icons">favorite</i>
-                            <span>팔로우</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="writerStory.wdo">
                             <i class="material-icons">chat</i>
                             <span>작가 이야기</span>
@@ -162,22 +172,26 @@
                         </a>
                     </li>
 
-                    
                     <li>
                         <a href="sellerCalculate.wdo">
                             <i class="material-icons">star_rate</i>
                             <span>정산</span>
                         </a>
                     </li>
-
+                    
+                    <li>
+                        <a href="index.do">
+                            <i class="material-icons">contact_page</i>
+                            <span>Idwith</span>
+                        </a>
+                    </li>
 
                 </ul>
-            </div> 
-          
-        </aside>
-        
-    </section>
+            </div>
 
+        </aside>
+
+    </section>
 
     <section class="content">
         <div class="row">
@@ -189,147 +203,129 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="width:auto; height:1100px">
                     <div class="col-mb-4">
                         <div class="card-body">
                             <div class="container-fluid p-0">
-                                <div class="row clearfix">
-                                    <!-- Basic Example -->
+                                
+                                <form id="form-reviewContent-writer" name="reviewContentForm" action="updateReview.wdo" method="post">
+                                  
+                                  <div class="row clearfix">
+                                  
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <div class="card" style="margin-top: 20px;">
-                                            <div class="body" style="width:500px; height:350px;">
+                                            <div class="body" style="width:550px; height:350px;">
                                                 <div id="carousel-example-generic" class="carousel slide"
-                                                    data-ride="carousel">
-                                                    <!-- Indicators -->
+                                                    data-ride="carousel" style=" height:310px; width: 510px;">
+                                                    
                                                     <ol class="carousel-indicators">
                                                         <li data-target="#carousel-example-generic" data-slide-to="0"
-                                                            class="active"></li>
-                                                        <li data-target="#carousel-example-generic" data-slide-to="1">
-                                                        </li>
-                                                        <li data-target="#carousel-example-generic" data-slide-to="2">
-                                                        </li>
+                                                            class="active"></li>                                                       
                                                     </ol>
+                                                    
+                                                    
 
-                                                    <!-- Wrapper for slides -->
+                                                   
                                                     <div class="carousel-inner" role="listbox">
                                                         <div class="item active">
-                                                            <img src="../images/image-gallery/11.jpg" />
-                                                        </div>
-                                                        <div class="item">
-                                                            <img src="../images/image-gallery/12.jpg" />
-                                                        </div>
-                                                        <div class="item">
-                                                            <img src="../images/image-gallery/19.jpg" />
-                                                        </div>
-                                                    </div>
+                                                            <img src="resources/images/review/${review.goods_review_image[0]}" style="width:100%; height:310px;"/>                        
+                                                        </div>                                                        
+                                                   </div>
 
-                                                    <!-- Controls -->
-                                                    <a class="left carousel-control" href="#carousel-example-generic"
-                                                        role="button" data-slide="prev">
-                                                        <span class="glyphicon glyphicon-chevron-left"
-                                                            aria-hidden="true"></span>
-                                                        <span class="sr-only">Previous</span>
-                                                    </a>
-                                                    <a class="right carousel-control" href="#carousel-example-generic"
-                                                        role="button" data-slide="next">
-                                                        <span class="glyphicon glyphicon-chevron-right"
-                                                            aria-hidden="true"></span>
-                                                        <span class="sr-only">Next</span>
-                                                    </a>
+                                                  
                                                 </div>
-                                            </div>
+                                            </div> 
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
-                                <form id="form-reviewContent-writer" name="reviewContentForm" action="updateReview.wdo" method="post">
+                                
+                                
                                   <div class="content" style=display:inline-flex>                             
                                     <div class="mb-3">
                                         <label class="form-label">아이디</label>
-                                        <input type="text" class="form-control" name="goods_review_id" placeholder="${writerReview.goods_review_id}" style="width: auto;"
+                                        <input type="text" class="form-control" name="goods_review_id" placeholder="${review.goods_review_id}" style="width: auto;"
                                             disabled>
                                     </div>
                                     <div class="mb-3" style=margin-left:50px>
                                         <label class="form-label">평점</label>
-                                        <input type="text" class="form-control" name="goods_review_point" placeholder="${writerReview.goods_review_point}"
+                                        <input type="text" class="form-control" name="goods_review_point" placeholder="${review.goods_review_point}"
                                             style="width: auto;" disabled>
                                     </div>
                                     
                                     <div class="mb-3" style=margin-left:50px>
                                         <label class="form-label">작성일</label>
-                                        <input type="text" class="form-control" name="goods_review_date" placeholder="${writerReview.goods_review_date}" style="width: auto;"
+                                        <input type="text" class="form-control" name="goods_review_date" placeholder="${review.goods_review_date}" style="width: auto;"
                                             disabled>
                                     </div>
                                  </div>
-                                    <div class="mb-3">
+                                    <div class="mb-3" style="margin-top:15px;">
                                         <label class="form-label">구매 내역</label>
-                                        <input type="text" class="form-control" name="goodS_review_product" placeholder="${writerReview.goods_review_product}"
+                                        <input type="text" class="form-control" name="goods_review_product" placeholder="${review.goods_review_product}"
                                             style="width: 350px;" disabled>
                                     </div>
                                     
                                     
-                                    <div class="mb-3">
-                                        <label class="form-label">옵션1</label>
-                                        <input type="text" class="form-control" name="goods_review_option1" placeholder="${writerReview.goods_review_option1}"
-                                            style="width: 350px;" disabled>
+                                    <div class="mb-3" style="margin-top:15px;">
+                                        <label class="form-label">내역</label>
+                                        <input type="text" class="form-control" name="goods_review_option1" placeholder="${review.goods_review_option1}"
+                                            style="width:1100px;" disabled>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">옵션2</label>
-                                        <input type="text" class="form-control" name="goods-review_option2" placeholder="${writerReview.goods_review_option2}"
-                                            style="width: 350px;" disabled>
+                                    <div class="mb-3" style="margin-top:15px;">
+                                        <label class="form-label">내역</label>
+                                        <input type="text" class="form-control" name="goods-review_option2" placeholder="${review.goods_review_option2}"
+                                            style="width: 1100px;" disabled>
                                     </div>
-                                    <div class="mb-3">
+                                    <%-- <div class="mb-3" style="margin-top:15px;">
                                         <label class="form-label">옵션3</label>
-                                        <input type="text" class="form-control" name="goods_review_option3" placeholder="${writerReview.goods_review_option3}"
-                                            style="width: 350px;" disabled>
-                                    </div>
+                                        <input type="text" class="form-control" name="goods_review_option3" placeholder="${review.goods_review_option3}"
+                                            style="width: 1100px;;" disabled>
+                                    </div> --%>
 
-                                    <div class="mb-3">
+                                    <div class="mb-3" style="margin-top:15px;">
                                         <label class="form-label">후기</label>
-                                        <input type="text" class="form-control" name="goods_review_context" placeholder="${writerReview.goods_review_context}"
+                                        <input type="text" class="form-control" name="goods_review_context" placeholder="${review.goods_review_context}"
                                             style="width: 600px; height: 150px; margin-bottom: 10px;" disabled>
+                                    </div>  
+                                    
+                                    
+                                    <div class="mb-3" style="margin-top:15px;">
+								      <label class="form-label">Comment</label>
+								      <input type="text" class="form-control" name="goods_review_comment" placeholder="답글" value="${review.goods_review_comment}"
+								           style="width: 1000px; height: 100px;">
+							        </div>
+							        
+							        
+							        <input type="number" name="goods_review_seq" style="display:none;" value="${review.goods_review_seq}">
+						            <div class="col-md-3 text-center pull-right" style="margin-top:50px;">
+                      
+                                      <button class="btn btn-primary" type="submit">등록</button>
+                     
+                                      <a href="review.wdo">
+                                        <button class="btn btn-warning" >목록</button>
+                                      </a>
+                           
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-center"></div>
-                            <div class="col-md-2 text-center"></div>
-                            <div class="col-md-2 text-center"></div>
-                            <div class="col-md-2 text-center"></div>
-                            <div class="col-md-2 text-center"></div>
-                            
-                        </div>
-                    </div>
-                </div>
+							   
+							        
+							        </form>
+							        </div>
+							        </div>
+							        </div>
+							        </div>
+							  
+                                
+                                
+                           
+               
+                     
+               </div>
+               
+             </div>
+					
+                 
 
-                  <div class="card" style="width: 625px;">
-                    <div class="container-fluid p-0">
-					<div class="card-body" style="width: 500px;">
-						<form>
-							
-							<div class="mb-3">
-								<label class="form-label">Comment</label>
-								<textarea class="form-control" placeholder="내용" rows="10"></textarea>
-							</div>
-						</form>
-					</div>
-
-                    
-
-                    <div class="col-md-2 text-center pull-right">
-                        <a href="review.wdo">
-                            <button class="btn btn-primary" style=margin-bottom:10px>등록</button>
-                        </a>
-                        </div>
-				</div>	                
-            </div>
-            <div class="col-md-2 text-center pull-right">
-                <a href="review.wdo">
-                    <button class="btn btn-primary" style=margin-bottom:10px>목록보기</button>
-                </a>
-            </div>
-       </div>
-       </div>
+               
+     
 
     </section>
 
