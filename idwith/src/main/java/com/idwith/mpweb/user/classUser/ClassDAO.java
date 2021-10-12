@@ -60,8 +60,8 @@ public class ClassDAO {
 		return classList;
 	}
 
-	public UserVO getUserInfoForClassReg(String email) {
-		return sqlSessionTemplate.selectOne("UserDAO.getUserInfoForClassReg", email);
+	public List<UserVO> getUserInfoForClassReg(String email) {
+		return sqlSessionTemplate.selectList("UserDAO.getUserInfoForClassReg", email);
 	}
 
 	public List<ClassVO> getNearbyList(String area) {
@@ -86,5 +86,10 @@ public class ClassDAO {
 
 	public void insertClassOrder(ClassOrderVO class_order) {
 		sqlSessionTemplate.insert("classDAO.insertClassOrder", class_order);
+	}
+
+	public void paymentClassCancel(String marchant_uid) {
+		sqlSessionTemplate.delete("classDAO.paymentClassCancel", marchant_uid);
+		
 	}
 }

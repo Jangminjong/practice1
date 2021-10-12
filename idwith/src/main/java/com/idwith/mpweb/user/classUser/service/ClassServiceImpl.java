@@ -85,7 +85,7 @@ public class ClassServiceImpl implements ClassService{
 	}
 
 	@Override
-	public UserVO getUserInfoForClassReg(String email) {
+	public List<UserVO> getUserInfoForClassReg(String email) {
 		return dao.getUserInfoForClassReg(email);
 	}
 
@@ -107,6 +107,11 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public void insertClassOrder(ClassOrderVO class_order) {
 		dao.insertClassOrder(class_order);
+	}
+
+	@Override
+	public void paymentClassCancel(String marchant_uid) {
+		dao.paymentClassCancel(marchant_uid);
 	}
 
 

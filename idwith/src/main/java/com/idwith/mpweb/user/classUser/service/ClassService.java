@@ -36,7 +36,7 @@ public interface ClassService {
 
 	List<ClassVO> getClassListForClassDetail(int seller_code);
 
-	UserVO getUserInfoForClassReg(String email);
+	List<UserVO> getUserInfoForClassReg(String email);
 
 
 	List<ClassVO> getNewClassList();
@@ -46,6 +46,8 @@ public interface ClassService {
 	 List<ClassVO> getNearbyList(String area);
 
 	void insertClassOrder(ClassOrderVO class_order);
+
+	void paymentClassCancel(String marchant_uid);
 
 
 }
