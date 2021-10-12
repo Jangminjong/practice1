@@ -8,6 +8,7 @@
  		<result property="classRegSeq" column="class_reg_seq"/>
  		<result property="classSeller" column="class_seller"/>
  		<result property="classCategory" column="class_category"/>
+ 		<result property="className" column="class_name"/>
  		<result property="classCode" column="class_code"/>
  		<result property="classPostAddress" column="class_post_address"/>
  		<result property="classAddress" column="class_address"/>
@@ -20,11 +21,16 @@
  		<result property="classPhoto" column="class_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" />
  		<result property="classStatus" column="class_status"/>
  	</resultMap>
+ 	<resultMap type="writerClassCategory" id="writerClassCategoryResult">
+ 		<result property="classCategoryCode" column="class_category_code"/>
+ 		<result property="classCategoryName" column="class_category_name"/>
+ 	</resultMap>
  	<!-- 클래스신청 테이블에 등록  -->
  	<insert id="insertClassReg" parameterType="writerClassReg">
  		INSERT INTO class_reg (
  								 class_seller,
  								 class_category,
+ 								 class_name,
  								 class_code,
  								 class_post_address,
  								 class_address,
@@ -37,6 +43,7 @@
  								 )
  		VALUES(#{classSeller},
  			   #{classCategory},
+ 			   #{className},
  			   #{classCode},
  			   #{classPostAddress},
  			   #{classAddress},
@@ -61,20 +68,21 @@
  	</select> -->
  	<!-- 클래스등록 리스트 개수 조회 -->
  	<select id="classRegCount" resultType="_int">
- 		select count(*) from class_reg where class_seller=#{classSeller}
+ 		select count(*) from class_reg where class_seller=#{classSeller} and class_status!=3
  	</select>
  	
- 	<!-- 페이징 처리 후 게시글 조회 -->
+ 	<!-- 페이징 처리 후 등록 게시글 조회 -->
 	<select id="classRegList" parameterType="writerClassReg" resultMap="writerClassRegResult">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
 	FROM class_reg WHERE class_seller=#{countNotice} and class_status!=3 ORDER BY class_reg_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>
 	
-	<!-- 클래스등록 상세 -->
+	<!-- 클래스등록 상세 확인 -->
 	<select id="classReg" resultMap="writerClassRegResult">
 	select  class_reg_seq,
 			class_seller,
 			class_category,
+			class_name,
 			class_code,
 			class_post_address,
 			class_address,
@@ -91,16 +99,29 @@
 	<!-- 클래스등록 수정 -->
 	<update id="classRegUpdate" parameterType="writerClassReg">
 	UPDATE class_reg SET class_category = #{classCategory},
+						 class_name = #{className},
 						 class_post_address = #{classPostAddress},
 						 class_address = #{classAddress},
 						 class_detail_address = #{classDetailAddress},
 						 class_reference = #{classReference},
 						 class_info = #{classInfo},
 						 class_phone = #{classPhone},
-						 class_photo = #{classPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler} WHERE class_reg_seq = ${classRegSeq} 
+						 class_photo = #{classPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}
+					  WHERE class_reg_seq = ${classRegSeq} 
 	</update>
+	
 	<!-- 클래스등록 삭제 -->
 	<update id="classRegDelete" parameterType="writerClassReg">
 	UPDATE class_reg SET class_status=3 WHERE class_reg_seq = ${classRegSeq}
 	</update>
+	
+	<!-- 클래스 카테고리 목록 조회 -->
+	<select id="classCategoryList" resultMap="writerClassCategoryResult">
+	select class_category_code, class_category_name from class_category
+	</select>
+	
+	<select id="classRegListAll" resultMap="writerClassRegResult">
+	SELECT class_code, class_name FROM class_reg
+	WHERE class_seller = ${classSeller} <!-- and class_status = 1 -->
+	</select>
 </mapper>

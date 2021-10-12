@@ -9,6 +9,7 @@ public class WriterClassRegVO {
 	private int classRegSeq;
 	private int classSeller;
 	private String classCategory;
+	private String className;
 	private String classCode;
 	private String classPostAddress;
 	private String classAddress;
@@ -38,8 +39,13 @@ public class WriterClassRegVO {
 	}
 	public void setClassCategory(String classCategory) {
 		this.classCategory = classCategory;
+	}	
+	public String getClassName() {
+		return className;
 	}
-
+	public void setClassName(String className) {
+		this.className = className;
+	}
 	public String getClassCode() {
 		return classCode;
 	}
@@ -116,14 +122,12 @@ public class WriterClassRegVO {
 	@Override
 	public String toString() {
 		return "WriterClassRegVO [classRegSeq=" + classRegSeq + ", classSeller=" + classSeller + ", classCategory="
-				+ classCategory + ", classCode=" + classCode + ", classPostAddress=" + classPostAddress
-				+ ", classAddress=" + classAddress + ", classDetailAddress=" + classDetailAddress + ", classReference="
-				+ classReference + ", classInfo=" + classInfo + ", classRegDate=" + classRegDate + ", classPhone="
-				+ classPhone + ", classPhoto=" + Arrays.toString(classPhoto) + ", classStatus=" + classStatus
-				+ ", uploadedFileList=" + Arrays.toString(uploadedFileList) + ", uploadFileList="
+				+ classCategory + ", className=" + className + ", classCode=" + classCode + ", classPostAddress="
+				+ classPostAddress + ", classAddress=" + classAddress + ", classDetailAddress=" + classDetailAddress
+				+ ", classReference=" + classReference + ", classInfo=" + classInfo + ", classRegDate=" + classRegDate
+				+ ", classPhone=" + classPhone + ", classPhoto=" + Arrays.toString(classPhoto) + ", classStatus="
+				+ classStatus + ", uploadedFileList=" + Arrays.toString(uploadedFileList) + ", uploadFileList="
 				+ Arrays.toString(uploadFileList) + "]";
 	}
-	
-	
 	
 }

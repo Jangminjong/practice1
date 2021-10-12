@@ -193,11 +193,24 @@
                             	<input type="number" name="classRegSeq" style="display:none" value="${classReg.classRegSeq}">
 								<div class="form-group form-float"> 카테고리 &nbsp;&nbsp;
 								<select name='classCategory' id="productCategory">
-									<option value='ceramic'>도자기</option>
-									<option value='doll'>인형</option>
-									<option value='phone_case'>휴대폰 케이스</option>
+									<c:forEach var="classCategory" items="${classCategoryList}">
+										<c:choose>
+											<c:when test="${classReg.classCategory eq classCategory.classCategoryCode} ">
+												<option value='${classCategory.classCategoryCode}' selected="selected">${classCategory.classCategoryName}</option>
+											</c:when>
+											<c:when test="${classReg.classCategory eq classCategory.classCategoryCode} ">
+												<option value='${classCategory.classCategoryCode}'>${classCategory.classCategoryName}</option>
+											</c:when>
+										</c:choose>
+									</c:forEach>
 								</select>
 								</div>
+								<div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="className" value="${classReg.className}" required>
+                                        <label class="form-label" >클래스 주제</label>
+                                    </div>
+                                </div>						
                                 <div class="row">
                                 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-bottom: -5px;">
 	                                	<div class="form-group form-float">
@@ -237,8 +250,7 @@
                                 <div class="form-group form-float">
              							<label class="form-label">업로드한 파일들</label>
 									<div class="uploadedGroup">
-										<c:forEach var="i" begin="0" end="${fileLength-1}" step="1">
-											
+										<c:forEach var="i" begin="0" end="${fileLength-1}" step="1">						
 											<c:choose>
 												<c:when test="${classReg.classPhoto[i] ne null}">
 													<input type="text" name="uploadedFileList" style="display:none;" value="${classReg.classPhoto[i]}">

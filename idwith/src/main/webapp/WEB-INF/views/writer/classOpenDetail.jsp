@@ -191,34 +191,33 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>클래스 오픈 등록</h3>          
+                            <h3>클래스 오픈</h3>          
                         </div>
                         <div class="body">
-                            <form id="form_validation" action="classOpenInsert.wdo" method="POST" enctype="multipart/form-data" onsubmit="return regClassTimeCheck();">
-								<div class="form-group form-float"> 카테고리 &nbsp;&nbsp;
-									<select name='classOpenCategory' id="productCategory">
-										<c:forEach var="classCategory" items="${classCategoryList}">
-											<option value='${classCategory.classCategoryCode}'>${classCategory.classCategoryName}</option>
-										</c:forEach>
-									</select>
-								</div>
-								<div class="form-group form-float"> 클래스 주제 &nbsp;&nbsp;
-									<select name="classOpenClassCode">
-										<c:forEach var="regList" items="${regListAll}">
-											<option value="${regList.classCode}">${regList.className}</option>
-											
-										</c:forEach>
-									</select>
-								</div>
+                            <form id="form_validation" action="classOpenModify.wdo" method="POST" enctype="multipart/form-data" onsubmit="return modClassTimeCheck();">
+								<input type="number" name="classOpenSeq" style="display:none" value="${classOpen.classOpenSeq}">
 								<div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="classOpenPrice" required>
+                                        <input type="text" class="form-control" name="classOpenCategoryName" value="${classOpen.writerClassCategoryVO.classCategoryName}" readonly="readonly" required>
+                                        <input type="text" class="form-control" name="classOpenCategory" value="${classOpen.writerClassCategoryVO.classCategoryCode}" style="display:none;">
+                                        <label class="form-label" id="addrlabel">클래스 카테고리</label>
+                                    </div>
+                                </div>
+								<div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="className" value="${classOpen.className}" readonly="readonly" required>
+                                        <label class="form-label" id="addrlabel">클래스주제</label>
+                                    </div>
+                                </div>
+								<div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="classOpenPrice" value="${classOpen.classOpenPrice}" required>
                                         <label class="form-label" id="addrlabel">가격</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="classOpenName" required>
+                                        <input type="text" class="form-control" name="classOpenName" value="${classOpen.classOpenName}" required>
                                         <label class="form-label" id="addrlabel">클래스명</label>
                                     </div>
                                 </div>
@@ -227,7 +226,7 @@
 	                                	<div class="form-group form-float">
 		                                    <div class="form-line" id="form-line-address">
 		                                    	<label class="form-label" id="postlabel">우편번호</label>
-		                                   		<input type="text" class="form-control" name="classOpenPostAddress" id="postcode" maxlength="6" readonly required>
+		                                   		<input type="text" class="form-control" name="classOpenPostAddress" id="postcode" maxlength="6" value="${classOpen.classOpenPostAddress}" readonly required>
 		                                   		<button class="address-find" onclick="execDaumPostcode()" style="font-size: 7px; width:100px;">우편번호찾기</button>
 		                                    </div>
 	                                    </div>
@@ -235,61 +234,80 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="classOpenAddress" id="address" readonly required>
+                                        <input type="text" class="form-control" name="classOpenAddress" id="address" value="${classOpen.classOpenAddress}" readonly required>
                                         <label class="form-label" id="addrlabel">주소</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="classOpenDetailAddress" id="detailAddress" required>
+                                        <input type="text" class="form-control" name="classOpenDetailAddress" id="detailAddress" value="${classOpen.classOpenDetailAddress}" required>
                                         <label class="form-label" >상세 주소</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="classOpenReference" id="extraAddress" readonly required>
+                                        <input type="text" class="form-control" name="classOpenReference" id="extraAddress" value="${classOpen.classOpenReference}" readonly required>
                                         <label class="form-label" id="extaddrlabel">참고 항목</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <textarea name="classOpenInfo" cols="30" rows="5" class="form-control no-resize"
-                                            required></textarea>
+                                            required>${classOpen.classOpenInfo}</textarea>
                                         <label class="form-label">수업 상세설명</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="classOpenDifficult" required>
+                                        <input type="text" class="form-control" name="classOpenDifficult" value="${classOpen.classOpenDifficult}" required>
                                         <label class="form-label" id="addrlabel">난이도</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
 									<div class="form-line">
-										<input type="tel" class="form-control" name="classOpenPhone" id="tel" maxlength="13" required>
+										<input type="tel" class="form-control" name="classOpenPhone" id="tel" value="${classOpen.classOpenPhone}" maxlength="13" required>
 										<label class="form-label">연락처</label>
 									</div>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">강의날짜</label>
-									<input type="date" class="form-control" name="classOpenDate" id="regOpenDate" placeholder="강의날짜" style="width: auto;" onchange="regDateCheck()" required="required">
+									<input type="date" class="form-control" name="classOpenDate" id="modOpenDate" placeholder="강의날짜" style="width: auto;" onchange="modDateCheck()" value="${classOpen.classOpenDate}" required="required">
 								</div>
 								<div class="row" style="margin-top: 20px;">
 									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 										<label class="form-label" >강의 시작시간</label>
-										<input type="time" class="form-control" name="classOpenInputTime" id="regOpenTime" placeholder="시작시간" style="width: auto;" min="06:00:00" max="23:00:00" onchange="regOpenTimeCheck()" required="required">
+										<input type="time" class="form-control" name="classOpenInputTime" id="modOpenTime" placeholder="시작시간" style="width: auto;" onchange="modOpenTimeCheck()" value="${classOpen.classOpenTime}" required="required">
 									</div>
 									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 										<label class="form-label" >강의 종료시간</label>
-										<input type="time" class="form-control" name="classCloseInputTime" id="regCloseTime" placeholder="종료시간" style="width: auto;" min="06:00:00" max="24:00:00" onchange="regCloseTimeCheck()" required="required">
+										<input type="time" class="form-control" name="classCloseInputTime" id="modCloseTime" placeholder="종료시간" style="width: auto;" onchange="modCloseTimeCheck()" value="${classOpen.classCloseTime}" required="required">
 									</div>
 								</div>
 								<div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="classOpenMaxPerson" required>
+                                        <input type="number" class="form-control" name="classOpenMaxPerson" value="${classOpen.classOpenMaxPerson}" required>
                                         <label class="form-label" id="addrlabel">최대인원</label>
                                     </div>
                                 </div>
+                                <div class="form-group form-float">
+             							<label class="form-label">업로드한 파일들</label>
+									<div class="uploadedGroup">
+										<c:forEach var="i" begin="0" end="${fileLength-1}" step="1">						
+											<c:choose>
+												<c:when test="${classOpen.classOpenPhoto[i] ne null}">
+													<input type="text" name="uploadedFileList" style="display:none;" value="${classOpen.classOpenPhoto[i]}">
+													<div>
+														<input type="text" name="uploadFileList" style="display:none;" value="${classOpen.classOpenPhoto[i]}">
+														<img alt="" src="${classOpen.classOpenPhoto[i]}" width="30px" height="30px">&nbsp;&nbsp;&nbsp;
+														<a href="${classOpen.classOpenPhoto[i]}" target="_blank">${fileName[i]}</a>&nbsp;&nbsp;&nbsp;
+														<button type="button" onclick="uploadedFileDelete('uploadedFileBtn${i}')" id="uploadedFileBtn${i}">삭제</button>
+														<br>
+													</div>
+												</c:when>
+											</c:choose>
+										</c:forEach>
+									</div>
+								</div>
 								<div class="upload-group">
                                 	<label class="input-group-text" for="inputGroupFile01">Upload</label>
                                 	<button type="button" class="addimagegroup" onclick="inputGroupAdd()">업로드 파일 추가</button>
@@ -303,11 +321,13 @@
                                 <div class="addImage-group">
                                 </div>
 								
-								<button class="btn btn-primary waves-effect" type="submit">오픈하기</button>
+								<button class="btn btn-primary waves-effect" type="submit">수정하기</button>
+                  	            
                                 <a href="classOpen.wdo">
                   	              <button class="btn btn-primary waves-effect" type="button">목록으로</button>
                   	            </a>
                             </form>
+                            	<button class="btn btn-primary waves-effect" type="button" onclick="classOpenDelete()">삭제하기</button>
                             </div>
                         </div>
                     </div>
