@@ -158,4 +158,14 @@ public class UserServiceImpl implements UserService {
 		return dao.changeFollow(follow);
 	}
 
+	@Override
+	public UserVO getOrderUser(String user_id) {
+		return dao.getOrderUser(user_id);
+	}
+
+	@Override
+	public UserVO loginUser(String email) {
+		return dao.loginUser(email);
+	}
+
 }

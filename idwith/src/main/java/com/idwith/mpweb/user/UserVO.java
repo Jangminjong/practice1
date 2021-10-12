@@ -16,8 +16,15 @@ public class UserVO {
 	private String user_update_email;
 	private int user_order; 
 	private boolean user_black_check;
-
 	
+	private UserAddressVO userAddressVO;
+	
+	public UserAddressVO getUserAddressVO() {
+		return userAddressVO;
+	}
+	public void setUserAddressVO(UserAddressVO userAddressVO) {
+		this.userAddressVO = userAddressVO;
+	}
 	public int getUser_order() {
 		return user_order;
 	}

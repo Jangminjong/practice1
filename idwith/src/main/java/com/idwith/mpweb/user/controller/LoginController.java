@@ -62,10 +62,11 @@ public class LoginController {
 		//String[] emailSplit = vo.getUser_id().split("@");
 		int result = userService.getUser(vo);
 		String[] emailSplit = email.split("@");
-		
 
 		if(result == 2) {
+			UserVO userVO = userService.loginUser(email);
 			session.setAttribute("email", email);
+			session.setAttribute("user_name", userVO.getUser_name());
 			session.setAttribute("emailSplit", emailSplit[0]);
 		}
 

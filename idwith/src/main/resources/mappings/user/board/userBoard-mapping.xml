@@ -22,6 +22,7 @@
  		<result property="user_option_addr2" column="user_option_addr2"/>
  		<result property="user_order" column="user_order"/>
  		<result property="user_black_check" column="user_black_check"/>
+ 		<collection property="userAddressVO" resultMap="userAddressResult" />
  	</resultMap>
  	
  	<resultMap type="userAddressVO" id="userAddressResult">
@@ -78,6 +79,11 @@
  		select user_id, user_pwd from client where user_id=#{user_id}
  	</select>
  	
+ 	<!-- 유저 정보 가져가기 -->
+ 	<select id="getLoginUser" resultType="userVO">
+ 		select * from client where user_id=#{user_id}
+ 	</select>
+ 	
  	<!-- 아이디 찾기 시 해당ID가 테이블에 존재하는지 확인 -->
  	<select id="userCheck" resultType="_boolean">
  		select exists (select * from client where user_phone=#{user_phone}) as isChk;
@@ -97,6 +103,10 @@
  		select user_name from client where user_name=#{user_name}
  	</select>
  	
+ 	<!-- 결제 페이지 주문자 정보 가져오기 -->
+ 	<select id="getOrderUser" resultType="userVO">
+ 		select * from client where user_id=#{user_id}
+ 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

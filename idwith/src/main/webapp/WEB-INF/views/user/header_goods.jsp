@@ -22,7 +22,7 @@
 <title>아이디어스 임시 메인</title>
 </head>
 <body id="body">
-	<input type="hidden" id="email" value="${email }"/>
+	<input type="hidden" id="email" value="${email}"/>
 	<div class="wrap">
 		<div class="head_banner_group" id="header-banner">
 			<!-- 상단 리본 배너 -->
@@ -48,7 +48,7 @@
 				<div class="inner-w clf">
 				
 				<c:choose>
-					<c:when test="${ emailSplit eq null }">
+					<c:when test="${ user_name eq null }">
 						<nav class="fr" style="margin-left: 700px;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a
@@ -74,13 +74,13 @@
                                 </div> -->
 						</nav>
 					</c:when>
-					<c:when test="${ emailSplit ne null }">
+					<c:when test="${ user_name ne null }">
 						<nav class="fr" style="margin-left: 55%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
 						<div class="nav-btn ui-dropdown mymenu">
 							<button type="button" class="btn-dropdown btn-first">
-								<span data-profile="name">${emailSplit}</span> 님
+								<span data-profile="name">${user_name}</span> 님
 								<!-- current user email address: for parsing -->
 							</button>
 							<ul class="menu-dropdown menu-first">
@@ -208,7 +208,7 @@
 						</form>
 					</div>
 
-					<nav class="profile-links">
+					<nav class="profile-links" style="display: inline-block">
 						<c:choose>
 							<c:when test="${ sellerCheck ne null }">
 								<a href="main.wdo" class="btn"> <i class="fa fa-user" aria-hidden="true"></i> 작가 페이지</a>

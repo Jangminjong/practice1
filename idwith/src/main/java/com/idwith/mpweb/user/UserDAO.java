@@ -130,4 +130,12 @@ public class UserDAO {
 		}
 
 	}
+
+	public UserVO getOrderUser(String user_id) {
+		return sqlSessionTemplate.selectOne("UserDAO.getOrderUser", user_id);
+	}
+
+	public UserVO loginUser(String email) {
+		return sqlSessionTemplate.selectOne("UserDAO.getLoginUser", email);
+	}
 }

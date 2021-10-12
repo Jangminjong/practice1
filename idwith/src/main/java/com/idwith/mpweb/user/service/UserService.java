@@ -47,4 +47,9 @@ public interface UserService {
 
 	int changeFollow(FollowVO follow);
 
+	//결제 페이지 : 주문자 정보 가져오기
+	UserVO getOrderUser(String user_id);
+
+	UserVO loginUser(String email);
+
 }
