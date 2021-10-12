@@ -3,7 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<mapper namespace="MyPageDAO">
+<mapper namespace="GoodsOrderDAO">
  	<resultMap type="goodsOrderDetailVO" id="goodsOrderDetailResult">
  		<result property="order_detail_seller" column="order_detail_seller"/>
  		<result property="order_detail_goods" column="order_detail_goods"/>
