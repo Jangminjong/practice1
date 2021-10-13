@@ -58,6 +58,8 @@ public class APIController {
 		params.put("result", result);
 		params.put("email", email);
 		
+		session.setAttribute("email", email);
+		
 		return params;
 	}
 	
@@ -101,6 +103,8 @@ public class APIController {
 		
 		params.put("result", result);
 		params.put("email", email);
+		
+		session.setAttribute("email", email);
 		
 		return params;
 	}

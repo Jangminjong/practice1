@@ -78,4 +78,9 @@ public class MyPageServiceImpl implements MypageService {
 	public List<ClassOrderVO> getOrderClassList(String email) {
 		return dao.getOrderClassList(email);
 	}
+
+	@Override
+	public List<GoodsOrderDetailVO> getOrderGoodsList(String email) {
+		return dao.getOrderGoodsList(email);
+	}
 }

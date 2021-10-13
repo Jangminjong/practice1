@@ -118,7 +118,10 @@ public class MyPageController {
 	}
 
 	@GetMapping("/mypage_order_goods.do")
-	public String mypageOrderGoods() {
+	public String mypageOrderGoods(Model model, HttpSession session) {
+		String email=(String) session.getAttribute("email");
+		List<GoodsOrderDetailVO> goodsOrderList = myPageService.getOrderGoodsList(email);
+		model.addAttribute("goodsOrderList", goodsOrderList);
 		return "mypage/mypage_order_goods";
 	}
 

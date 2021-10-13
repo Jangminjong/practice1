@@ -66,4 +66,8 @@ public class MyPageDAO {
 	public List<ClassOrderVO> getOrderClassList(String email) {
 		return sqlSessionTemplate.selectList("classDAO.getOrderClassList", email);
 	}
+
+	public List<GoodsOrderDetailVO> getOrderGoodsList(String email) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getOrderGoodsList", email);
+	}
 }

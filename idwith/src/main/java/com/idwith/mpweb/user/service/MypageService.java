@@ -33,4 +33,6 @@ public interface MypageService {
 	List<UserAddressVO> getAddressList(String user_id);
 
 	List<ClassOrderVO> getOrderClassList(String email);
+
+	List<GoodsOrderDetailVO> getOrderGoodsList(String email);
 }
