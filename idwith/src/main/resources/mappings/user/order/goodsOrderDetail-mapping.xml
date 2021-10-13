@@ -3,7 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<mapper namespace="MyPageDAO">
+<mapper namespace="GoodsOrderDAO">
  	<resultMap type="goodsOrderDetailVO" id="goodsOrderDetailResult">
  		<result property="order_detail_seller" column="order_detail_seller"/>
  		<result property="order_detail_goods" column="order_detail_goods"/>
@@ -22,6 +22,46 @@
  		<result property="order_id" column="order_id"/>
  		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/> 		
  	</resultMap>
+ 	
+ 	<resultMap type="cartVO" id="cartResult">
+ 		<result property="cart_num" column="cart_num"/>
+ 		<result property="goods_code" column="goods_code"/>
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="goods_price" column="goods_price"/>
+ 		<result property="cart_quantity" column="cart_quantity"/>
+ 		<result property="goods_option_value" column="goods_option_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_option_price" column="goods_option_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="cart_delivery_fee" column="cart_delivery_fee"/>
+ 		<result property="cart_donation" column="cart_donation"/>
+ 		<result property="cart_save" column="cart_save"/>
+ 		<result property="user_id" column="user_id"/>
+ 		<result property="cart_pay_check" column="cart_pay_check"/>
+ 		<result property="cart_order_content" column="cart_order_content"/>
+ 		<result property="store_name" column="store_name"/>
+ 		<collection property="goodsVO" resultMap="goodsResult" />
+ 	</resultMap>
+ 	
+ 	<resultMap type="goodsVO" id="goodsResult">
+ 		<result property="goods_code" column="goods_code"/>
+ 		<result property="goods_name" column="goods_name"/>
+ 		<result property="goods_price" column="goods_price"/>
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="goods_category" column="goods_category"/>
+ 		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="goods_stock" column="goods_stock"/>
+ 		<result property="goods_volume" column="goods_volume"/>
+ 		<result property="goods_income" column="goods_income"/>
+ 		<result property="goods_grade" column="goods_grade"/>
+ 		<result property="goods_info" column="goods_info"/>
+ 		<result property="goods_select" column="goods_select"/>
+ 		<result property="goods_view" column="goods_view"/>
+ 		<result property="goods_op1_code" column="goods_op1_code"/>
+ 		<result property="goods_seq" column="goods_seq"/>
+ 		<result property="goods_apply_date" column="goods_apply_date"/>
+ 		<result property="goods_status" column="goods_status"/>
+ 		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
+ 	</resultMap>
+ 	
  	<select id="getReviewBeforeList" parameterType="string" resultMap="goodsOrderDetailResult">
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT
 	goods_order_detail.*, goods.goods_name, goods.goods_photo FROM goods_order_detail AS
@@ -37,4 +77,11 @@
  		SET order_review=true WHERE order_detail_code=#{order_detail_code}
  	</update>
  	
+ 	<!-- 장바구니에서 선택한 상품 결제 페이지에 표시 -->
+ 	<select id="getCartForOrder" resultType="cartVO" resultMap="cartResult">
+ 		select c.*, gs.*
+			from cart as c
+			join goods as gs on c.goods_code = gs.goods_code
+		where c.cart_num=#{cart_num}
+ 	</select>
 </mapper>

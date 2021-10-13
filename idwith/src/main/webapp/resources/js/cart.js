@@ -86,30 +86,49 @@ $(document).ready(function() {
 //상품 수량 +
 function changePlus(state, index){
 	if(state == 'update'){
+		const checkboxs = document.getElementsByName('optionCheck').checked;
 		console.log('몇번째 상품인가요 : ' + index);
 		
 		var str1 = "cart_quantity" + index;
 		var quantity = $('#'+str1).val();
-		var curQuantity = $('#'+str1).val();
-		var result = Number(curQuantity) + 1;
+		var curQuantity = $('#'+str1).val();//현재 수량
+		
+		var resultQuantity = Number(curQuantity) + 1;//결과 : 수량
+		$('#'+str1).attr('value', resultQuantity);
 		
 		var str2 = 'goods_code' + index;
 		var goods_code = $('#'+str2).val();
 		
-		$('#'+str1).attr('value', result);
+		var optionPrice = $('#optionPrice'+index).text();//현재 작품 가격
+		var initOptionPrice = Number(optionPrice) / Number(curQuantity); //정가
 		
-		var optionPrice = $('#optionQuantity').text();
-		var curOptionPrice = Number(optionPrice) / Number(curQuantity);
+		var resultOptionPrice = Number(initOptionPrice) * Number(resultQuantity);//결과 : 옵션 + 정가 가격
+		$('#optionPrice'+index).text(resultOptionPrice);
 		
-		var resultOptionPrice = Number(curOptionPrice) + Number(optionPrice);
-		$('#optionQuantity').text(resultOptionPrice);
-		$('#goodsPrice').text(Math.abs(resultOptionPrice));
+		$('#goods_price'+index).attr('value', resultOptionPrice);
+		$('#goodsPrice').text(Math.abs(resultOptionPrice));//선택한 모든 상품(정가+옵션)의 합산
 	
+		var length = $('#optionLength'+index).val();
+		var allGoodsPrice = 0;
+		const checkLength = document.getElementsByName('optionCheck').checked;
+		
+		
+		//체크박스 선택된 애들만 최종금액에 + 해야함 (여기부터 시작)
+		/*checkboxs.forEach((checkbox) => {
+			var num=$(this).attr('id');
+			
+			var str1 = $('#'+num);
+			console.log('선택삭제 중' + str1);
+			checkbox.str1.unwrap();
+		})*/
+	
+		$('#allGoodsPrice').attr('value', allGoodsPrice); //최종 금액 세팅
+		
 		$.ajax({
 			url: "cartQuantityUpdate.do",
 			type: "GET",
 			async: false,
-			data: { "cart_quantity": quantity,
+			data: { "cart_quantity": curQuantity,
 					"goods_price": $('#goodsPrice').text(),
 					"user_id": $('#user_id').val(),
 					"goods_code": goods_code
@@ -139,28 +158,28 @@ function changeMinus(state, index){
 	if(state == 'update'){
 		var str1 = "cart_quantity" + index;
 		var quantity = $('#'+str1).val();
-		var curQuantity = $('#'+str1).val();
+		var curQuantity = $('#'+str1).val();//현재 수량
 		
 		var str2 = 'goods_code' + index;
 		var goods_code = $('#'+str2).val();
 		
 		if(curQuantity > 1){
-			var result = Number(curQuantity) - 1;
+			var resultQuantity = Number(curQuantity) - 1; //결과 : 수량
+			$('#'+str1).attr('value', resultQuantity);
 			
-			$('#'+str1).attr('value', result);
+			var optionPrice = $('#optionPrice'+index).text();
+			var initOptionPrice = Number(optionPrice) / Number(curQuantity);
 			
-			var optionPrice = $('#optionQuantity').text();
-			var curOptionPrice = Number(optionPrice) / Number(curQuantity);
+			var resultOptionPrice = Number(initOptionPrice) * Number(resultQuantity);
+			$('#optionPrice'+index).text(Math.abs(resultOptionPrice));
 			
-			var resultOptionPrice = Number(curOptionPrice) - Number(optionPrice);
-			$('#optionQuantity').text(Math.abs(resultOptionPrice));
 			$('#goodsPrice').text(Math.abs(resultOptionPrice));
 			
 			$.ajax({
 				url: "cartQuantityUpdate.do",
 				type: "GET",
 				async: false,
-				data: { "cart_quantity": quantity,
+				data: { "cart_quantity": resultQuantity,
 						"goods_price": $('#goodsPrice').text(),
 						"user_id": $('#user_id').val(),
 						"goods_code": goods_code

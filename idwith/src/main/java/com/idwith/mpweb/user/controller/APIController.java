@@ -20,6 +20,7 @@ import org.springframework.web.util.UrlPathHelper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.idwith.mpweb.user.UserVO;
+import com.idwith.mpweb.user.service.SellerViewService;
 import com.idwith.mpweb.user.service.UserService;
 
 @Controller
@@ -27,16 +28,27 @@ public class APIController {
 	@Autowired
 	private UserService userService;
 	
-//	Ä«Ä«¿ÀÅå 
+	@Autowired
+	private SellerViewService sellerService;
+	
+//	Ä«Ä«ï¿½ï¿½ï¿½ï¿½ 
 	@RequestMapping(value="/kakao.do", method=RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String, String> kakaoLogin(HttpServletRequest req) throws Exception { 
-		System.out.println("kakaoSign() ½ÇÇà");
+	public HashMap<String, String> kakaoLogin(HttpServletRequest req, HttpSession session) throws Exception { 
+		System.out.println("kakaoSign() ï¿½ï¿½ï¿½ï¿½");
 		HashMap<String, String> params = new HashMap<String, String>();
 		UserVO vo = new UserVO();
 		
 		String age_range = req.getParameter("age_range");
 		String email= req.getParameter("email");
+		
+		if(email != null) {
+			Long sellerCheck = sellerService.getSeller(email);
+
+			if(sellerCheck != null) {
+				session.setAttribute("sellerCheck", sellerCheck);
+			}
+		}
 		
 		vo.setUser_id(email);
 		vo.setUser_pwd("kakao");
@@ -50,9 +62,9 @@ public class APIController {
 	}
 	
 	
-//	³×ÀÌ¹ö
+//	ï¿½ï¿½ï¿½Ì¹ï¿½
 	
-	// ³×ÀÌ¹ö ·Î±×ÀÎ Ã³¸® Áß È£ÃâµÇ´Â ÄÁÆ®·Ñ·¯
+	// ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
 	@RequestMapping(value="/naver.do", method=RequestMethod.GET)
 	public String naverLoginProcess(HttpServletRequest req, HttpSession session) {
 		return "loginPostNaver";
@@ -60,14 +72,23 @@ public class APIController {
 	
 	@RequestMapping(value="/naver.do", method=RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String, String> naverLogin(HttpServletRequest req) {
-		System.out.println("naverLogin() ½ÇÇà");
+	public HashMap<String, String> naverLogin(HttpServletRequest req, HttpSession session) {
+		System.out.println("naverLogin() ï¿½ï¿½ï¿½ï¿½");
 		HashMap<String, String> params = new HashMap<String, String>();
 		UserVO vo = new UserVO();
 		
 		String email= req.getParameter("email");
 		String name = req.getParameter("name");
 		String mobile = req.getParameter("mobile");
+		
+		
+		if(email != null) {
+			Long sellerCheck = sellerService.getSeller(email);
+
+			if(sellerCheck != null) {
+				session.setAttribute("sellerCheck", sellerCheck);
+			}
+		}
 		
 		System.out.println(name+", "+email+", "+mobile);
 		
@@ -84,7 +105,7 @@ public class APIController {
 		return params;
 	}
 	
-	// sns·Î ·Î±×ÀÎ ÈÄ ¼¼¼Ç¿¡ Á¤º¸ ¼¼ÆÃ ÈÄ index.do·Î ÀÌµ¿
+	// snsï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ index.doï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping(value="/sns.do", method= RequestMethod.GET)
 	@ResponseBody
 	public String indexAfterKakaoLogin(HttpServletRequest req, HttpSession session, HttpServletResponse response) throws Exception{

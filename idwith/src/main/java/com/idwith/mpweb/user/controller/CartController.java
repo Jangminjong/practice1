@@ -46,19 +46,20 @@ public class CartController {
 		List<Integer> optionNum = new ArrayList<Integer>();
 		Map<String, String> optionMap = null;
 
+		System.out.println("가져온 수량 : " + cartList.size());
+		
 		for(int i=0; i<cartList.size(); i++) {
 			System.out.println(i+"번 째 실행");
 			
 			int state=0;
 			optionMap = new HashMap<String,String>();
 			if(i==0) {
-				System.out.println("테스트 중 i가 0번째 일 때");
-				System.out.println("가져온 수량 : " + Integer.toString(cartList.get(i).getCart_quantity()));
+				System.out.println("테스트 중 상품 공통");
+				System.out.println("옵션 개수: "+ cartList.get(i).getGoods_option_value().length);
 				optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
 				optionMap.put("goodsCode", cartList.get(i).getGoods_code());
 				optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
 				optionMap.put("cartNum", Integer.toString(cartList.get(i).getCart_num()));
-				System.out.println("옵션 개수: "+ cartList.get(i).getGoods_option_value().length);
 				for(int j=0; j<cartList.get(i).getGoods_option_value().length; j++) {
 					optionMap.put("optionValue"+j, cartList.get(i).getGoods_option_value()[j]); 
 					optionMap.put("optionPrice"+j, cartList.get(i).getGoods_option_price()[j]); 
@@ -74,14 +75,14 @@ public class CartController {
 					System.out.println("DB 상품코드 : " + cartList.get(i).getGoods_code());
 					System.out.println("비교하는 상품 코드 : " + goodsList.get(j).getGoods_code());
 					if(cartList.get(i).getGoods_code().equals(goodsList.get(j).getGoods_code())) {
-						System.out.println("테스트 중 상품 코드가 같을 때");
+						System.out.println("테스트 중 상품 코드가 같을 때 옵션만 추가");
 						optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
 						optionMap.put("goodsCode", cartList.get(i).getGoods_code());
 						optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
 						optionMap.put("cartNum", Integer.toString(cartList.get(i).getCart_num()));
 						for(int m=0; m<cartList.get(i).getGoods_option_value().length; m++) {
-							optionMap.put("optionValue"+m, cartList.get(i).getGoods_option_value()[j]); 
-							optionMap.put("optionPrice"+m, cartList.get(i).getGoods_option_price()[j]); 
+							optionMap.put("optionValue"+m, cartList.get(i).getGoods_option_value()[m]); 
+							optionMap.put("optionPrice"+m, cartList.get(i).getGoods_option_price()[m]); 
 						}
 						optionNum.add(cartList.get(i).getGoods_option_value().length);
 						optionList.add(optionMap);
@@ -93,7 +94,7 @@ public class CartController {
 			}
 			
 			if(state==0) {
-				System.out.println("테스트 중 state가 0일 때");
+				System.out.println("테스트 중 다른 상품일 때");
 				optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
 				optionMap.put("goodsCode", cartList.get(i).getGoods_code());
 				optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
@@ -110,10 +111,8 @@ public class CartController {
 			System.out.println("=========================");
 		}
 		
-		System.out.println("goodsList 테스트 : " + goodsList.get(0).getGoods_code());
-		System.out.println("goodsList 테스트 : " + goodsList.get(0).getGoodsVO().getGoods_photo()[0]);
-		System.out.println("goodsList 테스트 : " + goodsList.get(0).getGoodsVO().getGoods_name());
-		System.out.println("goodsList 테스트 : " + goodsList.get(0).getGoodsVO().getStore_name());
+		
+		
 		
 		for(int i=0; i<optionList.size();i++) {
 			
@@ -134,19 +133,37 @@ public class CartController {
 	public String insertCart(@ModelAttribute CartVO cart) {
 		System.out.println("장바구니 담기 컨트롤러 실행");
 
-		String[] cartOptionValue = new String[cart.getGoods_option_value().length];
-		String[] cartOptionPrice = new String[cart.getGoods_option_value().length];
-		for(int i=0; i<cart.getGoods_option_value().length; i++) {
-			System.out.println(i+"번째 실행");
-			String j =  cart.getGoods_option_value()[i];
-			String[] str = j.split(",");
-
-			cartOptionValue[i] = str[0];
-			cartOptionPrice[i] = str[1];
+		System.out.println("가져온 값 : " + cart.getGoods_option_value()[1]);
+		System.out.println("가져온 가격 : " + cart.getGoods_option_price());
+		
+		
+		if(cart.getOptionNum() > 1) {
+			String[] cartOptionValue = new String[cart.getGoods_option_value().length];
+			String[] cartOptionPrice = new String[cart.getGoods_option_value().length];
+			for(int i=0; i<cart.getGoods_option_value().length; i++) {
+				System.out.println(i+"번째 실행");
+				String j =  cart.getGoods_option_value()[i];
+				String[] str = j.split(",");
+				
+				System.out.println("가져온 값 가공 전 : " + j);
+				System.out.println("가져온 값 가공 전 : " + str[i]);
+	
+				cartOptionValue[i] = str[0];
+				cartOptionPrice[i] = str[1];
+			}
+			
+			cart.setGoods_option_value(cartOptionValue);
+			cart.setGoods_option_price(cartOptionPrice);
+		}else if(cart.getOptionNum() == 1){
+			String[] cartOptionValue = new String[1];
+			String[] cartOptionPrice = new String[1];
+			
+			cartOptionValue[0] = cart.getGoods_option_value()[0];
+			cartOptionPrice[0] = cart.getGoods_option_value()[1];
+			
+			cart.setGoods_option_value(cartOptionValue);
+			cart.setGoods_option_price(cartOptionPrice);
 		}
-
-		cart.setGoods_option_value(cartOptionValue);
-		cart.setGoods_option_price(cartOptionPrice);
 
 		//vo 세팅 후 넘김
 		cartService.insertGoods(cart);
@@ -201,7 +218,7 @@ public class CartController {
 			,Model model, HttpSession sesion) {
 		List<GoodsOptionVO> vo = cartService.getGoodsOption(goods_code);
 
-		session.setAttribute("optionList", vo);
+		session.setAttribute("goodsOptionList", vo);
 		return null;
 	}
 
@@ -241,12 +258,14 @@ public class CartController {
 
 	@RequestMapping(value = "/deleteCartList.do", method=RequestMethod.GET)
 	@ResponseBody
-	public String deleteCartList(@RequestParam("goods_code")String goods_code, HttpSession session) {
+	public String deleteCartList(@RequestParam("goods_code")String goods_code, 
+			@RequestParam("cart_num") String cart_num, HttpSession session) {
 		System.out.println("작품 옵션 삭제 컨트롤러 실행");
 
 		CartVO vo = new CartVO();
 		vo.setUser_id((String) session.getAttribute("email"));
 		vo.setGoods_code(goods_code);
+		vo.setCart_num(Integer.parseInt(cart_num));
 
 		cartService.deleteOption(vo);
 		return null;

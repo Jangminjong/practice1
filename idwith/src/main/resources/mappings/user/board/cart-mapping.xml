@@ -105,6 +105,7 @@
 	
 	<!-- 옵션 삭제하기 -->
 	<delete id="deleteOption" parameterType="cartVO">
-		delete from cart where user_id=#{user_id} and goods_code=#{goods_code}
+		<!-- delete from cart where user_id=#{user_id} and goods_code=#{goods_code} -->
+		delete from cart where cart_num = #{cart_num}
 	</delete>
 </mapper>

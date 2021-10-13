@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>아이디어스 | 장바구니</title>
+<title>아이디위드 | 장바구니</title>
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 <link rel="stylesheet" href="resources/css/cart.css">
@@ -15,6 +15,7 @@
    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/jquery.serializeObject.js"></script>
 <script type="text/javascript" src="resources/js/cart.js"></script>
 
 <!-- 파비콘 이미지 설정 -->
@@ -81,23 +82,27 @@
 							<c:forEach var="goodsList" items="${goodsList}" varStatus="status">
 								<%-- <c:choose>
 									<c:when test="${cartInfoList.goods_code > 1}"> --%>
-									<form>
+									<form id="paymentCartList${status.count}">
+										<input type="hidden" name="user_id" value="${email}" />
 										<input type="hidden" id="goods_code${status.count}" name="goods_code" value="${goodsList.goods_code}">
-										<div data-v-415ede24="" data-v-6d930ad9="" class="CartArtistList" id="cartListItem${status.count}" name="goodsTag"
+										<div data-v-415ede24="" data-v-6d930ad9="" class="CartArtistList" id="cartListItem${status.count}" 
 											data-v-56dfc770="">
+											<input type="hidden" id="goodsTag" />
 											<div data-v-a6596a66="" data-v-415ede24="" class="CartArtistItem">
 												<div data-v-a6596a66="" class="CartArtistItem__header">
 													<label data-v-a6596a66=""
 														for="402a05af-6c1c-4ce2-9858-35839922e287"><div
 															data-v-5e27c696="" data-v-a6596a66="" class="checkbox">
 															<div data-v-5e27c696="" class="input-checkbox">
-																<input data-v-5e27c696="" id="" type="checkbox"
-																	autocomplete="off" class="bp"
-																	value="402a05af-6c1c-4ce2-9858-35839922e287" name="checkAll">
+																<%-- <input data-v-5e27c696="" id="" type="checkbox"
+																	autocomplete="off" class="goodsCheckBox${status.count}"
+																	value="402a05af-6c1c-4ce2-9858-35839922e287" name="checkAll" onclick="goodsCheckAll(this)"> --%>
 																<!-- <input type="checkbox"> -->
 															</div>
 															<!---->
-														</div> <span data-v-a6596a66="" class="CartArtistItem__title">
+														</div> 
+														<input type="hidden" name="store_name" value="${goodsList.store_name}" />
+														<span data-v-a6596a66="" class="CartArtistItem__title">
 															${goodsList.store_name} 님 </span></label>
 												</div>
 												<section data-v-a6596a66="" class="CartArtistItem__itemList">
@@ -116,9 +121,9 @@
 																			<div data-v-5e27c696="" data-v-2389adcc=""
 																				class="checkbox">
 																				<div data-v-5e27c696="" class="input-checkbox">
-																					<input data-v-5e27c696="" id="goodsItem${status.count}" type="checkbox"
-																						autocomplete="off" class="bp" name="checkAll"
-																						value="${goodsList.goods_code}">
+																					<%-- <input data-v-5e27c696="" id="goodsItem${status.count}" type="checkbox"
+																						autocomplete="off" class="goodsCheckBox${status.count}" name="checkAll"
+																						value="${goodsList.goods_code}"> --%>
 																				</div>
 																				<!---->
 																			</div>
@@ -126,11 +131,12 @@
 																		<img data-v-2389adcc="" alt=""
 																			class="CartProductListItem__productImage" id="img${status.count}"
 																			src="${goodsList.goodsVO.goods_photo[0]}">
+																		<input type="hidden" name="goods_photo" value="${goodsList.goodsVO.goods_photo[0]}" />
 																	</div>
 																	<div data-v-2389adcc=""
 																		class="CartProductListItem__productInfoTextGroup">
 																		<a data-v-2389adcc=""
-																			href="/w/product/a640a8e0-7cbd-4160-9a02-9eacf4537750"
+																			href="detail_content.do?goods_code=${goodsList.goods_code}"
 																			class="CartProductListItem__productName" id="goods_name${status.count}">${goodsList.goodsVO.goods_name}</a><!-- 작품 이름 -->
 																		<em data-v-2389adcc=""
 																			class="CartProductListItem__productItemCount"> 주문시
@@ -145,36 +151,40 @@
 																		
 																		<!-- 상품 총 가격을 표시하기 위한 변수 -->
 																		<c:set var="totalPrice" value="0"/>
-																		<!-- forEach, when : 같은 상품코드가 추가되면 선택한 옵션들 리스트를 출력-->
 																		<c:forEach var="option" items="${optionList}" varStatus="stau">
+																			
 																			<c:if test="${option.goodsCode eq goodsList.goods_code}">
 																			
-																			<div data-v-7705597e="" data-v-84a4f0f8="" name="goodsOptionTag"
+																			<input type="hidden" name="cart_num" id="cart_num${stau.count}" value="${goodsList.cart_num}" />
+																			<input type="checkbox" name="optionCheck" id="optionCheck${staucount}" value="${option.cartNum}"/>
+																			<div data-v-7705597e="" data-v-84a4f0f8=""
 																				class="CartOptionListItem" id="optionListItem${stau.count}">
 																				<div data-v-7705597e=""
 																					class="CartOptionListItem__splitLeft">
 																					<span id="optionList${stau.count}">
+																						<c:set var="optionLength" value="0" />
 																						<c:forEach var="op" begin="0" end="${optionNum[stau.index]-1}">
-																							<c:if test="${ st.count-1 < optionNum[stau.index]}">
-																							<em data-v-7705597e="" class="CartOptionListItem__optionText">
+																							<em data-v-7705597e="" class="CartOptionListItem__optionText" >
+																								<input type="hidden" name="optionLength" id="optionLength,${stau.count}" value="${optionLength}"/>
 																								<c:set var="opValNum" value="optionValue${op}"/>
 																								<c:set var="opPriNum" value="optionPrice${op}"/>
 																								${option[opValNum]}(+${option[opPriNum]}원)
-																								<input type="hidden" name="" value="" />
+																								<input type="hidden" name="goods_option_value" value="${option[opValNum]}" />
+																								<input type="hidden" name="goods_option_price" value="${option[opPriNum]}" />
+																								<c:set var="optionLength" value="${optionLength + 1}" />
 																							</em>
-																							</c:if>
 																						</c:forEach>
 																					</span>
 																					<div data-v-7705597e=""
 																						class="CartOptionListItem__counter">
 																						<label data-v-9b324a5a="" data-v-7705597e=""
 																							for="numberCount" class="NumberCounter">
+																							<button data-v-9b324a5a="" type="button" 
+																								class="NumberCounter__button" id="quantityMinus${stau.count}" onclick="changeMinus('update', ${stau.count})">-</button>
+																							<input data-v-9b324a5a="" type="text" name="cart_quantity"
+																								class="NumberCounter__input goodsOptionTag" id="cart_quantity${stau.count}" value="${option.quantity}">
 																							<button data-v-9b324a5a="" type="button"
-																								class="NumberCounter__button" id="quantityMinus" onclick="changeMinus('update')">-</button>
-																							<input data-v-9b324a5a="" name="numberCount" type="text"
-																								class="NumberCounter__input" id="cart_quantity" value="${option.quantity}">
-																							<button data-v-9b324a5a="" type="button"
-																								class="NumberCounter__button" id="quantityPlus" onclick="changePlus('update')">+</button>
+																								class="NumberCounter__button" id="quantityPlus${stau.count}" onclick="changePlus('update', ${stau.count})">+</button>
 																						</label>
 																					</div>
 																				</div>
@@ -183,7 +193,7 @@
 																					<em data-v-7705597e=""
 																						class="CartOptionListItem__totalPrice">
 																								
-																						<span class="goods_option_price${stau.count}" id="optionQuantity">${option.goodsPrice}</span>원</em>
+																						<span class="goods_option_price${stau.count}" id="optionPrice${stau.count}">${option.goodsPrice}</span>원</em>
 																						<c:set var="totalPrice" value="${totalPrice + option.goodsPrice}"/>
 																					<div data-v-7705597e=""
 																						class="CartOptionListItem__btnGroup">
@@ -213,9 +223,10 @@
 																			class="CartOrderMessageEditor__productOrderMessage">
 																			<div data-v-1934649e="" data-v-5eae4d4e=""
 																				class="CommonTextEditor">
+																				<input type="hidden" name="cart_order_content" value="${goodsList.cart_order_content}" />
 																				<textarea data-v-1934649e="" maxlength="500"
 																					placeholder="주문요청 사항을 입력해 주세요."
-																					class="CommonTextEditor__textarea" id="orderMessage">${goodsList.cart_order_content}</textarea>
+																					class="CommonTextEditor__textarea" id="orderMessage${status.count}">${goodsList.cart_order_content}</textarea>
 																				<em data-v-1934649e=""
 																					class="CommonTextEditor__maxLength">500</em>
 																			</div>
@@ -226,7 +237,7 @@
 																			class="CartOrderMessageEditor__orderMessageSaveBtn">
 																			<button data-v-32d88566="" data-v-5eae4d4e=""
 																				class="CommonButton CommonButton--middle CommonButton--white "
-																				id="order_message_btn" onclick="orderMessageUpdate()"
+																				id="order_message_btn" onclick="orderMessageUpdate(${status.count})"
 																				style="width: 72px; height: 80px; margin-left: 10px; font-weight: bold;">
 																				저장</button>
 																		</div>
@@ -240,7 +251,8 @@
 													<div data-v-a6596a66="" class="CartArtistItem__label">작품 가격</div>
 													<em data-v-a6596a66="" class="CartArtistItem__price" >
 														<span id="goodsPrice">
-															<c:out value="${totalPrice }"/>
+															<input type="text" name="goods_price" id="goods_price${status.count}" value="" readonly/>
+															<%-- <c:out value="${totalPrice}"/> --%>
 														</span>원
 													</em>
 												</section>
@@ -249,6 +261,7 @@
 													<div data-v-a6596a66="" class="CartArtistItem__price">
 														<div data-v-76555e5b="" data-v-a6596a66=""
 															class="ShippingPrice">
+															<input type="hidden" name="cart_delivery_fee" value="${goodsList.cart_delivery_fee}" />
 															<em data-v-76555e5b="" class="ShippingPrice__price">${goodsList.cart_delivery_fee}원</em>
 															<div data-v-76555e5b="" class="ShippingPrice__desc">
 																70,000원 이상 무료배송</div>
@@ -307,28 +320,38 @@
 										<div data-v-e14558f4="" class="CartCheckoutDesktop__item">
 											<div data-v-e14558f4="" class="CartCheckoutDesktop__label">작품금액</div>
 											<div data-v-e14558f4="" class="CartCheckoutDesktop__value">
-												<span data-v-e14558f4="">0</span> <span data-v-e14558f4=""
-													class="CartCheckoutDesktop__priceUnit">원</span>
+												<c:set var="allGoodsPrice" value="0" />
+												<c:set var="allGoodsPrice" value="${allGoodsPrice + totalPrice}"/>
+												<span data-v-e14558f4="">
+													<input type="text" id="allGoodsPrice" value="${allGoodsPrice}" />
+													<c:out value="${allGoodsPrice}" />
+												</span> <span data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>
 											</div>
 										</div>
 										<div data-v-e14558f4="" class="CartCheckoutDesktop__item--fixed">+</div>
 										<div data-v-e14558f4="" class="CartCheckoutDesktop__item">
 											<div data-v-e14558f4="" class="CartCheckoutDesktop__label">배송비</div>
+											<c:set var="deliveryPrice" value="0"/>
 											<div data-v-e14558f4="" class="CartCheckoutDesktop__value">
-												<span data-v-e14558f4="">0</span> <span data-v-e14558f4=""
-													class="CartCheckoutDesktop__priceUnit">원</span>
+												<span data-v-e14558f4="">
+													<c:out value="${deliveryPrice}" />
+												</span> 
+												<span data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>
 												<!---->
 											</div>
 										</div>
 										<!---->
 										<div data-v-e14558f4="" class="CartCheckoutDesktop__item--fixed">=</div>
 										<div data-v-e14558f4="" class="CartCheckoutDesktop__item">
-											<div data-v-e14558f4="" class="CartCheckoutDesktop__label">결제
-												예정금액</div>
+											<div data-v-e14558f4="" class="CartCheckoutDesktop__label">결제 예정금액</div>
 											<div data-v-e14558f4=""
 												class="CartCheckoutDesktop__value--highlight">
-												<span data-v-e14558f4="">0</span> <span data-v-e14558f4=""
-													class="CartCheckoutDesktop__priceUnit">원</span>
+												<span data-v-e14558f4="">
+													<c:set var="cartPrice" value="0"/>
+													<c:set var="cartPrice" value="${allGoodsPrice + deliveryPrice}" />
+													<c:out value="${cartPrice}" />
+													<input type="hidden" id="final_price" value="${cartPrice}"/>
+												</span> <span data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>
 											</div>
 										</div>
 									</div>
@@ -337,7 +360,7 @@
 									class="CartPage__bottom">
 									<button data-v-32d88566="" data-v-6d930ad9=""
 										class="CommonButton CartPage__paymentButton CommonButton--large CommonButton--red "
-										data-v-56dfc770="" id="payment_btn" onclick="paymentBtn()">주문하기</button>
+										data-v-56dfc770="" id="payment_btn" onclick="paymentBtn()" disabled="disabled">주문하기</button>
 								</div>
 							</div>
 						</div>
@@ -363,7 +386,7 @@
 											class="CartOptionUpdateModal__close">
 											<button data-v-0e3e26ae="" data-v-c2543b4e="" type="button"
 												aria-label="닫기" class="CloseButton" data-v-a29fc536="">
-												<i data-v-0e3e26ae="" class="idus-icon-close"></i>
+												<i class="fa fa-times" aria-hidden="true"></i>
 											</button>
 										</div>
 									</div>
@@ -412,11 +435,11 @@
 											<div data-v-106ab16b="" class="CartOptionStockCounter__stockWrapper">
 												<div data-v-106ab16b="" class="CartOptionStockCounter__numberCounter">
 													<label data-v-9b324a5a="" data-v-106ab16b="" for="numberCount" class="NumberCounter">
-														<button data-v-9b324a5a="" type="button" class="NumberCounter__button" onclick="changeMinus('modal')">
+														<button data-v-9b324a5a="" type="button" class="NumberCounter__button" onclick="changeMinus('modal', 0)">
 															-
 														</button>
 														<input data-v-9b324a5a="" name="numberCount_m" type="text" class="NumberCounter__input" value="1">
-														<button data-v-9b324a5a="" type="button" class="NumberCounter__button" onclick="changePlus('modal')">
+														<button data-v-9b324a5a="" type="button" class="NumberCounter__button" onclick="changePlus('modal', 0)">
 															+
 														</button>
 													</label>
@@ -451,7 +474,7 @@
 													<!-- 여기에 상품 옵션 반복 -->
 													<div data-v-4b6162e7="" data-v-4f0ad632=""
 														class="BaseSelector">
-														<c:forEach var="modalOptionList" items="${optionList}">
+														<c:forEach var="modalOptionList" items="${goodsOptionList}">
 															<div>
 																<select name="goods_option_value" id="optionList" class="form-control"
 																 onchange="optionChange()">

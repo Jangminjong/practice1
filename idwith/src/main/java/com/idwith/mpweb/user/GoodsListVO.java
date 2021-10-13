@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class GoodsListVO {
 	@XmlElement(name = "goodsVO")
 	private List<GoodsVO> goodsList;
+	
+	public GoodsListVO(){}
 
 	public List<GoodsVO> getGoodsList() {
 		return goodsList;

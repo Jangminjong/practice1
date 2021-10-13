@@ -1,6 +1,8 @@
 package com.idwith.mpweb.user;
 
-public class CartVO {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class CartVO{
 	private int cart_num; //장바구니 번호
 	private String goods_code; //상품 번호
 	private int seller_code; //작가 코드
@@ -17,6 +19,18 @@ public class CartVO {
 	private String store_name; //상점 이름
 	private GoodsVO goodsVO;
 	
+	private boolean checkAll; //*
+	
+	public CartVO() {}
+	
+	private int optionNum; //선택한 옵션의 개수
+	
+	public int getOptionNum() {
+		return optionNum;
+	}
+	public void setOptionNum(int optionNum) {
+		this.optionNum = optionNum;
+	}
 	public GoodsVO getGoodsVO() {
 		return goodsVO;
 	}
@@ -108,4 +122,12 @@ public class CartVO {
 	public void setCart_order_content(String cart_order_content) {
 		this.cart_order_content = cart_order_content;
 	}
+	public boolean isCheckAll() {
+		return checkAll;
+	}
+	public void setCheckAll(boolean checkAll) {
+		this.checkAll = checkAll;
+	}
+	
+	
 }

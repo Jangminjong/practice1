@@ -406,10 +406,6 @@ colgroup {
     display: table-column-group;
 }
 
-col[Attributes Style] {
-    width: 90px;
-}
-
 col {
     display: table-column;
 }
