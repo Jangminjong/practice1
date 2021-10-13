@@ -56,4 +56,14 @@ public class ProposeServiceImpl implements ProposeService {
 	public void updateStatus(ClassRegVO classRegVO) {
 		proposeDAO.updateStatus(classRegVO);
 	}
+
+	@Override
+	public String getClass_category(String seq) {
+		return proposeDAO.getClass_category(seq);
+	}
+
+	@Override
+	public void updateClassCode(ClassRegVO classRegVO) {
+		proposeDAO.updateClassCode(classRegVO);
+	}
 }

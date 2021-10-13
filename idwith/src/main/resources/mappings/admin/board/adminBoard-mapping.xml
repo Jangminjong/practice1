@@ -61,6 +61,16 @@
  		select * from class_reg where class_status=0
  	</select>
  	
+ 	<!-- 클래스 카테고리 가져오기 -->
+ 	<select id="getClass_category" resultType="string">
+ 		select class_category from class_reg where class_reg_seq = #{class_reg_seq}
+ 	</select>
+ 	
+ 	<!-- 클래스 코드 넣어주기 -->
+ 	<update id="updateClassCode" parameterType="classRegVO">
+ 		update class_reg set class_code=#{class_code} where class_reg_seq=#{class_reg_seq}
+ 	</update>
+ 	
  	<!-- 클래스 테이블 상태값 변경(승인) -->
  	<update id="updateAgreeStatus">
  		update class_reg set class_status=1 where class_reg_seq=#{class_reg_seq}

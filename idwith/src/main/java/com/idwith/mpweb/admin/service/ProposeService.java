@@ -22,4 +22,8 @@ public interface ProposeService {
 	int updateDisagreeStatus(String class_reg_seq);
 
 	void updateStatus(ClassRegVO classRegVO);
+
+	String getClass_category(String seq);
+
+	void updateClassCode(ClassRegVO classRegVO);
 }
