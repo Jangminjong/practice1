@@ -299,14 +299,13 @@
                                 </div>
                                 <div class="addImage-group">
                                 </div>
-								
-								<button class="btn btn-primary waves-effect" type="submit">수정하기</button>
-                                <a href="classManagement.wdo">
-                  	              <button class="btn btn-primary waves-effect" type="button">목록으로</button>
-                  	            </a>
-                  	            <a href="classRegDelete.wdo?classRegSeq=${classReg.classRegSeq}">
-                  	              <button class="btn btn-primary waves-effect" type="button">삭제하기</button>
-                  	            </a>
+									<button class="btn btn-primary waves-effect" type="submit">수정하기</button>
+	                                <a href="classManagement.wdo">
+	                  	              <button class="btn btn-primary waves-effect" type="button">목록으로</button>
+	                  	            </a>
+	                  	            <a href="classRegDelete.wdo?classRegSeq=${classReg.classRegSeq}">
+	                  	              <button class="btn btn-primary waves-effect" type="button">삭제하기</button>
+	                  	            </a>
                             </form>
                             </div>
                         </div>

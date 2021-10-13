@@ -20,6 +20,7 @@
  		<result property="classPhone" column="class_phone" />
  		<result property="classPhoto" column="class_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" />
  		<result property="classStatus" column="class_status"/>
+ 		<result property="storeName" column="store_name"/>
  	</resultMap>
  	<resultMap type="writerClassCategory" id="writerClassCategoryResult">
  		<result property="classCategoryCode" column="class_category_code"/>
@@ -39,7 +40,8 @@
  								 class_info,
  								 class_phone,
  								 class_photo,
- 								 class_status
+ 								 class_status,
+ 								 store_name
  								 )
  		VALUES(#{classSeller},
  			   #{classCategory},
@@ -52,7 +54,8 @@
  			   #{classInfo},
  			   #{classPhone},
  			   #{classPhoto, typeHandler=org.apache.ibatis.type.ArrayTypeHandler},
- 			   0
+ 			   0,
+ 			   #{storeName}
  			   )
  	</insert>
 
@@ -120,8 +123,19 @@
 	select class_category_code, class_category_name from class_category
 	</select>
 	
+	<!-- 클래스 등록 승인 리스트 전체 -->
 	<select id="classRegListAll" resultMap="writerClassRegResult">
 	SELECT class_code, class_name FROM class_reg
-	WHERE class_seller = ${classSeller} <!-- and class_status = 1 -->
+	WHERE class_seller = ${classSeller} and class_status = 1
+	</select>
+	
+	<!-- 작가에서 storeName 가져오기 -->
+	<select id="sellerStoreName" resultType="string">
+	select store_name from seller where seller_code = #{sellerCode}
+	</select>
+	
+	<!-- 클래스주제 전달 -->
+	<select id="className" resultType="string">
+	select class_name from class_reg where class_code = #{class_code}
 	</select>
 </mapper>

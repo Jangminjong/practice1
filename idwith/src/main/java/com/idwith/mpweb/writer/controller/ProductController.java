@@ -171,11 +171,5 @@ public class ProductController {
 		return "redirect:/productManagement.wdo";
 	}
 	
-	// 주문 상세
-	@GetMapping("/productDetails.wdo")
-	public String productDetails() {
-		return "productDetails";
-	}
-
 
 }

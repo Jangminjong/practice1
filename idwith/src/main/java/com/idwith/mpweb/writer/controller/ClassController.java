@@ -13,7 +13,6 @@ import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -93,7 +92,9 @@ public class ClassController {
 		int sellerCode = Integer.parseInt(session.getAttribute("sellerCheck").toString());
 		writerClassOpenVO.setClassOpenSeller(sellerCode);
 		String[] photo = new String[file.length];
-		String className = writerClassOpenVO.getClassName();
+		String classCode = writerClassOpenVO.getClassOpenClassCode();
+		String className = classRegService.getRegClassName(classCode);
+		writerClassOpenVO.setClassName(className);
 		for (int i = 0; i < file.length; i++) {
 	         if (!file[i].getOriginalFilename().equals("")) {
 	        	 	InputStream is = file[i].getInputStream();
@@ -236,7 +237,8 @@ public class ClassController {
 		writerClassRegVO.setClassSeller(sellerCode);
 		String className = writerClassRegVO.getClassName();
 		String[] photo = new String[file.length];
-		
+		String sellerStoreName = classRegService.getSellerStoreName(sellerCode);
+		writerClassRegVO.setStoreName(sellerStoreName);
 		for (int i = 0; i < file.length; i++) {
 	         if (!file[i].getOriginalFilename().equals("")) {
 	            System.out.println("================== file start ==================");

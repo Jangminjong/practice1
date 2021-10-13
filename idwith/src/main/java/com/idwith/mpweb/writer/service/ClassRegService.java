@@ -15,4 +15,6 @@ public interface ClassRegService {
 	void classRegUpdate(WriterClassRegVO writerClassRegVO);
 	List<WriterClassCategoryVO> classCategoryFind();
 	List<WriterClassRegVO> getWriterClassRegListAll(int classSeller);
+	String getSellerStoreName(int sellerCode);
+	String getRegClassName(String classCode);
 }

@@ -51,4 +51,12 @@ public class WriterClassRegDAO {
 	public List<WriterClassRegVO> getClassregListAll(int classSeller) {
 		return sqlSessionTemplate.selectList("WriterClassRegDAO.classRegListAll", classSeller);
 	}
+
+	public String getSellerStoreName(int sellerCode) {
+		return sqlSessionTemplate.selectOne("WriterClassRegDAO.sellerStoreName", sellerCode);
+	}
+
+	public String getClassRegClassName(String classCode) {
+		return sqlSessionTemplate.selectOne("WriterClassRegDAO.className", classCode);
+	}
 }

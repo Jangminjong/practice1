@@ -214,17 +214,16 @@
                         <div class="body">
                             <form id="form_validation" action="classOpenInsert.wdo" method="POST" enctype="multipart/form-data" onsubmit="return regClassTimeCheck();">
 								<div class="form-group form-float"> 카테고리 &nbsp;&nbsp;
-									<select name='classOpenCategory' id="productCategory">
+									<select name='classOpenCategory' id="productCategory" required>
 										<c:forEach var="classCategory" items="${classCategoryList}">
 											<option value='${classCategory.classCategoryCode}'>${classCategory.classCategoryName}</option>
 										</c:forEach>
 									</select>
 								</div>
 								<div class="form-group form-float"> 클래스 주제 &nbsp;&nbsp;
-									<select name="classOpenClassCode">
+									<select name="classOpenClassCode" required>
 										<c:forEach var="regList" items="${regListAll}">
 											<option value="${regList.classCode}">${regList.className}</option>
-											
 										</c:forEach>
 									</select>
 								</div>

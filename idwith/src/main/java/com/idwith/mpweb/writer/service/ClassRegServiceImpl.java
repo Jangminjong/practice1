@@ -59,4 +59,14 @@ public class ClassRegServiceImpl implements ClassRegService{
 		List<WriterClassRegVO> writerClassRegList = writerClassRegDAO.getClassregListAll(classSeller);
 		return writerClassRegList;
 	}
+
+	@Override
+	public String getSellerStoreName(int sellerCode) {
+		return writerClassRegDAO.getSellerStoreName(sellerCode);
+	}
+
+	@Override
+	public String getRegClassName(String classCode) {
+		return writerClassRegDAO.getClassRegClassName(classCode);
+	}
 }

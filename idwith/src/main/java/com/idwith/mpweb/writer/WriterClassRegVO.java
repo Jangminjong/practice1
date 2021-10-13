@@ -20,6 +20,7 @@ public class WriterClassRegVO {
 	private String classPhone;
 	private String[] classPhoto;
 	private int classStatus;
+	private String storeName;
 	private String[] uploadedFileList;
 	private String[] uploadFileList;
 	public int getClassRegSeq() {
@@ -106,6 +107,12 @@ public class WriterClassRegVO {
 	}
 	public void setClassStatus(int classStatus) {
 		this.classStatus = classStatus;
+	}
+	public String getStoreName() {
+		return storeName;
+	}
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
 	}
 	public String[] getUploadedFileList() {
 		return uploadedFileList;

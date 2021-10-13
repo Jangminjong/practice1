@@ -60,23 +60,28 @@
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  
                     <li class="dropdown">
+                          <a href="logout.wdo">
+                            <i class="material-icons">logout</i>
+                          </a>
+                        
+                    </li>
+                    
+                    
+
+                    <!-- #END# Tasks -->
+                  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
-                            <span class="label-count"></span>
+                             <i class="material-icons">delete</i>
+                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">                                   
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                            <li class="header" style=color:gray;>입점취소 신청하기</li>
+                            <li class="body text-center">
+                                <button type="button" class="btn btn-primary" id="deleteShop" name="deleteShop" onclick="enrollmentCancle()">취소신청</button>                        
                             </li>
                         </ul>
-                    </li>
+                  </li>
                
                 </ul>
             </div>
@@ -104,7 +109,14 @@
                             <span>주문관리</span>
                         </a>
                     </li>
-
+					
+					<li>
+                        <a href="orderClass.wdo">
+                            <i class="material-icons">airplay</i>
+                            <span>클래스 신청관리</span>
+                        </a>
+                    </li>
+					
                     <li>
                         <a href="classOpen.wdo">
                             <i class="material-icons">date_range</i>
@@ -134,13 +146,6 @@
                     </li>
 
                     <li>
-                        <a href="Follow.wdo">
-                            <i class="material-icons">favorite</i>
-                            <span>팔로우</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="writerStory.wdo">
                             <i class="material-icons">chat</i>
                             <span>작가 이야기</span>
@@ -160,12 +165,18 @@
                             <span>매출 확인</span>
                         </a>
                     </li>
-
-                  
+					
                     <li>
                         <a href="sellerCalculate.wdo">
                             <i class="material-icons">star_rate</i>
                             <span>정산</span>
+                        </a>
+                    </li>
+                    
+                     <li>
+                        <a href="index.do">
+                            <i class="material-icons">contact_page</i>
+                            <span>Idwith</span>
                         </a>
                     </li>
 

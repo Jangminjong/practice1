@@ -45,6 +45,7 @@
  	<!-- 클래스오픈 테이블에 등록  -->
 	<insert id="insertClassOpen" parameterType="writerClassOpen">
 	INSERT INTO class_Open (
+								 class_name,
  								 class_open_name,
  								 class_open_seller,
  								 class_open_class_code,
@@ -64,7 +65,8 @@
  								 class_open_max_person
  								 )
  								
- 							VALUES(#{classOpenName},
+ 							VALUES( #{className},
+ 							   #{classOpenName},
 				 			   #{classOpenSeller},
 				 			   #{classOpenClassCode},
 				 			   #{classOpenCategory},
@@ -94,7 +96,6 @@
  	
  	<!-- 페이징 처리 후 게시글 조회 -->
 	<select id="classOpenList" parameterType="writerClassOpen" resultMap="writerClassOpenResult">
->>>>>>> class-open
 	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
 	FROM class_open WHERE class_open_seller=#{countNotice} ORDER BY class_open_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 	</select>

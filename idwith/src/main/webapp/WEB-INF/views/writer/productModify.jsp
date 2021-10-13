@@ -33,7 +33,7 @@
     <link href="resources/writer/css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="resource/writer/css/themes/all-themes.css" rel="stylesheet" />
+    <link href="resources/writer/css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">
@@ -58,7 +58,7 @@
 
             </div>
 
-   <div class="collapse navbar-collapse" id="navbar-collapse">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                           <a href="logout.wdo">
@@ -73,23 +73,20 @@
                   <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                              <i class="material-icons">delete</i>
-                            <span class="label-count"></span>
+                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">입점취소 신청하기</li>
-                            <li class="body text-center"><a href="">취소신청</a>
-                                <ul class="menu">
-                                </ul>
+                            <li class="header" style=color:gray;>입점취소 신청하기</li>
+                            <li class="body text-center">
+                                <button type="button" class="btn btn-primary" id="deleteShop" name="deleteShop" onclick="enrollmentCancle()">취소신청</button>                        
                             </li>
-                            <li class="footer">
-                                <a href="javascript:void(0);">입점취소신청하기</a>
-                            </li>
-                           
                         </ul>
-                    </li>
-                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
-                      <i class="material-icons">delete</i></a>
-                    </li>  -->
+                  </li>
+                    
+                  
+					
+	
+                    
                 </ul>
             </div>
         </div>
@@ -354,7 +351,7 @@
     <script src="resources/writer/js/pages/index.js"></script>
 
     <!-- Demo Js -->
-    <script src="resource/writer/js/demo.js"></script>
+    <script src="resources/writer/js/demo.js"></script>
 </body>
 
 </html>
