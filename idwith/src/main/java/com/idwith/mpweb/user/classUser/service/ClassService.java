@@ -49,5 +49,9 @@ public interface ClassService {
 
 	void paymentClassCancel(String marchant_uid);
 
+	int countClassForSearch(String search);
+
+	List<ClassVO> getClassListForSearch(PagingVO classPageVO);
+
 
 }

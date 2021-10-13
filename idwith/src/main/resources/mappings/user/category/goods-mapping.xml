@@ -184,5 +184,27 @@
 	FROM goods AS goods LEFT OUTER JOIN goods_review AS goods_review ON goods.goods_code = goods_review.goods_review_code where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10
  	</select>
  	
+ 	<!-- 검색 페이지에 사용 -->
+ 	<select id="countGoodsForSearch" parameterType="string" resultType="_int">
+ 	<![CDATA[
+ 		SELECT count(*) FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_name LIKE '%'||#{search}||'%' ORDER BY goods_volume DESC )AS foo
+		]]>
+ 	</select>
+ 	<select id="getGoodsListForSearch" resultMap="goodsResult" parameterType="com.idwith.mpweb.common.PagingVO">
+ 	<![CDATA[
+ 		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_name LIKE '%'||#{set}||'%' ORDER BY goods_volume DESC )A)AS foo 
+			WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+ 	</select>
+ 	
 
 </mapper>

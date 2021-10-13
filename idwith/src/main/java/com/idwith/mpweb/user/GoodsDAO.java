@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.idwith.mpweb.common.PagingVO;
+
 @Repository
 public class GoodsDAO {
 	@Autowired
@@ -43,6 +45,14 @@ public class GoodsDAO {
 	}
 	public List<GoodsCategoryVO> getAllGoodsCategory() {
 		return sqlSessionTemplate.selectList("GoodsDAO.getAllGoodsCategory");
+	}
+
+	public int countGoodsForSearch(String search) {
+		return sqlSessionTemplate.selectOne("GoodsDAO.countGoodsForSearch", search);
+	}
+
+	public List<GoodsVO> getGoodsListForSearch(PagingVO goodsPageVO) {
+		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsListForSearch", goodsPageVO);
 	}
 
 }

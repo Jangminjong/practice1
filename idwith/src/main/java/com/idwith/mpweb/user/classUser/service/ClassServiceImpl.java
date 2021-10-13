@@ -114,5 +114,15 @@ public class ClassServiceImpl implements ClassService{
 		dao.paymentClassCancel(marchant_uid);
 	}
 
+	@Override
+	public int countClassForSearch(String search) {
+		return dao.countClassForSearch(search);
+	}
+
+	@Override
+	public List<ClassVO> getClassListForSearch(PagingVO classPageVO) {
+		return dao.getClassListForSearch(classPageVO);
+	}
+
 
 }

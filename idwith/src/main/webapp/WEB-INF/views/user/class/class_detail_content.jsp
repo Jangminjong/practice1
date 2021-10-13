@@ -235,7 +235,7 @@
 											<form data-v-29616b27="" action="payment_class.do" onsubmit="return false" id="class-reg-form" name="classRegForm" method="post">
 												<dl data-v-29616b27="" class="border_block">
 													<dt data-v-29616b27="">
-														<strong data-v-29616b27=""><input type="text" id="input_date" value="${classVO.class_open_date }" /></strong>
+														<strong data-v-29616b27=""><input type="hidden" id="input_date" value="${classVO.class_open_date }" /></strong>
 													</dt>
 													<dd data-v-29616b27="">
 														<!---->
@@ -257,7 +257,7 @@
 														class="options_list">
 														<input type="hidden" id="list-length" value="${fn:length(classDetails) }"/>
 														<c:forEach var="detail" items="${classDetails}" varStatus="status">
-														<input type="text" id="open-date${status.index }" class="open-date" value="${detail.class_open_date}" />
+														<input type="hidden" id="open-date${status.index }" class="open-date" value="${detail.class_open_date}" />
 														<li data-v-29616b27="" data-v-1e70de7c="" class="">
 														 <a href="javascript:choicePeople('${detail.class_open_date}', '${detail.class_open_time}', '${detail.class_open_max_person }')">
 															<span data-v-29616b27="" data-v-1e70de7c="">
@@ -270,7 +270,7 @@
 																<dd data-v-29616b27="" data-v-1e70de7c="" class="">
 																	0/${detail.class_open_max_person }</dd>
 															</dl>
-															<input type="text" name="class_open_price" id="price" value="${detail.class_open_price }"/>
+															<input type="hidden" name="class_open_price" id="price" value="${detail.class_open_price }"/>
 														</a>
 														</li>
 														</c:forEach>
@@ -308,9 +308,9 @@
 														<span data-v-29616b27="">결제하기</span>
 													</button>
 												</div>
-												<input type="text" name="class_order_code" value="${classCode }"/>
-												<input type="text" name="class_order_date" id="final-date" value=""/>
-												<input type="text" name="class_order_time" id="final-time" value=""/>
+												<input type="hidden" name="class_order_code" value="${classCode }"/>
+												<input type="hidden" name="class_order_date" id="final-date" value=""/>
+												<input type="hidden" name="class_order_time" id="final-time" value=""/>
 											</form>
 										</div>
 									</div>

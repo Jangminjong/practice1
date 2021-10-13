@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.GoodsCategoryVO;
 import com.idwith.mpweb.user.GoodsDAO;
 import com.idwith.mpweb.user.GoodsOption1VO;
@@ -55,6 +56,16 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public List<GoodsCategoryVO> getAllGoodsCategory() {
 		return goodsDAO.getAllGoodsCategory();
+	}
+
+	@Override
+	public int countGoodsForSearch(String search) {
+		return goodsDAO.countGoodsForSearch(search);
+	}
+
+	@Override
+	public List<GoodsVO> getGoodsListForSearch(PagingVO goodsPageVO) {
+		return goodsDAO.getGoodsListForSearch(goodsPageVO);
 	}
 
 }

@@ -92,4 +92,12 @@ public class ClassDAO {
 		sqlSessionTemplate.delete("classDAO.paymentClassCancel", marchant_uid);
 		
 	}
+
+	public int countClassForSearch(String search) {
+		return sqlSessionTemplate.selectOne("classDAO.countClassForSearch", search);
+	}
+
+	public List<ClassVO> getClassListForSearch(PagingVO classPageVO) {
+		return sqlSessionTemplate.selectList("classDAO.getClassListForSearch", classPageVO);
+	}
 }
