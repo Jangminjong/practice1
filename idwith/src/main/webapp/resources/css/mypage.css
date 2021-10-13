@@ -1061,11 +1061,39 @@ nav button[data-v-450a0b42] {
 	margin-left: 270px;
 }
 
-.banner-empty img{
+/* .banner-empty img{
 	margin-left: 10%;
-}
+} */
 
 .btn-point{
 	color: white;
     font-weight: bold;
+}
+
+input [name=goods_review_id] {
+	border: solid 0px;
+}
+
+input [name=order_detail_code] {
+	border: solid 0px;
+}
+
+input [name=goods_review_code] {
+	border: solid 0px;
+}
+
+input [name=goods_review_option1] {
+	border: solid 0px;
+}
+
+input [name=goods_review_option2] {
+	border: solid 0px;
+}
+
+input [name=goods_review_option3] {
+	border: solid 0px;
+}
+
+input [name=goods_review_point] {
+	border: solid 0px;
 }

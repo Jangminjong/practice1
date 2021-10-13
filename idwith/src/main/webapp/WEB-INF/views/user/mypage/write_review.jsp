@@ -83,8 +83,8 @@
 						</div>
 						<div class="area-txt">
 							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
-								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">OOO</strong>
+								<span>${user_grade} &gt;</span>
+							</a> <strong data-profile="name">${user_name}</strong>
 						</div>
 					</div>
 
@@ -115,6 +115,8 @@
 							</b> <a href="mypage_level.do" class="">회원 등급</a> <a
 								href="mypage_info.do" class="">회원 정보 관리</a> <a
 								href="mypage_address.do" class="">주소(배송지) 관리</a>
+								<a
+								href="mypage_address.do" class="">주소(배송지) 관리</a>
 						</nav>
 					</div>
 				</aside>
@@ -139,24 +141,26 @@
 							value="reviewBefore.order_detail_code">
 							<div class="ui_card--review">
 								<form id="form-review" name="reviewForm" class="form-review"
-									action="write_review.do" method="post" onsubmit="return false"
+									action="write_review.do" method="post" onsubmit="return false" enctype="multipart/form-data"
 									style="margin-top: 10px;">
-									<input type="text" name="order_detail_code"
-										class="order_detail_code" value="${orderVO.order_detail_code}" />
-									<input type="text" name="goods_review_code"
-										class="goods_review_code" value="${orderVO.order_detail_goods}" />
-									<input type="text" name="goods_review_id" class="user_id"
-										value="${email}" /> 
-									<input type="text"
+									주문자 : <input type="text" name="goods_review_id" class="user_id"
+										value="${email}" readonly/><br><br>
+									주문 코드 : <input type="text" name="order_detail_code"
+										class="order_detail_code" value="${orderVO.order_detail_code}" readonly/>
+									주문 작품 : <input type="text" name="goods_review_code"
+										class="goods_review_code" value="${orderVO.order_detail_goods}" readonly/>
+										&nbsp;&nbsp;&nbsp;<br><br>
+									옵션1 : <input type="text"
 										name="goods_review_option1"
-										value="${orderVO.order_detail_option1}" />
-									<input type="text"
+										value="${orderVO.order_detail_option1}" readonly/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									옵션2 : <input type="text"
 										name="goods_review_option2"
-										value="${orderVO.order_detail_option2}" />
+										value="${orderVO.order_detail_option2}" readonly/>
 									<input type="text"
 										name="goods_review_option3"
-										value="${orderVO.order_detail_option3}" />
-
+										value="${orderVO.order_detail_option3}" readonly/>
+									
+									<br><br>
 									<div id="review-point" style="margin-bottom: 10px;">
 										<button onclick="starBtn1()" ondblclick="cancelStar1()">
 											<i id="star1" class="fa fa-star-o" aria-hidden="true"></i>
@@ -174,32 +178,31 @@
 											<i id="star5" class="fa fa-star-o" aria-hidden="true"></i>
 										</button>
 										<input type="text" id="star-point-total"
-											name="goods_review_point" class="goods_review_point" value="" />
+											name="goods_review_point" class="goods_review_point" value="" readonly/>
 									</div>
 
 									<div class="review-content" style="margin-bottom: 10px;">
-										<textarea rows="20" name="goods_review_context"
-											style="width: 100%; font-size: 10px;"></textarea>
+										<textarea rows="15" name="goods_review_context"
+											style="width: 100%; font-size: 16px;"></textarea>
 									</div>
 									<div class="image-section">
-										<label class="input-file-button" for="review-file1">이미지
-											추가</label> <input type="file" name="goods_review_image"
-											class="review-image" id="review-file1" style="display: none;" />
-										<label class="input-file-button" for="review-file2">이미지
+										<input type="file" name="file"
+											class="review-image" id="review-file1"/>
+										<!-- <label class="input-file-button" for="review-file2">이미지
 											추가</label> <input type="file" name="goods_review_image"
 											class="review-image" id="review-file2" style="display: none;" />
 										<label class="input-file-button" for="review-file3">이미지
 											추가</label> <input type="file" name="goods_review_image"
-											class="review-image" id="review-file3" style="display: none;" />
+											class="review-image" id="review-file3" style="display: none;" /> -->
 									</div>
 									<input type="submit" value="등록" id="review-submit">
 								</form>
 							</div></li>
 					</ul>
-					<div class="banner-empty">
+					<!-- <div class="banner-empty">
 						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
 						<p>작성할 수 있는 구매후기가 없습니다.</p>
-					</div>
+					</div> -->
 				</section>
 			</div>
 		</div>
