@@ -29,15 +29,15 @@
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
-<meta name="application-name" content="아이디어스" />
+<meta name="application-name" content="아이디위드" />
 <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리" />
 <meta property="fb:app_id" content="1410666675867984" />
 <meta name="description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!" />
+<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디위드" />
 <meta property="og:type" content="website" />
 <meta property="og:description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!" />
 <meta property="og:url" content="http://www.idus.com/c/category/3/16" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
@@ -63,8 +63,8 @@
 			<div class="inner-w mobile-full padded-top">
 				<div class="breadcrumb_container">
 					<nav class="breadcrumb">
-						<a href="class_index.do">클래스<i class="idus-icon-arrow-right"></i>
-						</a> <a href="/c/region/101">서울</a>
+						<a href="class_index.do">클래스<i class="fa fa-chevron-right" aria-hidden="true"></i>
+						</a> <a href="class_region.do?region=${region }">${region }</a>
 					</nav>
 				</div>
 			</div>
@@ -230,8 +230,20 @@
 										data-starred-type="edu" data-target-id="1957"
 										data-stats-artist="197794" data-stats-category-depth1="6"
 										data-stats-category-depth2="41" data-state=""></button>
-									<div class="ui_card__imgcover">
-										<a href="class_detail_content.do?class_category_code=${category.class_category_code }" target="_blank"
+
+										<!-- 찜 버튼 -->
+											<input type="hidden" class="class_open_class_code" name="class_open_class_code"
+												value="${class.class_open_class_code }" />
+											<button type="button" id="btn-${class.class_open_class_code }"
+												class="ui_card__overlay btn-ico sp-icon icon-favorite"
+												data-name="starred-toolbar" data-starred-type="product"
+												data-init="" data-starred=""
+												data-class="${class.class_open_class_code }"
+												style="background-image: url(resources/images/index/sp-icon.png); z-index: 80;"
+												onclick="changeChoice('${class.class_open_class_code }')"></button>
+												
+										<div class="ui_card__imgcover">
+										<a href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }" target="_blank"
 											class="ui_card__img"
 											data-lazy-img="resources/images/index/${class.class_open_photo[0]}"
 											style="background-image: url(resources/images/index/${class.class_open_photo[0]});"></a>
@@ -331,5 +343,6 @@
 	<!-- div WRAP -->
 	<script type="text/javascript"
 		src="resources/js/idus.web.min.js"></script>
+	<script type="text/javascript" src="resources/js/index.js"></script>
 	</body>
 </html>

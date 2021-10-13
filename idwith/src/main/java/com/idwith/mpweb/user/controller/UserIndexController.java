@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.user.GoodsCategoryVO;
@@ -50,6 +51,7 @@ public class UserIndexController {
 			model.addAttribute("goodsList"+i, goodsList);
 		}
 		
+		
 		// 후기 가져오기 
 		List<GoodsReviewVO> reviewList = goodsService.getReviewList(); 
 		model.addAttribute("reviewList", reviewList);
@@ -75,6 +77,19 @@ public class UserIndexController {
 		List<ClassVO> popularClassList = classService.getPopularClassList();
 		model.addAttribute("popularClassList", popularClassList);
 		
+		// 신규클래스 
+		List<ClassVO> newClassList = classService.getNewClassList();
+		model.addAttribute("newClassList", newClassList);
+		
 		return "class/class_index";
+	}
+
+	@RequestMapping("/nearbyMeClass.do")
+	@ResponseBody
+	public String nearbyClass(@RequestParam(value="area", required=false, defaultValue="종로구") String area, HttpSession session ) {
+		List<ClassVO> nearbyClass = classService.getNearbyList(area);
+		
+		session.setAttribute("nearbyClassList", nearbyClass);
+		return null;
 	}
 }

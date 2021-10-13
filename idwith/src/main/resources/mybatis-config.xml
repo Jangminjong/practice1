@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 	<!-- 별칭 예시 -->
 	<typeAliases>
  		<typeAlias type="com.idwith.mpweb.user.UserVO" alias="userVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.SaveVO" alias="SaveVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsCategoryVO" alias="goodsCateVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsVO" alias="goodsVO"/>
  		<typeAlias type="com.idwith.mpweb.user.CartVO" alias="cartVO"/>
@@ -25,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.FollowVO" alias="followVO"/>
  		<typeAlias type="com.idwith.mpweb.user.classUser.ClassVO" alias="classVO"/>
  		<typeAlias type="com.idwith.mpweb.user.classUser.ClassCategoryVO" alias="classCategoryVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.classUser.ClassOrderVO" alias="classOrderVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminQnABoardVO" alias="adminQnA"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminEventBoardVO" alias="adminEventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsApplyVO" alias="goodsApplyVO"/>

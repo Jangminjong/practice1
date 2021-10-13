@@ -138,4 +138,23 @@ public class UserDAO {
 	public UserVO loginUser(String email) {
 		return sqlSessionTemplate.selectOne("UserDAO.getLoginUser", email);
 	}
+	
+	public int setCart(String email) {
+		// TODO Auto-generated method stub
+		return 2;
+	}
+
+	public void updateUserInfoAtPayment(UserVO user) {
+		sqlSessionTemplate.update("UserDAO.updateUserInfoAtPayment", user);		
+	}
+
+	public void updateOrderSave(SaveVO point) {
+		sqlSessionTemplate.update("UserDAO.updateOrderSaveExist", point);
+		sqlSessionTemplate.insert("UserDAO.updateOrderSaveBalance", point);
+		
+	}
+
+	public void insertNewOrderSave(SaveVO point) {
+		sqlSessionTemplate.insert("UserDAO.insertNewOrderSave", point);
+	}
 }

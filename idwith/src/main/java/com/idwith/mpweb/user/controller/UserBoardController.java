@@ -42,12 +42,8 @@ public class UserBoardController {
 	@RequestMapping("/alarmList.do")
 	@ResponseBody
 	public List<EventBoardVO> alarmList(HttpServletRequest req, HttpSession session) {
-		System.out.println("email: "+req.getParameter("email"));
 		List<EventBoardVO> list = boardService.getEventList();
 		session.setAttribute("event", list);
-		for(EventBoardVO i: list) {
-			System.out.println("msg_id: "+i.getUser_event_board_title2());
-		}
 		return list;
 	}
 	
@@ -57,19 +53,15 @@ public class UserBoardController {
 	@RequestMapping("/messageList.do")
 	@ResponseBody
 	public List<UserMessageVO>  messageList(HttpServletRequest req, HttpSession session) {
-		System.out.println("email: "+req.getParameter("email"));
 		List<UserMessageVO> list = boardService.getMessageList(req.getParameter("email"));
 		session.setAttribute("msgList", list);
-		for(UserMessageVO i: list) {
-			System.out.println("msg_id: "+i.getMsg_id());
-		}
+	
 		return list;
 	}
 	
 	@GetMapping("/message.do")
 	public String userMessage(HttpSession session, Model model) {
 		String email = session.getAttribute("email").toString();
-		System.out.println("email:"+email);
 		model.addAttribute("msgList", boardService.getMessageList(email));
 		return "board/message";
 	}
@@ -87,8 +79,6 @@ public class UserBoardController {
 		msgVO.setMsg_id(email);
 		msgVO.setMsgd_id(req.getParameter("msgd_id"));
 		
-		System.out.println("msg_id "+ email);
-		System.out.println("msgd_id "+ req.getParameter("msgd_id"));
 		model.addAttribute("msgContextList", boardService.getMsgContextList(msgVO));
 		
 		return "board/message_detail";
@@ -97,7 +87,6 @@ public class UserBoardController {
 	@RequestMapping("/insertMessage.do")
 	public String insertMessage(UserMessageVO msgVO) {
 		String[] msgd_id = msgVO.getMsgd_id().split(",");
-		System.out.println(msgd_id[0]);
 		if(msgd_id[0].equals(null)){
 			msgVO.setMsgd_id(msgVO.getMsgd_id());
 		}else {
@@ -105,7 +94,6 @@ public class UserBoardController {
 		}
 		// 최신 상태값 변경
 		boardService.updateNewState(msgVO);
-		System.out.println("context: "+ msgVO.getMsg_context());
 		
 		boardService.insertMessage(msgVO);
 		return "redirect:/message.do";
@@ -118,7 +106,6 @@ public class UserBoardController {
 	public String qnaRightCheck(HttpServletRequest req) throws Exception{
 		QnABoardVO qnaVO = new QnABoardVO();
 		String email = req.getParameter("email");
-		System.out.println("email:"+ email);
 		qnaVO.setUser_id(email);
 		qnaVO.setSeq(Integer.parseInt(req.getParameter("seq")));
 		int result = boardService.qnaRightCheck(qnaVO); 
@@ -132,15 +119,12 @@ public class UserBoardController {
 	
 	@RequestMapping("/insertQnA.do")
 	public String insertQnA(QnABoardVO qnaVO) {
-		System.out.println("QnA ��� ó��");
 		boardService.insertQnA(qnaVO);
 		return "redirect:/board.do";
 	}
 	
 	@RequestMapping("/board_detail.do")
 	public String boardDetail(QnABoardVO qnaVO, Model model){
-		System.out.println("�� �� ���� ó��");
-		System.out.println("num: "+qnaVO.getSeq());
 		boardService.addHit(qnaVO);
 		model.addAttribute("qnaVO", boardService.getQnA(qnaVO));
 		return "board/board_detail";
@@ -148,7 +132,6 @@ public class UserBoardController {
 	
 	@RequestMapping("/updateQnA.do")
 	public String updateQnA(QnABoardVO qnaVO) {
-		System.out.println("QnA ���� ���� ó��");
 		boardService.updateQnA(qnaVO);
 		return "redirect:/board.do";
 	}
@@ -156,7 +139,6 @@ public class UserBoardController {
 	
 	@RequestMapping("/deleteQnA.do")
 	public String deleteQnA(QnABoardVO qnaVO) {
-		System.out.println("�� ���� ó��");
 		boardService.deleteQnA(qnaVO);
 		return "redirect:/board.do";
 	}
@@ -167,7 +149,6 @@ public class UserBoardController {
 		model.addAttribute("noticeList",boardService.getQnAList());
 		int total = boardService.countQnA();
 		int countNotice = boardService.countNotice();
-		System.out.println("������ ��: "+ countNotice);
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = Integer.toString(20-countNotice);
@@ -177,7 +158,6 @@ public class UserBoardController {
 			cntPerPage = "20";
 		}
 		
-		System.out.println("nowpage: "+nowPage+"cntPerpage: "+cntPerPage);
 		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), countNotice);
 		model.addAttribute("paging", pageVO);
 		model.addAttribute("qnaList", boardService.selectQnA(pageVO));
@@ -197,7 +177,6 @@ public class UserBoardController {
 			cntPerPage = "20";
 		}
 		
-		System.out.println("nowpage: "+nowPage+"cntPerpage: "+cntPerPage);
 		pageVO = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		model.addAttribute("paging", pageVO);
 		model.addAttribute("noticeEventList",boardService.getEventNoticeList(pageVO));
@@ -207,8 +186,6 @@ public class UserBoardController {
 	
 	@RequestMapping("/eventNotice_detail.do")
 	public String eventNoticeDetail(EventBoardVO eventVO, Model model){
-		System.out.println("�� �� ���� ó��");
-		System.out.println("num: "+eventVO.getUser_event_board_seq());
 		boardService.addCnt(eventVO);
 		model.addAttribute("eventVO", boardService.getEventNotice(eventVO));
 		return "board/event_detail";

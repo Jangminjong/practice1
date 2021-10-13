@@ -152,11 +152,12 @@
 													</div>
 												</div>
 											</div>
+											<div class="DesktopCheckboxFilterRow__button">
+												<button id="price-range"><a href="javascript:priceRangeSet()">검색하기</a></button>											
+											</div>
 										<!---->
-										
 									</div>
 								</div>
-								<button id="price-range"><a href="javascript:priceRangeSet()">검색하기</a></button>
 								<!-- 필터 : 박스 끝-->
 								<div class="DesktopProductFilter__filterBottom">
 									<!-- 필터: 하단-->

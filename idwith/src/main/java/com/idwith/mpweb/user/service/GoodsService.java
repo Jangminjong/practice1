@@ -3,6 +3,7 @@ package com.idwith.mpweb.user.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.GoodsCategoryVO;
 import com.idwith.mpweb.user.GoodsOptionVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
@@ -27,4 +28,7 @@ public interface GoodsService {
 
 	List<GoodsVO> sellerOtherGoodsList(int seller_code);
 
+	int countGoodsForSearch(String search);
+
+	List<GoodsVO> getGoodsListForSearch(PagingVO goodsPageVO);
 }

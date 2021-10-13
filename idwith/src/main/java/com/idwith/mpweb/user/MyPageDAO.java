@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.idwith.mpweb.user.classUser.ClassOrderVO;
+
 @Repository
 public class MyPageDAO {
 
@@ -36,17 +38,17 @@ public class MyPageDAO {
 	}
 	
 	public List<GoodsOrderDetailVO> getReviewBeforeList(String order_id){
-		return sqlSessionTemplate.selectList("MyPageDAO.getReviewBeforeList", order_id);
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getReviewBeforeList", order_id);
 	}
 
 	public GoodsOrderDetailVO getReviewBefore(String order_detail_code) {
-		return sqlSessionTemplate.selectOne("MyPageDAO.getReviewBefore", order_detail_code); 
+		return sqlSessionTemplate.selectOne("GoodsOrderDAO.getReviewBefore", order_detail_code); 
 	}
 
 	public void insertReview(GoodsReviewVO reviewVO, GoodsOrderDetailVO orderVO) {
 		System.out.println("order_detail_code: "+orderVO.getOrder_detail_code());
 		sqlSessionTemplate.insert("MyPageDAO.insertReview", reviewVO);
-		sqlSessionTemplate.update("MyPageDAO.reviewStateUpdate", orderVO);
+		sqlSessionTemplate.update("GoodsOrderDAO.reviewStateUpdate", orderVO);
 	}
 
 	public List<GoodsReviewVO> getReviewAfterList(String goods_review_id) {
@@ -59,5 +61,9 @@ public class MyPageDAO {
 
 	public List<UserAddressVO> getAddressList(String user_id) {
 		return sqlSessionTemplate.selectList("MyPageDAO.getAddressList", user_id);
+	}
+	
+	public List<ClassOrderVO> getOrderClassList(String email) {
+		return sqlSessionTemplate.selectList("classDAO.getOrderClassList", email);
 	}
 }

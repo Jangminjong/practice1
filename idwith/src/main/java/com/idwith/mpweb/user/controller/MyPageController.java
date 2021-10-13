@@ -23,6 +23,7 @@ import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.UserVO;
+import com.idwith.mpweb.user.classUser.ClassOrderVO;
 import com.idwith.mpweb.user.service.EmailUpdateService;
 import com.idwith.mpweb.user.service.MypageService;
 
@@ -37,13 +38,11 @@ public class MyPageController {
 
 	@Autowired
 	private EmailUpdateService emailUpdateService;
+	
 
 	@RequestMapping(value = "/mypage.do", method=RequestMethod.GET)
 	public String mypageMain(Model model,HttpSession session) {
 		String user_id = (String) session.getAttribute("email");
-
-		System.out.println("mypage ��Ʈ�ѷ� ����");
-		System.out.println("���� �� : " +user_id);
 
 		List<Map<String, String>> user = myPageService.getUser(user_id);
 
@@ -124,7 +123,10 @@ public class MyPageController {
 	}
 
 	@GetMapping("/mypage_order_class.do")
-	public String mypageOrderClass() {
+	public String mypageOrderClass(Model model, HttpSession session) {
+		String email=(String) session.getAttribute("email");
+		List<ClassOrderVO> classOrderList = myPageService.getOrderClassList(email);
+		model.addAttribute("classOrderList", classOrderList);
 		return "mypage/mypage_order_class";
 	}
 

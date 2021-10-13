@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.GoodsCategoryVO;
 import com.idwith.mpweb.user.GoodsDAO;
 import com.idwith.mpweb.user.GoodsOptionVO;
@@ -60,6 +61,15 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public List<GoodsVO> sellerOtherGoodsList(int seller_code) { //작가 코드로 작가가 등록한 다른 작품리스트 가져오기
 		return goodsDAO.sellerOtherGoodsList(seller_code);
+	}
+	
+	public int countGoodsForSearch(String search) {
+		return goodsDAO.countGoodsForSearch(search);
+	}
+
+	@Override
+	public List<GoodsVO> getGoodsListForSearch(PagingVO goodsPageVO) {
+		return goodsDAO.getGoodsListForSearch(goodsPageVO);
 	}
 
 }

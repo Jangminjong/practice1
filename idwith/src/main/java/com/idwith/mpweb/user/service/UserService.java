@@ -8,7 +8,7 @@ import com.idwith.mpweb.user.UserAddressVO;
 
 import com.idwith.mpweb.user.ChoiceVO;
 import com.idwith.mpweb.user.FollowVO;
-
+import com.idwith.mpweb.user.SaveVO;
 import com.idwith.mpweb.user.UserVO;
 
 public interface UserService {
@@ -52,4 +52,11 @@ public interface UserService {
 
 	UserVO loginUser(String email);
 
+	int setCart(String email);
+
+	void updateUserInfoAtPayment(UserVO user);
+
+	void updateOrderSave(SaveVO point);
+
+	void insertNewOrderSave(SaveVO point);
 }

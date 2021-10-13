@@ -23,9 +23,11 @@ public class ClassVO {
 	private int class_open_max_person;
 	private int class_open_seller;
 	
+	
 	private int rownum;
 	private int class_order_cnt;
 	private String class_category_name;
+	private Time time; // 걸리는 시간
 	
 	public int getClass_open_seq() {
 		return class_open_seq;
@@ -193,6 +195,14 @@ public class ClassVO {
 
 	public void setClass_category_name(String class_category_name) {
 		this.class_category_name = class_category_name;
+	}
+
+	public Time getTime() {
+		return time;
+	}
+
+	public void setTime(Time time) {
+		this.time = time;
 	}
 	
 	

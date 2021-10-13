@@ -11,6 +11,7 @@ import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.MyPageDAO;
 import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.UserVO;
+import com.idwith.mpweb.user.classUser.ClassOrderVO;
 
 @Service
 public class MyPageServiceImpl implements MypageService {
@@ -71,5 +72,10 @@ public class MyPageServiceImpl implements MypageService {
 	@Override
 	public List<UserAddressVO> getAddressList(String user_id) {
 		return dao.getAddressList(user_id);
+	}
+	
+	@Override
+	public List<ClassOrderVO> getOrderClassList(String email) {
+		return dao.getOrderClassList(email);
 	}
 }

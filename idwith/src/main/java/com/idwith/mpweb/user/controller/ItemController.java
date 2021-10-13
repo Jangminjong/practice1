@@ -3,15 +3,21 @@ package com.idwith.mpweb.user.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.idwith.mpweb.user.GoodsOptionVO;
+import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.GoodsVO;
+import com.idwith.mpweb.user.classUser.ClassVO;
+import com.idwith.mpweb.user.classUser.service.ClassService;
 import com.idwith.mpweb.user.service.GoodsService;
 
 @Controller
@@ -19,15 +25,38 @@ public class ItemController {
 	@Autowired
 	private GoodsService goodsService;
 	
-	//클래스 상세보기
-	@GetMapping("/class_detail_content.do")
-	public String classDetailContent() {
-		return "class_detail_content";
-	}
+	@Autowired
+	private ClassService classService;
 	
-	@GetMapping("/class_search.do")
-	public String classSearch() {
-		return "class_search";
+	@RequestMapping("/search.do")
+	public String classSearch(@RequestParam(value="nowPage", required=false) String nowPage, 
+								@RequestParam(value="cntPerPage", required=false) String cntPerPage, HttpServletRequest req, Model model) {
+		String search = (String) req.getAttribute("search");
+		PagingVO goodsPageVO = new PagingVO();
+		PagingVO classPageVO = new PagingVO();
+		
+		int totalGoods = goodsService.countGoodsForSearch(search);
+		int totalClass = classService.countClassForSearch(search);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "12";
+		}else{
+			cntPerPage = "12";
+		}
+		
+		goodsPageVO = new PagingVO(totalGoods, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), search);
+		classPageVO = new PagingVO(totalClass, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), search);
+		
+		// 굿즈 리스트 가져오기
+		List<GoodsVO> goodsList = goodsService.getGoodsListForSearch(goodsPageVO);
+		// 클래스 리스트 가져오기
+		List<ClassVO> classList = classService.getClassListForSearch(classPageVO);
+		
+		model.addAttribute("goodsList", goodsList);
+		model.addAttribute("classList", classList);
+		
+		return "search";
 	}
 	
 	//작품 상세보기
@@ -56,12 +85,7 @@ public class ItemController {
 		model.addAttribute("goodsOptionList", goodsOptionList);
 		return "detail_content";
 	}
-	
-	@GetMapping("/product_search.do")
-	public String productSearch() {
-		return "product_search";
-	}
-	
+
 	//구매후기 작성하기 화면
 	@GetMapping("/review_detail.do")
 	public String review_detail(@RequestParam(value="goods_code", required=false) String goods_code) {
