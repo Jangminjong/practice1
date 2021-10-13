@@ -30,9 +30,7 @@
  		
  		<collection property="userSellerVO" resultMap="userSellerResult" />
  		<collection property="goodsOptionVO" resultMap="goodsOptionResult" />
- 		<collection property="goodsOption1VO" resultMap="goodsOption1Result" />
- 		<collection property="goodsOption2VO" resultMap="goodsOption2Result" />
- 		<collection property="goodsOption3VO" resultMap="goodsOption3Result" />
+ 		<collection property="goodsOptionVO" resultMap="goodsOptionResult" />
  	</resultMap>
  	
  	<resultMap type="UserSellerVO" id="userSellerResult">
