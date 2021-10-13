@@ -12,6 +12,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.UserAddressVO" alias="userAddressVO"/>
  		<typeAlias type="com.idwith.mpweb.user.ClassRegVO" alias="classRegVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsOrderDetailVO" alias="goodsOrderDetailVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.GoodsOrderVO" alias="goodsOrderVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.CouponHaveVO" alias="couponHaveVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.CouponUseVO" alias="couponUseVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsReviewVO" alias="goodsReviewVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsOptionVO" alias="goodsOptionVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsOptionVO" alias="goodsOptionListVO"/>
@@ -43,7 +46,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.writer.goods.GoodsVO" alias="goods"/>
  		<typeAlias type="com.idwith.mpweb.writer.coupon.WriterCouponVO" alias="writerCoupon"/>
  		<typeAlias type="com.idwith.mpweb.writer.review.ReviewVO" alias="writerReview"/>
- 		
  		
  	</typeAliases>
  	<typeHandlers>

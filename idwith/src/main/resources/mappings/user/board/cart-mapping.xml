@@ -73,7 +73,7 @@
 		select c.*, g.*
 			from cart as c
 			join goods as g on c.goods_code = g.goods_code 
-		where c.user_id = #{user_id}
+		where c.user_id = #{user_id} and (cart_pay_check=false or cart_pay_check isnull)
 	</select>
 	
 	<!-- 수량 + / - -->

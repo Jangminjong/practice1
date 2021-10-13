@@ -249,7 +249,7 @@
 													<input type="hidden" id="class-order-price" value="${classOrder.class_order_price }"/>
 												</tr>
 												<tr data-v-f008c034="">
-													<th data-v-f008c034="">아이디어스 할인 혜택</th>
+													<th data-v-f008c034="">아이디위드 할인 혜택</th>
 													<td data-v-f008c034=""><input type="text" value="" id="final-discount" readonly="readonly"/></td>
 												</tr>
 											</tbody>

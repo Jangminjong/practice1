@@ -1997,7 +1997,7 @@ a:-webkit-any-link {
     color: #333;
 }
 
-#point-balance, #final-discount, #semi-final-price, #class-final-price {
+#point-balance, #final-discount, #semi-final-price, #class-final-price, #goods-final-price, #goods-order-coupon {
 	border: none;
     outline: none;
 }
@@ -2009,4 +2009,8 @@ a:-webkit-any-link {
 #class-final-price{
 	background-color: #ff7a31;
 	margin-left: 15px;
+}
+
+#goods-order-coupon, #goods-final-price{
+	background-color:transparent;
 }
