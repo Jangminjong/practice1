@@ -97,16 +97,47 @@ $(document).ready(function() {
 	});
 	
 	//이미지 이전 버튼 클릭시 발생되는 이벤트
+	var imgIndex = 0; //이미지의 인덱스
+	var imgList = [];
 	$('#image_prev_btn').click(function() {
-		var imgList = document.getElementById('main_image');
-		var imageArray = []; //저장된 이미지 경로 가져와서 배열에 넣아야함.
-		var imageIndex = 0;
-		
-		imgList.setAttribute("src", imageArray[imageIndex]);
-		imageIndex++;
-		if(imageIndex >= imageArray.length){
-			imageIndex = 0;
+		var imgLength = 0; //이미지의 총 개수
+		$(".img-list li").each(function(index, element) {
+     		img = $(this).css('background-image');
+			console.log('순서: ' + index);
+			imgList[index] = img;
+			imgLength += 1;
+   		});
+
+		if(imgIndex == 0){
+			imgIndex == imgLength;
+		}else if(imgIndex >= 1){
+			imgIndex -= 1;
 		}
+
+		const setImg = imgList[imgIndex];
+		
+		$('#main_image').css({'background-image': setImg});
+	});
+	
+	//이미지 다음 버튼 클릭시 발생되는 이벤트
+	$('#image_next_btn').click(function() {
+		var imgLength = 0; //이미지의 총 개수
+		$(".img-list li").each(function(index, element) {
+     		img = $(this).css('background-image');
+			console.log('순서: ' + index);
+			imgList[index] = img;
+			imgLength += 1;
+   		});
+
+		if(imgIndex == imgLength){
+			imgIndex == 0;
+		}else if(imgIndex < imgLength){
+			imgIndex += 1;
+		}
+
+		const setImg = imgList[imgIndex];
+		
+		$('#main_image').css({'background-image': setImg});
 	});
 });
 
@@ -498,3 +529,18 @@ document.querySelector('#next-year').onclick = () => {
 }
 
 });
+
+function changeImage(arg){
+	console.log('서브 이미지 클릭 이벤트 실행');
+	
+	var str1 = arg.split(",");
+	var str2 = str1[1];
+	var index = str2;
+	console.log('인덱스 : #sub_image,'+index);
+	
+	const clickImage = $('#sub_image,'+index).css('background-image');
+	console.log('버튼 클릭된 이미지 : ' + clickImage);
+	
+		
+	$('#main_image').css({'background-image': clickImage});
+}

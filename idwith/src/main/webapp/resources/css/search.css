@@ -1,4 +1,4 @@
-/* ¿¬°ü css */
+/* ï¿½ï¿½ï¿½ï¿½ css */
 .KeywordSuggestion[data-v-974e102a] {
     margin-top: 36px;
     display: flex;
@@ -504,9 +504,10 @@
     margin: -16px 0 0 -16px;
 }
 
-.search-result-list__item--grid[data-v-d3c44402] {
+.search-result-list__item--grid {
     width: calc(25% - 16px);
     margin: 16px 0 0 16px;
+    display: inline-grid;
 }
 
 .base-card.card--vertical[data-v-796f1feb] {
@@ -866,7 +867,6 @@
 .lecture-search-list[data-v-66d71af7] {
     padding: 40px 0 0;
     border-top: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
 }
 
 .search-title[data-v-c9688b12] {
@@ -1030,3 +1030,28 @@
     width: 36px;
     height: 36px;
 }
+
+.lecture-goods-search-list {
+	padding: 40px 0 0;
+	margin-bottom: 70px;
+}
+
+.ui_grid__cols--4>.ui_grid__item, .ui_grid__cols--4>.ui_grid__item--merge2, .ui_grid__cols--4>.ui_grid__item--merge3 {
+    width: 25%;
+}
+
+.ui_grid__cols--2>.ui_grid__item, .ui_grid__cols--3>.ui_grid__item, .ui_grid__cols--4>.ui_grid__item, .ui_grid__cols--4>.ui_grid__item--merge2, .ui_grid__cols--4>.ui_grid__item--merge3, .ui_grid__cols--5>.ui_grid__item, .ui_grid__cols--5>.ui_grid__item--merge2, .ui_grid__cols--5>.ui_grid__item--merge3, .ui_grid__cols--6>.ui_grid__item, .ui_grid__cols--7>.ui_grid__item, .ui_grid__cols--8>.ui_grid__item, .ui_grid__cols>.ui_grid__item {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+

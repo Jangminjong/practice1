@@ -198,10 +198,10 @@
 							href="class_index.do" class="service">클래스</a>
 					</nav>
 					<div class="main-search">
-						<form class="gnb-search-form" action="search.do">
-							<input id="header-search" type="text" autocomplete="off"
+						<form class="gnb-search-form" action="search.do" method="GET">
+							<input id="header-search" type="text" name="search" autocomplete="off"
 								placeholder="검색어를 입력해주세요!"> <label class="searchLabel">
-								<button type="submit" name="search">
+								<button type="submit">
 									<i class="fa fa-search" aria-hidden="true"></i>
 								</button>
 							</label>

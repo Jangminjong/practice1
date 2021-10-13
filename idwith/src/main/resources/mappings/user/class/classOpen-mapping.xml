@@ -199,7 +199,7 @@
 					SELECT COUNT(class_order_code) as class_order_cnt, class_order_code FROM class_order
 							GROUP BY class_order_code
 							HAVING COUNT(class_order_code)>0 ORDER BY class_order_cnt DESC)AS class_order_count	
-				ON class_open.class_open_class_code = class_order_count.class_order_code ORDER BY class_order_count.class_order_code )A WHERE class_open_address LIKE '%'||#{set}||'%')AS foo 
+				ON class_open.class_open_class_code = class_order_count.class_order_code ORDER BY class_order_count.class_order_code )A WHERE class_open_name LIKE '%'||#{set}||'%')AS foo 
 		WHERE rownum BETWEEN #{start} AND #{end}
 	 ]]>
 	</select>

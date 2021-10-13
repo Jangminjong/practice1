@@ -90,6 +90,8 @@
 				<section id="img-section" class="prd-detail-section">
 					<!-- ui image preview -->
 					<div class="image-preview ui-slider edu-spacing" data-ui="slider">
+						
+						<!-- 메인 이미지 -->
 						<div class="outer-frame">
 							<ul class="img-view inner-frame">
 							<c:forEach var="photo" items="${classVO.class_open_photo}">
@@ -98,19 +100,21 @@
 							</c:forEach>
 							</ul>
 						</div>
+						
+						<!-- 서브 이미지 -->
 						<fieldset class="ui-control">
-							<button type="button" class="ui-btn prev" aria-label="이전">
+							<button type="button" class="ui-btn prev" id="image_prev_btn" aria-label="이전">
 								<i class="fa fa-arrow-left" aria-hidden="true"></i>
 							</button>
 							<!-- 사진 슬라이드 하단의 작은 미리보기들 -->
 							<ul class="img-list indicator" data-size="${fn:length(classVO.class_open_photo) }">
 								<c:forEach var="photo" items="${classVO.class_open_photo}">
 								<li class="indicator-btn active"
-									style="background-image: url(resources/images/category_class/${photo})">
+									style="background-image: url(resources/images/category_goods/${photo})">
 								</li>
 								</c:forEach>
 							</ul>
-							<button type="button" class="ui-btn next" aria-label="다음">
+							<button type="button" class="ui-btn next" id="image_next_btn" aria-label="다음">
 								<i class="fa fa-arrow-right" aria-hidden="true"></i>
 							</button>
 						</fieldset>
