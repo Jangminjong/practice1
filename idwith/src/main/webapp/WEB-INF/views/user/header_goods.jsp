@@ -48,7 +48,7 @@
 				<div class="inner-w clf">
 				
 				<c:choose>
-					<c:when test="${ user_name eq null }">
+					<c:when test="${ email eq null }">
 						<nav class="fr" style="margin-left: 700px;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a
@@ -74,7 +74,7 @@
                                 </div> -->
 						</nav>
 					</c:when>
-					<c:when test="${ user_name ne null }">
+					<c:when test="${ email ne null }">
 						<nav class="fr" style="margin-left: 55%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
