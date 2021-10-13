@@ -43,6 +43,11 @@ public class GoodsOrderServiceImpl implements GoodsOrderService{
 	public List<GoodsOrderVO> getGoodsOrderFive(int sellerCode) {
 		return goodsOrderDAO.getGoodsOrderListFive(sellerCode);
 	}
+
+	@Override
+	public void updateStatus(String goodsCode) {
+		goodsOrderDAO.updateStatus(goodsCode);
+	}
 	
 	
 

@@ -30,6 +30,7 @@
 		<result property="order_detail_zip" column="order_detail_zip"/>
 		<result property="order_detail_address" column="order_detail_address"/>
 		<result property="order_detail_address2" column="order_detail_address2"/>
+		<result property="order_detail_status" column="order_detail_status"/>
  	</resultMap>
 
 	
@@ -67,9 +68,14 @@
 	   select count(*) from goods_order_detail WHERE order_detail_seller=#{sellerCode} and order_date=current_date
 	</select>
 	
+	<!-- 5개만 출력 -->
 	<select id="getGoodsOrderListFive" resultMap="goodsOrderResult">
 		select * from goods_order_detail WHERE order_detail_seller=#{sellerCode} limit 5
 	</select>
 	
+	<!--  정산신청시 상태값 변경 -->
+	<update id="goodsUpdateStatusCalcReq">
+		update goods_order_detail set order_detail_status=1 where order_detail_code = #{goodsCode}
+	</update>
 
 </mapper>

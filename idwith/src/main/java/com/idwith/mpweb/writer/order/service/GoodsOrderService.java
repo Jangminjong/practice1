@@ -16,4 +16,6 @@ public interface GoodsOrderService {
 	void updateOrder(GoodsOrderVO goodsOrder);
 
 	List<GoodsOrderVO> getGoodsOrderFive(int sellerCode);
+
+	void updateStatus(String goodsCode);
 }

@@ -15,4 +15,6 @@ public interface ClassOrderService {
 
 	List<WriterClassOrderVO> getClassOrderFive(int sellerCode);
 
+	void updateStatus(Integer classCode);
+
 }

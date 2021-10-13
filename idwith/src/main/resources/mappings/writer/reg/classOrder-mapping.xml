@@ -18,12 +18,10 @@
 		<result property="class_order_review" column="class_order_review"/>
 		<result property="class_order_name" column="class_order_name"/>
 		<result property="class_seller_code" column="class_seller_code"/>
+		<result property="class_order_state" column="class_order_state"/>
  	</resultMap>
-
-
-	
 	 
-	<!-- 작가이야기  상세조회 -->
+	<!-- 클래스주문  상세조회 -->
 	<select id="classDetail" resultType="classOrder" resultMap="classOrderResult">
 		SELECT * FROM class_order WHERE class_order_seq=#{class_order_seq}
 	</select>
@@ -46,5 +44,9 @@
 	<select id="getClassOrderListFive" resultMap="classOrderResult">
 		select * from class_order WHERE class_seller_code=#{sellerCode} limit 5
 	</select>
-
+	
+	<update id="classUpdateStatusCalcReq">
+		update class_order set class_order_status = 1 where class_order_seq = #{classCode} 
+	</update>
+	
 </mapper>

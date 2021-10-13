@@ -38,4 +38,10 @@ public class ClassOrderServiceImpl implements ClassOrderService {
 		return writerClassOrderDAO.getClassOrderListFive(sellerCode);
 	}
 
+	@Override
+	public void updateStatus(Integer classCode) {
+		writerClassOrderDAO.updateStatus(classCode);
+		
+	}
+
 }

@@ -39,4 +39,7 @@ public class WriterClassOrderDAO {
 		return sqlSessionTemplate.selectList("writerClassOrderDAO.getClassOrderListFive", sellerCode);
 	}
 
+	public void updateStatus(Integer classCode) {
+		sqlSessionTemplate.update("writerClassOrderDAO.classUpdateStatusCalcReq",classCode);		
+	}
 }

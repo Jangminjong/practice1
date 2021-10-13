@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.idwith.mpweb.common.PagingVO;
 
 
-@Repository("goodsDAO")
+@Repository("writerGoodsDAO")
 public class WriterGoodsDAO {
 	
 	@Autowired

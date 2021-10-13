@@ -49,6 +49,10 @@ public class GoodsOrderDAO {
 	public List<GoodsOrderVO> getGoodsOrderListFive(int sellerCode) {
 		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsOrderListFive", sellerCode);
 	}
+
+	public void updateStatus(String goodsCode) {
+		sqlSessionTemplate.update("GoodsOrderDAO.goodsUpdateStatusCalcReq",goodsCode);		
+	}
 	 
 
 }

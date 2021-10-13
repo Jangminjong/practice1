@@ -31,7 +31,7 @@ public class GoodsOrderVO {
 	private String order_detail_zip;
 	private String order_detail_address;
 	private String order_detail_address2;
-	
+	private String order_detail_status;
 	
 	public Integer getRownum() {
 		return rownum;
@@ -197,6 +197,12 @@ public class GoodsOrderVO {
 	}
 	public void setOrder_detail_address2(String order_detail_address2) {
 		this.order_detail_address2 = order_detail_address2;
+	}
+	public String getOrder_detail_status() {
+		return order_detail_status;
+	}
+	public void setOrder_detail_status(String order_detail_status) {
+		this.order_detail_status = order_detail_status;
 	}
 	
 	
