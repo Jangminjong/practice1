@@ -22,7 +22,9 @@
 	</div>
 	
 	<div class="freebirdFormviewerViewCenteredContent">
-	<form action="offer_class_success.do" target="_self" method="POST" id="mG61Hd" jsmodel="TOfxwf Q91hve" data-shuffle-seed="-935874016093584519" data-response="%.@.[]]" data-first-entry="0" data-last-entry="8" data-is-first-page="true">
+	
+	<!-- S3이미지 등록을 위해 enctype 사용 -->
+	<form action="offer_class_success.do" target="_self" method="POST" id="mG61Hd" jsmodel="TOfxwf Q91hve" data-shuffle-seed="-935874016093584519" data-response="%.@.[]]" data-first-entry="0" data-last-entry="8" data-is-first-page="true" enctype="multipart/form-data">
 		<div jscontroller="yUS4Lc" jsaction="rcuQ6b:rcuQ6b;UxRBlf:rcuQ6b;">
 			<div jsname="o6bZLc"><input type="hidden" name="entry.113421829" value="">
 				<input type="hidden" name="entry.1290449366" value="">
@@ -75,7 +77,14 @@
 									<div class="quantumWizTextinputPaperinputMainContent exportContent">
 										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
 											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="email" class="quantumWizTextinputPaperinputInput" jsname="YPqjbf" autocomplete="email" tabindex="0" aria-label="이메일 주소" placeholder="이메일 주소" required="" dir="auto" data-initial-dir="auto" data-initial-value="" id="email" name="user_id" onblur="onblurEvent(this);">
+												<c:choose>
+													<c:when test="${email ne null}">
+														<input type="email" class="quantumWizTextinputPaperinputInput" value="${email}" jsname="YPqjbf" autocomplete="email" tabindex="0" aria-label="이메일 주소" placeholder="이메일 주소" required="" dir="auto" data-initial-dir="auto" data-initial-value="" id="email" name="user_id" onblur="onblurEvent(this);">
+													</c:when>
+													<c:when test="${email eq null}">
+														<input type="email" class="quantumWizTextinputPaperinputInput" jsname="YPqjbf" autocomplete="email" tabindex="0" aria-label="이메일 주소" placeholder="이메일 주소" required="" dir="auto" data-initial-dir="auto" data-initial-value="" id="email" name="user_id" onblur="onblurEvent(this);">
+													</c:when>
+												</c:choose>
 											</div>
 											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="emailUnderline"></div>
 											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>
@@ -240,10 +249,10 @@
 										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
 											<div class="quantumWizTextinputPaperinputInputArea">
 												<select name='class_category' id="productCategory" onblur="onblurEvent(this);">
-												  <option value='' selected>-- 선택 --</option>
-												  <option value='ceramic'>도자기</option>
-												  <option value='doll'>인형</option>
-												  <option value='phone_case'>휴대폰 케이스</option>
+											  	<option value='' selected>-- 선택 --</option>
+												  <c:forEach var="categoryList" items="${categoryList}">
+													  <option value='${categoryList.class_category_code}'>${categoryList.class_category_name}</option>
+												  </c:forEach>
 												</select>
 											</div>
 											<!-- <div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productNameUnderline"></div>
@@ -396,7 +405,8 @@
 									<div class="quantumWizTextinputPaperinputMainContent exportContent">
 										<div class="quantumWizTextinputPaperinputContentArea exportContentArea">
 											<div class="quantumWizTextinputPaperinputInputArea">
-												<input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 이미지" id="productSellnoImg" name="class_photo" onblur="onblurEvent(this);">
+												<!-- <input type="text" class="quantumWizTextinputPaperinputInput exportInput" jsname="YPqjbf" tabindex="0" required="" dir="auto" data-initial-dir="auto" data-initial-value="" placeholder="작품 이미지" id="productSellnoImg" name="class_photo" onblur="onblurEvent(this);"> -->
+												<input type="file" name="file" />
 											</div>
 											<div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productSellnoImgUnderline"></div>
 											<div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline animationInitialized"></div>

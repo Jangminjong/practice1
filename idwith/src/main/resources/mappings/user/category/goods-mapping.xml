@@ -63,6 +63,11 @@
  		<result property="goods_op1_value" column="goods_op1_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
  		<result property="goods_op1_price" column="goods_op1_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="Integer[]"/>
  	</resultMap>
+ 	
+ 	<resultMap type="goodsCateVO" id="offerGoodsCategoryResult">
+ 		<result property="goods_category_code" column="goods_category_code"/>
+ 		<result property="goods_category_name" column="goods_category_name"/>
+ 	</resultMap>
 
  	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
 	SELECT * FROM (
@@ -185,5 +190,10 @@
 			WHERE goods_name LIKE '%'||#{set}||'%' ORDER BY goods_volume DESC )A)AS foo 
 			WHERE rownum BETWEEN #{start} AND #{end}
 		]]>
+ 	</select>
+ 	
+ 	<!-- 작품 카테고리 가져오기 -->
+ 	<select id="getGoodsCategoryForOffer" resultType="goodsCateVO" resultMap="offerGoodsCategoryResult">
+ 		select * from goods_category
  	</select>
 </mapper>

@@ -100,4 +100,8 @@ public class ClassDAO {
 	public List<ClassVO> getClassListForSearch(PagingVO classPageVO) {
 		return sqlSessionTemplate.selectList("classDAO.getClassListForSearch", classPageVO);
 	}
+
+	public List<ClassCategoryVO> getClassCategory() {
+		return sqlSessionTemplate.selectList("classDAO.getClassCategory");
+	}
 }

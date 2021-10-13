@@ -31,4 +31,6 @@ public interface GoodsService {
 	int countGoodsForSearch(String search);
 
 	List<GoodsVO> getGoodsListForSearch(PagingVO goodsPageVO);
+
+	List<GoodsCategoryVO> getClassCategory();
 }

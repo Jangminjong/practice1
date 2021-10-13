@@ -203,6 +203,11 @@
 		WHERE rownum BETWEEN #{start} AND #{end}
 	 ]]>
 	</select>
+	
+	<!-- 클래스입점 신청 폼에 카테고리 보여주기 위함 -->
+	<select id="getClassCategory" resultType="classCategoryVO" resultMap="classCategoryResult">
+		select * from class_category
+	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

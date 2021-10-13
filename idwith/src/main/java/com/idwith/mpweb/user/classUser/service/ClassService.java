@@ -53,5 +53,7 @@ public interface ClassService {
 
 	List<ClassVO> getClassListForSearch(PagingVO classPageVO);
 
+	List<ClassCategoryVO> getClassCategory();
+
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html class="m2">
 <head>
@@ -233,9 +234,9 @@
 											<div class="quantumWizTextinputPaperinputInputArea">
 												<select name='goods_apply_category' id="productCategory" onblur="onblurEvent(this);">
 												  <option value='' selected>-- 선택 --</option>
-												  <option value='ceramic'>도자기</option>
-												  <option value='doll'>인형</option>
-												  <option value='phone_case'>휴대폰 케이스</option>
+												  <c:forEach var="goodsCategoryList" items="${goodsCategoryList}">											  
+												  	<option value='${goodsCategoryList.goods_category_code}'>${goodsCategoryList.goods_category_name}</option>
+												  </c:forEach>	
 												</select>
 											</div>
 											<!-- <div class="quantumWizTextinputPaperinputUnderline exportUnderline" id="productNameUnderline"></div>

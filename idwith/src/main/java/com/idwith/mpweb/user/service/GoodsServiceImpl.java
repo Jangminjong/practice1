@@ -72,4 +72,9 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsDAO.getGoodsListForSearch(goodsPageVO);
 	}
 
+	@Override
+	public List<GoodsCategoryVO> getClassCategory() {
+		return goodsDAO.getGoodsCategory();
+	}
+
 }

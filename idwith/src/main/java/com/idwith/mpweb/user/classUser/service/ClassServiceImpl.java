@@ -124,5 +124,8 @@ public class ClassServiceImpl implements ClassService{
 		return dao.getClassListForSearch(classPageVO);
 	}
 
-
+	@Override
+	public List<ClassCategoryVO> getClassCategory() {
+		return dao.getClassCategory();
+	}
 }
