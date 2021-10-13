@@ -55,6 +55,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.writer.goods.GoodsOptionVO" alias="goodsOption"/>
  		<typeAlias type="com.idwith.mpweb.writer.order.GoodsOrderVO" alias="goodsOrder"/>
  		<typeAlias type="com.idwith.mpweb.writer.FollowerVO" alias="followerVO"/>
+ 		<typeAlias type="com.idwith.mpweb.writer.GoodsCalcVO" alias="goodsCalc"/>
+ 		<typeAlias type="com.idwith.mpweb.writer.ClassCalcVO" alias="classCalc"/>
 
  		
  	</typeAliases>

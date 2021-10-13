@@ -20,4 +20,9 @@
  	<select id="sellerEnCheck" resultMap="sellerResult">
  		select * from seller where user_id=#{user_id}
  	</select>
+ 	
+ 	<!-- 작가코드로 작가 조회 -->
+ 	<select id="getSeller" resultType="sellerVO">
+ 		select * from seller where seller_code = #{order_detail_seller}
+ 	</select>
 </mapper>

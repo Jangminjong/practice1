@@ -1,4 +1,4 @@
-package com.idwith.mpweb.writer.order;
+package com.idwith.mpweb.admin;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.writer.GoodsCalcVO;
+import com.idwith.mpweb.writer.order.GoodsOrderVO;
 
 @Repository("goodsOrderDAO")
 public class GoodsOrderDAO {
@@ -54,6 +56,26 @@ public class GoodsOrderDAO {
 		sqlSessionTemplate.update("GoodsOrderDAO.goodsUpdateStatusCalcReq",goodsCode);		
 	}
 
+	public int countGoodsOrderAll() {
+		return sqlSessionTemplate.selectOne("GoodsOrderDAO.countGoodsOrderAll");
+	}
+
+	public List<GoodsOrderVO> getOrderListAll(PagingVO goodsPageVO) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getOrderListAll", goodsPageVO);
+	}
+
+	public void updateStatusCalcRes(String goodsCode) {
+		sqlSessionTemplate.update("GoodsOrderDAO.goodsUpdateStatusCalcRes", goodsCode);
+	}
+
+	public GoodsOrderVO getGoodsOrderOne(String goodsCode) {
+		return sqlSessionTemplate.selectOne("GoodsOrderDAO.getGoodsOrderOne", goodsCode);
+	}
+
+	public void insertGoodsCalc(GoodsCalcVO goodsCalcVO) {
+		sqlSessionTemplate.insert("GoodsOrderDAO.insertGoodsCalc", goodsCalcVO);
+		
+	}
 	 
 
 }

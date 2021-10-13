@@ -26,4 +26,8 @@ public class SellerDAO {
 	public void updateSellerStatus(String user_id) {
 		sqlSessionTemplate.update("SellerCheckDAO.updateSellerStatus" ,user_id);
 	}
+
+	public SellerVO getSeller(Integer order_detail_seller) {
+		return sqlSessionTemplate.selectOne("SellerDAO.getSeller", order_detail_seller);
+	}
 }

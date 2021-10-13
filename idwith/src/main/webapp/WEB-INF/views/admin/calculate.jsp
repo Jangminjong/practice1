@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -112,7 +114,7 @@
 					<li class="sidebar-item"><a data-target="#sales"
 						data-toggle="collapse" class="sidebar-link collapsed"> <i
 							class="align-middle" data-feather="check-circle"></i> <span
-							class="align-middle">매출 & 정산</span>
+							class="align-middle">매출 &amp; 정산</span>
 					</a>
 						<ul id="sales" class="sidebar-dropdown list-unstyled collapse "
 							data-parent="#sidebar">
@@ -174,8 +176,9 @@
 								<table class="table table-hover">
 									<thead>
 										<tr>
+											<th scope="col">순번</th>
 											<th scope="col">아이디</th>
-											<th scope="col">사업자등록번호</th>
+											<th scope="col">상점 이름</th>
 											<th scope="col">매출액</th>
 											<th scope="col">수수료</th>
 											<th scope="col">후원금액</th>
@@ -184,49 +187,175 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td scope="row">Seller01</td>
-											<td>352-0525-3851-08</td>
-											<td>6,553,500</td>
-											<td>1,400,000</td>
-											<td>78,000</td>
-											<td>5,223,500</td>
-											<td><button type="button" class="btn btn-warning" id="productCalculate">정산</button></td>
-										</tr>
+											<c:forEach var="goodsOrder" items="${goodsOrderList}" varStatus="i" >
+												<tr>
+													<th scope="row">${goodsTotal-((goodsPaging.nowPage-1)*10)-i.index}</th>
+													<td>${goodsSellerList[i.index].user_id}</td>
+													<td>${goodsSellerList[i.index].store_name}</td>
+													<td><fmt:formatNumber type="number" value="${goodsOrder.order_detail_price}"/></td>
+													<td><fmt:formatNumber type="number" maxFractionDigits="0" value="${goodsOrder.order_detail_price*0.1}"/></td>
+													<td><fmt:formatNumber type="number" value="${goodsOrder.order_detail_donation}"/>
+													<td><fmt:formatNumber type="number" maxFractionDigits="0" value="${goodsOrder.order_detail_price*0.9+goodsOrder.order_detail_donation}"/></td>
+													<td>
+														<button type="button"  class="btn btn-warning" onclick="goodsCalcRes('${goodsOrder.order_detail_code}')">
+															정산</button>
+													</td>
+												</tr>
+											</c:forEach>
 									</tbody>
 								</table>
-							</div>
+								 <!-- 페이징 -->
+									<div class="paging" data-ui="paging" data-sync="false">
+							<nav style="float: center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+													<c:choose>
+														<c:when test="${goodsPaging.nowPage eq 1 }">
+														<li class="page-item">
+															<span style="width: auto;" class="page-link">Previous</span>
+														</li>
+														</c:when>
+														<c:when test="${goodsPaging.nowPage ne 1 }">
+														<li class="page-item">
+															<a
+																href="calculate.mdo?goodsNowPage=${goodsPaging.nowPage - 1 }&goodsCntPerPage=${goodsPaging.cntPerPage}&classNowPage=${classPaging.nowPage }&classCntPerPage=${classPaging.cntPerPage}"
+																style="width: auto;" class="page-link">Previous</a>
+														</li>
+														</c:when>
+													</c:choose>
+													<c:forEach begin="${goodsPaging.startPage }"
+														end="${goodsPaging.endPage }" var="p">
+														<c:choose>
+															<c:when test="${p eq goodsPaging.nowPage }">
+															<li class="page-item">
+																<a
+																	href="calculate.mdo?goodsNowPage=${p }&goodsCntPerPage=${goodsPaging.cntPerPage}&classNowPage=${classPaging.nowPage}&classCntPerPage=${classPaging.cntPerPage}"
+																	class="page-link" onclick="return false">${p }</a>
+																</li>
+															</c:when>
+															<c:when test="${p ne goodsPaging.nowPage }">
+															<li class="page-item">
+																<a
+																	href="calculate.mdo?goodsNowPage=${p }&goodsCntPerPage=${goodsPaging.cntPerPage}&classNowPage=${classPaging.nowPage}&classCntPerPage=${classPaging.cntPerPage}" class="page-link">${p }</a>
+															</li>
+															</c:when>
+														</c:choose>
+													</c:forEach>
+													<c:choose>
+														<c:when
+															test="${goodsPaging.endPage eq goodsPaging.lastPage}">
+															<li class="page-item">
+																<span style="width: auto;" class="page-link">Next</span>
+															</li>
+														</c:when>
+														<c:when
+															test="${goodsPaging.endPage ne goodsPaging.lastPage}">
+															<li class="page-item">
+															<a
+																href="calculate.mdo?goodsNowPage=${goodsPaging.endPage+1 }&goodsCntPerPage=${goodsPaging.cntPerPage}&classNowPage=${classPaging.nowPage}&classCntPerPage=${classPaging.cntPerPage}"
+																style="width: auto;" class="page-link">Next</a>
+															</li>
+														</c:when>
+													</c:choose>
+													<!-- <a href="/w/board/notice?&amp;page=1" class="active">1</a> <a
+													href="/w/board/notice?&amp;page=2" class="">2</a> <a
+													href="/w/board/notice?&amp;page=2" class="next" aria-label="다음">
+													<span>다음</span> <i class="fa fa-chevron-right" disabled=""></i>
+												</a> -->
+											</ul>
+										</nav>
+									</div>
+								</div>
 							<div class="tab-pane fade" id="asd">
 								<table class="table table-hover">
 									<thead>
 										<tr>
+											<th scope="col">순번</th>
 											<th scope="col">아이디</th>
-											<th scope="col">사업자등록번호</th>
+											<th scope="col">상점 이름</th>
 											<th scope="col">매출액</th>
 											<th scope="col">수수료</th>
-											<th scope="col">후원금액</th>
+											<th scope="col">후원금</th>
 											<th scope="col">정산 금액</th>
 											<th scope="col">정산하기</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td scope="row">author</td>
-											<td>987-02-02152</td>
-											<td>3,450,000</td>
-											<td>1,350,000</td>
-											<td>50,000</td>
-											<td>2,160,000</td>
-											<td><button type="button" class="btn btn-warning" id="classCalculate">정산</button></td>
-										</tr>
+										<c:forEach var="classOrder" items="${classOrderList}" varStatus="i" >
+												<tr>
+													<th scope="row">${classTotal-((classPaging.nowPage-1)*10)-i.index}</th>
+													<td>${classSellerList[i.index].user_id}</td>
+													<td>${classSellerList[i.index].store_name}</td>
+													<td><fmt:formatNumber type="number" value="${classOrder.class_order_price}"/></td>
+													<td><fmt:formatNumber type="number" maxFractionDigits="0" value="${classOrder.class_order_price*0.1}"/></td>
+													<td><fmt:formatNumber type="number" value="${classOrder.class_order_donation}"/>
+													<td><fmt:formatNumber type="number" maxFractionDigits="0" value="${classOrder.class_order_price*0.9 + classOrder.class_order_donation}"/></td>
+													<td>
+														<button type="button"  class="btn btn-warning" onclick="classCalcRes('${classOrder.class_order_seq}')">
+															정산</button>
+													</td>
+												</tr>
+											</c:forEach>
 									</tbody>
 								</table>
+								<!-- 페이징 -->
+		                        <div class="paging" data-ui="paging" data-sync="false">
+							<nav style="float: center;" aria-label="Page navigation example">
+								<ul class="pagination justify-content-end">
+											<c:choose>
+												<c:when test="${classPaging.nowPage eq 1 }">
+												<li class="page-item">
+													<span style="width: auto;" class="page-link">Previous</span></li>
+												</c:when>
+												<c:when test="${classPaging.nowPage ne 1 }">
+													<li class="page-item"><a
+														href="calculate.mdo?classNowPage=${classPaging.nowPage - 1 }&classCntPerPage=${classPaging.cntPerPage}&goodsNowPage=${goodsPaging.nowPage }&goodsCntPerPage=${goodsPaging.cntPerPage}"
+														style="width: auto;" class="page-link">Previous</a></li>
+												</c:when>
+											</c:choose>
+											<c:forEach begin="${classPaging.startPage }" end="${classPaging.endPage }" var="p">
+												<c:choose>
+													<c:when test="${p eq classPaging.nowPage }">
+														<li class="page-item">
+														<a
+															href="calculate.mdo?classNowPage=${p }&classCntPerPage=${classPaging.cntPerPage}&goodsNowPage=${goodsPaging.nowPage}&goodsCntPerPage=${goodsPaging.cntPerPage}"
+															class="page-link" onclick="return false">${p }</a></li>
+													</c:when>
+													<c:when test="${p ne classPaging.nowPage }">
+														<li class="page-item">
+														<a
+															href="calculate.mdo?classNowPage=${p }&classCntPerPage=${classPaging.cntPerPage}&goodsNowPage=${goodsPaging.nowPage}&goodsCntPerPage=${goodsPaging.cntPerPage}" class="page-link">${p }</a>
+														</li>
+													</c:when>
+												</c:choose>
+											</c:forEach>
+											<c:choose>
+												<c:when test="${classPaging.endPage eq classPaging.lastPage}">
+													<li class="page-item">
+													<span style="width: auto;" class="page-link">Next</span></li>
+												</c:when>
+												<c:when test="${classPaging.endPage ne classPaging.lastPage}">
+													<li class="page-item">
+													<a
+														href="calculate.mdo?classNowPage=${classPaging.endPage+1 }&classCntPerPage=${classPaging.cntPerPage}&goodsNowPage=${goodsPaging.nowPage}&goodsCntPerPage=${goodsPaging.cntPerPage}"
+														style="width: auto;" class="page-link">Next</a></li>
+												</c:when>
+											</c:choose>
+											<!-- <a href="/w/board/notice?&amp;page=1" class="active">1</a> <a
+													href="/w/board/notice?&amp;page=2" class="">2</a> <a
+													href="/w/board/notice?&amp;page=2" class="next" aria-label="다음">
+													<span>다음</span> <i class="fa fa-chevron-right" disabled=""></i>
+												</a> -->
+											</ul>
+										</nav>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
+			<script src="resources/admin/js/calc.js"></script>
 			<script>
 				/* $().ready(function (){ 
 					$("#productCalculate").click(function (){ 

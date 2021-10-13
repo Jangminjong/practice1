@@ -18,9 +18,17 @@
 		<result property="class_order_review" column="class_order_review"/>
 		<result property="class_order_name" column="class_order_name"/>
 		<result property="class_seller_code" column="class_seller_code"/>
-		<result property="class_order_state" column="class_order_state"/>
+		<result property="class_order_status" column="class_order_status"/>
  	</resultMap>
-	 
+	<resultMap type="classCalc" id="classCalcResult">
+		<result property="classCalcSeq" column="class_calc_seq"/>
+		<result property="classCalcSeller" column="class_calc_seller"/>
+		<result property="classCalcPrice" column="class_calc_price"/>
+		<result property="classCalcDonation" column="class_calc_donation"/>
+		<result property="classCalcCommission" column="class_calc_commission"/>
+		<result property="classCalcResultMoney" column="class_calc_result_money"/>
+		<result property="classCalcDate" column="class_calc_date"/>
+	</resultMap>
 	<!-- 클래스주문  상세조회 -->
 	<select id="classDetail" resultType="classOrder" resultMap="classOrderResult">
 		SELECT * FROM class_order WHERE class_order_seq=#{class_order_seq}
@@ -45,8 +53,36 @@
 		select * from class_order WHERE class_seller_code=#{sellerCode} limit 5
 	</select>
 	
+	<!-- 정산  -->
+	
 	<update id="classUpdateStatusCalcReq">
 		update class_order set class_order_status = 1 where class_order_seq = #{classCode} 
 	</update>
 	
+	 <!-- 클래스 주문 게시글 전체 개수 출력 -->
+	<select id="countClassOrderAll" resultType="_int">
+		select count(*) from class_order WHERE class_order_status = 1
+	</select>
+	
+	<!-- 페이징 처리 후 주문 전체 게시글 조회 -->
+	<select id="getClassOrderListAll" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="classOrderResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM class_order WHERE class_order_status=1 ORDER BY class_order_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<update id="classUpdateStatusCalcRes">
+		update class_order set class_order_status = 2 where class_order_seq = #{classCode} 
+	</update>
+	
+	<select id="getClassOrderOne" resultType="classOrder" resultMap="classOrderResult">
+		SELECT * FROM class_order WHERE class_order_seq=#{classCode}
+	</select>
+	
+	<insert id="insertClassCalc" parameterType="classCalc">
+		INSERT INTO class_calc(class_calc_seller, class_calc_price, class_calc_donation, class_calc_commission, class_calc_result_money)
+		values(#{classCalcSeller}, #{classCalcPrice}, #{classCalcDonation}, #{classCalcCommission}, #{classCalcResultMoney})
+	</insert>
 </mapper>
