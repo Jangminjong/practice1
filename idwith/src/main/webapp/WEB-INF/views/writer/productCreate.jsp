@@ -232,10 +232,6 @@
                                         <label class="form-label">가격</label>
                                     </div>
                                 </div>       
-                                
-                                <div class="upload-group pull-right">
-                                   <button type="button" class="GroupOption" onclick="addOptionGroup()">옵션 추가</button>
-                                </div>                         
                                
                                <!-- style.css / admin.js -->
 									<div class="form-group form-float">

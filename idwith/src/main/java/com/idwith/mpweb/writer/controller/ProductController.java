@@ -87,7 +87,6 @@ public class ProductController {
 		goodsVO.setSeller_code(sellerCode);
 		String goodsName = goodsVO.getGoods_name();
 		String[] photo = new String[file.length];
-		
 		for (int i = 0; i < file.length; i++) {
 	         if (!file[i].getOriginalFilename().equals("")) {
 	            System.out.println("================== file start ==================");
