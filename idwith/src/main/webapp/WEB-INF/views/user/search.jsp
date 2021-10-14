@@ -130,7 +130,7 @@
 													<div data-v-74fd357a="" data-v-796f1feb=""
 														id="thumb-ec375a22-41bf-4d30-87dd-5c6fe4dd2290"
 														class="product-thumb-img"
-														style="background-image: url(${goodsList.goods_photo[0]});"></div>
+														style="background-image: url('${goodsList.goods_photo[0]}');"></div>
 													<div data-v-74fd357a="" data-v-796f1feb=""
 														class="product-bookmark">
 														<button data-v-488f5f82="" data-v-74fd357a=""
@@ -166,22 +166,13 @@
 														<div data-v-74fd357a="" data-v-796f1feb=""
 															class="review-rating">
 															<span data-v-ef94db98="" data-v-74fd357a=""
-																data-value="4.8" class="ui_rating fr" data-v-796f1feb=""><i
-																data-v-ef94db98="" data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i><i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i><i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i><i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i><i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i></span> <span data-v-74fd357a=""
+																data-value="4.8" class="ui_rating fr" data-v-796f1feb="">
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>	
+															</span> <span data-v-74fd357a=""
 																data-v-796f1feb="" class="review-count"> (1627) </span>
 														</div>
 														<div data-v-74fd357a="" data-v-796f1feb=""

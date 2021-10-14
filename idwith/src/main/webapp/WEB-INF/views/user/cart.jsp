@@ -322,9 +322,6 @@
 												<input type="hidden" id="cartLength" value="${cartListLength}">
 										</span></label>
 									</div>
-									<button data-v-32d88566="" data-v-20c2da48=""
-										class="CommonButton CommonButton--middle CommonButton--white selDelete">
-										선택 삭제</button>
 								</div>
 								<div data-v-261b598e="" data-v-6d930ad9="" class="CartCheckout"
 									data-v-56dfc770="">

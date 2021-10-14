@@ -51,7 +51,7 @@
 									</li>
 								</c:forEach> --%>
 								<li class="ui-slide" id="main_image" 
-									style="background-image: url(${goods.goods_photo[0]})">
+									style="background-image: url('${goods.goods_photo[0]}')">
 								</li>
 							</ul>
 						</div>
@@ -63,7 +63,7 @@
 							</button>
 							<ul class="img-list indicator">
 								<c:forEach var="i" begin="0" end="${goodsImageLength-1}" varStatus="status">
-									<li class="indicator-btn active" id="sub_image,${status.count}" style="background-image: url(${goods.goods_photo[i]})"
+									<li class="indicator-btn active" id="sub_image,${status.count}" style="background-image: url('${goods.goods_photo[i]}')"
 										onclick="changeImage(this.id)">
 									</li>
 								</c:forEach>
@@ -85,7 +85,7 @@
 							<div class="artist_card__split">
 								<a class="artist_card__link" href="seller_goods.do">
 									<div class="artist_card__img"
-										style="background-image: url(${goods.userSellerVO.seller_profile_img[0]});"></div>
+										style="background-image: url('${goods.userSellerVO.seller_profile_img[0]}');"></div>
 									<span class="artist_card__label">
 										${goods.userSellerVO.store_name} 
 										<i class="fa fa-share" aria-hidden="true"></i>
@@ -222,7 +222,7 @@
 																<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
 															</span>
 														</div>
-														<div data-v-4e8934ee="" style="margin-left: 3px;">(37)</div>
+														<div data-v-4e8934ee="" style="margin-left: 3px;"></div>
 														<div data-v-4e8934ee="" style="margin-top: 2px;">
 															<i class="fa fa-chevron-right" aria-hidden="true" style="font-size:12px"></i>
 														</div>
@@ -397,11 +397,11 @@
 													<button data-v-5612de30="" type="button"
 														class="ui_btn--mini" id="quantityPlus,0" onclick="plusQuantity(this.id)">+</button>
 												</div>
-												<div data-v-5612de30="">
+												<div data-v-5612de30="" class="optionResult">
 													<input type="hidden" id="hiddenPrice0" value="">
 													<span data-v-5612de30=""><b data-v-5612de30="" id="selOptionPrice0"></b>원</span>
-													<button data-v-5612de30="" type="button"
-														class="ui_btn--mini option_card__close" onclick="optionClose(0)">
+													<button data-v-5612de30="" type="button" id="optionDelete,0"
+														class="ui_btn--mini option_card__close" onclick="optionClose(this.id)">
 														<i class="fa fa-times" aria-hidden="true"></i>
 													</button>
 												</div>
@@ -552,7 +552,7 @@
 					data-ui="tab-control" data-page="product">
 					<a href="#prd-info" data-id="prd-info" class="active">작품정보</a> <a
 						href="#prd-enquiries" data-id="prd-enquiries">배송 / 교환 / 환불</a> <a
-						href="#prd-review" data-id="prd-review">구매후기(37)</a> <a
+						href="#prd-review" data-id="prd-review">구매후기</a> <a
 						href="#prd-comments" data-id="prd-comments">댓글</a>
 				</nav>
 
@@ -704,54 +704,51 @@
 				<section id="prd-review" class="prd-detail-section"
 					data-scroll="hashChecker">
 					<div class="title-style-sub" style="margin-bottom: 0;">
-						<h3 class="txt">구매후기(37)</h3>
+						<h3 class="txt">구매후기</h3>
 						<a class="to-right btn btn-xs btn-white" href="review_detail.do?goods_code=${goods.goods_code}"
 							data-modal-trigger="modal-link" data-modal-id="modal-review"
 							data-modal-type="post">구매후기 작성하기</a>
 					</div>
 					<ul data-v-2e5d0212>
-						<c:forEach var="review" items="${goodsReviewList}">
-							<li data-v-a301bac8="" data-v-2e5d0212="" class="review">
-								<a data-v-a301bac8="" href="review_detail.do">
-									<div data-v-a301bac8="" class="review-header">
-										<div data-v-a301bac8="" class="reviewer-info">
-											<div data-v-a301bac8="" class="reviewer-thumbnail"
-												style="background-image: url(resources/images/detail/artist01.PNG);"></div>
-											<div data-v-a301bac8="" class="reviewer-detail-info">
-												<span data-v-a301bac8="" class="reviewer-name">${review.goods_review_id}</span> <span
-													data-v-a301bac8="" class="review-date">${review.goods_review_date}</span>
+						<c:choose>
+							<c:when test="${!empty goodsReviewList}">
+								<c:forEach var="review" items="${goodsReviewList}">
+									<li data-v-a301bac8="" data-v-2e5d0212="" class="review">
+										<a data-v-a301bac8="" href="review_detail.do">
+											<div data-v-a301bac8="" class="review-header">
+												<div data-v-a301bac8="" class="reviewer-info">
+													<div data-v-a301bac8="" class="reviewer-thumbnail"
+														style="background-image: url('${review.goods_review_photo[0]}');"></div>
+													<div data-v-a301bac8="" class="reviewer-detail-info">
+														<span data-v-a301bac8="" class="reviewer-name">${review.goods_review_id}</span> <span
+															data-v-a301bac8="" class="review-date">${review.goods_review_date}</span>
+													</div>
+												</div>
+												<div data-v-a301bac8="" class="review-rate">
+													<span data-v-ef94db98="" data-v-a301bac8="" data-value="5"
+														class="ui_rating fr"> 
+														<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+														<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+														<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+														<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+														<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+													</span>
+												</div>
 											</div>
-										</div>
-										<div data-v-a301bac8="" class="review-rate">
-											<span data-v-ef94db98="" data-v-a301bac8="" data-value="5"
-												class="ui_rating fr"> 
-												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
-												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
-												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
-												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
-												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
-											</span>
-										</div>
-									</div>
-									<div data-v-a301bac8="" class="review-body">
-										<div data-v-a301bac8="" class="review-contents">${review.goods_review_context}</div>
-									</div>
-									<p data-v-a301bac8="" class="review-option">
-										<strong data-v-a301bac8="">구매 작품</strong> : <!-- 작품선택 -->
-									</p>
-								</a>
-							</li>
-						</c:forEach>
-						<nav data-v-450a0b42="" data-v-2e5d0212="">
-							<!---->
-							<button data-v-450a0b42="" type="button" class="active">1</button>
-							<button data-v-450a0b42="" type="button" class="">2</button>
-							<button data-v-450a0b42="" type="button" class="">3</button>
-							<button data-v-450a0b42="" type="button" class="">4</button>
-							<button data-v-450a0b42="" type="button" class="arrows">
-								| 다음<i class="fa fa-chevron-right" aria-hidden="true" style="font-size:12px"></i>
-							</button>
-						</nav>
+											<div data-v-a301bac8="" class="review-body">
+												<div data-v-a301bac8="" class="review-contents">${review.goods_review_context}</div>
+											</div>
+											<p data-v-a301bac8="" class="review-option">
+												<strong data-v-a301bac8="">구매 작품</strong> : <!-- 작품선택 -->
+											</p>
+										</a>
+									</li>
+								</c:forEach>
+							</c:when>
+							<c:when test="${empty goodsReviewList}">
+								<div style="display: flex; justify-content: space-around;">행운의 첫 댓글을 달아보세요.</div>
+							</c:when>
+						</c:choose>
 					</ul>
 					<div data-vue="ReviewList"></div>
 				</section>
@@ -787,10 +784,10 @@
 	
 										<div class="ui_card__imgcover">
 											<a href="detail_content.do?goods_code=${sellerGoodsList.goods_code}"
-												target="_blank" aria-label="✔청포도청500g/1kg 생일 선물"
+												target="_blank"
 												class="ui_card__img"
 												data-product-id="6bb0d3b2-c05c-4ac4-a048-895ef317ca73"
-												style="background-image: url(${sellerGoodsList.goods_photo[0]})" data-was-processed="true"></a>
+												style="background-image: url('${sellerGoodsList.goods_photo[0]}')" data-was-processed="true"></a>
 											<!-- 판매중인 다른 작품 이미지 넣기 -->
 										</div>
 
@@ -812,7 +809,7 @@
 						style="border-left: 1px solid rgb(217, 217, 217); width: 480px; padding: 40px 24px 32px; margin: 39px 0px 0px 16px;">
 						<div data-v-2618eab2="" class="profile-area">
 							<a data-v-2618eab2=""
-								href="/w/artist/feba4e69-cd92-449f-8226-02e1d84ed3e4/product"
+								href="seller_goods.do?seller_code=${goods.seller_code}"
 								target="_blank:"
 								style="width: 68px; height: 68px; margin-right: 22px; position: relative;"><img
 								data-v-2618eab2=""
@@ -868,8 +865,7 @@
 								<button data-v-b534333e="" data-v-2618eab2="" type="button"
 									class="follow"
 									style="background-color: rgb(255, 123, 48); min-width: 50%; width: 50%; height: 36px; font-size: 14px; color: rgb(255, 255, 255); border: 1px solid rgb(255, 123, 48); border-radius: 4px;">
-									<i data-v-b534333e="" class="idus-icon-plus"
-										style="font-size: 16px;"></i> 팔로우
+										<i class="fa fa-bookmark" aria-hidden="true" style="font-size: 16px;"></i>&nbsp;&nbsp;팔로우
 								</button>
 								<!---->
 								<!---->
