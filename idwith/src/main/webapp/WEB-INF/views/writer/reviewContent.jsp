@@ -228,7 +228,7 @@
                                                    
                                                     <div class="carousel-inner" role="listbox">
                                                         <div class="item active">
-                                                            <img src="resources/images/review/${review.goods_review_image[0]}" style="width:100%; height:310px;"/>                        
+                                                            <img src="${review.goods_review_image[0]}" style="width:100%; height:310px;"/>                        
                                                         </div>                                                        
                                                    </div>
 

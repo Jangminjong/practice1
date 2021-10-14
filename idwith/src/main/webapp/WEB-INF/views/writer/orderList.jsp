@@ -232,7 +232,7 @@
                                             </td>                                            
                                             <td>${order.order_goods_name}</td>
                                             <td>${order.order_detail_quantity}</td>
-                                            <td><fmt:formatDate value="" pattern="yyyy.MM.dd"/></td>
+                                            <td><fmt:formatDate value="${order.order_date}" pattern="yyyy.MM.dd"/></td>
                                             <td>${order.order_delivery_state}</td>
                                         </tr>
                                      </c:forEach>
@@ -313,7 +313,7 @@
     <script src="resources/writer/plugins\node-waves\waves.js"></script>
 
     <!-- Jquery DataTable Plugin Js -->
-    <script src="resources/writer/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <!-- <script src="resources/writer/plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="resources/writer/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
     <script src="resources/writer/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
     <script src="resources/writer/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
@@ -321,7 +321,7 @@
     <script src="resources/writer/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
     <script src="resources/writer/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="resources/writer/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="resources/writer/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <script src="resources/writer/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script> -->
 
     <!-- Custom Js -->
     <script src="resources/writer/js/admin.js"></script>
