@@ -12,6 +12,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.UserAddressVO" alias="userAddressVO"/>
  		<typeAlias type="com.idwith.mpweb.user.ClassRegVO" alias="classRegVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsOrderDetailVO" alias="goodsOrderDetailVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.GoodsOrderVO" alias="goodsOrderVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.CouponHaveVO" alias="couponHaveVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.CouponUseVO" alias="couponUseVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsReviewVO" alias="goodsReviewVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsOptionVO" alias="goodsOptionVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsOptionVO" alias="goodsOptionListVO"/>
@@ -39,7 +42,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.writer.WriterClassRegVO" alias="writerClassReg"/>
  		<typeAlias type="com.idwith.mpweb.writer.WriterClassOpenVO" alias="writerClassOpen"/>
  	    <typeAlias type="com.idwith.mpweb.writer.WriterClassOrderVO" alias="classOrder"/>
- 		<typeAlias type="com.idwith.mpweb.writer.storyboard.StoryBoardVO" alias="storyBoard"/>
  		<typeAlias type="com.idwith.mpweb.writer.storyboard.StoryBoardVO" alias="storyBoard"/>
  		<typeAlias type="com.idwith.mpweb.writer.goods.WriterGoodsVO" alias="writerGoods"/>
  		<typeAlias type="com.idwith.mpweb.writer.coupon.WriterCouponVO" alias="writerCoupon"/>

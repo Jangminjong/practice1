@@ -36,7 +36,14 @@
 			<div data-v-6d930ad9="" class="CartPage">
 				<div data-v-1e62c1aa="" data-v-6d930ad9=""
 					class="PageHeader CartPage__header">
-					<h2 data-v-1e62c1aa="" class="PageHeader__title">장바구니</h2>
+					<c:choose>
+						<c:when test="${state eq 'cart' }">
+							<h2 data-v-1e62c1aa="" class="PageHeader__title">장바구니</h2>
+						</c:when>
+						<c:when test="${state eq 'direct' }">
+							<h2 data-v-1e62c1aa="" class="PageHeader__title">바로결제</h2>
+						</c:when>	
+					</c:choose>
 					<ol data-v-1e62c1aa="" class="PageHeader__steps">
 						<li data-v-1e62c1aa=""
 							class="PageHeader__stepsItem PageHeader__stepsItem--active"><em
@@ -56,7 +63,7 @@
 						<div data-v-358230e2="" data-v-6d930ad9="">
 							<div data-v-dee528b0="" data-v-358230e2="" class="EmptyList">
 								<div data-v-dee528b0="" class="EmptyList__logo">
-									<i data-v-dee528b0="" class="idus-icon-logo-empty"></i>
+									<img src="resources/images/index/idwith_logo_back.png" style="width: 300px; height:220px; margin-right:16px; opacity:0.7;">
 								</div>
 								<div data-v-dee528b0="">
 									<p data-v-dee528b0="" class="EmptyList__text">

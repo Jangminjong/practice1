@@ -101,7 +101,14 @@ public class ClassDAO {
 		return sqlSessionTemplate.selectList("classDAO.getClassListForSearch", classPageVO);
 	}
 
+
+	public List<ClassOrderVO> getClassReturnList(String email) {
+		return sqlSessionTemplate.selectList("classDAO.getClassReturnList", email);
+		
+	}
+	
 	public List<ClassCategoryVO> getClassCategory() {
 		return sqlSessionTemplate.selectList("classDAO.getClassCategory");
+
 	}
 }

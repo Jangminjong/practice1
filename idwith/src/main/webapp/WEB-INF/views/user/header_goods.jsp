@@ -48,7 +48,7 @@
 				<div class="inner-w clf">
 				
 				<c:choose>
-					<c:when test="${ user_name eq null }">
+					<c:when test="${ email eq null }">
 						<nav class="fr" style="margin-left: 700px;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a
@@ -74,7 +74,7 @@
                                 </div> -->
 						</nav>
 					</c:when>
-					<c:when test="${ user_name ne null }">
+					<c:when test="${ email ne null }">
 						<nav class="fr" style="margin-left: 55%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
@@ -186,7 +186,7 @@
 			</div>
 
 			<div class="bg-wrapper" id="header-main" data-vue="SearchHeader">
-				<div class="inner-w top">
+				<div class="inner-w top" style="display: flex;">
 					<h1 class="logo" style="margin-top: -20px;">
 						<a href="index.do" class="icon-iduslogo"><img
 							src="resources/images/index/idwith_logo_back.png"
@@ -220,7 +220,7 @@
 						</a> 
 						<a id="my-cart-button" href="cart.do" class="btn"> 
 							<c:if test="${setCart > 0 }">
-							<span class="cart-counter">${setCart}</span>
+							<span class="cart-counter" style="margin-top:5px; margin-right:6px; z-index:33;">${setCart}</span>
 							</c:if>
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 								장바구니

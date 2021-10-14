@@ -31,6 +31,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=487ca5895feb7a04e42984525f8de371&libraries=services"></script>
 <script type="text/javascript" src="resources/js/detail_content.js"></script>
 
+
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
 	href="resources/images/title/icon_300.PNG">
@@ -155,11 +156,11 @@
 
 					<!-- user interaction -->
 					<fieldset class="btn-group">
-						<button type="button" class="ui_btn " aria-label="찜하기"
+						<button type="button" class="ui_btn " aria-label="찜하기" onclick="changeChoice('${classVO.class_open_class_code}')"
 							data-ui="stats-star" data-starred-type="edu"
 							data-target-id="3063" data-state="" data-stats-artist="2310246"
 							data-stats-category-depth1="6" data-stats-category-depth2="40">
-							<i class="fa fa-heart-o" aria-hidden="true"></i> <span>찜하기
+							<i class="fa fa-heart-o" aria-hidden="true" id="btn-choice" style="color:#ff7b30;"></i><i class="fa fa-heart" aria-hidden="true" id="btn-choice2" style="color:#ff7b30; display:none;"></i> <span>찜하기
 							</span> <em data-ui="like-count" data-id="#" data-endpoint="#"></em>
 						</button>
 						<button type="button" class="ui_btn" data-ui="url-copy"
@@ -237,13 +238,10 @@
 	
 										<div data-v-29616b27="" class="form_container" style="width:100%; margin-left:-20px;">
 											<form data-v-29616b27="" action="payment_class.do" onsubmit="return false" id="class-reg-form" name="classRegForm" method="post">
-												<dl data-v-29616b27="" class="border_block">
+												<dl data-v-29616b27="" class="border_block" style="display:hidden;">
 													<dt data-v-29616b27="">
 														<strong data-v-29616b27=""><input type="hidden" id="input_date" value="${classVO.class_open_date }" /></strong>
 													</dt>
-													<dd data-v-29616b27="">
-														<!---->
-													</dd>
 												</dl>
 												<div data-v-1e70de7c="" data-v-29616b27="">
 													<dl data-v-29616b27="" data-v-1e70de7c=""
@@ -253,7 +251,6 @@
 																선택</strong>
 														</dt>
 														<dd data-v-29616b27="" data-v-1e70de7c="">
-															<i class="fa fa-angle-up" aria-hidden="true"></i>
 															<i class="fa fa-angle-down" aria-hidden="true"></i>
 														</dd>
 													</dl>
@@ -346,7 +343,6 @@
 					data-ui="tab-control">
 					<a href="#edu-info" data-id="edu-info" class="active">소개</a> <a
 						href="#edu-location" data-id="edu-location">장소</a> <a
-						href="#edu-comment" data-id="edu-comment">댓글</a> <a
 						href="#edu-artist" data-id="edu-artist">작가정보</a>
 				</nav>
 				<!-- 소개 -->
@@ -399,7 +395,7 @@
 					<div class="tab-style" data-ui="toggle-tab">
 						<div class="split">
 							<div class="tab active" data-ui-id="info-refund">
-								<span>취소 및 환불 정책</span> <i class="fa fa-angle-down"></i>
+								<span>취소 및 환불 정책</span></i>
 							</div>
 							<table class="table-style column active" data-ui="tab-panel"
 								data-panel-id="info-refund">

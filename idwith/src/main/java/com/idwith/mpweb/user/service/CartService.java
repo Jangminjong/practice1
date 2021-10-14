@@ -21,4 +21,6 @@ public interface CartService {
 	void updateOption(CartVO vo);
 
 	void deleteOption(CartVO vo);
+
+	CartVO getCartForDirect(String user_id);
 }

@@ -28,7 +28,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.user.CartListVO;
 import com.idwith.mpweb.user.CartVO;
+import com.idwith.mpweb.user.CouponHaveVO;
+import com.idwith.mpweb.user.CouponUseVO;
 import com.idwith.mpweb.user.GoodsOrderDetailVO;
+import com.idwith.mpweb.user.GoodsOrderVO;
 import com.idwith.mpweb.user.UserAddressVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.service.GoodsOrderService;
@@ -56,7 +59,7 @@ public class PaymentController {
 	private MypageService myPageService;
 	
 	@Autowired
-	ClassService service;
+	private ClassService service;
 	
 	@GetMapping("/payment.do")
 	public String payment(HttpSession session, Model model) {
@@ -65,22 +68,26 @@ public class PaymentController {
 		UserVO userVO = userService.getOrderUser(user_id);
 		List<UserAddressVO> adrList = myPageService.getAddressList(user_id);
 		
+		List<SaveVO> point = goodsService.getPointForPayment(user_id);
+		int totalPoint=0;
+		for(SaveVO list: point) {
+			totalPoint+=list.getSave_point();
+		}
+		
+		List<CouponHaveVO> couponList = goodsService.getCouponListForPayment(user_id);
+		
 		System.out.println("배송지 길이 : " + adrList.size());
 		
 		UserAddressVO adr1 = null;
-		UserAddressVO adr2 = null;
-		UserAddressVO adr3 = null;
 		
 		if(adrList.size() > 0) {
-			adrList.get(0);
-			adr2 = adrList.get(1);
-			adr3 = adrList.get(2);
+			adr1 = adrList.get(0);
 		}
 		
 		model.addAttribute("adr1", adr1);
-		model.addAttribute("adr2", adr2);
-		model.addAttribute("adr3", adr3);
 		model.addAttribute("userInfo", userVO);
+		model.addAttribute("couponList", couponList);
+		model.addAttribute("totalPoint", totalPoint);
 		return "product_payment";
 	}
 
@@ -92,64 +99,190 @@ public class PaymentController {
 		System.out.println("작품 결제 컨트롤러 실행");
 		System.out.println("장바구니들: "+ req.getParameter("optionStr"));
 		List<CartVO> cartList = new ArrayList<CartVO>();
+		List<GoodsOrderDetailVO> orderDetailList = new ArrayList<GoodsOrderDetailVO>();
+		
+		int finalPrice = Integer.parseInt(req.getParameter("finalPrice"));
+		int finalDeliveryFee =0; // 배송비합산
+		int orderGoodsPrice = 0; // 주문하는 작품들만의 가격 합산
+		
 		
 		String[] carts = req.getParameter("optionStr").split("@");
 		for(int i=1; i<carts.length;i++) {
 			System.out.println(i+"번째 실행");
+			String option = "";
 			CartVO cart = goodsService.getCartForOrder(carts[i]);
+			
+			System.out.println(cart.getStore_name());
+			System.out.println(cart.getGoodsVO().getStore_name());
 			cartList.add(cart);
 			
-			System.out.println("주문 고객 : " + cart.getUser_id());
-			System.out.println("작가 코드 : " + cart.getSeller_code());
-			System.out.println("작품 코드 : " + cart.getGoods_code());
-			System.out.println("작품명 : " + cart.getStore_name());
-			System.out.println("작품 이미지 : " + cart.getGoodsVO().getGoods_photo()[0]);
+			GoodsOrderDetailVO orderDetail = new GoodsOrderDetailVO();
+			orderDetail.setOrder_detail_seller(cart.getSeller_code());
+			orderDetail.setOrder_detail_goods(cart.getGoods_code());
+			orderDetail.setGoods_name(cart.getGoodsVO().getGoods_name());
+			orderDetail.setOrder_detail_quantity(cart.getCart_quantity());
+			orderDetail.setOrder_detail_demand(cart.getCart_order_content());
+			orderDetail.setOrder_detail_price(cart.getGoods_price());
+			orderDetail.setOrder_id((String)session.getAttribute("email"));
+						
 			for(int j=0; j<cart.getGoods_option_value().length; j++) {
-				System.out.println("작품옵션값 : " + cart.getGoods_option_value()[j]);
-				System.out.println("작품옵션가격 : " + cart.getGoods_option_price()[j]);
+				if(j==0) {
+					option = cart.getGoods_option_value()[j];
+				}else {
+					option += ("/"+cart.getGoods_option_value()[j]);
+				}
 			}
-			System.out.println("작품수량 : " + cart.getCart_quantity());
-			System.out.println("작품가격 : " + cart.getGoods_price());
 			
-			System.out.println("==============================");
+			finalDeliveryFee += cart.getCart_delivery_fee();
+			orderGoodsPrice += cart.getGoods_price();
+			
+			orderDetail.setOrder_detail_option(option);
+			orderDetailList.add(orderDetail);
+		
 		}
+		
+		SaveVO point = new SaveVO();
+		point.setSave_point((int)Math.round(orderGoodsPrice * 0.01));
+		
 		session.setAttribute("cartListForOrder", cartList);
-		
-		
-		
-		//goodsOrderDetailVO에 미리 저장
-		List<GoodsOrderDetailVO> goodsOrderList = new ArrayList<GoodsOrderDetailVO>();
-		
-		int total = 0;
-		for(int i=1; i<cartList.size(); i++) {
-			System.out.println(i+"번째 상세페이지에 넣는 중");
-			GoodsOrderDetailVO goodsOrderVO = new GoodsOrderDetailVO();
-			goodsOrderVO.setOrder_id(cartList.get(i).getUser_id()); //구매자 아이디
-			goodsOrderVO.setOrder_detail_seller(cartList.get(i).getSeller_code()); //작가 코드
-			goodsOrderVO.setOrder_detail_goods(cartList.get(i).getGoods_code()); //작품 코드
-			goodsOrderVO.setGoods_name(cartList.get(i).getGoodsVO().getGoods_name()); //작품명
-			goodsOrderVO.setOrder_detail_quantity(cartList.get(i).getCart_quantity()); //상품수량
-			goodsOrderVO.setOrder_detail_demand(cartList.get(i).getCart_order_content()); //요구사항
-			
-			int goods_price = cartList.get(i).getGoods_price();
-			goodsOrderVO.setOrder_detail_price(goods_price); //작품 가격
-			
-			total += goods_price; //최종금액에 작품 가격 +
-			goodsOrderVO.setOrder_detail_cost(total); //최종 금액
-			goodsOrderList.add(goodsOrderVO);
-		}
-		
-		System.out.println("주문 길이 : "  + goodsOrderList.size());
-		
-		session.setAttribute("goodsOrderList", goodsOrderList);
+		session.setAttribute("orderDetailList", orderDetailList);
+		session.setAttribute("finalPrice", finalPrice); // 주문 상품 전체 가격(배송비포함)
+		session.setAttribute("finalDeliveryFee", finalDeliveryFee);
+		session.setAttribute("orderGoodsPrice", orderGoodsPrice);
+		session.setAttribute("point", point);
+
 		
 		return Integer.toString(1);
 	}
 	
 	@RequestMapping(value = "insert_goods_payment.do", method= RequestMethod.POST)
-	public String insertGoodsPayment() {
+	@ResponseBody
+	public String insertGoodsPayment(HttpSession session, @RequestParam(value= "user_name", required=false) String user_name,
+			@RequestParam(value= "user_phone") String user_phone, @RequestParam(value= "order_save") String order_save, @RequestParam(value= "point_balance") String point_balance, @RequestParam(value= "order_save_use") String order_save_use, @RequestParam(value="goods_coupon_discount") String goods_coupon_discount,
+			@RequestParam(value= "order_final_cost") String order_final_cost, @RequestParam(value= "coupon_code") String coupon_code, @RequestParam(value= "order_detail_payment") String order_detail_payment,
+			@RequestParam(value= "delivery_name") String delivery_name, @RequestParam(value= "delivery_phone") String delivery_phone, @RequestParam(value= "delivery_zipcode") String delivery_zipcode,
+			@RequestParam(value= "delivery_address1") String delivery_address1, @RequestParam(value= "delivery_address2") String delivery_address2, @RequestParam(value= "goods_order_donation") String goods_order_donation,
+			@RequestParam(value= "final_discount") String final_discount) {
 		
-		return null;
+		String email = (String) session.getAttribute("email");
+		String merchant_uid = (String) session.getAttribute("merchant_uid");
+		String imp_uid = (String) session.getAttribute("imp_uid");
+		int orderGoodsPrice = (int) session.getAttribute("orderGoodsPrice");
+		int finalDiscount = Integer.parseInt(final_discount);
+		List<CartVO> cartList = (List<CartVO>) session.getAttribute("cartListForOrder");
+		List<GoodsOrderDetailVO> orderDetailList = (List<GoodsOrderDetailVO>) session.getAttribute("orderDetailList");
+		
+		// 유저정보 확인하고 이름&전화번호 추가
+		UserVO user = new UserVO();
+		user.setUser_id(email);
+		user.setUser_phone(user_phone);
+		userService.updateUserInfoAtPayment(user);
+		
+		// 배송지 있는지 확인하고 추가(주소)
+		UserAddressVO address = new UserAddressVO();
+		address.setUser_id(email);
+		address.setUser_name(user_name);
+		address.setUser_order(1);
+		address.setUser_phone(user_phone);
+		address.setUser_zipcode(delivery_zipcode);
+		address.setUser_address1(delivery_address1);
+		address.setUser_address2(delivery_address2);
+		userService.updateAddressAtPayment(address);
+		
+		// 주문 디테일 추가(주문코드 가져오기) orderDetailList
+		for(int i=0; i<orderDetailList.size(); i++) {
+			String order_detail_code = orderDetailList.get(i).getOrder_detail_goods()+ (int)(Math.random()*100000);
+			orderDetailList.get(i).setOrder_detail_code(order_detail_code);
+			orderDetailList.get(i).setOrder_id(email);
+			orderDetailList.get(i).setOrder_detail_donation(Integer.parseInt(goods_order_donation));
+			if(!coupon_code.equals(null)) {
+				orderDetailList.get(i).setCoupon_use(true);
+				orderDetailList.get(i).setCoupon_code(coupon_code);
+			}else {
+				orderDetailList.get(i).setCoupon_use(false);
+			}
+			
+			if(i==(orderDetailList.size()-1)) {
+				int detailCost = orderDetailList.get(i).getOrder_detail_price()-finalDiscount;
+				orderDetailList.get(i).setOrder_detail_cost(detailCost);
+			}else {
+				orderDetailList.get(i).setOrder_detail_cost(orderDetailList.get(i).getOrder_detail_price());
+			}
+			
+			orderDetailList.get(i).setOrder_detail_payment(order_detail_payment);
+			orderDetailList.get(i).setOrder_detail_name(delivery_name);
+			orderDetailList.get(i).setOrder_detail_phone(delivery_phone);
+			orderDetailList.get(i).setOrder_detail_zip(delivery_zipcode);
+			orderDetailList.get(i).setOrder_detail_address(delivery_address1);
+			orderDetailList.get(i).setOrder_detail_address2(delivery_address2);
+			orderDetailList.get(i).setImp_uid(imp_uid);
+			goodsService.insertDetailOrder(orderDetailList.get(i));
+		}
+		
+		// 전체 주문내역에 추가할 주문디테일코드 가져오기
+		List<String> orderDetailCodes = goodsService.getOrderDetailCodes(email);
+		String[] orderDetailCodeStr = null;
+		for(int i=0; i<orderDetailCodes.size();i++) {
+			orderDetailCodeStr[i]=orderDetailCodes.get(i);
+		}
+		
+		// 전체 주문내역 추가 
+		GoodsOrderVO goodsOrder = new GoodsOrderVO();
+		goodsOrder.setOrder_detail_codes(orderDetailCodeStr);
+		goodsOrder.setOrder_id(email);
+		goodsOrder.setOrder_save(Integer.parseInt(order_save));
+		if(Integer.parseInt(order_save_use)==0) {
+			goodsOrder.setOrder_save_use(false);
+		}else {
+			goodsOrder.setOrder_save_use(true);
+		}
+		goodsOrder.setOrder_final_cost(Integer.parseInt(order_final_cost));
+		goodsOrder.setMarchant_uid(merchant_uid);
+		goodsOrder.setImp_uid(imp_uid);
+		
+		goodsService.insertOrder(goodsOrder);
+		
+		// 카트에서 삭제 cartListForOrder
+		for(int i=0; i<cartList.size(); i++) {
+			goodsService.updateCartNumAfterPayment(cartList.get(i).getCart_num());
+		}
+		
+		// 쿠폰 have테이블에서 삭제, use 테이블에 추가 
+		CouponHaveVO have = new CouponHaveVO();
+		have.setCoupon_have_code(coupon_code);
+		have.setCoupon_have_id(email);
+		userService.deleteHaveCoupon(have);
+		
+		CouponUseVO use = new CouponUseVO();
+		use.setCoupon_use_goods(merchant_uid);
+		use.setCoupon_use_id(email);
+		use.setCoupon_use_code(coupon_code);
+		userService.insertUseCoupon(use);
+		
+		// 기존적립금 false, 
+		SaveVO point = new SaveVO();
+		point.setSave_id(email);
+		point.setSave_point(Integer.parseInt(point_balance));
+		userService.updateOrderSave(point); // 기존 항목 모두 false로 수정, 남은 포인트 새로 insert
+		
+		point.setSave_point(Integer.parseInt(order_save));
+		point.setSave_goods_code(cartList.get(0).getGoods_code());
+		userService.insertNewOrderSave(point); // 새로운 적립금 insert
+		return "1";
+	}
+	
+	@RequestMapping("/payment_goods_cancel.do")
+	public String paymentGoodsCancel(HttpServletRequest req) {
+		String imp_uid = req.getParameter("imp_uid");
+		goodsService.paymentGoodsCancel(imp_uid);
+		return "redirect:/mypage_order_goods.do";
+	}
+	
+	@GetMapping("/mypage_goods_order_return.do")
+	public String goodsOrderRetrun(Model model, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		model.addAttribute("returnList", goodsService.getGoodsReturnList(email));
+		return "mypage/mypage_order_return";
 	}
 	
 	
@@ -238,5 +371,12 @@ public class PaymentController {
 		String marchant_uid = req.getParameter("marchant_uid");
 		service.paymentClassCancel(marchant_uid);
 		return "redirect:/mypage_order_class.do";
+	}
+	
+	@GetMapping("/mypage_class_order_return.do")
+	public String classOrderRetrun(Model model, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		model.addAttribute("returnList", service.getClassReturnList(email));
+		return "mypage/mypage_order_return_class";
 	}
 }

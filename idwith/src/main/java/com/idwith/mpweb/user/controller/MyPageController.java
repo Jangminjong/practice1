@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.idwith.mpweb.admin.EmailDTO;
 import com.idwith.mpweb.user.UserAddressVO;
+import com.idwith.mpweb.user.CouponHaveVO;
 import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.UserVO;
@@ -84,7 +85,10 @@ public class MyPageController {
 	}
 
 	@GetMapping("/mypage_coupon.do")
-	public String mypageCoupon() {
+	public String mypageCoupon(Model model, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		List<CouponHaveVO> couponList = myPageService.getCouponList(email);
+		model.addAttribute("couponList", couponList);
 		return "mypage/mypage_coupon";
 	}
 
@@ -124,7 +128,10 @@ public class MyPageController {
 	}
 
 	@GetMapping("/mypage_order_goods.do")
-	public String mypageOrderGoods() {
+	public String mypageOrderGoods(Model model, HttpSession session) {
+		String email=(String) session.getAttribute("email");
+		List<GoodsOrderDetailVO> goodsOrderList = myPageService.getOrderGoodsList(email);
+		model.addAttribute("goodsOrderList", goodsOrderList);
 		return "mypage/mypage_order_goods";
 	}
 

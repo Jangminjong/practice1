@@ -143,6 +143,7 @@
 								<form id="form-review" name="reviewForm" class="form-review"
 									action="write_review.do" method="post" onsubmit="return false" enctype="multipart/form-data"
 									style="margin-top: 10px;">
+
 									주문자 : <input type="text" name="goods_review_id" class="user_id"
 										value="${email}" readonly/><br><br>
 									주문 코드 : <input type="text" name="order_detail_code"
@@ -161,6 +162,7 @@
 										value="${orderVO.order_detail_option3}" readonly/>
 									
 									<br><br>
+
 									<div id="review-point" style="margin-bottom: 10px;">
 										<button onclick="starBtn1()" ondblclick="cancelStar1()">
 											<i id="star1" class="fa fa-star-o" aria-hidden="true"></i>
@@ -177,8 +179,11 @@
 										<button onclick="starBtn5()" ondblclick="cancelStar5()">
 											<i id="star5" class="fa fa-star-o" aria-hidden="true"></i>
 										</button>
+
+										
 										<input type="text" id="star-point-total"
 											name="goods_review_point" class="goods_review_point" value="" readonly/>
+
 									</div>
 
 									<div class="review-content" style="margin-bottom: 10px;">
@@ -199,10 +204,7 @@
 								</form>
 							</div></li>
 					</ul>
-					<!-- <div class="banner-empty">
-						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
-						<p>작성할 수 있는 구매후기가 없습니다.</p>
-					</div> -->
+
 				</section>
 			</div>
 		</div>

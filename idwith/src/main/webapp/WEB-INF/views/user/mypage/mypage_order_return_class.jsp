@@ -3,10 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html class="lt-ie9"><![endif]-->
-<!--[if gt IE 8]><html class="ie9"><![endif]-->
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -15,8 +12,11 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디위드 | 주문내역</title>
+<title>아이디위드 | 취소/환불내역</title>
 <meta name="theme-color" content="#ffffff" />
+<link rel="apple-touch-icon" sizes="384x384"
+	href="/resources/dist/images/app-icon/icon_300.png">
+
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
@@ -29,24 +29,25 @@
 <meta property="og:type" content="website" />
 <meta property="og:description"
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!" />
-<meta property="og:url" content="http://www.idus.com/w/me/order/payment" />
+<meta property="og:url" content="http://www.idus.com/w/me/order/cancel" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
-<link rel="canonical" href="http://www.idus.com/w/me/order/payment" />
+<link rel="canonical" href="http://www.idus.com/w/me/order/cancel" />
 
-<!-- project src -->
-<link rel="icon" href="/resources/favicon_32.ico" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        </script>
 <link rel="stylesheet" href="resources/css/mypage.css" />
 <link rel="stylesheet" href="resources/css/idus.web.min.css" />
 <link rel="stylesheet" href="resources/css/vendor.client.min.css" />
-<script src="resources/js/vendor.client.min.js"></script>
+<script src="resources/js/vendor.client.min.js?__v=1631078629"></script>
 <script src="resources/js/vuepack.js"></script>
+
 
 </head>
 <body>
+	<div data-vue="token"></div>
+	<div data-vue="globalUser"></div>
+	<div data-vue="resizeHandler"></div>
+	
 	<div class="wrap">
 		<div class="head_banner_group"></div>
 
@@ -110,102 +111,99 @@
 
 				<section>
 					<div class="title-style no-mt clf">
-						<a href="#" class="txt fl">주문 내역</a>
-						
+						<a href="mypage_order_return.do" class="txt fl">취소/환불 내역</a>
 					</div>
-					<div class="ui_tab_group--3 favorite" style="margin-bottom:20px;">
-						<span class="ui_tab_group__tab active" data-state="active"
-							style="width: 50%;"> 작품 </span> <a href="mypage_order_class.do"
-							class="ui_tab_group__tab" style="width: 50%;">클래스</a>
+					<div class="ui_tab_group--3 favorite">
+						<span class="ui_tab_group__tab " data-state="active"
+							style="width: 50%;"> 작품 </span> <a href="mypage_class_order_return.do"
+							class="ui_tab_group__tab active" style="width: 50%;">클래스</a>
 					</div>
-					<c:if test="${goodsOrderList eq nul }">
+				<c:forEach var="classOrder" items="${returnList }">
+					<table class="table-style disable-ui type2 " data-active="true">
+						<colgroup>
+							<col>
+							<col style="width: 120px">
+							<col style="width: 120px">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>취소 완료</th>
+								<th colspan="2"><a
+									href="class_order_detail.do?marchant_uid=${classOrder.marchant_uid }"> <span>${classOrder.class_order_price }</span>
+										<i class="fa fa-chevron-right" aria-hidden="true"></i>
+								</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="list-item">
+										<div class="area-img">
+											<input class="bp" data-ui="list-checker" name="prd-name"
+												type="checkbox" value="some-prd" checked="">
+											<div class="img-bg"
+												style="background-image: url(resourecs/images/category_class/${classOrder.class_open_photo[0]})"></div>
+										</div>
+										<div class="area-txt">
+											<div class="list-head">
+												<div class="row">
+													<div class="col">
+														<a href="class_detail_content.do?class_open_class_code=${classOrder.class_order_code }"
+															class="title-txt" for="prd-name">${classOrder.class_open_name }</a>
+													</div>
+													<div class="col icon">
+														<span class="ico outline negative">취소 완료</span>
+													</div>
+												</div>
+											</div>
+											<ul class="list-options">
+												<li>
+													<span class="option-txt">${classOrder.class_order_date } </span>
+													<span class="option-txt">${classOrder.class_order_time } </span>
+													<em class="option-count">${classOrder.class_order_people }명</em>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</td>
+								<td class="td-controller wow-b row fixed">
+									<div class="col">
+										<span class="txt">${classOrder.store_name }</span>
+									</div>
+									<div class="col">
+										<a href="message_detail.do?msgd="
+											class="btn btn-s btn-white" type="button">메시지로 문의</a>
+									</div>
+
+								</td>
+								<td class="td-controller row">
+									<div class="col">
+										<button disabled="disabled"
+											class="btn btn-m btn-white" >예약취소</button>
+										<input type="hidden" id="class-order-price" value="${classOrder.class_order_price }"/>
+									</div>
+								</td>
+
+							</tr>
+						</tbody>
+					</table>
+					</c:forEach>
+					<c:if test="${ returnList eq null}">
 					<div class="banner-empty">
-						<img src="resources/images/index/idwith_logo_back.png">
-						<p>주문 내역이 없습니다.</p>
+						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
+						<p>취소/환불 내역이 없습니다.</p>
 						<a href="index.do" class="btn btn-l btn-point">작품 구경하러 가기</a>
 					</div>
 					</c:if>
-					<div style="margin-top:20px;">
-						<table class="table-style disable-ui type2 th-bd"
-							data-active="true">
-							<colgroup>
-								<col>
-								<col style="width: 120px">
-								<col style="width: 120px">
-							</colgroup>
-							<thead>
-								<tr class="m-hide">
-									<th class="ta-c">작품</th>
-									<th class="ta-c">판매 작가</th>
-									<th class="ta-c"></th>
-								</tr>
-							</thead>
-							<c:forEach var="goods" items="${goodsOrderList }">
-							<tbody>
-								<tr>
-									<td>
-										<div class="list-item">
-											<div class="area-img">
-												<input class="bp" data-ui="list-checker" name="prd-name"
-													type="checkbox" value="some-prd" checked="">
-												<div class="img-bg"
-													style="background-image: url()"></div>
-											</div>
-											<div class="area-txt">
-												<div class="list-head">
-													<div class="row">
-														<div class="col">
-															<a href="detail_content.do?goods_code=${goods.order_detail_goods}"
-																class="title-txt" for="prd-name">${goods.goods_name }</a>
-														</div>
-														<div class="col icon">
-															<span class="ico outline negative">결제 완료</span>
-														</div>
-													</div>
-												</div>
-												<ul class="list-options">
-													<li><span class="option-txt">${goods.order_detail_option }</span>
-													<span class="price" style="font-weight:bold; margin-left:15px;">${goods.order_detail_price }원</span>
-														<em class="option-count">${goods.order_detail_quantity }</em></li>
-													<div class="order-memo">
-														<div class="textarea">
-															<div class="textarea-div"></div>
-														</div>
-													</div>
-												</ul>
-											</div>
-										</div>
-									</td>
-									<td class="td-controller wow-b row fixed">
-										<div class="col">
-											<span class="txt">${goods.store_name }</span>
-										</div>
-										<div class="col">
-											<a href="message.do?msgd=${goods.order_detail_seller }"
-												class="btn btn-s btn-white" type="button">메시지로 문의</a>
-										</div>
-
-									</td>
-									<td class="td-controller row">
-										<div class="col">
-											<a href="payment_goods_cancel.do?imp_uid=${goods.imp_uid }"
-												class="btn btn-m btn-white">주문취소</a>
-										</div>
-									</td>
-
-								</tr>
-							</tbody>
-							</c:forEach>
-						</table>
-					</div>
-					<!-- 주문코드는 table이 반복 -->
 				</section>
 			</div>
 		</div>
-		<jsp:include page="../footer.jsp" />
+		
 	</div>
+	<jsp:include page="../footer.jsp" />
 	<!-- div WRAP -->
 	<script type="text/javascript"
 		src="resources/js/idus.web.min.js"></script>
+	
 </body>
 </html>

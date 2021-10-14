@@ -60,4 +60,8 @@ public class CartDAO {
 	public void deleteOption(CartVO vo) {
 		sqlSessionTemplate.delete("CartDAO.deleteOption", vo);
 	}
+
+	public CartVO getCartForDirect(String user_id) {
+		return sqlSessionTemplate.selectOne("CartDAO.getCartForDirect", user_id);
+	}
 }

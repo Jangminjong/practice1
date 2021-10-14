@@ -140,8 +140,7 @@ public class UserDAO {
 	}
 	
 	public int setCart(String email) {
-		// TODO Auto-generated method stub
-		return 2;
+		return sqlSessionTemplate.selectOne("CartDAO.setCart", email);
 	}
 
 	public void updateUserInfoAtPayment(UserVO user) {
@@ -156,5 +155,21 @@ public class UserDAO {
 
 	public void insertNewOrderSave(SaveVO point) {
 		sqlSessionTemplate.insert("UserDAO.insertNewOrderSave", point);
+	}
+
+	public void updateAddressAtPayment(UserAddressVO address) {
+		int result = sqlSessionTemplate.selectOne("UserDAO.addressPresenceCheck", address);
+		if(result <= 0) {
+			sqlSessionTemplate.insert("UserDAO.updateAddressAtPayment", address);			
+		}
+		
+	}
+
+	public void deleteHaveCoupon(CouponHaveVO have) {
+		sqlSessionTemplate.delete("UserDAO.deleteHaveCoupon", have);
+	}
+
+	public void insertUseCoupon(CouponUseVO use) {
+		sqlSessionTemplate.insert("UserDAO.insertUseCoupon", use);
 	}
 }

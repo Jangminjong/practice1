@@ -7,6 +7,8 @@ import java.util.Map;
 import com.idwith.mpweb.user.UserAddressVO;
 
 import com.idwith.mpweb.user.ChoiceVO;
+import com.idwith.mpweb.user.CouponHaveVO;
+import com.idwith.mpweb.user.CouponUseVO;
 import com.idwith.mpweb.user.FollowVO;
 import com.idwith.mpweb.user.SaveVO;
 import com.idwith.mpweb.user.UserVO;
@@ -59,4 +61,11 @@ public interface UserService {
 	void updateOrderSave(SaveVO point);
 
 	void insertNewOrderSave(SaveVO point);
+
+	void updateAddressAtPayment(UserAddressVO address);
+
+	void deleteHaveCoupon(CouponHaveVO have);
+
+	void insertUseCoupon(CouponUseVO use);
+
 }

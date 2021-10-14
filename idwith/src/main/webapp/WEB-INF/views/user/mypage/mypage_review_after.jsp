@@ -109,7 +109,7 @@
 						<nav>
 							<b> <span>주문 배송</span>
 							</b> <a href="mypage_order_goods.do" class="">주문내역</a> <a
-								href="mypage_order_return.do" class="">취소/환불내역</a> <b> <span>알림
+								href="mypage_goods_order_return.do" class="">취소/환불내역</a> <b> <span>알림
 									및 메시지</span>
 							</b> <a href="alarm.do" class="">알림</a> <a href="message.do"
 								class="">메시지</a> <b> <span>나의 구매후기</span>
@@ -143,9 +143,25 @@
 							href="mypage_review_after.do">내가 쓴 구매후기</a>
 					</nav>
 					<div class="m-spacing">
+					<c:forEach var="reviewAfter" items="${reviewAfterList}">
 						<ul class="masonry-grid x2" data-col="2" data-ui="scroll-paging"
 							data-query="next" data-param=""
 							style="position: relative;">
+
+							<li class="card-style story"
+								style="position: absolute; left: 0px; top: 0px;">
+								<div class="bordering">
+									<div class="area-txt">
+										<div class="area-rating">
+											<div class="img-bg"
+												style="background-image: url(${reviewAfter.goods_photo[0]})"></div>
+											<a href="detail_content.do?goods_code=${reviewAfter.goods_review_code }"
+												target="_blank" class="title ellipsis">${reviewAfter.goods_name}</a>
+											<div class="ui_rating" data-ui="rating" data-value="${reviewAfter.goods_review_point}">
+												<c:forEach var="i" begin="1" end="${reviewAfter.goods_review_point}" >
+													<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												</c:forEach>
+
 							<c:forEach var="reviewAfter" items="${reviewAfterList}">
 								<li class="card-style story" style="float: left;">
 									<div class="bordering">
@@ -160,6 +176,7 @@
 														<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
 													</c:forEach>
 												</div>
+
 											</div>
 											<div class="split-hard">
 												<span class="split crop-circ"
@@ -174,10 +191,14 @@
 											<br>
 											<div class="area-img" style="background-image: url(${reviewAfter.goods_review_image[0]})"></div>
 										</div>
-										<button class="review-del-btn"><a href="delete_review.do?goods_review_seq=${reviewAfter.goods_review_seq}">삭제</a></button>
-									</div>
+
+									<button class="review-del-btn"><a href="delete_review.do?goods_review_seq=${reviewAfter.goods_review_seq}">삭제</a></button>
+								</div>
+							</li>
+
 								</li>
 							</c:forEach>
+
 							<c:if test="${empty reviewAfterList}">
 								<div class="banner-empty review-list-empty">
 									<img src="resources/images/index/idwith_logo_back.png">
@@ -187,6 +208,7 @@
 								</div>
 							</c:if>
 						</ul>
+					</c:forEach>
 					</div>
 				</section>
 			</div>

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.idwith.mpweb.user.UserAddressVO;
+import com.idwith.mpweb.user.CouponHaveVO;
 import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.classUser.ClassOrderVO;
@@ -33,4 +34,8 @@ public interface MypageService {
 	List<UserAddressVO> getAddressList(String user_id);
 
 	List<ClassOrderVO> getOrderClassList(String email);
+
+	List<GoodsOrderDetailVO> getOrderGoodsList(String email);
+
+	List<CouponHaveVO> getCouponList(String email);
 }

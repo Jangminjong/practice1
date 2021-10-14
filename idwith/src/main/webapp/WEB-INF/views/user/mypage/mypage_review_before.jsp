@@ -101,7 +101,7 @@
 						<nav>
 							<b> <span>주문 배송</span>
 							</b> <a href="mypage_order_goods.do" class="">주문내역</a> <a
-								href="mypage_order_return.do" class="">취소/환불내역</a> <b> <span>알림
+								href="mypage_goods_order_return.do" class="">취소/환불내역</a> <b> <span>알림
 									및 메시지</span>
 							</b> <a href="alarm.do" class="">알림</a> <a href="message.do"
 								class="">메시지</a> <b> <span>나의 구매후기</span>
@@ -165,7 +165,9 @@
 										data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
 										작성하기</a>
 								</div>
+
 							</li>
+
 						</c:forEach>
 						<c:if test="${empty reviewBeforeList}">
 							<div class="banner-empty review-list-empty">

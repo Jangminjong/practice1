@@ -214,28 +214,17 @@
 														<div data-v-4e8934ee="" style="padding-top: 1px;">
 															<!-- 별점 등록 -->
 															<span data-v-ef94db98="" data-v-4e8934ee=""
-																data-value="4.6" class="ui_rating fr"> <i
-																data-v-ef94db98="" data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 15px;"></i> <i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 15px;"></i> <i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 15px;"></i> <i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 15px;"></i> <i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 15px;"></i>
+																data-value="4.6" class="ui_rating fr"> 
+																<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
 															</span>
 														</div>
 														<div data-v-4e8934ee="" style="margin-left: 3px;">(37)</div>
 														<div data-v-4e8934ee="" style="margin-top: 2px;">
-															<i data-v-4e8934ee="" class="idus-icon-arrow-right"
-																style="font-size: 12px;"></i>
+															<i class="fa fa-chevron-right" aria-hidden="true" style="font-size:12px"></i>
 														</div>
 													</a>
 												</div>
@@ -438,12 +427,7 @@
 									<button data-v-1c074f7f="" type="submit" data-to="cart"
 										class="ui_btn cart">장바구니</button>
 									<button data-v-1c074f7f="" type="submit" data-to="payment"
-										data-pay-type="npay" class="ui_btn npay">
-										<img data-v-1c074f7f="" src="/resources/dist/images/npay.svg"
-											alt="N Pay">
-									</button>
-									<button data-v-1c074f7f="" type="submit" data-to="payment"
-										class="ui_btn--red buy">구매하기</button>
+										class="ui_btn--red buy" id="direct_payment">구매하기</button>
 									<button data-v-1c074f7f="" type="submit" data-to="present"
 										data-pay-type="present" class="ui_btn--redline present">
 										<div data-v-1c074f7f="" class="inner">
@@ -589,7 +573,7 @@
 							<div class="tab" data-ui-id="info-prd" id="info-prd">
 								<span>작품 정보제공 고시</span>
 								<button class="idwith-icon-arrow" id="info-prd-btn">
-									<i class="icon idus-icon-arrow down"></i>
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
 								</button>
 							</div>
 							<table class="table-style column" data-ui="tab-panel" data-panel-id="info-prd" id="info-prd-tab" style="display: none">
@@ -633,7 +617,7 @@
 							<div class="tab" data-ui-id="info-artist" id="info-artist">
 								<span>판매 작가 정보</span>
 								<button class="idwith-icon-arrow" id="info-artist-btn">
-									<i class="icon idus-icon-arrow down"></i>
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
 								</button>
 							</div>
 							<table class="table-style column" data-ui="tab-panel"
@@ -668,7 +652,7 @@
 								data-ui-id="info-delivery">
 								<span>배송 / 교환 / 환불</span>
 								<button class="idwith-icon-arrow" id="info-delivery-btn">
-									<i class="icon idus-icon-arrow down"></i>
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
 								</button>
 							</div>
 							<table class="table-style column active" data-ui="tab-panel"
@@ -740,17 +724,12 @@
 										</div>
 										<div data-v-a301bac8="" class="review-rate">
 											<span data-v-ef94db98="" data-v-a301bac8="" data-value="5"
-												class="ui_rating fr"> <i data-v-ef94db98=""
-												data-state="active" class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 12px;"></i> <i data-v-ef94db98=""
-												data-state="active" class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 12px;"></i> <i data-v-ef94db98=""
-												data-state="active" class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 12px;"></i> <i data-v-ef94db98=""
-												data-state="active" class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 12px;"></i> <i data-v-ef94db98=""
-												data-state="active" class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 12px;"></i>
+												class="ui_rating fr"> 
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
 											</span>
 										</div>
 									</div>
@@ -770,7 +749,7 @@
 							<button data-v-450a0b42="" type="button" class="">3</button>
 							<button data-v-450a0b42="" type="button" class="">4</button>
 							<button data-v-450a0b42="" type="button" class="arrows">
-								| 다음<i data-v-450a0b42="" class="idus-icon-arrow right"></i>
+								| 다음<i class="fa fa-chevron-right" aria-hidden="true" style="font-size:12px"></i>
 							</button>
 						</nav>
 					</ul>
@@ -846,27 +825,17 @@
 											href="seller_goods?seller_code=${goods.seller_code}"
 											target="_blank"><p data-v-2618eab2=""
 												class="artist-info__name">
-												${goods.userSellerVO.store_name} <i data-v-2618eab2=""
-													class="idus-icon-arrow right"></i>
+												${goods.userSellerVO.store_name}<i class="fa fa-chevron-right" aria-hidden="true" style="font-size:12px"></i>
 											</p></a>
 										<div data-v-2618eab2="" class="artist-info__rate">
 											<span data-v-ef94db98="" data-v-2618eab2="" data-value="4.9"
-												class="ui_rating fr"><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i><i data-v-ef94db98=""
-												data-state="active"
-												class="ui_icon--star idus-icon-star-fill"
-												style="font-size: 14px;"></i></span> <span data-v-2618eab2="">
+												class="ui_rating fr">
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+												</span> <span data-v-2618eab2="">
 												4.9 </span> <span data-v-2618eab2=""> (163) </span>
 										</div>
 									</div>

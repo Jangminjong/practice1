@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import com.idwith.mpweb.user.UserAddressVO;
 
 import com.idwith.mpweb.user.ChoiceVO;
+import com.idwith.mpweb.user.CouponHaveVO;
+import com.idwith.mpweb.user.CouponUseVO;
 import com.idwith.mpweb.user.FollowVO;
 import com.idwith.mpweb.user.SaveVO;
 import com.idwith.mpweb.user.UserDAO;
@@ -187,5 +189,21 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void insertNewOrderSave(SaveVO point) {
 		dao.insertNewOrderSave(point);
+	}
+
+	@Override
+	public void updateAddressAtPayment(UserAddressVO address) {
+		dao.updateAddressAtPayment(address);
+		
+	}
+
+	@Override
+	public void deleteHaveCoupon(CouponHaveVO have) {
+		dao.deleteHaveCoupon(have);
+	}
+
+	@Override
+	public void insertUseCoupon(CouponUseVO use) {
+		dao.insertUseCoupon(use);
 	}
 }

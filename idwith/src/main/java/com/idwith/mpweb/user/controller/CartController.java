@@ -33,99 +33,99 @@ public class CartController {
 	private CartService cartService;
 
 	@RequestMapping(value = "/cart.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String cart(HttpSession session, Model model) {
+	public String cart(HttpSession session, Model model, @RequestParam(value="buy", required=false, defaultValue = "cart") String buy){
 		System.out.println("장바구니 컨트롤러 실행");
 
 		String user_id = (String)session.getAttribute("email");
-
-		List<CartVO> cartList = cartService.getCartList(user_id);
-		int cartListLength = cartList.size();
-
-		List<CartVO> goodsList = new ArrayList<CartVO>();
-		List<Map<String,String>> optionList = new ArrayList<Map<String,String>>();
-		List<Integer> optionNum = new ArrayList<Integer>();
-		Map<String, String> optionMap = null;
-
-		System.out.println("가져온 수량 : " + cartList.size());
+		List<CartVO> cartList = new ArrayList<CartVO>();
 		
-		for(int i=0; i<cartList.size(); i++) {
-			System.out.println(i+"번 째 실행");
-			System.out.println("현재 상품 코드 : " + cartList.get(i).getGoods_code());
-			int state=0;
-			optionMap = new HashMap<String,String>();
-			if(i==0) {
-				System.out.println("테스트 중 상품 공통");
-				System.out.println("옵션 개수: "+ cartList.get(i).getGoods_option_value().length);
-				optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
-				optionMap.put("goodsCode", cartList.get(i).getGoods_code());
-				optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
-				optionMap.put("cartNum", Integer.toString(cartList.get(i).getCart_num()));
-				for(int j=0; j<cartList.get(i).getGoods_option_value().length; j++) {
-					optionMap.put("optionValue"+j, cartList.get(i).getGoods_option_value()[j]); 
-					optionMap.put("optionPrice"+j, cartList.get(i).getGoods_option_price()[j]); 
-				}
-				optionNum.add(cartList.get(i).getGoods_option_value().length);
-				goodsList.add(cartList.get(i));
-				optionList.add(optionMap);
-				state=2;
-			}
-			else {
-				System.out.println("테스트 중 i가 0이 아닐 때");
-				for(int j=0; j<i; j++) {
-					System.out.println("j 순서 : " + j);
-					if(cartList.get(i).getGoods_code().equals(goodsList.get(j).getGoods_code())) {
-						System.out.println("테스트 중 상품 코드가 같을 때 옵션만 추가");
-						optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
-						optionMap.put("goodsCode", cartList.get(i).getGoods_code());
-						optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
-						optionMap.put("cartNum", Integer.toString(cartList.get(i).getCart_num()));
-						for(int m=0; m<cartList.get(i).getGoods_option_value().length; m++) {
-							optionMap.put("optionValue"+m, cartList.get(i).getGoods_option_value()[m]); 
-							optionMap.put("optionPrice"+m, cartList.get(i).getGoods_option_price()[m]); 
-						}
-						optionNum.add(cartList.get(i).getGoods_option_value().length);
-						optionList.add(optionMap);
-						state=1;
-						break;
+		if (buy.equals("direct")) {
+			CartVO cart = cartService.getCartForDirect(user_id);
+			cartList.add(cart);
+			
+
+		} else {
+
+			cartList = cartService.getCartList(user_id);
+		}
+			
+			int cartListLength = cartList.size();
+
+			List<CartVO> goodsList = new ArrayList<CartVO>();
+			List<Map<String, String>> optionList = new ArrayList<Map<String, String>>();
+			List<Integer> optionNum = new ArrayList<Integer>();
+			Map<String, String> optionMap = null;
+
+			System.out.println("가져온 수량 : " + cartList.size());
+
+			for (int i = 0; i < cartList.size(); i++) {
+				System.out.println(i + "번 째 실행");
+
+				int state = 0;
+				optionMap = new HashMap<String, String>();
+				if (i == 0) {
+					System.out.println("테스트 중 상품 공통");
+					System.out.println("옵션 개수: " + cartList.get(i).getGoods_option_value().length);
+					optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
+					optionMap.put("goodsCode", cartList.get(i).getGoods_code());
+					optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
+					optionMap.put("cartNum", Integer.toString(cartList.get(i).getCart_num()));
+					for (int j = 0; j < cartList.get(i).getGoods_option_value().length; j++) {
+						optionMap.put("optionValue" + j, cartList.get(i).getGoods_option_value()[j]);
+						optionMap.put("optionPrice" + j, cartList.get(i).getGoods_option_price()[j]);
 					}
+					optionNum.add(cartList.get(i).getGoods_option_value().length);
+					goodsList.add(cartList.get(i));
+					optionList.add(optionMap);
+					state = 2;
+				} else {
+					System.out.println("테스트 중 i가 0이 아닐 때");
+					for (int j = 0; j < i; j++) {
+						System.out.println("DB 상품코드 : " + cartList.get(i).getGoods_code());
+						System.out.println("비교하는 상품 코드 : " + goodsList.get(j).getGoods_code());
+						if (cartList.get(i).getGoods_code().equals(goodsList.get(j).getGoods_code())) {
+							System.out.println("테스트 중 상품 코드가 같을 때 옵션만 추가");
+							optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
+							optionMap.put("goodsCode", cartList.get(i).getGoods_code());
+							optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
+							optionMap.put("cartNum", Integer.toString(cartList.get(i).getCart_num()));
+							for (int m = 0; m < cartList.get(i).getGoods_option_value().length; m++) {
+								optionMap.put("optionValue" + m, cartList.get(i).getGoods_option_value()[m]);
+								optionMap.put("optionPrice" + m, cartList.get(i).getGoods_option_price()[m]);
+							}
+							optionNum.add(cartList.get(i).getGoods_option_value().length);
+							optionList.add(optionMap);
+							state = 1;
+							break;
+						}
+					}
+
 				}
 
-			}
-			
-			System.out.println("현재 State : " + state);
-			
-			if(state==0) {
-				System.out.println("테스트 중 다른 상품일 때");
-				optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
-				optionMap.put("goodsCode", cartList.get(i).getGoods_code());
-				optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
-				optionMap.put("cartNum", Integer.toString(cartList.get(i).getCart_num()));
-				for(int j=0; j<cartList.get(i).getGoods_option_value().length; j++) {
-					optionMap.put("optionValue"+j, cartList.get(i).getGoods_option_value()[j]); 
-					optionMap.put("optionPrice"+j, cartList.get(i).getGoods_option_price()[j]); 
+
+				if (state == 0) {
+					System.out.println("테스트 중 다른 상품일 때");
+					optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
+					optionMap.put("goodsCode", cartList.get(i).getGoods_code());
+					optionMap.put("goodsPrice", Integer.toString(cartList.get(i).getGoods_price()));
+					optionMap.put("cartNum", Integer.toString(cartList.get(i).getCart_num()));
+					for (int j = 0; j < cartList.get(i).getGoods_option_value().length; j++) {
+						optionMap.put("optionValue" + j, cartList.get(i).getGoods_option_value()[j]);
+						optionMap.put("optionPrice" + j, cartList.get(i).getGoods_option_price()[j]);
+					}
+					optionNum.add(cartList.get(i).getGoods_option_value().length);
+					goodsList.add(cartList.get(i));
+					optionList.add(optionMap);
+
 				}
-				optionNum.add(cartList.get(i).getGoods_option_value().length);
-				goodsList.add(cartList.get(i));
-				optionList.add(optionMap);
-				
+				System.out.println("=========================");
 			}
-			System.out.println("=========================");
-		}
-		
-		
-		
-		
-		for(int i=0; i<optionList.size();i++) {
-			
-			System.out.println("option의 value: "+ optionList.get(i).get("optionValue"+i));
-			System.out.println("option의 price: "+ optionList.get(i).get("optionPrice"+i));
-		}
+			model.addAttribute("optionNum", optionNum);//옵션 개수
+			model.addAttribute("goodsList", goodsList);//상품에 관한 공통 정보 ex)상품 이미지, 상품코드, 작가코드
+			model.addAttribute("optionList", optionList);//옵션값, 수량이 들어있는 리스트
+			model.addAttribute("cartListLength", cartListLength);
+			model.addAttribute("state", buy);
 
-
-		model.addAttribute("optionNum", optionNum);//옵션 개수
-		model.addAttribute("goodsList", goodsList);//상품에 관한 공통 정보 ex)상품 이미지, 상품코드, 작가코드
-		model.addAttribute("optionList", optionList);//옵션값, 수량이 들어있는 리스트
-		model.addAttribute("cartListLength", cartListLength);
 		return "cart";
 	}
 

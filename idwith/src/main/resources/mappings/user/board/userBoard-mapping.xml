@@ -44,6 +44,23 @@
  		<result property="save_goods_code" column="save_goods_code"/>
  	</resultMap>
  	
+ 	<resultMap type="couponHaveVO" id="couponHaveResult">
+ 		<result property="coupon_have_seq" column="coupon_have_seq"/>
+ 		<result property="coupon_have_id" column="coupon_have_id"/>
+ 		<result property="coupon_have_code" column="coupon_have_code"/>
+ 		<result property="coupon_have_date" column="coupon_have_date"/>
+ 		<result property="coupon_context" column="coupon_context"/>
+ 		<result property="coupon_discount" column="coupon_discount"/>
+ 	</resultMap> 
+ 	
+ 	<resultMap type="couponUseVO" id="couponUseResult">
+ 		<result property="coupon_use_seq" column="coupon_use_seq"/>
+ 		<result property="coupon_use_id" column="coupon_use_id"/>
+ 		<result property="coupon_use_date" column="coupon_use_date"/>
+ 		<result property="coupon_use_goods" column="coupon_use_goods"/>
+ 		<result property="coupon_use_code" column="coupon_use_code"/>
+ 	</resultMap> 
+ 	
  	<!-- 회원가입 -->
  	<insert id="insertUser" parameterType="userVO">
  		INSERT INTO client (user_id, user_pwd, user_name, user_phone)
@@ -124,6 +141,20 @@
 		WHERE user_id=#{email}
  	</select>
  	
+ 	<!-- 작품 결제에 사용할 포인트 가져오기 -->
+ 	<select id="getPointForPayment" parameterType="string" resultType="saveVO">
+ 		SELECT * FROM order_save WHERE save_id=#{user_id} AND order_save_true=true
+ 	</select>
+ 	
+ 	<!-- 작품 결제에 사용할 쿠폰 가져오기 -->
+ 	<select id="getCouponListForPayment" parameterType="string"  resultMap="couponHaveResult">
+ 		SELECT coupon_have_seq, coupon_have_id, coupon_have_code, coupon_have_date, coupon_context, coupon_discount FROM(
+				SELECT coupon_have.*, coupon.coupon_startdate, coupon.coupon_enddate, coupon.coupon_context, coupon.coupon_discount FROM coupon_have
+					LEFT OUTER JOIN coupon ON coupon_have.coupon_have_code = CAST(coupon.coupon_code AS varchar)  
+					WHERE now() BETWEEN coupon.coupon_startdate AND coupon.coupon_enddate
+		)AS foo WHERE foo.coupon_have_id = #{user_id}
+ 	</select>
+ 	
  	<!-- 상품/클래스 주문시 입력되는 이름, 전화번호 넣어주기 -->
  	<update id="updateUserInfoAtPayment" parameterType="userVO">
  		UPDATE client SET user_name=#{user_name}, user_phone=#{user_phone} WHERE user_id=#{user_id}
@@ -144,6 +175,34 @@
  		INSERT INTO order_save (save_id, save_point, order_save_true, save_goods_code)
  					VALUES(#{save_id}, #{save_point}, true, #{save_goods_code})
  	</insert>
+ 	
+ 	<!-- 사용자 저장된 주소 있는지 확인 -->
+ 	<select id="addressPresenceCheck" parameterType="userAddressVO" resultType="_int">
+ 	 	SELECT count(*) FROM user_address WHERE user_id=#{user_id}
+ 	</select>
+ 	<!-- 상품/클래스 주문시 입력되는 주소호 넣어주기 -->
+ 	<insert id="updateAddressAtPayment" parameterType="userAddressVO">
+ 		INSERT INTO user_address (user_id, user_order, user_name, user_phone, user_zipcode, user_address1, user_address2)
+ 				VALUES(#{user_id}, #{user_order}, #{user_name}, #{user_phone}, #{user_zipcode}, #{user_address1}, #{user_address2})
+ 	</insert>
+ 	
+ 	<!-- 사용한 쿠폰 삭제 -->
+ 	<delete id="deleteHaveCoupon" parameterType="couponHaveVO">
+ 		DELETE FROM coupon_have WHERE coupon_have_id=#{coupon_have_id} AND coupon_have_code=#{coupon_have_code}
+ 	</delete>
+ 	
+ 	<!-- 쿠폰 사용 테이블에 저장 -->
+ 	<insert id="insertUseCoupon" parameterType="couponUseVO">
+ 		INSERT INTO coupon_use (coupon_use_id, coupon_use_code, coupon_use_date, coupon_use_goods)
+ 						VALUES(#{coupon_use_id}, #{coupon_use_code}, now(), #{coupon_use_goods}) 
+ 	</insert>
+ 	<select id="getCouponList" parameterType="string" resultMap="couponHaveResult">
+ 		SELECT coupon_have_seq, coupon_have_id, coupon_have_code, coupon_have_date, coupon_context, coupon_discount FROM(
+				SELECT coupon_have.*, coupon.coupon_startdate, coupon.coupon_enddate, coupon.coupon_context, coupon.coupon_discount FROM coupon_have
+					LEFT OUTER JOIN coupon ON coupon_have.coupon_have_code = CAST(coupon.coupon_code AS varchar)  
+					WHERE now() BETWEEN coupon.coupon_startdate AND coupon.coupon_enddate
+		)AS foo WHERE foo.coupon_have_id = #{email}
+ 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

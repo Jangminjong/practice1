@@ -302,7 +302,10 @@ public class noticeController {
 	}
 	
 	@RequestMapping("/deleteEventNotice.mdo")
-	public String deleteEventNotice(AdminEventBoardVO adminEventVO) {
+	public String deleteEventNotice(HttpServletRequest req) {
+		AdminEventBoardVO adminEventVO = new AdminEventBoardVO();
+		int user_event_board_seq = Integer.parseInt(req.getParameter("user_event_board_seq"));
+		adminEventVO.setUser_event_board_seq(user_event_board_seq);
 		adminBoardService.deleteEventNotice(adminEventVO);
 
 		return "redirect:/userNotice.mdo";
