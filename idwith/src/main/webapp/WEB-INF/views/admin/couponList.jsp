@@ -264,7 +264,7 @@
 						</div>
 						</main>
 			<script src="resources/admin/js/app.js"></script>
-			<script>
+			<script type="text/javascript">
 				$().ready(function (){ 
 					$("#couponRelease").click(function (){ 
 						Swal.fire({ 

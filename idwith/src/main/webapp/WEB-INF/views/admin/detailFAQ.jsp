@@ -216,30 +216,29 @@
 								<div class="col-md-3">
 									<label class="form-label">작성자</label> <input type="text"
 										class="form-control" name="user_id"
-										placeholder="${adminQnA.user_id}" style="width: auto;">
+										placeholder="${adminQnA.user_id}" style="width: auto;" disabled="disabled">
 								</div>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Content</label>
 								<textarea class="form-control" rows="5" name="board_content">${adminQnA.board_content}</textarea>
 							</div>
-							<input type="submit" id="notice-user-submit" class="btn btn-primary" value="수정하기" /> 
+							<div class="row">
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-right">
+									<input type="submit" id="notice-user-submit" class="btn btn-primary" value="수정" /> 
+									<a href="deleteFAQ.mdo?seq=${adminQnA.seq }"><button class="btn btn-primary">삭제</button></a>
+									<button class="btn btn-primary" onclick="location.href='qna.mdo'">목록</button>
+								</div>
+							</div>
 						</form>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center">
-						<a href="qna.mdo">
-							<a href="deleteFAQ.mdo?seq=${adminQnA.seq }"><button class="btn btn-primary">삭제</button></a>
-							<button class="btn btn-primary">목록</button>
-						</a>
-					</div>
-				</div>
+				
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>

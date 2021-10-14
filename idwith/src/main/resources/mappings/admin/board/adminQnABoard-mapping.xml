@@ -53,6 +53,6 @@
  	</delete>
  	<insert id="insertFAQ" parameterType="adminQnA">
  		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_date, board_fix, seq, hit)
- 		VALUES('관리자1', '공지', #{board_title}, #{board_content}, now(), true, nextval('seq_qna_board'), 0)
+ 		VALUES(#{user_id}, '공지', #{board_title}, #{board_content}, now(), true, nextval('seq_qna_board'), 0)
  	</insert>
 </mapper>
