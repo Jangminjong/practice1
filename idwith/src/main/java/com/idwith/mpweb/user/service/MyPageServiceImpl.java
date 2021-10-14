@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.user.CouponHaveVO;
 import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.MyPageDAO;
@@ -82,5 +83,10 @@ public class MyPageServiceImpl implements MypageService {
 	@Override
 	public List<GoodsOrderDetailVO> getOrderGoodsList(String email) {
 		return dao.getOrderGoodsList(email);
+	}
+
+	@Override
+	public List<CouponHaveVO> getCouponList(String email) {
+		return dao.getCouponList(email);
 	}
 }

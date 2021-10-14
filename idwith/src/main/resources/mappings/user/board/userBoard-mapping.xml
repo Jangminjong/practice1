@@ -196,6 +196,13 @@
  		INSERT INTO coupon_use (coupon_use_id, coupon_use_code, coupon_use_date, coupon_use_goods)
  						VALUES(#{coupon_use_id}, #{coupon_use_code}, now(), #{coupon_use_goods}) 
  	</insert>
+ 	<select id="getCouponList" parameterType="string" resultMap="couponHaveResult">
+ 		SELECT coupon_have_seq, coupon_have_id, coupon_have_code, coupon_have_date, coupon_context, coupon_discount FROM(
+				SELECT coupon_have.*, coupon.coupon_startdate, coupon.coupon_enddate, coupon.coupon_context, coupon.coupon_discount FROM coupon_have
+					LEFT OUTER JOIN coupon ON coupon_have.coupon_have_code = CAST(coupon.coupon_code AS varchar)  
+					WHERE now() BETWEEN coupon.coupon_startdate AND coupon.coupon_enddate
+		)AS foo WHERE foo.coupon_have_id = #{email}
+ 	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

@@ -140,7 +140,7 @@ public class UserDAO {
 	}
 	
 	public int setCart(String email) {
-		return sqlSessionTemplate.selectOne("UserDAO.setCart", email);
+		return sqlSessionTemplate.selectOne("CartDAO.setCart", email);
 	}
 
 	public void updateUserInfoAtPayment(UserVO user) {

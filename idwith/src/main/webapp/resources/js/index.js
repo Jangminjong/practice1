@@ -270,7 +270,7 @@ function myPageCheck(){
 	if(email == ""){
 		location.replace('/mpweb/login.do');
 	}else{
-		location.replace('/mpweb/mypage.do');
+		location.replace('/mpweb/mypage_order_goods.do');
 	}
 
 }

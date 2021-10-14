@@ -111,6 +111,6 @@
 	
 	<!-- 헤더의 장바구니 개수 나타내기 -->
 	<select id="setCart" resultType="_int" parameterType="string">
-		SELECT count(*) FROM cart WHERE user_id=#{email} AND (cart_pay_check=false || cart_pay_check ISNULL)
+		SELECT count(*) FROM cart WHERE user_id=#{email} AND (cart_pay_check=false OR cart_pay_check ISNULL)
 	</select>
 </mapper>

@@ -86,7 +86,7 @@
 						<nav>
 							<b> <span>주문 배송</span>
 							</b> <a href="mypage_order_goods.do" class="">주문내역</a> <a
-								href="mypage_order_return.do" class="">취소/환불내역</a> <b> <span>알림
+								href="mypage_goods_order_return.do" class="">취소/환불내역</a> <b> <span>알림
 									및 메시지</span>
 							</b> <a href="alarm.do" class="">알림</a> <a href="message.do"
 								class="">메시지</a> <b> <span>나의 구매후기</span>
@@ -140,7 +140,7 @@
 										<p class="para">최근 1개월 기준</p>
 									</div>
 								</div>
-							</div> <a href="mypage_order_return.do" class="value">0</a>
+							</div> <a href="mypage_goods_order_return.do" class="value">0</a>
 						</li>
 					</ul>
 

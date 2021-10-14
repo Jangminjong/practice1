@@ -70,4 +70,8 @@ public class MyPageDAO {
 	public List<GoodsOrderDetailVO> getOrderGoodsList(String email) {
 		return sqlSessionTemplate.selectList("GoodsOrderDAO.getOrderGoodsList", email);
 	}
+
+	public List<CouponHaveVO> getCouponList(String email) {
+		return sqlSessionTemplate.selectList("UserDAO.getCouponList", email);
+	}
 }

@@ -172,25 +172,6 @@ public class PaymentController {
 		List<CartVO> cartList = (List<CartVO>) session.getAttribute("cartListForOrder");
 		List<GoodsOrderDetailVO> orderDetailList = (List<GoodsOrderDetailVO>) session.getAttribute("orderDetailList");
 		
-		
-		System.out.println("user_name: " + user_name);
-		System.out.println("user_phone: "+user_phone);
-		System.out.println("order_final_cost: "+order_final_cost);
-		System.out.println("delivert_address1: "+delivery_address1);
-		System.out.println("order_save :"+order_save );
-		System.out.println("order_save_use :"+ order_save_use);
-		System.out.println("order_final_cost :"+ order_final_cost);
-		System.out.println("coupon_code :"+coupon_code );
-		System.out.println("order_detail_payment :"+ order_detail_payment);
-		System.out.println("delivery_name :"+ delivery_name);
-		System.out.println("delivery_phone :"+ delivery_phone);
-		System.out.println("delivery_address1 :"+ delivery_address1);
-		System.out.println("delivery_address2 :"+ delivery_address2);
-		System.out.println("goods_order_donation :"+ goods_order_donation);
-		
-		
-		
-		
 		// 유저정보 확인하고 이름&전화번호 추가
 		UserVO user = new UserVO();
 		user.setUser_id(email);
