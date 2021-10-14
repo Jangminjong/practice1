@@ -124,5 +124,10 @@ public class ClassServiceImpl implements ClassService{
 		return dao.getClassListForSearch(classPageVO);
 	}
 
+	@Override
+	public List<ClassOrderVO> getClassReturnList(String email) {
+		return dao.getClassReturnList(email);
+	}
+
 
 }

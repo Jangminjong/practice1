@@ -297,6 +297,13 @@ public class PaymentController {
 		return "redirect:/mypage_order_goods.do";
 	}
 	
+	@GetMapping("/mypage_goods_order_return.do")
+	public String goodsOrderRetrun(Model model, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		model.addAttribute("returnList", goodsService.getGoodsReturnList(email));
+		return "mypage/mypage_order_return";
+	}
+	
 	
 	
 	private IamportClient api;
@@ -383,5 +390,12 @@ public class PaymentController {
 		String marchant_uid = req.getParameter("marchant_uid");
 		service.paymentClassCancel(marchant_uid);
 		return "redirect:/mypage_order_class.do";
+	}
+	
+	@GetMapping("/mypage_class_order_return.do")
+	public String classOrderRetrun(Model model, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		model.addAttribute("returnList", service.getClassReturnList(email));
+		return "mypage/mypage_order_return_class";
 	}
 }

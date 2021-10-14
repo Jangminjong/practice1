@@ -176,6 +176,16 @@
  		UPDATE class_order SET class_payment_check=false WHERE marchant_uid=#{marchant_uid}
  	</update>
  	
+ 	<!-- 클래스 주문 취소 내역  -->
+ 	<select id="getClassReturnList" parameterType="string" resultMap="classOrderResult">
+ 		SELECT * FROM(
+			SELECT foo.*, seller.store_name FROM (
+			(SELECT class_order.*, class_open.class_open_name, class_open.class_open_photo, class_open.class_open_seller FROM class_order 
+				LEFT OUTER JOIN class_open 
+				ON class_order.class_order_code= class_open.class_open_class_code WHERE class_order.class_order_id=#{email} AND class_order.class_order_code NOTNULL AND class_payment_check=false)AS foo
+			LEFT OUTER JOIN seller ON foo.class_open_seller = seller.seller_code))AS boo
+ 	</select>
+ 	
  	<!-- 검색 페이지에서 사용 -->
  	<select id="countClassForSearch" parameterType="string" resultType="_int">
  	 <![CDATA[

@@ -26,4 +26,6 @@ public interface GoodsOrderService {
 
 	void paymentGoodsCancel(String imp_uid);
 
+	List<GoodsOrderDetailVO> getGoodsReturnList(String email);
+
 }

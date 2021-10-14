@@ -60,6 +60,11 @@ public class GoodsOrderServiceImpl implements GoodsOrderService{
 		
 	}
 
+	@Override
+	public List<GoodsOrderDetailVO> getGoodsReturnList(String email) {
+		return dao.getGoodsReturnList(email);
+	}
+
 	
 
 }
