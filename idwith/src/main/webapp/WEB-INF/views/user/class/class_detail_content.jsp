@@ -97,7 +97,7 @@
 							<ul class="img-view inner-frame">
 							<c:forEach var="photo" items="${classVO.class_open_photo}">
 								<li class="ui-slide" data-trigger-preview="open"
-									style="background-image: url(resources/images/category_class/${photo})"></li>
+									style="background-image: url('${photo}')"></li>
 							</c:forEach>
 							</ul>
 						</div>
@@ -111,7 +111,7 @@
 							<ul class="img-list indicator" data-size="${fn:length(classVO.class_open_photo) }">
 								<c:forEach var="photo" items="${classVO.class_open_photo}">
 								<li class="indicator-btn active"
-									style="background-image: url(resources/images/category_goods/${photo})">
+									style="background-image: url('${photo}')">
 								</li>
 								</c:forEach>
 							</ul>
@@ -136,7 +136,7 @@
 							<a class="artist_card__link"
 								href="seller_goods.do">
 								<div class="artist_card__img"
-									style="background-image: url(resources/images/seller_profile/${sellerVO.seller_profile_img[0]});"></div>
+									style="background-image: url('${sellerVO.seller_profile_img[0]}');"></div>
 								<span class="artist_card__label"> ${sellerVO.store_name }
 									<i class="fa fa-arrow-right" aria-hidden="true"></i>
 							</span>
@@ -355,7 +355,7 @@
 						<div>
 							<a href="seller_goods.do?seller_code=${sellerVO.seller_code }"
 								target="_blank" class="article_block__circle"
-								style="background-image: url(resources/images/seller_profile/${sellerVO.seller_profile_img[0]});"></a>
+								style="background-image: url('${sellerVO.seller_profile_img[0]}');"></a>
 						</div>
 					</div>
 					<!-- 클래스 소개 -->
@@ -475,8 +475,8 @@
 										data-stats-category-depth2="40" data-state=""></button>
 									<div class="ui_card__imgcover">
 										<a href="class_detail_content.do" target="_blank" class="ui_card__img"
-											data-lazy-img="resourecs/images/category_class/${class_.class_open_photo[0] }"
-											style="background-image: url(resourecs/images/category_class/${class_.class_open_photo[0] });">
+											data-lazy-img="${class_.class_open_photo[0] }"
+											style="background-image: url('${class_.class_open_photo[0] }');">
 										</a>
 									</div>
 									<div class="ui_card__txtarea">
@@ -510,10 +510,10 @@
 						<div class="bordering">
 							<div class="split">
 								<div class="img-bg"
-									style="background-image: url(resources/images/seller_profile/${sellerVO.seller_profile_img[0]})">
+									style="background-image: url('${sellerVO.seller_profile_img[0]}')">
 								</div>
 								<a href="/studioheulin" target="" class="img-profile"
-									style="background-image: url(resources/images/seller_profile/${sellerVO.seller_profile_img[1]});">
+									style="background-image: url('${sellerVO.seller_profile_img[1]}');">
 								</a>
 							</div>
 							<div class="split">

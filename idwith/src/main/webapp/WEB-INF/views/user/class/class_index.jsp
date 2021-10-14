@@ -160,8 +160,8 @@
 									data-stats-category-depth2="11" data-state=""></button>
 								<div class="ui_card__imgcover">
 									<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code }" target="_blank" class="ui_card__img"
-										data-lazy-img="resources/images/category_class/${classVO.class_open_photo[0] }"
-										style="background-image: url(resources/images/category_class/${classVO.class_open_photo[0] });">
+										data-lazy-img="${classVO.class_open_photo[0] }"
+										style="background-image: url('${classVO.class_open_photo[0] }');">
 									</a>
 								</div>
 								<div class="ui_card__txtarea">
@@ -215,8 +215,8 @@
 									data-stats-category-depth2="26" data-state=""></button>
 								<div class="ui_card__imgcover">
 									<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code}" target="_blank" class="ui_card__img"
-										data-lazy-img="resources/images/category_class/${classVO.class_open_photo[0]}"
-										style="background-image: url(resources/images/index/${classVO.class_open_photo[0]});">
+										data-lazy-img="${classVO.class_open_photo[0]}"
+										style="background-image: url('${classVO.class_open_photo[0]}');">
 									</a>
 								</div>
 								<div class="ui_card__txtarea">
@@ -272,8 +272,8 @@
 									data-stats-category-depth2="10" data-state=""></button>
 								<div class="ui_card__imgcover">
 									<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code }" target="_blank" class="ui_card__img"
-										data-lazy-img="resources/images/category_class/${classVO.class_open_photo[0] }"
-										style="background-image: url(resources/images/category_class/${classVO.class_open_photo[0] });">
+										data-lazy-img="${classVO.class_open_photo[0] }"
+										style="background-image: url('${classVO.class_open_photo[0] }');">
 									</a>
 								</div>
 								<div class="ui_card__txtarea">

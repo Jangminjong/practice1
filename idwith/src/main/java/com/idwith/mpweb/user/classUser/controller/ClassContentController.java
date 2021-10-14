@@ -36,8 +36,6 @@ public class ClassContentController {
 		List<ClassVO> classList = service.getClassListForClassDetail(seller_code);
 		model.addAttribute("classList", classList);
 		
-		System.out.println("이미지 보내기 :"+ classDetails.get(0).getClass_open_photo()[0]);
-		System.out.println("이미지 보내기 :"+ classDetails.get(0).getClass_open_photo()[1]);
 		
 		return "class/class_detail_content";
 	}

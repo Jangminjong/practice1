@@ -194,7 +194,7 @@ $(document).ready(function (){
 		var imgLength = 0; //이미지의 총 개수
 		$(".img-list li").each(function(index, element) {
      		img = $(this).css('background-image');
-			console.log('순서: ' + index);
+			
 			imgList[index] = img;
 			imgLength += 1;
    		});
