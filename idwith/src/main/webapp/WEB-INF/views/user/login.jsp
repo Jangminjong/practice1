@@ -201,7 +201,7 @@
 			const password = $("#password_login_input").val();
 			
 			$.ajax({
-				url: "${pageContext.request.contextPath}/loginCheck.do",
+				url: "loginCheck.do",
 				type: "GET",
 				data: {
 						"email": $("#email_login_input").val(),

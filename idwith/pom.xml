@@ -14,7 +14,7 @@
 		<org.aspectj-version>1.9.7</org.aspectj-version>
 		<org.slf4j-version>1.7.30</org.slf4j-version>
 	</properties>
-	
+
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
@@ -309,12 +309,51 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.12.1</version>
 		</dependency>
-	<!-- import -->
-	<dependency>
-		<groupId>com.github.iamport</groupId>
-		<artifactId>iamport-rest-client-java</artifactId>
-		<version>0.2.14</version>
-	</dependency>
+		<!-- import -->
+		<dependency>
+			<groupId>com.github.iamport</groupId>
+			<artifactId>iamport-rest-client-java</artifactId>
+			<version>0.2.14</version>
+		</dependency>
+
+		<!-- pdf repository -->
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.13</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itext-pdfa -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itext-pdfa</artifactId>
+			<version>5.5.13</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itext-xtra -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itext-xtra</artifactId>
+			<version>5.5.13</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.itextpdf.tool/xmlworker -->
+		<dependency>
+			<groupId>com.itextpdf.tool</groupId>
+			<artifactId>xmlworker</artifactId>
+			<version>5.5.13</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/font-asian -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>font-asian</artifactId>
+			<version>7.1.6</version>
+			<scope>test</scope>
+		</dependency>
+
+
 
 	</dependencies>
 	<!-- import -->

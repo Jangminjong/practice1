@@ -84,4 +84,9 @@
 			join goods as gs on c.goods_code = gs.goods_code
 		where c.cart_num=#{cart_num}
  	</select>
+ 	
+ 	<!-- PDF 테스트 -->
+ 	<select id="getOrderPDFList">
+ 		select * from goods_order_detail where order_id=#{order_id}
+ 	</select>
 </mapper>
