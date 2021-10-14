@@ -1,12 +1,13 @@
-package com.idwith.mpweb.writer.order.service;
+package com.idwith.mpweb.admin.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.admin.GoodsOrderDAO;
 import com.idwith.mpweb.common.PagingVO;
-import com.idwith.mpweb.writer.order.GoodsOrderDAO;
+import com.idwith.mpweb.writer.GoodsCalcVO;
 import com.idwith.mpweb.writer.order.GoodsOrderVO;
 
 @Service("GoodsOrderService")
@@ -50,48 +51,40 @@ public class GoodsOrderServiceImpl implements GoodsOrderService{
 	}
 
 	@Override
-	public List<Long> getGoodsCountFive(int seller) {
-		return goodsOrderDAO.getGoodsCountFive(seller);
+	public int countGoodsOrderAll() {
+		return goodsOrderDAO.countGoodsOrderAll();
 	}
 
 	@Override
-	public List<Long> getGoodsSalesFive(int seller) {
-		return goodsOrderDAO.getGoodsSalesFive(seller);
+	public List<GoodsOrderVO> getOrderListAll(PagingVO goodsPageVO) {
+		return goodsOrderDAO.getOrderListAll(goodsPageVO);
 	}
 
 	@Override
-	public List<String> getGoodsNameFive(int seller) {
-		return  goodsOrderDAO.getGoodsNameFive(seller);
+	public void updateStatusCalcRes(String goodsCode) {
+		goodsOrderDAO.updateStatusCalcRes(goodsCode);
+		
 	}
 
 	@Override
-	public List<String> getGoodsCodeFive(int seller) {
-		return goodsOrderDAO.getGoodsCodeFive(seller);
+	public GoodsOrderVO getGoodsOrderOne(String goodsCode) {
+		return goodsOrderDAO.getGoodsOrderOne(goodsCode);
 	}
 
 	@Override
-	public int yesterdayOrder(int sellerCode) {
-		return goodsOrderDAO.yesterdayOrder(sellerCode);
+	public void insertGoodsCalc(GoodsCalcVO goodsCalcVO) {
+		goodsOrderDAO.insertGoodsCalc(goodsCalcVO);
+		
 	}
 
 	@Override
-	public int weekOrder(int sellerCode) {
-		return goodsOrderDAO.weekOrder(sellerCode);
+	public int todayAllSales() {
+		return goodsOrderDAO.todayAllSales();
 	}
 
 	@Override
-	public int todaySales(int sellerCode) {
-		return goodsOrderDAO.todaySales(sellerCode);
-	}
-
-	@Override
-	public int yesterdaySales(int sellerCode) {
-		return goodsOrderDAO.yesterdaySales(sellerCode);
-	}
-
-	@Override
-	public int weekSales(int sellerCode) {
-		return goodsOrderDAO.weekSales(sellerCode);
+	public int monthAllSales() {
+		return goodsOrderDAO.monthAllSales();
 	}
 	
 	

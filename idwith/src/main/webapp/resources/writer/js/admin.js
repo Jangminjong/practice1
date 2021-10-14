@@ -976,11 +976,11 @@ $(window).ready(function(){
 	$(document).on("keyup", "#tel", function() { 
 		$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
 	});
-	openTime = new Date();
+	/*openTime = new Date();
 	document.getElementById('regOpenDate').value = new Date().toISOString().substring(0, 10);
 	document.getElementById('regOpenTime').value = new Date(openTime.setHours(openTime.getHours()+9)).toISOString().slice(11, 16);
 	document.getElementById('regCloseTime').value = new Date(openTime.setHours(openTime.getHours()+1)).toISOString().slice(11, 16);
-	
+	*/
 });
 
 function enrollmentCancle(){
@@ -999,9 +999,41 @@ function enrollmentCancle(){
 	});
 }
 
+function goodsCalcReq(goods_code){
+	$.ajax({
+		url: "goodsCalcReq.wdo",
+		type:"POST",
+		async:"false",
+		data : {
+			"goods_order_detail_code" : goods_code
+		}, success : function(data){
+			location.replace("sellerCalculate.wdo");
+		}, error : function(request, status, error){
+			alert(`calcReq fail :
+				error code: ${request.status}
+				error message: ${error}`);
+		}
+	})
+	
+}
 
-
-
+function classCalcReq(class_code){
+	$.ajax({
+		url: "classCalcReq.wdo",
+		type:"POST",
+		async:"false",
+		data : {
+			"class_order_seq" : class_code
+		}, success : function(data){
+			location.replace("sellerCalculate.wdo");
+		}, error : function(request, status, error){
+			alert(`calcReq fail :
+				error code: ${request.status}
+				error message: ${error}`);
+		}
+	})
+	
+}
 
 
 

@@ -1,4 +1,4 @@
-package com.idwith.mpweb.writer.order;
+package com.idwith.mpweb.admin;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.writer.GoodsCalcVO;
+import com.idwith.mpweb.writer.order.GoodsOrderVO;
 
 @Repository("goodsOrderDAO")
 public class GoodsOrderDAO {
@@ -54,72 +56,46 @@ public class GoodsOrderDAO {
 		sqlSessionTemplate.update("GoodsOrderDAO.goodsUpdateStatusCalcReq",goodsCode);		
 	}
 
-	public List<Long> getGoodsCountFive(int seller) {
-		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsCountFive", seller);
+	public int countGoodsOrderAll() {
+		return sqlSessionTemplate.selectOne("GoodsOrderDAO.countGoodsOrderAll");
 	}
 
-	public List<Long> getGoodsSalesFive(int seller) {
-		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsSalesFive", seller);
+	public List<GoodsOrderVO> getOrderListAll(PagingVO goodsPageVO) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getOrderListAll", goodsPageVO);
 	}
 
-	public List<String> getGoodsNameFive(int seller) {
-		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsNameFive", seller);
+	public void updateStatusCalcRes(String goodsCode) {
+		sqlSessionTemplate.update("GoodsOrderDAO.goodsUpdateStatusCalcRes", goodsCode);
 	}
 
-	public List<String> getGoodsCodeFive(int seller) {
-		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsCodeFive", seller);
+	public GoodsOrderVO getGoodsOrderOne(String goodsCode) {
+		return sqlSessionTemplate.selectOne("GoodsOrderDAO.getGoodsOrderOne", goodsCode);
 	}
 
-	public int yesterdayOrder(int sellerCode) {
-		int sales=0;
-		try{
-			sales=sqlSessionTemplate.selectOne("GoodsOrderDAO.yesterdayOrder", sellerCode);
-		} catch(NullPointerException e) {
-			sales = 0;
-		}
-		return sales;
+	public void insertGoodsCalc(GoodsCalcVO goodsCalcVO) {
+		sqlSessionTemplate.insert("GoodsOrderDAO.insertGoodsCalc", goodsCalcVO);
+		
 	}
 
-	public int weekOrder(int sellerCode) {
-		int sales=0;
+	public int todayAllSales() {
+		int sales = 0;
 		try {
-			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.weekOrder", sellerCode);
-		} catch(NullPointerException e){
+			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.todayAllSales");
+		} catch (NullPointerException e) {
 			sales = 0;
 		}
 		return sales;
 	}
 
-	public int todaySales(int sellerCode) {
-		int sales=0;
+	public int monthAllSales() {
+		int sales = 0;
 		try {
-			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.todaySales", sellerCode);	
-		} catch(NullPointerException e){
+			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.monthAllSales");
+		} catch (NullPointerException e) {
 			sales = 0;
 		}
 		return sales;
 	}
-
-	public int yesterdaySales(int sellerCode) {
-		int sales=0;
-		try {
-			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.yesterdaySales", sellerCode);
-		} catch(NullPointerException e){
-			sales = 0;
-		}
-		return sales;
-	}
-
-	public int weekSales(int sellerCode) {
-		int sales=0;
-		try {
-			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.weekSales", sellerCode);
-		} catch(NullPointerException e){
-			sales = 0;
-		}
-		return sales;
-	}
-
 	 
 
 }

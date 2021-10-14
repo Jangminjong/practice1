@@ -1,12 +1,13 @@
-package com.idwith.mpweb.writer.service;
+package com.idwith.mpweb.admin.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.admin.WriterClassOrderDAO;
 import com.idwith.mpweb.common.PagingVO;
-import com.idwith.mpweb.writer.WriterClassOrderDAO;
+import com.idwith.mpweb.writer.ClassCalcVO;
 import com.idwith.mpweb.writer.WriterClassOrderVO;
 
 
@@ -42,6 +43,31 @@ public class ClassOrderServiceImpl implements ClassOrderService {
 	public void updateStatus(Integer classCode) {
 		writerClassOrderDAO.updateStatus(classCode);
 		
+	}
+
+	@Override
+	public int countClassOrderAll() {
+		return writerClassOrderDAO.countClassOrderAll();
+	}
+
+	@Override
+	public List<WriterClassOrderVO> getClassOrderListAll(PagingVO classPageVO) {
+		return writerClassOrderDAO.getClassOrderListAll(classPageVO);
+	}
+
+	@Override
+	public void updateStatusCalcRes(Integer classCode) {
+		writerClassOrderDAO.updateStatusCalcRes(classCode);
+	}
+
+	@Override
+	public WriterClassOrderVO getClassOrderOne(Integer classCode) {		
+		return writerClassOrderDAO.getClassOrderOne(classCode);
+	}
+
+	@Override
+	public void insertClassCalc(ClassCalcVO classCalcVO) {
+		writerClassOrderDAO.insertClassCalc(classCalcVO);
 	}
 
 }

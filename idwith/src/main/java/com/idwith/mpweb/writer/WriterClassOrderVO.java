@@ -21,6 +21,7 @@ public class WriterClassOrderVO {
 	private String class_order_name;
 	private Integer class_seller_code;
 	private String class_order_title;
+	private Integer class_order_status;
 	
 	
 	public String getClass_order_title() {
@@ -120,7 +121,12 @@ public class WriterClassOrderVO {
 	public void setClass_seller_code(Integer class_seller_code) {
 		this.class_seller_code = class_seller_code;
 	}
-	
-	
+	public Integer getClass_order_status() {
+		return class_order_status;
+	}
+	public void setClass_order_status(Integer class_order_status) {
+		this.class_order_status = class_order_status;
+	}
+
 
 }

@@ -8,4 +8,10 @@ public interface SellerService {
 	SellerVO sellerEnCheck(String user_id);
 
 	void updateSellerStatus(String user_id);
+
+	SellerVO getSeller(Integer order_detail_seller);
+
+	int getClientCount();
+
+	int getSellerCount();
 }

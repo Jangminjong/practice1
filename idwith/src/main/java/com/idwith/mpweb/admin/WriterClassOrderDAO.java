@@ -1,4 +1,4 @@
-package com.idwith.mpweb.writer;
+package com.idwith.mpweb.admin;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.writer.ClassCalcVO;
+import com.idwith.mpweb.writer.WriterClassOrderVO;
 
 @Repository("writerClassOrderDAO")
 public class WriterClassOrderDAO {
@@ -41,5 +43,25 @@ public class WriterClassOrderDAO {
 
 	public void updateStatus(Integer classCode) {
 		sqlSessionTemplate.update("writerClassOrderDAO.classUpdateStatusCalcReq",classCode);		
+	}
+
+	public int countClassOrderAll() {
+		return sqlSessionTemplate.selectOne("writerClassOrderDAO.countClassOrderAll");
+	}
+
+	public List<WriterClassOrderVO> getClassOrderListAll(PagingVO classPageVO) {
+		return sqlSessionTemplate.selectList("writerClassOrderDAO.getClassOrderListAll", classPageVO);
+	}
+
+	public void updateStatusCalcRes(Integer classCode) {
+		sqlSessionTemplate.update("writerClassOrderDAO.classUpdateStatusCalcRes",classCode);		
+	}
+
+	public WriterClassOrderVO getClassOrderOne(Integer classCode) {
+		return sqlSessionTemplate.selectOne("writerClassOrderDAO.getClassOrderOne", classCode);
+	}
+
+	public void insertClassCalc(ClassCalcVO classCalcVO) {
+		sqlSessionTemplate.insert("writerClassOrderDAO.insertClassCalc", classCalcVO);
 	}
 }

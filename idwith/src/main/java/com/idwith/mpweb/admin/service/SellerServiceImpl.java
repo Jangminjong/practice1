@@ -27,4 +27,19 @@ public class SellerServiceImpl implements SellerService {
 	public void updateSellerStatus(String user_id) {
 		sellerDAO.updateSellerStatus(user_id);
 	}
+
+	@Override
+	public SellerVO getSeller(Integer order_detail_seller) {
+		return sellerDAO.getSeller(order_detail_seller);
+	}
+
+	@Override
+	public int getClientCount() {
+		return sellerDAO.getClientCount();
+	}
+
+	@Override
+	public int getSellerCount() {
+		return sellerDAO.getSellerCount();
+	}
 }

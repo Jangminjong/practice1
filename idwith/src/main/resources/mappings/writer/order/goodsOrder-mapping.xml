@@ -30,8 +30,17 @@
 		<result property="order_detail_zip" column="order_detail_zip"/>
 		<result property="order_detail_address" column="order_detail_address"/>
 		<result property="order_detail_address2" column="order_detail_address2"/>
+		<result property="order_detail_status" column="order_detail_status"/>
  	</resultMap>
-
+	<resultMap type="goodsCalc" id="goodsCalcResult">
+		<result property="goodsCalcSeq" column="goods_calc_seq"/>
+		<result property="goodsCalcSeller" column="goods_calc_seller"/>
+		<result property="goodsCalcPrice" column="goods_calc_price"/>
+		<result property="goodsCalcDonation" column="goods_calc_donation"/>
+		<result property="goodsCalcCommission" column="goods_calc_commission"/>
+		<result property="goodsCalcResultMoney" column="goods_calc_result_money"/>
+		<result property="goodsCalcDate" column="goods_calc_date"/>
+	</resultMap>
 	
 	
 	<!-- 주문 상세조회 -->
@@ -57,7 +66,7 @@
 		]]>
 	</select>	
 
-     <!-- 게시글 개수 출력 -->
+     <!-- 해당 작가의 게시글 개수 출력 -->
 	<select id="countGoodsOrder" resultType="int">
 		select count(*) from goods_order_detail WHERE order_detail_seller=#{sellerCode}
 	</select>
@@ -67,9 +76,106 @@
 	   select count(*) from goods_order_detail WHERE order_detail_seller=#{sellerCode} and order_date=current_date
 	</select>
 	
+	<!-- 5개만 출력 -->
 	<select id="getGoodsOrderListFive" resultMap="goodsOrderResult">
 		select * from goods_order_detail WHERE order_detail_seller=#{sellerCode} limit 5
 	</select>
 	
-
+	<!--  정산신청시 상태값 변경 -->
+	<update id="goodsUpdateStatusCalcReq">
+		update goods_order_detail set order_detail_status=1 where order_detail_code = #{goodsCode}
+	</update>
+	
+	<!-- 주문 정산 신청한 개수 조회 -->
+	<select id="countGoodsOrderAll" resultType="_int">
+		select count(*) from goods_order_detail WHERE order_detail_status = 1
+	</select>
+	
+	<!-- 페이징 처리 후 주문 전체 게시글 조회 -->
+	<select id="getOrderListAll" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="goodsOrderResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM goods_order_detail WHERE order_detail_status=1 ORDER BY order_detail_code DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<update id="goodsUpdateStatusCalcRes">
+		update goods_order_detail set order_detail_status=2 where order_detail_code = #{goodsCode}
+	</update>
+	
+	<select id="getGoodsOrderOne" resultType="goodsOrder" resultMap="goodsOrderResult">
+		SELECT * FROM goods_order_detail WHERE order_detail_code=#{goods_Code}
+	</select>
+	
+	<insert id="insertGoodsCalc" parameterType="goodsCalc">
+		INSERT INTO goods_calc(goods_calc_seller, goods_calc_price, goods_calc_donation, goods_calc_commission, goods_calc_result_money)
+		values(#{goodsCalcSeller}, #{goodsCalcPrice}, #{goodsCalcDonation}, #{goodsCalcCommission}, #{goodsCalcResultMoney})
+	</insert>
+	
+	<!-- 매출  -->
+	<!-- 일주일간 주문수량 -->
+	<select id="getGoodsCountFive" parameterType="_int" resultType="_int">
+		SELECT sum(order_detail_quantity) from goods_order_detail WHERE order_detail_seller = #{seller}
+		AND order_date BETWEEN (current_date - '7 day'::interval)::date AND current_date
+		GROUP BY order_detail_goods order by sum(order_detail_price * order_detail_quantity) desc limit 5
+	</select>
+	<!-- 일주일간 판매금액 -->
+	<select id="getGoodsSalesFive" parameterType="_int" resultType="_int">
+		SELECT sum(order_detail_price * order_detail_quantity) from goods_order_detail WHERE order_detail_seller = #{seller}
+		AND order_date BETWEEN (current_date - '7 day'::interval)::date AND current_date
+		GROUP BY order_detail_goods order by sum(order_detail_price * order_detail_quantity) desc limit 5
+	</select>
+	
+	<!-- 일주일간 매출 순위 5위 내 상품명 -->
+	<select id="getGoodsNameFive" parameterType="_int" resultType="string">
+		SELECT order_goods_name from goods_order_detail WHERE order_detail_seller = #{seller}
+		AND order_date BETWEEN (current_date - '7 day'::interval)::date AND current_date
+		GROUP BY order_goods_name order by sum(order_detail_price * order_detail_quantity) desc limit 5
+	</select>
+	
+	<!-- 일주일간 순위 5위 내 작품코드 -->
+	<select id="getGoodsCodeFive" parameterType="_int" resultType="string">
+		SELECT order_detail_goods from goods_order_detail WHERE order_detail_seller = #{seller}
+		AND order_date BETWEEN (current_date - '7 day'::interval)::date AND current_date
+		GROUP BY order_detail_goods order by sum(order_detail_price * order_detail_quantity) desc limit 5
+	</select>
+	
+	
+	<!-- 작가메인화면 -->
+	<select id="yesterdayOrder" resultType="_int">
+		SELECT count(*) from goods_order_detail WHERE order_detail_seller = #{sellerCode}
+		AND order_date = (current_date - '1 day'::interval)::date
+	</select>
+	
+	<select id="weekOrder" resultType="_int">
+		SELECT count(*) from goods_order_detail WHERE order_detail_seller = #{sellerCode}
+		AND order_date BETWEEN (current_date - '7 day'::interval)::date AND current_date
+	</select>
+	<select id="todaySales" resultType="_int">
+	SELECT sum(order_detail_price * order_detail_quantity) from goods_order_detail WHERE order_detail_seller = #{sellerCode}
+		AND order_date = current_date
+	</select>
+	<select id="yesterdaySales" resultType="_int">
+	SELECT sum(order_detail_price * order_detail_quantity) from goods_order_detail WHERE order_detail_seller = #{sellerCode}
+		AND order_date = (current_date - '1 day'::interval)::date
+	</select>
+	<select id="weekSales" resultType="_int">
+	SELECT sum(order_detail_price * order_detail_quantity) from goods_order_detail WHERE order_detail_seller = #{sellerCode}
+		AND order_date BETWEEN (current_date - '7 day'::interval)::date AND current_date
+	</select>
+	
+	<!-- 전체 매출 -->
+	<!-- 일일 매출 -->
+	<select id="todayAllSales" resultType="_int">
+		select sum(order_detail_price * order_detail_quantity) from goods_order_detail WHERE order_date = current_date
+	</select>
+	<!-- 한달 매출 -->
+	<select id="monthAllSales" resultType="_int">
+		select sum(order_detail_price * order_detail_quantity) from goods_order_detail
+		WHERE order_date BETWEEN (current_date - '30 day'::interval)::date AND current_date
+	</select>
+	
+	
+	
 </mapper>

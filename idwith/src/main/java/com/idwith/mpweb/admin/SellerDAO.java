@@ -26,4 +26,28 @@ public class SellerDAO {
 	public void updateSellerStatus(String user_id) {
 		sqlSessionTemplate.update("SellerCheckDAO.updateSellerStatus" ,user_id);
 	}
+
+	public SellerVO getSeller(Integer order_detail_seller) {
+		return sqlSessionTemplate.selectOne("SellerDAO.getSeller", order_detail_seller);
+	}
+
+	public int getClientCount() {
+		int sales = 0;
+		try {
+			sales = sqlSessionTemplate.selectOne("SellerDAO.getClientCount");
+		} catch (NullPointerException e) {
+			sales = 0;
+		}
+		return sales;
+	}
+
+	public int getSellerCount() {
+		int sales = 0;
+		try {
+			sales = sqlSessionTemplate.selectOne("SellerDAO.getSellerCount");
+		} catch (NullPointerException e) {
+			sales = 0;
+		}
+		return sales;
+	}
 }

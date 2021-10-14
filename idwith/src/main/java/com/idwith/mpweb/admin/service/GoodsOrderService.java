@@ -1,8 +1,9 @@
-package com.idwith.mpweb.writer.order.service;
+package com.idwith.mpweb.admin.service;
 
 import java.util.List;
 
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.writer.GoodsCalcVO;
 import com.idwith.mpweb.writer.order.GoodsOrderVO;
 
 public interface GoodsOrderService {
@@ -19,21 +20,17 @@ public interface GoodsOrderService {
 
 	void updateStatus(String goodsCode);
 
-	List<Long> getGoodsCountFive(int seller);
+	int countGoodsOrderAll();
 
-	List<Long> getGoodsSalesFive(int seller);
+	List<GoodsOrderVO> getOrderListAll(PagingVO goodsPageVO);
 
-	List<String> getGoodsNameFive(int seller);
+	void updateStatusCalcRes(String goodsCode);
 
-	List<String> getGoodsCodeFive(int seller);
+	GoodsOrderVO getGoodsOrderOne(String goodsCode);
 
-	int yesterdayOrder(int sellerCode);
+	void insertGoodsCalc(GoodsCalcVO goodsCalcVO);
 
-	int weekOrder(int sellerCode);
+	int todayAllSales();
 
-	int todaySales(int sellerCode);
-
-	int yesterdaySales(int sellerCode);
-
-	int weekSales(int sellerCode);
+	int monthAllSales();
 }

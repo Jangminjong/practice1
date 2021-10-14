@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -200,56 +201,30 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                상품별 월 매출
+                                상품별 월간 매출
                             </h2>
                         </div>
                         <div class="body table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>순위</th>
                                         <th>상품 코드</th>
                                         <th>상품명</th>
-                                        <th>판매 횟수</th>
-                                        <th>판매 액</th>
+                                        <th>판매량</th>
+                                        <th>판매액</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach var="goodsGoodsCode" items="${goodsGoodsCodeList}" varStatus="i" >
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>AB010203</td>
-                                        <td>Otto</td>
-                                        <td>26</td>
-                                        <td>483,000</td>
+                                        <th scope="row">${i.count}</th>
+                                        <td>${goodsGoodsCode}</td>
+                                        <td>${goodsNameList[i.index]}</td>
+                                        <td>${goodsCountList[i.index]}</td>
+                                        <td>${goodsSalesList[i.index]}</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>AC050210</td>
-                                        <td>Thornton</td>
-                                        <td>10</td>
-                                        <td>130,000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>AA010101</td>
-                                        <td>the Bird</td>
-                                        <td>48</td>
-                                        <td>336,0000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>AA020202</td>
-                                        <td>Jellybean</td>
-                                        <td>5</td>
-                                        <td>150,000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>AA030303</td>
-                                        <td>Kikat</td>
-                                        <td>2</td>
-                                        <td>18,000</td>
-                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -268,17 +243,8 @@
                 <div class="col-9">
                     <div class="card">
                         <div class="header">
-                            <h2>월 매출</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                        role="button" aria-haspopup="true" aria-expanded="false"></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <canvas id="line_chart" height="150"></canvas>
-                        </div>
+                            <h2>기간 별 매출</h2>
+                         </div> 
                     </div>
                 </div>
             </div> 
@@ -308,7 +274,7 @@
     <!-- Custom Js -->
     <script src="resources/writer/js/admin.js"></script>
     <script src="resources/writer/js/pages/charts/chartjs.js"></script>
-
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- Demo Js -->
     <script src="resources/writer/js/demo.js"></script>
 </body>

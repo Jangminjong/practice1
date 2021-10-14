@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.idwith.mpweb.admin.AdminVO;
 import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
 import com.idwith.mpweb.admin.service.AdminLoginService;
+import com.idwith.mpweb.admin.service.GoodsOrderService;
 import com.idwith.mpweb.admin.service.MainViewService;
+import com.idwith.mpweb.admin.service.SellerService;
 
 @Controller
 public class adminController {
@@ -24,6 +26,12 @@ public class adminController {
 	@Autowired
 	private MainViewService mainViewService;
 	
+	@Autowired
+	private SellerService sellerService;
+	
+	@Autowired
+	private GoodsOrderService goodsOrderService;
+	
 	@RequestMapping(value = "/main.mdo", method = {RequestMethod.POST, RequestMethod.GET})
 	public String adminMain(AdminVO vo, HttpSession session, Model model) {
 		System.out.println("로그인 컨트롤러 실행");
@@ -32,16 +40,24 @@ public class adminController {
 		String admin_role = null;
 		List<AdminVO> result = adminLoginService.getAdmin(vo);
 		
-		
 		for (AdminVO admin : result) {
 			admin_name = admin.getAdmin_name();
 			admin_role = admin.getAdmin_role();
 		}
 		
+		int clientCount = sellerService.getClientCount();
+		int sellerCount = sellerService.getSellerCount();
+		int todayAllSales = goodsOrderService.todayAllSales();
+		int monthAllSales = goodsOrderService.monthAllSales();
 		session.setAttribute("admin_name", admin_name);
 		session.setAttribute("admin_role", admin_role);
 		
 		model.addAttribute("MainViewAll", mainViewService.getMainNoticeList());
+		
+		model.addAttribute("clientCount", clientCount);
+		model.addAttribute("sellerCount", sellerCount);
+		model.addAttribute("todayAllSales", todayAllSales);
+		model.addAttribute("monthAllSales", monthAllSales);
 		
 		return "main";
 	}
