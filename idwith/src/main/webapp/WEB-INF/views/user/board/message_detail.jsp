@@ -64,8 +64,8 @@
 							<div class="img-bg"
 								style="background-image: url(https://image.idus.com/image/files/e8534c6cbfb7488fbb5771f48db36e6d_320.jpg);"></div>
 							<a href="seller_main.do"
-								class="artist-link"> <span class="name">테스트 프로필</span> 
-								<i class="idus-icon-home"></i>
+								class="artist-link"> <span class="name">${msgd_id }</span> 
+								<i class="fa fa-home" aria-hidden="true"></i>
 							</a>
 						</div>
 						<button class="msg-btn">
@@ -109,7 +109,7 @@
 					<form action="insertMessage.do" data-ui="message-form" name="msgForm" id="msg-form" class="msg-form" onsubmit="return false">
 						<label class="input-hide"> 
 							<input class="hidden" type="file" name="attachment" value=""> 
-							<i class="idus-icon-photo"></i>
+							<i class="fa fa-comments-o" aria-hidden="true"></i>
 						</label> 
 						<label class="input-text placeholder-wrap" style="width:85%;"> 
 							<textarea name="msg_context" placeholder="메시지를 입력하세요." data-placeholder-id="textarea-msg" style="width:95%;"></textarea> 

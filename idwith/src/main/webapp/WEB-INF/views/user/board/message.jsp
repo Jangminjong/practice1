@@ -62,8 +62,7 @@
 						<h2>메시지</h2>
 						<div>
 							<a href="message_choice.do" data-ui="message-artist"
-								class="link"> <span class="idus-icon-addchat"
-								style="font-size: 20px;"></span>
+								class="link"><i class="fa fa-chevron-right" aria-hidden="true" style="font-size: 17px;"></i></span>
 							</a>
 						</div>
 					</div>

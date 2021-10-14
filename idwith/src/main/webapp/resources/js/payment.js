@@ -128,13 +128,13 @@ function requestPay() {
 		pay_method: "card",
 		merchant_uid: $('#class-open-name').val() + new Date().getTime(),
 		name: $('#class-open-name').val(),
-		amount: 100,//parseInt($('#class-final-price').val()),
+		amount: parseInt($('#class-final-price').val()),
 		buyer_email: $('#user-id').val(),
 		buyer_name: $('#class-user-name').val(),
 		buyer_tel: $('#class-phone').val()
 	}, function(rsp) { // callback
 		if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
-			alert('결제 성공');
+			
 			// jQuery로 HTTP 요청
 			jQuery.ajax({
 				url: 'verify_import.do?imp_uid='+rsp.imp_uid+'&merchant_uid='+rsp.merchant_uid, // 예: https://www.myservice.com/payments/complete

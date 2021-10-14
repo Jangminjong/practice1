@@ -80,7 +80,7 @@ public class CartController {
 					state = 2;
 				} else {
 					System.out.println("테스트 중 i가 0이 아닐 때");
-					for (int j = 0; j < i; j++) {
+					for (int j = 0; j < i; ++j) {
 						System.out.println("DB 상품코드 : " + cartList.get(i).getGoods_code());
 						System.out.println("비교하는 상품 코드 : " + goodsList.get(j).getGoods_code());
 						if (cartList.get(i).getGoods_code().equals(goodsList.get(j).getGoods_code())) {

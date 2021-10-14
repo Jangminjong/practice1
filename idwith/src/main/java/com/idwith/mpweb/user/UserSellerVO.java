@@ -161,6 +161,12 @@ public class UserSellerVO {
 	
 	
 	
+	public Timestamp getSeller_indate() {
+		return seller_indate;
+	}
+	public void setSeller_indate(Timestamp seller_indate) {
+		this.seller_indate = seller_indate;
+	}
 	public int getRownum() {
 		return rownum;
 	}

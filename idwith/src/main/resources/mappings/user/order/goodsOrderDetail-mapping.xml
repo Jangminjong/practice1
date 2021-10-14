@@ -154,7 +154,7 @@
 				LEFT OUTER JOIN goods 
 				ON goods_order_detail.order_detail_goods= goods.goods_code WHERE goods_order_detail.order_id=#{email} AND goods_order_detail.imp_uid NOTNULL
 				)AS foo
-			LEFT OUTER JOIN seller ON foo.order_detail_seller = seller.seller_code))AS boo
+			LEFT OUTER JOIN seller ON foo.order_detail_seller = seller.seller_code))AS boo WHERE order_detail_payment!='cancel'
  	</select>
  	
  	<update id="paymentGoodsCancel" parameterType="string">

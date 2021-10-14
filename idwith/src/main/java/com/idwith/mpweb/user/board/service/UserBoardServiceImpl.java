@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.UserBoardDAO;
 import com.idwith.mpweb.user.board.UserMessageVO;
@@ -137,6 +138,11 @@ public class UserBoardServiceImpl implements UserBoardService {
 		boardDAO.updateNewState(msgVO);
 	}
 	
+	@Override
+	public List<SellerVO> getFollowSellerList(String email) {
+		return boardDAO.getFollowSellerList(email);
+	}
+	
 	// 알림 --------------------------------------------------
 
 	@Override
@@ -153,6 +159,8 @@ public class UserBoardServiceImpl implements UserBoardService {
 	public String dueDateCheck(String seq) {
 		return boardDAO.dueDateCheck(seq);
 	}
+
+	
 	
 	
 }

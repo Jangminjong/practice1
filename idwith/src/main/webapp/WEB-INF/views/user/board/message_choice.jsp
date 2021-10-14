@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
@@ -73,32 +73,21 @@
 					</div>
 
 					<div class="msg-area add-fix">
-						<h3 class="label-list-title">최근 구매한 작품의 작가</h3>
-
-						<ul class="label-list">
-						</ul>
 
 						<h3 class="label-list-title">좋아하는 작가</h3>
 						<ul class="label-list">
 							<!-- 팔로우한 작가리스트 -->
+							<c:forEach var="seller" items="${followSellerList }">
 							<li><a
-								href="message_detail.do?msgd_id=456789">
+								href="message_detail.do?msgd_id=${seller.seller_code }">
 									<div class="img-bg"
-										style=" background-color:green;"></div>
+										style="background-image: url('${seller.seller_profile_img[0]}')"></div>
 										<!-- background-image: url(../../../../resources/images/seller_profile/seller_imsi.jpg); -->
 									<div class="area-txt">
-										<strong>테스트 프로필</strong>
+										<strong>${seller.store_name }</strong>
 									</div>
 							</a></li>
-							<li><a
-								href="message_detail.do?msgd_id=dlwlsrl33@gmail.com">
-									<div class="img-bg"
-										style=" background-color:green;"></div>
-										<!-- background-image: url(../../../../resources/images/seller_profile/seller_imsi.jpg); -->
-									<div class="area-txt">
-										<strong>테스트 프로필</strong>
-									</div>
-							</a></li>
+							</c:forEach>
 						</ul>
 					</div>
 				</section>

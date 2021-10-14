@@ -431,7 +431,8 @@
 											</div>
 											<div class="input-group" id= "goods-coupon-list" style="margin-bottom: 20px; display:none;">
 												<div class="" data-modal-trigger="coupon-list">
-													<ul id="have-coupon-list" >
+													<ul id="have-coupon-list" style="margin-top: 10px;
+    font-size: 15px;">
 														<span style="font-size:12px;">보유쿠폰 목록</span>
 														<c:forEach var="coupon" items="${couponList}" varStatus="stau">
 															<li style="display:flex; justify-content:space-between; cursor:pointer; border:1px solid #d9d9d9; margin-bottom:3px;" onclick="useCoupon('${coupon.coupon_discount }', '${coupon.coupon_have_code }')">

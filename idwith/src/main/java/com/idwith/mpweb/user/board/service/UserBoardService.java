@@ -2,6 +2,7 @@ package com.idwith.mpweb.user.board.service;
 
 import java.util.List;
 
+import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.EventBoardVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
@@ -59,4 +60,6 @@ public interface UserBoardService {
 	List<EventBoardVO> getEventList();
 	
 	String dueDateCheck(String seq);
+
+	List<SellerVO> getFollowSellerList(String email);
 }
