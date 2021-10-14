@@ -5,7 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>아이디위드 | 작가 스토리</title>
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+	
 <link rel="stylesheet" href="resources/css/seller_story.css">
 <link rel="stylesheet" href="resources/css/seller_main.css">
 <link rel="stylesheet" href="resources/css/common.css">
@@ -21,7 +25,7 @@
 		<section data-v-2618eab2="" class="quick-profile"
 			style="width: 526px; padding: 30px 0px 36px;">
 			<div data-v-2618eab2="" class="profile-area">
-				<a data-v-2618eab2="" href="seller_goods.do" target="_blank:"
+				<a data-v-2618eab2="" href="seller_goods.do?seller_code=${seller_code}" target="_blank:"
 					style="width: 108px; height: 108px; margin-right: 33px; position: relative;">
 					<img data-v-2618eab2="" src="${sellerInfo.seller_profile_img[0]}"
 					alt="artist thumbnail" class="artist-thumbnail"> <!---->
@@ -35,18 +39,13 @@
 							</a>
 							<div data-v-2618eab2="" class="artist-info__rate">
 								<span data-v-ef94db98="" data-v-2618eab2="" data-value="4.85"
-									class="ui_rating fr"> <i data-v-ef94db98=""
-									data-state="active" class="ui_icon--star idus-icon-star-fill"
-									style="font-size: 14px;"></i>
+									class="ui_rating fr"> 
+								<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
 								</span> <span data-v-2618eab2=""> 4.85<!-- 작가 평균 별점 -->
 								</span> <span data-v-2618eab2=""> (3,768)<!-- 별점 작성한 회원의 수 -->
 								</span>
 							</div>
 						</div>
-						<a data-v-2618eab2="" href="##" data-ui="inquire-float-btn"
-							target="_blank" class="artist-inquire-float-btn"
-							style="bottom: 30px;"> <img data-v-2618eab2=""
-							src="/resources/dist/images/artist-inquire-icon.svg" alt="작가 문의"></a>
 					</div>
 					<div data-v-2618eab2="" class="artist-info__statistics">
 						<div data-v-2618eab2="" class="data-area">
@@ -71,14 +70,12 @@
 				style="margin-left: 143px;">
 				<div data-v-2618eab2="" class="introduce-area">
 					<p data-v-2618eab2="" class="introduce-txt">${sellerInfo.seller_profile}</p>
-					<i data-v-2618eab2="" class="idus-icon-arrow toggle-btn down"></i>
 				</div>
 				<div data-v-2618eab2="" class="btn-group">
 					<button data-v-b534333e="" data-v-2618eab2="" type="button"
 						class="follow"
 						style="background-color: rgb(255, 123, 48); witdh: 100%; height: 36px; font-size: 14px; color: rgb(255, 255, 255); border: 1px solid rgb(255, 123, 48); border-radius: 4px;">
-						<i data-v-b534333e="" class="idus-icon-plus"
-							style="font-size: 16px;"></i> 팔로우
+						<i class="fa fa-bookmark" aria-hidden="true" style="font-size: 16px;"></i>&nbsp;&nbsp;팔로우
 					</button>
 				</div>
 			</div>
@@ -114,7 +111,7 @@
 								style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
 
 
-								<c:forEach var="info" items="${info}" end="${listLength}">
+								<c:forEach var="info" items="${info}" end="${listLength-1}">
 									<li data-v-52776193="" data-v-5ea8b349=""
 										class="story-card card-style"><input data-v-52776193=""
 										name="page" type="hidden" value="2">
@@ -137,15 +134,18 @@
 												${info.story_context}</div>
 											<div data-v-2ce2581b="" data-v-52776193=""
 												class="image-group">
-												<c:forEach var="i" begin="0" end="${listSize}">
+												<div data-v-2ce2581b="" class="image-container">
+													<div data-v-2ce2581b="" class="image"
+														style="background-image: url(${info.story_image[0]}); max-height: 205px;"></div>
+													<!---->
+													<!---->
+												</div>
+												
+												<!-- 이미지 3장 이상일 때 백그라운드에 검은색 화면처리 -->
+												<%-- <c:forEach var="i" begin="0" end="${listSize}">
 													<c:choose>
 														<c:when test="${listSize <= 3}">
-															<div data-v-2ce2581b="" class="image-container">
-																<div data-v-2ce2581b="" class="image"
-																	style="background-image: url(${info.story_image[i]}); max-height: 205px;"></div>
-																<!---->
-																<!---->
-															</div>
+															
 														</c:when>
 
 														<c:when test="${listSize > 3}">
@@ -157,7 +157,7 @@
 															</div>
 														</c:when>
 													</c:choose>
-												</c:forEach>
+												</c:forEach> --%>
 											</div></a></li>
 								</c:forEach>
 							</div>
@@ -165,7 +165,7 @@
 								style="box-sizing: border-box; background-clip: padding-box; width: 50%; border-width: 0px 0px 0px 16px; border-style: solid; border-color: transparent; border-image: initial;">
 
 
-								<c:forEach var="info" items="${info}" begin="${listLength+1}">
+								<c:forEach var="info" items="${info}" begin="${listLength}">
 									<li data-v-52776193="" data-v-5ea8b349=""
 										class="story-card card-style"><input data-v-52776193=""
 										name="page" type="hidden" value="2">
@@ -189,27 +189,10 @@
 												${info.story_context}</div>
 											<div data-v-2ce2581b="" data-v-52776193=""
 												class="image-group">
-												<c:forEach var="i" begin="0" end="${listSize}">
-													<c:choose>
-														<c:when test="${listSize <= 3}">
-															<div data-v-2ce2581b="" class="image-container">
-																<div data-v-2ce2581b="" class="image"
-																	style="background-image: url(${info.story_image[i]}); max-height: 205px;"></div>
-																<!---->
-																<!---->
-															</div>
-														</c:when>
-
-														<c:when test="${listSize > 3}">
-															<div data-v-2ce2581b="" class="image-container last">
-																<div data-v-2ce2581b="" class="image"
-																	style="background-image: url(${info.story_image[i]}); max-height: 205px;"></div>
-																<div data-v-2ce2581b="" class="image-curtain"></div>
-																<div data-v-2ce2581b="" class="rest-image-txt">+3</div>
-															</div>
-														</c:when>
-													</c:choose>
-												</c:forEach>
+												<div data-v-2ce2581b="" class="image-container">
+													<div data-v-2ce2581b="" class="image"
+														style="background-image: url(${info.story_image[0]}); max-height: 205px;"></div>
+												</div>
 											</div></a></li>
 								</c:forEach>
 

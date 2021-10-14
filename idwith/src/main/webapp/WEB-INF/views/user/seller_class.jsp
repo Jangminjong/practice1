@@ -6,7 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+
+<title>아이디위드 | 작가 스토리</title>
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+
 <link rel="stylesheet" href="resources/css/seller_class.css">
 <link rel="stylesheet" href="resources/css/seller_main.css">
 <link rel="stylesheet" href="resources/css/common.css">
@@ -34,18 +39,12 @@
 							</a>
 							<div data-v-2618eab2="" class="artist-info__rate">
 								<span data-v-ef94db98="" data-v-2618eab2="" data-value="4.85"
-									class="ui_rating fr"> <i data-v-ef94db98=""
-									data-state="active" class="ui_icon--star idus-icon-star-fill"
-									style="font-size: 14px;"></i>
+									class="ui_rating fr"> <i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
 								</span> <span data-v-2618eab2=""> 4.85<!-- 작가 평균 별점 -->
 								</span> <span data-v-2618eab2=""> (3,768)<!-- 별점 작성한 회원의 수 -->
 								</span>
 							</div>
 						</div>
-						<a data-v-2618eab2="" href="##" data-ui="inquire-float-btn"
-							target="_blank" class="artist-inquire-float-btn"
-							style="bottom: 30px;"> <img data-v-2618eab2=""
-							src="/resources/dist/images/artist-inquire-icon.svg" alt="작가 문의"></a>
 					</div>
 					<div data-v-2618eab2="" class="artist-info__statistics">
 						<div data-v-2618eab2="" class="data-area">
@@ -70,14 +69,12 @@
 				style="margin-left: 143px;">
 				<div data-v-2618eab2="" class="introduce-area">
 					<p data-v-2618eab2="" class="introduce-txt">${sellerInfo.seller_profile}</p>
-					<i data-v-2618eab2="" class="idus-icon-arrow toggle-btn down"></i>
 				</div>
 				<div data-v-2618eab2="" class="btn-group">
 					<button data-v-b534333e="" data-v-2618eab2="" type="button"
 						class="follow"
 						style="background-color: rgb(255, 123, 48); witdh: 100%; height: 36px; font-size: 14px; color: rgb(255, 255, 255); border: 1px solid rgb(255, 123, 48); border-radius: 4px;">
-						<i data-v-b534333e="" class="idus-icon-plus"
-							style="font-size: 16px;"></i> 팔로우
+						<i class="fa fa-bookmark" aria-hidden="true" style="font-size: 16px;"></i>&nbsp;&nbsp;팔로우
 					</button>
 				</div>
 			</div>
@@ -109,12 +106,9 @@
 				<c:when test="${ classCheck eq true }">
 
 					<div data-v-71d47198="" class="class-list-container">
-						<p data-v-71d47198="" class="class-num">
-							<strong data-v-71d47198="">5개</strong>의 클래스
-						</p>
 						<ul data-v-71d47198="" class="class-list">
 							<ul data-v-71d47198="" class="class-list">
-								<c:forEach var="classList" items="${classList}">
+								<c:forEach var="classLi" items="${classList}">
 									<li data-v-71d47198=""><div data-v-796f1feb=""
 											data-v-508d53c8="" data-v-71d47198=""
 											class="base-card card--vertical artist-home-class">
@@ -122,7 +116,7 @@
 													data-v-796f1feb="" class="card-thumb-cover">
 													<div data-v-508d53c8="" data-v-796f1feb=""
 														class="thumb-img"
-														style="background-image: url(&quot;https://image.idus.com/image/files/21321283ebf549f8b0235b20e4855f9f_720.jpg&quot;);"></div>
+														style="background-image: url('${classLi.class_photo[0]}');"></div>
 													<div data-v-508d53c8="" data-v-796f1feb=""
 														class="region-badge online">오프라인</div>
 													<div data-v-508d53c8="" data-v-796f1feb="" class="bookmark">
@@ -137,19 +131,18 @@
 												<div data-v-796f1feb=""
 													class="card-info artist-home-class-info">
 													<div data-v-508d53c8="" data-v-796f1feb="" class="label">
-														${classList.class_category_code}</div>
+														${classLi.class_category_code}</div>
 													<div data-v-508d53c8="" data-v-796f1feb=""
-														class="class-name">${classList.class_name}</div>
+														class="class-name">${classLi.class_name}</div>
 													<div data-v-508d53c8="" data-v-796f1feb="" class="bottom">
 														<div data-v-508d53c8="" data-v-796f1feb="" class="review">
 															<div data-v-508d53c8="" data-v-796f1feb="" class="rating">
 																<span data-v-ef94db98="" data-v-508d53c8=""
-																	data-value="5" class="ui_rating fr" data-v-796f1feb=""><i
-																	data-v-ef94db98="" data-state="active"
-																	class="ui_icon--star idus-icon-star-fill"
-																	style="font-size: 12px;"></i></span>
+																	data-value="5" class="ui_rating fr" data-v-796f1feb="">
+																	<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>	
+																</span>
 																	<span data-v-508d53c8=""
-																	data-v-796f1feb="" class="username">${classList.seller_name}</span>
+																	data-v-796f1feb="" class="username"></span>
 															</div>
 															<p data-v-508d53c8="" data-v-796f1feb="" class="comment">
 																정말 기초적인 것부터 차근히 쌓아 올려서 작품을 완성할 수 있게 해 주는 커리큘럼이라 좋았습니다.</p>

@@ -214,7 +214,7 @@ function orderMessageUpdate(index){
 	
 	console.log(msg);
 	
-	var str2= 'goodsItem' + index;
+	var str2= 'goods_code' + index;
 	var goods_code = $('#'+str2).val();
 	
 	console.log('상품코드 확인 : ' + goods_code);

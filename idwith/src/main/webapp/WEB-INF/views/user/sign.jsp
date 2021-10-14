@@ -38,7 +38,7 @@
 			<div class="login wrap">
 				<div class="login logo">
 					<h1>
-						<a href="index.do"><img src="resources/images/header/logo.svg" />
+						<a href="index.do"><img src="resources/images/index/idwith_logo_back.png" />
 						</a>
 					</h1>
 				</div>

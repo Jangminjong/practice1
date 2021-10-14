@@ -34,7 +34,6 @@ $(document).ready(function (){
 			alert('옵션을 선택해주세요.');
 		}else if(cartInfo == 2){
 			
-			console.log('옵션 길이 : ' + $('input[name=optionNum]').val());
 			
 			//로그인 한 상태인지 확인 후 
 			var loginState = $('#user_id').val();
@@ -80,7 +79,6 @@ $(document).ready(function (){
 		});
 
 		for(let i=0; i<valueArray.length; i++){
-			console.log("선택 상품 : " + valueArray[i]);
 			if(valueArray[i] == undefined){
 				cartInfo = 1;
 				break;
@@ -95,7 +93,6 @@ $(document).ready(function (){
 			alert('옵션을 선택해주세요.');
 		}else if(cartInfo == 2){
 			
-			console.log('옵션 길이 : ' + $('input[name=optionNum]').val());
 			
 			//로그인 한 상태인지 확인 후 
 			var loginState = $('#user_id').val();
@@ -173,7 +170,6 @@ $(document).ready(function (){
 		var imgLength = 0; //이미지의 총 개수
 		$(".img-list li").each(function(index, element) {
      		img = $(this).css('background-image');
-			console.log('순서: ' + index);
 			imgList[index] = img;
 			imgLength += 1;
    		});
@@ -194,7 +190,6 @@ $(document).ready(function (){
 		var imgLength = 0; //이미지의 총 개수
 		$(".img-list li").each(function(index, element) {
      		img = $(this).css('background-image');
-			
 			imgList[index] = img;
 			imgLength += 1;
    		});
@@ -212,18 +207,26 @@ $(document).ready(function (){
 });//end document ready
 
 var selectNum = 0; //현재 선택한 옵션의 수를 저장하는 변수
-function optionClose(index){
+function optionClose(args){
+	var word1 = args.split(',');
+	var word2 = word1[1];
+	
+	var index = word2;
+	
 	var str1 = "op_card" + index;
 	var optionCard = document.getElementById(str1);
+	
+	var selOptionPrice = $('#selOptionPrice'+index).text();
+	var total = $('#total').val();
+	var result = Number(total) - Number(selOptionPrice);
+	$('#total').attr('value', result);
 	
 	if(selectNum == 1){
 		$('.selected_options').css({'display': 'none'});
 		selectNum -= 1;
-		console.log('선택한 옵션 수 : ' + selectNum);
 	}else if(selectNum > 1){
 		optionCard.remove();
 		selectNum -= 1;
-		console.log('선택한 옵션 수 : ' + selectNum);
 	}
 }
 
@@ -248,7 +251,6 @@ function selOptionChange(){
 	
 	//실제로 모든 옵션이 선택되었는지 확인하는 로직
 	for(let i=0; i<valueArray.length; i++){
-		console.log("선택 상품 : " + valueArray[i]);
 		if(valueArray[i] == undefined){
 			console.log(i+"번째 : 카트번호 1");
 			cartInfo = 1;
@@ -281,7 +283,6 @@ function selOptionChange(){
 		var updateOption = upOption.join('/');
 		
 		var goodsPrice = $('#goods_price').text();//상품의 정가
-		console.log('정가 : ' + goodsPrice);
 		var optionPrice = 0; //선택한 옵션의 가격
 		var total = 0; //선택한 옵션들의 총 가격
 		for(let i=0; i<selOption.length; i++){
@@ -294,19 +295,20 @@ function selOptionChange(){
 		//var inputClone = $(".mb-3 input:first-child").clone().prop('id',imgInput+imgInt);
 		
 		if(selectNum >= 1){ //이미 선택한 옵션이 있을 때
-			console.log('인덱스값 : ' + selIndex);
-			var divClone = $('.selected_options div:first-child').clone();
+			var divClone = $('.selected_options div:first-child').clone().prop('id', 'op_card'+selIndex);
+			
 			divClone.find('p').prop('id', 'selected_options'+selIndex);
 			divClone.find('p').text(result);
 			
 			divClone.find('b').prop('id', 'selOptionPrice'+selIndex);
 			divClone.find('b').text(optionPrice);
 			
+			divClone.find('.option_card__aligner button:last-child').prop('id', 'optionDelete,'+selIndex);
+			
 			divClone.find('.option_card__counter button:first-child').prop('id', 'quantityMinus'+selIndex);
 			divClone.find('.option_card__counter button:last-child').prop('id', 'quantityPlus'+selIndex);
 			
 			var cartIndex = 'cart_quantity'+selIndex;
-			console.log('카트넘버: '+cartIndex);
 			divClone.find('input:first-child').prop('id', cartIndex);
 			
 			
@@ -314,7 +316,6 @@ function selOptionChange(){
 			
 			selectNum += 1;
 			selIndex += 1;
-			console.log('선택한 옵션 수 : ' + selectNum);
 		}else if(selectNum == 0){ //이미 선택한 옵션이 없을 때
 			
 			$('#selected_options0').text(result);//옵션 text 출력
@@ -341,14 +342,12 @@ function selOptionChange(){
 			
 			selectNum += 1;
 			selIndex += 1;
-			console.log('선택한 옵션 수 : ' + selectNum);
 		}//end if
 		for(let z=0; z<selectNum; z++){
 			const optionStr = 'selOptionPrice'+z;
 			const optionPr = $('#'+optionStr).text();
 			total += Number(optionPr);
 		}
-		console.log('합산가격 : ' + total);
 		$('#total').attr('value', total);//선택한 모든 옵션의 합산가격
 		
 	}//end if
@@ -356,28 +355,22 @@ function selOptionChange(){
 
 //상품 수량 +
 function plusQuantity(str) {
-	console.log('플러스');
 	var indexStr = str.split(',');
 	var index = indexStr[1];
 	
 	var curQuantity = $('#cart_quantity'+index).val();
-	console.log('현재 수량: '+curQuantity);
 	
 	var resultQuantity = Number(curQuantity) + 1;
 	$('#cart_quantity'+index).attr('value', resultQuantity);
-	console.log('결과 수량: '+ resultQuantity);
 	
 	var curPrice = $('#selOptionPrice'+index).text();
-	console.log('현재 가격: ' + curPrice);
 	
 	var initPrice = Number(curPrice) / Number(curQuantity);
-	console.log('정가: ' + initPrice);
 	
 	//var optionPrice = $('#hiddenPrice').val();
 	
 	var optiontotal = Number(initPrice) * Number(resultQuantity);
 	$('#selOptionPrice'+index).text(Number(optiontotal));
-	console.log('최종값: '+ optiontotal);
 	
 	var total = 0;
 	for(let z=0; z<selectNum; z++){
@@ -386,14 +379,12 @@ function plusQuantity(str) {
 		total += Number(optionPr);
 	}
 	
-	console.log('총 합산: ' + total);
 	$('#total').attr('value', total);
 }
 	
 	
 	//상품 수량 -
 function minusQuantity(str) {
-	console.log('마이너스');
 	var indexStr = str.split(',');
 	var index = indexStr[1]
 	
@@ -405,7 +396,6 @@ function minusQuantity(str) {
 		var curPrice = $('#selOptionPrice'+index).text();
 		
 		var initPrice = Number(curPrice) / Number(curQuantity);
-		console.log('정가 : '+ initPrice);
 		
 		var optiontotal = Number(initPrice) * Number(resultQuantity);
 		$('#selOptionPrice'+index).text(Number(optiontotal));

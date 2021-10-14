@@ -5,7 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+
+<title>아이디위드 | 작가 상품</title>
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+
 <link rel="stylesheet" href="resources/css/seller_goods.css">
 <link rel="stylesheet" href="resources/css/seller_main.css">
 <link rel="stylesheet" href="resources/css/common.css">
@@ -37,18 +42,13 @@
 							</a>
 							<div data-v-2618eab2="" class="artist-info__rate">
 								<span data-v-ef94db98="" data-v-2618eab2="" data-value="4.85"
-									class="ui_rating fr"> <i data-v-ef94db98=""
-									data-state="active" class="ui_icon--star idus-icon-star-fill"
-									style="font-size: 14px;"></i>
+									class="ui_rating fr">
+								<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
 								</span> <span data-v-2618eab2=""> 4.85<!-- 작가 평균 별점 -->
 								</span> <span data-v-2618eab2=""> (3,768)<!-- 별점 작성한 회원의 수 -->
 								</span>
 							</div>
 						</div>
-						<a data-v-2618eab2="" href="##" data-ui="inquire-float-btn"
-							target="_blank" class="artist-inquire-float-btn"
-							style="bottom: 30px;"> <img data-v-2618eab2=""
-							src="/resources/dist/images/artist-inquire-icon.svg" alt="작가 문의"></a>
 					</div>
 					<div data-v-2618eab2="" class="artist-info__statistics">
 						<div data-v-2618eab2="" class="data-area">
@@ -73,14 +73,12 @@
 				style="margin-left: 143px;">
 				<div data-v-2618eab2="" class="introduce-area">
 					<p data-v-2618eab2="" class="introduce-txt">${sellerInfo.seller_profile}</p>
-					<i data-v-2618eab2="" class="idus-icon-arrow toggle-btn down"></i>
 				</div>
 				<div data-v-2618eab2="" class="btn-group">
 					<button data-v-b534333e="" data-v-2618eab2="" type="button"
 						class="follow"
 						style="background-color: rgb(255, 123, 48); witdh: 100%; height: 36px; font-size: 14px; color: rgb(255, 255, 255); border: 1px solid rgb(255, 123, 48); border-radius: 4px;">
-						<i data-v-b534333e="" class="idus-icon-plus"
-							style="font-size: 16px;"></i> 팔로우
+						<i class="fa fa-bookmark" aria-hidden="true" style="font-size: 16px;"></i>&nbsp;&nbsp;팔로우
 					</button>
 					<!-- <button data-v-2618eab2="" data-modal-trigger="support-artist"
 					data-modal="open" class="support">후원하기</button> -->
@@ -225,26 +223,12 @@
 			<c:choose>
 				<c:when test="${goodsCheck eq true}">
 					<div data-v-62c8a401="">
-						<div data-v-86e49a34="" data-v-62c8a401=""
+						<!-- <div data-v-86e49a34="" data-v-62c8a401=""
 							class="ArtistDesktopProductFilter">
 							<div data-v-86e49a34=""
 								class="ArtistDesktopProductFilte__filterTop"
 								style="border-bottom: 1px solid rgb(217, 217, 217);">
-								<button data-v-08fc3558="" data-v-86e49a34=""
-									class="only-img-button">
-									<div data-v-08fc3558="" class="only-img-button-box">
-										<div data-v-5e27c696="" data-v-08fc3558="" class="checkbox">
-											<div data-v-5e27c696="" class="input-checkbox">
-												<input data-v-5e27c696="" id="" type="checkbox"
-													autocomplete="off" class="bp" value="false">
-											</div>
-											<!---->
-										</div>
-										<p data-v-08fc3558=""
-											class="only-img-button-text margin-left ">이미지만 볼래요</p>
-									</div>
-								</button>
-								<!---->
+								
 								<div data-v-86e49a34="" class="ArtistDesktopProductFilter_Right">
 									<div data-v-86e49a34=""
 										class="ArtistDesktopProductFilter__sortSelector">
@@ -252,49 +236,21 @@
 											class="SingleSelector">
 											<div data-v-4b6162e7="" data-v-4dfbe33c=""
 												class="BaseSelector">
-												<!-- <select data-v-4b6162e7="" class="BaseSelector__selector"></select>
-										<button data-v-4b6162e7="" type="button"
-											class="BaseSelector__triggerButton">
-											<span data-v-4b6162e7="" class="BaseSelector__selectedItem">인기순</span>
-											<i data-v-4b6162e7="" class="ui-icon fa fa-chevron-down"></i>
-										</button> -->
-												<!-- <ul data-v-4b6162e7="" class="BaseSelector__optionItemList">
-											<li data-v-4b6162e7="" value="sort=-POPULAR"
-												class="BaseSelector__optionItem">인기순</li>
-											<li data-v-4b6162e7="" value="sort=-CREATED_AT"
-												class="BaseSelector__optionItem">최신순 (NEW)</li>
-											<li data-v-4b6162e7="" value="sort=-FAVORITE"
-												class="BaseSelector__optionItem">찜 많은 순</li>
-											<li data-v-4b6162e7="" value="sort=-REVIEW"
-												class="BaseSelector__optionItem">구매후기가 많은 순</li>
-											<li data-v-4b6162e7="" value="sort=-PURCHASE"
-												class="BaseSelector__optionItem">판매수가 많은 순</li>
-											<li data-v-4b6162e7="" value="sort=-SALE_RATE"
-												class="BaseSelector__optionItem">할인 높은순</li>
-											<li data-v-4b6162e7="" value="sort=PRICE"
-												class="BaseSelector__optionItem">낮은 가격순</li>
-											<li data-v-4b6162e7="" value="sort=-PRICE"
-												class="BaseSelector__optionItem">높은 가격순</li>
-										</ul> -->
-												<select name='product_category' id="productCategory">
-													<option value='' selected>인기순</option>
-												</select>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<!---->
-						</div>
+							
+						</div> -->
 						<div data-v-62c8a401="" class="SearchArea">
 							<p data-v-62c8a401="" class="items-size">
-								<strong data-v-62c8a401="">53</strong>개의 판매작품
+							<c:set var="goodsCount" value="0"/>
+							<c:forEach var="gsCount" items="${goodsList}">
+								<c:set var="goodsCount" value="${goodsCount + 1}" />
+							</c:forEach>
+								<strong data-v-62c8a401=""><c:out value="${goodsCount}"/></strong>개의 판매작품
 							</p>
-							<div data-v-62c8a401="" class="search-section">
-								<input data-v-62c8a401="" type="text" placeholder="작가님의 작품 검색"
-									class="search-input"> <i data-v-62c8a401=""
-									class="idus-icon-search"></i>
-							</div>
 						</div>
 						<div data-v-38f53920="" data-v-62c8a401="" class="ui_grid mt10">
 							<div data-v-38f53920="" class="ui_grid__cols--4">
@@ -332,7 +288,7 @@
 													<span data-v-796f1feb="" style="font-size: 14px;">원</span></span> -->
 														<!-- 원가 -->
 														<div data-v-796f1feb="" class="price-origin--before-sale">
-															<span data-v-796f1feb="">${info.goods_price}</span>
+															<span data-v-796f1feb="">${info.goods_price}원</span>
 														</div>
 													</div>
 													<div data-v-796f1feb="" class="product-info__badge-group"
@@ -343,23 +299,14 @@
 													<div data-v-796f1feb="" class="product-info__review">
 														<div data-v-796f1feb="" class="review-rating">
 															<span data-v-ef94db98="" data-value="4.9"
-																class="ui_rating fr" data-v-796f1feb=""><i
-																data-v-ef94db98="" data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i><i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i><i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i><i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i><i data-v-ef94db98=""
-																data-state="active"
-																class="ui_icon--star idus-icon-star-fill"
-																style="font-size: 11px;"></i></span> <span data-v-796f1feb=""
-																class="review-count"> (67) </span>
+																class="ui_rating fr" data-v-796f1feb="">
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+																</span> 
+																<span data-v-796f1feb="" class="review-count"> (67) </span>
 														</div>
 														<div data-v-796f1feb="" class="review-comment">
 															<div data-v-796f1feb="" class="review-comment__badge">
