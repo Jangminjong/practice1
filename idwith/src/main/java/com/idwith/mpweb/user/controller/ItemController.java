@@ -1,16 +1,24 @@
 package com.idwith.mpweb.user.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.idwith.mpweb.user.GoodsOption1VO;
+import com.idwith.mpweb.user.GoodsOptionVO;
+import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.GoodsVO;
+import com.idwith.mpweb.user.classUser.ClassVO;
+import com.idwith.mpweb.user.classUser.service.ClassService;
 import com.idwith.mpweb.user.service.GoodsService;
 
 @Controller
@@ -18,15 +26,54 @@ public class ItemController {
 	@Autowired
 	private GoodsService goodsService;
 	
-	//클래스 상세보기
-	@GetMapping("/class_detail_content.do")
-	public String classDetailContent() {
-		return "class_detail_content";
-	}
+	@Autowired
+	private ClassService classService;
 	
-	@GetMapping("/class_search.do")
-	public String classSearch() {
-		return "class_search";
+	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
+	public String classSearch(@RequestParam(value="nowPage", required=false) String nowPage, 
+								@RequestParam(value="cntPerPage", required=false) String cntPerPage, HttpServletRequest req, Model model) {
+		String search = (String) req.getParameter("search");
+		
+		System.out.println("키워드 : " + search);
+		PagingVO goodsPageVO = new PagingVO();
+		PagingVO classPageVO = new PagingVO();
+		
+		int totalGoods = goodsService.countGoodsForSearch(search);
+		int totalClass = classService.countClassForSearch(search);
+		
+		System.out.println("테스트 중간1");
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "12";
+		}else{
+			cntPerPage = "12";
+		}
+		
+		goodsPageVO = new PagingVO(totalGoods, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), search);
+		classPageVO = new PagingVO(totalClass, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), search);
+		
+		// 굿즈 리스트 가져오기
+		List<GoodsVO> goodsList = goodsService.getGoodsListForSearch(goodsPageVO);
+		System.out.println("굿즈 리스트 가져옴");
+		
+		// 클래스 리스트 가져오기
+		List<ClassVO> classList = classService.getClassListForSearch(classPageVO);
+		System.out.println("클래스 리스트 가져옴");
+		
+		
+		for(ClassVO list : classList) {
+			System.out.println("정보1 : " + list.getClass_open_address());
+			System.out.println("정보2 : " + list.getClass_open_info());
+			System.out.println("정보3 : " + list.getClass_open_photo()[0]);
+		}
+		
+		
+		model.addAttribute("keyword", search);
+		model.addAttribute("goodsList", goodsList);
+		model.addAttribute("classList", classList);
+		
+		return "search";
 	}
 	
 	//작품 상세보기
@@ -36,19 +83,26 @@ public class ItemController {
 		
 		GoodsVO goods = goodsService.getGoodsContent(goods_code);
 		List<GoodsReviewVO> goodsReviewList = goodsService.getGoodsReviewList(goods_code);
-		List<GoodsVO> goodsOptionList = goodsService.getGoodsOptionList(goods_code);
+		List<GoodsOptionVO> goodsOptionList = goodsService.getGoodsOptionList(goods_code);
+	
+		System.out.println("가져온 작가 코드 : " + goods.getUserSellerVO().getSeller_code());
+		
+		List<GoodsVO> sellerOtherGoodsList = goodsService.sellerOtherGoodsList(goods.getUserSellerVO().getSeller_code());
+		
+		for(GoodsOptionVO list : goodsOptionList) {
+			System.out.println("옵션 : " + list.getGoods_op1_name());
+		}
+		
+		System.out.println("확인 중입니다 : " + goods.getGoods_code());
 		
 		model.addAttribute("goods", goods);
+		model.addAttribute("goodsImageLength", goods.getGoods_photo().length);
+		model.addAttribute("sellerOtherGoodsList", sellerOtherGoodsList);
 		model.addAttribute("goodsReviewList", goodsReviewList);
 		model.addAttribute("goodsOptionList", goodsOptionList);
 		return "detail_content";
 	}
-	
-	@GetMapping("/product_search.do")
-	public String productSearch() {
-		return "product_search";
-	}
-	
+
 	//구매후기 작성하기 화면
 	@GetMapping("/review_detail.do")
 	public String review_detail(@RequestParam(value="goods_code", required=false) String goods_code) {

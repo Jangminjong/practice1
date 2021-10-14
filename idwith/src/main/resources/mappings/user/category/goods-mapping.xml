@@ -19,21 +19,25 @@
  		<result property="goods_select" column="goods_select"/>
  		<result property="goods_view" column="goods_view"/>
  		<result property="goods_op1_code" column="goods_op1_code"/>
- 		<result property="goods_op2_code" column="goods_op2_code"/>
- 		<result property="goods_op3_code" column="goods_op3_code"/>
  		<result property="goods_seq" column="goods_seq"/>
+ 		<result property="rownum" column="rownum"/>
  		<result property="goods_apply_date" column="goods_apply_date"/>
  		<result property="goods_status" column="goods_status"/>
  		<result property="goods_delivery_fee" column="goods_delivery_fee"/>
+ 		
+ 		<result property="goods_review_context" column="goods_review_context"/>
+ 		<result property="store_name" column="store_name"/>
+ 		
  		<collection property="userSellerVO" resultMap="userSellerResult" />
- 		<collection property="goodsOption1VO" resultMap="goodsOption1Result" />
- 		<collection property="goodsOption2VO" resultMap="goodsOption2Result" />
- 		<collection property="goodsOption3VO" resultMap="goodsOption3Result" />
+ 		<collection property="goodsOptionVO" resultMap="goodsOptionResult" />
+ 		<collection property="goodsOptionVO" resultMap="goodsOptionResult" />
  	</resultMap>
  	
  	<resultMap type="UserSellerVO" id="userSellerResult">
  		<result property="seller_code" column="seller_code"/>
  		<result property="store_name" column="store_name"/>
+ 		<result property="seller_name" column="seller_name"/>
+ 		<result property="user_id" column="user_id"/>
  		<result property="seller_profile" column="seller_profile"/>
  		<result property="seller_profile_img" column="seller_profile_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
  	</resultMap>
@@ -52,7 +56,7 @@
  		<result property="goods_photo" column="goods_photo" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/> 
  	</resultMap>
  	
- 	<resultMap type="goodsOption1VO" id="goodsOption1Result">
+ 	<resultMap type="goodsOptionVO" id="goodsOptionResult">
  		<result property="goods_op1_code" column="goods_op1_code"/>
  		<result property="goods_code" column="goods_code"/>
  		<result property="goods_op1_name" column="goods_op1_name"/>
@@ -60,32 +64,19 @@
  		<result property="goods_op1_price" column="goods_op1_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" javaType="Integer[]"/>
  	</resultMap>
  	
- 	<resultMap type="goodsOption2VO" id="goodsOption2Result">
- 		<result property="goods_op2_code" column="goods_op2_code"/>
- 		<result property="goods_code" column="goods_code"/>
- 		<result property="goods_op2_name" column="goods_op2_name"/>
- 		<result property="goods_op2_value" column="goods_op2_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
- 		<result property="goods_op2_price" column="goods_op2_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 	<resultMap type="goodsCateVO" id="offerGoodsCategoryResult">
+ 		<result property="goods_category_code" column="goods_category_code"/>
+ 		<result property="goods_category_name" column="goods_category_name"/>
  	</resultMap>
- 	
- 	<resultMap type="goodsOption3VO" id="goodsOption3Result">
- 		<result property="goods_op3_code" column="goods_op3_code"/>
- 		<result property="goods_code" column="goods_code"/>
- 		<result property="goods_op3_name" column="goods_op3_name"/>
- 		<result property="goods_op3_value" column="goods_op3_value" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
- 		<result property="goods_op3_price" column="goods_op3_price" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
- 	</resultMap>
- 	
- 	<resultMap type="goodsOptionListVO" id="goodsOptinoListResult">
- 		<collection property="goodsOption1VO" resultMap="goodsOption1Result" />
- 		<collection property="goodsOption2VO" resultMap="goodsOption2Result" />
- 		<collection property="goodsOption3VO" resultMap="goodsOption3Result" />
- 	</resultMap>
- 	
 
  	<select id="getGoodsList" resultMap="goodsResult" parameterType="goodsVO">
-	SELECT * FROM (SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT goods.*, goods_review.goods_review_context
-	FROM goods AS goods LEFT OUTER JOIN goods_review AS goods_review ON goods.goods_code = goods_review.goods_review_code where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10
+	SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo 
+			WHERE rownum BETWEEN 1 AND 10
  	</select>
  	
  	<!-- 작가가 등록한 상품리스트 가져오기 -->
@@ -96,8 +87,8 @@
  	<!-- 작품 상세보기 -->
  	<select id="getGoodsContent" resultMap="goodsResult">
  		select
- 			g.goods_name, g.goods_price, g.goods_select, g.goods_stock, g.goods_op1_code, g.goods_op2_code, g.goods_op3_code, g.goods_photo, g.goods_info, g.goods_delivery_fee
- 			, s.user_id, s.store_name, s.seller_name, s.seller_profile, s.seller_profile_img
+ 			g.goods_code, g.goods_name, g.goods_price, g.goods_select, g.goods_stock, g.goods_op1_code, g.goods_photo, g.goods_info, g.goods_delivery_fee
+ 			, s.seller_code, s.user_id, s.store_name, s.seller_name, s.seller_profile, s.seller_profile_img
  		from goods as g
  		join seller as s on s.seller_code = g.seller_code
  		where g.goods_code=#{goods_code}
@@ -109,14 +100,12 @@
  	</select>
  	
  	<!-- 상품 옵션리스트 가져오기 -->
- 	<select id="getGoodsOptionList" resultMap="goodsResult">
+ 	<select id="getGoodsOptionList" resultMap="goodsOptionResult">
 	select
-		*
+		go.*
 		from goods as g
-		join goods_option1 as go1 on go1.goods_op1_code = g.goods_op1_code
-		left join goods_option2 as go2 on go2.goods_op2_code = g.goods_op2_code
-		left join goods_option3 as go3 on go3.goods_op3_code = g.goods_op3_code
-	where g.goods_code=#{good_code}
+		join goods_option1 as go on go.goods_code = g.goods_code
+	where go.goods_code = #{goods_code}
  	</select>
 
  	<select id="goodsCount" resultType="_int" parameterType="string">
@@ -173,5 +162,38 @@
 	FROM goods AS goods LEFT OUTER JOIN goods_review AS goods_review ON goods.goods_code = goods_review.goods_review_code where goods_category=#{goods_category} ORDER BY goods_volume DESC)A)AS foo WHERE rownum BETWEEN 1 AND 10
  	</select>
  	
+	<!-- 작품 상세보기 : 작가의 다른 작품 리스트 -->
+	<select id="sellerOtherGoodsList" resultMap="goodsResult">
+		select *
+		from goods as g
+			join seller as s on g.seller_code = s.seller_code 
+		where g.seller_code = #{seller_code}
+	</select>
 
+ 	<!-- 검색 페이지에 사용 -->
+ 	<select id="countGoodsForSearch" parameterType="string" resultType="_int">
+ 	<![CDATA[
+ 		SELECT count(*) FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_name LIKE '%'||#{search}||'%' ORDER BY goods_volume DESC )AS foo
+		]]>
+ 	</select>
+ 	<select id="getGoodsListForSearch" resultMap="goodsResult" parameterType="com.idwith.mpweb.common.PagingVO">
+ 	<![CDATA[
+ 		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT goods.*, seller.store_name, goods_review.goods_review_context FROM goods 
+			LEFT OUTER JOIN seller ON goods.seller_code = seller.seller_code 
+			LEFT OUTER JOIN goods_review ON goods.goods_code = goods_review.goods_review_code 
+			WHERE goods_name LIKE '%'||#{set}||'%' ORDER BY goods_volume DESC )A)AS foo 
+			WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+ 	</select>
+ 	
+ 	<!-- 작품 카테고리 가져오기 -->
+ 	<select id="getGoodsCategoryForOffer" resultType="goodsCateVO" resultMap="offerGoodsCategoryResult">
+ 		select * from goods_category
+ 	</select>
 </mapper>

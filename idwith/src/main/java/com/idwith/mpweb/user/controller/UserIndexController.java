@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.user.GoodsCategoryVO;
@@ -22,6 +23,7 @@ import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.classUser.ClassVO;
 import com.idwith.mpweb.user.classUser.service.ClassService;
 import com.idwith.mpweb.user.service.GoodsService;
+import com.idwith.mpweb.user.service.PdfTextService;
 import com.idwith.mpweb.user.service.SellerViewService;
 
 @Controller
@@ -34,6 +36,9 @@ public class UserIndexController {
 	
 	@Autowired
 	private ClassService classService;
+	
+	@Autowired
+	private PdfTextService pdfService;
 	
 	@RequestMapping("/index.do")
 	public String userIndex(HttpSession session, Model model) {
@@ -49,6 +54,7 @@ public class UserIndexController {
 			List<GoodsVO> goodsList = goodsService.getGoodsList(goodsVO);
 			model.addAttribute("goodsList"+i, goodsList);
 		}
+		
 		
 		// 후기 가져오기 
 		List<GoodsReviewVO> reviewList = goodsService.getReviewList(); 
@@ -75,6 +81,28 @@ public class UserIndexController {
 		List<ClassVO> popularClassList = classService.getPopularClassList();
 		model.addAttribute("popularClassList", popularClassList);
 		
+		// 신규클래스 
+		List<ClassVO> newClassList = classService.getNewClassList();
+		model.addAttribute("newClassList", newClassList);
+		
 		return "class/class_index";
+	}
+
+	@RequestMapping("/nearbyMeClass.do")
+	@ResponseBody
+	public String nearbyClass(@RequestParam(value="area", required=false, defaultValue="종로구") String area, HttpSession session ) {
+		List<ClassVO> nearbyClass = classService.getNearbyList(area);
+		
+		session.setAttribute("nearbyClassList", nearbyClass);
+		return null;
+	}
+	
+	@RequestMapping(value = "/pdfTest.do")
+	public String pdfTest(HttpSession session, Model model) {
+		String user_id = String.valueOf(session.getAttribute("email"));
+		String result = pdfService.createPDF(user_id);
+		
+		model.addAttribute("pdfMsg", result);
+		return "test";
 	}
 }

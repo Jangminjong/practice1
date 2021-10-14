@@ -30,6 +30,7 @@ import com.idwith.mpweb.admin.service.UserListService;
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.ClassRegVO;
 import com.idwith.mpweb.user.GoodsApplyVO;
+import com.idwith.mpweb.user.GoodsVO;
 
 @Controller
 public class managementController {
@@ -169,10 +170,22 @@ public class managementController {
 		String store = request.getParameter("store");
 		int result = 1;
 
+		String class_category = null;
 
 		if(agree != null) { 
 			if(store.equals("class")) {
 				result = proposeService.updateAgreeStatus(seq);
+				
+				ClassRegVO classRegVO = new ClassRegVO();
+				int randomCode = (int) (Math.random() * 9000) + 1000;
+				class_category = proposeService.getClass_category(seq);
+				
+				String class_code = class_category + Integer.toString(randomCode);
+				
+				classRegVO.setClass_reg_seq(Integer.parseInt(seq));
+				classRegVO.setClass_code(class_code);
+				proposeService.updateClassCode(classRegVO);
+				
 			}else if(store.equals("goods")) {
 				result = proposeService.updateAgree(seq);
 			}
@@ -223,7 +236,7 @@ public class managementController {
 				e.printStackTrace();
 			}
 		}
-
+		
 		return Integer.toString(1);
 	}
 

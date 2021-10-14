@@ -22,7 +22,7 @@
 <title>아이디어스 임시 메인</title>
 </head>
 <body id="body">
-	<input type="hidden" id="email" value="${email }"/>
+	<input type="hidden" id="email" value="${email}"/>
 	<div class="wrap">
 		<div class="head_banner_group" id="header-banner">
 			<!-- 상단 리본 배너 -->
@@ -48,7 +48,7 @@
 				<div class="inner-w clf">
 				
 				<c:choose>
-					<c:when test="${ emailSplit eq null }">
+					<c:when test="${ user_name eq null }">
 						<nav class="fr" style="margin-left: 700px;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly"> <a
@@ -74,13 +74,13 @@
                                 </div> -->
 						</nav>
 					</c:when>
-					<c:when test="${ emailSplit ne null }">
+					<c:when test="${ user_name ne null }">
 						<nav class="fr" style="margin-left: 55%;">
 						<input type="text" id="current_user_email" class="hidden"
 							name="current_user_email" value="" readonly="readonly">
 						<div class="nav-btn ui-dropdown mymenu">
 							<button type="button" class="btn-dropdown btn-first">
-								<span data-profile="name">${emailSplit}</span> 님
+								<span data-profile="name">${user_name}</span> 님
 								<!-- current user email address: for parsing -->
 							</button>
 							<ul class="menu-dropdown menu-first">
@@ -198,30 +198,33 @@
 							href="class_index.do" class="service">클래스</a>
 					</nav>
 					<div class="main-search">
-						<form class="gnb-search-form">
-							<input id="header-search" type="text" autocomplete="off"
-								placeholder="추석할인을 검색해보세요"> <label class="searchLabel">
-								<button type="submit" name="search">
+						<form class="gnb-search-form" action="search.do" method="GET">
+							<input id="header-search" type="text" name="search" autocomplete="off"
+								placeholder="검색어를 입력해주세요!"> <label class="searchLabel">
+								<button type="submit">
 									<i class="fa fa-search" aria-hidden="true"></i>
 								</button>
 							</label>
 						</form>
 					</div>
 
-					<nav class="profile-links">
+					<nav class="profile-links" style="display: inline-block">
 						<c:choose>
 							<c:when test="${ sellerCheck ne null }">
-								<a href="main.wdo" class="btn"> <i class="far fa-user"></i> 작가 페이지</a>
+								<a href="main.wdo" class="btn"> <i class="fa fa-user" aria-hidden="true"></i> 작가 페이지</a>
 							</c:when>
 						</c:choose>
 
-						<a href="mypage.do" class="btn"> <i class="fa fa-user-o" aria-hidden="true"></i> 내 정보
+						<a href="javascript:myPageCheck()" class="btn" id="btn-my-page"> <i class="fa fa-user-o" aria-hidden="true"></i> 내 정보
 						<!-- <a href="mypage.do" class="btn"> <i class="far fa-user"></i> 내 정보 -->
 						</a> 
-							<a id="my-cart-button" href="cart.do" class="btn"> <span
-								class="cart-counter">0</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+						<a id="my-cart-button" href="cart.do" class="btn"> 
+							<c:if test="${setCart > 0 }">
+							<span class="cart-counter">${setCart}</span>
+							</c:if>
+							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 								장바구니
-							</a>
+						</a>
 					</nav>
 
 					<div class="bubble-space">

@@ -136,4 +136,9 @@
 			ORDER BY story_date DESC)A)AS foo 
 			WHERE rownum BETWEEN 1 AND 6
 	</select>
+	
+	<select id="getStoreNameforOrder" parameterType="string" resultType="string">
+		SELECT seller.store_name FROM seller
+	LEFT OUTER JOIN class_open ON seller.seller_code = class_open.class_open_seller WHERE class_open_class_code=#{class_order_code} limit 1
+	</select>
 </mapper>

@@ -66,4 +66,12 @@ public class ProposeServiceImpl implements ProposeService {
 		return proposeDAO.getproductPropose(goodsApplySeq);
 	}
 
+	public String getClass_category(String seq) {
+		return proposeDAO.getClass_category(seq);
+	}
+
+	@Override
+	public void updateClassCode(ClassRegVO classRegVO) {
+		proposeDAO.updateClassCode(classRegVO);
+	}
 }

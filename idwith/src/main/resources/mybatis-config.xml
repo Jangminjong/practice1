@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 	<!-- 별칭 예시 -->
 	<typeAliases>
  		<typeAlias type="com.idwith.mpweb.user.UserVO" alias="userVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.SaveVO" alias="SaveVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsCategoryVO" alias="goodsCateVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsVO" alias="goodsVO"/>
  		<typeAlias type="com.idwith.mpweb.user.CartVO" alias="cartVO"/>
@@ -12,9 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.ClassRegVO" alias="classRegVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsOrderDetailVO" alias="goodsOrderDetailVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsReviewVO" alias="goodsReviewVO"/>
- 		<typeAlias type="com.idwith.mpweb.user.GoodsOption1VO" alias="goodsOption1VO"/>
- 		<typeAlias type="com.idwith.mpweb.user.GoodsOption2VO" alias="goodsOption2VO"/>
- 		<typeAlias type="com.idwith.mpweb.user.GoodsOption3VO" alias="goodsOption3VO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.GoodsOptionVO" alias="goodsOptionVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsOptionVO" alias="goodsOptionListVO"/>
  		<typeAlias type="com.idwith.mpweb.user.SellerClassVO" alias="sellerClassVO"/>
  		<typeAlias type="com.idwith.mpweb.user.SellerStoryVO" alias="sellerStoryVO"/>
@@ -27,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.user.FollowVO" alias="followVO"/>
  		<typeAlias type="com.idwith.mpweb.user.classUser.ClassVO" alias="classVO"/>
  		<typeAlias type="com.idwith.mpweb.user.classUser.ClassCategoryVO" alias="classCategoryVO"/>
+ 		<typeAlias type="com.idwith.mpweb.user.classUser.ClassOrderVO" alias="classOrderVO"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminQnABoardVO" alias="adminQnA"/>
  		<typeAlias type="com.idwith.mpweb.admin.board.AdminEventBoardVO" alias="adminEventVO"/>
  		<typeAlias type="com.idwith.mpweb.user.GoodsApplyVO" alias="goodsApplyVO"/>

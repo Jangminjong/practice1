@@ -17,7 +17,7 @@ public class GoodsVO {
 	String goods_info;
 	int goods_select;
 	int goods_view;
-	String goods_op1_code, goods_op2_code, goods_op3_code;
+	String goods_op1_code;
 	int goods_seq;
 	Timestamp goods_apply_date;
 	int goods_status;
@@ -27,32 +27,23 @@ public class GoodsVO {
 	int rownum;
 	int goods_delivery_fee;
 	UserSellerVO userSellerVO;
-	GoodsOption1VO goodsOption1VO;
-	GoodsOption2VO goodsOption2VO;
-	GoodsOption3VO goodsOption3VO;
+	GoodsOptionVO goodsOptionVO;
+	CartVO cartVO;
 
-	public GoodsOption1VO getGoodsOption1VO() {
-		return goodsOption1VO;
+	public CartVO getCartVO() {
+		return cartVO;
 	}
 
-	public void setGoodsOption1VO(GoodsOption1VO goodsOption1VO) {
-		this.goodsOption1VO = goodsOption1VO;
+	public void setCartVO(CartVO cartVO) {
+		this.cartVO = cartVO;
 	}
 
-	public GoodsOption2VO getGoodsOption2VO() {
-		return goodsOption2VO;
+	public GoodsOptionVO getGoodsOptionVO() {
+		return goodsOptionVO;
 	}
 
-	public void setGoodsOption2VO(GoodsOption2VO goodsOption2VO) {
-		this.goodsOption2VO = goodsOption2VO;
-	}
-
-	public GoodsOption3VO getGoodsOption3VO() {
-		return goodsOption3VO;
-	}
-
-	public void setGoodsOption3VO(GoodsOption3VO goodsOption3VO) {
-		this.goodsOption3VO = goodsOption3VO;
+	public void setGoodsOptionVO(GoodsOptionVO goodsOptionVO) {
+		this.goodsOptionVO = goodsOptionVO;
 	}
 
 	public int getGoods_delivery_fee() {
@@ -183,23 +174,6 @@ public class GoodsVO {
 		this.goods_op1_code = goods_op1_code;
 	}
 
-	public String getGoods_op2_code() {
-		return goods_op2_code;
-	}
-
-	public void setGoods_op2_code(String goods_op2_code) {
-		this.goods_op2_code = goods_op2_code;
-	}
-
-	public String getGoods_op3_code() {
-		return goods_op3_code;
-	}
-
-	public void setGoods_op3_code(String goods_op3_code) {
-		this.goods_op3_code = goods_op3_code;
-	}
-	
-
 	public int getGoods_seq() {
 		return goods_seq;
 	}
@@ -240,17 +214,6 @@ public class GoodsVO {
 		this.goods_review_context = goods_review_context;
 	}
 
-	@Override
-	public String toString() {
-		return "GoodsVO [goods_code=" + goods_code + ", goods_name=" + goods_name + ", goods_price=" + goods_price
-				+ ", seller_code=" + seller_code + ", goods_category=" + goods_category + ", goods_photo="
-				+ Arrays.toString(goods_photo) + ", goods_stock=" + goods_stock + ", goods_volume=" + goods_volume
-				+ ", goods_income=" + goods_income + ", goods_grade=" + goods_grade + ", goods_info=" + goods_info
-				+ ", goods_select=" + goods_select + ", goods_view=" + goods_view + ", goods_op1_code=" + goods_op1_code
-				+ ", goods_op2_code=" + goods_op2_code + ", goods_op3_code=" + goods_op3_code + ", goods_seq="
-				+ goods_seq + ", goods_apply_date=" + goods_apply_date + ", goods_status=" + goods_status + ", rownum="
-				+ rownum + ", userSellerVO=" + userSellerVO + "]";
-	}
 	public String getStore_name() {
 		return store_name;
 	}

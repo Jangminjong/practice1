@@ -1,28 +1,48 @@
 package com.idwith.mpweb.user;
 
 public class GoodsOptionVO {
-	private GoodsOption1VO option1;
-	private GoodsOption2VO option2;
-	private GoodsOption3VO option3;
+	private int goods_op1_code;
+	private String goods_code;
+	private String goods_op1_name;
+	private String[] goods_op1_value;
+	private Integer[] goods_op1_price;
+	private GoodsVO goodsVO;
 	
-	public GoodsOption1VO getOption1() {
-		return option1;
+	public GoodsVO getGoodsVO() {
+		return goodsVO;
 	}
-	public void setOption1(GoodsOption1VO option1) {
-		this.option1 = option1;
+	public void setGoodsVO(GoodsVO goodsVO) {
+		this.goodsVO = goodsVO;
 	}
-	public GoodsOption2VO getOption2() {
-		return option2;
+	public int getGoods_op1_code() {
+		return goods_op1_code;
 	}
-	public void setOption2(GoodsOption2VO option2) {
-		this.option2 = option2;
+	public void setGoods_op1_code(int goods_op1_code) {
+		this.goods_op1_code = goods_op1_code;
 	}
-	public GoodsOption3VO getOption3() {
-		return option3;
+	public String getGoods_code() {
+		return goods_code;
 	}
-	public void setOption3(GoodsOption3VO option3) {
-		this.option3 = option3;
+	public void setGoods_code(String goods_code) {
+		this.goods_code = goods_code;
 	}
-	
+	public String getGoods_op1_name() {
+		return goods_op1_name;
+	}
+	public void setGoods_op1_name(String goods_op1_name) {
+		this.goods_op1_name = goods_op1_name;
+	}
+	public String[] getGoods_op1_value() {
+		return goods_op1_value;
+	}
+	public void setGoods_op1_value(String[] goods_op1_value) {
+		this.goods_op1_value = goods_op1_value;
+	}
+	public Integer[] getGoods_op1_price() {
+		return goods_op1_price;
+	}
+	public void setGoods_op1_price(Integer[] goods_op1_price) {
+		this.goods_op1_price = goods_op1_price;
+	}
 	
 }

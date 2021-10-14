@@ -57,4 +57,12 @@ public class ProposeDAO {
 	public GoodsApplyVO getproductPropose(int goodsApplySeq) {
 		return sqlSessionTemplate.selectOne("ProposeInfoDAO.getproductPropose", goodsApplySeq);
 	}
+	
+	public String getClass_category(String seq) {
+		return sqlSessionTemplate.selectOne("ProposeDAO.getClass_category", seq);
+	}
+
+	public void updateClassCode(ClassRegVO classRegVO) {
+		sqlSessionTemplate.insert("ProposerDAO.updateClassCode", classRegVO);
+	}
 }

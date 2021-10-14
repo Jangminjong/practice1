@@ -8,7 +8,7 @@ import com.idwith.mpweb.user.UserAddressVO;
 
 import com.idwith.mpweb.user.ChoiceVO;
 import com.idwith.mpweb.user.FollowVO;
-
+import com.idwith.mpweb.user.SaveVO;
 import com.idwith.mpweb.user.UserVO;
 
 public interface UserService {
@@ -47,4 +47,16 @@ public interface UserService {
 
 	int changeFollow(FollowVO follow);
 
+	//결제 페이지 : 주문자 정보 가져오기
+	UserVO getOrderUser(String user_id);
+
+	UserVO loginUser(String email);
+
+	int setCart(String email);
+
+	void updateUserInfoAtPayment(UserVO user);
+
+	void updateOrderSave(SaveVO point);
+
+	void insertNewOrderSave(SaveVO point);
 }

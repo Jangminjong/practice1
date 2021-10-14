@@ -60,12 +60,13 @@ public class LoginController {
 		vo.setUser_id(email);
 		vo.setUser_pwd(password);
 		//String[] emailSplit = vo.getUser_id().split("@");
-		String[] emailSplit = email.split("@");
 		int result = userService.getUser(vo);
-		
+		String[] emailSplit = email.split("@");
 
-		if(result == 1) {
+		if(result == 2) {
+			UserVO userVO = userService.loginUser(email);
 			session.setAttribute("email", email);
+			session.setAttribute("user_name", userVO.getUser_name());
 			session.setAttribute("emailSplit", emailSplit[0]);
 		}
 
@@ -89,7 +90,11 @@ public class LoginController {
 	
 	@GetMapping("/logout.do")
 	public String logout(HttpSession session) {
-		session.invalidate();
+		String emailSave = (String)session.getAttribute("emailSave");
+		System.out.println("로그아웃 세션 확인 : " + emailSave);
+		if(emailSave == null) {
+			session.invalidate();
+		}
 		return "redirect:/index.do";
 	}
 

@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+	
 	$('.mymenu').hover(function() {
   		$('.menu-dropdown.menu-first').stop(true, true).delay(0).fadeIn(0);
 	}, function() {
@@ -92,6 +93,7 @@ $(document).ready(function(){
 			success:function(data){
 				var i =0;
 				while(i<data.length){
+					console.log(data[i]);
 					document.getElementById('btn-'+data[i]).classList.add('active');
 					i++;
 				}
@@ -123,13 +125,32 @@ $(document).ready(function(){
 		});
 		
 	}
+	
+	
+	// 장바구니 개수 헤더에 세팅
+	if(!email ==""){
+		$.ajax({
+			url:'setCart.do',
+			type:"GET",
+			contentType:'application/json; charset=UTF-8',
+			dataType:'json',
+			data:{ 
+				email:email
+			},
+			success:function(data){
+				
+			},
+			error: function(request,status,error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+	}
 
 });
 
 
 // 하트 눌렀을 때 찜 상태 변경 하기 
 function changeChoice(goodsCode, event){
-	alert('싫행');
 	const email = $('#email').val();
 	var choiceBtn = document.getElementById('btn-'+goodsCode);
 	var state = choiceBtn.classList.contains('active');
@@ -239,6 +260,56 @@ function alarmView(){
 // 상단 배너 없애기
 function bannerHide(){
 	$('#header-banner').hide();
+}
+
+
+// 마이페이지 로그인 여부 확인
+function myPageCheck(){
+	const email =  $('#email').val();
+	if(email == ""){
+		location.replace('/mpweb/login.do');
+	}else{
+		location.replace('/mpweb/mypage.do');
+	}
+
+}
+
+// 클래스 메인 페이지 - 주변 클래스 :: 위치기반
+function setClassWithLocation() {
+	
+	// Geolocation API에 액세스할 수 있는지를 확인
+	if (navigator.geolocation) {
+		//위치 정보를 얻기
+		navigator.geolocation.getCurrentPosition(function(pos) {
+			// (위도, 경도)
+			geocoder.coord2RegionCode(pos.coords.longitude, pos.coords.latitude, callback);
+			
+		});
+	} else {
+		alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+	}
+	
+	var geocoder = new kakao.maps.services.Geocoder();
+	
+	var callback = function(result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+		var area = result[0].address_name; // ex) 서울특별시 광진구 구의동
+		$.ajax({
+			url: 'nearbyMeClass.do',
+			type: 'POST',
+			data: {
+				area:area
+			},
+			success:{},
+			error: function(request, status, error) {
+				alert("list search fail :: error code: "
+					+ request.status + "\n" + "error message: "
+					+ error + "\n");
+			}
+		})
+    }
+};
+
 }
 
 

@@ -42,7 +42,13 @@ public class UserDAO {
 
 	public UserVO getUser(String user_id) {
 		System.out.println("DAO getUser() ����");
-		UserVO result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
+		boolean check = sqlSessionTemplate.selectOne("UserDAO.idCheck", user_id);
+		UserVO result = null;
+		
+		if(check == true) {
+			 result = (UserVO) sqlSessionTemplate.selectOne("UserDAO.selectLogin", user_id);
+		}
+		
 		return result;
 	}
 	
@@ -123,5 +129,32 @@ public class UserDAO {
 			return 0;
 		}
 
+	}
+
+	public UserVO getOrderUser(String user_id) {
+		return sqlSessionTemplate.selectOne("UserDAO.getOrderUser", user_id);
+	}
+
+	public UserVO loginUser(String email) {
+		return sqlSessionTemplate.selectOne("UserDAO.getLoginUser", email);
+	}
+	
+	public int setCart(String email) {
+		// TODO Auto-generated method stub
+		return 2;
+	}
+
+	public void updateUserInfoAtPayment(UserVO user) {
+		sqlSessionTemplate.update("UserDAO.updateUserInfoAtPayment", user);		
+	}
+
+	public void updateOrderSave(SaveVO point) {
+		sqlSessionTemplate.update("UserDAO.updateOrderSaveExist", point);
+		sqlSessionTemplate.insert("UserDAO.updateOrderSaveBalance", point);
+		
+	}
+
+	public void insertNewOrderSave(SaveVO point) {
+		sqlSessionTemplate.insert("UserDAO.insertNewOrderSave", point);
 	}
 }

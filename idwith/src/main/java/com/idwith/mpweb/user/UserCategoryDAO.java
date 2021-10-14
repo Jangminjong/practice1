@@ -64,6 +64,6 @@ public class UserCategoryDAO {
 	}
 
 	public List<GoodsVO> getGoodsListForPopular(GoodsVO goodsVO) {
-		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsListForPopular",goodsVO);
+		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsVO);
 	}
 }

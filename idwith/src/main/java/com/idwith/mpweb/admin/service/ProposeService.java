@@ -27,4 +27,8 @@ public interface ProposeService {
 	ClassProposeInfoVO getClassProposeInfo(int classRegseq);
 
 	GoodsApplyVO getproductPropose(int goodsApplySeq);
+
+	String getClass_category(String seq);
+
+	void updateClassCode(ClassRegVO classRegVO);
 }

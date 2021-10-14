@@ -30,6 +30,27 @@
  		<result property="class_category_name" column="class_category_name"/>
  	</resultMap>
  	
+ 	<resultMap type="classOrderVO" id="classOrderResult">
+ 		<result property="class_order_seq" column="class_order_seq"/>
+ 		<result property="class_order_code" column="class_order_code"/>
+ 		<result property="class_order_price" column="class_order_price"/>
+ 		<result property="class_order_date" column="class_order_date"/>
+ 		<result property="class_order_time" column="class_order_time"/>
+ 		<result property="class_order_donation" column="class_order_donation"/>
+ 		<result property="class_order_id" column="class_order_id"/>
+ 		<result property="class_order_people" column="class_order_people"/>
+ 		<result property="class_order_demand" column="class_order_demand"/>
+ 		<result property="class_payment_check" column="class_payment_check"/>
+ 		<result property="class_payment_date" column="class_payment_date"/>
+ 		<result property="class_order_name" column="class_order_name"/>
+ 		<result property="class_order_reserve_phone" column="class_order_reserve_phone"/>
+ 		<result property="class_order_reserve_name" column="class_order_reserve_name"/>
+ 		<result property="class_order_review" column="class_order_review"/>
+ 		<result property="marchant_uid" column="marchant_uid"/>
+ 		<result property="imp_uid" column="imp_uid"/>
+ 		<result property="store_name" column="store_name"/>
+ 	</resultMap>
+ 	
  	<select id="getPopularClassList" resultMap="classResult">
  		SELECT * FROM (
 			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
@@ -93,6 +114,100 @@
 		WHERE rownum BETWEEN #{start} AND #{end}
 	 ]]>
  	</select>
+ 	<!-- 클래스 상세페이지 정보 조회 -->
+ 	<select id="getClassContentAtUser" parameterType="string" resultMap="classResult">
+		SELECT class_open.*, class_category.class_category_name, class_times.time FROM class_open 
+			LEFT OUTER JOIN class_category ON class_open.class_open_category= class_category.class_category_code
+			LEFT OUTER JOIN(
+				SELECT (class_close_time - class_open_time) as time , class_open_class_code FROM class_open
+				)AS class_times 
+			ON class_open.class_open_class_code = class_times.class_open_class_code
+		WHERE class_open.class_open_class_code=#{class_open_class_code}
+ 	</select>
+ 	<select id="getClassListForClassDetail" parameterType="_int" resultMap="classResult">
+ 		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT class_open.*, class_category.class_category_name FROM class_open 
+				LEFT OUTER JOIN class_category 
+				ON class_open.class_open_category= class_category.class_category_code WHERE class_open.class_open_seller=#{seller_code})A)AS foo 
+		WHERE rownum BETWEEN 1 AND 4
+ 	</select>
+ 	<select id="getNearbyList" resultMap="classResult">
+ 	 <![CDATA[
+ 		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT class_open.*, class_category.class_category_name, class_order_count.class_order_cnt FROM class_open 
+				LEFT OUTER JOIN class_category ON class_open.class_open_class_code= class_category.class_category_code
+				LEFT OUTER JOIN (
+					SELECT COUNT(class_order_code) as class_order_cnt, class_order_code FROM class_order
+							GROUP BY class_order_code
+							HAVING COUNT(class_order_code)>0 ORDER BY class_order_cnt DESC)AS class_order_count	
+				ON class_open.class_open_class_code = class_order_count.class_order_code ORDER BY class_order_count.class_order_code )A WHERE class_open_address LIKE '%'||#{param}||'%')AS foo 
+		WHERE rownum BETWEEN 1 AND 4
+	 ]]>
+ 	</select>
+ 	<select id="getNewClassList" resultMap="classResult">
+ 		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT class_open.*, class_category.class_category_name FROM class_open 
+				LEFT OUTER JOIN class_category 
+				ON class_open.class_open_category= class_category.class_category_code ORDER BY class_open_seq DESC)A)AS foo 
+		WHERE rownum BETWEEN 1 AND 4
+ 	</select>
+ 	<insert id="insertClassOrder" parameterType="classOrderVO">
+ 		INSERT INTO class_order (class_order_code, class_order_price, class_order_date, class_order_time, class_order_donation, 
+						class_order_id, class_order_people, class_order_demand, class_payment_check, class_payment_date,
+						 class_order_name, class_order_reserve_name, class_order_reserve_phone, marchant_uid, imp_uid)
+				VALUES(#{class_order_code}, #{class_order_price}, #{class_order_date}, #{class_order_time}, #{class_order_donation},
+					  #{class_order_id}, #{class_order_people}, #{class_order_demand}, true, now(),
+					   #{class_order_name}, #{class_order_reserve_name}, #{class_order_reserve_phone},#{marchant_uid}, #{imp_uid})
+ 	</insert>
+ 	<!-- 마이페이지에 주문 내역 가져오기 -->
+ 	<select id="getOrderClassList" parameterType="string" resultMap="classOrderResult">
+ 		SELECT * FROM(
+			SELECT foo.*, seller.store_name FROM (
+			(SELECT class_order.*, class_open.class_open_name, class_open.class_open_photo, class_open.class_open_seller FROM class_order 
+				LEFT OUTER JOIN class_open 
+				ON class_order.class_order_code= class_open.class_open_class_code WHERE class_order.class_order_id=#{email} AND class_order.class_order_code NOTNULL)AS foo
+			LEFT OUTER JOIN seller ON foo.class_open_seller = seller.seller_code))AS boo
+ 	</select>
+ 	<!-- 클래스 주문 취소 -->
+ 	<delete id="paymentClassCancel" parameterType="string">
+ 		DELETE FROM class_order WHERE marchant_uid=#{marchant_uid}
+ 	</delete>
+ 	
+ 	<!-- 검색 페이지에서 사용 -->
+ 	<select id="countClassForSearch" parameterType="string" resultType="_int">
+ 	 <![CDATA[
+ 		SELECT count(*) FROM (
+			SELECT class_open.*, class_category.class_category_name, class_order_count.class_order_cnt FROM class_open 
+				LEFT OUTER JOIN class_category ON class_open.class_open_class_code= class_category.class_category_code
+				LEFT OUTER JOIN (
+					SELECT COUNT(class_order_code) as class_order_cnt, class_order_code FROM class_order
+							GROUP BY class_order_code
+							HAVING COUNT(class_order_code)>0 ORDER BY class_order_cnt DESC)AS class_order_count	
+				ON class_open.class_open_class_code = class_order_count.class_order_code ORDER BY class_order_count.class_order_code )AS foo WHERE class_open_name LIKE '%'||#{search}||'%'
+	 ]]>
+	</select>
+	<select id="getClassListForSearch" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="classResult">
+	 <![CDATA[
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (
+			SELECT class_open.*, class_category.class_category_name, class_order_count.class_order_cnt FROM class_open 
+				LEFT OUTER JOIN class_category ON class_open.class_open_class_code= class_category.class_category_code
+				LEFT OUTER JOIN (
+					SELECT COUNT(class_order_code) as class_order_cnt, class_order_code FROM class_order
+							GROUP BY class_order_code
+							HAVING COUNT(class_order_code)>0 ORDER BY class_order_cnt DESC)AS class_order_count	
+				ON class_open.class_open_class_code = class_order_count.class_order_code ORDER BY class_order_count.class_order_code )A WHERE class_open_name LIKE '%'||#{set}||'%')AS foo 
+		WHERE rownum BETWEEN #{start} AND #{end}
+	 ]]>
+	</select>
+	
+	<!-- 클래스입점 신청 폼에 카테고리 보여주기 위함 -->
+	<select id="getClassCategory" resultType="classCategoryVO" resultMap="classCategoryResult">
+		select * from class_category
+	</select>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

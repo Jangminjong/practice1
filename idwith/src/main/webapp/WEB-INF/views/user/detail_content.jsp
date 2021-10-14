@@ -1,22 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>${goods.goods_name}| 아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/detail_content.css" />
-<link rel="stylesheet" href="resources/css/vendor.client.min.css" />
-<link rel="stylesheet" href="resources/css/idus.web.min.css" />
 <link rel="stylesheet" href="resources/css/sp-icon.css" />
+<link rel="stylesheet" href="resources/admin/css/app.css"/>
 
 <!-- 아이콘 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script type="text/javascript" src="resources/js/detail_content.js"></script>
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/js/detail_content.js"></script>
 <script type="text/javascript" src="resources/js/common/common.js"></script>
 
 <!-- 파비콘 이미지 설정 -->
@@ -39,51 +39,44 @@
 					<div class="image-preview ui-slider" data-ui="slider" tabindex="-1"
 						style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
 
+						<!-- 메인 이미지 리스트 -->
 						<div class="outer-frame">
 							<ul class="img-view inner-frame">
-								<li class="ui-slide" data-trigger-preview="open"
-									style="background-image: url(${goods.goods_photo[0]})"
-									data-index="0"></li>
-								<li class="ui-slide" data-trigger-preview="open"
-									style="background-image: url(https://image.idus.com/image/files/c0bbefa95b6f4c71a67f3b0846bce6d3_720.png)"></li>
-								<li class="ui-slide" data-trigger-preview="open"
-									style="background-image: url(https://image.idus.com/image/files/147c93ed104a4ffbaba57dac52d6b33b_720.png)"></li>
-								<li class="ui-slide" data-trigger-preview="open"
-									style="background-image: url(https://image.idus.com/image/files/0e3b2401a0244059bf2d66040e1971f4_720.png)"></li>
-								<li class="ui-slide" data-trigger-preview="open"
-									style="background-image: url(https://image.idus.com/image/files/342409145c5e4a04b6c33cf51112d741_720.png)"></li>
-								<li class="ui-slide" data-trigger-preview="open"
-									style="background-image: url(https://image.idus.com/image/files/261c59ecca934f0e9a5523f81ae153d1_720.png)"></li>
+								<%-- <c:forEach var="i" begin="0" end="${goodsImageLength-1}" varStatus="status">
+									<li class="ui-slide" id="main_image"
+										data-trigger-preview="open"
+										style="background-image: url(${goods.goods_photo[i]})"
+										data-index="0">
+									</li>
+								</c:forEach> --%>
+								<li class="ui-slide" id="main_image" 
+									style="background-image: url(${goods.goods_photo[0]})">
+								</li>
 							</ul>
 						</div>
 
+						<!-- 하단 이미지 리스트 -->
 						<fieldset class="ui-control">
-							<button type="button" class="ui-btn prev" aria-label="이전">
+							<button type="button" class="ui-btn prev" id="image_prev_btn" aria-label="이전">
 								<i class="fa fa-angle-left fa-2x"></i>
 							</button>
 							<ul class="img-list indicator">
-								<li class="indicator-btn active"
-									style="background-image: url(${goods.goods_photo[0]})"></li>
-								<li class="indicator-btn"
-									style="background-image: url(https://image.idus.com/image/files/c0bbefa95b6f4c71a67f3b0846bce6d3_320.png)"></li>
-								<li class="indicator-btn"
-									style="background-image: url(https://image.idus.com/image/files/147c93ed104a4ffbaba57dac52d6b33b_320.png)"></li>
-								<li class="indicator-btn"
-									style="background-image: url(https://image.idus.com/image/files/0e3b2401a0244059bf2d66040e1971f4_320.png)"></li>
-								<li class="indicator-btn"
-									style="background-image: url(https://image.idus.com/image/files/342409145c5e4a04b6c33cf51112d741_320.png)"></li>
-								<li class="indicator-btn"
-									style="background-image: url(https://image.idus.com/image/files/261c59ecca934f0e9a5523f81ae153d1_320.png)"></li>
+								<c:forEach var="i" begin="0" end="${goodsImageLength-1}" varStatus="status">
+									<li class="indicator-btn active" id="sub_image,${status.count}" style="background-image: url(${goods.goods_photo[i]})"
+										onclick="changeImage(this.id)">
+									</li>
+								</c:forEach>
 							</ul>
-							<button type="button" class="ui-btn next" aria-label="다음">
+							<button type="button" class="ui-btn next" id="image_next_btn" aria-label="다음">
 								<i class="fa fa-angle-right fa-2x"></i>
 							</button>
 						</fieldset>
+						
+						
 					</div>
 				</section>
 
-				<aside class="sticky_aside product_detail" data-ui="sticky_aside"
-					data-state="fixed" data-offset="36" data-stick="false">
+				<aside class="sticky_aside product_detail" style="position: absolute">
 					<div class="sticky_aside_product">
 						<!-- artist_card -->
 						<!-- artist_card -->
@@ -93,8 +86,8 @@
 									<div class="artist_card__img"
 										style="background-image: url(${goods.userSellerVO.seller_profile_img[0]});"></div>
 									<span class="artist_card__label">
-										${goods.userSellerVO.store_name} <i
-										class="idus-icon-arrow-right"></i>
+										${goods.userSellerVO.store_name} 
+										<i class="fa fa-share" aria-hidden="true"></i>
 								</span>
 								</a>
 							</div>
@@ -103,20 +96,6 @@
 						<!-- <small class="sticky_aside__small">?= $product->category->c_name ?></small> -->
 						<h2 class="sticky_aside__produc-title">${goods.goods_name}</h2>
 
-						<!-- price_tag -->
-						<!-- <div class="price_tag">
-                                        <span class="price_tag__hilight"><em>13</em>%</span>
-                    <span class="price_tag__strong">
-                        <strong class="sold-price" data-sold-price="13900">13,900</strong>원
-                    </span>
-                    <del class="price_tag__crossout">16,000원</del>
-                                    </div> -->
-
-						<!-- 작품 통계 데이터 -->
-						<!--                 <mark class="sticky_aside__marked">262명의 고객님들이 이 작품을 구매 했어요!</mark>
-                 -->
-
-						<!--  <div data-vue="ProductDetailInfo">작품 정보</div>-->
 						<div data-v-32b45c8e="" class="product-detail-info">
 							<div data-v-07201bc4="" data-v-32b45c8e=""
 								class="price_tag-detail">
@@ -129,8 +108,7 @@
 											class="product-detail-star-text-box">
 											<div data-v-336b258e="" data-v-488f5f82=""
 												class="product-detail-star-box">
-												<i data-v-336b258e="" data-v-488f5f82=""
-													class="product-detail-star idus-icon-favorite-border-p-5"></i>
+												<i class="fa fa-heart" aria-hidden="true"></i>
 											</div>
 											<div data-v-336b258e="" data-v-488f5f82=""
 												class="star-count-text-box">
@@ -139,17 +117,12 @@
 											</div>
 										</div>
 									</button>
-									<button data-v-07201bc4="" data-ui="url-copy"
-										data-ui-option="short" data-icon-event="hover"
-										data-clipboard-message="작품 URL이 복사되었습니다."
-										class="product-detail-share-button">
-										<div data-v-07201bc4="" class="product-detail-share-box">
-											<i data-v-07201bc4="" class="idus-icon-share-p-5"></i>
-										</div>
-									</button>
 								</mark>
-								<span data-v-07201bc4=""> <span data-v-07201bc4=""
-									class="price_tag__crossout">${goods.goods_price}원</span>
+								<span data-v-07201bc4=""> 
+									<span data-v-07201bc4="" class="price_tag__crossout">
+										<strong id="goods_price" style="font-size: 24px; color: #333333;">${goods.goods_price}</strong>
+										<strong style="font-size: 24px; color: #333333;">원</strong>
+									</span>
 								</span>
 								<div data-v-07201bc4="" id="marker"></div>
 							</div>
@@ -374,66 +347,88 @@
 						<!-- 작품 옵션 선택 -->
 						<div data-v-1c074f7f="">
 							<div data-v-1c074f7f="" class="vue-curtain"></div>
-							<form data-v-1c074f7f="" id="buyScrollable" class="checkout_product Scrollable" onsubmit="return false">
+							<form data-v-1c074f7f="" name="form" id="buyScrollable" class="checkout_product Scrollable" onsubmit="return false">
+								<input type="hidden" name="seller_code" value="${goods.seller_code}" />
+								<input type="hidden" name="store_name" value="${goods.userSellerVO.store_name}"/>
+								<input type="hidden" name="user_id" value="${email}">
+								<input type="hidden" name="goods_code" value="${goods.goods_code}">
+								<!-- hidden으로 수량 추가 -->
 								<div data-v-1c074f7f="" class="mobile-layer">
 									<button data-v-1c074f7f="" type="button"
 										class="mobile-show mobile-ui-close">
 										<i data-v-1c074f7f="" class="idus-icon-arrow-down"></i>
 									</button>
 									
-									<button data-v-1c074f7f="" type="button"
-										class="ui_btn select_group_trigger">
-										옵션 선택 <i data-v-1c074f7f="" class="idus-icon-arrow-down"></i>
-									</button>
+									<!-- 작품의 옵션 대분류 -->
+									<button type="button" class="option-select-btn">옵션 선택</button>
 									<div data-v-1c074f7f="" id="optionScrollable"
-										class="select_group Scrollable" style="display: none;">
+										class="option-modal">
 										<div data-v-1c074f7f="" class="select_group__header">
-											<span data-v-1c074f7f="" class="select_group__title">전체
-												옵션 2개 중 0개 선택</span>
+											<span data-v-1c074f7f="" class="select_group__title">옵션 선택</span>
 											<button data-v-1c074f7f="" type="button">
-												<i data-v-1c074f7f="" class="idus-icon-close"></i>
+												<i class="fa fa-times" id="modal_close" aria-hidden="true"></i>
 											</button>
 										</div>
-											<!---->
-												<div>
-												<!-- 작품의 옵션 대분류 -->
-													<select name='product_category' id="${option1.goods_op1_name}">
-														<option value='' selected>-- ${option1.goods_op1_name} 선택 --</option>
-														<c:forEach var="subOption" items="${option1}">
-															<c:forEach var="i" begin="0" end="${subOption.goods_op1_value.length}"></c:forEach>
-															<option value="">${subOption.goods_op1_value[i]} (+${subOption.goods_op1_price[i]})</option>
+										<div data-v-1c074f7f="" class="select_group__body">
+											<ol data-v-1c074f7f="" class="select_group__parent_list closed">
+												<input type="hidden" name="optionNum" value="${fn:length(goodsOptionList)}" /> 
+												<c:forEach var="mainOption" items="${goodsOptionList}">
+													<div>
+													<select name="goods_option_value" class="form-control"
+														id="${mainOption.goods_op1_name}" onchange="selOptionChange()">
+														<option selected>${mainOption.goods_op1_name} 선택</option>
+														<c:forEach var="subOptionValueList" items="${mainOption.goods_op1_value}" varStatus="status">
+															<option value='${subOptionValueList},${mainOption.goods_op1_price[status.index]}' id="${mainOption.goods_op1_price[status.index]}">
+															${subOptionValueList}
+																(+${mainOption.goods_op1_price[status.index]}원)</option>
 														</c:forEach>
 													</select>
-												</div>	
+													</div>
+												</c:forEach>
+											</ol>
+										</div>
+									</div>
 
-													<!-- <li data-v-1c074f7f="">
-														<span data-v-1c074f7f="">1. 수제청 용량선택</span>
-														<span data-v-1c074f7f="" class="align_right"></span>
-														<i data-v-1c074f7f="" class="icon idus-icon-arrow up"></i>
-													</li>
-													<div data-v-1c074f7f="" class="bottom-border full"></div> -->
-													
-													<!-- 작품의 옵션 소분류 -->
-													<!-- <ul data-v-1c074f7f="" class="select_group__child_list active">
-														<li data-v-1c074f7f="">
-															<span data-v-1c074f7f="">레몬청 500g 1개</span>
-														</li>
-													</ul> -->
-											<!-- <ol data-v-1c074f7f="" class="select_group__parent_list">
-												<li data-v-1c074f7f=""><span data-v-1c074f7f="">2.
-														⛔배송날짜동의필수⛔</span> <span data-v-1c074f7f="" class="align_right">
-
-												</span> <i data-v-1c074f7f="" class="icon idus-icon-arrow down"></i></li>
-												<div data-v-1c074f7f="" class="bottom-border"></div>
+									<!-- 선택된 옵션 태그-->
+									<div data-v-1c074f7f="" class="selected_options" style="display: none">
+										
+										<!-- 여기가 반복됨 -->
+										<div data-v-5612de30="" data-v-1c074f7f="" class="option_card" id="op_card0">
+											<p data-v-5612de30="" id="selected_options0">
 												
-											</ol> -->
-										<button data-v-1c074f7f="" type="button"
-											class="ui_btn--large select_group__close">옵션 선택 닫기</button>
+											</p>
+											<div data-v-5612de30="" class="option_card__aligner">
+												<div data-v-5612de30="" class="option_card__counter">
+													<button data-v-5612de30="" type="button"
+														class="ui_btn--mini" id="quantityMinus,0" onclick="minusQuantity(this.id)">-</button>
+													<input data-v-5612de30="" type="text" min="1" max="999"
+														id="cart_quantity0" name="cart_quantity0" value="1">
+													<button data-v-5612de30="" type="button"
+														class="ui_btn--mini" id="quantityPlus,0" onclick="plusQuantity(this.id)">+</button>
+												</div>
+												<div data-v-5612de30="">
+													<input type="hidden" id="hiddenPrice0" value="">
+													<span data-v-5612de30=""><b data-v-5612de30="" id="selOptionPrice0"></b>원</span>
+													<button data-v-5612de30="" type="button"
+														class="ui_btn--mini option_card__close" onclick="optionClose(0)">
+														<i class="fa fa-times" aria-hidden="true"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+										
 									</div>
-									
-									<div data-v-1c074f7f="" class="selected_options">
-										<!---->
-									</div>
+
+
+
+									<dl data-v-1c074f7f="" class="checkout_product__cost_label">
+										<span data-v-1c074f7f="">
+											<span data-v-1c074f7f="" class="subtitle">총 작품금액</span> 
+											<span>
+												<input type="text" id="total" name="goods_price" value='' readonly>원
+											</span> 
+										</span>
+									</dl>
 								</div>
 								<fieldset data-v-1c074f7f=""
 									class="checkout_product__btn_group show1">
@@ -450,7 +445,7 @@
 									<button data-v-1c074f7f="" type="submit" data-to="present"
 										data-pay-type="present" class="ui_btn--redline present">
 										<div data-v-1c074f7f="" class="inner">
-											<i data-v-1c074f7f="" class="idus-icon-gift"></i>
+											<i class="fa fa-gift" aria-hidden="true"></i>
 											<div data-v-1c074f7f="" class="btn_txt">선물하기</div>
 										</div>
 									</button>
@@ -563,10 +558,7 @@
 						<div data-v-98dfbe4e="" class="delivery-footer-text-box">최근
 							3개월 주문의 배송준비 기간 (주말, 공휴일 제외)</div>
 					</div>
-					<script>
-						vuepack
-								.createDeliveryGraph('[data-vue="delivery-graph"]');
-					</script>
+					
 				</section>
 				<div data-trigger-detail="true"></div>
 				<div data-trigger="fixposition"></div>
@@ -673,12 +665,12 @@
 							<div class="title-style-dropdown tab active prd-detail-section"
 								data-ui-id="info-delivery">
 								<span>배송 / 교환 / 환불</span>
-								<button class="idwith-icon-arrow">
+								<button class="idwith-icon-arrow" id="info-delivery-btn">
 									<i class="icon idus-icon-arrow down"></i>
 								</button>
 							</div>
 							<table class="table-style column active" data-ui="tab-panel"
-								data-panel-id="info-delivery">
+								data-panel-id="info-delivery" id="info-delivery-tab">
 								<colgroup>
 									<col width="30%">
 									<col width="70%">
@@ -797,41 +789,41 @@
 					<div class="ui_grid">
 						<div class="title-style-sub">
 							<h2 class="txt">판매중인 다른 작품들</h2>
-							<a href="seller_goods?seller_code=${goods.seller_code}"
+							<a href="seller_goods.do?seller_code=${goods.seller_code}"
 								class="to-right btn btn-xs btn-white mobile-hide">더보기</a>
 						</div>
 
 						<ul class="ui_grid__cols--4">
-							<li class="ui_grid__item">
-								<div class="ui_card ">
-									<button type="button"
-										class="ui_card__overlay btn-ico sp-icon icon-favorite"
-										aria-label="찜하기" data-name="starred-toolbar"
-										data-starred-type="product" data-init="" data-starred=""
-										data-target-id="6bb0d3b2-c05c-4ac4-a048-895ef317ca73">
-									</button>
+							<c:forEach var="sellerGoodsList" items="${sellerOtherGoodsList}" end="3">
+								<li class="ui_grid__item">
+									<div class="ui_card ">
+										<button type="button"
+											class="ui_card__overlay btn-ico sp-icon icon-favorite"
+											aria-label="찜하기" data-name="starred-toolbar"
+											data-starred-type="product" data-init="" data-starred=""
+											data-target-id="6bb0d3b2-c05c-4ac4-a048-895ef317ca73">
+										</button>
+	
+										<div class="ui_card__imgcover">
+											<a href="detail_content.do?goods_code=${sellerGoodsList.goods_code}"
+												target="_blank" aria-label="✔청포도청500g/1kg 생일 선물"
+												class="ui_card__img"
+												data-product-id="6bb0d3b2-c05c-4ac4-a048-895ef317ca73"
+												style="background-image: url(${sellerGoodsList.goods_photo[0]})" data-was-processed="true"></a>
+											<!-- 판매중인 다른 작품 이미지 넣기 -->
+										</div>
 
-									<div class="ui_card__imgcover">
-										<a href="/w/product/6bb0d3b2-c05c-4ac4-a048-895ef317ca73"
-											target="_blank" aria-label="✔청포도청500g/1kg 생일 선물"
-											class="ui_card__img"
-											data-product-id="6bb0d3b2-c05c-4ac4-a048-895ef317ca73"
-											style="background-image: url()" data-was-processed="true"></a>
-										<!-- 판매중인 다른 작품 이미지 넣기 -->
+										<div class="ui_card__info">
+											<a href="/kyurin" class="ui_card__label" target="_blank">
+												${sellerGoodsList.store_name}</a> 
+											<a href="/w/product/ef7ed0f1-6b10-4fd1-8390-2a568410f0a0"
+												class="ui_card__title" target="_blank">
+												${sellerGoodsList.goods_info}</a>
+										</div>
+
 									</div>
-
-									<div class="ui_card__info">
-										<a href="/w/artist/feba4e69-cd92-449f-8226-02e1d84ed3e4"
-											class="ui_card__label" target="_blank">
-											<!-- 상점명 넣기 -->
-										</a> <a href="/w/product/6bb0d3b2-c05c-4ac4-a048-895ef317ca73"
-											class="ui_card__title" target="_blank">
-											<!-- 판매중인 다른 작품명 넣기 -->
-										</a>
-									</div>
-
-								</div>
-							</li>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
 					<!-- QuickProfileContainer -->
@@ -952,6 +944,8 @@
 
 	</div>
 	<!-- div WRAP -->
-
+	<script>
+	
+	</script>
 </body>
 </html>

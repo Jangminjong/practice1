@@ -16,7 +16,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 구매후기 쓰기</title>
+<title>아이디위드 | 구매후기 쓰기</title>
 <meta name="theme-color" content="#ffffff" />
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
@@ -83,8 +83,8 @@
 						</div>
 						<div class="area-txt">
 							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
-								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">OOO</strong>
+								<span>${user_grade} &gt;</span>
+							</a> <strong data-profile="name">${user_name}</strong>
 						</div>
 					</div>
 
@@ -136,35 +136,36 @@
 					<ul class="card-container" data-ui="scroll-paging"
 						data-query="next" data-param="">
 						<c:forEach var="reviewBefore" items="${reviewBeforeList}">
-						<li><input type="hidden" value="reviewBefore.order_detail_code" style="display:block;">
-							<div class="ui_card--review">
-								<div class="ui_card__head">
-									<a class="ui_card__img"
-										href="detail_content.do?goods_code=${reviewBefore.order_detail_code }"
-										target="_blank"
-										style="background-image: url(${reviewBefore.goods_photo[0]})">
-									</a>
-									<div class="ui_card__textarea">
-										<a href="detail_content.do?goods_code=${reviewBefore.order_detail_code }"
-											target="_blank">${reviewBefore.goods_name}</a> <span>${reviewBefore.goods_name}</span>
+							<li>
+								<input type="hidden" value="reviewBefore.order_detail_code" style="display:block;">
+								<div class="ui_card--review">
+									<div class="ui_card__head">
+										<a class="ui_card__img"
+											href="detail_content.do?goods_code=${reviewBefore.order_detail_code}"
+											target="_blank"
+											style="background-image: url(${reviewBefore.goods_photo[0]})">
+										</a>
+										<div class="ui_card__textarea">
+											<a href="detail_content.do?goods_code=${reviewBefore.order_detail_code }"
+												target="_blank">${reviewBefore.goods_name}</a> <span>${reviewBefore.goods_name}</span>
+										</div>
 									</div>
+									<ul class="liststyle--bullet noborder">
+										<li>• <span>옵션1 :</span> <span>${reviewBefore.order_detail_option1}</span>
+										</li>
+										<li>• <span>옵션2 :</span> <span>${reviewBefore.order_detail_option2}</span>
+										</li>
+										<li>• <span>옵션3 :</span> <span>${reviewBefore.order_detail_option3}</span>
+										</li>
+										<li>• <span>악세사리(선택):</span> <span>선택사항없음</span>
+										</li>
+										<li>• 수량: ${reviewBefore.order_detail_quantity}개</li>
+									</ul>
+									<a onclick="formVisible()" id="form-open" class="ui_btn--large" href="write_review.do?order_detail_code=${reviewBefore.order_detail_code}"
+										data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
+										작성하기</a>
 								</div>
-								<ul class="liststyle--bullet noborder">
-									<li>• <span>옵션1 :</span> <span>${reviewBefore.order_detail_option1}</span>
-									</li>
-									<li>• <span>옵션2 :</span> <span>${reviewBefore.order_detail_option2}</span>
-									</li>
-									<li>• <span>옵션3 :</span> <span>${reviewBefore.order_detail_option3}</span>
-									</li>
-									<li>• <span>악세사리(선택):</span> <span>선택사항없음</span>
-									</li>
-									<li>• 수량: ${reviewBefore.order_detail_quantity}개</li>
-								</ul>
-								<a onclick="formVisible()" id="form-open" class="ui_btn--large" href="write_review.do?order_detail_code=${reviewBefore.order_detail_code}"
-									data-modal-id="modal-review" data-modal-trigger="modal-link">구매후기
-									작성하기</a>
-							</div>
-						</li>
+							</li>
 						</c:forEach>
 						<c:if test="${empty reviewBeforeList}">
 							<div class="banner-empty review-list-empty">

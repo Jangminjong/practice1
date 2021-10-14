@@ -22,15 +22,15 @@
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
-<meta name="application-name" content="아이디어스" />
+<meta name="application-name" content="아이디위드" />
 <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리" />
 <meta property="fb:app_id" content="1410666675867984" />
 <meta name="description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!" />
+<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디위드" />
 <meta property="og:type" content="website" />
 <meta property="og:description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!" />
 <meta property="og:url"
 	content="http://www.idus.com/w/main/popular-category" />
 <meta property="og:image"
@@ -57,22 +57,37 @@
 		<div id="content" class="content" data-gnb-show="true">
 			<section class="banner-title" data-image="type1" data-theme="orange">
 				<h1>인기작품</h1>
-				<p>아이디어스에서 가장 인기있는 작품들이에요.</p>
+				<p>아이디위드에서 가장 인기있는 작품들이에요.</p>
 			</section>
 
 			<div class="inner-w">
 			 <c:set var="i" value="-1"/>
 			 <c:forEach var="goodsCategory" items="${goodsCategoryList}">
-				<div class="ui_title--bg" style="width: 90%; margin-left: 5%;">
+			  <c:set var="i" value="${i + 1}"/>
+			 	<c:choose>
+			 		<c:when test="${i eq 0 }">
+				<div class="ui_title--bg" style="width:115%;">
+					</c:when>
+					<c:when test="${i ne 0 }">
+					<div class="ui_title--bg" style="width:70%; margin-left:20%;">
+					</c:when>
+				</c:choose>
 					<a
 						href="goods_category.do?goods_category=${goodsCategory.goods_category_code}"
 						data-category-uuid="a9970f75-ea75-11e4-8a46-06fd000000c2"
 						class="ui_title__txt">${goodsCategory.goods_category_name}</a> 
 					</a>
 				</div>
-				<div class="ui_grid"  style="width: 90%; margin-left: 5%;">
+				<c:choose>
+			 		<c:when test="${i eq 0 }">
+				<div class="ui_grid" style="width:115%;">
+					</c:when>
+					<c:when test="${i ne 0 }">
+				<div class="ui_grid" style="width:70%; margin-left:20%;">
+					</c:when>
+				</c:choose>	
 					<ul class="ui_grid__cols--5 ui_grid__cols--m2">
-					 <c:set var="i" value="${i + 1}"/>
+					
 							<c:choose>
 								<c:when test="${i eq 0}">
 									<c:set var="items" value="${goodsList0 }" />
@@ -161,7 +176,7 @@
 
 									<div class="ui_card__info">
 										<a href="/w/artist/f0775b5a-35ff-4396-9e6a-2b7084a40210"
-											class="ui_card__label" target="_blank">${goodsVO.goods_name }</a> <a
+											class="ui_card__label" target="_blank">${goodsVO.store_name }</a> <a
 											href="detail_content.do?goods_code=${goodsVO.goods_code }"
 											class="ui_card__title"
 											data-product-id="c2681596-227f-4b06-a558-296e711cf910"

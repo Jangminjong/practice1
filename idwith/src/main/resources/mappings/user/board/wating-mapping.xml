@@ -24,12 +24,10 @@
 		<result property="class_category" column="class_category"/>
 		<result property="class_name" column="class_name"/>
 		<result property="class_code" column="class_code"/>
-		<result property="class_price" column="class_price"/>
 		<result property="class_post_address" column="class_post_address"/>
 		<result property="class_address" column="class_address"/>
 		<result property="class_detail_address" column="class_detail_address"/>
 		<result property="class_reference" column="class_reference"/>
-		<result property="class_person" column="class_person"/>
 		<result property="class_info" column="class_info"/>
 		<result property="class_reg_date" column="class_reg_date"/>
 		<result property="class_phone" column="class_phone"/>

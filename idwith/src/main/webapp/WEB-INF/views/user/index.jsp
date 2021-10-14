@@ -106,6 +106,7 @@
 				data-ui="load-all-on-scroll">
 				<div class="stickyparent">
 					<div class="ui_title">
+						<a href="pdfTest.do">PDF 사용해보기</a>
 						<a href="goods_popular.do" class="ui_title__txt"> <span>인기작품</span>
 							<i class="bubble"></i></a>
 					</div>
@@ -166,7 +167,7 @@
 													<!-- 상품정보 -->
 													<div class="ui_card__info">
 														<a href="seller_goods.do" class="ui_card__label"
-															target="_blank">${goodsVO.goods_name }</a> <a
+															target="_blank">${goodsVO.store_name }</a> <a
 															href="detail_content.do?goods_code=${goodsVO.goods_code }" class="ui_card__title"
 															target="_blank">${goodsVO.goods_name }</a>
 													</div>

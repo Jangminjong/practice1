@@ -222,9 +222,9 @@
 											<div class="quantumWizTextinputPaperinputInputArea">
 												<select name='goods_apply_category' id="productCategory" onblur="onblurEvent(this);">
 												  <option value='' selected>-- 선택 --</option>
-												  <option value='ceramic'>도자기</option>
-												  <option value='doll'>인형</option>
-												  <option value='phone_case'>휴대폰 케이스</option>
+												  <c:forEach var="goodsCategoryList" items="${goodsCategoryList}">											  
+												  	<option value='${goodsCategoryList.goods_category_code}'>${goodsCategoryList.goods_category_name}</option>
+												  </c:forEach>	
 												</select>
 												<!-- select 선택할 수 있게 -->
 											</div>

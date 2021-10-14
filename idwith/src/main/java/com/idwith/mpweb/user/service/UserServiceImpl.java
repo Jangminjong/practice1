@@ -12,7 +12,7 @@ import com.idwith.mpweb.user.UserAddressVO;
 
 import com.idwith.mpweb.user.ChoiceVO;
 import com.idwith.mpweb.user.FollowVO;
-
+import com.idwith.mpweb.user.SaveVO;
 import com.idwith.mpweb.user.UserDAO;
 import com.idwith.mpweb.user.UserVO;
 
@@ -43,13 +43,18 @@ public class UserServiceImpl implements UserService {
 		String password = vo.getUser_pwd();
 
 		UserVO dbResult = dao.getUser(email);
-		String dbEmail = dbResult.getUser_id();
-		String dbPassword = dbResult.getUser_pwd();
+		
+		if(dbResult != null) {
+			String dbEmail = dbResult.getUser_id();
+			String dbPassword = dbResult.getUser_pwd();
 
-		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-		boolean match = scpwd.matches(password, dbPassword);
-		if (email.equals(dbEmail) && match) {
-			result = 1;
+			BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+			boolean match = scpwd.matches(password, dbPassword);
+			if(match == false) {
+				result = 1;
+			}else if (email.equals(dbEmail) && match) {
+				result = 2;
+			}
 		}
 
 		return result;
@@ -153,4 +158,34 @@ public class UserServiceImpl implements UserService {
 		return dao.changeFollow(follow);
 	}
 
+	@Override
+	public UserVO getOrderUser(String user_id) {
+		return dao.getOrderUser(user_id);
+	}
+
+	@Override
+	public UserVO loginUser(String email) {
+		return dao.loginUser(email);
+	}
+	
+	public int setCart(String email) {
+		return dao.setCart(email);
+	}
+
+	@Override
+	public void updateUserInfoAtPayment(UserVO user) {
+		dao.updateUserInfoAtPayment(user);
+		
+	}
+
+	@Override
+	public void updateOrderSave(SaveVO point) {
+		dao.updateOrderSave( point);
+		
+	}
+
+	@Override
+	public void insertNewOrderSave(SaveVO point) {
+		dao.insertNewOrderSave(point);
+	}
 }

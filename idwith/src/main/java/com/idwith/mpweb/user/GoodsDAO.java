@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.idwith.mpweb.common.PagingVO;
+
 @Repository
 public class GoodsDAO {
 	@Autowired
@@ -16,7 +18,8 @@ public class GoodsDAO {
 	}
 	
 	public List<GoodsVO> getGoodsList(GoodsVO goodsVO){
-		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsVO);
+		List<GoodsVO> lists = sqlSessionTemplate.selectList("GoodsDAO.getGoodsList",goodsVO);
+		return lists;
 	}
 
 	public GoodsVO getGoodsContent(String goods_code) {
@@ -37,11 +40,27 @@ public class GoodsDAO {
 		return (GoodsReviewVO) sqlSessionTemplate.selectList("GoodsDAO.getDetailReviewList", goods_code);
 	}
 	
-	public List<GoodsVO> getGoodsOptionList(String goods_code) {
+	public List<GoodsOptionVO> getGoodsOptionList(String goods_code) {
 		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsOptionList", goods_code);
 	}
 	public List<GoodsCategoryVO> getAllGoodsCategory() {
 		return sqlSessionTemplate.selectList("GoodsDAO.getAllGoodsCategory");
+	}
+
+	public List<GoodsVO> sellerOtherGoodsList(int seller_code) {
+		return sqlSessionTemplate.selectList("GoodsDAO.sellerOtherGoodsList", seller_code);
+	}
+		
+	public int countGoodsForSearch(String search) {
+		return sqlSessionTemplate.selectOne("GoodsDAO.countGoodsForSearch", search);
+	}
+
+	public List<GoodsVO> getGoodsListForSearch(PagingVO goodsPageVO) {
+		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsListForSearch", goodsPageVO);
+	}
+
+	public List<GoodsCategoryVO> getGoodsCategory() {
+		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsCategoryForOffer");
 	}
 
 }

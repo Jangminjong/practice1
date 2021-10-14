@@ -22,6 +22,7 @@
  		<result property="user_option_addr2" column="user_option_addr2"/>
  		<result property="user_order" column="user_order"/>
  		<result property="user_black_check" column="user_black_check"/>
+ 		<collection property="userAddressVO" resultMap="userAddressResult" />
  	</resultMap>
  	
  	<resultMap type="userAddressVO" id="userAddressResult">
@@ -33,6 +34,14 @@
  		<result property="user_zipcode" column="user_zipcode" />
  		<result property="user_address1" column="user_address1" />
  		<result property="user_address2" column="user_address2" />
+ 	</resultMap>
+ 	
+ 	<resultMap type="saveVO" id="saveResult">
+ 		<result property="save_seq" column="save_seq"/>
+ 		<result property="save_id" column="save_id"/>
+ 		<result property="save_point" column="save_point"/>
+ 		<result property="order_save_true" column="order_save_true"/>
+ 		<result property="save_goods_code" column="save_goods_code"/>
  	</resultMap>
  	
  	<!-- 회원가입 -->
@@ -68,9 +77,19 @@
  		SELECT count(*) FROM client WHERE user_phone=#{user_phone}
  	</select>
  	
+ 	<!-- 아이디가 존재하는지 확인 -->
+ 	<select id="idCheck" resultType="_boolean">
+ 		select exists (select * from client where user_id=#{user_id}) as isChk;
+ 	</select>
  	
+ 	<!-- 아이디가 있을 시 아이디, 비밀번호 가져가기 -->
  	<select id="selectLogin" resultType="userVO">
  		select user_id, user_pwd from client where user_id=#{user_id}
+ 	</select>
+ 	
+ 	<!-- 유저 정보 가져가기 -->
+ 	<select id="getLoginUser" resultType="userVO">
+ 		select * from client where user_id=#{user_id}
  	</select>
  	
  	<!-- 아이디 찾기 시 해당ID가 테이블에 존재하는지 확인 -->
@@ -92,6 +111,39 @@
  		select user_name from client where user_name=#{user_name}
  	</select>
  	
+ 	<!-- 결제 페이지 주문자 정보 가져오기 -->
+ 	<select id="getOrderUser" resultType="userVO">
+ 		select * from client where user_id=#{user_id}
+ 	</select>
+
+ 	<!-- 클래스 결제에 사용할 정보 가져오기 -->
+ 	<select id="getUserInfoForClassReg" parameterType="string" resultType="userVO">
+ 		SELECT client.*, order_save.save_seq, order_save.save_point, order_save.order_save_true FROM client
+				LEFT OUTER JOIN order_save ON client.user_id = order_save.save_id 
+							AND order_save.order_save_true = true
+		WHERE user_id=#{email}
+ 	</select>
+ 	
+ 	<!-- 상품/클래스 주문시 입력되는 이름, 전화번호 넣어주기 -->
+ 	<update id="updateUserInfoAtPayment" parameterType="userVO">
+ 		UPDATE client SET user_name=#{user_name}, user_phone=#{user_phone} WHERE user_id=#{user_id}
+ 	</update>
+ 	
+ 	<!-- 기존의 true 상태인 포인트들 false로 변환 -->
+ 	<update id="updateOrderSaveExist" parameterType="saveVO">
+ 		UPDATE order_save SET order_save_true=false WHERE save_id=#{save_id}
+ 	</update>
+ 	
+ 	<!-- 사용하고 남은 포인트 다시 넣어주기 -->
+ 	<insert id="updateOrderSaveBalance" parameterType="saveVO">
+ 		INSERT INTO order_save (save_id, save_point, order_save_true, save_goods_code)
+ 					VALUES(#{save_id}, #{save_point}, true, 'order_save_balance')
+ 	</insert>
+ 	<!-- 신규 구매로 발생한 포인트 저장 -->
+ 	<insert id="insertNewOrderSave" parameterType="saveVO">
+ 		INSERT INTO order_save (save_id, save_point, order_save_true, save_goods_code)
+ 					VALUES(#{save_id}, #{save_point}, true, #{save_goods_code})
+ 	</insert>
  	<!--  <update id="updateBoard" parameterType="myboard">
  		UPDATE myboard
  		SET title=#{title}, content=#{content} WHERE seq = #{seq}

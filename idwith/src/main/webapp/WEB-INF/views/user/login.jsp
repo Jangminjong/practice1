@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
@@ -22,8 +23,8 @@
 
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="resources/js/socialLogin.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 
 <!-- 파비콘 이미지 설정 -->
@@ -32,16 +33,6 @@
 </head>
 
 
-<link rel="apple-touch-icon" sizes="384x384"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="256x256"
-	href="/resources/dist/images/app-icon/icon_300.png">
-<link rel="apple-touch-icon" sizes="192x192"
-	href="/resources/dist/images/app-icon/icon_192.png">
-<link rel="apple-touch-icon" sizes="128x128"
-	href="/resources/dist/images/app-icon/icon_120.png">
-<link rel="apple-touch-icon" sizes="96x96"
-	href="/resources/dist/images/app-icon/icon_96.png">
 <link rel="manifest" href="/manifest.json">
 
 <!-- Intersection Observer polyfill -->
@@ -56,22 +47,14 @@
 	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
 <link rel="canonical"
 	href="http://www.idus.com/w/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%25EB%25A7%259B%25EC%259E%2588%25EB%258A%2594%2520%25EA%25B9%2590%25EB%25B0%25A4" />
-<script>
-	window.__client_env__ = 'production';
-	window.CNN_DOMAIN = 'https://cnn.idus.com';
-</script>
+
 <!-- project src -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-<!-- Kakao web SDK -->
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-<!-- Signin With Apple -->
-<script type="text/javascript"
-	src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
-
+<script>
+		Kakao.init('487ca5895feb7a04e42984525f8de371');
+		console.log(Kakao.isInitialized());
+</script>
 </head>
 <body>
 	<div data-vue="token"></div>
@@ -137,21 +120,29 @@
 						class="email_login_container">
 						<!-- <form action="index.do" method="post" class="form" id="form"> -->
 							<div data-v-22bdcf3e="">
-								<input data-v-22bdcf3e="" id="email_login_input" type="email"
-									placeholder="이메일" required="required" class="login_input" name="user_id">
+								<c:choose>
+									<c:when test="${email eq null}">
+										<input data-v-22bdcf3e="" id="email_login_input" type="email"
+											placeholder="이메일" required="required" class="login_input" name="user_id" onkeyup="enterkey()">
+									</c:when>
+									<c:when test="${email ne null}">
+										<input data-v-22bdcf3e="" id="email_login_input" type="email" value="${email}"
+											placeholder="이메일" required="required" class="login_input" name="user_id" onkeyup="enterkey()">
+									</c:when>
+								</c:choose>
 								<p data-v-22bdcf3e="" class="verify_error_message"
 									id="email_error">필수 항목입니다.</p>
 
 								<input data-v-22bdcf3e="" id="password_login_input"
 									type="password" placeholder="비밀번호" required="required"
-									class="login_input" name="user_pwd">
+									class="login_input" name="user_pwd" onkeyup="enterkey()">
 								<p data-v-22bdcf3e="" class="verify_error_message"
 									id="password_error">필수 항목입니다.</p>
 							</div>
 							<div data-v-22bdcf3e="" class="email_login_option">
 								<div data-v-22bdcf3e="" class="check_label">
 									<div data-v-22bdcf3e="" class="input_checkbox">
-										<input data-v-22bdcf3e="" type="checkbox" class="bp">
+										<input type="checkbox" name="emailSave" onclick="selectEmail(this)">
 									</div>
 									<label data-v-22bdcf3e="" for="emailsave"> 이메일 저장하기 </label>
 								</div>
@@ -210,7 +201,7 @@
 			const password = $("#password_login_input").val();
 			
 			$.ajax({
-				url: "${pageContext.request.contextPath}/loginCheck.do",
+				url: "loginCheck.do",
 				type: "GET",
 				data: {
 						"email": $("#email_login_input").val(),
@@ -218,9 +209,12 @@
 					},
 				success: function(data){
 					if(data == 0){
-						alert('아이디와 비밀번호를 다시 확인해주세요');
+						alert('존재하지 않는 회원입니다.');
 						location.replace("/mpweb/login.do");
 					}else if(data == 1){
+						alert('비밀번호를 확인해주세요.');
+						location.replace("/mpweb/login.do");
+					}else {
 						location.replace("/mpweb/index.do");
 					}
 				},

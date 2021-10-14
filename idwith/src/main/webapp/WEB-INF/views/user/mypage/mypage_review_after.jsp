@@ -15,7 +15,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 내가 쓴 구매 후기</title>
+<title>아이디위드 | 내가 쓴 구매 후기</title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="apple-touch-icon" sizes="384x384"
 	href="/resources/dist/images/app-icon/icon_300.png">
@@ -91,8 +91,8 @@
 						</div>
 						<div class="area-txt">
 							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
-								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">OOO</strong>
+								<span>${user_grade} &gt;</span>
+							</a> <strong data-profile="name">${user_name}</strong>
 						</div>
 					</div>
 
@@ -123,6 +123,7 @@
 							</b> <a href="mypage_level.do" class="">회원 등급</a> <a
 								href="mypage_info.do" class="">회원 정보 관리</a> <a
 								href="mypage_address.do" class="">주소(배송지) 관리</a>
+							<a href="mypage_address.do" class="">주소(배송지) 관리</a>
 						</nav>
 					</div>
 				</aside>
@@ -146,37 +147,36 @@
 							data-query="next" data-param=""
 							style="position: relative;">
 							<c:forEach var="reviewAfter" items="${reviewAfterList}">
-							<li class="card-style story"
-								style="position: absolute; left: 0px; top: 0px;">
-								<div class="bordering">
-									<div class="area-txt">
-										<div class="area-rating">
-											<div class="img-bg"
-												style="background-image: url(${reviewAfter.goods_photo[0]})"></div>
-											<a href="detail_content.do?goods_code=${reviewAfter.goods_review_code }"
-												target="_blank" class="title ellipsis">${reviewAfter.goods_name}</a>
-											<div class="ui_rating" data-ui="rating" data-value="${reviewAfter.goods_review_point}">
-												<c:forEach var="i" begin="1" end="${reviewAfter.goods_review_point}" >
-													<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
-												</c:forEach>
+								<li class="card-style story" style="float: left;">
+									<div class="bordering">
+										<div class="area-txt">
+											<div class="area-rating">
+												<div class="img-bg"
+													style="background-image: url(${reviewAfter.goods_photo[0]})"></div>
+												<a href="detail_content.do?goods_code=${reviewAfter.goods_review_code }"
+													target="_blank" class="title ellipsis">${reviewAfter.goods_name}</a>
+												<div class="ui_rating" data-ui="rating" data-value="${reviewAfter.goods_review_point}">
+													<c:forEach var="i" begin="1" end="${reviewAfter.goods_review_point}" >
+														<i class="fa fa-star" aria-hidden="true" style="color:#f2b705;"></i>
+													</c:forEach>
+												</div>
 											</div>
-										</div>
-										<div class="split-hard">
-											<span class="split crop-circ"
-												style="background-image: url(https://image.idus.com/image/files/40c493d070b94d0d9e7203246b33cac3_320.jpg)">
-											</span>
-											<div class="split">
-												<span class="txt-strong">${reviewAfter.goods_review_id.split("@")[0]}</span>
-												<span class="txt">${reviewAfter.goods_review_date}</span>
+											<div class="split-hard">
+												<span class="split crop-circ"
+													style="background-image: url(https://image.idus.com/image/files/40c493d070b94d0d9e7203246b33cac3_320.jpg)">
+												</span>
+												<div class="split">
+													<span class="txt-strong">${reviewAfter.goods_review_id.split("@")[0]}</span>
+													<span class="txt">${reviewAfter.goods_review_date}</span>
+												</div>
 											</div>
+											<p class="desc">${reviewAfter.goods_review_context }</p> <br>
+											<br>
+											<div class="area-img" style="background-image: url(${reviewAfter.goods_review_image[0]})"></div>
 										</div>
-										<p class="desc">${reviewAfter.goods_review_context }</p> <br>
-										<br>
-										<div class="area-img" style="background-image: url(resources/images/review/${reviewAfter.goods_review_image[0]})"></div>
+										<button class="review-del-btn"><a href="delete_review.do?goods_review_seq=${reviewAfter.goods_review_seq}">삭제</a></button>
 									</div>
-									<button class="review-del-btn"><a href="delete_review.do?goods_review_seq=${reviewAfter.goods_review_seq}">삭제</a></button>
-								</div>
-							</li>
+								</li>
 							</c:forEach>
 							<c:if test="${empty reviewAfterList}">
 								<div class="banner-empty review-list-empty">

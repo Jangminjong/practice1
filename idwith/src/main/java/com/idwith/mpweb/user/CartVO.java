@@ -1,21 +1,42 @@
 package com.idwith.mpweb.user;
 
-public class CartVO {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class CartVO{
 	private int cart_num; //장바구니 번호
 	private String goods_code; //상품 번호
 	private int seller_code; //작가 코드
-	private int goods_price; //상품 가격
+	private int goods_price; //상품 총 가격
 	private int cart_quantity; //수량
-	private String goods_option1; //상품 옵션1
-	private String goods_option2; //상품 옵션2
-	private String goods_option3; //상품 옵션3
+	private String[] goods_option_value; //상품 옵션
+	private String[] goods_option_price; //가격 옵션
 	private int cart_delivery_fee; // 배송비
 	private int cart_donation; // 후원금액
 	private int cart_save; // 적립금
 	private String user_id; //구매자 아이디
 	private boolean cart_pay_check; //결제여부
 	private String cart_order_content; //주문 요청 사항
+	private String store_name; //상점 이름
+	private GoodsVO goodsVO;
 	
+	private boolean checkAll; //*
+	
+	public CartVO() {}
+	
+	private int optionNum; //선택한 옵션의 개수
+	
+	public int getOptionNum() {
+		return optionNum;
+	}
+	public void setOptionNum(int optionNum) {
+		this.optionNum = optionNum;
+	}
+	public GoodsVO getGoodsVO() {
+		return goodsVO;
+	}
+	public void setGoodsVO(GoodsVO goodsVO) {
+		this.goodsVO = goodsVO;
+	}
 	public int getCart_num() {
 		return cart_num;
 	}
@@ -47,23 +68,23 @@ public class CartVO {
 	public void setCart_quantity(int cart_quantity) {
 		this.cart_quantity = cart_quantity;
 	}
-	public String getGoods_option1() {
-		return goods_option1;
+	public String[] getGoods_option_value() {
+		return goods_option_value;
 	}
-	public void setGoods_option1(String goods_option1) {
-		this.goods_option1 = goods_option1;
+	public void setGoods_option_value(String[] goods_option_value) {
+		this.goods_option_value = goods_option_value;
 	}
-	public String getGoods_option2() {
-		return goods_option2;
+	public String[] getGoods_option_price() {
+		return goods_option_price;
 	}
-	public void setGoods_option2(String goods_option2) {
-		this.goods_option2 = goods_option2;
+	public void setGoods_option_price(String[] goods_option_price) {
+		this.goods_option_price = goods_option_price;
 	}
-	public String getGoods_option3() {
-		return goods_option3;
+	public String getStore_name() {
+		return store_name;
 	}
-	public void setGoods_option3(String goods_option3) {
-		this.goods_option3 = goods_option3;
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
 	}
 	public int getCart_delivery_fee() {
 		return cart_delivery_fee;
@@ -101,14 +122,12 @@ public class CartVO {
 	public void setCart_order_content(String cart_order_content) {
 		this.cart_order_content = cart_order_content;
 	}
-	@Override
-	public String toString() {
-		return "CartVO [cart_num=" + cart_num + ", goods_code=" + goods_code + ", seller_code=" + seller_code
-				+ ", goods_price=" + goods_price + ", cart_quantity=" + cart_quantity + ", goods_option1="
-				+ goods_option1 + ", goods_option2=" + goods_option2 + ", goods_option3=" + goods_option3
-				+ ", cart_delivery_fee=" + cart_delivery_fee + ", cart_donation=" + cart_donation + ", cart_save="
-				+ cart_save + ", user_id=" + user_id + ", cart_pay_check=" + cart_pay_check + ", cart_order_content="
-				+ cart_order_content + "]";
+	public boolean isCheckAll() {
+		return checkAll;
 	}
+	public void setCheckAll(boolean checkAll) {
+		this.checkAll = checkAll;
+	}
+	
 	
 }
