@@ -40,7 +40,7 @@
 					</div>
 					<div class="offer-btn-wrap">
 						<button class="offer-btn"><a href="offer_product.do" style="color: white;">작품 입점 신청 하기</a></button>
-						<button class="offer-btn"><a href="offer_product.do" style="color: white;">클래스 입점 신청 하기</a></button>
+						<button class="offer-btn"><a href="offer_class.do" style="color: white;">클래스 입점 신청 하기</a></button>
 					</div>
 				</div>
 				<a href="board.do" ><button class="btn-qna-board">목록</button></a>

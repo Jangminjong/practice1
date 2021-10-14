@@ -6,14 +6,14 @@
 <mapper namespace="SellerDAO">
  	<resultMap type="sellerVO" id="sellerResult">
  		<result property="seller_code" column="seller_code"/>
- 		<result property="seller_name" column="seller_name"/>
+ 		<result property="store_name" column="store_name"/>
  		<result property="seller_sellno" column="seller_sellno"/>
  		<!-- <result property="seller_sellno_img" column="seller_sellno_img"/> -->
  		<result property="user_id" column="user_id"/>
  	</resultMap>
  	<insert id="insertSeller" parameterType="sellerVO">
- 		INSERT INTO seller (seller_code, seller_name, seller_sellno, user_id)
- 		VALUES(#{seller_code}, #{seller_name}, #{seller_sellno}, #{user_id})
+ 		INSERT INTO seller (seller_code, store_name, seller_sellno, user_id)
+ 		VALUES(#{seller_code}, #{store_name}, #{seller_sellno}, #{user_id})
  	</insert>
  	
  	<!-- 이미 작가에 등록이 되어있는지 확인 -->

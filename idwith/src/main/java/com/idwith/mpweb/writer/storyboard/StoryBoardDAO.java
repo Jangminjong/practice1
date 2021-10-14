@@ -28,9 +28,9 @@ public class StoryBoardDAO {
 	}
 
 	// 스토리 페이징 처리
-	public int countStoryBoard() {
+	public int countStoryBoard(int storySeller) {
 		System.out.println("countStoryBoard() 기능 처리");
-		return sqlSessionTemplate.selectOne("StoryBoardDAO.countStoryBoard");
+		return sqlSessionTemplate.selectOne("StoryBoardDAO.countStoryBoard", storySeller);
 	}
 
 	// 스토리 상세페이지

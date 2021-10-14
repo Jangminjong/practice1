@@ -9,7 +9,6 @@ $(document).ready(function (){
 	
 	//옵션 선택이 안되어 있을 시 경고창 띄우기
 	$('.cart').click(function (){
-		
 		var cartInfo = 0;
 		var valueArray = new Array(); // 값을 담을 배열
 
@@ -20,7 +19,7 @@ $(document).ready(function (){
 		});
 
 		for(let i=0; i<valueArray.length; i++){
-			console.log(valueArray[i]);
+			console.log("선택 상품 : " + valueArray[i]);
 			if(valueArray[i] == undefined){
 				cartInfo = 1;
 				break;
@@ -37,27 +36,40 @@ $(document).ready(function (){
 			
 			console.log('옵션 길이 : ' + $('input[name=optionNum]').val());
 			
-			$.ajax({
-				url: "insertCart.do",
-				type: "POST",
-				async: false,
-				data: $('#buyScrollable').serialize(),
-				datatype: 'json',
-				success: function(data){
-					$('.selected_options').css({'display': 'none'});
-					$('#total').attr('value', 0);
-					alert('장바구니에 추가되었습니다');
-				},
-				error: function(request, status, error){
-					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			//로그인 한 상태인지 확인 후 
+			var loginState = $('#user_id').val();
+			
+			if(loginState == ''){//로그인이 되어있지 않을 때 : 로그인화면으로 이동
+				alert('로그인이 필요합니다.');
+				location.replace("login.do");
+			}else { //로그인되어 있을 때 : 장바구니에 insert --> 수량에 -1을 해서 보내는 듯
+				
+				if(state == 'insertCart'){ //장바구니에 추가할 때
+					$.ajax({
+						url: "insertCart.do",
+						type: "POST",
+						async: false,
+						data: $('#buyScrollable').serialize(),
+						datatype: 'json',
+						success: function(data){
+							$('.selected_options').css({'display': 'none'});
+							$('#total').attr('value', 0);
+							alert('장바구니에 추가되었습니다');
+							location.reload();
+						},
+						error: function(request, status, error){
+							alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+						}
+					}); //end ajax
+				}else if(state == 'directPayment'){ //바로 결제할 때
+					
 				}
-			}); //end ajax
+			}
 		}
 		
 	});//end event
 	
 	//작품 정보제공 고시
-$(document).ready(function() {
 	$('#info-prd-btn').click(function() {
 		const activeCheck = $('#info-prd-btn').attr('class'); //클래스 이름 가져오기
 		
@@ -97,18 +109,49 @@ $(document).ready(function() {
 	});
 	
 	//이미지 이전 버튼 클릭시 발생되는 이벤트
+	var imgIndex = 0; //이미지의 인덱스
+	var imgList = [];
 	$('#image_prev_btn').click(function() {
-		var imgList = document.getElementById('main_image');
-		var imageArray = []; //저장된 이미지 경로 가져와서 배열에 넣아야함.
-		var imageIndex = 0;
-		
-		imgList.setAttribute("src", imageArray[imageIndex]);
-		imageIndex++;
-		if(imageIndex >= imageArray.length){
-			imageIndex = 0;
+		var imgLength = 0; //이미지의 총 개수
+		$(".img-list li").each(function(index, element) {
+     		img = $(this).css('background-image');
+			console.log('순서: ' + index);
+			imgList[index] = img;
+			imgLength += 1;
+   		});
+
+		if(imgIndex == 0){
+			imgIndex == imgLength;
+		}else if(imgIndex >= 1){
+			imgIndex -= 1;
 		}
+
+		const setImg = imgList[imgIndex];
+		
+		$('#main_image').css({'background-image': setImg});
 	});
-});
+	
+	//이미지 다음 버튼 클릭시 발생되는 이벤트
+	$('#image_next_btn').click(function() {
+		var imgLength = 0; //이미지의 총 개수
+		$(".img-list li").each(function(index, element) {
+     		img = $(this).css('background-image');
+			console.log('순서: ' + index);
+			imgList[index] = img;
+			imgLength += 1;
+   		});
+
+		if(imgIndex == imgLength){
+			imgIndex == 0;
+		}else if(imgIndex < imgLength){
+			imgIndex += 1;
+		}
+
+		const setImg = imgList[imgIndex];
+		
+		$('#main_image').css({'background-image': setImg});
+	});
+});//end document ready
 
 var selectNum = 0; //현재 선택한 옵션의 수를 저장하는 변수
 function optionClose(index){
@@ -147,7 +190,9 @@ function selOptionChange(){
 	
 	//실제로 모든 옵션이 선택되었는지 확인하는 로직
 	for(let i=0; i<valueArray.length; i++){
+		console.log("선택 상품 : " + valueArray[i]);
 		if(valueArray[i] == undefined){
+			console.log(i+"번째 : 카트번호 1");
 			cartInfo = 1;
 			break;
 		}else if(valueArray[i] != undefined){
@@ -230,11 +275,11 @@ function selOptionChange(){
 				$('select[name=goods_option_value] option:eq(0)').prop("selected", true);
 			}); */
 			
-			var selectInit = $('select[name=goods_option_value]');
+			/*var selectInit = $('select[name=goods_option_value]');
 			for(let i=0; i<selectInit.length; i++){
 				var selId = '#' + selectInit[i].id;
 				$(selId+' option:eq(0)').prop("selected", true);
-			} 
+			} */
 			
 			selectNum += 1;
 			selIndex += 1;
@@ -319,8 +364,6 @@ function minusQuantity(str) {
 		$('#total').attr('value', total);
 	}
 }
-
-});
 
 function choicePeople(date, time, people){
 	
@@ -498,3 +541,20 @@ document.querySelector('#next-year').onclick = () => {
 }
 
 });
+
+
+function changeImage(arg){
+	console.log('서브 이미지 클릭 이벤트 실행');
+	
+	var str1 = arg.split(",");
+	var str2 = str1[1];
+	var index = str2;
+	console.log('인덱스 : #sub_image,'+index);
+	
+	const clickImage = $('#sub_image,'+index).css('background-image');
+	console.log('버튼 클릭된 이미지 : ' + clickImage);
+	
+		
+	$('#main_image').css({'background-image': clickImage});
+}
+

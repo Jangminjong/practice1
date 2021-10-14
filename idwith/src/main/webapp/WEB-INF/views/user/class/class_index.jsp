@@ -198,14 +198,14 @@
 				</div>
 				<div class="ui_grid">
 					<ul class="ui_grid__cols--4 ui_grid__cols--m2">
-					<c:forEach var="class" items="${popularClassList }">
+					<c:forEach var="classVO" items="${popularClassList}">
 						<li class="ui_grid__item">
 							<div class="ui_card--white" data-ui="eduCard"
 								data-target-id="789" data-stats-artist="1064389"
 								data-stats-category-depth1="3" data-stats-category-depth2="26"
 								data-lazy-loaded="false" data-logging="edu_list_item"
 								data-was-processed="true">
-								<span class="ui_card__overlay--label">${class.class_open_address }</span>
+								<span class="ui_card__overlay--label">${classVO.class_open_address}</span>
 
 								<button type="button"
 									class="ui_card__overlay btn-ico sp-icon icon-favorite "
@@ -214,16 +214,16 @@
 									data-stats-artist="1064389" data-stats-category-depth1="3"
 									data-stats-category-depth2="26" data-state=""></button>
 								<div class="ui_card__imgcover">
-									<a href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }" target="_blank" class="ui_card__img"
-										data-lazy-img="resources/images/category_class/${class.class_open_photo[0] }"
-										style="background-image: url(resources/images/index/${class.class_open_photo[0]});">
+									<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code}" target="_blank" class="ui_card__img"
+										data-lazy-img="resources/images/category_class/${classVO.class_open_photo[0]}"
+										style="background-image: url(resources/images/index/${classVO.class_open_photo[0]});">
 									</a>
 								</div>
 								<div class="ui_card__txtarea">
 									<div class="ui_card__info">
-										<a href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }" target="_blank" class="ui_card__label">${class.class_category_name }</a>
-										<a href="class_detail_content.do?class_open_class_code=${class.class_open_class_code }" target="_blank" class="ui_card__title"><b>
-												${class.class_open_name }</b></a>
+										<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code }" target="_blank" class="ui_card__label">${classVO.class_category_name }</a>
+										<a href="class_detail_content.do?class_open_class_code=${classVO.class_open_class_code }" target="_blank" class="ui_card__title"><b>
+												${classVO.class_open_name }</b></a>
 									</div>
 									<div class="ui_card__rating">
 										<div class="ui_card__vcenter">

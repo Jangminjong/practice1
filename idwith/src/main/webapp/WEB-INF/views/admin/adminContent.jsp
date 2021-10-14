@@ -25,7 +25,7 @@
 </head>
 
 <body>
-	<input type="hidden" id="admin_role" value="${admin_role }">
+	<input type="hidden" id="admin_role" value="${admin_role}">
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -214,7 +214,7 @@
 										</div>
 										<div class="mb-3">
 											<label class="form-label">전화번호</label>
-											<input type="text" class="form-control" value="${adminList.admin_phone}" name="admin_phone" id="admin_phone" disabled="disabled"
+											<input type="text" class="form-control" value="${adminList.admin_phone}" name="admin_phone" id="admin_phone"
 												style="width: auto;">
 										</div>
 										<div class="mb-3">
@@ -236,7 +236,7 @@
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
 											<div class="col-md-3 text-center"></div>
-											<div class="col-md-3 text-center">
+											<div class="col-md-3 text-right">
 												<input class="btn btn-primary" type="submit" id="admin-listContent-submit" value="수정" />
 												<input class="btn btn-primary" type="reset" value="초기화" />
 												<input class="btn btn-primary" type="button" onclick="location.href='adminList.mdo'" value="목록" />
@@ -251,7 +251,7 @@
 					</div>
 				</div>
 			</main>
-		
+			<script src="resources/admin/js/app.js"></script>
 		</div>
 	</div>
 </body>

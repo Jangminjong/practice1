@@ -57,26 +57,36 @@
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  
                     <li class="dropdown">
+                          <a href="logout.wdo">
+                            <i class="material-icons">logout</i>
+                          </a>
+                        
+                    </li>
+                    
+                    
+
+                    <!-- #END# Tasks -->
+                  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
+                             <i class="material-icons">delete</i>
                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">                                   
+                            <li class="header">입점취소 신청하기</li>
+                            <li class="body text-center"><a href="">취소신청</a>
+                                <ul class="menu">
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <a href="javascript:void(0);">입점취소신청하기</a>
                             </li>
+                           
                         </ul>
                     </li>
-                    
-                    <!-- #END# Tasks -->
-                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                      <i class="material-icons">delete</i></a>
+                    </li>  -->
                 </ul>
             </div>
         </div>
@@ -85,7 +95,7 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-            
+          
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
@@ -101,6 +111,13 @@
                         <a href="orderList.wdo">
                             <i class="material-icons">shopping_cart</i>
                             <span>주문관리</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="orderClass.wdo">
+                            <i class="material-icons">airplay</i>
+                            <span>클래스 신청관리</span>
                         </a>
                     </li>
 
@@ -133,13 +150,6 @@
                     </li>
 
                     <li>
-                        <a href="Follow.wdo">
-                            <i class="material-icons">favorite</i>
-                            <span>팔로우</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="writerStory.wdo">
                             <i class="material-icons">chat</i>
                             <span>작가 이야기</span>
@@ -166,14 +176,21 @@
                             <span>정산</span>
                         </a>
                     </li>
-
+                    
+                    <li>
+                        <a href="index.do">
+                            <i class="material-icons">contact_page</i>
+                            <span>Idwith</span>
+                        </a>
+                    </li>
 
                 </ul>
-            </div> 
-          
+            </div>
+
         </aside>
-        
+
     </section>
+
 
     <section class="content">
       <div class="row">
@@ -183,45 +200,41 @@
                         <h3>쿠폰 발행내역</h3>
                     </div>
                 </div>
-                    <div class="card" style="width: 800px; height: 500px;">
+                    <div class="card" style="width: 800px; height: 520px;">
                        <div class="card-body container-fluid p-0">
                         <form id="form-coupon-writer" name="couponForm" action="couponRequest.wdo" >
                                <input type="hidden" name="request_cp_seq" value="${writerCoupon.request_cp_seq}" />
-                            <div class="mb-3">
+                            <div class="mb-3" style=margin-top:15px;>
                                 <label class="form-label">쿠폰 이름</label>
                                 <input type="text" class="form-control" name="request_cp_name" value="${writerCoupon.request_cp_name}" style="width: auto;" disabled>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3" style=margin-top:10px;>
                                 <label class="form-label" for="release">배포 대상</label>
                                 <input type="text" class="form-control" name="request_cp_target" value="${writerCoupon.request_cp_target}"  list="list"style="width: auto;" disabled>                               
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3" style=margin-top:10px;>
                                 <label class="form-label">적용 조건</label>
                                 <input type="text" class="form-control" name="request_cp_min_price" value="${writerCoupon.request_cp_min_price}" style="width: auto;" disabled>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3" style=margin-top:10px;>
                                 <label class="form-label">쿠폰 할인금액</label>
                                 <input type="text" class="form-control" name="request_cp_price" value="${writerCoupon.request_cp_price}" style="width: auto;" disabled>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style=margin-top:10px;>
                                 <label class="form-label">추가 요청사항</label>
                                 <input type="text" class="form-control" name="request_cp_context" value="${writerCoupon.request_cp_context}" style="width: 450px; height: 75px;" disabled>
                             </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">쿠폰 적용시작일</label>
-                                <input type="text" class="form-control" name="request_cp_start" value="${writerCoupon.request_cp_start}" style="width: auto;" disabled>
-                            </div>
-                            <div class="mb-3">
+                            <div class="mb-3" style=margin-top:10px;>
                                 <label class="form-label">쿠폰 적용종료일</label>
                                 <input type="text" class="form-control" name="request_cp_end" value="${writerCoupon.request_cp_end}" style="width: auto;" disabled>
                             </div>
                             
-                            <div class="col-md-1 text-center pull-right">
-                        <a href="couponRequest.wdo">
+                            <div class="col-md-1 text-center pull-right" style=margin-bottom:15px;>
+                               <a href="couponRequest.wdo">
                             <button class="btn btn-primary">목록</button>
-                        </a>
+                               </a>
                     </div>
 
                         </form>

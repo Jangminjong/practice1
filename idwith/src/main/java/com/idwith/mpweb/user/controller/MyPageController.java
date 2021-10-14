@@ -1,5 +1,7 @@
 package com.idwith.mpweb.user.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.idwith.mpweb.admin.EmailDTO;
 import com.idwith.mpweb.user.UserAddressVO;
@@ -25,6 +28,7 @@ import com.idwith.mpweb.user.GoodsOrderDetailVO;
 import com.idwith.mpweb.user.GoodsReviewVO;
 import com.idwith.mpweb.user.UserVO;
 import com.idwith.mpweb.user.classUser.ClassOrderVO;
+import com.idwith.mpweb.user.common.S3Service;
 import com.idwith.mpweb.user.service.EmailUpdateService;
 import com.idwith.mpweb.user.service.MypageService;
 
@@ -40,7 +44,9 @@ public class MyPageController {
 	@Autowired
 	private EmailUpdateService emailUpdateService;
 	
-
+	@Autowired
+	private S3Service s3Service;
+	
 	@RequestMapping(value = "/mypage.do", method=RequestMethod.GET)
 	public String mypageMain(Model model,HttpSession session) {
 		String user_id = (String) session.getAttribute("email");
@@ -145,15 +151,18 @@ public class MyPageController {
 
 	@GetMapping("/mypage_review_after.do")
 	public String mypageReviewAfter(HttpSession session, Model model) {
-		String goods_review_id = (String) session.getAttribute("email");
+		String goods_review_id = String.valueOf(session.getAttribute("email"));
 		List<GoodsReviewVO> reviewAfterList = myPageService.getReviewAfterList(goods_review_id);
+		
+		System.out.println("이미지 경로 : " + reviewAfterList.get(0).getGoods_review_image()[0]);
+		
 		model.addAttribute("reviewAfterList", reviewAfterList);
 		return "mypage/mypage_review_after";
 	}
 
 	@RequestMapping("/mypage_review_before.do")
 	public String mypageReviewBefore(HttpSession session, Model model) {
-		String order_id = (String) session.getAttribute("email");
+		String order_id = String.valueOf(session.getAttribute("email"));
 		List<GoodsOrderDetailVO> reviewBeforeList = myPageService.getReviewBeforeList(order_id);
 		model.addAttribute("reviewBeforeList", reviewBeforeList);
 		return "mypage/mypage_review_before";
@@ -167,7 +176,24 @@ public class MyPageController {
 	}
 	
 	@PostMapping("/write_review.do")
-	public String insertReview(GoodsReviewVO reviewVO, 	GoodsOrderDetailVO orderVO) {
+	public String insertReview(GoodsReviewVO reviewVO, GoodsOrderDetailVO orderVO, MultipartFile file) throws IOException {
+		InputStream is = file.getInputStream();
+        String uploadKey = file.getOriginalFilename();
+        String contentType = file.getContentType();
+        long contentLength = file.getSize();
+
+        String reviewId = reviewVO.getGoods_review_id();
+        String reviewGoods = reviewVO.getGoods_review_code();
+        
+        String bucket = "idwith/user/" + reviewId +"/goodsReview/"+ reviewGoods; //s3경로 지정
+        s3Service.upload(is, uploadKey, contentType, contentLength, bucket);
+        String filePath = "https://idwith.s3.ap-northeast-2.amazonaws.com/user/"+ reviewId + "/goodsReview/" + reviewGoods +"/" + uploadKey;
+		
+        String[] reviewImg = new String[1];
+        reviewImg[0] = filePath;
+        
+        reviewVO.setGoods_review_image(reviewImg);
+        
 		myPageService.insertReview(reviewVO, orderVO);
 		return "redirect:/mypage_review_after.do";
 	}

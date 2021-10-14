@@ -1,6 +1,7 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -169,15 +170,17 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="watingList" items="${goodsApplyList}"
-												varStatus="status">
+											<c:forEach var="watingList" items="${goodsApplyList}" varStatus="status">
+												<input type="hidden" value="${watingList.goods_apply_seq}" />
 												<tr>
-													<th scope="row">${status.count}</th>
-													<td><a href="classPropose.mdo">${watingList.goods_apply_id}</a></td>
+													<td scope="row">${status.count}</td>
+													<td><a href="productPropose.mdo?goods_apply_seq=${watingList.goods_apply_seq}">${watingList.goods_apply_id}</a></td>
 													<td>${watingList.goods_apply_bsn}</td>
 													<td id="${watingList.store_name}">${watingList.store_name}</td>
 													<td id="${watingList.goods_apply_category}">${watingList.goods_apply_category}</td>
-													<td>${watingList.goods_apply_date}</td>
+													<td>
+														<fmt:formatDate value="${watingList.goods_apply_date}" pattern="yyyy.MM.dd"/>
+													</td>
 													<td>
 														<button type="button" class="btn btn-warning"
 															id="storeProposeAgree" name="${watingList.goods_apply_id}"
@@ -198,7 +201,7 @@
 										<thead>
 											<tr>
 												<th scope="col">#</th>
-												<th scope="col">작가이름</th>
+												<th scope="col">상점이름</th>
 												<th scope="col">사업자등록번호</th>
 												<th scope="col">신청날짜</th>
 												<th scope="col">입점승인/거절</th>
@@ -208,10 +211,12 @@
 											<c:forEach var="classRegList" items="${classRegList}" varStatus="status">
 											<input type="hidden" value="${classRegList.class_reg_seq}" />
 											<tr>
-												<th scope="row">${status.count}</th>
-												<td><a href="classPropose.mdo">${classRegList.store_name}</a></td>
+												<td scope="row">${status.count}</td>
+												<td><a href="classPropose.mdo?class_reg_seq=${classRegList.class_reg_seq}">${classRegList.store_name}</a></td>
 												<td>${classRegList.seller_sellno}</td>
-												<td>${classRegList.class_reg_date}</td>
+												<td>
+													<fmt:formatDate value="${classRegList.class_reg_date}" pattern="yyyy.MM.dd"/>
+												</td>
 												<td>
 													<button type="button" class="btn btn-warning"
 															id="storeProposeAgree" name="${classRegList.user_id}"

@@ -1,9 +1,6 @@
 package com.idwith.mpweb.admin.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,11 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.idwith.mpweb.admin.AdminVO;
+import com.idwith.mpweb.admin.ClassProposeInfoVO;
 import com.idwith.mpweb.admin.EmailDTO;
 import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.admin.UserListVO;
+import com.idwith.mpweb.admin.WriterVO;
 import com.idwith.mpweb.admin.service.AdminService;
+import com.idwith.mpweb.admin.service.ClassSellerService;
 import com.idwith.mpweb.admin.service.EmailService;
+import com.idwith.mpweb.admin.service.GoodsSellerService;
 import com.idwith.mpweb.admin.service.ProposeService;
 import com.idwith.mpweb.admin.service.SellerService;
 import com.idwith.mpweb.admin.service.UserListService;
@@ -42,12 +43,17 @@ public class managementController {
 	@Autowired
 	private EmailService emailService;
 
-	// 회원
 	@Autowired
 	private UserListService userListService;
 	
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired
+	private GoodsSellerService goodsSellerService;
+	
+	@Autowired
+	private ClassSellerService classSellerService;
 	
 	
 	// 회원 
@@ -210,7 +216,6 @@ public class managementController {
 		
 		if(vo != null) {//작가에 등록이 되어있는 경우
 			sellerService.updateSellerStatus(user_id);
-			
 			classRegVO.setClass_seller(vo.getSeller_code());
 			classRegVO.setStore_name(vo.getSeller_name());
 			classRegVO.setSeller_sellno(vo.getSeller_sellno());
@@ -219,7 +224,6 @@ public class managementController {
 		}else if(vo == null) { //작가에 등록이 되어있지 않은 경우
 			try {
 				int randomCode = (int) (Math.random() * 900000) + 100000;
-				
 				SellerVO sellerVO = new SellerVO();
 				sellerVO.setSeller_code(randomCode);
 				sellerVO.setUser_id(user_id);
@@ -243,6 +247,8 @@ public class managementController {
 		System.out.println("이메일 전송 컨트롤러 실행");
 		EmailDTO dto = new EmailDTO();
 
+		System.out.println("이메일 받는 아이디 : " + request.getParameter("user_id"));
+		
 		int result = 0;
 		String agree = request.getParameter("agree");
 		String disagree = request.getParameter("disagree");
@@ -257,16 +263,19 @@ public class managementController {
 			result = 0;
 		}
 		
-		String blockState = request.getParameter("result");
+		Object state = request.getParameter("result");
 		
-		if(Integer.parseInt(blockState) == 2) {
-			dto.setSubject("[IDWITH] 계정 BLOCK 처리 안내");
-			result = 2;
-		}
-		
-		if(Integer.parseInt(blockState) == 3) {
-			dto.setSubject("[IDWITH] 계정 복원 처리 안내");
-			result = 3;
+		if(state != null) {
+			String blockState = state.toString();
+			if(Integer.parseInt(blockState) == 2) {
+				dto.setSubject("[IDWITH] 계정 BLOCK 처리 안내");
+				result = 2;
+			}
+			
+			if(Integer.parseInt(blockState) == 3) {
+				dto.setSubject("[IDWITH] 계정 복원 처리 안내");
+				result = 3;
+			}
 		}
 		
 		emailService.sendMail(dto, result);
@@ -278,12 +287,21 @@ public class managementController {
 	}
 
 	@GetMapping("/productPropose.mdo")
-	public String productPropose() {
+	public String productPropose(GoodsApplyVO goodsApply, Model model, 
+			@RequestParam(value = "goods_apply_seq")int goodsApplySeq) {
+		
+		model.addAttribute("goodsApplyInfo", proposeService.getproductPropose(goodsApplySeq));
+		
 		return "productPropose";
 	}
-
-	@GetMapping("/classPropose.mdo")
-	public String classPropose() {
+	
+	/**클래스 입점신청 상세보기*/
+	@RequestMapping("/classPropose.mdo")
+	public String classPropose(ClassProposeInfoVO classProposeInfo, Model model,
+			@RequestParam(value = "class_reg_seq")int classRegseq) {
+		System.out.println("클래스 입점신청 상세보기 controller");
+		System.out.println("ID : " + classProposeInfo.getClassSeller());
+		model.addAttribute("classProposeInfo", proposeService.getClassProposeInfo(classRegseq));
 		return "classPropose";
 	}
 	
@@ -365,19 +383,90 @@ public class managementController {
 		return "redirect:/adminList.mdo";
 	}
 	
+	//작가 리스트 
 	@GetMapping("/writerList.mdo")
-	public String writerList() {
+	public String writerList(Model model,
+			@RequestParam(value =  "nowPage", required = false)String nowPage,
+			@RequestParam(value = "cntPerPage", required = false)String cntPerPage) {
+		
+		int goodsSellerTotal = goodsSellerService.countGoodsSeller();
+		int classSellerTotal = classSellerService.countClassSeller();
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		PagingVO goodsPagination = new PagingVO(goodsSellerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		PagingVO classPagination = new PagingVO(classSellerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		List<WriterVO> goodsSellerList = goodsSellerService.getGoodsSellerList(goodsPagination);
+		List<WriterVO> classSellerList = classSellerService.getClassSellerList(classPagination);
+		
+		model.addAttribute("goodsPagination", goodsPagination);
+		model.addAttribute("goodsSellerList", goodsSellerList);
+		
+		model.addAttribute("classPagination", classPagination);
+		model.addAttribute("classSellerList", classSellerList);
+		
 		return "writerList";
 	}
 
 	@GetMapping("/productWriter.mdo")
-	public String productWriter() {
+	public String productWriter(Model model, WriterVO writer,
+			@RequestParam(value = "sellerCode")Integer sellerCode) {
+		
+		model.addAttribute("goodsSeller", goodsSellerService.getSellerContent(sellerCode));
+		
 		return "productWriter";
 	}
 
 	@GetMapping("/classWriter.mdo")
-	public String classWriter() {
+	public String classWriter(Model model, WriterVO writer,
+			@RequestParam(value = "sellerCode")Integer sellerCode) {
+		
+		model.addAttribute("classSeller", classSellerService.getClassSellerContent(sellerCode));
+		
 		return "classWriter";
 	}
-
+	
+	@GetMapping("/searchWriter.mdo")
+	public String getSearchWriter(Model model, WriterVO writer, PagingVO pagination,
+			@RequestParam(required = false, value = "nowPage") String nowPage,
+			@RequestParam(required = false, value = "cntPerPage") String cntPerPage) {
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		int countGoodsSearchCnt = goodsSellerService.getGoodsSearchCnt(writer.getSearchKeyword());
+		int countClassSearchCnt = classSellerService.getClassSearchCnt(writer.getSearchKeyword());
+		
+		PagingVO goodsSearchPagination = new PagingVO(countGoodsSearchCnt, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), pagination.getSearchCondition(), pagination.getSearchKeyword());
+		PagingVO classSearchPagination = new PagingVO(countClassSearchCnt, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), pagination.getSearchCondition(), pagination.getSearchKeyword());
+		
+		List<WriterVO> goodsPagingList = goodsSellerService.getSearchGoodsWriter(goodsSearchPagination);
+		List<WriterVO> classPagingList = classSellerService.getSearchClassWriter(classSearchPagination);
+		
+		model.addAttribute("goodsSearchPagination", goodsSearchPagination);
+		model.addAttribute("goodsPagingList", goodsPagingList);
+		model.addAttribute("countGoodsSearchCnt", countGoodsSearchCnt);
+		
+		model.addAttribute("classSearchPagination", classSearchPagination);
+		model.addAttribute("classPagingList", classPagingList);
+		model.addAttribute("countClassSearchCnt", countClassSearchCnt);
+				
+		return "writerList";
+		
+	}
+	
 }

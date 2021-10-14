@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="WriterDAO">
+	<resultMap type="WriterVO" id="writerResult">
+		<result property="sellerCode" column="SELLER_CODE" />
+		<result property="storeName" column="STORE_NAME" />
+		<result property="userId" column="USER_ID" />
+		<result property="sellerName" column="SELLER_NAME" />
+		<result property="sellerSellno" column="SELLER_SELLNO" />
+		<result property="sellerIndate" column="SELLER_INDATE" />
+		<result property="sellerGoodsYN" column="SELLER_GOODS_YN"/>
+		<result property="sellerClassYN" column="SELLER_CLASS_YN"/>
+	</resultMap>
+	
+	<select id="countGoodsSeller" resultType="int">
+		select count(*) from seller WHERE SELLER_GOODS_YN = true;
+	</select>
+	
+	<select id="getGoodsSellerList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="writerResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM seller WHERE SELLER_GOODS_YN = true ORDER BY STORE_NAME ASC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="countClassSeller" resultType="_int">
+		select count(*) from seller WHERE SELLER_CLASS_YN = true;
+	</select>
+	
+	<select id="getClassSellerList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="writerResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM seller WHERE SELLER_CLASS_YN = true ORDER BY STORE_NAME ASC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getSellerContent" parameterType="com.idwith.mpweb.admin.WriterVO" resultMap="writerResult">
+		select * from seller where SELLER_CODE = #{sellerCode}
+	</select>	
+	
+	<select id="getGoodsSearchCnt" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM seller WHERE STORE_NAME Like '%'||#{searchKeyword}||'%'
+	</select>
+	
+	<select id="getSearchGoodsWriter" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="writerResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM seller WHERE STORE_NAME Like '%'||#{searchKeyword}||'%' ORDER BY STORE_NAME ASC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getClassSearchCnt" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM seller WHERE STORE_NAME Like '%'||#{searchKeyword}||'%'
+	</select>
+	
+	<select id="getSearchClassWriter" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="writerResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM seller WHERE STORE_NAME Like '%'||#{searchKeyword}||'%' ORDER BY STORE_NAME ASC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getWriterList" resultMap="writerResult">
+		select SELLER_CODE, STORE_NAME from seller 
+	</select>
+	
+</mapper>

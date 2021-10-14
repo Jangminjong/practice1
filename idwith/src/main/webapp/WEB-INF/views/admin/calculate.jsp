@@ -176,7 +176,6 @@
 										<tr>
 											<th scope="col">아이디</th>
 											<th scope="col">사업자등록번호</th>
-											<th scope="col">계좌번호</th>
 											<th scope="col">매출액</th>
 											<th scope="col">수수료</th>
 											<th scope="col">후원금액</th>
@@ -187,80 +186,11 @@
 									<tbody>
 										<tr>
 											<td scope="row">Seller01</td>
-											<td>352-25-05245</td>
 											<td>352-0525-3851-08</td>
 											<td>6,553,500</td>
 											<td>1,400,000</td>
 											<td>78,000</td>
 											<td>5,223,500</td>
-										<!-- <tr>
-											<th scope="row">Seller02</th>
-											<td>554-32-15223</td>
-											<td>110-352841-22</td>
-											<td>7,505,000</td>
-											<td>1,500,000</td>
-											<td>153,000</td>
-											<td>6,200,800</td>
-											<td><button type="button" class="btn btn-warning"
-													data-toggle="modal" data-target="#defaultModalcalculate">
-													정산</button>
-												<div class="modal fade" id="defaultModalcalculate"
-													tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">정산</h5>
-																<button type="button" class="close" data-dismiss="modal"
-																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body m-3">
-																<p class="mb-0">정산처리를 하시겠습니까??</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-primary">정산</button>
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">닫기</button>
-															</div>
-														</div>
-													</div>
-												</div></td>
-										</tr>
-										<tr>
-											<th scope="row">Seller3</th>
-											<td>987-02-02152</td>
-											<td>110-354-1523550</td>
-											<td>3,450,000</td>
-											<td>1,350,000</td>
-											<td>50,000</td>
-											<td>2,160,000</td>
-											<td><button type="button" class="btn btn-warning"
-													data-toggle="modal" data-target="#defaultModalcalculate"
-													disabled>정산</button>
-												<div class="modal fade" id="defaultModalcalculate"
-													tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">정산</h5>
-																<button type="button" class="close" data-dismiss="modal"
-																	aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body m-3">
-																<p class="mb-0">정산처리를 하시겠습니까??</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">닫기</button>
-																<button type="button" class="btn btn-primary">정산하기</button>
-															</div>
-														</div>
-													</div>
-												</div></td>
-										</tr> -->
 											<td><button type="button" class="btn btn-warning" id="productCalculate">정산</button></td>
 										</tr>
 									</tbody>
@@ -272,7 +202,6 @@
 										<tr>
 											<th scope="col">아이디</th>
 											<th scope="col">사업자등록번호</th>
-											<th scope="col">계좌번호</th>
 											<th scope="col">매출액</th>
 											<th scope="col">수수료</th>
 											<th scope="col">후원금액</th>
@@ -284,7 +213,6 @@
 										<tr>
 											<td scope="row">author</td>
 											<td>987-02-02152</td>
-											<td>110-354-1523550</td>
 											<td>3,450,000</td>
 											<td>1,350,000</td>
 											<td>50,000</td>

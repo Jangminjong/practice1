@@ -112,6 +112,7 @@
 		where c.cart_num=#{cart_num}
  	</select>
  	
+
  	<insert id="insertDetailOrder" parameterType="goodsOrderDetailVO">
  		INSERT INTO goods_order_detail (order_detail_code, order_detail_seller, order_detail_goods, order_detail_quantity, 
  									order_detail_option1, order_detail_donation, order_detail_price,
@@ -172,5 +173,9 @@
 			 		WHERE goods_order_detail.order_id=#{email} AND goods_order_detail.imp_uid NOTNULL AND goods_order_detail.order_detail_payment='cancel'
 				)AS foo
 			LEFT OUTER JOIN seller ON foo.order_detail_seller = seller.seller_code))AS boo
+	</select>
+ 	<!-- PDF 테스트 -->
+ 	<select id="getOrderPDFList">
+ 		select * from goods_order_detail where order_id=#{order_id}
  	</select>
 </mapper>

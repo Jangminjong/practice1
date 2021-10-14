@@ -53,8 +53,11 @@ public interface ClassService {
 
 	List<ClassVO> getClassListForSearch(PagingVO classPageVO);
 
+
 	List<ClassOrderVO> getClassReturnList(String email);
 
+
+	List<ClassCategoryVO> getClassCategory();
 
 
 }

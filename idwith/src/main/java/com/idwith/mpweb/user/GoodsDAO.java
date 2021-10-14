@@ -59,4 +59,8 @@ public class GoodsDAO {
 		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsListForSearch", goodsPageVO);
 	}
 
+	public List<GoodsCategoryVO> getGoodsCategory() {
+		return sqlSessionTemplate.selectList("GoodsDAO.getGoodsCategoryForOffer");
+	}
+
 }

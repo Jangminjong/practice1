@@ -40,6 +40,7 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	@Override
 	public AdminNoticeBoardVO getAdminNotice(AdminNoticeBoardVO adminNotice) {
 		System.out.println("글 상세보기 처리 service");
+		adminNoticeBoardDAO.updateNoticeCnt(adminNotice);
 		return adminNoticeBoardDAO.getAdminNotice(adminNotice);
 	}
 

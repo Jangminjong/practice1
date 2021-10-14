@@ -10,25 +10,22 @@
 		<result property="amdinBoardContent" column="ADMIN_BOARD_CONTENT" />
 		<result property="adminBoardRegDate" column="ADMIN_BOARD_DATE" />
 		<result property="adminBoardCnt" column="ADMIN_BOARD_CNT" />
-		<result property="adminBoardFilePath" column="ADMIN_BOARD_FILE" />
+		<result property="adminBoardFilePath" column="ADMIN_BOARD_FILE" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" />
 		<result property="adminBoardStatic" column="ADMIN_BOARD_STATIC" />
 	</resultMap>
 
 	<!-- 관리자 공지사항 글 등록 -->
 	<insert id="insertAdminNotice" parameterType="adminNotice">
 		INSERT INTO
-		admin_board(ADMIN_BOARD_SEQ, ADMIN_BOARD_ID, ADMIN_BOARD_TITLE,
-		ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_CNT,
-		ADMIN_BOARD_STATIC)
-		VALUES(nextval('BOARD_SEQ'), 'admin',
-		#{adminBoardTitle}, #{amdinBoardContent}, now(), 0, false)
+		admin_board(ADMIN_BOARD_SEQ, ADMIN_BOARD_ID, ADMIN_BOARD_TITLE, ADMIN_BOARD_CONTENT, ADMIN_BOARD_DATE, ADMIN_BOARD_CNT, ADMIN_BOARD_FILE, ADMIN_BOARD_STATIC)
+		VALUES(nextval('BOARD_SEQ'), #{adminBoardId}, #{adminBoardTitle}, #{amdinBoardContent}, now(), 0, #{adminBoardFilePath, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, false)
 	</insert>
 
 	<!-- 관리자 공지사항 글 수정 -->
 	<update id="updateAdminNotice" parameterType="adminNotice">
 		<![CDATA[
 	 		UPDATE admin_board
-	 		SET ADMIN_BOARD_TITLE=#{adminBoardTitle}, ADMIN_BOARD_CONTENT=#{amdinBoardContent} 
+	 		SET ADMIN_BOARD_TITLE=#{adminBoardTitle}, ADMIN_BOARD_CONTENT=#{amdinBoardContent}, ADMIN_BOARD_FILE = #{adminBoardFilePath, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}
 	 		WHERE ADMIN_BOARD_SEQ = #{adminBoardSeq}
  		]]>
  	</update>
@@ -61,5 +58,9 @@
 		select count(*) from admin_board
 	</select>
 	
-
+	<!-- 조회수 처리 -->
+	<update id="updateNoticeCnt" parameterType="adminNotice">
+		update admin_board set ADMIN_BOARD_CNT = ADMIN_BOARD_CNT + 1 WHERE ADMIN_BOARD_SEQ = #{adminBoardSeq}
+	</update>
+	
 </mapper>

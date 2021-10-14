@@ -125,9 +125,13 @@ public class ClassServiceImpl implements ClassService{
 	}
 
 	@Override
+
 	public List<ClassOrderVO> getClassReturnList(String email) {
 		return dao.getClassReturnList(email);
 	}
 
 
+	public List<ClassCategoryVO> getClassCategory() {
+		return dao.getClassCategory();
+	}
 }

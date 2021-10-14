@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CouponDAO">
+	<resultMap type="coupon" id="couponResult">
+		<result property="couponCode" column="COUPON_CODE" />
+		<result property="couponName" column="COUPON_NAME" />
+		<result property="couponContext" column="COUPON_CONTEXT" />
+		<result property="couponTarget" column="COUPON_TARGET" />
+		<result property="couponCondition" column="COUPON_CONDITION" />
+		<result property="couponDiscount" column="COUPON_DISCOUNT" />
+		<result property="couponStatus" column="COUPON_STATUS" />
+		<result property="couponStartdate" column="COUPON_STARTDATE" />
+		<result property="couponEnddate" column="COUPON_ENDDATE" />
+	</resultMap>
+	
+	<resultMap type="requestCoupon" id="requestCpResult">
+		<result property="requestCpSeq" column="REQUEST_CP_SEQ" />
+		<result property="requestCpSeller" column="REQUEST_CP_SELLER" />
+		<result property="requestCpPrice" column="REQUEST_CP_PRICE" />
+		<result property="requestCpMinPrice" column="REQUEST_CP_MIN_PRICE" />
+		<result property="requestCpName" column="REQUEST_CP_NAME" />
+		<result property="requestCpTarget" column="REQUEST_CP_TARGET" />
+		<result property="requestCpDate" column="REQUEST_CP_DATE" />
+		<result property="requestCpContext" column="REQUEST_CP_CONTEXT" />
+		<result property="requestCpStart" column="REQUEST_CP_START" />
+		<result property="requestCpEnd" column="REQUEST_CP_END" />
+		<result property="requestCpState" column="REQUEST_CP_STATE" />
+		<result property="requsetCouponCode" column="COUPON_CODE"/>
+	</resultMap>
+	
+	<resultMap type="follow" id="followResult">
+		<result property="followSeq" column="FOLLOW_SEQ"/>
+		<result property="followId" column="FOLLOW_ID"/>
+		<result property="followedId" column="FOLLOWED_ID"/>
+		<result property="followDate" column="FOLLOW_DATE"/>
+	</resultMap>
+	
+	<resultMap type="userList" id="userListResult">
+		<result property="userId" column="USER_ID" />
+		<result property="userPwd" column="USER_PWD" />
+		<result property="userName" column="USER_NAME" />
+		<result property="userPhone" column="USER_PHONE" />
+		<result property="userZipcode" column="USER_ZIPCODE" />
+		<result property="userAddress1" column="USER_ADDRESS1" />
+		<result property="userAddress2" column="USER_ADDRESS2" />
+		<result property="userGrade" column="USER_GRADE" />
+		<result property="userAllmcount" column="USER_ALLMCOUNT" />
+		<result property="userJoinDate" column="USER_JOINDATE" />
+		<result property="userBlackCheck" column="USER_BLACK_CHECK"></result>
+	</resultMap>
+	
+	<resultMap type="couponHave" id="couponHaveResult">
+		<result property="couponHaveSeq" column="COUPON_HAVE_SEQ" />
+		<result property="couponHaveId" column="COUPON_HAVE_ID" />
+		<result property="couponHaveCode" column="COUPON_HAVE_CODE" />
+		<result property="couponHaveDate" column="COUPON_HAVE_DATE" />
+	</resultMap>
+	
+	<insert id="insertCoupon" parameterType="coupon">
+		INSERT INTO COUPON (COUPON_CODE, COUPON_NAME, COUPON_CONTEXT, COUPON_TARGET, COUPON_CONDITION, COUPON_DISCOUNT, COUPON_ENDDATE, COUPON_STATUS)
+		VALUES(#{couponCode}, #{couponName}, #{couponContext}, #{couponTarget}, #{couponCondition}, #{couponDiscount}, #{couponEnddate}, 0)
+	</insert>
+	
+	<select id="countCouponList" resultType="int">
+		select count(*) from coupon;
+	</select>
+	
+	<select id="getCouponList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="couponResult">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM coupon ORDER BY COUPON_NAME DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="getgetDetailCoupon" parameterType="coupon" resultMap="couponResult">
+		select * from coupon where COUPON_CODE=#{couponCode}
+	</select>
+	
+	<update id="updateCoupon" parameterType="coupon">
+		<![CDATA[
+	 		UPDATE coupon
+	 		SET COUPON_NAME=#{couponName}, COUPON_CONTEXT=#{couponContext}, COUPON_TARGET = #{couponTarget}, 
+	 			COUPON_CONDITION=#{couponCondition}, COUPON_DISCOUNT=#{couponDiscount}, COUPON_ENDDATE=#{couponEnddate}
+	 		WHERE COUPON_CODE = #{couponCode}
+ 		]]>
+	</update>
+	
+	<delete id="deleteCoupon" parameterType="coupon">
+		DELETE FROM coupon WHERE COUPON_CODE=#{couponCode}
+	</delete>
+	
+	<select id="countRequestCoupon" resultType="int">
+		select count(*) from request_cp;
+	</select>
+	
+	<select id="getRequestCoupon" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="requestCpResult" >
+		<![CDATA[
+			SELECT * FROM (
+				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
+			FROM request_cp ORDER BY REQUEST_CP_SEQ DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="requestInsertCoupon"  parameterType="requestCoupon" resultMap="requestCpResult">
+		select * from request_cp WHERE REQUEST_CP_SEQ=#{requestCpSeq}
+	</select>
+	
+	<insert id="requestCouponInsert">
+		INSERT INTO COUPON (COUPON_CODE, COUPON_NAME, COUPON_CONTEXT, COUPON_TARGET, COUPON_CONDITION, COUPON_DISCOUNT, COUPON_ENDDATE, COUPON_STATUS)
+		VALUES(#{requsetCouponCode}, #{requestCpName}, #{requestCpContext}, #{requestCpTarget}, #{requestCpMinPrice}, #{requestCpPrice}, #{requestCpEnd}, 0)
+	</insert>
+	
+	<update id="updateRequestCouponStatus" parameterType="requestCoupon">
+		update request_cp set REQUEST_CP_STATE = 1 where request_cp_seq = #{requestCpSeq}
+	</update>
+	
+	<select id="getFollowList" resultMap="followResult">
+		select FOLLOW_ID from follow where FOLLOWED_ID = ${target}
+	</select>
+	
+	<insert id="releaseFollowCp" parameterType="follow">
+		insert into coupon_have (COUPON_HAVE_SEQ, COUPON_HAVE_ID, COUPON_HAVE_CODE, COUPON_HAVE_DATE) values (nextval('coupon_have_seq'), #{followId}, #{couponCode}, now())
+	</insert>
+	
+	<insert id="releaseAllCp" parameterType="userList">
+		insert into coupon_have (COUPON_HAVE_SEQ, COUPON_HAVE_ID, COUPON_HAVE_CODE, COUPON_HAVE_DATE) values (nextval('coupon_have_seq'), #{userId}, #{couponCode}, now())
+	</insert>
+	
+	<update id="releaseStatus" parameterType="coupon">
+		update coupon set COUPON_STATUS = 1 WHERE COUPON_CODE = #{couponCode}
+	</update>
+	
+</mapper>

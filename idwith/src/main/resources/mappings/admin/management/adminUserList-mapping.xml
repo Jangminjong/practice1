@@ -81,5 +81,8 @@
 		]]>
 	</select>
 	
+	<select id="getUserList" resultMap="userListResult">
+		select USER_ID from client 
+	</select>
 
 </mapper>

@@ -58,26 +58,38 @@
 
             </div>
 
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  
                     <li class="dropdown">
+                          <a href="logout.wdo">
+                            <i class="material-icons">logout</i>
+                          </a>
+                        
+                    </li>
+                    
+                    
+
+                    <!-- #END# Tasks -->
+                  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
+                             <i class="material-icons">delete</i>
                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">                                   
+                            <li class="header">입점취소 신청하기</li>
+                            <li class="body text-center"><a href="">취소신청</a>
+                                <ul class="menu">
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <a href="javascript:void(0);">입점취소신청하기</a>
                             </li>
+                           
                         </ul>
                     </li>
-                
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                      <i class="material-icons">delete</i></a>
+                    </li>  -->
                 </ul>
             </div>
         </div>
@@ -86,7 +98,7 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-            
+          
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
@@ -102,6 +114,13 @@
                         <a href="orderList.wdo">
                             <i class="material-icons">shopping_cart</i>
                             <span>주문관리</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="orderClass.wdo">
+                            <i class="material-icons">airplay</i>
+                            <span>클래스 신청관리</span>
                         </a>
                     </li>
 
@@ -134,13 +153,6 @@
                     </li>
 
                     <li>
-                        <a href="Follow.wdo">
-                            <i class="material-icons">favorite</i>
-                            <span>팔로우</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="writerStory.wdo">
                             <i class="material-icons">chat</i>
                             <span>작가 이야기</span>
@@ -161,21 +173,27 @@
                         </a>
                     </li>
 
-                    
                     <li>
                         <a href="sellerCalculate.wdo">
                             <i class="material-icons">star_rate</i>
                             <span>정산</span>
                         </a>
                     </li>
-
+                    
+                    <li>
+                        <a href="index.do">
+                            <i class="material-icons">contact_page</i>
+                            <span>Idwith</span>
+                        </a>
+                    </li>
 
                 </ul>
-            </div> 
-          
+            </div>
+
         </aside>
-        
+
     </section>
+
     
 
     <section class="content">      
@@ -201,26 +219,18 @@
                                     <th>카테고리</th>
                                     <th>가격</th>
                                     <th>등록일</th>
-                                    <th>평점</th>
-                                    <th>조회수</th>                                    
-                                    <th>삭제</th>
+                                    <th>평점</th>                                   
                                 </tr>
                             </thead>
                             <tbody>
-                              <c:forEach var="goods" items="${ProductViewAll}">
+                              <c:forEach var="goods" items="${ProductViewAll}" varStatus="i">
                                 <tr>
-                                    <th scope="row">${goods.rownum}</th>
+                                    <th scope="row">${total-((paging.nowPage-1)*5)-i.index}</th>
                                     <td><a href="productModify.wdo?goods_seq=${goods.goods_seq}"> ${goods.goods_name}</a></td>
                                     <td>${goods.goods_category}</td>
                                     <td>${goods.goods_price}</td>
                                     <td><fmt:formatDate value="${goods.goods_apply_date}"  pattern="yyyy.MM.dd"/></td>
                                     <td>${goods.goods_grade}</td>
-                                    <td>${goods.goods_view}</td>                                    
-                                    <td>
-                                        <!-- BEGIN primary modal -->
-                                        <a href="deleteGoods.wdo?goods_seq${goods.goods_seq}">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">삭제</button>
-                                        </a>
                                      <!--    <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#defaultModalPrimary" id=>
                                             삭제
@@ -249,7 +259,6 @@
                                                 </div>
                                             </div>
                                         </div>    -->                                           
-                                    </td>
                                 </tr>  
                                 </c:forEach>                              
                                                                                            
@@ -273,12 +282,12 @@
 									<c:choose>
 										<c:when test="${paging.nowPage eq 1 }">
 											<li class="page-item"><span style="width: auto;"
-												class="page-link">Previous</span></li>
+												class="page-link">이전</span></li>
 										</c:when>
 										<c:when test="${paging.nowPage ne 1 }">
 											<li class="page-item"><a
 												href="/mpweb/productManagement.wdo?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}"
-												style="width: auto;" class="page-link">Previous</a></li>
+												style="width: auto;" class="page-link">이전</a></li>
 										</c:when>
 									</c:choose>
 									<c:forEach begin="${paging.startPage }"
@@ -299,12 +308,12 @@
 									<c:choose>
 										<c:when test="${paging.endPage eq paging.lastPage}">
 											<li class="page-item"><span style="width: auto;"
-												class="page-link">Next</span></li>
+												class="page-link">다음</span></li>
 										</c:when>
 										<c:when test="${paging.endPage ne paging.lastPage}">
 											<li class="page-item"><a
 												href="/mpweb/productManagement.wdo?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&set=${paging.set}"
-												style="width: auto;" class="page-link">Next</a></li>
+												style="width: auto;" class="page-link">다음</a></li>
 										</c:when>
 									</c:choose>
 								</ul>

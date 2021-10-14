@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>${goods.goods_name}| 아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
+<title>${goods.goods_name}| 아이디위드 - 핸드메이드, 수공예, 수제 먹거리</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/detail_content.css" />
 <link rel="stylesheet" href="resources/css/sp-icon.css" />
@@ -25,6 +25,7 @@
 
 </head>
 <body>
+	<input type="hidden" id="user_id" value="${email}" />
 	<div class="wrap">
 		<!-- 로딩 중 화면 -->
 		<jsp:include page="header_goods.jsp" />
@@ -39,29 +40,40 @@
 					<div class="image-preview ui-slider" data-ui="slider" tabindex="-1"
 						style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
 
+						<!-- 메인 이미지 리스트 -->
 						<div class="outer-frame">
 							<ul class="img-view inner-frame">
-								<c:forEach var="i" begin="0" end="${goodsImageLength-1}">
-									<li class="ui-slide" data-trigger-preview="open"
+								<%-- <c:forEach var="i" begin="0" end="${goodsImageLength-1}" varStatus="status">
+									<li class="ui-slide" id="main_image"
+										data-trigger-preview="open"
 										style="background-image: url(${goods.goods_photo[i]})"
-										data-index="0"></li>
-								</c:forEach>	
+										data-index="0">
+									</li>
+								</c:forEach> --%>
+								<li class="ui-slide" id="main_image" 
+									style="background-image: url(${goods.goods_photo[0]})">
+								</li>
 							</ul>
 						</div>
 
+						<!-- 하단 이미지 리스트 -->
 						<fieldset class="ui-control">
-							<button type="button" class="ui-btn prev" aria-label="이전">
-								<i class="fa fa-angle-left fa-2x" id="image_prev_btn"></i>
+							<button type="button" class="ui-btn prev" id="image_prev_btn" aria-label="이전">
+								<i class="fa fa-angle-left fa-2x"></i>
 							</button>
 							<ul class="img-list indicator">
-								<c:forEach var="i" begin="0" end="${goodsImageLength-1}">
-									<li class="indicator-btn active" id="main_image" style="background-image: url(${goods.goods_photo[i]})"></li>
+								<c:forEach var="i" begin="0" end="${goodsImageLength-1}" varStatus="status">
+									<li class="indicator-btn active" id="sub_image,${status.count}" style="background-image: url(${goods.goods_photo[i]})"
+										onclick="changeImage(this.id)">
+									</li>
 								</c:forEach>
 							</ul>
-							<button type="button" class="ui-btn next" aria-label="다음">
+							<button type="button" class="ui-btn next" id="image_next_btn" aria-label="다음">
 								<i class="fa fa-angle-right fa-2x"></i>
 							</button>
 						</fieldset>
+						
+						
 					</div>
 				</section>
 
@@ -381,6 +393,7 @@
 														class="ui_btn--mini" id="quantityMinus,0" onclick="minusQuantity(this.id)">-</button>
 													<input data-v-5612de30="" type="text" min="1" max="999"
 														id="cart_quantity0" name="cart_quantity0" value="1">
+													<input type="hidden" name="cart_quantity" value="" />
 													<button data-v-5612de30="" type="button"
 														class="ui_btn--mini" id="quantityPlus,0" onclick="plusQuantity(this.id)">+</button>
 												</div>

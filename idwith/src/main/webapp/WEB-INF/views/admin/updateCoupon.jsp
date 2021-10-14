@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +18,19 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!-- datepicker 는 jquery 1.7.1 이상 bootstrap 2.0.4 이상 버전이 필요함 -->
+<!-- jQuery가 먼저 로드 된 후 datepicker가 로드 되어야함.-->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="resources/admin/css/bootstrap-datepicker.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="resources/admin/js/bootstrap-datepicker.js"></script>
+
+
+<!--한국어  달력 쓰려면 추가 로드-->
+<script src="resources/admin/js/bootstrap-datepicker-kor.js"></script>
 
 <link rel="shortcut icon" href="resources/admin/img/tabIcon.png" />
 
@@ -138,70 +153,76 @@
 
 			<main>
 				<div class="content">
-                    <div class="row">
-                        <div class="container-fluid p-0">
+					<div class="row">
+						<div class="container-fluid p-0">
+							<div class="row mb-2 mb-xl-3">
+								<div class="col-auto d-none d-sm-block">
+									<h3>쿠폰 : ${detailCoupon.couponCode} </h3>
+								</div>
+							</div>
 
-                            <div class="row mb-2 mb-xl-3">
-                                <div class="col-auto d-none d-sm-block">
-                                    <h3>Coupon Request List</h3>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card flex-fill">
-                                        <table class="table table-hover my-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>작가 이름</th>
-                                                    <th class="d-none d-xl-table-cell">쿠폰 이름</th>
-                                                    <th class="d-none d-xl-table-cell">배포 대상</th>
-                                                    <th class="d-none d-md-table-cell">쿠폰 금액</th>
-                                                    <th>쿠폰 발행일</th>
-                                                    <th>쿠폰 종료일</th>
-                                                    <th>발행 상태</th>
-                                                    <th>쿠폰 발행</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="d-none d-xl-table-cell">seller1</td>
-                                                    <td class="d-none d-xl-table-cell">팔로워 쿠폰</td>
-                                                    <td class="d-none d-xl-table-cell">follower</td>
-                                                    <td class="d-none d-md-table-cell">3000</td>
-                                                    <td>2021-09-11</td>
-                                                    <td>2021-10-11</td>
-                                                    <td><span class="badge bg-success">발행완료</span></td>
-                                                    <td>
-                                                        <button class="btn btn-pill btn-primary" disabled>
-                                                            발행하기
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="d-none d-xl-table-cell">seller2</td>
-                                                    <td class="d-none d-xl-table-cell">감사 쿠폰</td>
-                                                    <td class="d-none d-xl-table-cell">follower</td>
-                                                    <td class="d-none d-md-table-cell">2000</td>
-                                                    <td>2021-09-11</td>
-                                                    <td>2021-10-11</td>
-                                                    <td><span class="badge bg-warning">발행 요청중</span></td>
-                                                    <td>
-                                                        <a href="insertCoupon.mdo">
-                                                            <button class="btn btn-pill btn-primary">
-                                                                발행하기
-                                                            </button>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+							<div class="card">
+								<div class="card-body" style="width: auto;">
+									<form class="row g-3" id="form-admin-couponContent" name="detailCoupon" action="couponContentUpdate.mdo" method="post">
+										<input type="hidden" name="couponCode" value="${detailCoupon.couponCode}" />
+										<div class="mb-3">
+											<label class="form-label">쿠폰 이름</label>
+											<input type="text" class="form-control" value="${detailCoupon.couponName}" name="couponName" id="couponName"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">쿠폰 내용</label>
+											<input type="text" class="form-control" value="${detailCoupon.couponContext}" name="couponContext" id="couponContext"
+												style="width: 50%;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="release">배포 대상</label>
+											<input type="text" class="form-control" list="list" id="release" style="width: auto;" value="${detailCoupon.couponTarget}" name="couponTarget"/>
+											<datalist id="list">
+												<option>All</option>
+												<c:forEach var="writerList" items="${writerList}">
+													<option value="${writerList.sellerCode}">${writerList.storeName}</option>
+												</c:forEach>
+											</datalist>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">적용 조건</label>
+											<input type="text" class="form-control" value="${detailCoupon.couponCondition}" name="couponCondition" id="couponCondition"
+												style="width: auto;">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">쿠폰 금액</label>
+											<input type="text" class="form-control" value="${detailCoupon.couponDiscount}" name="couponDiscount" id="couponDiscount""
+												style="width: auto;">
+										</div>
+										<div class="row">
+											<div class="col-md-3">
+												<label class="form-label">쿠폰 발행일</label>
+												<input type="date" class="form-control" style="width: auto;" value="${detailCoupon.couponStartdate}" id="couponEnddate" name="couponStartdate" disabled="disabled">
+											</div>
+											<div class="col-md-3">
+												<label class="form-label">쿠폰 마감일</label>
+												<input type="date" class="form-control" style="width: auto;" value="${detailCoupon.couponEnddate}" id="couponEnddate" name="couponEnddate">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-center"></div>
+											<div class="col-md-3 text-right">
+												<input class="btn btn-primary" type="button" onclick="location.href='couponList.mdo'" value="목록" /> 
+												<input type="submit" class="btn btn-primary" id="detailCoupon-submit" value="수정" />
+												<a href="deleteCoupon.mdo?couponCode=${detailCoupon.couponCode}">
+													<button type="button" class="btn btn-primary">삭제</button>
+												</a>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</main>
 			<script src="resources/admin/js/app.js"></script>
 		</div>

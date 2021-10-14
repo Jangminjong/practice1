@@ -22,11 +22,25 @@ public class AdminNoticeBoardVO {
 	private String amdinBoardContent;
 	private Timestamp adminBoardRegDate;
 	private Integer adminBoardCnt;
-	private String adminBoardFilePath;
+	private String[] adminBoardFilePath;
 	private boolean adminBoardStatic;
 	private int rownum;
+	private String[] uploadedFileList;
+	private String[] uploadFileList;
 	
 	
+	public String[] getUploadedFileList() {
+		return uploadedFileList;
+	}
+	public void setUploadedFileList(String[] uploadedFileList) {
+		this.uploadedFileList = uploadedFileList;
+	}
+	public String[] getUploadFileList() {
+		return uploadFileList;
+	}
+	public void setUploadFileList(String[] uploadFileList) {
+		this.uploadFileList = uploadFileList;
+	}
 	public Integer getAdminBoardSeq() {
 		return adminBoardSeq;
 	}
@@ -60,14 +74,8 @@ public class AdminNoticeBoardVO {
 	public Integer getAdminBoardCnt() {
 		return adminBoardCnt;
 	}
-	public void setAdminBoardCnt(Integer adminBoardCnt) {
-		this.adminBoardCnt = adminBoardCnt;
-	}
-	public String getAdminBoardFilePath() {
-		return adminBoardFilePath;
-	}
-	public void setAdminBoardFilePath(String adminBoardFilePath) {
-		this.adminBoardFilePath = adminBoardFilePath;
+	public void setAdminBoardFilePath(String[] photo) {
+		this.adminBoardFilePath = photo;
 	}
 	public boolean isAdminBoardStatic() {
 		return adminBoardStatic;
@@ -82,15 +90,13 @@ public class AdminNoticeBoardVO {
 	public void setRownum(int rownum) {
 		this.rownum = rownum;
 	}
-	
-	@Override
-	public String toString() {
-		return "AdminNoticeBoardVO [adminBoardSeq=" + adminBoardSeq + ", adminBoardId=" + adminBoardId
-				+ ", adminBoardTitle=" + adminBoardTitle + ", amdinBoardContent=" + amdinBoardContent
-				+ ", adminBoardRegDate=" + adminBoardRegDate + ", adminBoardCnt=" + adminBoardCnt
-				+ ", adminBoardFilePath=" + adminBoardFilePath + ", adminBoardStatic=" + adminBoardStatic + ", rownum="
-				+ rownum + "]";
+	public String[] getAdminBoardFilePath() {
+		return adminBoardFilePath;
 	}
+	public void setAdminBoardCnt(Integer adminBoardCnt) {
+		this.adminBoardCnt = adminBoardCnt;
+	}
+	
 	
 	
 

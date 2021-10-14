@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.idwith.mpweb.user.GoodsOptionVO;
@@ -28,15 +29,19 @@ public class ItemController {
 	@Autowired
 	private ClassService classService;
 	
-	@RequestMapping("/search.do")
+	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String classSearch(@RequestParam(value="nowPage", required=false) String nowPage, 
 								@RequestParam(value="cntPerPage", required=false) String cntPerPage, HttpServletRequest req, Model model) {
-		String search = (String) req.getAttribute("search");
+		String search = (String) req.getParameter("search");
+		
+		System.out.println("키워드 : " + search);
 		PagingVO goodsPageVO = new PagingVO();
 		PagingVO classPageVO = new PagingVO();
 		
 		int totalGoods = goodsService.countGoodsForSearch(search);
 		int totalClass = classService.countClassForSearch(search);
+		
+		System.out.println("테스트 중간1");
 		
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -50,9 +55,21 @@ public class ItemController {
 		
 		// 굿즈 리스트 가져오기
 		List<GoodsVO> goodsList = goodsService.getGoodsListForSearch(goodsPageVO);
+		System.out.println("굿즈 리스트 가져옴");
+		
 		// 클래스 리스트 가져오기
 		List<ClassVO> classList = classService.getClassListForSearch(classPageVO);
+		System.out.println("클래스 리스트 가져옴");
 		
+		
+		for(ClassVO list : classList) {
+			System.out.println("정보1 : " + list.getClass_open_address());
+			System.out.println("정보2 : " + list.getClass_open_info());
+			System.out.println("정보3 : " + list.getClass_open_photo()[0]);
+		}
+		
+		
+		model.addAttribute("keyword", search);
 		model.addAttribute("goodsList", goodsList);
 		model.addAttribute("classList", classList);
 		

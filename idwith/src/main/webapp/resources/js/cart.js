@@ -272,10 +272,18 @@ function optionUpdate(goods_code, index){
 	$('.CartOptionUpdateModal__productName').text(goodsName);
 	
 	//가격
+	var str1 = "cart_quantity" + index;
+	var curQuantity = $('#'+str1).val();//현재 수량
+	var optionPrice = $('#optionPrice'+index).text();//현재 작품 가격
+	
+	console.log("현재 가격 : " + optionPrice);
+	var initOptionPrice = Number(optionPrice) / Number(curQuantity); //정가
+	
 	var str3 = 'goods_option_price' + index;
 	var goodsPrice = $('.'+str3).text();
-	console.log('가격 : ' + goodsPrice);
-	$('.CartOptionUpdateModal__productPrice').text(goodsPrice+'원');
+	var goodsTotal = Number(initOptionPrice) + Number(goodsPrice);
+	console.log('가격 : ' + goodsTotal);
+	$('.CartOptionUpdateModal__productPrice').text(goodsTotal+'원');
 	
 	//현재 선택옵션
 	var str4 = 'optionList' + index;

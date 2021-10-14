@@ -1,13 +1,21 @@
 package com.idwith.mpweb.admin.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
+import com.idwith.mpweb.admin.S3Service;
 import com.idwith.mpweb.admin.board.AdminEventBoardVO;
 
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
@@ -23,6 +31,9 @@ public class noticeController {
 	
 	@Autowired
 	AdminNoticeService adminNoticeService;
+	
+	@Autowired
+	S3Service s3Service;
 	
 	/**관리자 공지사항 페이지 출력*/
 	@GetMapping("/adminNotice.mdo")
@@ -59,12 +70,40 @@ public class noticeController {
 		return "adminInsertNotice";
 	}
 	
-	/**관리자 공지사항 입력 기능*/
+	/**관리자 공지사항 입력 기능
+	 * @throws IOException */
 	@RequestMapping("/insertNotice.mdo")
-	public String insertNotice(AdminNoticeBoardVO adminNotice) {
-		System.out.println("愿�由ъ옄 怨듭��궗�빆 �벑濡� 泥섎━");
+	public String insertNotice(AdminNoticeBoardVO adminNotice, MultipartFile[] file, HttpSession session) throws IOException {
+		System.out.println("공지사항 입력창");
 		System.out.println("content : " + adminNotice.getAmdinBoardContent());
-		adminNoticeService.insertAdminNotice(adminNotice);
+		System.out.println("file.length=========>" + file.length);
+	    String[] photo = new String[file.length];
+	      
+	      for (int i = 0; i < file.length; i++) {
+	            if (!file[i].getOriginalFilename().equals("")) {
+	               System.out.println("================== file start ==================");
+	               System.out.println("파일 이름: " + file[i].getName());
+	               System.out.println("파일 실제 이름: " + file[i].getOriginalFilename());
+	               System.out.println("파일 크기: " + file[i].getSize());
+	               System.out.println("content type: " + file[i].getContentType());
+	               System.out.println("================== file   END ==================");
+
+	               InputStream is = file[i].getInputStream();
+	               String uploadKey = file[i].getOriginalFilename();
+	               String contentType = file[i].getContentType();
+	               long contentLength = file[i].getSize();
+
+	               String bucket = "idwith/admin/notice/"+adminNotice.getAdminBoardTitle();
+	               s3Service.upload(is, uploadKey, contentType, contentLength, bucket);
+	               String filePath = "https://idwith.s3.ap-northeast-2.amazonaws.com/admin/notice/"+ adminNotice.getAdminBoardTitle() +"/" + uploadKey;
+	               
+	               photo[i] = filePath;
+	            }
+	         }
+	      adminNotice.setAdminBoardId((String) session.getAttribute("admin_name"));
+	      adminNotice.setAdminBoardFilePath(photo);
+	      adminNoticeService.insertAdminNotice(adminNotice);
+	      
 		return "redirect:/adminNotice.mdo";
 	}
 	
@@ -72,7 +111,29 @@ public class noticeController {
 	@RequestMapping("/detailAdminNotice.mdo")
 	public String detailAdminNotice(AdminNoticeBoardVO adminNotice, Model model) {
 		System.out.println("愿�由ъ옄 怨듭��궗�빆 �긽�꽭蹂닿린 泥섎━ Seq : " + adminNotice.getAdminBoardSeq());
-		model.addAttribute("adminNotice", adminNoticeService.getAdminNotice(adminNotice));
+		AdminNoticeBoardVO result = adminNoticeService.getAdminNotice(adminNotice);
+		model.addAttribute("adminNotice", result);
+		
+		String[] noticePhoto = result.getAdminBoardFilePath();
+		if(noticePhoto == null) {
+	    	  noticePhoto = new String[0];
+	      }
+		
+	    String[] photoFileNameList = new String[noticePhoto.length];
+	      
+	      for(int i=0; i< noticePhoto.length; i++) {
+	         if(noticePhoto[i] == null) {  
+	         } else {
+	            String[] photoFileSplit = noticePhoto[i].split("/");
+	            photoFileNameList[i] = photoFileSplit[photoFileSplit.length-1];
+	            System.out.println(photoFileNameList[i]);
+	            System.out.println(noticePhoto[i]);
+	         }
+	      }
+	      System.out.println(noticePhoto.length);
+	      model.addAttribute("fileName", photoFileNameList);
+	      model.addAttribute("fileLength", noticePhoto.length);
+		
 		return "detailAdminNotice";
 	}
 	
@@ -80,18 +141,94 @@ public class noticeController {
 	public String adminNoticeContent(AdminNoticeBoardVO adminNotice, Model model) {
 		System.out.println("글 상세내용 조회");
 		System.out.println("내용 조회 seq : " + adminNotice.getAdminBoardSeq());
+		
 		AdminNoticeBoardVO result = adminNoticeService.getAdminNotice(adminNotice);
+		
 		model.addAttribute("adminNotice", result);
 		System.out.println(result);
+		
+	      String[] noticePhoto = result.getAdminBoardFilePath();
+	      if(noticePhoto == null) {
+	    	  noticePhoto = new String[0];
+	      }
+	      String[] photoFileNameList = new String[noticePhoto.length];
+	      
+	      for(int i=0; i< noticePhoto.length; i++) {
+	         if(noticePhoto[i] == null) {   
+	         } else {
+	            String[] photoFileSplit = noticePhoto[i].split("/");
+	            photoFileNameList[i] = photoFileSplit[photoFileSplit.length-1];
+	            System.out.println(photoFileNameList[i]);
+	            System.out.println(noticePhoto[i]);
+	         }
+	      }
+	      System.out.println(noticePhoto.length);
+	      model.addAttribute("fileName", photoFileNameList);
+	      model.addAttribute("fileLength", noticePhoto.length);
+		
 		return "adminNoticeContent";
 	}
 	
-	/**관리자 공지사항 수정 기능*/
+	/**관리자 공지사항 수정 기능
+	 * @throws IOException */
 	@RequestMapping("/updateAdminNotice.mdo")
-	public String updateAdminNotice(AdminNoticeBoardVO adminNotice) {
+	public String updateAdminNotice(AdminNoticeBoardVO adminNotice, HttpServletRequest request, MultipartFile[] file) throws IOException {
 		System.out.println("愿�由ъ옄 怨듭��궗�빆 �닔�젙 泥섎━");
 		System.out.println("seq : " + adminNotice.getAdminBoardSeq());
+		
 		adminNoticeService.updateAdminNotice(adminNotice);
+		
+		String[] uploadedFileList = adminNotice.getUploadedFileList();
+		String[] uploadFileList = adminNotice.getUploadFileList();
+		
+	      if(uploadFileList == null) {
+	         uploadFileList = new String[0];
+	      }
+	      if(uploadedFileList == null) {
+	         uploadedFileList = new String[0];
+	      }
+	      
+	      String[] photo = new String[file.length+uploadFileList.length];
+	      System.out.println("기존 파일에서 삭제되는 파일의수"+(uploadedFileList.length-uploadFileList.length));
+	      System.out.println("기존 파일에 남아있는 파일의수"+uploadFileList.length);
+	      System.out.println("업로드되어야하는 파일의 수"+file.length);
+	      for (int i=0;i<uploadedFileList.length; i++) {
+	         for (int j = 0; j < uploadFileList.length; j++) {
+	            if(uploadedFileList[i].equals(uploadFileList[j])) {
+	               uploadedFileList[i] = "";
+	            }
+	         }
+	      }
+	      
+	      for (int i=0;i<uploadedFileList.length; i++) {
+	         if(!uploadedFileList[i].equals("")) {
+	            String[] key = uploadedFileList[i].split("/");
+	            s3Service.delete("admin/notice/"+ adminNotice.getAdminBoardTitle() + "/" +key[key.length-1]);
+	         }
+	      }
+	      for (int i = 0; i < photo.length; i++) {
+	         if (i<uploadFileList.length) {
+	            photo[i] = uploadFileList[i];
+	         } else {
+	            int nfLength = i-uploadFileList.length;
+	               if (!file[nfLength].getOriginalFilename().equals("")) {
+	                  InputStream is = file[nfLength].getInputStream();
+	                  String uploadKey = file[nfLength].getOriginalFilename();
+	                  String contentType = file[nfLength].getContentType();
+	                  long contentLength = file[nfLength].getSize();
+	   
+	                  String bucket = "idwith/admin/notice/"+adminNotice.getAdminBoardTitle();
+		               s3Service.upload(is, uploadKey, contentType, contentLength, bucket);
+		               String filePath = "https://idwith.s3.ap-northeast-2.amazonaws.com/admin/notice/"+ adminNotice.getAdminBoardTitle() +"/" + uploadKey;
+	                  
+	                  photo[i] = filePath;
+	               }
+	         }
+	         }
+	            
+	      adminNotice.setAdminBoardFilePath(photo);
+	      adminNoticeService.updateAdminNotice(adminNotice);
+		
 		return "redirect:/adminNotice.mdo";
 	}
 	

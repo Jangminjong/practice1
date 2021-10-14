@@ -51,6 +51,10 @@ public class AdminNoticeBoardDAO {
 		System.out.println("deleteAdminNotice() 기능 처리");
 		sqlSessionTemplate.delete("AdminNoticeBoardDAO.deleteAdminNotice", adminNotice);
 	}
+
+	public void updateNoticeCnt(AdminNoticeBoardVO adminNotice) {
+		sqlSessionTemplate.update("AdminNoticeBoardDAO.updateNoticeCnt", adminNotice);
+	}
 	
 	
 }

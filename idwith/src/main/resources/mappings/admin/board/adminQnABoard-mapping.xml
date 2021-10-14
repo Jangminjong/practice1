@@ -55,30 +55,4 @@
  		INSERT INTO qna_board (user_id, board_category, board_title, board_content, board_date, board_fix, seq, hit)
  		VALUES('관리자1', '공지', #{board_title}, #{board_content}, now(), true, nextval('seq_qna_board'), 0)
  	</insert>
- 	<!--  <update id="updateBoard" parameterType="myboard">
- 		UPDATE myboard
- 		SET title=#{title}, content=#{content} WHERE seq = #{seq}
- 	</update>
- 	<delete id="deleteBoard" parameterType="myboard">
- 		DELETE FROM myboard WHERE seq=#{seq}
- 	</delete>
- 	<select id="getBoard" resultType="myboard">
- 		SELECT * FROM myboard WHERE seq=#{seq}
- 	</select>
- 	<select id="getBoardList" resultMap="boardResult">
- 		SELECT * FROM myboard
- 		WHERE 1=1 
- 		<if test="searchCondition=='TITLE'">
- 			AND title LIKE '%'||#{searchKeyword}||'%'
- 		</if>
- 		<if test="searchCondition=='CONTENT'">
- 			AND content LIKE '%'||#{searchKeyword}||'%'
- 		</if>
- 		ORDER BY seq DESC
- 	</select>
- 	<select id="getBoardList_C" resultMap="boardResult">
- 		SELECT * FROM myboard
- 		WHERE content LIKE '%'||#{searchKeyword}||'%'
- 		ORDER BY seq DESC
- 	</select>--> 
 </mapper>

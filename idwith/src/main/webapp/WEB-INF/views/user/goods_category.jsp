@@ -197,10 +197,10 @@
 							<div class="ui_grid__item">
 								<!-- 컨텐츠 1개 -->
 								<div class="base-card card--vertical product">
-									<a href="detail_content.do?goods_seq=${goods.goods_seq }" target="_blank">
+									<a href="detail_content.do?goods_code=${goods.goods_code}" target="_blank">
 										<div class="card-thumb-cover">
 											<!--컨텐츠 이미지-->
-											<div class="product-thumb-img" style="background-image: url(${goods.goods_photo[0]});"></div>
+											<div class="product-thumb-img" style="background-image: url('${goods.goods_photo[0]}');"></div>
 											<div class="product-bookmark">
 													<button type="button" id="btn-${goods.goods_code }"
 														class="ui_card__overlay btn-ico sp-icon icon-favorite"

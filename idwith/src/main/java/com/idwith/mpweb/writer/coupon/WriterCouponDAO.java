@@ -14,6 +14,8 @@ public class WriterCouponDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 
+	
+	
 	// 쿠폰 insert
 	public void insertCoupon(WriterCouponVO writerCouponVO) {
 		System.out.println("writerCoupon() 기능처리");
@@ -29,9 +31,9 @@ public class WriterCouponDAO {
 	}
 
 	// 페이징 처리
-	public int countWriterCoupon() {
+	public int countWriterCoupon(int sellerCode) {
 		System.out.println("countWriterCoupon() 기능처리");
-		return sqlSessionTemplate.selectOne("WriterCouponDAO.countWriterCoupon");
+		return sqlSessionTemplate.selectOne("WriterCouponDAO.countWriterCoupon", sellerCode);
 	}
 
 	// 쿠폰 상세페이지

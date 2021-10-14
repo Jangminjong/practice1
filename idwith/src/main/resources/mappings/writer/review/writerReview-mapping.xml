@@ -4,48 +4,37 @@
 
 <mapper namespace="ReviewDAO">
 	<resultMap type="writerReview" id="writerReviewResult">
-	    <result property="goods_review_seq" column="goods_review_seq"/>
-	    <result property="goods_review_title" column="goods_review_title"/>
+	    <result property="goods_review_seq" column="goods_review_seq"/>	    
 	 	<result property="goods_review_id" column="goods_review_id" />
 		<result property="goods_review_code" column="goods_review_code"/>
 		<result property="goods_review_date" column="goods_review_date" />
 		<result property="goods_review_point" column="goods_review_point" />
-		<result property="goods_review_image" column="goods_review_image" />
+		<result property="goods_review_image" column="goods_review_image" typeHandler="org.apache.ibatis.type.ArrayTypeHandler" />
 		<result property="goods_review_option1" column="goods_review_option1"/>
 		<result property="goods_review_option2" column="goods_review_option2"/>
 		<result property="goods_review_option3" column="goods_review_option3"/>
 		<result property="goods_review_context" column="goods_review_context"/>
 		<result property="goods_review_comment" column="goods_review_comment"/>
 		<result property="goods_review_product" column="goods_review_product"/>
+		<result property="goods_seller_code" column="goods_seller_code"/>
 	</resultMap>
-
-	<!-- 작가이야기 글 등록 -->
-	<!--  <insert id="writerInsertStory" parameterType="storyBoard">
-		INSERT INTO story(story_tseq, seller_id, story_title, story_date, story_context, seller_name, story_cnt)
-		VALUES(nextval('story_tseq'), #{storySellerId}, #{storyBoardTitle}, now(), #{storyBoardContext}, #{storySellerName}, 0)
+	
+	<insert id="reviewInsert" parameterType="writerReview">
+		INSERT INTO goods_review(goods_review_comment)
+		VALUES(nextval('goods_review_goods_review_seq_seq'), #{goods_review_comment})
 	</insert>
-    -->
-    
-	<!-- 작가이야기  수정 -->
-	<update id="updateReview" parameterType="com.idwith.mpweb.writer.review.ReviewVO">
-	 	<![CDATA[	
+   
+	<!-- 리뷰  수정 -->
+	<update id="updateReview" parameterType="writerReview">
 	 		UPDATE goods_review
-	 		SET 
-	 		goods_review_product=#{goods_review_product}, 
-	 		goods_review_point=#{goods_review_point},
-	 		goods_review_date=#{goods_review_date},
+	 		SET  
+	 		goods_review_comment=#{goods_review_comment}
 	 		WHERE goods_review_seq = #{goods_review_seq}
-	    ]]> 	
  	</update>
  	
-	<!-- 작가이야기  삭제 -->
-	<!--  <delete id="deleteStoryBoard" parameterType="storyBoard">
-		DELETE FROM story WHERE STORY_TSEQ=#{story_tseq}
-	</delete>
-	-->
 	
-	<!-- 작가이야기  상세조회 -->
-	<select id="reviewContent" resultType="writerReview" resultMap="writerReviewResult">
+	<!-- 리뷰  상세조회 -->
+	<select id="reviewContent" parameterType="com.idwith.mpweb.writer.review.ReviewVO" resultType="writerReview" resultMap="writerReviewResult">
 		SELECT * FROM goods_review WHERE goods_review_seq=#{goods_review_seq}
 	</select>
 
@@ -54,13 +43,13 @@
 		<![CDATA[
 			SELECT * FROM (
 				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-			FROM goods_review ORDER BY goods_review_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+			FROM goods_review WHERE goods_seller_code=#{countNotice} ORDER BY goods_review_seq DESC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
 		]]>
 	</select>	
 
      <!-- 게시글 개수 출력 -->
 	<select id="countReview" resultType="int">
-		select count(*) from goods_review
+		select count(*) from goods_review WHERE goods_seller_code=#{review_seller}
 	</select>
 	
 

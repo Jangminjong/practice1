@@ -50,6 +50,14 @@ public class ProposeDAO {
 		sqlSessionTemplate.update("ProposeDAO.updateStatus", classRegVO);
 	}
 
+	public ClassProposeInfoVO getClassProposeInfo(int classRegseq) {
+		return sqlSessionTemplate.selectOne("ProposeInfoDAO.getClassProposeInfo", classRegseq);
+	}
+
+	public GoodsApplyVO getproductPropose(int goodsApplySeq) {
+		return sqlSessionTemplate.selectOne("ProposeInfoDAO.getproductPropose", goodsApplySeq);
+	}
+	
 	public String getClass_category(String seq) {
 		return sqlSessionTemplate.selectOne("ProposeDAO.getClass_category", seq);
 	}

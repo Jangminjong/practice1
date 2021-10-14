@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -135,45 +136,48 @@
 
 			<main>
 				<div class="content">
+					<div class="row" style="margin-bottom: 20px;">
+						<div class="container-fluid p-0">
+							<div class="row mb-2 mb-xl-3">
+								<div class="col-auto d-none d-sm-block">
+									<h3>작가 : ${goodsSeller.storeName} </h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				
 					<div class="container-fluid p-0">
-
 						<form class="row g-3">
-							<div class="col-md-4">
-								<label for="inputEmail4" class="form-label">아이디</label> <input
-									type="text" class="form-control" value="client"
-									aria-label="readonly input example" readonly>
+							<div class="row">
+								<div class="col-md-3">
+									<label for="inputEmail4" class="form-label">아이디</label> <input
+										type="text" class="form-control" value="${goodsSeller.userId}"  style="width: auto;" readonly>
+								</div>
+								<div class="col-md-3">
+									<label for="inputPassword4" class="form-label">이름</label> 
+									<input type="text" class="form-control" value="${goodsSeller.sellerName}"  style="width: auto;" readonly>
+								</div>
 							</div>
-							<div class="col-md-3">
-								<label for="inputPassword4" class="form-label">이름</label> 
-								<input type="text" class="form-control" value="이예지"
-									aria-label="readonly input example" readonly>
-							</div>
-							<div class="col-md-3">
-								<label for="inputPassword4" class="form-label">전화번호</label> <input
-									type="text" class="form-control" value="010-2580-0786"
-									aria-label="readonly input example" readonly>
-							</div>
-							<div class="col-md-3">
+							<div class="row" style="margin-top: 10px;">
+								<div class="col-md-3">
+									<label for="inputEmail4" class="form-label">작가코드</label> <input
+										type="text" class="form-control" value="${goodsSeller.sellerCode}" style="width: auto;" readonly>
+								</div>
+								<div class="col-md-3">
+									<label for="inputEmail4" class="form-label">상점 이름</label> <input
+										type="text" class="form-control" value="${goodsSeller.storeName}" style="width: auto;" readonly>
+								</div>
+								<div class="col-md-3">
 								<label for="inputCity" class="form-label">사업자 등록번호</label> <input
-									type="text" class="form-control" value="321-55-05842"
-									aria-label="readonly input example" readonly>
-							</div>
-
-							<div class="col-12">
-								<label for="inputAddress" class="form-label">주소</label> <input
-									type="text" class="form-control" value="인천 광역시 부평구 대정로 90번길 7"
-									aria-label="readonly input example" readonly>
-							</div>
-							<div class="col-12">
-								<label for="inputAddress2" class="form-label ">상세주소</label> <input
-									type="text" class="form-control" value="캐슬원 000호"
-									aria-label="readonly input example" readonly>
+									type="text" class="form-control" value="${goodsSeller.sellerSellno}"  style="width: auto;" readonly> 
 							</div>
 							<div class="col-md-2">
-								<label for="inputZip" class="form-label">가입일</label> <input
-									type="text" class="form-control" value="2021-09-11"
-									aria-label="readonly input example" readonly>
+								<label for="inputZip" class="form-label">입점일</label>
+								<fmt:formatDate value="${goodsSeller.sellerIndate}" var="sellerIndate" pattern="yyyy.MM.dd"/>
+								<input type="text" class="form-control" value="${sellerIndate}" style="width: auto;" readonly>
 							</div>
+							</div>
+							
 
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
@@ -204,14 +208,6 @@
 									</div>
 									<div class="col-3">
 										<div class="card text-black">
-											<div class="card-header bg-light">총 누적 판매횟수</div>
-											<div class="card-body">
-												<p class="card-text">1,025</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-3">
-										<div class="card text-black">
 											<div class="card-header bg-light">월 판매액</div>
 											<div class="card-body">
 												<p class="card-text">1,125,000</p>
@@ -222,7 +218,6 @@
 							</div>
 						</form>
 						<h1 class="h3 mb-3">매출</h1>
-
 						<div class="row">
 							<div class="col-12">
 								<div class="card flex-fill w-100">
@@ -244,10 +239,8 @@
                             <div class="col-md-2 text-center"></div>
                             <div class="col-md-2 text-center"></div>
                             <div class="col-md-2 text-center"></div>
-                            <div class="col-md-2 text-center">
-                                <a href="writerList.mdo">
-                                    <button class="btn btn-primary">목록보기</button>
-                                </a>
+                            <div class="col-md-2 text-right">
+                               <button class="btn btn-primary" onclick="location.href='writerList.mdo'">목록보기</button>
                             </div>
                         </div>
 					</div>

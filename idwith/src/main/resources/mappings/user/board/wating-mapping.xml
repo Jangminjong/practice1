@@ -24,13 +24,10 @@
 		<result property="class_category" column="class_category"/>
 		<result property="class_name" column="class_name"/>
 		<result property="class_code" column="class_code"/>
-		<result property="class_price" column="class_price"/>
 		<result property="class_post_address" column="class_post_address"/>
 		<result property="class_address" column="class_address"/>
 		<result property="class_detail_address" column="class_detail_address"/>
 		<result property="class_reference" column="class_reference"/>
-		<result property="class_difficult" column="class_difficult"/>
-		<result property="class_person" column="class_person"/>
 		<result property="class_info" column="class_info"/>
 		<result property="class_reg_date" column="class_reg_date"/>
 		<result property="class_phone" column="class_phone"/>
@@ -41,13 +38,13 @@
  	</resultMap>
  	
  	<insert id="insertWating" parameterType="goodsApplyVO">
- 		INSERT INTO goods_apply (goods_apply_id, goods_apply_bsn, store_name, goods_apply_phone, goods_apply_category, goods_apply_info, goods_apply_photo)
- 		VALUES(#{goods_apply_id}, #{goods_apply_bsn}, #{store_name}, #{goods_apply_phone}, #{goods_apply_category}, #{goods_apply_info}, #{goods_apply_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler})
+ 		INSERT INTO goods_apply (goods_apply_id, goods_apply_bsn, store_name, goods_apply_phone, goods_apply_category, goods_apply_info, goods_apply_photo, goods_apply_date )
+ 		VALUES(#{goods_apply_id}, #{goods_apply_bsn}, #{store_name}, #{goods_apply_phone}, #{goods_apply_category}, #{goods_apply_info}, #{goods_apply_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, now())
  	</insert>
  	
  	<!-- 클래스 입점신청 대기 테이블 -->
  	<insert id="insertClassReg" parameterType="classRegVO">
- 		insert into class_reg (class_seller, user_id, seller_sellno, store_name, class_phone, class_category, class_name, class_post_address, class_address, class_detail_address, class_difficult, class_person, class_info, class_photo, class_price, class_status)
- 		values(#{class_seller}, #{user_id}, #{seller_sellno}, #{store_name}, #{class_phone}, #{class_category}, #{class_name}, #{class_post_address}, #{class_address}, #{class_detail_address}, #{class_difficult}, #{class_person}, #{class_info}, #{class_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, #{class_price}, 0)
+ 		insert into class_reg (class_seller, user_id, seller_sellno, store_name, class_phone, class_category, class_name, class_post_address, class_address, class_detail_address, class_info, class_photo, class_status)
+ 		values(#{class_seller}, #{user_id}, #{seller_sellno}, #{store_name}, #{class_phone}, #{class_category}, #{class_name}, #{class_post_address}, #{class_address}, #{class_detail_address}, #{class_info}, #{class_photo, typeHandler=org.apache.ibatis.type.ArrayTypeHandler}, 0)
  	</insert>
 </mapper>

@@ -106,6 +106,7 @@
 				data-ui="load-all-on-scroll">
 				<div class="stickyparent">
 					<div class="ui_title">
+						<a href="pdfTest.do">PDF 사용해보기</a>
 						<a href="goods_popular.do" class="ui_title__txt"> <span>인기작품</span>
 							<i class="bubble"></i></a>
 					</div>
@@ -396,7 +397,7 @@
 										<a
 											href="goods_category.do?goods_category_code=${category.goods_category_code }"
 											class="area-img"
-											style="background-image: url(${category.goods_photo[0]});">
+											style="background-image: url('${category.goods_photo[0]}');">
 										</a>
 									</div>
 									<a href="goods_category.do?goods_category_code=${category.goods_category_code }"

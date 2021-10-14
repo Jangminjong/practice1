@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,6 +167,7 @@
 										<table class="table table-hover my-0">
 											<thead>
 												<tr>
+													<th>#</th>
 													<th>쿠폰 코드</th>
 													<th class="d-none d-xl-table-cell">쿠폰 이름</th>
 													<th class="d-none d-xl-table-cell">배포 대상</th>
@@ -172,103 +175,118 @@
 													<th>쿠폰 발행일</th>
 													<th>쿠폰 종료일</th>
 													<th>배포 상태</th>
-													<th></th>
+													<th>배포</th>
 												</tr>
 											</thead>
 											<tbody>
+												<c:forEach var="couponList" items="${couponListAll}" varStatus="couponStatus">
 												<tr>
-													<td><a href="detailCoupon.mdo">cp001</a></td>
-													<td class="d-none d-xl-table-cell">전체 배포 쿠폰</td>
-													<td class="d-none d-xl-table-cell">All User</td>
-													<td class="d-none d-md-table-cell">1000원</td>
-													<td>2021-09-11</td>
-													<td>2021-10-11</td>
-													<td><span class="badge bg-success">배포완료</span></td>
+													<td scope="row">${couponStatus.count}</td>
+													<td><a href="detailCoupon.mdo?couponCode=${couponList.couponCode}">${couponList.couponCode}</a></td>
+													<td class="d-none d-xl-table-cell">${couponList.couponName}</td>
+													<td class="d-none d-xl-table-cell">${couponList.couponTarget}</td>
+													<td class="d-none d-md-table-cell">${couponList.couponDiscount}원</td>
 													<td>
-														<button class="btn btn-primary" disabled="disabled">배포</button>
-														<!--배포 여부 묻는 alert 설정-->
+														<fmt:formatDate value="${couponList.couponStartdate}" pattern="yyyy.MM.dd"/>
 													</td>
-												</tr>
-												<tr>
-													<td><a href="detailCoupon.mdo">cp002</a></td>
-													<td class="d-none d-xl-table-cell">A 일부 작품 할인쿠폰</td>
-													<td class="d-none d-xl-table-cell">seller A</td>
-													<td class="d-none d-md-table-cell">3000원</td>
-													<td>2021-09-11</td>
-													<td>2021-10-11</td>
-													<td><span class="badge bg-warning">배포 요청중</span></td>
-													<td><a href="sellerCoupon.mdo">
-															<button class="btn btn-primary">리스트</button>
-													</a></td>
-												</tr>
-												<tr>
-													<td><a href="detailCoupon.mdo">cp003</a></td>
-													<td class="d-none d-xl-table-cell">전체 배포 쿠폰</td>
-													<td class="d-none d-xl-table-cell">All User</td>
-													<td class="d-none d-md-table-cell">3000원</td>
-													<td>2021-09-11</td>
-													<td>2021-10-11</td>
-													<td><span class="badge bg-danger">배포 취소</span></td>
+													
 													<td>
-														<button class="btn btn-primary" disabled>배포</button>
+														<fmt:formatDate value="${couponList.couponEnddate}" pattern="yyyy.MM.dd"/>
 													</td>
+														<c:set var="status" value="${couponList.couponStatus}" />
+														<c:choose>
+															<c:when test="${status eq 0}">
+																<td><span class="badge bg-warning">배포요청중</span></td>
+																<td>
+																	<a href="couponRelease.mdo?couponTarget=${couponList.couponTarget}&couponCode=${couponList.couponCode}">
+																		<button class="btn btn-primary" id="couponRelease" name="couponRelease">배포</button>
+																	</a>
+																</td>
+															</c:when>
+															<c:otherwise>
+																<td><span class="badge bg-success">배포완료</span></td>
+																<td><button class="btn btn-primary" disabled="disabled">배포</button></td>
+															</c:otherwise>
+														</c:choose>
 												</tr>
-												<tr>
-													<td><a href="detailCoupon.mdo">cp004</a></td>
-													<td class="d-none d-xl-table-cell">전체 배포 쿠폰</td>
-													<td class="d-none d-xl-table-cell">All User</td>
-													<td class="d-none d-md-table-cell">3000원</td>
-													<td>2021-09-11</td>
-													<td>2021-10-11</td>
-													<td><span class="badge bg-warning">배포 요청중</span></td>
-													<td>
-														<button type="button" class="btn btn-primary" id="couponRelease">배포</button>
-													</td>
-												</tr>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
 								</div>
+							 <!-- 페이징 처리 -->
+									<div class="couponPaging" data-ui="couponPaging" data-sync="false">
+										<nav style="float: center;" aria-label="Page navigation example">
+											<ul class="pagination justify-content-end">
+												<c:choose>
+													<c:when test="${couponPaging.nowPage eq 1 }">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Previous</span></li>
+													</c:when>
+													<c:when test="${couponPaging.nowPage ne 1 }">
+														<li class="page-item"><a
+															href="/mpweb/couponList.mdo?nowPage=${couponPaging.nowPage - 1 }&cntPerPage=${couponPaging.cntPerPage}"
+															style="width: auto;" class="page-link">Previous</a></li>
+													</c:when>
+												</c:choose>
+												<c:forEach begin="${couponPaging.startPage }"
+													end="${couponPaging.endPage }" var="p">
+													<c:choose>
+														<c:when test="${p eq couponPaging.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/couponList.mdo?nowPage=${p }&cntPerPage=${couponPaging.cntPerPage}"
+																onclick="return false" class="page-link">${p }</a></li>
+														</c:when>
+														<c:when test="${p ne couponPaging.nowPage }">
+															<li class="page-item"><a
+																href="/mpweb/couponList.mdo?nowPage=${p }&cntPerPage=${couponPaging.cntPerPage}"
+																class="page-link">${p }</a></li>
+														</c:when>
+													</c:choose>
+												</c:forEach>
+												<c:choose>
+													<c:when test="${couponPaging.endPage eq couponPaging.lastPage}">
+														<li class="page-item"><span style="width: auto;"
+															class="page-link">Next</span></li>
+													</c:when>
+													<c:when test="${couponPaging.endPage ne couponPaging.lastPage}">
+														<li class="page-item"><a
+															href="/mpweb/couponList.mdo?nowPage=${couponPaging.endPage+1 }&cntPerPage=${couponPaging.cntPerPage}"
+															style="width: auto;" class="page-link">Next</a></li>
+													</c:when>
+												</c:choose>
+											</ul>
+										</nav>
+									</div>
+                                </div>
 							</div>
-							<nav aria-label="Page navigation example">
-								<ul class="pagination justify-content-end">
-									<li class="page-item disabled"><a class="page-link"
-										href="#" tabindex="-1">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a>
-									</li>
-								</ul>
-							</nav>
 						</div>
-					</div>
-				</div>
-			</main>
+						</div>
+						</main>
 			<script src="resources/admin/js/app.js"></script>
 			<script>
-		$().ready(function (){ 
-			$("#couponRelease").click(function (){ 
-				Swal.fire({ 
-					title: '쿠폰 배포', 
-					text: "이 쿠폰을 배포하시겠습니까?", 
-					icon: 'question', 
-					showCancelButton: true, 
-					confirmButtonColor: '#FF7B30', 
-					confirmButtonBorderColor : "#FF7B30",
-					cancelButtonColor: '#15283D', 
-					confirmButtonText: '배포', 
-					cancelButtonText: '취소' 
-				}).then((result) => { 
-					if (result.isConfirmed) { 
-						Swal.fire(
-							'쿠폰 배포', 
-							'해당 쿠폰이 배포되었습니다.', 
-						) 
-					} 
-				}) 
-			}); 
-		});
+				$().ready(function (){ 
+					$("#couponRelease").click(function (){ 
+						Swal.fire({ 
+							title: '쿠폰 배포', 
+							text: "이 쿠폰을 배포하시겠습니까?", 
+							icon: 'question', 
+							showCancelButton: true, 
+							confirmButtonColor: '#FF7B30', 
+							confirmButtonBorderColor : "#FF7B30",
+							cancelButtonColor: '#15283D', 
+							confirmButtonText: '배포', 
+							cancelButtonText: '취소' 
+						}).then((result) => { 
+							if (result.isConfirmed) { 
+								Swal.fire(
+									'쿠폰 배포', 
+									'해당 쿠폰이 배포되었습니다.', 
+								) 
+							} 
+						}) 
+					}); 
+				});
 			</script>
 		</div>
 	</div>

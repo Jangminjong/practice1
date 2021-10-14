@@ -2947,7 +2947,6 @@ button i[data-v-b534333e] {
 }
 
 .idwith-icon-arrow {
-<<<<<<< HEAD
 	margin-left: auto;
 	float: right;
 }
@@ -2986,11 +2985,8 @@ select {
 	text-align: right;
 	font-size: 20px;
     font-weight: 700;	
-=======
-	display: flex;
+	/* display: flex; */
 }
-
-
 /* 달력 부분 */
 
 :root {
@@ -3241,5 +3237,10 @@ select {
         transform: translateY(0);
         opacity: 1;
     }
->>>>>>> origin/client-classDetail
 }
+
+
+/* .outer-frame {
+	width: 560px;
+    height: 450px;
+} */

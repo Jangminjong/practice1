@@ -251,7 +251,7 @@
 													<div data-v-a6596a66="" class="CartArtistItem__label">작품 가격</div>
 													<em data-v-a6596a66="" class="CartArtistItem__price" >
 														<span id="goodsPrice">
-															<input type="text" name="goods_price" id="goods_price${status.count}" value="" readonly/>
+															<input type="text" name="goods_price" id="goods_price${status.count}" value="${totalPrice}" readonly/>
 															<%-- <c:out value="${totalPrice}"/> --%>
 														</span>원
 													</em>
@@ -323,7 +323,7 @@
 												<c:set var="allGoodsPrice" value="0" />
 												<c:set var="allGoodsPrice" value="${allGoodsPrice + totalPrice}"/>
 												<span data-v-e14558f4="">
-													<input type="text" id="allGoodsPrice" value="${allGoodsPrice}" />
+													<%-- <input type="text" id="allGoodsPrice" value="${allGoodsPrice}" /> --%>
 													<c:out value="${allGoodsPrice}" />
 												</span> <span data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>
 											</div>

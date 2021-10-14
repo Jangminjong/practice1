@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,7 +140,7 @@
                         <div class="container-fluid p-0">
                             <div class="row mb-2 mb-xl-3">
                                 <div class="col-auto d-none d-sm-block">
-                                    <h3>작가 : client</h3>
+                                    <h3>작가 : ${goodsApplyInfo.store_name}</h3>
                                 </div>
                             </div>
 
@@ -146,20 +148,20 @@
                                 <div class="card-body" style="width: auto;">
                                     <form>
                                         <div class="mb-3">
-                                            <label class="form-label">작가코드</label>
-                                            <input type="text" class="form-control" placeholder="seller code"
-                                                style="width: auto;" disabled>
+                                            <label class="form-label">신청ID</label>
+                                            <input type="text" class="form-control" value="${goodsApplyInfo.goods_apply_id}" readonly="readonly" id="goods_apply_id" name="goods_apply_id"
+                                                style="width: auto;" disabled> 
                                         </div>
                                         
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <label class="form-label">이름</label>
-                                                <input type="text" class="form-control" placeholder="seller name"
+                                                <label class="form-label">상점 이름</label>
+                                                <input type="text" class="form-control" value="${goodsApplyInfo.store_name}" readonly="readonly" id="store_name" name="store_name"
                                                     style="width: auto;">
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="form-label">전화 번호</label>
-                                                <input type="text" class="form-control" placeholder="seller phone"
+                                                <input type="text" class="form-control" value="${goodsApplyInfo.goods_apply_phone}" readonly="readonly" id="goods_apply_phone" name="goods_apply_phone"
                                                     style="width: auto;">
                                             </div>
                                         </div>
@@ -167,46 +169,58 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label class="form-label">사업자 등록번호</label>
-                                                <input type="text" class="form-control" placeholder="sell number"
+                                                <input type="text" class="form-control" value="${goodsApplyInfo.goods_apply_bsn}" readonly="readonly" id="goods_apply_bsn" name="goods_apply_bsn"
                                                     style="width: auto;">
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="form-label">작품 / 클래스</label>
-                                                <input type="text" class="form-control" placeholder="Product / Class"
+                                                <input type="text" class="form-control" value="작품" readonly="readonly"
                                                     style="width: auto;">
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="form-label">카테고리</label>
-                                                <input type="text" class="form-control" placeholder="category"
-                                                    style="width: auto;">
+                                                <input type="text" class="form-control" value="${goodsApplyInfo.goods_apply_category}" name="goods_apply_category" id="goods_apply_category"
+                                                   readonly="readonly" style="width: auto;">
                                             </div>
                                         </div>
                                         <div class="mb-3"></div>
                                         <div class="mb-3">
                                             <label class="form-label">입점 신청일</label>
-                                            <input type="text" class="form-control" placeholder="Application date"
+                                            <fmt:formatDate var="goodsInfoDate" value="${goodsApplyInfo.goods_apply_date}" pattern="yyyy.MM.dd"/>
+                                            <input type="text" class="form-control" value="${goodsInfoDate}" readonly="readonly" id="goods_apply_date" name="goods_apply_date"
                                                 style="width: auto;">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">상품 설명</label>
-                                            <input type="textarea" class="form-control" placeholder="Product Content" />
+                                            <textarea class="form-control" name="goods_apply_info" id="goods_apply_info" rows="5" readonly="readonly">${goodsApplyInfo.goods_apply_info}</textarea>
                                         </div>
-                                    </form>
-
+                                        <c:forEach var="i" items="${goodsApplyInfo.goods_apply_photo}">
+												<div class="row">
+													<div class="col-12 col-md-6 col-lg-4">
+														<div class="card">
+															<div class="card-header">
+																<h4 class="card-title mb-0">작품 사진</h4>
+															</div>
+															<img class="card-img-top" src="${i}" alt="Unsplash">
+														</div>
+													</div>
+												</div>
+											</c:forEach>
+										<div class="row">
+											<div class="col-md-2 text-center"></div>
+											<div class="col-md-2 text-center"></div>
+											<div class="col-md-2 text-center"></div>
+											<div class="col-md-2 text-center"></div>
+											<div class="col-md-2 text-center"></div>
+											<div class="col-md-2 text-right">
+												<button class="btn btn-primary" type="button"
+													onclick="location.href='storePropose.mdo'">목록보기</button>
+											</div>
+										</div>
+									</form>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center"></div>
-                                <div class="col-md-2 text-center">
-                                    <a href="storePropose.mdo">
-                                        <button class="btn btn-primary">목록보기</button>
-                                    </a>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

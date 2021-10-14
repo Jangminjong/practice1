@@ -58,28 +58,38 @@
 
             </div>
 
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+           <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  
                     <li class="dropdown">
+                          <a href="logout.wdo">
+                            <i class="material-icons">logout</i>
+                          </a>
+                        
+                    </li>
+                    
+                    
+
+                    <!-- #END# Tasks -->
+                  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
+                             <i class="material-icons">delete</i>
                             <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">                                   
+                            <li class="header">입점취소 신청하기</li>
+                            <li class="body text-center"><a href="">취소신청</a>
+                                <ul class="menu">
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <a href="javascript:void(0);">입점취소신청하기</a>
                             </li>
+                           
                         </ul>
                     </li>
-                    
-                    <!-- #END# Tasks -->
-                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                      <i class="material-icons">delete</i></a>
+                    </li>  -->
                 </ul>
             </div>
         </div>
@@ -88,7 +98,7 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-            
+          
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
@@ -104,6 +114,13 @@
                         <a href="orderList.wdo">
                             <i class="material-icons">shopping_cart</i>
                             <span>주문관리</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="orderClass.wdo">
+                            <i class="material-icons">airplay</i>
+                            <span>클래스 신청관리</span>
                         </a>
                     </li>
 
@@ -136,13 +153,6 @@
                     </li>
 
                     <li>
-                        <a href="Follow.wdo">
-                            <i class="material-icons">favorite</i>
-                            <span>팔로우</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="writerStory.wdo">
                             <i class="material-icons">chat</i>
                             <span>작가 이야기</span>
@@ -163,20 +173,25 @@
                         </a>
                     </li>
 
-                   
                     <li>
                         <a href="sellerCalculate.wdo">
                             <i class="material-icons">star_rate</i>
                             <span>정산</span>
                         </a>
                     </li>
-
+                    
+                    <li>
+                        <a href="index.do">
+                            <i class="material-icons">contact_page</i>
+                            <span>Idwith</span>
+                        </a>
+                    </li>
 
                 </ul>
-            </div> 
-          
+            </div>
+
         </aside>
-        
+
     </section>
 
 
@@ -193,11 +208,24 @@
                             	<input type="number" name="classRegSeq" style="display:none" value="${classReg.classRegSeq}">
 								<div class="form-group form-float"> 카테고리 &nbsp;&nbsp;
 								<select name='classCategory' id="productCategory">
-									<option value='ceramic'>도자기</option>
-									<option value='doll'>인형</option>
-									<option value='phone_case'>휴대폰 케이스</option>
+									<c:forEach var="classCategory" items="${classCategoryList}">
+										<c:choose>
+											<c:when test="${classReg.classCategory eq classCategory.classCategoryCode} ">
+												<option value='${classCategory.classCategoryCode}' selected="selected">${classCategory.classCategoryName}</option>
+											</c:when>
+											<c:when test="${classReg.classCategory eq classCategory.classCategoryCode} ">
+												<option value='${classCategory.classCategoryCode}'>${classCategory.classCategoryName}</option>
+											</c:when>
+										</c:choose>
+									</c:forEach>
 								</select>
 								</div>
+								<div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="className" value="${classReg.className}" required>
+                                        <label class="form-label" >클래스 주제</label>
+                                    </div>
+                                </div>						
                                 <div class="row">
                                 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-bottom: -5px;">
 	                                	<div class="form-group form-float">
@@ -237,8 +265,7 @@
                                 <div class="form-group form-float">
              							<label class="form-label">업로드한 파일들</label>
 									<div class="uploadedGroup">
-										<c:forEach var="i" begin="0" end="${fileLength-1}" step="1">
-											
+										<c:forEach var="i" begin="0" end="${fileLength-1}" step="1">						
 											<c:choose>
 												<c:when test="${classReg.classPhoto[i] ne null}">
 													<input type="text" name="uploadedFileList" style="display:none;" value="${classReg.classPhoto[i]}">
@@ -272,14 +299,13 @@
                                 </div>
                                 <div class="addImage-group">
                                 </div>
-								
-								<button class="btn btn-primary waves-effect" type="submit">수정하기</button>
-                                <a href="classManagement.wdo">
-                  	              <button class="btn btn-primary waves-effect" type="button">목록으로</button>
-                  	            </a>
-                  	            <a href="classRegDelete.wdo?classRegSeq=${classReg.classRegSeq}">
-                  	              <button class="btn btn-primary waves-effect" type="button">삭제하기</button>
-                  	            </a>
+									<button class="btn btn-primary waves-effect" type="submit">수정하기</button>
+	                                <a href="classManagement.wdo">
+	                  	              <button class="btn btn-primary waves-effect" type="button">목록으로</button>
+	                  	            </a>
+	                  	            <a href="classRegDelete.wdo?classRegSeq=${classReg.classRegSeq}">
+	                  	              <button class="btn btn-primary waves-effect" type="button">삭제하기</button>
+	                  	            </a>
                             </form>
                             </div>
                         </div>

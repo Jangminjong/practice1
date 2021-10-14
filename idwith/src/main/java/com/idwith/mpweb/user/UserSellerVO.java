@@ -16,7 +16,7 @@ public class UserSellerVO {
 	private int seller_status;
 	private String seller_history;
 	private String seller_idea;
-	private String seller_identity;
+	private String seller_identity; // 입점상태
 	private String seller_ideal;
 	private String store_name;
 	private int follow_count; // 작가별 팔로워 카운트

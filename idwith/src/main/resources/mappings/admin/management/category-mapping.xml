@@ -39,8 +39,8 @@
 	<select id="getClassCate" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="categoryResult">
 		<![CDATA[
 			SELECT * FROM (
-				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
-			FROM class_category ORDER BY class_category_code ASC)A)AS foo WHERE rownum BETWEEN #{start} AND #{end}
+				SELECT ROW_NUMBER() OVER() as classRownum, A.* FROM (SELECT *
+			FROM class_category ORDER BY class_category_code ASC)A)AS foo WHERE classRownum BETWEEN #{start} AND #{end}
 		]]>
 	</select>
 	
