@@ -427,7 +427,7 @@
 									<button data-v-1c074f7f="" type="submit" data-to="cart"
 										class="ui_btn cart">장바구니</button>
 									<button data-v-1c074f7f="" type="submit" data-to="payment"
-										class="ui_btn--red buy">구매하기</button>
+										class="ui_btn--red buy" id="direct_payment">구매하기</button>
 									<button data-v-1c074f7f="" type="submit" data-to="present"
 										data-pay-type="present" class="ui_btn--redline present">
 										<div data-v-1c074f7f="" class="inner">

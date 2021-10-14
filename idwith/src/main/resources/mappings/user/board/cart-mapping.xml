@@ -76,6 +76,14 @@
 		where c.user_id = #{user_id} and (cart_pay_check=false or cart_pay_check isnull)
 	</select>
 	
+	<!-- 바로결제시 장바구니의 가장 최신 것 가져오기 -->
+	<select id="getCartForDirect" resultMap="cartResult">
+		select c.*, g.*
+			from cart as c
+			join goods as g on c.goods_code = g.goods_code
+		where c.user_id = #{user_id} and (cart_pay_check=false or cart_pay_check isnull )  order by c.cart_num desc limit 1
+	</select>
+	
 	<!-- 수량 + / - -->
 	<update id="updateQuantity" parameterType="cartVO">
 		update cart set cart_quantity=#{cart_quantity}, goods_price=#{goods_price} where user_id=#{user_id} and goods_code=#{goods_code}

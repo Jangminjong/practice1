@@ -36,7 +36,14 @@
 			<div data-v-6d930ad9="" class="CartPage">
 				<div data-v-1e62c1aa="" data-v-6d930ad9=""
 					class="PageHeader CartPage__header">
-					<h2 data-v-1e62c1aa="" class="PageHeader__title">장바구니</h2>
+					<c:choose>
+						<c:when test="${state eq null }">
+							<h2 data-v-1e62c1aa="" class="PageHeader__title">장바구니</h2>
+						</c:when>
+						<c:when test="${state eq 'direct' }">
+							<h2 data-v-1e62c1aa="" class="PageHeader__title">바로결제</h2>
+						</c:when>	
+					</c:choose>
 					<ol data-v-1e62c1aa="" class="PageHeader__steps">
 						<li data-v-1e62c1aa=""
 							class="PageHeader__stepsItem PageHeader__stepsItem--active"><em

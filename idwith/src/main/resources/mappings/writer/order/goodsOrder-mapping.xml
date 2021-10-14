@@ -3,7 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="GoodsOrderDAO">
-	<resultMap type="goodsOrder" id="goodsOrderResult">
+	<resultMap type="goodsOrder" id="goodsOrderUserResult">
 	    <result property="order_detail_code" column="order_detail_code"/>
 	 	<result property="order_detail_seller" column="order_detail_seller" />
 		<result property="order_detail_goods" column="order_detail_goods"/>
@@ -35,7 +35,7 @@
 	
 	
 	<!-- 주문 상세조회 -->
-	<select id="Order" resultType="goodsOrder" resultMap="goodsOrderResult">
+	<select id="Order" resultType="goodsOrder" resultMap="goodsOrderUserResult">
 		SELECT * FROM goods_order_detail WHERE order_detail_code=#{order_detail_code}
 	</select>
 	
@@ -49,7 +49,7 @@
  	</update>
 
 	<!-- 페이징 처리 후 게시글 조회 -->
-	<select id="getOrderList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="goodsOrderResult">
+	<select id="getOrderList" parameterType="com.idwith.mpweb.common.PagingVO" resultMap="goodsOrderUserResult">
 		<![CDATA[
 			SELECT * FROM (
 				SELECT ROW_NUMBER() OVER() as rownum, A.* FROM (SELECT *
@@ -67,7 +67,7 @@
 	   select count(*) from goods_order_detail WHERE order_detail_seller=#{sellerCode} and order_date=current_date
 	</select>
 	
-	<select id="getGoodsOrderListFive" resultMap="goodsOrderResult">
+	<select id="getGoodsOrderListFive" resultMap="goodsOrderUserResult">
 		select * from goods_order_detail WHERE order_detail_seller=#{sellerCode} limit 5
 	</select>
 	

@@ -43,7 +43,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
  		<typeAlias type="com.idwith.mpweb.writer.WriterClassOpenVO" alias="writerClassOpen"/>
  	    <typeAlias type="com.idwith.mpweb.writer.WriterClassOrderVO" alias="classOrder"/>
  		<typeAlias type="com.idwith.mpweb.writer.storyboard.StoryBoardVO" alias="storyBoard"/>
- 		<typeAlias type="com.idwith.mpweb.writer.storyboard.StoryBoardVO" alias="storyBoard"/>
  		<typeAlias type="com.idwith.mpweb.writer.goods.WriterGoodsVO" alias="writerGoods"/>
  		<typeAlias type="com.idwith.mpweb.writer.coupon.WriterCouponVO" alias="writerCoupon"/>
  		<typeAlias type="com.idwith.mpweb.writer.review.ReviewVO" alias="writerReview"/>

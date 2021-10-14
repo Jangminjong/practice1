@@ -50,4 +50,9 @@ public class CartServiceImpl implements CartService {
 	public void deleteOption(CartVO vo) {
 		dao.deleteOption(vo);
 	}
+
+	@Override
+	public CartVO getCartForDirect(String user_id) {
+		return dao.getCartForDirect( user_id);
+	}
 }

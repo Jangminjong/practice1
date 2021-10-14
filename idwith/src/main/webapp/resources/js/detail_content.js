@@ -69,6 +69,67 @@ $(document).ready(function (){
 		
 	});//end event
 	
+	//----바로결제----------------------------------------------------------------------------------------
+	
+	//옵션 선택이 안되어 있을 시 경고창 띄우기
+	$('#direct_payment').click(function (){
+		var cartInfo = 0;
+		var valueArray = new Array(); // 값을 담을 배열
+
+		//셀렉트박스에 있는 값을 하나씩 꺼내 배열에 담는 로직
+		$('select[name=goods_option_value] option:selected').each(function(index){
+			var num=$(this).attr('value');
+			valueArray.push(num);
+		});
+
+		for(let i=0; i<valueArray.length; i++){
+			console.log("선택 상품 : " + valueArray[i]);
+			if(valueArray[i] == undefined){
+				cartInfo = 1;
+				break;
+			}else if(valueArray[i] != undefined){
+				if(cartInfo != 1){
+					cartInfo = 2;
+				}
+			}//end if
+		}//end for
+		
+		if(cartInfo == 1){
+			alert('옵션을 선택해주세요.');
+		}else if(cartInfo == 2){
+			
+			console.log('옵션 길이 : ' + $('input[name=optionNum]').val());
+			
+			//로그인 한 상태인지 확인 후 
+			var loginState = $('#user_id').val();
+			
+			if(loginState == ''){//로그인이 되어있지 않을 때 : 로그인화면으로 이동
+				alert('로그인이 필요합니다.');
+				location.replace("login.do");
+			}else { //로그인되어 있을 때 : 장바구니에 insert --> 수량에 -1을 해서 보내는 듯
+					$.ajax({
+						url: "insertCart.do",
+						type: "POST",
+						async: false,
+						data: $('#buyScrollable').serialize(),
+						datatype: 'json',
+						success: function(data){
+							$('.selected_options').css({'display': 'none'});
+							$('#total').attr('value', 0);
+							console.log('장바구니에 추가됨');
+							location.replace('cart.do?buy=direct');
+						},
+						error: function(request, status, error){
+							alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+						}
+					}); //end ajax
+			}
+		}
+		
+	});//end event
+	
+	
+	//-----------------------------------------------------------------------------------------
 	//작품 정보제공 고시
 	$('#info-prd-btn').click(function() {
 		const activeCheck = $('#info-prd-btn').attr('class'); //클래스 이름 가져오기
