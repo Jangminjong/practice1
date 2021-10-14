@@ -157,7 +157,6 @@ function sendSMS(pageName){
         },
         success : function(data) {
 			document.getElementById("randomPIN").value = data.randomPIN;
-		 	console.log('인증번호 : ' + data.randomPIN);
         },
         error : function(request, status, error) {
             alert("list search fail :: error code: "

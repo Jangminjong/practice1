@@ -86,7 +86,8 @@
  	<!-- 작가가 등록한 클래스리스트 가져오기 -->
  	<select id="getClassList" resultType="sellerClassVO" resultMap="sellerClassResult">
  		<!--  select * from class_reg where class_seller=#{class_seller} -->
- 		select s.seller_name from class_reg as cr
+ 		select s.*, cr.*
+ 			from class_reg as cr
 			join seller as s
 			on cr.class_seller = s.seller_code
 		where s.seller_code=#{seller_code}
@@ -99,7 +100,7 @@
  	
  	<!-- 작가의 등록한 상품에 대한 리뷰 -->
  	<select id="getSellerProductReviewList" resultType="sellerProductReviewVO" resultMap="sellerProductReviewListResult">
- 		select * from goods_review where goods_review_code = (select goods_code from goods where seller_code=#{seller_code})
+ 		select * from goods_review where goods_seller_code = #{seller_code}
  	</select>
  	
  	<!-- 작가의 등록한 상품에 대한 리뷰 -->

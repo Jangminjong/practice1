@@ -5,7 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>아이디위드 | 작가 스토리</title>
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+	
 <link rel="stylesheet" href="resources/css/story.css">
 <link rel="stylesheet" href="resources/css/common.css">
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
@@ -36,14 +40,14 @@
 									<div data-v-52776193="" class="story-card__header">
 										<div data-v-52776193="" class="story-card-info">
 											<a data-v-52776193=""
-												href="/w/artist/5c3dfbf1-6a00-436d-9db6-59d7c4af617a/product"
+												href="seller_story.do?seller_code=${list.seller_id}"
 												target="_blank" class="artist-thumbnail"><img
 												data-v-52776193="" alt="artist profile"
-												src="https://image.idus.com/image/files/32561fbf82264b95ad4796be8f446559_320.jpg"></a>
+												src="${list.story_image[0]}"></a>
 											<div data-v-52776193="" class="artist-info">
 												<span data-v-52776193="" class="artist-name"><a
 													data-v-52776193=""
-													href="/w/artist/5c3dfbf1-6a00-436d-9db6-59d7c4af617a/product"
+													href="seller_story.do?seller_code=${list.seller_id}"
 													target="_blank"> ${list.seller_name } </a></span> <span
 													data-v-52776193="" class="story-date">${list.story_date }</span>
 											</div>
@@ -55,7 +59,7 @@
 												style="font-size: 12px;"></i> 팔로우
 										</button>
 									</div> <a data-v-52776193=""
-									href="/w/story/521ccb15-006d-442d-892b-c3604f20f192"
+									href="seller_story.do?seller_code=${list.seller_id}"
 									target="_blank"><div data-v-52776193=""
 											class="story-card__body">${list.story_context }</div>
 										<div>
@@ -74,15 +78,15 @@
 									name="page" type="hidden" value="2">
 									<div data-v-52776193="" class="story-card__header">
 										<div data-v-52776193="" class="story-card-info">
-											<a data-v-52776193="" href="seller_goods.do" target="_blank"
+											<a data-v-52776193="" href="seller_story.do?seller_code=${rightList.seller_id}" target="_blank"
 												class="artist-thumbnail"><img data-v-52776193=""
 												alt="artist profile"
-												src="https://image.idus.com/image/files/7d53c78cf97f4163a11bf9f1bafe877d_320.jpg"></a>
+												src="${rightList.story_image[0]}"></a>
 											<div data-v-52776193="" class="artist-info">
 												<span data-v-52776193="" class="artist-name"><a
-													data-v-52776193="" href="seller_goods.do" target="_blank">
+													data-v-52776193="" href="seller_story.do?seller_code=${rightList.seller_id}" target="_blank">
 														${rightList.seller_name } </a></span> <span data-v-52776193=""
-													class="story-date">${rigthList.story_date }</span>
+													class="story-date">${rightList.story_date}</span>
 											</div>
 										</div>
 										<button data-v-b534333e="" data-v-52776193="" type="button"
@@ -91,10 +95,10 @@
 											<i data-v-b534333e="" class="idus-icon-plus"
 												style="font-size: 12px;"></i> 팔로우
 										</button>
-									</div> <a data-v-52776193="" href="##" target="_blank">
+									</div> <a data-v-52776193="" href="seller_story.do?seller_code=${rightList.seller_id}" target="_blank">
 										<div data-v-52776193="" class="story-card__body">${rightList.story_context}</div>
 										<div>
-											<img src="${list.story_image }">
+											<img src="${rightList.story_image[0]}">
 										</div>
 								</a> </a></li>
 							</c:forEach>

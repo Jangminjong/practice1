@@ -25,8 +25,7 @@
 				<a href="eventNoticeBoard.do">이벤트</a> <span>|</span> <a
 					href="enterWriterNotice.do" target="blank">입점문의</a> <span>|</span>
 				<a class="m-show" href="https://about.idus.com" target="blank">About
-					idus</a> <span>|</span> <a href="https://recruit.idus.com"
-					target="blank">인재 영입</a>
+					idus</a> <span>|</span>
 			</nav>
 		</div>
 

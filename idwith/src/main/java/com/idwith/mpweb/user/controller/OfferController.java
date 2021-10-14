@@ -81,13 +81,11 @@ public class OfferController {
 		System.out.println("작품 입점 신청 컨트롤러 실행");
 		
 		//작가가 등록되어 있는지 확인
-//		String seller_code = (String) session.getAttribute("sellerCheck");
-//		
-//		if(seller_code != null) {
-//			goodsApplyVO.setGoods_apply_id(seller_code);
-//		}
-		watingService.insertWating(goodsApplyVO);
+		String seller_code = String.valueOf(session.getAttribute("sellerCheck"));
 		
+		if(seller_code != null) {
+			goodsApplyVO.setGoods_apply_id(seller_code);
+		}
 		
 		 InputStream is = file.getInputStream();
          String uploadKey = file.getOriginalFilename();
