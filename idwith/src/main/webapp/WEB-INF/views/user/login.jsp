@@ -210,12 +210,12 @@
 				success: function(data){
 					if(data == 0){
 						alert('존재하지 않는 회원입니다.');
-						location.replace("/mpweb/login.do");
+						location.replace("login.do");
 					}else if(data == 1){
 						alert('비밀번호를 확인해주세요.');
-						location.replace("/mpweb/login.do");
+						location.replace("login.do");
 					}else {
-						location.replace("/mpweb/index.do");
+						location.replace("index.do");
 					}
 				},
 				error: function(request, status, error){

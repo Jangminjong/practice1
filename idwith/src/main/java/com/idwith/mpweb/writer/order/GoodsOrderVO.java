@@ -32,6 +32,8 @@ public class GoodsOrderVO {
 	private String order_detail_address;
 	private String order_detail_address2;
 	private String order_detail_status;
+	private java.sql.Date startDate;
+	private java.sql.Date endDate;
 	
 	public Integer getRownum() {
 		return rownum;
@@ -204,8 +206,18 @@ public class GoodsOrderVO {
 	public void setOrder_detail_status(String order_detail_status) {
 		this.order_detail_status = order_detail_status;
 	}
-	
-	
+	public java.sql.Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(java.sql.Date startDate) {
+		this.startDate = startDate;
+	}
+	public java.sql.Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(java.sql.Date endDate) {
+		this.endDate = endDate;
+	}
 	
 
 }
