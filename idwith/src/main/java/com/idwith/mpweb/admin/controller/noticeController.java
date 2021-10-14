@@ -9,16 +9,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
 import com.idwith.mpweb.admin.S3Service;
 import com.idwith.mpweb.admin.board.AdminEventBoardVO;
-
+import com.idwith.mpweb.admin.board.AdminNoticeBoardVO;
 import com.idwith.mpweb.admin.board.AdminQnABoardVO;
 import com.idwith.mpweb.admin.board.service.AdminBoardService;
 import com.idwith.mpweb.admin.board.service.AdminNoticeService;
@@ -370,9 +368,9 @@ public class noticeController {
 	}
 	
 	@RequestMapping("/insertFAQ.mdo")
-	public String insertFAQ(AdminQnABoardVO adminQnA) {
-		
+	public String insertFAQ(AdminQnABoardVO adminQnA, HttpSession session) {
 		System.out.println("content: "+adminQnA.getBoard_content());
+		adminQnA.setUser_id((String)session.getAttribute("admin_name"));
 		adminBoardService.insertFAQ(adminQnA);
 		return "redirect:/qna.mdo";
 	}

@@ -182,27 +182,25 @@
 									</c:when>
 								</c:choose>
 							</div>
-							<c:choose>
-								<c:when test="${ adminQnA.board_answer eq null }">
-									<input type="submit" class="btn btn-primary" value="답변등록"/>
-								</c:when>
-								<c:when  test="${ adminQnA.board_answer ne null }">
-									<input type="submit" class="btn btn-primary" value="답변수정"/>
-								</c:when>
-							</c:choose>
+							<div class="row">
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center"></div>
+								<div class="col-md-2 text-center">
+									<c:choose>
+										<c:when test="${ adminQnA.board_answer eq null }">
+											<input type="submit" class="btn btn-primary" value="답변등록"/>
+										</c:when>
+										<c:when  test="${ adminQnA.board_answer ne null }">
+											<input type="submit" class="btn btn-primary" value="답변수정"/>
+										</c:when>
+									</c:choose>
+									<button class="btn btn-primary" onclick="location.href='qna.mdo'">목록</button>
+								</div>
+							</div>
 						</form>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center"></div>
-					<div class="col-md-2 text-center">
-						<a href="qna.mdo">
-							<button class="btn btn-primary">목록</button>
-						</a>
 					</div>
 				</div>
 			</main>
