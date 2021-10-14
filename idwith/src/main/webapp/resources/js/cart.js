@@ -58,6 +58,7 @@ $(document).ready(function() {
 					//$('.CartOptionListItem__optionText').text(resultOption);
 					$('#optionQuantity').text(totalPrice);
 					$('.footer_modal_container').css({'display': 'none'});
+					location.reload();
 				},
 				error: function(request, status, error){
 					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -245,6 +246,17 @@ function selectAll(selectAll) {
 		checkbox.checked = selectAll.checked;
 	})
 	
+	//전체 체크 시 작품 가격 더하기
+	/*var allGoodsPrice = $('#allGoodsPrice').val();
+	console.log('현재 가격 : ' + allGoodsPrice);
+	for(let i=0; i<checkLength; i++){
+		const optionPrice = $('#'+optionPrice+'i').val();
+		Number(allGoodsPrice) += Number(optionPrice);
+	}*/
+	
+	/*console.log("전체 가격 : " + allGoodsPrice);
+	$('#allGoodsPrice').attr('value', allGoodsPrice);*/
+	
 	var cartLength = $('#cartLength').val();
 	
 	var allCheck = document.getElementById('cart-product-all-check');
@@ -271,19 +283,26 @@ function optionUpdate(goods_code, index){
 	var goodsName = $('#'+str2).text();
 	$('.CartOptionUpdateModal__productName').text(goodsName);
 	
-	//가격
+	//가격 구하기
 	var str1 = "cart_quantity" + index;
 	var curQuantity = $('#'+str1).val();//현재 수량
+	
+	console.log('현재 수량  : '+ curQuantity);
 	var optionPrice = $('#optionPrice'+index).text();//현재 작품 가격
 	
 	console.log("현재 가격 : " + optionPrice);
+	
+	//모달 창 상단에 현재 가격 표시
+	$('.CartOptionUpdateModal__productPrice').text(optionPrice+'원');
+	$('#init_price').attr('value', optionPrice);
+	
 	var initOptionPrice = Number(optionPrice) / Number(curQuantity); //정가
 	
 	var str3 = 'goods_option_price' + index;
 	var goodsPrice = $('.'+str3).text();
 	var goodsTotal = Number(initOptionPrice) + Number(goodsPrice);
 	console.log('가격 : ' + goodsTotal);
-	$('.CartOptionUpdateModal__productPrice').text(goodsTotal+'원');
+	
 	
 	//현재 선택옵션
 	var str4 = 'optionList' + index;
@@ -425,28 +444,31 @@ function optionChange(){
 		$('.CartOptionUpdateModal__optionBox').text(result);
 		$('#updateOption').attr('value', updateOption);
 		
+		var initPrice = $('#init_price').val(); // 초기 정가
 		
-		var total = 0;
+		console.log("정가 : " + initPrice);
+		var total = Number(initPrice);
+		console.log("Total : " + total);
+		console.log("Total Type : " + typeof total);
 		for(let i=0; i<selOption.length; i++){
 			let resultPrice = Number(priceArray[i]);
 			total += resultPrice;
 			
-			console.log(total);
+			console.log(i+"번째 : " + total);
 		}
 		
 		$('#selOptionPrice').text(total);//선택한 옵션 총 가격 text 출력
 		$('#total').attr('value', total);//선택한 모든 옵션의 합산가격
 		
-		var initPrice = $('#init_price').val(); // 초기 정가
-		var totalPrice = Number(initPrice) + Number(total); 
-		$('#total_price').text(totalPrice); // 총 가격 표시용
-		$('#total').attr("value", totalPrice); // (초기정가 + 옵션가) 1개 가격 
-		console.log('수량 변경전:'+ totalPrice);
+		$('#total_price').text(total); // 총 가격 표시용
+		$('#total').attr("value", total); // (초기정가 + 옵션가) 1개 가격
+		
+		
 		
 		$('input[name=cart_quantity]').attr('value', 1);//상품의 기본 수량
 		
 		//최종 상품 가격 표시
-		$('.CartOptionUpdateModal__productPrice').text(totalPrice+'원');
+		$('.CartOptionUpdateModal__productPrice').text(total+'원');
 		
 		//옵션 선택 결과창 보여줌
 		$('.selected_options').css({'display': ''});
@@ -457,7 +479,7 @@ function optionChange(){
 		}); */
 		
 	}//end if
-}
+}//end function
 
 //옵션 이벤트
 function checkOption() {
