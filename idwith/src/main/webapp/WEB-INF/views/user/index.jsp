@@ -389,18 +389,18 @@
 					<div class="ui_grid" data-on-scroll="load-content"
 						data-endpoint="/mainAsync/api_category">
 						<div class="ui_grid__cols--6">
-							<c:forEach var="category" items="${getAllGoodsCategory }">
+							<c:forEach var="category" items="${getAllGoodsCategory}">
 							<div class="ui_grid__item">
 								<div class="card-style boxed">
 									<div class="img-wrap">
 										<a
-											href="goods_category.do?goods_category_code=${category.goods_category_code }"
+											href="goods_category.do?goods_category_code=${category.goods_category_code}"
 											class="area-img"
 											style="background-image: url('${category.goods_photo[0]}');">
 										</a>
 									</div>
-									<a href="goods_category.do?goods_category_code=${category.goods_category_code }"
-										class="area-txt" style="font-size:14px;">${category.goods_category_name }</a>
+									<a href="goods_category.do?goods_category_code=${category.goods_category_code}"
+										class="area-txt" style="font-size:14px;">${category.goods_category_name}</a>
 								</div>
 							</div>
 							</c:forEach>

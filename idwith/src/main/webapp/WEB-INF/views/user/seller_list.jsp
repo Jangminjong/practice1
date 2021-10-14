@@ -6,7 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+
+<title>아이디위드 | 작가 스토리</title>
+
+<!-- 파비콘 이미지 설정 -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="resources/images/title/icon_300.PNG">
+
 <link rel="stylesheet" href="resources/css/seller_list.css">
 <link rel="stylesheet" href="resources/css/common.css">
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
@@ -32,7 +38,7 @@
 				<c:forEach var="list" items="${sellerList}">
 					<li class="artist-list-item">
 						<div class="card-style-profile ">
-							<em class="icon-num" data-ranking="1">1</em>
+							<!-- <em class="icon-num" data-ranking="1">1</em> -->
 							<div class="bordering">
 								<div class="split">
 									<div class="img-bg"
@@ -48,14 +54,11 @@
 										<a href="seller_goods.do?seller_code=${list.seller_code}"
 											class="title" target="_blank">${list.seller_name }</a>
 										<div class="ui_rating" data-ui="rating" data-value="5">
-											<i class="idus-icon-star-fill" style="font-size: 14px;"
-												data-state="active"></i> <i class="idus-icon-star-fill"
-												style="font-size: 14px;" data-state="active"></i> <i
-												class="idus-icon-star-fill" style="font-size: 14px;"
-												data-state="active"></i> <i class="idus-icon-star-fill"
-												style="font-size: 14px;" data-state="active"></i> <i
-												class="idus-icon-star-fill" style="font-size: 14px;"
-												data-state="active"></i>
+											<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+											<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+											<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+											<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
+											<i class="fa fa-star" aria-hidden="true" style="color: #f5eb75;"></i>
 										</div>
 										<p class="desc">${list.seller_profile}</p>
 									</div>
@@ -65,8 +68,9 @@
 												data-name="starred-toolbar" data-starred-type="artist"
 												data-init="" data-starred="" target="_blank"
 												data-target-id="3d6bb4d7-6a97-4d42-b76f-83e75e1c8075"> <em
-												class="txt"><i class="idus-icon-plus"
-													style="font-size: 12px;"></i> 팔로우</em> <em class="txt active"><i
+												class="txt">
+												<i class="fa fa-bookmark" aria-hidden="true" style="font-size: 16px;"></i>&nbsp;&nbsp;팔로우
+												</em> <em class="txt active"><i
 													class="idus-icon-check" style="font-size: 12px;"></i> 팔로잉</em>
 											</a>
 										</div>
@@ -89,58 +93,22 @@
 										<a href="detail_content.do" class="img-bg" target="_blank"
 										data-original="http://image.idus.com/image/files/16923dfff30f4e42a2dd964ce3ce75f7_320.jpg"
 										data-product-id="82fb28c8-7e6a-444f-b375-19fa10f464ae"
-										style="background-image: url('http://image.idus.com/image/files/16923dfff30f4e42a2dd964ce3ce75f7_320.jpg')"></a>
+										style="background-image: url('https://idwith.s3.ap-northeast-2.amazonaws.com/writer/730645/goods/드로잉 에어팟 커플케이스💖버즈2 프로 생일선/전자3.jpg')"></a>
 										<a href="detail_content.do" class="img-bg" target="_blank"
 										data-original="https://image.idus.com/image/files/85e4924d54db42f8b9aae200fb741ce3_320.png"
 										data-product-id="b772e5e8-345f-478b-ac62-a4300982bdb6"
-										style="background-image: url('https://image.idus.com/image/files/85e4924d54db42f8b9aae200fb741ce3_320.png')"></a>
+										style="background-image: url('https://idwith.s3.ap-northeast-2.amazonaws.com/writer/730645/goods/장미(생화)/fl_a1.jpg')"></a>
 										<a href="detail_content.do" class="img-bg" target="_blank"
 										data-original="https://image.idus.com/image/files/7c7abeb01301497b8bdd81b71e654b94_320.jpg"
 										data-product-id="046e334b-6b1d-451b-972a-a1601034f9f4"
-										style="background-image: url('https://image.idus.com/image/files/7c7abeb01301497b8bdd81b71e654b94_320.jpg')"></a>
+										style="background-image: url('https://idwith.s3.ap-northeast-2.amazonaws.com/writer/730645/goods/장미(생화)/el_a1.jpg')"></a>
 										<a href="detail_content.do" class="img-bg" target="_blank"
 										data-original="http://image.idus.com/image/files/1c1a77e6221e43cb87d2ce01ae6a1288_320.jpg"
 										data-product-id="ccbfbc67-578b-4379-b212-ce00c4adb118"
-										style="background-image: url('http://image.idus.com/image/files/1c1a77e6221e43cb87d2ce01ae6a1288_320.jpg')"></a>
-									</li>
-									<li class="ui-slide" data-index="1"
-										style="width: 0px; display: none;"><a
-										href="detail_content.do" class="img-bg" target="_blank"
-										data-original="https://image.idus.com/image/files/ea20b78adf704598b02236190d334371_320.jpg"
-										data-product-id="c7bf22aa-e120-48cd-9ddc-95d633420ce1"
-										style="background-image: url('https://image.idus.com/image/files/ea20b78adf704598b02236190d334371_320.jpg')"></a>
-										<a href="detail_content.do" class="img-bg" target="_blank"
-										data-original="https://image.idus.com/image/files/8b66a5a53be949f9b0a12c9c0a6770ee_320.jpg"
-										data-product-id="669bf41b-9bb2-426e-bc18-e20581400ad6"
-										style="background-image: url('https://image.idus.com/image/files/8b66a5a53be949f9b0a12c9c0a6770ee_320.jpg')"></a>
-										<a href="detail_content.do" class="img-bg" target="_blank"
-										data-original="https://image.idus.com/image/files/8ddf57a6179d49d79b6187777734e864_320.png"
-										data-product-id="de343170-c42b-4d08-b3dc-93d0dc566516"
-										style="background-image: url('https://image.idus.com/image/files/8ddf57a6179d49d79b6187777734e864_320.png')"></a>
-										<a href="detail_content.do" class="img-bg" target="_blank"
-										data-original="http://image.idus.com/image/files/6695f577ae9949a1aef387e53fce0a88_320.jpg"
-										data-product-id="55ca6103-0a64-42d4-b5ed-945b2aa9b21f"
-										style="background-image: url('http://image.idus.com/image/files/6695f577ae9949a1aef387e53fce0a88_320.jpg')"></a>
+										style="background-image: url('https://idwith.s3.ap-northeast-2.amazonaws.com/writer/730645/goods/오렌지 쿠키/6bf1689c4b3c429eb136ebc5a3fd2ee7_1440.jpg')"></a>
 									</li>
 								</ul>
 							</div>
-							<fieldset class="ui-control" data-ui="slider-control"
-								style="display: block;">
-								<button type="button" class="ui-btn prev" aria-label="이전">
-									<i class="fa fa-angle-left fa-2x"></i>
-								</button>
-								<nav class="indicator">
-									<button class="indicator-btn active" type="button"
-										aria-label="indicator"></button>
-									<button class="indicator-btn" type="button"
-										aria-label="indicator"></button>
-									<button class="indicator-btn" type="button"
-										aria-label="indicator"></button>
-								</nav>
-								<button type="button" class="ui-btn next" aria-label="다음">
-									<i class="fa fa-angle-right fa-2x"></i>
-								</button>
-							</fieldset>
 						</div>
 					</li>
 				</c:forEach>
