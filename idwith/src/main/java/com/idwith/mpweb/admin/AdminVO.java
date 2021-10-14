@@ -17,7 +17,6 @@ public class AdminVO {
 	private String admin_phone;
 	private String admin_role;
 	
-	
 	public String getAdmin_id() {
 		return admin_id;
 	}

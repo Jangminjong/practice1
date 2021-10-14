@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.idwith.mpweb.admin.UserListVO;
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.UserAddressVO;
 
 public interface UserListService {
 	
@@ -25,6 +26,8 @@ public interface UserListService {
 	// 회원 검색, 페이징
 	int getSearchUserCnt(String searchKeyword);
 	List<UserListVO> getSearchUser(PagingVO pagination);
+
+	UserAddressVO getUserAddress(String userId);
 	
 	
 }

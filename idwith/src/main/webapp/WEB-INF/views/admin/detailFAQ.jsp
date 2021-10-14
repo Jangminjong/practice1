@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="com.idwith.mpweb.admin.board.AdminQnABoardVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	AdminQnABoardVO adminQnA = (AdminQnABoardVO) session.getAttribute("adminQnA");
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +25,8 @@
 <title>IDWITH - 관리자</title>
 
 <link href="resources/admin/css/app.css" rel="stylesheet">
+<script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="resources/admin/js/aboutUser.js"></script>
 </head>
 
 <body>
@@ -56,7 +64,7 @@
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="storePropose.mdo">입점신청관리</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
-								href="writerList.mdo">작가목록</a></li>
+								href="sellerList.mdo">작가목록</a></li>
 
 						</ul></li>
 
@@ -77,7 +85,6 @@
 								href="adminNotice.mdo">관리자 공지사항</a></li>
 							<li class="sidebar-item"><a class="sidebar-link"
 								href="userNotice.mdo">사용자 공지사항</a></li>
-
 						</ul></li>
 
 					<li class="sidebar-item"><a class="sidebar-link"
@@ -98,10 +105,19 @@
 								href="requestCoupon.mdo">쿠폰 요청 리스트</a></li>
 						</ul></li>
 
-					<li class="sidebar-item"><a class="sidebar-link"
-						href="category.mdo"> <i class="align-middle"
-							data-feather="edit-2"></i> <span class="align-middle">카테고리</span>
-					</a></li>
+					<li class="sidebar-item"><a data-target="#category"
+						data-toggle="collapse" class="sidebar-link collapsed"> <i
+							class="align-middle" data-feather="edit-2"></i> <span
+							class="align-middle">카테고리</span>
+					</a>
+						<ul id="category" class="sidebar-dropdown list-unstyled collapse "
+							data-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link"
+								href="productCategory.mdo">작품 카테고리</a></li>
+							<li class="sidebar-item"><a class="sidebar-link"
+								href="classCategory.mdo">클래스 카테고리</a></li>
+
+						</ul></li>
 
 					<li class="sidebar-item"><a data-target="#sales"
 						data-toggle="collapse" class="sidebar-link collapsed"> <i
@@ -125,13 +141,52 @@
 					class="hamburger align-self-center"></i>
 				</a>
 
-				<div class="navbar-collapse collapse"
-					style="display: flex; justify-content: flex-end;">
-					<h3>${admin_name} 님</h3>
-					<a class="nav-link d-none d-sm-inline-block" href="adminLogout.mdo"> <i
-						class="align-middle" data-feather="log-out" style="color: black;"></i>
-						<span class="text-dark">로그아웃</span>
-					</a>
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown"><a
+							class="nav-icon dropdown-toggle" href="#" id="alertsDropdown"
+							data-toggle="dropdown">
+								<div class="position-relative">
+									<i class="align-middle" data-feather="bell"></i>
+								</div>
+						</a>
+							<div
+								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
+								aria-labelledby="alertsDropdown">
+								<div class="dropdown-menu-header">알림</div>
+
+								<div class="dropdown-menu-footer">
+									<a href="#" class="text-muted">모든 알림 보기</a>
+								</div>
+							</div></li>
+						<li class="nav-item dropdown"><a
+							class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
+							data-toggle="dropdown">
+								<div class="position-relative">
+									<i class="align-middle" data-feather="message-square"></i>
+								</div>
+						</a> <!-- 메세지 -->
+							<div
+								class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
+								aria-labelledby="messagesDropdown">
+								<div class="dropdown-menu-header">
+									<div class="position-relative"></div>
+								</div>
+
+								<div class="dropdown-menu-footer">
+									<a href="#" class="text-muted">모든 메세지 보기</a>
+								</div>
+							</div></li>
+						<li class="nav-item dropdown"><a
+							class="nav-icon dropdown-toggle d-inline-block d-sm-none"
+							href="#" data-toggle="dropdown"> <i class="align-middle"
+								data-feather="settings"></i>
+						</a> <!-- 관리자 프로필--> <a
+							class="nav-link dropdown-toggle d-none d-sm-inline-block"
+							href="#"> <i class="align-middle" data-feather="log-out"></i>
+								<span class="text-dark">로그아웃</span>
+						</a></li>
+					</ul>
 				</div>
 			</nav>
 
@@ -141,81 +196,48 @@
 						<div class="container-fluid p-0">
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>회원 : ${userList.userId}</h3>
-								</div>
-							</div>
-
-							<div class="card">
-								<div class="card-body" style="width: auto;">
-									<form>
-									<div class="row" style="margin-bottom: 5px;">
-										<div class="col-md-4">
-											<label class="form-label">아이디</label> 
-											<input type="text" class="form-control" name="userId" style="width: auto;" disabled="disabled" value="${userList.userId}">
-										</div>
-											<div class="col-md-4">
-												<label class="form-label">회원 이름</label> 
-												<input type="text"
-													class="form-control" style="width: auto;" name="userName" disabled="disabled" value="${userList.userName}">
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">전화번호</label> 
-												<input type="text" class="form-control"name="userPhone" style="width: auto;" disabled="disabled" value="${userList.userPhone}"">
-											</div>
-											</div>
-										<div class="mb-3" style="margin-top: 10px;">
-											<label class="form-label">우편번호</label> 
-											<input type="text"
-												class="form-control" name="userZipcode"
-												style="width: auto;" disabled="disabled" value="${userListAddress.user_zipcode}">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">주소</label>
-											<input type="text"
-												class="form-control" name="userAddress1" disabled="disabled" value="${userListAddress.user_address1 }">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">상세 주소</label> 
-											<input type="text"
-												class="form-control" name="userAddress2" disabled="disabled" value="${userListAddress.user_address2}">
-										</div>
-										<div class="row" style="margin-bottom: 5px;">
-											<div class="col-md-4">
-												<label class="form-label">회원등급</label> 
-												<input type="text"
-													class="form-control" name="userGrade" style="width: auto;"
-													id="cpStartDate" disabled="disabled" value="${userList.userGrade}">
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">누적 구매액</label> 
-												<input type="text"
-													class="form-control" name="userAllmcount"
-													style="width: auto;" id="cpEndDate" disabled="disabled" value="${userList.userAllmcount}">
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">가입일</label>
-												<fmt:formatDate value="${userList.userJoinDate}" var="fmtRegDate" pattern="yyyy.MM.dd"/>
-												<input type="text"
-													class="form-control" name="userJoinDate" style="width: auto;"
-													id="cpEndDate" disabled="disabled" value="${fmtRegDate}">
-											</div>
-											</div>
-									</form>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-center"></div>
-								<div class="col-md-2 text-right">
-									<a href="userList.mdo">
-										<button class="btn btn-primary">목록보기</button>
-									</a>
+									<h3>FAQ</h3>
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<form action="updateFAQ.mdo" method="post" name="noticeUserForm" id="form-notice-user" onsubmit="return false">
+							<input type="hidden" name="seq" value="${adminQnA.seq }" />
+							<div class="row">
+								<div class="col-md-3">
+									<label class="form-label">제목</label> <input type="text"
+										class="form-control" name="board_title"
+										placeholder="${adminQnA.board_title}" style="width: auto;">
+								</div>
+								<div class="col-md-3">
+									<label class="form-label">작성자</label> <input type="text"
+										class="form-control" name="user_id"
+										placeholder="${adminQnA.user_id}" style="width: auto;">
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Content</label>
+								<textarea class="form-control" rows="5" name="board_content">${adminQnA.board_content}</textarea>
+							</div>
+							<input type="submit" id="notice-user-submit" class="btn btn-primary" value="수정하기" /> 
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center"></div>
+					<div class="col-md-2 text-center">
+						<a href="qna.mdo">
+							<a href="deleteFAQ.mdo?seq=${adminQnA.seq }"><button class="btn btn-primary">삭제</button></a>
+							<button class="btn btn-primary">목록</button>
+						</a>
 					</div>
 				</div>
 			</main>

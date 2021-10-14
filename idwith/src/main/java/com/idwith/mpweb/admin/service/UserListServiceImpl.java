@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.idwith.mpweb.admin.UserListDAO;
 import com.idwith.mpweb.admin.UserListVO;
 import com.idwith.mpweb.common.PagingVO;
+import com.idwith.mpweb.user.UserAddressVO;
 
 @Service("userListService")
 public class UserListServiceImpl implements UserListService {
@@ -51,6 +52,11 @@ public class UserListServiceImpl implements UserListService {
 	@Override
 	public List<UserListVO> getSearchUser(PagingVO pagination) {
 		return userListDAO.getSearchPagingList(pagination);
+	}
+
+	@Override
+	public UserAddressVO getUserAddress(String userId) {
+		return userListDAO.getUserAddress(userId);
 	}
 
 

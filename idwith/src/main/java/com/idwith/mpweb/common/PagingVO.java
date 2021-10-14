@@ -3,7 +3,7 @@ package com.idwith.mpweb.common;
 import java.util.List;
 
 public class PagingVO {
-	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
+	// 현재페이지, 시작페이지, 끝페이지
 	private int nowPage, startPage, endPage, total, lastPage, start, end;
 	private int countNotice;  //countNotice가 포함된 생성자를 사용 시 mapper.xml 에서 알아서 잘 #{countNotice}로 사용하세요.
 	private int cntPage = 5;
@@ -11,12 +11,12 @@ public class PagingVO {
 	private String set;
 	private String searchCondition;
 	private String searchKeyword;
-	
+
 	private int max; // 작품 카테고리 페이지에서 가격 범위 설정하여 세팅할 때 사용
 	private int min;
 
 	public PagingVO() {
-	}
+			}
 	
 	public PagingVO(int total, int nowPage, int cntPerPage) {
 		setNowPage(nowPage);
