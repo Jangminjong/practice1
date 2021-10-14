@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.ClassRegVO;
 import com.idwith.mpweb.user.GoodsApplyVO;
+import com.idwith.mpweb.user.UserAddressVO;
 
 @Repository("userListDAO")
 public class UserListDAO {
@@ -70,6 +71,10 @@ public class UserListDAO {
 		}
 		
 		return result;
+	}
+
+	public UserAddressVO getUserAddress(String userId) {
+		return sqlSessionTemplate.selectOne("UserListDAO.getUserAddress", userId);
 	}
 
 }

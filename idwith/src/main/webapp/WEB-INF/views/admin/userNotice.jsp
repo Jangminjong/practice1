@@ -150,7 +150,7 @@
 
 							<div class="row mb-2 mb-xl-3">
 								<div class="col-auto d-none d-sm-block">
-									<h3>User Notice</h3>
+									<h3>User Event Notice</h3>
 								</div>
 							</div>
 

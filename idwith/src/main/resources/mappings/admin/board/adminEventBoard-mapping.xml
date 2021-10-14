@@ -17,7 +17,7 @@
  	</resultMap>
  	<insert id="insertEvent" parameterType="adminEventVO">
  		INSERT INTO user_event_board (user_event_board_seq, user_event_board_id, user_event_board_category, user_event_board_title1, user_event_board_title2, user_event_board_content, user_event_board_start, user_event_board_end, user_event_board_cnt)
- 		VALUES( nextval('seq_user_event_board'), '관리자1', #{user_event_board_category}, #{user_event_board_title1}, #{user_event_board_title2}, #{user_event_board_content}, now(), #{user_event_board_end}, 0)
+ 		VALUES( nextval('seq_user_event_board'), #{user_event_board_id}, #{user_event_board_category}, #{user_event_board_title1}, #{user_event_board_title2}, #{user_event_board_content}, now(), #{user_event_board_end}, 0)
  	</insert>
  	<select id="countEventNotice" resultType="_int">
 		SELECT COUNT(*) FROM user_event_board

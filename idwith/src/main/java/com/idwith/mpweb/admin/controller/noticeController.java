@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +34,7 @@ public class noticeController {
 	AdminNoticeService adminNoticeService;
 	
 	@Autowired
-	S3Service s3Service;
+	 S3Service s3Service;
 	
 	/**관리자 공지사항 페이지 출력*/
 	@GetMapping("/adminNotice.mdo")
@@ -279,8 +280,9 @@ public class noticeController {
 	}
 	
 	@RequestMapping("/insertUserNotice.mdo")
-	public String insertUserNotice(AdminEventBoardVO adminEventVO) {
+	public String insertUserNotice(AdminEventBoardVO adminEventVO, HttpSession session) {
 		 System.out.println("content: "+adminEventVO.getUser_event_board_content());
+		 adminEventVO.setUser_event_board_id((String) session.getAttribute("admin_name"));
 		 adminBoardService.userInsertNotice(adminEventVO);
 
 		return "redirect:/userNotice.mdo";
@@ -373,9 +375,10 @@ public class noticeController {
 	}
 	
 	@RequestMapping("/detailFAQ.mdo")
-	public String detailFAQ(AdminQnABoardVO adminQnA, Model model) {
-		
-		System.out.println("num: "+adminQnA.getSeq()); 
+	public String detailFAQ(AdminQnABoardVO adminQnA, Model model,
+			@RequestParam(value = "seq")int seq) {
+		System.out.println("num: "+adminQnA.getSeq());
+		adminQnA.setSeq(seq);
 		model.addAttribute("adminQnA", adminBoardService.getQnA(adminQnA));
 		return "detailFAQ";
 	}

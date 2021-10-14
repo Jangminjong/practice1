@@ -61,6 +61,7 @@ public class managementController {
 		System.out.println("사용자 상세보기 출력");
 		System.out.println("내용 출력 ID : " + userList.getUserId());
 		model.addAttribute("userList", userListService.getUserContent(userList));
+		model.addAttribute("userListAddress",userListService.getUserAddress(userList.getUserId()));
 		return "user";
 	}
 
