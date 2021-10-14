@@ -40,7 +40,7 @@ public class UserIndexController {
 	@Autowired
 	private PdfTextService pdfService;
 	
-	@RequestMapping("/index.do")
+	@RequestMapping(value={"index.do"})
 	public String userIndex(HttpSession session, Model model) {
 		GoodsVO goodsVO = new GoodsVO();
 		// 인기 상품
