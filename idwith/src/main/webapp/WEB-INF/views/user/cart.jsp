@@ -78,7 +78,9 @@
 								style="position: static; top: auto; bottom: auto; left: auto; width: auto; z-index: 201;">
 								<!---->
 							</div>
-		
+							
+							<c:set var="allGoodsPrice" value="0" />
+							<c:set var="deliveryPr" value="0" />
 							<c:forEach var="goodsList" items="${goodsList}" varStatus="status">
 								<%-- <c:choose>
 									<c:when test="${cartInfoList.goods_code > 1}"> --%>
@@ -252,6 +254,7 @@
 													<em data-v-a6596a66="" class="CartArtistItem__price" >
 														<span id="goodsPrice">
 															<input type="text" name="goods_price" id="goods_price${status.count}" value="${totalPrice}" readonly/>
+															<c:set var="allGoodsPrice" value="${allGoodsPrice + totalPrice}" />
 															<%-- <c:out value="${totalPrice}"/> --%>
 														</span>원
 													</em>
@@ -263,6 +266,9 @@
 															class="ShippingPrice">
 															<input type="hidden" name="cart_delivery_fee" value="${goodsList.cart_delivery_fee}" />
 															<em data-v-76555e5b="" class="ShippingPrice__price">${goodsList.cart_delivery_fee}원</em>
+															
+															<c:set var="deliveryPr" value="${deliveryPr + goodsList.cart_delivery_fee}" />
+															
 															<div data-v-76555e5b="" class="ShippingPrice__desc">
 																70,000원 이상 무료배송</div>
 														</div>
@@ -320,10 +326,9 @@
 										<div data-v-e14558f4="" class="CartCheckoutDesktop__item">
 											<div data-v-e14558f4="" class="CartCheckoutDesktop__label">작품금액</div>
 											<div data-v-e14558f4="" class="CartCheckoutDesktop__value">
-												<c:set var="allGoodsPrice" value="0" />
-												<c:set var="allGoodsPrice" value="${allGoodsPrice + totalPrice}"/>
+												<%-- <c:set var="allGoodsPrice" value="${allGoodsPrice + totalPrice}"/> --%>
 												<span data-v-e14558f4="">
-													<%-- <input type="text" id="allGoodsPrice" value="${allGoodsPrice}" /> --%>
+													<!-- <input type="text" id="allGoodsPrice" value="0" /> -->
 													<c:out value="${allGoodsPrice}" />
 												</span> <span data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>
 											</div>
@@ -334,7 +339,7 @@
 											<c:set var="deliveryPrice" value="0"/>
 											<div data-v-e14558f4="" class="CartCheckoutDesktop__value">
 												<span data-v-e14558f4="">
-													<c:out value="${deliveryPrice}" />
+													<c:out value="${deliveryPr}" />
 												</span> 
 												<span data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>
 												<!---->
@@ -348,7 +353,7 @@
 												class="CartCheckoutDesktop__value--highlight">
 												<span data-v-e14558f4="">
 													<c:set var="cartPrice" value="0"/>
-													<c:set var="cartPrice" value="${allGoodsPrice + deliveryPrice}" />
+													<c:set var="cartPrice" value="${allGoodsPrice + deliveryPr}" />
 													<c:out value="${cartPrice}" />
 													<input type="hidden" id="final_price" value="${cartPrice}"/>
 												</span> <span data-v-e14558f4="" class="CartCheckoutDesktop__priceUnit">원</span>

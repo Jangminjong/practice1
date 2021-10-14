@@ -50,7 +50,7 @@ public class CartController {
 		
 		for(int i=0; i<cartList.size(); i++) {
 			System.out.println(i+"번 째 실행");
-			
+			System.out.println("현재 상품 코드 : " + cartList.get(i).getGoods_code());
 			int state=0;
 			optionMap = new HashMap<String,String>();
 			if(i==0) {
@@ -72,8 +72,7 @@ public class CartController {
 			else {
 				System.out.println("테스트 중 i가 0이 아닐 때");
 				for(int j=0; j<i; j++) {
-					System.out.println("DB 상품코드 : " + cartList.get(i).getGoods_code());
-					System.out.println("비교하는 상품 코드 : " + goodsList.get(j).getGoods_code());
+					System.out.println("j 순서 : " + j);
 					if(cartList.get(i).getGoods_code().equals(goodsList.get(j).getGoods_code())) {
 						System.out.println("테스트 중 상품 코드가 같을 때 옵션만 추가");
 						optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
@@ -92,6 +91,8 @@ public class CartController {
 				}
 
 			}
+			
+			System.out.println("현재 State : " + state);
 			
 			if(state==0) {
 				System.out.println("테스트 중 다른 상품일 때");
