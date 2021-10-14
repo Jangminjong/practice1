@@ -38,17 +38,17 @@ public class MyPageDAO {
 	}
 	
 	public List<GoodsOrderDetailVO> getReviewBeforeList(String order_id){
-		return sqlSessionTemplate.selectList("GoodsOrderDAO.getReviewBeforeList", order_id);
+		return sqlSessionTemplate.selectList("GoodsOrderUserDAO.getReviewBeforeList", order_id);
 	}
 
 	public GoodsOrderDetailVO getReviewBefore(String order_detail_code) {
-		return sqlSessionTemplate.selectOne("GoodsOrderDAO.getReviewBefore", order_detail_code); 
+		return sqlSessionTemplate.selectOne("GoodsOrderUserDAO.getReviewBefore", order_detail_code); 
 	}
 
 	public void insertReview(GoodsReviewVO reviewVO, GoodsOrderDetailVO orderVO) {
 		
 		sqlSessionTemplate.insert("MyPageDAO.insertReview", reviewVO);
-		sqlSessionTemplate.update("GoodsOrderDAO.reviewStateUpdate", orderVO);
+		sqlSessionTemplate.update("GoodsOrderUserDAO.reviewStateUpdate", orderVO);
 	}
 
 	public List<GoodsReviewVO> getReviewAfterList(String goods_review_id) {
@@ -68,7 +68,7 @@ public class MyPageDAO {
 	}
 
 	public List<GoodsOrderDetailVO> getOrderGoodsList(String email) {
-		return sqlSessionTemplate.selectList("GoodsOrderDAO.getOrderGoodsList", email);
+		return sqlSessionTemplate.selectList("GoodsOrderUserDAO.getOrderGoodsList", email);
 	}
 
 	public List<CouponHaveVO> getCouponList(String email) {
