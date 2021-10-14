@@ -108,4 +108,9 @@
 		<!-- delete from cart where user_id=#{user_id} and goods_code=#{goods_code} -->
 		delete from cart where cart_num = #{cart_num}
 	</delete>
+	
+	<!-- 헤더의 장바구니 개수 나타내기 -->
+	<select id="setCart" resultType="_int" parameterType="string">
+		SELECT count(*) FROM cart WHERE user_id=#{email} AND (cart_pay_check=false || cart_pay_check ISNULL)
+	</select>
 </mapper>

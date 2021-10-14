@@ -45,4 +45,8 @@ public class GoodsOrderDAO {
 		
 	}
 
+	public List<GoodsOrderDetailVO> getGoodsReturnList(String email) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsReturnList", email);
+	}
+
 }
