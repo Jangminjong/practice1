@@ -76,6 +76,26 @@ public class GoodsOrderDAO {
 		sqlSessionTemplate.insert("GoodsOrderDAO.insertGoodsCalc", goodsCalcVO);
 		
 	}
+
+	public int todayAllSales() {
+		int sales = 0;
+		try {
+			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.todayAllSales");
+		} catch (NullPointerException e) {
+			sales = 0;
+		}
+		return sales;
+	}
+
+	public int monthAllSales() {
+		int sales = 0;
+		try {
+			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.monthAllSales");
+		} catch (NullPointerException e) {
+			sales = 0;
+		}
+		return sales;
+	}
 	 
 
 }

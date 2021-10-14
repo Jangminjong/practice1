@@ -28,8 +28,16 @@ public class SalesController {
 	ClassOrderService classOrderService;
 	
 	@RequestMapping("/writerSales.wdo")
-	public String writerSales() {
-		
+	public String writerSales(HttpServletRequest request, Model model, HttpSession session) {
+		int seller = Integer.parseInt(session.getAttribute("sellerCheck").toString());
+		List<Long> goodsCountList = goodsOrderService.getGoodsCountFive(seller); // 수량
+		List<Long> goodsSalesList = goodsOrderService.getGoodsSalesFive(seller); // 판매금액
+		List<String> goodsNameList = goodsOrderService.getGoodsNameFive(seller); // 작품명
+		List<String> goodsGoodsCodeList = goodsOrderService.getGoodsCodeFive(seller); //작품코드
+		model.addAttribute("goodsCountList", goodsCountList);
+		model.addAttribute("goodsSalesList", goodsSalesList);
+		model.addAttribute("goodsNameList", goodsNameList);
+		model.addAttribute("goodsGoodsCodeList", goodsGoodsCodeList);
 		return "writerSales";
 	}
 	

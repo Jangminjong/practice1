@@ -48,6 +48,51 @@ public class GoodsOrderServiceImpl implements GoodsOrderService{
 	public void updateStatus(String goodsCode) {
 		goodsOrderDAO.updateStatus(goodsCode);
 	}
+
+	@Override
+	public List<Long> getGoodsCountFive(int seller) {
+		return goodsOrderDAO.getGoodsCountFive(seller);
+	}
+
+	@Override
+	public List<Long> getGoodsSalesFive(int seller) {
+		return goodsOrderDAO.getGoodsSalesFive(seller);
+	}
+
+	@Override
+	public List<String> getGoodsNameFive(int seller) {
+		return  goodsOrderDAO.getGoodsNameFive(seller);
+	}
+
+	@Override
+	public List<String> getGoodsCodeFive(int seller) {
+		return goodsOrderDAO.getGoodsCodeFive(seller);
+	}
+
+	@Override
+	public int yesterdayOrder(int sellerCode) {
+		return goodsOrderDAO.yesterdayOrder(sellerCode);
+	}
+
+	@Override
+	public int weekOrder(int sellerCode) {
+		return goodsOrderDAO.weekOrder(sellerCode);
+	}
+
+	@Override
+	public int todaySales(int sellerCode) {
+		return goodsOrderDAO.todaySales(sellerCode);
+	}
+
+	@Override
+	public int yesterdaySales(int sellerCode) {
+		return goodsOrderDAO.yesterdaySales(sellerCode);
+	}
+
+	@Override
+	public int weekSales(int sellerCode) {
+		return goodsOrderDAO.weekSales(sellerCode);
+	}
 	
 	
 

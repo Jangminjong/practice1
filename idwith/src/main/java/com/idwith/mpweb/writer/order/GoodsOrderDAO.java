@@ -54,6 +54,72 @@ public class GoodsOrderDAO {
 		sqlSessionTemplate.update("GoodsOrderDAO.goodsUpdateStatusCalcReq",goodsCode);		
 	}
 
+	public List<Long> getGoodsCountFive(int seller) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsCountFive", seller);
+	}
+
+	public List<Long> getGoodsSalesFive(int seller) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsSalesFive", seller);
+	}
+
+	public List<String> getGoodsNameFive(int seller) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsNameFive", seller);
+	}
+
+	public List<String> getGoodsCodeFive(int seller) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsCodeFive", seller);
+	}
+
+	public int yesterdayOrder(int sellerCode) {
+		int sales=0;
+		try{
+			sales=sqlSessionTemplate.selectOne("GoodsOrderDAO.yesterdayOrder", sellerCode);
+		} catch(NullPointerException e) {
+			sales = 0;
+		}
+		return sales;
+	}
+
+	public int weekOrder(int sellerCode) {
+		int sales=0;
+		try {
+			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.weekOrder", sellerCode);
+		} catch(NullPointerException e){
+			sales = 0;
+		}
+		return sales;
+	}
+
+	public int todaySales(int sellerCode) {
+		int sales=0;
+		try {
+			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.todaySales", sellerCode);	
+		} catch(NullPointerException e){
+			sales = 0;
+		}
+		return sales;
+	}
+
+	public int yesterdaySales(int sellerCode) {
+		int sales=0;
+		try {
+			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.yesterdaySales", sellerCode);
+		} catch(NullPointerException e){
+			sales = 0;
+		}
+		return sales;
+	}
+
+	public int weekSales(int sellerCode) {
+		int sales=0;
+		try {
+			sales = sqlSessionTemplate.selectOne("GoodsOrderDAO.weekSales", sellerCode);
+		} catch(NullPointerException e){
+			sales = 0;
+		}
+		return sales;
+	}
+
 	 
 
 }

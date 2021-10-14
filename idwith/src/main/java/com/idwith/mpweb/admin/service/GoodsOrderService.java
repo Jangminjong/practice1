@@ -29,4 +29,8 @@ public interface GoodsOrderService {
 	GoodsOrderVO getGoodsOrderOne(String goodsCode);
 
 	void insertGoodsCalc(GoodsCalcVO goodsCalcVO);
+
+	int todayAllSales();
+
+	int monthAllSales();
 }

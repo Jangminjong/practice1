@@ -18,4 +18,22 @@ public interface GoodsOrderService {
 	List<GoodsOrderVO> getGoodsOrderFive(int sellerCode);
 
 	void updateStatus(String goodsCode);
+
+	List<Long> getGoodsCountFive(int seller);
+
+	List<Long> getGoodsSalesFive(int seller);
+
+	List<String> getGoodsNameFive(int seller);
+
+	List<String> getGoodsCodeFive(int seller);
+
+	int yesterdayOrder(int sellerCode);
+
+	int weekOrder(int sellerCode);
+
+	int todaySales(int sellerCode);
+
+	int yesterdaySales(int sellerCode);
+
+	int weekSales(int sellerCode);
 }

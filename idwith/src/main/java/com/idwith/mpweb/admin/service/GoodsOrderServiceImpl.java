@@ -76,6 +76,16 @@ public class GoodsOrderServiceImpl implements GoodsOrderService{
 		goodsOrderDAO.insertGoodsCalc(goodsCalcVO);
 		
 	}
+
+	@Override
+	public int todayAllSales() {
+		return goodsOrderDAO.todayAllSales();
+	}
+
+	@Override
+	public int monthAllSales() {
+		return goodsOrderDAO.monthAllSales();
+	}
 	
 	
 

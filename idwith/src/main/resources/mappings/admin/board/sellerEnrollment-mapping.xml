@@ -25,4 +25,13 @@
  	<select id="getSeller" resultType="sellerVO">
  		select * from seller where seller_code = #{order_detail_seller}
  	</select>
+ 	
+ 	<select id="getClientCount" resultType="_int">
+ 	 	select count(*) from client
+ 	</select>
+ 	
+ 	<select id="getSellerCount" resultType="_int">
+ 		select count(*) from seller where seller_status != 2
+ 	</select>
+ 	
 </mapper>

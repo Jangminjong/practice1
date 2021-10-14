@@ -36,7 +36,11 @@ public class WriterController {
 		
 		int follower = writerService.follower(sellerCode);
 		int todayOrder = writerService.todayOrder(sellerCode);
-		
+		int yesterdayOrder = goodsOrderService.yesterdayOrder(sellerCode);
+		int weekOrder = goodsOrderService.weekOrder(sellerCode);
+		int todaySales = goodsOrderService.todaySales(sellerCode);
+		int yesterdaySales = goodsOrderService.yesterdaySales(sellerCode);
+		int weekSales = goodsOrderService.weekSales(sellerCode);
 		List<GoodsOrderVO> goodsOrder = goodsOrderService.getGoodsOrderFive(sellerCode);
 		List<WriterClassOrderVO> classOrder = classOrderService.getClassOrderFive(sellerCode);
 		
@@ -45,7 +49,11 @@ public class WriterController {
 		model.addAttribute("todayOrder", todayOrder );
 		model.addAttribute("goodsOrderList", goodsOrder);
 		model.addAttribute("classOrderList", classOrder);
-		
+		model.addAttribute("yesterdayOrder", yesterdayOrder);
+		model.addAttribute("weekOrder", weekOrder);
+		model.addAttribute("todaySales", todaySales);
+		model.addAttribute("yesterdaySales", yesterdaySales);
+		model.addAttribute("weekSales", weekSales);
 		return "main";
 	}
 	

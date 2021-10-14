@@ -211,7 +211,7 @@
                         </div>
                         <div class="content">
                             <div class="text">오늘의 주문 수</div>
-                            <div class="number count-to" data-from="0" data-to="125" data-speed="15"
+                            <div class="number count-to" data-from="0" data-to="${todayOrder}" data-speed="15"
                                 data-fresh-interval="20">${todayOrder}</div>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
                         </div>
                         <div class="content">
                             <div class="text">오늘 매출 액</div>
-                            <div class="number count-to" data-from="0" data-to="257" data-speed="1000"
+                            <div class="number count-to" data-from="0" data-to="${todaySales}" data-speed="1000"
                                 data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                         </div>
                         <div class="content">
                             <div class="text">팔로우 수</div>
-                            <div class="number count-to" data-from="0" data-to="1225" data-speed="1000"
+                            <div class="number count-to" data-from="0" data-to="${follower}" data-speed="1000"
                                 data-fresh-interval="20">${follower}</div>
                         </div>
                     </div>
@@ -351,11 +351,11 @@
                                 </li>
                                 <li>
                                     YESTERDAY
-                                    <span class="pull-right"><b>78</b> <small>Orders</small></span>
+                                    <span class="pull-right"><b>${yesterdayOrder}</b> <small>Orders</small></span>
                                 </li>
                                 <li>
                                     LAST WEEK
-                                    <span class="pull-right"><b>523</b> <small>Orders</small></span>
+                                    <span class="pull-right"><b>${weekOrder}</b> <small>Orders</small></span>
                                 </li>
                             </ul>
                         </div>
@@ -370,15 +370,15 @@
                             <ul class="dashboard-stat-list">
                                 <li>
                                     TODAY
-                                    <span class="pull-right"><b>651,520</b> <small>Sales</small></span>
+                                    <span class="pull-right"><b>${todaySales}</b> <small>Sales</small></span>
                                 </li>
                                 <li>
                                     YESTERDAY
-                                    <span class="pull-right"><b>785,000</b> <small>Sales</small></span>
+                                    <span class="pull-right"><b>${yesterdaySales}</b> <small>Sales</small></span>
                                 </li>
                                 <li>
                                     LAST WEEK
-                                    <span class="pull-right"><b>7,863,000</b> <small>Sales</small></span>
+                                    <span class="pull-right"><b>${weekSales}</b> <small>Sales</small></span>
                                 </li>
                             </ul>
                         </div>

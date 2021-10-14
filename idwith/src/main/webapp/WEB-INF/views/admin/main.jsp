@@ -151,13 +151,13 @@
 												<div class="card">
 													<div class="card-body">
 														<h5 class="card-title mb-4">회원수</h5>
-														<h1 class="mt-1 mb-3">2,382</h1>
+														<h1 class="mt-1 mb-3">${clientCount}</h1>
 													</div>
 												</div>
 												<div class="card">
 													<div class="card-body">
 														<h5 class="card-title mb-4">오늘 매출</h5>
-														<h1 class="mt-1 mb-3">3,848,400</h1>
+														<h1 class="mt-1 mb-3">${todayAllSales}</h1>
 													</div>
 												</div>
 											</div>
@@ -165,13 +165,13 @@
 												<div class="card">
 													<div class="card-body">
 														<h5 class="card-title mb-4">작가 수</h5>
-														<h1 class="mt-1 mb-3">123</h1>
+														<h1 class="mt-1 mb-3">${sellerCount}</h1>
 													</div>
 												</div>
 												<div class="card">
 													<div class="card-body">
 														<h5 class="card-title mb-4">이번 달 매출</h5>
-														<h1 class="mt-1 mb-3">35,645,000</h1>
+														<h1 class="mt-1 mb-3">${monthAllSales}</h1>
 													</div>
 												</div>
 											</div>
