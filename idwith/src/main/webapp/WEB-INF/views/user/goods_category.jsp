@@ -167,10 +167,8 @@
 											<select id="goods-condition" class="BaseSelector__selector category-select" onchange="setCondition()" style="display: block;">
 												<option value="all">----- 정렬 -----</option>
 												<option value="volume">판매수가 많은 순</option>
-												<option value="review">구매후기가 많은 순</option>
 												<option value="rowPrice">낮은 가격순</option>
 												<option value="highPrice">높은 가격순</option>
-												<option value="select">찜 많은 순</option>
 											</select>
 											<input type="hidden" id="selected-category" value="${goods_category }"/>
 										</div>

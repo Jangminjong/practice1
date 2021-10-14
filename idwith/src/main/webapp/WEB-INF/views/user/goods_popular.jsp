@@ -171,7 +171,7 @@
 											target="_blank" aria-label="${goodsVO.goods_name }"
 											class="ui_card__img lazy "
 											data-product-id="c2681596-227f-4b06-a558-296e711cf910"
-											style="background-image: url(${goodsVO.goods_photo[0]})"></a>
+											style="background-image: url('${goodsVO.goods_photo[0]}')"></a>
 									</div>
 
 									<div class="ui_card__info">

@@ -161,7 +161,7 @@
 														<a href="detail_content.do?goods_code=${goodsVO.goods_code}" target="_blank"
 															aria-label="${goodsVO.goods_name }"
 															class="ui_card__img lazy "
-															style="background-image: url(${goodsVO.goods_photo[0]})"></a>
+															style="background-image: url('${goodsVO.goods_photo[0]}')"></a>
 													</div>
 
 													<!-- 상품정보 -->
