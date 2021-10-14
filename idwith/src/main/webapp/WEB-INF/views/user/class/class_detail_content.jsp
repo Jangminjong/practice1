@@ -134,9 +134,9 @@
 					<div class="artist_card">
 						<div class="artist_card__split">
 							<a class="artist_card__link"
-								href="seller_goods.do">
+								href="seller_goods.do?seller_code=${sellerVO.seller_code }">
 								<div class="artist_card__img"
-									style="background-image: url('${sellerVO.seller_profile_img[0]}');"></div>
+									style="background-image: url('resources/images/seller_profile/${sellerVO.seller_profile_img[0]}');"></div>
 								<span class="artist_card__label"> ${sellerVO.store_name }
 									<i class="fa fa-arrow-right" aria-hidden="true"></i>
 							</span>
@@ -240,7 +240,7 @@
 											<form data-v-29616b27="" action="payment_class.do" onsubmit="return false" id="class-reg-form" name="classRegForm" method="post">
 												<dl data-v-29616b27="" class="border_block" style="display:hidden;">
 													<dt data-v-29616b27="">
-														<strong data-v-29616b27=""><input type="hidden" id="input_date" value="${classVO.class_open_date }" /></strong>
+														<strong data-v-29616b27=""><input type="text" id="input_date" value="${classVO.class_open_date }" style="outline:none;" readonly="readonly"/></strong>
 													</dt>
 												</dl>
 												<div data-v-1e70de7c="" data-v-29616b27="">
@@ -355,7 +355,7 @@
 						<div>
 							<a href="seller_goods.do?seller_code=${sellerVO.seller_code }"
 								target="_blank" class="article_block__circle"
-								style="background-image: url('${sellerVO.seller_profile_img[0]}');"></a>
+								style="background-image: url('resoures/images/seller_profile/${sellerVO.seller_profile_img[0]}');"></a>
 						</div>
 					</div>
 					<!-- 클래스 소개 -->
@@ -510,10 +510,10 @@
 						<div class="bordering">
 							<div class="split">
 								<div class="img-bg"
-									style="background-image: url('${sellerVO.seller_profile_img[0]}')">
+									style="background-image: url('resources/images/seller_profile${sellerVO.seller_profile_img[0]}')">
 								</div>
 								<a href="/studioheulin" target="" class="img-profile"
-									style="background-image: url('${sellerVO.seller_profile_img[1]}');">
+									style="background-image: url('resources/images/seller_profile/${sellerVO.seller_profile_img[1]}');">
 								</a>
 							</div>
 							<div class="split">

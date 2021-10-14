@@ -35,7 +35,6 @@ public class APIController {
 	@RequestMapping(value="/kakao.do", method=RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, String> kakaoLogin(HttpServletRequest req, HttpSession session) throws Exception { 
-		System.out.println("kakaoSign() ����");
 		HashMap<String, String> params = new HashMap<String, String>();
 		UserVO vo = new UserVO();
 		

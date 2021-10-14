@@ -8,6 +8,7 @@
  		<result property="seller_code" column="seller_code"/>
  		<result property="seller_name" column="seller_name"/>
  		<result property="seller_sellno" column="seller_sellno"/>
+ 		<result property="seller_indate" column="seller_indate"/>
  		<result property="seller_sellno_img" column="seller_sellno_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
  		<result property="user_id" column="user_id"/>
  		<result property="seller_profile" column="seller_profile"/>

@@ -248,7 +248,7 @@
 				data-state="static">
 				<div class="inner-w container_gnb" data-ui="gnb">
 					<ul class="ui_gnb" data-state="" data-type="">
-						<li class="ui_gnb__menu " data-state="active"><a href="/class_index.do">홈</a>
+						<li class="ui_gnb__menu " data-state="active"><a href="class_index.do">홈</a>
 						</li>
 						<li class="ui_gnb__menu class-category"><a
 							href="class_category.do?class_category_code=CLCR"><span>카테고리</span></a></li>

@@ -20,7 +20,6 @@ public class SellerViewServiceImpl implements SellerViewService {
 	
 	@Override
 	public Long getSeller(String user_id) {
-		System.out.println("Service ����");
 		Long result = dao.getSeller(user_id);
 		return result;
 	}
@@ -37,7 +36,6 @@ public class SellerViewServiceImpl implements SellerViewService {
 
 	@Override
 	public UserSellerVO getSellerProfile(String seller_code) {
-		System.out.println("작가정보 가져오기 서비스 실행");
 		return dao.getSellerProfile(seller_code);
 	}
 

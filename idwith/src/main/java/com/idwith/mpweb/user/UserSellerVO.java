@@ -1,5 +1,6 @@
 package com.idwith.mpweb.user;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 public class UserSellerVO {
@@ -10,6 +11,7 @@ public class UserSellerVO {
 	private String user_id;
 	private String seller_profile;
 	private String[] seller_profile_img;
+	private Timestamp seller_indate;
 	private int seller_done;
 	private boolean seller_goods_yn;
 	private boolean seller_class_yn;
@@ -20,6 +22,7 @@ public class UserSellerVO {
 	private String seller_ideal;
 	private String store_name;
 	private int follow_count; // 작가별 팔로워 카운트
+	private int rownum;
 	
 	public String getStore_name() {
 		return store_name;
@@ -156,6 +159,14 @@ public class UserSellerVO {
 		this.follow_count = follow_count;
 	}
 	
+	
+	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	@Override
 	public String toString() {
 		return "UserSellerVO [seller_code=" + seller_code + ", seller_name=" + seller_name + ", seller_sellno="

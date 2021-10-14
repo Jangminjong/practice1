@@ -220,7 +220,7 @@
 													<a href="detail_content.do?goods_code=${review.goods_review_code }"
 														class="ui_card__img"
 														target="_blank"
-														style="background-image: url(resources/images/review/${review.goods_review_image[0]})">
+														style="background-image: url('${review.goods_review_image[0]}')">
 													</a>
 												</div>
 
@@ -290,7 +290,7 @@
 												<p class="desc">${story.story_context }</p>
 											</div>
 											<div class="area-img"
-												style="background-image: url(resources/images/seller_profile/${story.seller_profile_img[1]})"></div>
+												style="background-image: url('${story.story_image[0]}')"></div>
 										</a>
 									</div>
 								</div>
@@ -324,10 +324,10 @@
 												<!-- 상단부분 -->
 												<div class="split">
 													<div class="img-bg"
-														style="background-image: url(resources/images/seller_profile/${seller.seller_profile_img[0]});">
+														style="background-image: url('resources/images/seller_profile/${seller.seller_profile_img[0]}');">
 													</div>
 													<a class="img-profile"
-														style="background-image: url(resources/images/seller_profile/${seller.seller_profile_img[1]});"
+														style="background-image: url('resources/images/seller_profile/${seller.seller_profile_img[1]}');"
 														target=""
 														href="seller_main.do?seller_code=${seller.seller_code }">
 													</a>
@@ -375,7 +375,7 @@
 						</ul>
 					</div>
 				</div>
-				<a href="/w/main/artist" class="ui_btn--large">인기작가 더보기</a>
+				<a href="seller_list.do" class="ui_btn--large">인기작가 더보기</a>
 			</section>
 
 			<!-- 전체 카테고리 -->
