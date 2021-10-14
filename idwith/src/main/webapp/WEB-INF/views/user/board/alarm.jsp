@@ -15,7 +15,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 알림</title>
+<title>아이디위드 | 알림</title>
 <meta name="theme-color" content="#ffffff" />
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
@@ -27,15 +27,15 @@
 	src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
-<meta name="application-name" content="아이디어스" />
+<meta name="application-name" content="아이디위드" />
 <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리" />
 <meta property="fb:app_id" content="1410666675867984" />
 <meta name="description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
-<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디어스" />
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!" />
+<meta property="og:title" content="핸드메이드 라이프스타일 플랫폼, 아이디위드" />
 <meta property="og:type" content="website" />
 <meta property="og:description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!" />
 <meta property="og:url" content="http://www.idus.com/w/notification" />
 <meta property="og:image"
 	content="http://www.idus.com/resources/dist/images/ogimg-idus.png?ver=2.0" />
@@ -69,7 +69,7 @@
 								<p class="title">중요한 이벤트 알림</p>
 								<div class="notification_important_container">
 									<a href="javascript:dueDateCheck(${newEvent.user_event_board_seq})" class="notification_important_link">
-									<img src="C:/myProject/idwith/idwith/src/main/webapp/resources/images/title/icon_300.PNG" class="notification_important_artist_img mCS_img_loaded">
+									<img src="resources/images/title/icon_300.PNG" class="notification_important_artist_img mCS_img_loaded">
 										<div class="notification_important_content_box">
 											<p class="label">이벤트</p>
 											<p class="title">${newEvent.user_event_board_title2}</p>

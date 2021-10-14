@@ -26,12 +26,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void insertUser(UserVO vo) {
-		System.out.println("Service : ȸ������ ó��");
 
 		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-		// ��ȣȭ �ϱ���
+
 		String password = scpwd.encode(vo.getUser_pwd());
-		// ��ȣȭ �Ͽ� password�� ����
+	
 		vo.setUser_pwd(password);
 
 		dao.insertUser(vo);
@@ -65,7 +64,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String kakaoLogin(UserVO vo) {
 		String result = "";
-		int emailCheck = dao.emailCheck(vo.getUser_id()); // īī�� �̸��ϰ� ������ ���� DB�� �ִ��� Ȯ��
+		int emailCheck = dao.emailCheck(vo.getUser_id()); 
 		if (emailCheck == 0) {
 			dao.insertKakao(vo);
 			result = "success";

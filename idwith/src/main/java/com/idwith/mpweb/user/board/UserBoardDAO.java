@@ -15,49 +15,49 @@ public class UserBoardDAO {
 	
 	// 1대1 문의 ----------------------------------------------------------------
 	public void insertQnA(QnABoardVO qnaVO) {
-		System.out.println("DAO insertQnA() ����");
+	
 		sqlSessionTemplate.insert("BoardDAO.insertQnA", qnaVO);
 	}
 	
 	
 	public List<QnABoardVO> getQnAList(){
-		System.out.println("DAO getQnAList() ����");
+		
 		return sqlSessionTemplate.selectList("BoardDAO.getQnAList");
 	}
 	
 	public QnABoardVO getQnA(QnABoardVO qnaVO) {
-		System.out.println("DAO getQnA() ����");
+		
 		return (QnABoardVO) sqlSessionTemplate.selectOne("BoardDAO.getQnA", qnaVO);
 	}
 	
 	public void updateQnA(QnABoardVO qnaVO) {
-		System.out.println("DAO updateQnA() ����");
+		
 		sqlSessionTemplate.update("BoardDAO.updateQnA", qnaVO);
 	}
 	
 	public Integer qnaRightCheck(QnABoardVO qnaVO) {
-		System.out.println("DAO qnaRightCheck() ����");
+		
 		return sqlSessionTemplate.selectOne("BoardDAO.rightCheck", qnaVO);
 	}
 	
 	public void deleteQnA(QnABoardVO qnaVO) {
-		System.out.println("DAO deleteQnA() ����");
+		
 		sqlSessionTemplate.delete("BoardDAO.deleteQnA", qnaVO);
 	}
 	
 	
 	public int countQnA() {
-		System.out.println("DAO countQnA() ����");
+		
 		return sqlSessionTemplate.selectOne("BoardDAO.countQnA");
 	}
 	
 	public int countNotice() {
-		System.out.println("DAO countNotice() ����");
+		
 		return sqlSessionTemplate.selectOne("BoardDAO.countNotice");
 	}
 	
 	public List<QnABoardVO> selectQnA(PagingVO pageVO){
-		System.out.println("DAO selectQnA() ����");
+		
 		return sqlSessionTemplate.selectList("BoardDAO.selectQnA", pageVO);
 	}
 	

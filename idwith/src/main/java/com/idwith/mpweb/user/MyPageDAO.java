@@ -46,7 +46,7 @@ public class MyPageDAO {
 	}
 
 	public void insertReview(GoodsReviewVO reviewVO, GoodsOrderDetailVO orderVO) {
-		System.out.println("order_detail_code: "+orderVO.getOrder_detail_code());
+		
 		sqlSessionTemplate.insert("MyPageDAO.insertReview", reviewVO);
 		sqlSessionTemplate.update("GoodsOrderDAO.reviewStateUpdate", orderVO);
 	}
