@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>${goods.goods_name}| 아이디어스 - 핸드메이드, 수공예, 수제 먹거리</title>
+<title>${goods.goods_name}| 아이디위드 - 핸드메이드, 수공예, 수제 먹거리</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/detail_content.css" />
 <link rel="stylesheet" href="resources/css/sp-icon.css" />
@@ -25,6 +25,7 @@
 
 </head>
 <body>
+	<input type="hidden" id="user_id" value="${email}" />
 	<div class="wrap">
 		<!-- 로딩 중 화면 -->
 		<jsp:include page="header_goods.jsp" />
@@ -403,6 +404,7 @@
 														class="ui_btn--mini" id="quantityMinus,0" onclick="minusQuantity(this.id)">-</button>
 													<input data-v-5612de30="" type="text" min="1" max="999"
 														id="cart_quantity0" name="cart_quantity0" value="1">
+													<input type="hidden" name="cart_quantity" value="" />
 													<button data-v-5612de30="" type="button"
 														class="ui_btn--mini" id="quantityPlus,0" onclick="plusQuantity(this.id)">+</button>
 												</div>
