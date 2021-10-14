@@ -397,7 +397,7 @@
 										<a
 											href="goods_category.do?goods_category_code=${category.goods_category_code }"
 											class="area-img"
-											style="background-image: url(${category.goods_photo[0]});">
+											style="background-image: url('${category.goods_photo[0]}');">
 										</a>
 									</div>
 									<a href="goods_category.do?goods_category_code=${category.goods_category_code }"
