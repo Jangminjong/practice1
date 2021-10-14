@@ -44,7 +44,6 @@ $(document).ready(function (){
 				location.replace("login.do");
 			}else { //로그인되어 있을 때 : 장바구니에 insert --> 수량에 -1을 해서 보내는 듯
 				
-				if(state == 'insertCart'){ //장바구니에 추가할 때
 					$.ajax({
 						url: "insertCart.do",
 						type: "POST",
@@ -61,9 +60,6 @@ $(document).ready(function (){
 							alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 						}
 					}); //end ajax
-				}else if(state == 'directPayment'){ //바로 결제할 때
-					
-				}
 			}
 		}
 		

@@ -37,7 +37,7 @@
 				<div data-v-1e62c1aa="" data-v-6d930ad9=""
 					class="PageHeader CartPage__header">
 					<c:choose>
-						<c:when test="${state eq null }">
+						<c:when test="${state eq 'cart' }">
 							<h2 data-v-1e62c1aa="" class="PageHeader__title">장바구니</h2>
 						</c:when>
 						<c:when test="${state eq 'direct' }">

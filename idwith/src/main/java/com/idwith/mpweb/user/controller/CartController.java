@@ -33,7 +33,7 @@ public class CartController {
 	private CartService cartService;
 
 	@RequestMapping(value = "/cart.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String cart(HttpSession session, Model model, @RequestParam(value="buy", required=false) String buy) {
+	public String cart(HttpSession session, Model model, @RequestParam(value="buy", required=false, defaultValue = "cart") String buy){
 		System.out.println("장바구니 컨트롤러 실행");
 
 		String user_id = (String)session.getAttribute("email");
@@ -42,7 +42,7 @@ public class CartController {
 		if (buy.equals("direct")) {
 			CartVO cart = cartService.getCartForDirect(user_id);
 			cartList.add(cart);
-			model.addAttribute("state", buy);
+			
 
 		} else {
 
@@ -124,6 +124,7 @@ public class CartController {
 			model.addAttribute("goodsList", goodsList);//상품에 관한 공통 정보 ex)상품 이미지, 상품코드, 작가코드
 			model.addAttribute("optionList", optionList);//옵션값, 수량이 들어있는 리스트
 			model.addAttribute("cartListLength", cartListLength);
+			model.addAttribute("state", buy);
 
 		return "cart";
 	}

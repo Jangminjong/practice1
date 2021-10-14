@@ -204,9 +204,10 @@
 								<div class="col-md-3 text-center"></div>
 								<div class="col-md-3 text-right">
 									<input type="submit" id="event-user-submit" class="btn btn-primary" value="수정" />
-									 <a href="deleteEventNotice.mdo?user_event_board_seq=${adminEventVO.user_event_board_seq}">
-										<button class="btn btn-primary">삭제</button>
-									</a> 
+									<button class="btn btn-primary">
+										<a href="deleteEventNotice.mdo?user_event_board_seq=${adminEventVO.user_event_board_seq}" style="text-decoration:none; color:white;">
+											삭제 </a>
+									</button>
 									<input class="btn btn-primary" type="button" onclick="location.href='userNotice.mdo'" value="목록" />
 								</div>
 							</div>
