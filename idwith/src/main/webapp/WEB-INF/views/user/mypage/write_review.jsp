@@ -141,21 +141,16 @@
 								<form id="form-review" name="reviewForm" class="form-review"
 									action="write_review.do" method="post" onsubmit="return false"
 									style="margin-top: 10px;">
-									<input type="text" name="order_detail_code"
+									<input type="hidden" name="order_detail_code"
 										class="order_detail_code" value="${orderVO.order_detail_code}" />
-									<input type="text" name="goods_review_code"
+									<input type="hidden" name="goods_review_code"
 										class="goods_review_code" value="${orderVO.order_detail_goods}" />
-									<input type="text" name="goods_review_id" class="user_id"
+									<input type="hidden" name="goods_review_id" class="user_id"
 										value="${email}" /> 
-									<input type="text"
-										name="goods_review_option1"
-										value="${orderVO.order_detail_option1}" />
-									<input type="text"
-										name="goods_review_option2"
-										value="${orderVO.order_detail_option2}" />
-									<input type="text"
-										name="goods_review_option3"
-										value="${orderVO.order_detail_option3}" />
+									<input type="hidden"
+										name="goods_review_option"
+										value="${orderVO.order_detail_option}" />
+
 
 									<div id="review-point" style="margin-bottom: 10px;">
 										<button onclick="starBtn1()" ondblclick="cancelStar1()">
@@ -173,7 +168,7 @@
 										<button onclick="starBtn5()" ondblclick="cancelStar5()">
 											<i id="star5" class="fa fa-star-o" aria-hidden="true"></i>
 										</button>
-										<input type="text" id="star-point-total"
+										<input type="hidden" id="star-point-total"
 											name="goods_review_point" class="goods_review_point" value="" />
 									</div>
 
@@ -196,10 +191,7 @@
 								</form>
 							</div></li>
 					</ul>
-					<div class="banner-empty">
-						<span class="ico-blank"><i class="idus-icon-logo-empty"></i></span>
-						<p>작성할 수 있는 구매후기가 없습니다.</p>
-					</div>
+					
 				</section>
 			</div>
 		</div>

@@ -27,7 +27,7 @@
 		<div class="login section root" data-page="signup">
 			<div class="login logo">
 				<h1>
-					<a href="index.do"><img src="resources/images/header/logo.svg" />
+					<a href="index.do"><img src="resources/images/index/idwith_logo_back.png" style="width: 300px; height:220px; margin-right:16px; margin-bottom:-60px">
 					</a>
 				</h1>
 			</div>

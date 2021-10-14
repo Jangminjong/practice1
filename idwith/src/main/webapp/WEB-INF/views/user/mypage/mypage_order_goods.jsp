@@ -73,7 +73,7 @@
 						<div class="area-txt">
 							<a href="mypage_level.do"> <span class="sp-icon grade-01-s"></span>
 								<span>아기손 &gt;</span>
-							</a> <strong data-profile="name">OOO</strong>
+							</a> <strong data-profile="name">${user_name }</strong>
 						</div>
 					</div>
 

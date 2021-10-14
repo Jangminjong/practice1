@@ -142,10 +142,10 @@
 							href="mypage_review_after.do">내가 쓴 구매후기</a>
 					</nav>
 					<div class="m-spacing">
+					<c:forEach var="reviewAfter" items="${reviewAfterList}">
 						<ul class="masonry-grid x2" data-col="2" data-ui="scroll-paging"
 							data-query="next" data-param=""
 							style="position: relative;">
-							<c:forEach var="reviewAfter" items="${reviewAfterList}">
 							<li class="card-style story"
 								style="position: absolute; left: 0px; top: 0px;">
 								<div class="bordering">
@@ -177,7 +177,6 @@
 									<button class="review-del-btn"><a href="delete_review.do?goods_review_seq=${reviewAfter.goods_review_seq}">삭제</a></button>
 								</div>
 							</li>
-							</c:forEach>
 							<c:if test="${empty reviewAfterList}">
 								<div class="banner-empty review-list-empty">
 									<img src="resources/images/index/idwith_logo_back.png">
@@ -187,6 +186,7 @@
 								</div>
 							</c:if>
 						</ul>
+					</c:forEach>
 					</div>
 				</section>
 			</div>

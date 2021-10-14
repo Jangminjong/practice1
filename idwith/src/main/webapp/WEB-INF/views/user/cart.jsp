@@ -56,7 +56,7 @@
 						<div data-v-358230e2="" data-v-6d930ad9="">
 							<div data-v-dee528b0="" data-v-358230e2="" class="EmptyList">
 								<div data-v-dee528b0="" class="EmptyList__logo">
-									<i data-v-dee528b0="" class="idus-icon-logo-empty"></i>
+									<img src="resources/images/index/idwith_logo_back.png" style="width: 300px; height:220px; margin-right:16px; opacity:0.7;">
 								</div>
 								<div data-v-dee528b0="">
 									<p data-v-dee528b0="" class="EmptyList__text">

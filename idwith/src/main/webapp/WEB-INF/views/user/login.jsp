@@ -14,7 +14,7 @@
 	content="a8c6e5633b597db7b48d05e4a7d247011f6794ec" />
 <meta name="google-site-verification"
 	content="NnaPRa-jWBb5SnBiwjEZkMqm1pFS2Y8mVdUG0nJqO4c" />
-<title>아이디어스 | 로그인</title>
+<title>아이디위드 | 로그인</title>
 <meta name="theme-color" content="#ffffff" />
 
 
@@ -40,11 +40,11 @@
 	src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver&ua=ie/11"></script>-->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0 viewport-fit=cover" />
-<meta name="application-name" content="아이디어스" />
+<meta name="application-name" content="아이디위드" />
 <meta name="keywords" content="핸드메이드, 수공예, 수제 먹거리" />
 
 <meta name="description"
-	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디어스로 일상에 특별함을 잇다!" />
+	content="취향 맞춤 작품 구매부터 취미 생활까지, 아이디위드로 일상에 특별함을 잇다!" />
 <link rel="canonical"
 	href="http://www.idus.com/w/login?redirect_uri=https%3A%2F%2Fwww.idus.com%2Fw%2Fproduct%2Fd1e300b8-c0c7-48bd-803f-dfed5543954a%3Fkeyword_channel%3Duser%26search_word%3D%25EB%25A7%259B%25EC%259E%2588%25EB%258A%2594%2520%25EA%25B9%2590%25EB%25B0%25A4" />
 
@@ -68,8 +68,8 @@
 
 				<div data-v-668c286c="" class="login_head_logo">
 					<h1 data-v-668c286c="">
-						<a data-v-668c286c="" href="##"> <span data-v-668c286c=""
-							class="sp-icon logo"></span>
+						<a data-v-668c286c="" href="##"> 
+							<img src="resources/images/index/idwith_logo_back.png" style="width: 300px; height:220px; margin-right:16px; margin-bottom:-60px">
 						</a>
 					</h1>
 				</div>

@@ -168,10 +168,11 @@ function changeChoice(goodsCode, event){
 			},
 			success:function(data){
 				if(data == 1){
-					choiceBtn.classList.add('active');					
+						choiceBtn.classList.add('active');				
 				}else{
 					choiceBtn.classList.remove('active');
 				}
+				
 			},
 			error: function(request,status,error){
 				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
