@@ -1,5 +1,6 @@
 package com.idwith.mpweb.writer.order.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.idwith.mpweb.common.PagingVO;
@@ -36,4 +37,8 @@ public interface GoodsOrderService {
 	int yesterdaySales(int sellerCode);
 
 	int weekSales(int sellerCode);
+
+	List<Integer> getRangeCalc(GoodsOrderVO goodsOrderVO);
+
+	List<Date> getRangeDate(GoodsOrderVO goodsOrderVO);
 }

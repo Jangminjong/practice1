@@ -1,6 +1,9 @@
 package com.idwith.mpweb.writer.controller;
 
+import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -40,6 +43,21 @@ public class SalesController {
 		model.addAttribute("goodsGoodsCodeList", goodsGoodsCodeList);
 		return "writerSales";
 	}
+	@ResponseBody
+	@RequestMapping("getDateSales.wdo")
+	public Map<Date, Integer> getDateSales(@RequestParam(value="startDate") String startDate, @RequestParam(value="endDate") String endDate){
+		GoodsOrderVO goodsOrderVO = new GoodsOrderVO();
+		goodsOrderVO.setStartDate(Date.valueOf(startDate));
+		goodsOrderVO.setEndDate(Date.valueOf(endDate));
+		List<Integer> rangeCalc = goodsOrderService.getRangeCalc(goodsOrderVO);
+		List<Date> rangeDate = goodsOrderService.getRangeDate(goodsOrderVO);
+		Map<Date, Integer> chartData = new HashMap<>();
+		for (int i=0; i<rangeCalc.size(); i++) {
+			chartData.put(rangeDate.get(i), rangeCalc.get(i));
+		}
+		return chartData;
+	}
+	
 	
 	@RequestMapping("/sellerCalculate.wdo")
 	public String sellerCalculate(HttpServletRequest request, Model model, HttpSession session, @RequestParam(value="goodsNowPage", required=false) String goodsNowPage,

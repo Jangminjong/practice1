@@ -176,6 +176,13 @@
 		WHERE order_date BETWEEN (current_date - '30 day'::interval)::date AND current_date
 	</select>
 	
-	
-	
+	<!-- 지정된 날짜 사이의 매출 -->
+	<select id="getRangeCalc" parameterType="goodsOrder" resultType="int">
+		SELECT sum(order_detail_price * order_detail_quantity) from goods_order_detail
+		WHERE order_date BETWEEN #{startDate} and #{endDate} group by order_date order by order_date desc	
+	</select>
+	<select id="getRangeDate" parameterType="goodsOrder" resultType="date">
+	SELECT order_date from goods_order_detail
+		WHERE order_date BETWEEN #{startDate} and #{endDate} group by order_date order by order_date desc
+	</select>
 </mapper>
