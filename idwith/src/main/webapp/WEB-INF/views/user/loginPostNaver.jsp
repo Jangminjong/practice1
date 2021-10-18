@@ -12,7 +12,7 @@
 </head>
 <body>
 <script type="text/javascript">
-		var naver_id_login = new naver_id_login("aBJVgRXccefohvFJVX65", "http://localhost:8080/mpweb/naver.do"); // 역시 마찬가지로 'localhost'가 포함된 CallBack URL
+		var naver_id_login = new naver_id_login("aBJVgRXccefohvFJVX65", "https://ec2-52-79-237-176.ap-northeast-2.compute.amazonaws.com/idwith/naver.do"); // 역시 마찬가지로 'localhost'가 포함된 CallBack URL
 		// 네이버 사용자 프로필 조회
 		naver_id_login.get_naver_userprofile("naverSignInCallback()");
 		// 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
