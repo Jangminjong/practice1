@@ -43,7 +43,6 @@ public class SignController {
 	@RequestMapping(value = "/sendSms.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, String> sendSms(HttpServletRequest request) throws Exception {
-		System.out.println("SMS ���� ��Ʈ�ѷ� ����");
 		String api_key = "NCSE2QVWOHHJKJLS";
 		String api_secret = "ZPPUAJDBF60J9SU9MIE74YWWNG3YXLUJ";
 		Message coolsms = new Message(api_key, api_secret);
@@ -51,7 +50,6 @@ public class SignController {
 		//���� ���� ��
 		int randomPIN = (int)(Math.random()*9000)+1000;
 		String cell_phone = request.getParameter("cell_phone");
-		System.out.println("���� ��ȭ��ȣ : " + cell_phone);
 
 		// 4 params(to, from, type, text) are mandatory. must be filled
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -62,7 +60,6 @@ public class SignController {
 		params.put("app_version", "test app 1.2"); // application name and version
 		params.put("randomPIN", String.valueOf(randomPIN));
 
-		System.out.println("������ȣ : " + randomPIN);
 		try {
 			JSONObject obj = (JSONObject) coolsms.send(params);
 			System.out.println(obj.toString());

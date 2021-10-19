@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="resources/css/Search/UserSearch.css" />
 <link rel="stylesheet" href="resources/css/vendor.client.min.css" />
 <link rel="stylesheet" href="resources/css/idus.web.min.css" />
+<link rel="stylesheet" href="resources/css/Search/UserSearch.css" />
 
 <!-- 파비콘 이미지 설정 -->
 <link rel="shortcut icon" type="image/x-icon"
@@ -22,8 +23,7 @@
 			<div class="login section root" data-page="reauth-complete">
 				<div class="login logo">
 					<h1>
-						<a href="/"> <img src="resources/images/header/logo.svg"
-							alt="IDUS, Unique Lifestyle Guide">
+						<a href="/"> <img src="resources/images/common/headerLogo.png" class="header_img">
 						</a>
 					</h1>
 				</div>

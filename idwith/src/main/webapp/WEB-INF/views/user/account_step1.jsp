@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="resources/css/account.css" />
 <link rel="stylesheet" href="resources/css/vendor.client.min.css" />
 <link rel="stylesheet" href="resources/css/idus.web.min.css" />
+<link rel="stylesheet" href="resources/css/Search/UserSearch.css" />
 
 <script type="text/javascript" src="resources/js/jquery-3.6.0.js"></script>
 
@@ -25,8 +26,7 @@
 			<div class="login section root">
 				<div class="login logo">
 					<h1>
-						<a href="/"> <img src="resources/images/header/logo.svg"
-							alt="IDUS, Unique Lifestyle Guide">
+						<a href="/"> <img src="resources/images/common/headerLogo.png" class="header_img">
 						</a>
 					</h1>
 				</div>
