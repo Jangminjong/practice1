@@ -220,9 +220,14 @@
 														</c:when>
 													</c:choose>
 													<c:choose>
-														<c:when test="${ adminQnA.board_fix eq false }">
+														<c:when test="${ adminQnA.board_fix eq false && adminQnA.board_answer eq null}">
 															<td><a href="answer.mdo?seq=${adminQnA.seq}">
 																	<button class="btn btn-primary">답변하기</button>
+															</a></td>
+														</c:when>
+														<c:when test="${ adminQnA.board_fix eq false && adminQnA.board_answer ne null}">
+															<td><a href="answer.mdo?seq=${adminQnA.seq}">
+																	<button class="btn btn-primary" disabled="disabled">답변완료</button>
 															</a></td>
 														</c:when>
 														<c:when test="${ adminQnA.board_fix eq true }">

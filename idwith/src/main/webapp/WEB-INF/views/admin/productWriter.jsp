@@ -194,7 +194,7 @@
 										<div class="card text-black">
 											<div class="card-header bg-light">팔로우 수</div>
 											<div class="card-body">
-												<p class="card-text">845</p>
+												<p class="card-text"></p>
 											</div>
 										</div>
 									</div>
@@ -202,7 +202,7 @@
 										<div class="card text-black">
 											<div class="card-header bg-light">등록 상품 갯수</div>
 											<div class="card-body">
-												<p class="card-text">25</p>
+												<p class="card-text"></p>
 											</div>
 										</div>
 									</div>
@@ -210,7 +210,7 @@
 										<div class="card text-black">
 											<div class="card-header bg-light">월 판매액</div>
 											<div class="card-body">
-												<p class="card-text">1,125,000</p>
+												<p class="card-text"></p>
 											</div>
 										</div>
 									</div>
