@@ -151,13 +151,7 @@
 										</div>
 									</div>
 									<ul class="liststyle--bullet noborder">
-										<li>• <span>옵션1 :</span> <span>${reviewBefore.order_detail_option1}</span>
-										</li>
-										<li>• <span>옵션2 :</span> <span>${reviewBefore.order_detail_option2}</span>
-										</li>
-										<li>• <span>옵션3 :</span> <span>${reviewBefore.order_detail_option3}</span>
-										</li>
-										<li>• <span>악세사리(선택):</span> <span>선택사항없음</span>
+										<li>• <span>옵션 :</span> <span>${reviewBefore.order_detail_option}</span>
 										</li>
 										<li>• 수량: ${reviewBefore.order_detail_quantity}개</li>
 									</ul>
