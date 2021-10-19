@@ -182,7 +182,7 @@ function sendSMS(pageName){
 		if(time < 0 ) {
 			clearInterval(x); //setInterval() 실행을 끝냄
 			alert('인증 시간이 끝났습니다. 재인증 해주세요');
-			location.replace("/mpweb/IdSearch.do");
+			location.replace("IdSearch.do");
 		}
 	}, 1000);
 }
