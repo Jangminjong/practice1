@@ -200,7 +200,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>작품 수정 </h3>
+                            <h3>작품 상세 </h3>
                             
                         </div>
                         <div class="body">
