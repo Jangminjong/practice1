@@ -146,21 +146,6 @@
 						<div class="row">
 							<div class="col-md-6 text-center"></div>
 							<div class="col-md-6 text-center" style="margin-bottom: 10px;">
-								<form class="d-none d-sm-inline-block float-right" action="searchWriter.mdo" method="get">
-									<ul class="nav nav-pills card-header-pills pull-right">
-										<div class="input-group">
-											<select class="form-control mb-3" style="margin-right: 10px; width: 85px;" name="searchCondition">
-												<option selected="selected" value="goodsWriter">작품</option>
-												<option value="classWriter">클래스</option>
-											</select>
-											<input type="text" class="form-control"
-												placeholder="검색 키워드를 입력하세요!" style="width: 200px; height: 10px;" name="searchKeyword">&nbsp; <span
-												class="input-group-btn">
-												<input class="btn btn-warning" type="submit" value="찾기">
-											</span>
-										</div>
-									</ul>
-								</form>
 							</div>
 						</div>
 						<ul class="nav nav-tabs" role="tablist">
