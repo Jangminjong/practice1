@@ -17,7 +17,23 @@
  		<result property="follow_id" column="follow_id"/>
  		<result property="followed_id" column="followed_id"/>
  		<result property="follow_date" column="follow_date"/>
+ 		
+ 		<result property="seller_code" column="seller_code"/>
+ 		<result property="seller_name" column="seller_name"/>
+ 		<result property="seller_sellno" column="seller_sellno"/>
+ 		<result property="seller_indate" column="seller_indate"/>
+ 		<result property="seller_sellno_img" column="seller_sellno_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="user_id" column="user_id"/>
+ 		<result property="seller_profile" column="seller_profile"/>
+ 		<result property="seller_profile_img" column="seller_profile_img" typeHandler="org.apache.ibatis.type.ArrayTypeHandler"/>
+ 		<result property="seller_done" column="seller_done"/>
+ 		<result property="seller_goods_yn" column="seller_goods_yn"/>
+ 		<result property="seller_class_yn" column="seller_class_yn"/>
+ 		<result property="seller_status" column="seller_status"/>
+ 		<result property="store_name" column="store_name"/>
  	</resultMap>
+ 	
+ 		
  	
  	<!-- 상품 좋아요 추가 -->
  	<insert id="addChoice" parameterType="choiceVO">
@@ -60,4 +76,11 @@
  	<delete id="deleteFollow" parameterType="followVO">
  		DELETE FROM follow WHERE followed_id=#{followed_id} AND follow_id=#{follow_id}
  	</delete>
+ 	
+ 	<select id="getFollowSellerList" parameterType="string" resultMap="followResult">
+ 		SELECT * FROM (
+			SELECT follow.*, seller.* FROM follow 
+			LEFT OUTER JOIN seller ON follow.followed_id = seller.seller_code 
+				WHERE follow.follow_id=#{email})as foo
+ 	</select>
 </mapper>

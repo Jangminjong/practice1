@@ -253,16 +253,16 @@
 								<span style="width: auto;">◀ 이전 |</span>
 							</c:when>
 							<c:when test="${paging.nowPage ne 1 }">
-								<a href="/mpweb/goods_category.do?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}&goods_category=${goods_category}&set=${paging.set}" style="width: auto;">◀ 이전 |</a>
+								<a href="goods_category.do?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}&goods_category=${goods_category}&set=${paging.set}" style="width: auto;">◀ 이전 |</a>
 							</c:when>
 						</c:choose>
 						<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 							<c:choose>
 								<c:when test="${p eq paging.nowPage }">
-									<a href="/mpweb/goods_category.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}&goods_category=${goods_category}&set=${paging.set}" class="active" onclick="return false">${p }</a>
+									<a href="goods_category.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}&goods_category=${goods_category}&set=${paging.set}" class="active" onclick="return false">${p }</a>
 								</c:when>
 								<c:when test="${p ne paging.nowPage }">
-									<a href="/mpweb/goods_category.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}&goods_category=${goods_category}&set=${paging.set}">${p }</a>
+									<a href="goods_category.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}&goods_category=${goods_category}&set=${paging.set}">${p }</a>
 								</c:when>
 							</c:choose>
 						</c:forEach>
@@ -271,7 +271,7 @@
 								<span style="width: auto;">| 다음 ▶</span>
 							</c:when>
 							<c:when test="${paging.endPage ne paging.lastPage}">
-								<a href="/mpweb/goods_category.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&goods_category=${goods_category}&set=${paging.set}" style="width: auto;">| 다음 ▶</a>
+								<a href="goods_category.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&goods_category=${goods_category}&set=${paging.set}" style="width: auto;">| 다음 ▶</a>
 							</c:when>
 						</c:choose>
 						<!-- <a href="/w/board/notice?&amp;page=1" class="active">1</a> <a

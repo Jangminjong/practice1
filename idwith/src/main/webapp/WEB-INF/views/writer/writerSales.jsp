@@ -244,7 +244,13 @@
                     <div class="card">
                         <div class="header">
                             <h2>기간 별 매출</h2>
-                         </div> 
+                         </div>
+                         <div class="row">
+                         	<div class="col-sm-3">시작일&nbsp;&nbsp;<input type="date" id="startDate" onchange="calcSales()"></div>
+                         	<div class="col-sm-3">종료일&nbsp;&nbsp;<input type="date" id="endDate" onchange="calcSales()"></div>
+                         </div>
+                         <div id="columnChart">
+                         </div>
                     </div>
                 </div>
             </div> 
@@ -270,11 +276,12 @@
 
     <!-- Chart Plugins Js -->
     <script src="resources/writer/plugins/chartjs/Chart.bundle.js"></script>
-
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- Custom Js -->
     <script src="resources/writer/js/admin.js"></script>
+    
     <script src="resources/writer/js/pages/charts/chartjs.js"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
     <!-- Demo Js -->
     <script src="resources/writer/js/demo.js"></script>
 </body>

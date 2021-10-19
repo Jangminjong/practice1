@@ -31,20 +31,21 @@ import edu.emory.mathcs.backport.java.util.Arrays;
 public class CartController {
 	@Autowired
 	private CartService cartService;
-
+	
+	// 장바구니 접속할 때 
 	@RequestMapping(value = "/cart.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String cart(HttpSession session, Model model, @RequestParam(value="buy", required=false, defaultValue = "cart") String buy){
+	public String cart(HttpSession session, Model model, @RequestParam(value="buy", required=false, defaultValue = "cart") String buy){ // buy 변수는 상세 페이지에서 바로 구매를 선택 여부를 저장
 		System.out.println("장바구니 컨트롤러 실행");
 
 		String user_id = (String)session.getAttribute("email");
 		List<CartVO> cartList = new ArrayList<CartVO>();
 		
-		if (buy.equals("direct")) {
+		if (buy.equals("direct")) { // buy==direct인 경우 바로 구매이기 때문에 장바구니 테이블에서 가장 최근 것 한 개만 불러옴
 			CartVO cart = cartService.getCartForDirect(user_id);
 			cartList.add(cart);
 			
 
-		} else {
+		} else { // buy != direct 인 경우 장바구니에 담긴 목록 전체를 불러옴
 
 			cartList = cartService.getCartList(user_id);
 		}
@@ -58,12 +59,12 @@ public class CartController {
 
 			System.out.println("가져온 수량 : " + cartList.size());
 
-			for (int i = 0; i < cartList.size(); i++) {
+			for (int i = 0; i < cartList.size(); i++) { // 장바구니 개수만큼 for문을 돌리면서 옵션을 따로 Map에 담음 - 같은 상품의 다른 옵션인 경우 한번에 표시해주기 위함
 				System.out.println(i + "번 째 실행");
 
 				int state = 0;
 				optionMap = new HashMap<String, String>();
-				if (i == 0) {
+				if (i == 0) { // 0번째 실행인 경우 optionMap에 수량, 상품코드, 가격, cart테이블의 sequence 모두 저장
 					System.out.println("테스트 중 상품 공통");
 					System.out.println("옵션 개수: " + cartList.get(i).getGoods_option_value().length);
 					optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
@@ -78,9 +79,9 @@ public class CartController {
 					goodsList.add(cartList.get(i));
 					optionList.add(optionMap);
 					state = 2;
-				} else {
+				} else {// 1번째 실행부터는 앞서 저장한 목록과 비교하여 일치하는 것이 있을 경우 goodsList에는 담지 않고 optionList에만 담는다.
 					System.out.println("테스트 중 i가 0이 아닐 때");
-					for (int j = 0; j < i; j++) {
+					for (int j = 0; j < i; ++j) {
 						System.out.println("DB 상품코드 : " + cartList.get(i).getGoods_code());
 						System.out.println("비교하는 상품 코드 : " + goodsList.get(j).getGoods_code());
 						if (cartList.get(i).getGoods_code().equals(goodsList.get(j).getGoods_code())) {
@@ -103,7 +104,7 @@ public class CartController {
 				}
 
 
-				if (state == 0) {
+				if (state == 0) { // 첫번째 실행도 아니고, 앞서 저장된 상품과 겹치는 것이 없을 때 실행
 					System.out.println("테스트 중 다른 상품일 때");
 					optionMap.put("quantity", Integer.toString(cartList.get(i).getCart_quantity()));
 					optionMap.put("goodsCode", cartList.get(i).getGoods_code());

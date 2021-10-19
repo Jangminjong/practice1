@@ -1035,6 +1035,44 @@ function classCalcReq(class_code){
 	
 }
 
+function calcSales(){
+	if(document.getElementById("startDate").value != "" && document.getElementById("endDate").value != "" ){
+		$.ajax({
+			url: "getDateSales.wdo",
+			type:"POST",
+			async:"false",
+			data:{
+				"startDate" : document.getElementById("startDate").value,
+				"endDate" : document.getElementById("endDate").value
+			}, success : function(data){
+				google.charts.load('current', {'packages':['bar']});
+				google.charts.setOnLoadCallback(drawChart(data));
+			}, error : function(request, status, error){
+				alert(`getDateSales fail : error code: ${request.status}
+						error message: ${error}`);
+			}
+			
+		})
+	}
+}
+
+function drawChart(data) {
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn('date','날짜');
+	dataTable.addColumn('number', '매출');
+		for (var key in data){
+				dataTable.addRow([key, data.key]);
+		}
+ 
+    var options = {
+        	width : 500,
+			height : 500
+    };
+ 
+    var chart = new google.charts.Bar(document.getElementById('columnChart'));
+ 
+    chart.draw(dataTable, google.charts.Bar.convertOptions(options));
+}
 
 
 

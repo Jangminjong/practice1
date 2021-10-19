@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.common.PagingVO;
 
 @Repository("boardDAO")
@@ -105,6 +106,10 @@ public class UserBoardDAO {
 		sqlSessionTemplate.update("BoardDAO.updateNewState", msgVO);
 	}
 	
+	public List<SellerVO> getFollowSellerList(String email) {
+		return sqlSessionTemplate.selectList("ChoiceDAO.getFollowSellerList", email);
+	}
+	
 	// 알림 -------------------------------------------------------------------------
 	
 	public EventBoardVO getNewEvent() {
@@ -123,4 +128,6 @@ public class UserBoardDAO {
 			return "1";
 		}
 	}
+
+
 }

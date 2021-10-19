@@ -441,7 +441,7 @@ $(document).ready(function() {
 	$(document).on("click", "#btn-payment", function(){
 		if(email==''){
 			alert('로그인 후 작성 가능합니다.');
-			location.replace('/mpweb/login.do');
+			location.replace('login.do');
 		}else if(document.classRegForm.class_order_price.value==""){
 			alert('참여 인원을 선택해주세요.')
 			document.classRegForm.class_order_people.focus();

@@ -9,7 +9,7 @@ function kakaoSign(){
 				success: function(res){
 					console.log(res)
 					$.ajax({
-						url:"/mpweb/kakao.do",
+						url:"kakao.do",
 						type: "POST",
 						dataType:"json",
 						data: res.kakao_account,
@@ -97,13 +97,13 @@ function naverSignInCallback() {
 function locateToIndex(data){
 	console.log('뷰로 보낼 데이터'+data);
 	$.ajax({
-		url:"/mpweb/sns.do",
+		url:"sns.do",
 		type:"GET",
 		data:data,
 		contentType: "application/json; charset=UTF-8",
 		success:function(data){
 			console.log('로그인성공, 메인페이지로 이동');
-			location.replace('/mpweb/index.do');
+			location.replace('index.do');
 		},
 		error: function(request,status,error){
 			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

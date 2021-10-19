@@ -2,7 +2,7 @@
 function setCondition(){
 	var set = $('#goods-condition').val();
 	var goods_categroy = $('#selected-category').val();
-	location.replace('/mpweb/goods_category.do?goods_category='+goods_categroy+'&set='+set);
+	location.replace('goods_category.do?goods_category='+goods_categroy+'&set='+set);
 }
 
 function priceRangeSet(){
@@ -51,7 +51,7 @@ function priceRangeSet(){
 			min:min,
 			max:max
 		},
-		success: location.replace('/mpweb/goods_category.do?goods_category='+goods_category+'&max='+max+'&min='+min),
+		success: location.replace('goods_category.do?goods_category='+goods_category+'&max='+max+'&min='+min),
 		error: function(request, status, error){
 				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
      	},

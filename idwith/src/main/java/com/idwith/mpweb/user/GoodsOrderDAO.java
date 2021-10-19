@@ -12,7 +12,7 @@ public class GoodsOrderDAO {
 	SqlSessionTemplate sqlSessionTemplate;
 
 	public CartVO getCartForOrder(String cartNum) {
-		return sqlSessionTemplate.selectOne("GoodsOrderDAO.getCartForOrder", Integer.parseInt(cartNum));
+		return sqlSessionTemplate.selectOne("GoodsOrderUserDAO.getCartForOrder", Integer.parseInt(cartNum));
 	}
 
 	public List<SaveVO> getPointForPayment(String user_id) {
@@ -24,29 +24,29 @@ public class GoodsOrderDAO {
 	}
 
 	public void insertDetailOrder(GoodsOrderDetailVO goodsOrderDetailVO) {
-		sqlSessionTemplate.insert("GoodsOrderDAO.insertDetailOrder", goodsOrderDetailVO);
+		sqlSessionTemplate.insert("GoodsOrderUserDAO.insertDetailOrder", goodsOrderDetailVO);
 	}
 
 	public List<String> getOrderDetailCodes(String email) {
-		return sqlSessionTemplate.selectList("GoodsOrderDAO.getOrderDetailCodes", email);
+		return sqlSessionTemplate.selectList("GoodsOrderUserDAO.getOrderDetailCodes", email);
 	}
 
 	public void insertOrder(GoodsOrderVO goodsOrder) {
-		sqlSessionTemplate.insert("GoodsOrderDAO.insertOrder", goodsOrder);
+		sqlSessionTemplate.insert("GoodsOrderUserDAO.insertOrder", goodsOrder);
 	}
 
 	public void updateCartNumAfterPayment(int cart_num) {
-		sqlSessionTemplate.update("GoodsOrderDAO.updateCartNumAfterPayment", cart_num);
+		sqlSessionTemplate.update("GoodsOrderUserDAO.updateCartNumAfterPayment", cart_num);
 	}
 
 	public void paymentGoodsCancel(String imp_uid) {
-		sqlSessionTemplate.update("GoodsOrderDAO.paymentGoodsCancel", imp_uid);
-		sqlSessionTemplate.update("GoodsOrderDAO.paymentGoodsCancelGoodsOrder", imp_uid);
+		sqlSessionTemplate.update("GoodsOrderUserDAO.paymentGoodsCancel", imp_uid);
+		sqlSessionTemplate.update("GoodsOrderUserDAO.paymentGoodsCancelGoodsOrder", imp_uid);
 		
 	}
 
 	public List<GoodsOrderDetailVO> getGoodsReturnList(String email) {
-		return sqlSessionTemplate.selectList("GoodsOrderDAO.getGoodsReturnList", email);
+		return sqlSessionTemplate.selectList("GoodsOrderUserDAO.getGoodsReturnList", email);
 	}
 
 }

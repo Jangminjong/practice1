@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.idwith.mpweb.admin.SellerVO;
 import com.idwith.mpweb.common.PagingVO;
 import com.idwith.mpweb.user.board.EventBoardVO;
 import com.idwith.mpweb.user.board.QnABoardVO;
@@ -55,7 +56,6 @@ public class UserBoardController {
 	public List<UserMessageVO>  messageList(HttpServletRequest req, HttpSession session) {
 		List<UserMessageVO> list = boardService.getMessageList(req.getParameter("email"));
 		session.setAttribute("msgList", list);
-	
 		return list;
 	}
 	
@@ -67,7 +67,10 @@ public class UserBoardController {
 	}
 	
 	@RequestMapping("/message_choice.do")
-	public String userMessageChoice() {
+	public String userMessageChoice(HttpSession session, Model model) {
+		String email = (String) session.getAttribute("email");
+		List<SellerVO> followSellerList = boardService.getFollowSellerList(email);
+		model.addAttribute("followSellerList", followSellerList);
 		return "board/message_choice";
 	}
 	

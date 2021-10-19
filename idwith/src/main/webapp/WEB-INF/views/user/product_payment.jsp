@@ -431,7 +431,8 @@
 											</div>
 											<div class="input-group" id= "goods-coupon-list" style="margin-bottom: 20px; display:none;">
 												<div class="" data-modal-trigger="coupon-list">
-													<ul id="have-coupon-list" >
+													<ul id="have-coupon-list" style="margin-top: 10px;
+    font-size: 15px;">
 														<span style="font-size:12px;">보유쿠폰 목록</span>
 														<c:forEach var="coupon" items="${couponList}" varStatus="stau">
 															<li style="display:flex; justify-content:space-between; cursor:pointer; border:1px solid #d9d9d9; margin-bottom:3px;" onclick="useCoupon('${coupon.coupon_discount }', '${coupon.coupon_have_code }')">
@@ -541,12 +542,12 @@
 										<div class="mfixed">
 											<button id="btn-submit" class="ui_btn--red--large"
 												data-ui="btn-label" style="height:90px;">
-												<input type="text" name="order_final_cost" value="${finalPrice }" id="goods-final-price" readonly="readonly"/>
+												<input type="text" name="order_final_cost" value="${finalPrice }" id="goods-final-price" readonly="readonly">
 												<span data-label="total"></span> <span data-label="type" style="margin-left: -50px;">원   결제하기</span>
 												<p class="point" data-label="point" style="display:inline-block;">
 													예상적립금 :${point.save_point }P
 												</p>
-												<input type="hidden" name="order_save" id="order-save" value="${point.save_point }"/>
+												<input type="hidden" name="order_save" id="order-save" value="${point.save_point }">
 											</button>
 										</div>
 									</div>

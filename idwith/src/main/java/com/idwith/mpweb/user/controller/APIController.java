@@ -31,7 +31,11 @@ public class APIController {
 	@Autowired
 	private SellerViewService sellerService;
 	
-//	īī���� 
+	
+	// 카카오톡 로그인 
+	// 1. 카카오 api에서 넘어온 email값으로 작가에 등록되어 있는지 확인
+	// 2. client 테이블에 저장된 유저인지 확인하여 등록되어 있으면 그냥 로그인, 안되어 있으면 등록하고 로그인 처리
+	// 로그인할 때 email갑 세션에 저장 
 	@RequestMapping(value="/kakao.do", method=RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, String> kakaoLogin(HttpServletRequest req, HttpSession session) throws Exception { 
@@ -39,7 +43,7 @@ public class APIController {
 		UserVO vo = new UserVO();
 		
 		String age_range = req.getParameter("age_range");
-		String email= req.getParameter("email");
+		String email= req.getParameter("email"); 
 		
 		if(email != null) {
 			Long sellerCheck = sellerService.getSeller(email);
@@ -63,14 +67,16 @@ public class APIController {
 	}
 	
 	
-//	���̹�
-	
-	// ���̹� �α��� ó�� �� ȣ��Ǵ� ��Ʈ�ѷ�
+
+	// 네이버 로그인 
+	// 로그인 처리 및 프로필 조회처리하는 페이지로 이동(api 처리상 필요한 페이지)
 	@RequestMapping(value="/naver.do", method=RequestMethod.GET)
 	public String naverLoginProcess(HttpServletRequest req, HttpSession session) {
 		return "loginPostNaver";
 	}
 	
+	//  네이버 로그인 처리(api) 이후 작가 여부 체크
+	// client 테이블에 등록 여부 체크(있으면 그냥 결과값 리턴, 없으면 등록하고 결과값 리턴)   
 	@RequestMapping(value="/naver.do", method=RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, String> naverLogin(HttpServletRequest req, HttpSession session) {
@@ -108,7 +114,7 @@ public class APIController {
 		return params;
 	}
 	
-	// sns�� �α��� �� ���ǿ� ���� ���� �� index.do�� �̵�
+	// api로 로그인 이후에 이메일 주소의 '@' 앞 부분 세션에 저장. 등록된 이름이 없을 경우 아이디로 대신 사용자명 표시해주기 위함.
 	@RequestMapping(value="/sns.do", method= RequestMethod.GET)
 	@ResponseBody
 	public String indexAfterKakaoLogin(HttpServletRequest req, HttpSession session, HttpServletResponse response) throws Exception{

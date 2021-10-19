@@ -1,5 +1,6 @@
 package com.idwith.mpweb.writer.order;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -118,6 +119,14 @@ public class GoodsOrderDAO {
 			sales = 0;
 		}
 		return sales;
+	}
+
+	public List<Integer> getRangeCalc(GoodsOrderVO goodsOrderVO) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getRangeCalc", goodsOrderVO);
+	}
+
+	public List<Date> getRangeDate(GoodsOrderVO goodsOrderVO) {
+		return sqlSessionTemplate.selectList("GoodsOrderDAO.getRangeDate", goodsOrderVO);
 	}
 
 	 

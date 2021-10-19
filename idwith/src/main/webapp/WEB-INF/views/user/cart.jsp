@@ -6,7 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>아이디위드 | 장바구니</title>
+<c:choose>
+	<c:when test="${state eq 'cart' }">
+		<title>아이디위드 | 장바구니</title>
+	</c:when>
+	<c:when test="${state eq 'direct' }">
+		<title>아이디위드 | 바로결제</title>
+	</c:when>
+</c:choose>
 <link rel="stylesheet" href="resources/css/idus.web.min.css">
 <link rel="stylesheet" href="resources/css/vendor.client.min.css">
 <link rel="stylesheet" href="resources/css/cart.css">
@@ -47,7 +54,16 @@
 					<ol data-v-1e62c1aa="" class="PageHeader__steps">
 						<li data-v-1e62c1aa=""
 							class="PageHeader__stepsItem PageHeader__stepsItem--active"><em
-							data-v-1e62c1aa="" style="color: #333333;">1.</em> <span data-v-1e62c1aa="" style="color: #333333;">장바구니</span> <i
+							data-v-1e62c1aa="" style="color: #333333;">1.</em> 
+							<c:choose>
+								<c:when test="${state eq 'cart' }">		
+							<span data-v-1e62c1aa="" style="color: #333333;">장바구니</span> 
+								</c:when>
+								<c:when test="${state eq 'direct' }">
+							<span data-v-1e62c1aa="" style="color: #333333;">바로결제</span> 
+								</c:when>
+							</c:choose>
+							<i
 							data-v-1e62c1aa="" class="fa fa-angle-right"></i></li>
 						<li data-v-1e62c1aa="" class="PageHeader__stepsItem"><em
 							data-v-1e62c1aa="">2.</em> <span data-v-1e62c1aa="">주문결제</span> <i

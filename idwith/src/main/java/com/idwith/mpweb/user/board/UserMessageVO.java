@@ -1,6 +1,9 @@
 package com.idwith.mpweb.user.board;
 
 import java.sql.Date;
+import java.sql.Timestamp;
+
+import com.idwith.mpweb.user.UserSellerVO;
 
 public class UserMessageVO {
 	int msg_seq;
@@ -10,7 +13,7 @@ public class UserMessageVO {
 	Date msg_date;
 	int msg_read;
 	int msg_new;
-
+	
 	public int getMsg_seq() {
 		return msg_seq;
 	}
@@ -66,6 +69,7 @@ public class UserMessageVO {
 	public void setMsg_new(int msg_new) {
 		this.msg_new = msg_new;
 	}
+	
 
 	@Override
 	public String toString() {

@@ -1,5 +1,6 @@
 package com.idwith.mpweb.writer.order.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,16 @@ public class GoodsOrderServiceImpl implements GoodsOrderService{
 	@Override
 	public int weekSales(int sellerCode) {
 		return goodsOrderDAO.weekSales(sellerCode);
+	}
+
+	@Override
+	public List<Integer> getRangeCalc(GoodsOrderVO goodsOrderVO) {
+		return goodsOrderDAO.getRangeCalc(goodsOrderVO);
+	}
+
+	@Override
+	public List<Date> getRangeDate(GoodsOrderVO goodsOrderVO) {
+		return goodsOrderDAO.getRangeDate(goodsOrderVO);
 	}
 	
 	
