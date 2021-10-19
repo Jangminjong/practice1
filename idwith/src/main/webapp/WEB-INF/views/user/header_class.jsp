@@ -31,7 +31,8 @@
 						src="https://image.idus.com/static/signup/web_benefit_banner.png">
 					</a>
 					<button class="download-ribbon-close" type="button">
-						<i class="fa fa-times-circle" aria-hidden="true" onclick="bannerHide()"></i>
+						<i class="fa fa-times-circle" aria-hidden="true"
+							onclick="bannerHide()"></i>
 					</button>
 				</div>
 			</div>
@@ -41,8 +42,8 @@
                 href="#content">컨텐츠로 바로가기</a> </div> -->
 
 		<header id="header" class="header ">
-		<input type="hidden" value="${email }" id="email"/>
-			<input type="hidden" name="isLoggedIn" value="">
+			<input type="hidden" value="${email }" id="email" /> <input
+				type="hidden" name="isLoggedIn" value="">
 			<div class="top-navigation full-w">
 				<div class="inner-w clf">
 					<c:choose>
@@ -79,7 +80,15 @@
 									name="current_user_email" value="" readonly="readonly">
 								<div class="nav-btn ui-dropdown mymenu">
 									<button type="button" class="btn-dropdown btn-first">
-										<span data-profile="name">${emailSplit}</span> 님
+										<!-- kakao, naver로 회원가입한 회원은 초기에 이름이 없어서 이메일로 표시 -->
+										<c:choose>
+											<c:when test="${user_name eq null}">
+												<span data-profile="name">${emailSplit}</span> 님
+											</c:when>
+											<c:when test="${user_name ne null}">
+												<span data-profile="name">${user_name}</span> 님
+											</c:when>
+										</c:choose>
 										<!-- current user email address: for parsing -->
 									</button>
 									<ul class="menu-dropdown menu-first">
@@ -103,8 +112,7 @@
 										<div class="alarm_title">
 											<span class="title">알림</span>
 										</div>
-										<ul
-											class="msg-lists _mCS_1 mCS-autoHide alarm-dropdown">
+										<ul class="msg-lists _mCS_1 mCS-autoHide alarm-dropdown">
 											<div id="mCSB_1"
 												class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
 												<c:forEach var="event" items="${event}">
@@ -148,8 +156,7 @@
 										<div class="message_title">
 											<span class="title">메시지</span>
 										</div>
-										<ul
-											class="msg-lists _mCS_1 mCS-autoHide">
+										<ul class="msg-lists _mCS_1 mCS-autoHide">
 											<div id="mCSB_2"
 												class="mCustomScrollBox mCS-minimal-dark mCS_vertical mCSB_outside">
 												<c:forEach var="msg" items="${msgList}">
@@ -223,14 +230,12 @@
 					</div>
 
 					<nav class="profile-links">
-						<a href="javascript:myPageCheck()" class="btn" id="btn-my-page"> <i class="fa fa-user-o"
-							aria-hidden="true"></i> 내 정보
-						</a> <a id="my-cart-button" href="cart.do" class="btn"><c:if test="${setCart > 0 }">
-							<span class="cart-counter">${setCart}</span>
-							</c:if>
-							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-								장바구니
-						</a>
+						<a href="javascript:myPageCheck()" class="btn" id="btn-my-page">
+							<i class="fa fa-user-o" aria-hidden="true"></i> 내 정보
+						</a> <a id="my-cart-button" href="cart.do" class="btn"><c:if
+								test="${setCart > 0 }">
+								<span class="cart-counter">${setCart}</span>
+							</c:if> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니 </a>
 					</nav>
 
 					<div class="bubble-space">
@@ -248,14 +253,14 @@
 				data-state="static">
 				<div class="inner-w container_gnb" data-ui="gnb">
 					<ul class="ui_gnb" data-state="" data-type="">
-						<li class="ui_gnb__menu " data-state="active"><a href="class_index.do">홈</a>
-						</li>
+						<li class="ui_gnb__menu " data-state="active"><a
+							href="class_index.do">홈</a></li>
 						<li class="ui_gnb__menu class-category"><a
 							href="class_category.do?class_category_code=CLCR"><span>카테고리</span></a></li>
 						<li class="ui_gnb__menu " data-state=""><a
 							href="class_popular.do">인기 클래스</a></li>
-						<li class="ui_gnb__menu " data-state="" style="display: inline;"><a href="class_region.do">지역별</a>
-						</li>
+						<li class="ui_gnb__menu " data-state="" style="display: inline;"><a
+							href="class_region.do">지역별</a></li>
 					</ul>
 					<button class="ui_btn toggle_gnb" aria-label="toggle nav ui">
 						<i class="idus-icon-arrow-down"></i>
