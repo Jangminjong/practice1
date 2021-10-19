@@ -42,7 +42,7 @@
 						novalidate="novalidate">
 						<input type="hidden" name="login_type" value="LoginUserTypeNaver">
 						<button class="ui_btn--red" type="submit">
-							<strong>네이버</strong> 로그인
+							로그인하러 가기
 						</button>
 					</form>
 				</section>

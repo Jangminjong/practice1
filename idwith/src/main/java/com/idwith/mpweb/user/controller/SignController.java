@@ -75,7 +75,7 @@ public class SignController {
 		return params;
 	}
 
-	/* ID ã�� */
+	/* ID 찾기 */
 	@RequestMapping(value = "/account_check.do", method = RequestMethod.POST)
 	public String accountCheck(HttpServletRequest request, Model model) {
 		String user_phone = request.getParameter("user_phone");
