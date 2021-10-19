@@ -80,7 +80,15 @@
 							name="current_user_email" value="" readonly="readonly">
 						<div class="nav-btn ui-dropdown mymenu">
 							<button type="button" class="btn-dropdown btn-first">
-								<span data-profile="name">${user_name}</span> 님
+								<!-- kakao, naver로 회원가입한 회원은 초기에 이름이 없어서 이메일로 표시 -->
+								<c:choose>
+									<c:when test="${user_name eq null}">
+										<span data-profile="name">${emailSplit}</span> 님
+									</c:when>
+									<c:when test="${user_name ne null}">
+										<span data-profile="name">${user_name}</span> 님
+									</c:when>
+								</c:choose>
 								<!-- current user email address: for parsing -->
 							</button>
 							<ul class="menu-dropdown menu-first">

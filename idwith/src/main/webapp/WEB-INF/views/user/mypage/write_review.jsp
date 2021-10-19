@@ -152,14 +152,8 @@
 										class="goods_review_code" value="${orderVO.order_detail_goods}" readonly/>
 										&nbsp;&nbsp;&nbsp;<br><br>
 									옵션1 : <input type="text"
-										name="goods_review_option1"
-										value="${orderVO.order_detail_option1}" readonly/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									옵션2 : <input type="text"
-										name="goods_review_option2"
-										value="${orderVO.order_detail_option2}" readonly/>
-									<input type="text"
-										name="goods_review_option3"
-										value="${orderVO.order_detail_option3}" readonly/>
+										name="goods_review_option"
+										value="${orderVO.order_detail_option}" readonly/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									
 									<br><br>
 

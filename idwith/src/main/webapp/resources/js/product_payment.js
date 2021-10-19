@@ -189,7 +189,7 @@ function requestPay() {
             if(rsp.paid_amount == data.response.amount){
                 
                $.ajax({
-                  url:'/mpweb/insert_goods_payment.do',
+                  url:'insert_goods_payment.do',
                   method: "POST",
                   data:{
 					user_name:$('#goods-user-name').val(),
@@ -209,7 +209,7 @@ function requestPay() {
 					goods_order_donation: $('#goods-order-donation').val(),
 					final_discount: $('#final-discount').val()
                   },
-                  success: location.replace('/mpweb/payment_complete.do'),
+                  success: location.replace('payment_complete.do'),
                   error: function(request,status,error, event){
                      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                   }

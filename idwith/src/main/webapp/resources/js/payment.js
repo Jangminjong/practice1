@@ -149,7 +149,7 @@ function requestPay() {
 				if(rsp.paid_amount == data.response.amount){
 		        	alert("결제 및 결제검증완료");
 					$.ajax({
-						url:'/mpweb/insert_payment.do?class_order='+$('#form-class-payment').serialize(),
+						url:'insertPayment.do?class_order='+$('#form-class-payment').serialize(),
 						method: "POST",
 						data:{
 							class_order: $('#form-class-payment').serialize(),
@@ -158,7 +158,7 @@ function requestPay() {
 							point_balance : parseInt($('#point-balance').val())
 							
 						},
-						success: location.replace('/mpweb/payment_complete.do'),
+						success: location.replace('payment_complete.do'),
 						error: function(request,status,error, event){
 							alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 						}

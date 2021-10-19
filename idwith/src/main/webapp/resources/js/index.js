@@ -155,7 +155,7 @@ function changeChoice(goodsCode, event){
 	var choiceBtn = document.getElementById('btn-'+goodsCode);
 	var state = choiceBtn.classList.contains('active');
 	if(email == ""){
-		location.replace('/mpweb/login.do');
+		location.replace('login.do');
 	}else{
 		$.ajax({
 			url:'changeChoice.do',
@@ -189,7 +189,7 @@ function changeFollow(sellerId, event){
 	var followBtn = document.getElementById('btn-'+sellerId);
 	var state = followBtn.classList.contains('active');
 	if(email == ""){
-		location.replace('/mpweb/login.do');
+		location.replace('login.do');
 	}else{
 		$.ajax({
 			url:'changeFollow.do',
@@ -268,9 +268,9 @@ function bannerHide(){
 function myPageCheck(){
 	const email =  $('#email').val();
 	if(email == ""){
-		location.replace('/mpweb/login.do');
+		location.replace('login.do');
 	}else{
-		location.replace('/mpweb/mypage_order_goods.do');
+		location.replace('mypage_order_goods.do');
 	}
 
 }

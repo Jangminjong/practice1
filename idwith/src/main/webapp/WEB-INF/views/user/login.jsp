@@ -68,7 +68,7 @@
 
 				<div data-v-668c286c="" class="login_head_logo">
 					<h1 data-v-668c286c="">
-						<a data-v-668c286c="" href="##"> 
+						<a data-v-668c286c="" href="index.do"> 
 							<img src="resources/images/index/idwith_logo_back.png" style="width: 300px; height:220px; margin-right:16px; margin-bottom:-60px">
 						</a>
 					</h1>
@@ -146,7 +146,7 @@
 									</div>
 									<label data-v-22bdcf3e="" for="emailsave"> 이메일 저장하기 </label>
 								</div>
-								<a data-v-22bdcf3e="" id="find_pw_logging" href="/w/reauth">아이디
+								<a data-v-22bdcf3e="" id="find_pw_logging" href="IdSearch.do">아이디
 									/ 비밀번호 찾기</a>
 							</div>
 							<input type="button" data-v-32d88566="" data-v-22bdcf3e=""
