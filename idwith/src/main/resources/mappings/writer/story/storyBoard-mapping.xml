@@ -16,8 +16,8 @@
 
 	<!-- 작가이야기 글 등록 -->
 	<insert id="writerInsertStory" parameterType="storyBoard">
-		INSERT INTO story(story_tseq, seller_id, story_title, story_date, story_context, seller_name,  story_image)
-		VALUES(nextval('story_tseq'), #{storySellerId}, #{storyBoardTitle}, now(), #{storyBoardContext}, #{storySellerName}, #{storyBoardFilePath, typeHandler=org.apache.ibatis.type.ArrayTypeHandler})
+		INSERT INTO story(seller_id, story_title, story_date, story_context, seller_name,  story_image)
+		VALUES( #{storySellerId}, #{storyBoardTitle}, now(), #{storyBoardContext}, #{storySellerName}, #{storyBoardFilePath, typeHandler=org.apache.ibatis.type.ArrayTypeHandler})
 	</insert>
 
 	<!-- 작가이야기  수정 -->
