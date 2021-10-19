@@ -91,7 +91,6 @@ public class PaymentController {
 		return "product_payment";
 	}
 
-	//충돌 예정 : productPayment 메서드 필요.
 	//작품 결제창 컨트롤러
 	@ResponseBody
 	@RequestMapping(value = "product_payment.do", method = RequestMethod.POST)
